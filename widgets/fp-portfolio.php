@@ -128,7 +128,7 @@ class Sydney_Portfolio extends WP_Widget {
     $title     		 = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
     $number    		 = isset( $instance['number'] ) ? intval( $instance['number'] ) : -1;
     $includes      = isset( $instance['includes'] ) ? esc_attr($instance['includes']) : '';
-    $show_filter   = isset( $instance['show_filter'] ) ? (bool) $instance['show_filter'] : false;
+    $show_filter   = isset( $instance['show_filter'] ) ? (bool) $instance['show_filter'] : true;
     $show_all_text = isset( $instance['show_all_text'] )  ? esc_html($instance['show_all_text']) : __('Show all', 'sydney');
 
 	?>
@@ -140,7 +140,7 @@ class Sydney_Portfolio extends WP_Widget {
    <p><label for="<?php echo $this->get_field_id('includes'); ?>"><?php _e('Enter the slugs (comma separated) for your categories or leave empty to show all projects.', 'sydney'); ?></label>
    <input class="widefat" id="<?php echo $this->get_field_id('includes'); ?>" name="<?php echo $this->get_field_name('includes'); ?>" type="text" value="<?php echo $includes; ?>" /></p>
    <p><input class="checkbox" type="checkbox" <?php checked( $show_filter ); ?> id="<?php echo $this->get_field_id( 'show_filter' ); ?>" name="<?php echo $this->get_field_name( 'show_filter' ); ?>" />
-   <label for="<?php echo $this->get_field_id( 'show_filter' ); ?>"><?php _e( 'Show navigation filter?', 'sydney' ); ?></label></p>
+   <label for="<?php echo $this->get_field_id( 'show_filter' ); ?>"><?php _e( 'Show navigation filter? (Category slugs must be specified).', 'sydney' ); ?></label></p>
    <p><label for="<?php echo $this->get_field_id('show_all_text'); ?>"><?php _e('"Show all" text:', 'sydney'); ?></label>
    <input class="widefat" id="<?php echo $this->get_field_id('show_all_text'); ?>" name="<?php echo $this->get_field_name('show_all_text'); ?>" type="text" value="<?php echo esc_attr($show_all_text); ?>" /></p>
 
