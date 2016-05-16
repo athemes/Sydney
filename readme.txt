@@ -1,6 +1,6 @@
 I.Theme
 
-Sydney, Copyright 2015 
+Sydney, Copyright 2015
 Sydney is licensed under GNU General Public License V2 or later. You can find a copy of it in the license.txt file.
 
 II. Resources
@@ -75,23 +75,31 @@ License: MIT/GPL
 License URI: http://opensource.org/licenses/MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-l) Images folder
-l1) Image 1 (also used in screenshot)
+l) Isotope
+Copyright: Metafizzy
+Resource URI: http://isotope.metafizzy.co
+License: MIT/GPL
+License URI: http://opensource.org/licenses/MIT
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+m) Images folder
+m1) Image 1 (also used in screenshot)
 Copyright: FirmBee
 Resource URI: http://pixabay.com/en/office-tax-business-finance-620822/
 License: CC0 1.0
 License URI: http://creativecommons.org/publicdomain/zero/1.0/deed.en
-l2) Image 2
+m2) Image 2
 Copyright: FirmBee
 Resource URI: http://pixabay.com/en/smartphone-photo-phone-mobile-623722/
 License: CC0 1.0
 License URI: http://creativecommons.org/publicdomain/zero/1.0/deed.en
-n3) Image 3
+m3) Image 3
 Copyright: StartupStockPhotos
 Resource URI: http://pixabay.com/en/entrepreneur-startup-start-up-man-593358/
 License: CC0 1.0
 License URI: http://creativecommons.org/publicdomain/zero/1.0/deed.en
 
-III. Documentation 
+
+III. Documentation
 
 Theme documentation is available on http://athemes.com/documentation/sydney/

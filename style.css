@@ -4,7 +4,7 @@ Theme URI: http://athemes.com/theme/sydney
 Author: aThemes
 Author URI: http://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.28
+Version: 1.29
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -407,7 +407,7 @@ Repeatable Patterns
 	}
 	.widget .children {
 		padding-left: 15px;
-	}		
+	}
 	.img-left {
 		margin: 0 33px 0 0 !important;
 		float: left;
@@ -550,26 +550,26 @@ Repeatable Patterns
 	.btn {
 		background-image: none;
 	}
-	textarea, 
+	textarea,
 	input[type="text"],
 	input[type="submit"],
-	input[type="password"], 
-	input[type="datetime"], 
-	input[type="datetime-local"], 
-	input[type="date"], 
-	input[type="month"], 
-	input[type="time"], 
-	input[type="week"], 
-	input[type="number"], 
-	input[type="email"], 
-	input[type="url"], 
-	input[type="search"], 
-	input[type="tel"], 
-	input[type="color"], 
+	input[type="password"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="color"],
 	.uneditable-input,
 	.dropdown-menu,
-	.navbar .nav > .active > a, 
-	.navbar .nav > .active > a:hover, 
+	.navbar .nav > .active > a,
+	.navbar .nav > .active > a:hover,
 	.navbar .nav > .active > a:focus {
 		-webkit-appearance: none;
 		text-shadow: none;
@@ -585,7 +585,7 @@ th,td {
 	border: 1px solid #333;
 	padding: 5px;
 	text-align: center;
-}	
+}
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
@@ -623,8 +623,8 @@ Header
 		position: relative;
 		height: 300px;
 		background-position: center;
-		background-size: cover;	
-		background-repeat: no-repeat;	
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 	.header-inner {
 		display: none;
@@ -704,7 +704,7 @@ Header
 	}
 	#mainnav ul ul li {
 		padding: 0;
-	}	
+	}
 	#mainnav ul li a {
 		position: relative;
 		display: block;
@@ -732,7 +732,7 @@ Header
 		width: 180px;
 		position: absolute;
 		top: 100%;
-		left: initial; 
+		left: initial;
 		opacity: 0;
 		visibility: hidden;
 		-webkit-border-radius: 0 0 2px 2px;
@@ -816,7 +816,7 @@ Header
 		margin: 0;
 		transition: all 0.3s ease;
 		-webkit-transition: all 0.3s ease;
-	}	
+	}
 	#mainnav-mobi ul li a {
 		float: none;
 	}
@@ -928,7 +928,7 @@ Mobile navigation
 		content: "\f106"
 	}
 	.btn-menu {
-		display: none 
+		display: none
 	}
 /*--------------------------------------------------------------
 Layout
@@ -1026,7 +1026,7 @@ Layout
 	.page-template-page_front-page .page-wrap {
 		padding: 0;
 	}
-	.entry-page p, 
+	.entry-page p,
 	.entry-post p {
 		margin-bottom: 24px;
 	}
@@ -1040,7 +1040,7 @@ Layout
 	.header-slider,
 	.owl-carousel {
 	      -webkit-transform: translate3d(0,0,0);
-	}	
+	}
 /*--------------------------------------------------------------
 Parallax
 --------------------------------------------------------------*/
@@ -1058,7 +1058,7 @@ Hero section
 	}
 	.slide-text.slides {
 	   padding-left: 0;
-	}	
+	}
 	.slides-container .slide-item {
 	    background-attachment: fixed;
 	    background-position: center;
@@ -1167,7 +1167,7 @@ Hero section
 }
 .header-slider {
 	overflow: hidden;
-}	
+}
 /*--------------------------------------------------------------
 Page title
 --------------------------------------------------------------*/
@@ -1264,7 +1264,7 @@ Blog
 	}
 	.hentry .meta-post .cat-links {
 		display: inline-block;
-	}	
+	}
 	.hentry .meta-post span:before {
 		position: absolute;
 		left: 0;
@@ -1319,11 +1319,11 @@ Blog
 	}
 	.masonry-layout .post-wrap {
 		padding: 0;
-	}	
+	}
 	.masonry-layout .hentry:after {
 		width: 0;
 		height: 0;
-	}	
+	}
 	/* Blog pagination */
 	.blog-pagination ul {
 		width: 100%;
@@ -1776,7 +1776,7 @@ Preloader
 	    -ms-transform: translateY(-15px);
 	    transform: translateY(-15px);
 	  }
-	}	
+	}
 /*--------------------------------------------------------------
 Go to top button
 --------------------------------------------------------------*/
@@ -1784,7 +1784,7 @@ Go to top button
 		position: fixed !important;
 		right: 20px;
 		bottom: -45px;
-		color: #fff; 
+		color: #fff;
 		display: block;
 		font-size: 22px;
 		line-height: 35px;
@@ -1859,7 +1859,7 @@ Panels
 	.no-col-padding .panel-grid-cell {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
-	}		
+	}
 /* Counter
 -------------------------------------------------------------- */
 	.roll-counter {
@@ -1887,7 +1887,7 @@ Panels
 	.roll-client {
 	    text-align: center;
 	}
-	.roll-client .client-item {	
+	.roll-client .client-item {
 	    float: none;
 	    display: inline-block;
 		width: 19%;
@@ -1896,7 +1896,7 @@ Panels
 	}
 	.roll-client .client-item img {
 		max-width: 150px;
-	}	
+	}
 
 /* Spacer
 -------------------------------------------------------------- */
@@ -1932,7 +1932,7 @@ Panels
 	}
 	.service.col-md-6:nth-of-type(2n+1) {
 		clear: left;
-	}	
+	}
 	.roll-icon-box {
 		text-align: center;
 	}
@@ -2135,7 +2135,7 @@ Panels
 		margin-left: 0;
 	}
 /* Lastest news
--------------------------------------------------------------- */	
+-------------------------------------------------------------- */
 .blog-post {
 	margin-bottom: 30px;
 }
@@ -2153,14 +2153,16 @@ Panels
 		display: inline-block;
 	    position: relative;
 	    text-align: center;
-	    padding: 10px;
-	    margin-left: -3px;
+	    margin-left: -4px;
 	    background-color: #f5f5f5;
 		-webkit-transition: background 0.3s;
 		   -moz-transition: background 0.3s;
 		    -ms-transition: background 0.3s;
 		     -o-transition: background 0.3s;
 		        transition: background 0.3s;
+	}
+	.widget-area .widget .project-filter li {
+			padding: 0;
 	}
 	.project-filter li a {
 	    color: #767676;
@@ -2169,9 +2171,12 @@ Panels
 	    font-size: 13px;
 	    font-weight: 600;
 	    outline: 0;
+			padding: 10px;
 	}
-	.project-filter li.active a,
-	.project-filter li:hover a {
+	.project-filter li a.active,
+	.project-filter li a:hover,
+	#secondary .project-filter li a.active,
+	#secondary .project-filter li a:hover {
 		color: #fff;
 	}
 	.roll-project {
@@ -2297,7 +2302,7 @@ Panels
 		-webkit-border-radius: 50%;
 		   -moz-border-radius: 50%;
 			 -o-border-radius: 50%;
-				border-radius: 50%;	
+				border-radius: 50%;
 	}
 	.roll-testimonials .whisper {
 		font-size: 18px;
@@ -2322,7 +2327,7 @@ Panels
 	}
 	.hentry .roll-testimonials blockquote {
 		background: transparent;
-	}	
+	}
 	.owl-carousel .owl-wrapper:after {
 		content: ".";
 		display: block;
@@ -2600,7 +2605,7 @@ Panels
 		width: 70%;
 	}
 	.roll-promobox.aside-style .promo-content p {
-		margin: 0 0 5px; 
+		margin: 0 0 5px;
 	}
 	.roll-promobox.aside-style .promo-controls {
 	    display: table-cell;
@@ -2809,7 +2814,7 @@ Panels
 	    border-left: 3px solid #d65050;
 	}
 	.blog-pagination ul li {
-		border: 1px solid #d65050;	
+		border: 1px solid #d65050;
 	}
 	.blog-pagination ul li.active,
 	.blog-pagination ul li:hover a {
@@ -2817,10 +2822,10 @@ Panels
 	}
 	.sidebar .widget:before {
 		background-color: #d65050;
-	}	
+	}
 	.widget-tags .tag-list a:hover {
 		border: 1px solid #d65050;
-	}	
+	}
 	.comment .comment-detail {
 		border: 1px solid #d65050;
 	}
@@ -2936,7 +2941,7 @@ Panels
 		}
 	}
 	/* Smaller than standard 980 */
-	@media only screen and (max-width: 991px) {	
+	@media only screen and (max-width: 991px) {
 		.site-header.fixed {
 			position: static !important;
 		}
@@ -2996,17 +3001,17 @@ Panels
 		}
 	}
 	@media only screen and (max-width: 1024px) {
-		.slides-container .slide-item,	
+		.slides-container .slide-item,
 		.panel-row-style {
 			background-attachment: scroll;
 			background-position: center !important;
 		}
 		.panel-row-style.mob-pad-0 {
 			padding: 0 !important;
-		}		
+		}
 		.panel-row-style.mob-pad-15 {
 			padding: 15px 0 !important;
-		}	
+		}
 		.panel-row-style.mob-pad-30 {
 			padding: 30px 0 !important;
 		}
@@ -3015,7 +3020,7 @@ Panels
 		}
 		#mainnav {
 			display: none;
-		}		
+		}
 		.btn-menu {
 			display: block;
 		}
@@ -3026,9 +3031,9 @@ Panels
 		.posts-navigation {
 			overflow: hidden;
 			margin-bottom: 30px;
-		}					
+		}
 	}
-	@media only screen and (max-width: 780px) {	
+	@media only screen and (max-width: 780px) {
 		.roll-client .client-item img {
 			max-width: 100%;
   		}
@@ -3061,7 +3066,7 @@ Panels
 			width: 100%;
 			margin: 0 0 30px;
 			padding: 0 15px;
-		}		
+		}
 		.text-slider-section {
 			min-height: 190px;
 		}
@@ -3143,12 +3148,12 @@ Panels
 	@media only screen and (max-width: 479px) {
 		.roll-project.fullwidth .project-item {
 			width: 100%;
-		}		
+		}
 		.blog-post,
 		.service,
 		.sidebar-column {
 			padding: 0;
-		}		
+		}
 		.roll-button {
 			font-size: 12px;
 		}
@@ -3160,10 +3165,10 @@ Panels
 		}
 		.text-slider {
 			margin-bottom: 15px;
-		}		
+		}
 	}
 	@media only screen and (max-width: 320px) {
 		.text-slider {
 			margin-bottom: 0;
-		}		
+		}
 	}
