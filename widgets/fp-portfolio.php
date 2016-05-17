@@ -25,6 +25,7 @@ class Sydney_Portfolio extends WP_Widget {
     $number         = ( ! empty( $instance['number'] ) ) ? intval( $instance['number'] ) : -1;
     $includes       = isset($instance['includes']) ? $instance['includes'] : '';
     $show_filter	   = isset( $instance['show_filter'] ) ? $instance['show_filter'] : false;
+		$show_project_title = isset( $instance['show_project_title'] ) ? $instance['show_project_title'] : false;
     $show_all_text  = isset( $instance['show_all_text'] ) ? $instance['show_all_text'] : '';
 
     echo $args['before_widget'];
@@ -89,12 +90,34 @@ class Sydney_Portfolio extends WP_Widget {
                $termsString .= $term->slug.' ';
            }
        }
+
+			 $project_title = '<div class="project-title-wrap">';
+			 $project_title .= '<div class="project-title">';
+			 $project_title .= '<span>'.get_the_title($post->ID).'</span>';
+			 $project_title .= '</div>';
+			 $project_title .= '</div>';
+
        if ( has_post_thumbnail() ) {
            $project_url = get_post_meta( get_the_ID(), 'wpcf-project-link', true );
            if ( $project_url ) :
-               $output .= '<div class="project-item item isotope-item ' . $termsString . '"><a class="project-pop" href="' . esc_url($project_url) . '"><div class="project-pop"></div></a><a href="' . esc_url($project_url) . '">' . get_the_post_thumbnail($post->ID,'sydney-mas-thumb') . '</a></div>';
+               $output .= '<div class="project-item item isotope-item ' . $termsString . '">';
+							 $output .= '<a class="project-pop-wrap" href="' . esc_url($project_url) . '">';
+							 $output .= '<div class="project-pop"></div>';
+							 $output .= ($show_project_title == 1) ? $project_title : '';
+							 $output .= '</a>';
+							 $output .= '<a href="' . esc_url($project_url) . '">';
+							 $output .= get_the_post_thumbnail($post->ID,'sydney-mas-thumb');
+							 $output .= '</a>';
+							 $output .= '</div>';
            else :
-               $output .= '<div class="project-item item isotope-item ' . $termsString . '"><a class="project-pop" href="' . get_the_permalink() . '"><div class="project-pop"></div></a><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail($post->ID,'sydney-mas-thumb') . '</a></div>';
+               $output .= '<div class="project-item item isotope-item ' . $termsString . '">';
+							 $output .= '<a class="project-pop-wrap" href="' . get_the_permalink() . '">';
+							 $output .= '<div class="project-pop"></div>';
+							 $output .= ($show_project_title == 1) ? $project_title : '';
+							 $output .= '</a><a href="' . get_the_permalink() . '">';
+							 $output .= get_the_post_thumbnail($post->ID,'sydney-mas-thumb');
+							 $output .= '</a>';
+							 $output .= '</div>';
            endif;
        }
     endwhile;
@@ -115,6 +138,7 @@ class Sydney_Portfolio extends WP_Widget {
     $instance['number'] 		= strip_tags($new_instance['number']);
     $instance['includes']       = sanitize_text_field($new_instance['includes']);
     $instance['show_filter']    = is_null( $new_instance['show_filter'] ) ? 0 : 1;
+		$instance['show_project_title'] = is_null( $new_instance['show_project_title'] ) ? 0 : 1;
     $instance['show_all_text']  = sanitize_text_field($new_instance['show_all_text']);
 
     $alloptions = wp_cache_get( 'alloptions', 'options' );
@@ -129,6 +153,7 @@ class Sydney_Portfolio extends WP_Widget {
     $number    		 = isset( $instance['number'] ) ? intval( $instance['number'] ) : -1;
     $includes      = isset( $instance['includes'] ) ? esc_attr($instance['includes']) : '';
     $show_filter   = isset( $instance['show_filter'] ) ? (bool) $instance['show_filter'] : true;
+		$show_project_title = isset( $instance['show_project_title'] ) ? (bool) $instance['show_project_title'] : false;
     $show_all_text = isset( $instance['show_all_text'] )  ? esc_html($instance['show_all_text']) : __('Show all', 'sydney');
 
 	?>
@@ -139,10 +164,12 @@ class Sydney_Portfolio extends WP_Widget {
    <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
    <p><label for="<?php echo $this->get_field_id('includes'); ?>"><?php _e('Enter the slugs (comma separated) for your categories or leave empty to show all projects.', 'sydney'); ?></label>
    <input class="widefat" id="<?php echo $this->get_field_id('includes'); ?>" name="<?php echo $this->get_field_name('includes'); ?>" type="text" value="<?php echo $includes; ?>" /></p>
-   <p><input class="checkbox" type="checkbox" <?php checked( $show_filter ); ?> id="<?php echo $this->get_field_id( 'show_filter' ); ?>" name="<?php echo $this->get_field_name( 'show_filter' ); ?>" />
+	 <p><input class="checkbox" type="checkbox" <?php checked( $show_filter ); ?> id="<?php echo $this->get_field_id( 'show_filter' ); ?>" name="<?php echo $this->get_field_name( 'show_filter' ); ?>" />
    <label for="<?php echo $this->get_field_id( 'show_filter' ); ?>"><?php _e( 'Show navigation filter? (Category slugs must be specified).', 'sydney' ); ?></label></p>
-   <p><label for="<?php echo $this->get_field_id('show_all_text'); ?>"><?php _e('"Show all" text:', 'sydney'); ?></label>
+	 <p><label for="<?php echo $this->get_field_id('show_all_text'); ?>"><?php _e('"Show all" text:', 'sydney'); ?></label>
    <input class="widefat" id="<?php echo $this->get_field_id('show_all_text'); ?>" name="<?php echo $this->get_field_name('show_all_text'); ?>" type="text" value="<?php echo esc_attr($show_all_text); ?>" /></p>
+	 <p><input class="checkbox" type="checkbox" <?php checked( $show_project_title ); ?> id="<?php echo $this->get_field_id( 'show_project_title' ); ?>" name="<?php echo $this->get_field_name( 'show_project_title' ); ?>" />
+   <label for="<?php echo $this->get_field_id( 'show_project_title' ); ?>"><?php _e( 'Show project title?', 'sydney' ); ?></label></p>
 
    <?php
 
