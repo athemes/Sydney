@@ -33,11 +33,11 @@
         any: function() {
             return ( isiPad.iOS() );
         }
-    };   
+    };
 
     var sliderFix = function() {
     	$( ".slides-container .slide-item").addClass('sliderFix');
-    	setTimeout(function(){$( ".slides-container .slide-item").removeClass('sliderFix');}, 200);	
+    	setTimeout(function(){$( ".slides-container .slide-item").removeClass('sliderFix');}, 200);
     }
 
 	var heroSection = function() {
@@ -69,7 +69,7 @@
 		})();
 
 		$(function() {
-          $('a[href*="#"]:not([href="#"],[class*="tab"] a,.wc-tabs a, .activity-content a)').click(function() { 
+          $('a[href*="#"]:not([href="#"],[class*="tab"] a,.wc-tabs a, .activity-content a)').click(function() {
 		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 		      var target = $(this.hash);
 		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -128,14 +128,14 @@
 		});
 	}
 
-	var panelsStyling = function() {	
+	var panelsStyling = function() {
 		$(".panel-row-style").each( function() {
 			if ($(this).data('hascolor')) {
 				$(this).find('h1,h2,h3,h4,h5,h6,a,.fa, div, span').css('color','inherit');
 			}
 			if ($(this).data('hasbg')) {
 				$(this).append( '<div class="overlay"></div>' );
-			}			
+			}
 		});
 	};
 
@@ -151,7 +151,7 @@
 		if (testiPad != null) {
 			$(".slides-container .slide-item").css("background-attachment", "scroll");
 		}
-	};	
+	};
 
 	var rollAnimation = function() {
 		$('.orches-animation').each( function() {
@@ -165,7 +165,7 @@
 				'-moz-animation-delay':     orAnimationDelay,
 				'animation-delay':          orAnimationDelay
 			});
-		
+
 			orElement.waypoint(function() {
 				orElement.addClass('animated').addClass(orAnimationClass);
 			},{ triggerOnce: true, offset: orAnimationOffset });
@@ -179,7 +179,7 @@
 			} else {
 				$('.go-top').removeClass('show');
 			}
-		}); 
+		});
 
 		$('.go-top').on('click', function() {
 			$("html, body").animate({ scrollTop: 0 }, 1000);
@@ -246,7 +246,7 @@
 				var to = parseInt($(this).attr('data-to')), speed = parseInt($(this).attr('data-speed'));
 				$(this).countTo({
 					to: to,
-					speed: speed				
+					speed: speed
 				});
 			});
 		}); //counter
@@ -291,7 +291,7 @@
 
 	var projectEffect = function() {
 		var effect = $('.project-wrap').data('portfolio-effect');
-	
+
 		$('.project-item').children('.item-wrap').addClass('orches-animation');
 
 		$('.project-wrap').waypoint(function(direction) {
@@ -307,10 +307,53 @@
 	    $('.widget_fp_social a').attr( 'target','_blank' );
 	};
 
-    var removePreloader = function() {
-		$('.preloader').css('opacity', 0);
-		setTimeout(function(){$('.preloader').hide();}, 600);	
-    }
+  var removePreloader = function() {
+    	$('.preloader').css('opacity', 0);
+    	setTimeout(function(){$('.preloader').hide();}, 600);
+  }
+
+  var portfolioItotpe = function() {
+
+    $('.project-wrap').each(function() {
+
+      var elemSelector = $(this);
+      var filterNav    = elemSelector.find('.project-filter').find(' a');
+
+      if ( elemSelector.find('.isotope-container').length ) { // check if element exists
+
+        var container = elemSelector.find('.isotope-container').imagesLoaded( function() {
+        container.isotope({
+            filter: '*',
+            itemSelector: '.isotope-item',
+            animationOptions: {
+                duration: 750,
+                easing: 'liniar',
+                queue: false,
+            }
+        });
+
+        filterNav.click(function(){
+            var selector = $(this).attr('data-filter');
+            filterNav.removeClass('active');
+            $(this).addClass('active');
+              container.isotope({
+                  filter: selector,
+                  animationOptions: {
+                      duration: 750,
+                      easing: 'liniar',
+                      queue: false,
+                  }
+              });
+            return false;
+        });
+        });
+
+      } // check if element exists ends
+
+    }); // each ends
+
+
+  }
 
 	// Dom Ready
 	$(function() {
@@ -325,12 +368,13 @@
 		responsiveMenu();
 		responsiveVideo();
 		rollAnimation();
-		checkipad();		
+		checkipad();
 		panelsStyling();
 		scrolls();
 		projectEffect();
 		socialMenu();
 		goTop();
 		removePreloader();
+    portfolioItotpe();
    	});
 })(jQuery);
