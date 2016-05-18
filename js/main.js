@@ -314,44 +314,47 @@
 
   var portfolioItotpe = function() {
 
-    $('.project-wrap').each(function() {
+      $(window).load(function(){
 
-      var elemSelector = $(this);
-      var filterNav    = elemSelector.find('.project-filter').find(' a');
+        $('.project-wrap').each(function() {
 
-      if ( elemSelector.find('.isotope-container').length ) { // check if element exists
+        var elemSelector = $(this);
+        var filterNav    = elemSelector.find('.project-filter').find(' a');
 
-        var container = elemSelector.find('.isotope-container').imagesLoaded( function() {
-        container.isotope({
-            filter: '*',
-            itemSelector: '.isotope-item',
-            animationOptions: {
-                duration: 750,
-                easing: 'liniar',
-                queue: false,
-            }
-        });
+        if ( elemSelector.find('.isotope-container').length ) { // check if element exists
 
-        filterNav.click(function(){
-            var selector = $(this).attr('data-filter');
-            filterNav.removeClass('active');
-            $(this).addClass('active');
-              container.isotope({
-                  filter: selector,
-                  animationOptions: {
-                      duration: 750,
-                      easing: 'liniar',
-                      queue: false,
-                  }
-              });
-            return false;
-        });
-        });
+          var container = elemSelector.find('.isotope-container').imagesLoaded( function() {
+          container.isotope({
+              filter: '*',
+              itemSelector: '.isotope-item',
+              animationOptions: {
+                  duration: 750,
+                  easing: 'liniar',
+                  queue: false,
+              }
+          });
 
-      } // check if element exists ends
+          filterNav.click(function(){
+              var selector = $(this).attr('data-filter');
+              filterNav.removeClass('active');
+              $(this).addClass('active');
+                container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'liniar',
+                        queue: false,
+                    }
+                });
+              return false;
+          });
+          });
 
-    }); // each ends
+        } // check if element exists ends
 
+      }); // each ends
+
+    }
 
   }
 
