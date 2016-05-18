@@ -833,7 +833,7 @@ function sydney_customize_register( $wp_customize ) {
         'type'        => 'number',
         'priority'    => 16,
         'section'     => 'blog_options',
-        'label'       => __('Excerpt lenght', 'sydney'),
+        'label'       => __('Excerpt length', 'sydney'),
         'description' => __('Choose your excerpt length. Default: 55 words', 'sydney'),
         'input_attrs' => array(
             'min'   => 10,
