@@ -31,7 +31,7 @@ function sydney_setup() {
 	global $content_width;
 	if ( ! isset( $content_width ) ) {
 		$content_width = 1170; /* pixels */
-	}	
+	}
 
 	/*
 	 * Let WordPress manage the document title.
@@ -51,6 +51,7 @@ function sydney_setup() {
 	add_image_size('sydney-medium-thumb', 550, 400, true);
 	add_image_size('sydney-small-thumb', 230);
 	add_image_size('sydney-service-thumb', 350);
+	add_image_size('sydney-mas-thumb', 480);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -127,6 +128,7 @@ function sydney_widgets_init() {
 		register_widget( 'Sydney_Employees' );
 		register_widget( 'Sydney_Latest_News' );
 		register_widget( 'Sydney_Contact_Info' );
+		register_widget( 'Sydney_Portfolio' );
 	}
 
 }
@@ -148,6 +150,7 @@ if ( function_exists('siteorigin_panels_activate') ) {
 	require get_template_directory() . "/widgets/fp-social.php";
 	require get_template_directory() . "/widgets/fp-employees.php";
 	require get_template_directory() . "/widgets/fp-latest-news.php";
+	require get_template_directory() . "/widgets/fp-portfolio.php";
 	require get_template_directory() . "/widgets/contact-info.php";
 }
 
@@ -157,23 +160,23 @@ if ( function_exists('siteorigin_panels_activate') ) {
 function sydney_scripts() {
 
 	if ( get_theme_mod('body_font_name') !='' ) {
-	    wp_enqueue_style( 'sydney-body-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('body_font_name')) ); 
+	    wp_enqueue_style( 'sydney-body-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('body_font_name')) );
 	} else {
 	    wp_enqueue_style( 'sydney-body-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600');
 	}
 
 	if ( get_theme_mod('headings_font_name') !='' ) {
-	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('headings_font_name')) ); 
+	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('headings_font_name')) );
 	} else {
-	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=Raleway:400,500,600'); 
-	}	
+	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=Raleway:400,500,600');
+	}
 
 	wp_enqueue_style( 'sydney-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );		
+	wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
-	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );	
+	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
 	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
@@ -183,7 +186,7 @@ function sydney_scripts() {
 
 	if ( get_theme_mod('blog_layout') == 'masonry-layout' && (is_home() || is_archive()) ) {
 
-		wp_enqueue_script( 'sydney-masonry-init', get_template_directory_uri() . '/js/masonry-init.js', array('jquery-masonry'),'', true );		
+		wp_enqueue_script( 'sydney-masonry-init', get_template_directory_uri() . '/js/masonry-init.js', array('jquery-masonry'),'', true );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -204,7 +207,7 @@ add_action( 'wp_enqueue_scripts', 'sydney_enqueue_bootstrap', 9 );
  * Change the excerpt length
  */
 function sydney_excerpt_length( $length ) {
-  
+
   $excerpt = get_theme_mod('exc_lenght', '55');
   return $excerpt;
 
@@ -305,10 +308,10 @@ require get_template_directory() . '/inc/woocommerce.php';
  *TGM Plugin activation.
  */
 require_once dirname( __FILE__ ) . '/plugins/class-tgm-plugin-activation.php';
- 
+
 add_action( 'tgmpa_register', 'sydney_recommend_plugin' );
 function sydney_recommend_plugin() {
- 
+
     $plugins[] = array(
             'name'               => 'Page Builder by SiteOrigin',
             'slug'               => 'siteorigin-panels',
@@ -322,7 +325,7 @@ function sydney_recommend_plugin() {
 		        'required'           => false,
 		);
 	}
- 
+
     tgmpa( $plugins);
- 
+
 }

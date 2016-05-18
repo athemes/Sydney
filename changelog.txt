@@ -1,5 +1,8 @@
 Changelog
 
+18 May 2016 - 1.29
+- merged the Sydney Portfolio plugin into the theme as a widget.
+
 26 April 2016 - 1.28
 - numeric inputs styling fix.
 
