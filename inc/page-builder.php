@@ -26,6 +26,7 @@ function sydney_theme_widgets($widgets) {
 		'Sydney_Social_Profile',
 		'Sydney_Employees',
 		'Sydney_Latest_News',
+		'Sydney_Portfolio'
 	);
 	foreach($theme_widgets as $theme_widget) {
 		if( isset( $widgets[$theme_widget] ) ) {
