@@ -312,46 +312,84 @@
     	setTimeout(function(){$('.preloader').hide();}, 600);
   }
 
-  var portfolioItotpe = function() {
+  var portfolioIsotope = function(){
 
-    $('.project-wrap').each(function() {
+    if ( $('.project-wrap').length ) {
 
-      var elemSelector = $(this);
-      var filterNav    = elemSelector.find('.project-filter').find(' a');
+      $('.project-wrap').each(function() {
 
-      if ( elemSelector.find('.isotope-container').length ) { // check if element exists
+        var self       = $(this);
+        var filterNav  = self.find('.project-filter').find('a');
 
-        var container = elemSelector.find('.isotope-container').imagesLoaded( function() {
-        container.isotope({
+        var projectIsotope = function(){
+
+
+          var containerWidth = function(){
+            return self.find('.isotope-container').outerWidth();
+          }
+
+          var colnum = 5;
+          if ( matchMedia( 'only screen and (max-width: 1199px)' ).matches ) {
+            colnum = 4;
+          }
+          if ( matchMedia( 'only screen and (max-width: 991px)' ).matches ) {
+            colnum = 3;
+          }
+          if ( matchMedia( 'only screen and (max-width: 767px)' ).matches ) {
+            colnum = 2;
+          }
+
+          var colW   = Math.floor(containerWidth()/colnum);
+
+          self.find('.isotope-container').isotope({
             filter: '*',
-            itemSelector: '.isotope-item',
+            itemSelector: '.project-item',
+            percentPosition: true,
             animationOptions: {
                 duration: 750,
                 easing: 'liniar',
                 queue: false,
+            },
+            masonry: {
+              columnWidth: colW
             }
+          });
+
+        }
+
+        self.find('.isotope-container').imagesLoaded( function() {
+          projectIsotope();
         });
+
+        $(window).load(function(){
+          projectIsotope();
+        });
+
+        window.onresize = function(event) {
+          projectIsotope();
+        }
 
         filterNav.click(function(){
             var selector = $(this).attr('data-filter');
             filterNav.removeClass('active');
             $(this).addClass('active');
-              container.isotope({
-                  filter: selector,
-                  animationOptions: {
-                      duration: 750,
-                      easing: 'liniar',
-                      queue: false,
-                  }
-              });
+
+            self.find('.isotope-container').isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'liniar',
+                    queue: false,
+                }
+            });
+
             return false;
+
         });
-        });
 
-      } // check if element exists ends
+      });
 
-    }); // each ends
-
+    }
 
   }
 
@@ -375,6 +413,6 @@
 		socialMenu();
 		goTop();
 		removePreloader();
-    portfolioItotpe();
+    portfolioIsotope();
    	});
 })(jQuery);
