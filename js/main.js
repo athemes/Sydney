@@ -321,11 +321,11 @@
         var self       = $(this);
         var filterNav  = self.find('.project-filter').find('a');
 
-        var projectIsotope = function(){
+        var projectIsotope = function($selector){
 
 
           var containerWidth = function(){
-            return self.find('.isotope-container').outerWidth();
+            return $selector.outerWidth();
           }
 
           var colnum = 5;
@@ -341,7 +341,7 @@
 
           var colW   = Math.floor(containerWidth()/colnum);
 
-          self.find('.isotope-container').isotope({
+          $selector.isotope({
             filter: '*',
             itemSelector: '.project-item',
             percentPosition: true,
@@ -357,16 +357,12 @@
 
         }
 
-        self.find('.isotope-container').imagesLoaded( function() {
-          projectIsotope();
+        self.children().find('.isotope-container').imagesLoaded( function() {
+          projectIsotope(self.children().find('.isotope-container'));
         });
 
-        $(window).load(function(){
-          projectIsotope();
-        });
-
-        window.onresize = function(event) {
-          projectIsotope();
+        self.children().find('.isotope-container').onresize = function(event) {
+          projectIsotope(self.children().find('.isotope-container'));
         }
 
         filterNav.click(function(){
