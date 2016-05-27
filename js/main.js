@@ -312,46 +312,59 @@
     	setTimeout(function(){$('.preloader').hide();}, 600);
   }
 
-  var portfolioItotpe = function() {
+  var portfolioIsotope = function(){
 
-    $('.project-wrap').each(function() {
+    if ( $('.project-wrap').length ) {
 
-      var elemSelector = $(this);
-      var filterNav    = elemSelector.find('.project-filter').find(' a');
+      $('.project-wrap').each(function() {
 
-      if ( elemSelector.find('.isotope-container').length ) { // check if element exists
+        var self       = $(this);
+        var filterNav  = self.find('.project-filter').find('a');
 
-        var container = elemSelector.find('.isotope-container').imagesLoaded( function() {
-        container.isotope({
+        var projectIsotope = function($selector){
+
+          $selector.isotope({
             filter: '*',
-            itemSelector: '.isotope-item',
+            itemSelector: '.project-item',
+            percentPosition: true,
             animationOptions: {
                 duration: 750,
                 easing: 'liniar',
                 queue: false,
             }
+          });
+
+        }
+
+        self.children().find('.isotope-container').imagesLoaded( function() {
+          projectIsotope(self.children().find('.isotope-container'));
+        });
+
+        $(window).load(function(){
+          projectIsotope(self.children().find('.isotope-container'));
         });
 
         filterNav.click(function(){
             var selector = $(this).attr('data-filter');
             filterNav.removeClass('active');
             $(this).addClass('active');
-              container.isotope({
-                  filter: selector,
-                  animationOptions: {
-                      duration: 750,
-                      easing: 'liniar',
-                      queue: false,
-                  }
-              });
+
+            self.find('.isotope-container').isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'liniar',
+                    queue: false,
+                }
+            });
+
             return false;
+
         });
-        });
 
-      } // check if element exists ends
+      });
 
-    }); // each ends
-
+    }
 
   }
 
@@ -374,7 +387,7 @@
 		projectEffect();
 		socialMenu();
 		goTop();
+    portfolioIsotope();
 		removePreloader();
-    portfolioItotpe();
    	});
 })(jQuery);
