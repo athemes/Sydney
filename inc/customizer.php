@@ -14,6 +14,9 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->get_section( 'header_image' )->priority = '13';
     $wp_customize->get_section( 'title_tagline' )->priority = '9';
     $wp_customize->get_section( 'title_tagline' )->title = __('Site title/tagline/logo', 'sydney');
+    $wp_customize->get_section( 'colors' )->title = __('General', 'sydney');
+    $wp_customize->get_section( 'colors' )->panel = 'sydney_colors_panel';
+    $wp_customize->get_section( 'colors' )->priority = '10';
 
     //Divider
     class Sydney_Divider extends WP_Customize_Control {
@@ -1284,6 +1287,36 @@ function sydney_customize_register( $wp_customize ) {
     ) );
 
     //___Colors___//
+    $wp_customize->add_panel( 'sydney_colors_panel', array(
+        'priority'       => 19,
+        'capability'     => 'edit_theme_options',
+        'theme_supports' => '',
+        'title'          => __('Colors', 'sydney'),
+    ) );
+    $wp_customize->add_section(
+        'colors_header',
+        array(
+            'title'         => __('Header', 'sydney'),
+            'priority'      => 11,
+            'panel'         => 'sydney_colors_panel',
+        )
+    );
+    $wp_customize->add_section(
+        'colors_sidebar',
+        array(
+            'title'         => __('Sidebar', 'sydney'),
+            'priority'      => 12,
+            'panel'         => 'sydney_colors_panel',
+        )
+    );
+    $wp_customize->add_section(
+        'colors_footer',
+        array(
+            'title'         => __('Footer', 'sydney'),
+            'priority'      => 13,
+            'panel'         => 'sydney_colors_panel',
+        )
+    );    
     $wp_customize->add_setting(
         'primary_color',
         array(
@@ -1317,7 +1350,7 @@ function sydney_customize_register( $wp_customize ) {
             'menu_bg_color',
             array(
                 'label' => __('Menu background', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_header',
                 'priority' => 12
             )
         )
@@ -1337,7 +1370,7 @@ function sydney_customize_register( $wp_customize ) {
             'site_title_color',
             array(
                 'label' => __('Site title', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_header',
                 'settings' => 'site_title_color',
                 'priority' => 13
             )
@@ -1358,7 +1391,7 @@ function sydney_customize_register( $wp_customize ) {
             'site_desc_color',
             array(
                 'label' => __('Site description', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_header',
                 'priority' => 14
             )
         )
@@ -1378,7 +1411,7 @@ function sydney_customize_register( $wp_customize ) {
             'top_items_color',
             array(
                 'label' => __('Top level menu items', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_header',
                 'priority' => 15
             )
         )
@@ -1398,7 +1431,7 @@ function sydney_customize_register( $wp_customize ) {
             'submenu_items_color',
             array(
                 'label' => __('Sub-menu items', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_header',
                 'priority' => 16
             )
         )
@@ -1417,7 +1450,7 @@ function sydney_customize_register( $wp_customize ) {
             'submenu_background',
             array(
                 'label' => __('Sub-menu background', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_header',
                 'priority' => 17
             )
         )
@@ -1437,7 +1470,7 @@ function sydney_customize_register( $wp_customize ) {
             'slider_text',
             array(
                 'label' => __('Header slider text', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_header',
                 'priority' => 18
             )
         )
@@ -1477,7 +1510,7 @@ function sydney_customize_register( $wp_customize ) {
             'sidebar_background',
             array(
                 'label' => __('Sidebar background', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_sidebar',
                 'priority' => 20
             )
         )
@@ -1497,7 +1530,7 @@ function sydney_customize_register( $wp_customize ) {
             'sidebar_color',
             array(
                 'label' => __('Sidebar color', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_sidebar',
                 'priority' => 21
             )
         )
@@ -1517,7 +1550,7 @@ function sydney_customize_register( $wp_customize ) {
             'footer_widgets_background',
             array(
                 'label' => __('Footer widget area background', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_footer',
                 'priority' => 22
             )
         )
@@ -1537,7 +1570,7 @@ function sydney_customize_register( $wp_customize ) {
             'footer_widgets_color',
             array(
                 'label' => __('Footer widget area color', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_footer',
                 'priority' => 23
             )
         )
@@ -1557,7 +1590,7 @@ function sydney_customize_register( $wp_customize ) {
             'footer_background',
             array(
                 'label' => __('Footer background', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_footer',
                 'priority' => 24
             )
         )
@@ -1577,7 +1610,7 @@ function sydney_customize_register( $wp_customize ) {
             'footer_color',
             array(
                 'label' => __('Footer color', 'sydney'),
-                'section' => 'colors',
+                'section' => 'colors_footer',
                 'priority' => 25
             )
         )
@@ -1595,15 +1628,13 @@ function sydney_customize_register( $wp_customize ) {
             $wp_customize,
             'rows_overlay',
             array(
-                'label' => __('Rows overlay', 'sydney'),
-                'section' => 'colors',
-                'priority' => 26
+                'label'         => __('Rows overlay', 'sydney'),
+                'section'       => 'colors',
+                'description'   => __('[DEPRECATED] Please use the color option from Edit Row > Design > Overlay color', 'sydney'),
+                'priority'      => 26
             )
         )
     );
-
-
-
 
 
     //___Theme info___//
@@ -1611,8 +1642,8 @@ function sydney_customize_register( $wp_customize ) {
         'sydney_themeinfo',
         array(
             'title' => __('Theme info', 'sydney'),
-            'priority' => 99,
-            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="http://athemes.com/documentation/sydney/">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="http://demo.athemes.com/sydney/">here</a></p>' . __('3. If you enjoy Sydney and want to see what Sydney Pro offers, please go ', 'sydney') . '<a target="_blank" href="http://athemes.com/theme/sydney-pro/">here</a></p>',         
+            'priority' => 139,
+            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="http://athemes.com/documentation/sydney/">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="http://demo.athemes.com/sydney/">here</a></p>',         
         )
     );
     $wp_customize->add_setting('sydney_theme_docs', array(
@@ -1627,11 +1658,6 @@ function sydney_customize_register( $wp_customize ) {
         'priority' => 10
         ) )
     );  
-
-
-
-
-
 
 }
 add_action( 'customize_register', 'sydney_customize_register' );

@@ -116,10 +116,7 @@ responsive:!0,responsiveRefreshRate:200,responsiveBaseWidth:g,baseClass:"owl-car
 
 /*!
  * Isotope PACKAGED v3.0.0
- *
- * Licensed GPLv3 for open source use
- * or Isotope Commercial License for commercial use
- *
+  *
  * http://isotope.metafizzy.co
  * Copyright 2016 Metafizzy
  */

@@ -186,7 +186,7 @@ function sydney_scripts() {
 
 	if ( get_theme_mod('blog_layout') == 'masonry-layout' && (is_home() || is_archive()) ) {
 
-		wp_enqueue_script( 'sydney-masonry-init', get_template_directory_uri() . '/js/masonry-init.js', array('jquery-masonry'),'', true );
+		wp_enqueue_script( 'sydney-masonry-init', get_template_directory_uri() . '/js/masonry-init.js', array('masonry'),'', true );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -226,7 +226,9 @@ function sydney_blog_layout() {
  * Menu fallback
  */
 function sydney_menu_fallback() {
-	echo '<a class="menu-fallback" href="' . admin_url('nav-menus.php') . '">' . __( 'Create your menu here', 'sydney' ) . '</a>';
+	if ( current_user_can('edit_theme_options') ) {
+		echo '<a class="menu-fallback" href="' . admin_url('nav-menus.php') . '">' . __( 'Create your menu here', 'sydney' ) . '</a>';
+	}
 }
 
 /**
@@ -303,6 +305,12 @@ require get_template_directory() . '/inc/theme-info.php';
  * Woocommerce basic integration
  */
 require get_template_directory() . '/inc/woocommerce.php';
+
+/**
+ * Upsell
+ */
+require get_template_directory() . '/inc/upsell/class-customize.php';
+
 
 /**
  *TGM Plugin activation.

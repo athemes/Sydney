@@ -56,48 +56,39 @@ function sydney_row_styles($fields) {
 	$fields['bottom_border'] = array(
 		'name' => __('Bottom Border Color', 'sydney'),
 		'type' => 'color',
-		'priority' => 3,		
+		'priority' => 3,
+		'group'	   => 'design'		
 	);
 	$fields['padding'] = array(
 		'name' => __('Top/bottom padding', 'sydney'),
 		'type' => 'measurement',
 		'description' => __('Top and bottom padding for this row [default: 100px]', 'sydney'),
 		'priority' => 4,
+		'group'	   => 'layout'
 	);
 	$fields['align'] = array(
 		'name' => __('Center align the content?', 'sydney'),
 		'type' => 'checkbox',
 		'description' => __('This may or may not work. It depends on the widget styles.', 'sydney'),
 		'priority' => 5,
+		'group'	   => 'design'		
 	);		
-	$fields['background'] = array(
-		'name' => __('Background Color', 'sydney'),
-		'type' => 'color',
-		'description' => __('Background color of the row.', 'sydney'),
-		'priority' => 6,
-	);
+
 	$fields['color'] = array(
 		'name' => __('Color', 'sydney'),
 		'type' => 'color',
 		'description' => __('Color of the row.', 'sydney'),
 		'priority' => 7,
+		'group'	   => 'design'	
 	);	
 	$fields['background_image'] = array(
 		'name' => __('Background Image', 'sydney'),
 		'type' => 'image',
 		'description' => __('Background image of the row.', 'sydney'),
 		'priority' => 8,
+		'group'		=> 'design'
 	);
-	$fields['row_stretch'] = array(
-		'name' 		=> __('Row Layout', 'sydney'),
-		'type' 		=> 'select',
-		'options' 	=> array(
-			'' 				 => __('Standard', 'sydney'),
-			'full' 			 => __('Full Width', 'sydney'),
-			'full-stretched' => __('Full Width Stretched', 'sydney'),
-		),
-		'priority' => 9,
-	);
+
 	$fields['mobile_padding'] = array(
 		'name' 		  => __('Mobile padding', 'sydney'),
 		'type' 		  => 'select',
@@ -109,32 +100,33 @@ function sydney_row_styles($fields) {
 			'mob-pad-30'    => __('30px', 'sydney'),
 			'mob-pad-45'    => __('45px', 'sydney'),
 		),
-		'priority'    => 10,
+		'priority'    => 21,
+		'group'	   => 'layout'		
 	);
-	$fields['class'] = array(
-		'name' => __('Row Class', 'sydney'),
-		'type' => 'text',
-		'description' => __('Add your own class for this row', 'sydney'),
-		'priority' => 11,
+	$fields['overlay'] = array(
+	    'name'        => __('Disable row overlay?', 'sydney'),
+	    'type'        => 'checkbox',
+	    'group'       => 'design',
+	    'priority'    => 14,
 	);
-	$fields['column_padding'] = array(
-		'name'        => __('Columns padding', 'sydney'),
-		'type'        => 'checkbox',
-		'description' => __('Remove padding between columns for this row?', 'sydney'),
-		'priority'    => 12,
-	);	
+	$fields['overlay_color'] = array(
+	    'name'        => __('Overlay color', 'sydney'),
+	    'type'        => 'color',
+	    'default'	  => '#000000',
+	    'group'       => 'design',
+	    'priority'    => 15,
+	);
 
 	return $fields;
 }
-remove_filter('siteorigin_panels_row_style_fields', array('SiteOrigin_Panels_Default_Styling', 'row_style_fields' ) );
+//remove_filter('siteorigin_panels_row_style_fields', array('SiteOrigin_Panels_Default_Styling', 'row_style_fields' ) );
 add_filter('siteorigin_panels_row_style_fields', 'sydney_row_styles');
 
 /* Filter for the styles */
 function sydney_row_styles_output($attr, $style) {
-	$attr['style'] = '';
+	//$attr['style'] = '';
 
 	if(!empty($style['bottom_border'])) $attr['style'] .= 'border-bottom: 1px solid '. esc_attr($style['bottom_border']) . ';';
-	if(!empty($style['background'])) $attr['style'] .= 'background-color: ' . esc_attr($style['background']) . ';';
 	
 	if(!empty($style['color'])) {
 		$attr['style'] .= 'color: ' . esc_attr($style['color']) . ';';
@@ -154,10 +146,7 @@ function sydney_row_styles_output($attr, $style) {
 	} else {
 		$attr['style'] .= 'padding: 100px 0; ';
 	}
-	if( !empty( $style['row_stretch'] ) ) {
-		$attr['class'][] = 'sydney-stretch';
-		$attr['data-stretch-type'] = esc_attr($style['row_stretch']);
-	}
+
 	if( !empty( $style['mobile_padding'] ) ) {
 		$attr['class'][] = esc_attr($style['mobile_padding']);
 	}
@@ -165,7 +154,81 @@ function sydney_row_styles_output($attr, $style) {
        $attr['class'][] = 'no-col-padding';
     }
     
+	if ( empty($style['overlay']) ) {
+    	$attr['data-overlay'] = 'true';
+	}
+	if ( !empty($style['overlay_color']) ) {
+    	$attr['data-overlay-color'] = esc_attr($style['overlay_color']);		
+	}
+
 	if(empty($attr['style'])) unset($attr['style']);
 	return $attr;
 }
 add_filter('siteorigin_panels_row_style_attributes', 'sydney_row_styles_output', 10, 2);
+
+/**
+ * Page builder widget options
+ */
+function sydney_custom_widget_style_fields($fields) {
+	$fields['content_alignment'] = array(
+	    'name'        => __('Content alignment', 'sydney'),
+		'type' 		  => 'select',
+	    'group'       => 'design',
+		'options' => array(
+			'left' => __('Left', 'sydney'),
+			'center' => __('Center', 'sydney'),
+			'right' => __('Right', 'sydney'),
+		),
+		'default'	  => 'left',
+	    'description' => __('This setting depends on the content, it may or may not work', 'sydney'),
+	    'priority'    => 10,
+	);	
+	$fields['title_color'] = array(
+	    'name'        => __('Widget title color', 'sydney'),
+	    'type'        => 'color',
+	    'default'	  => '#443f3f',
+	    'group'       => 'design',
+	    'priority'    => 11,
+	);	
+	$fields['headings_color'] = array(
+	    'name'        => __('Headings color', 'sydney'),
+	    'type'        => 'color',
+	    'default'	  => '#443f3f',
+	    'group'       => 'design',
+	    'description' => __('This applies to all headings in the widget, except the widget title', 'sydney'),
+	    'priority'    => 12,
+	);
+
+  return $fields;
+}
+add_filter( 'siteorigin_panels_widget_style_fields', 'sydney_custom_widget_style_fields');
+
+/**
+ * Output page builder widget options
+ */
+function sydney_custom_widget_style_attributes( $attributes, $args ) {
+
+	if ( !empty($args['title_color']) ) {
+    	$attributes['data-title-color'] = esc_attr($args['title_color']);		
+	}
+	if ( !empty($args['headings_color']) ) {
+    	$attributes['data-headings-color'] = esc_attr($args['headings_color']);		
+	}
+	if ( !empty($args['content_alignment']) ) {
+		$attributes['style'] .= 'text-align: ' . esc_attr($args['content_alignment']) . ';';
+	}	
+    return $attributes;
+}
+add_filter('siteorigin_panels_widget_style_attributes', 'sydney_custom_widget_style_attributes', 10, 2);
+
+/**
+ * Remove defaults
+ */
+function sydney_remove_default_so_row_styles( $fields ) {
+	unset( $fields['background_image_attachment'] );
+	unset( $fields['background_display'] );
+	unset( $fields['border_color'] );	
+	return $fields;
+}
+add_filter('siteorigin_panels_row_style_fields', 'sydney_remove_default_so_row_styles' );
+add_filter('siteorigin_premium_upgrade_teaser', '__return_false');

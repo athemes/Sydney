@@ -133,10 +133,22 @@
 			if ($(this).data('hascolor')) {
 				$(this).find('h1,h2,h3,h4,h5,h6,a,.fa, div, span').css('color','inherit');
 			}
-			if ($(this).data('hasbg')) {
+			if ($(this).data('hasbg') && $(this).data('overlay') ) {
 				$(this).append( '<div class="overlay"></div>' );
+				var overlayColor = $(this).data('overlay-color');
+				$(this).find('.overlay').css('background-color', overlayColor );				
 			}
 		});
+		$('.panel-grid .panel-widget-style').each( function() {
+			var titleColor = $(this).data('title-color');
+			var headingsColor = $(this).data('headings-color');
+			if ( titleColor ) {
+				$(this).find('.widget-title').css('color', titleColor );
+			}
+			if ( headingsColor ) {
+				$(this).find('h1,h2,h3:not(.widget-title),h4,h5,h6,h3 a').css('color', headingsColor );
+			}			
+		});	
 	};
 
 	var scrolls = function() {

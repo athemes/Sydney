@@ -20,6 +20,8 @@ class Sydney_Services_Type_B extends WP_Widget {
 		$see_all   		= isset( $instance['see_all'] ) ? esc_url_raw( $instance['see_all'] ) : '';		
 		$see_all_text  	= isset( $instance['see_all_text'] ) ? esc_html( $instance['see_all_text'] ) : '';
 		$cols 			= isset( $instance['cols'] ) ? esc_attr( $instance['cols'] ) : '';
+		$content_excerpt  	= isset( $instance['content_excerpt'] ) ? esc_attr( $instance['content_excerpt'] ) : '';			
+
 	?>
 
 	<p><?php _e('In order to display this widget, you must first add some services from your admin area.', 'sydney'); ?></p>
@@ -37,7 +39,7 @@ class Sydney_Services_Type_B extends WP_Widget {
 	<input class="widefat" id="<?php echo $this->get_field_id( 'category' ); ?>" name="<?php echo $this->get_field_name( 'category' ); ?>" type="text" value="<?php echo $category; ?>" size="3" /></p>
 	<p>
 	<label for="<?php echo $this->get_field_id('cols'); ?>"><?php _e( 'Number of columns:', 'sydney' ); ?></label>
-	<select name="<?php echo $this->get_field_name('cols'); ?>" id="<?php echo $this->get_field_id('cols'); ?>" class="widefat">
+	<select name="<?php echo $this->get_field_name('cols'); ?>" id="<?php echo $this->get_field_id('cols'); ?>">
 	<?php
 	$options = array('1', '2', '3');
 	foreach ($options as $option) {
@@ -46,7 +48,12 @@ class Sydney_Services_Type_B extends WP_Widget {
 	?>
 	</select>
 	</p>
-
+	<p><label for="<?php echo $this->get_field_id('content_excerpt'); ?>"><?php _e('Content to display:', 'sydney'); ?></label>
+        <select name="<?php echo $this->get_field_name('content_excerpt'); ?>" id="<?php echo $this->get_field_id('content_excerpt'); ?>">		
+			<option value="fullcontent" <?php if ( 'fullcontent' == $content_excerpt ) echo 'selected="selected"'; ?>><?php echo __('Full content', 'sydney'); ?></option>
+			<option value="excerpt" <?php if ( 'excerpt' == $content_excerpt ) echo 'selected="selected"'; ?>><?php echo __('Excerpt', 'sydney'); ?></option>
+       	</select>
+    </p>
 	<?php
 	}
 
@@ -58,6 +65,7 @@ class Sydney_Services_Type_B extends WP_Widget {
 		$instance['see_all_text'] 	= strip_tags($new_instance['see_all_text']);		
 		$instance['category'] 		= strip_tags($new_instance['category']);
 		$instance['cols'] 			= strip_tags($new_instance['cols']);
+		$instance['content_excerpt'] = sanitize_text_field($new_instance['content_excerpt']);		
 		    			
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['sydney_services']) )
@@ -97,6 +105,7 @@ class Sydney_Services_Type_B extends WP_Widget {
 			$number 	= -1;				
 		$category 		= isset( $instance['category'] ) ? esc_attr($instance['category']) : '';
 		$cols 			= isset( $instance['cols'] ) ? esc_attr($instance['cols']) : '';
+		$content_excerpt = isset( $instance['content_excerpt'] ) ? esc_html($instance['content_excerpt']) : 'fullcontent';
 
 		$services = new WP_Query( array(
 			'no_found_rows'       => true,
@@ -147,7 +156,11 @@ class Sydney_Services_Type_B extends WP_Widget {
 											<?php the_title(); ?>
 										<?php endif; ?>
 									</h3>
-									<?php the_content(); ?>
+									<?php if ( $content_excerpt == 'fullcontent' ) : ?>								
+										<?php the_content(); ?>
+									<?php else : ?>
+										<?php the_excerpt(); ?>
+									<?php endif; ?>
 								</div><!--.info-->	
 							</div>
 						</div>

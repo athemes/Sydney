@@ -1,6 +1,17 @@
 Changelog
 
-18 May 2016 - 1.29
+23 Oct 2016 - 1.32
+- fallback menu now shows only to users with edit_theme_options cap;
+- new option to show content/excerpt in services widget;
+- improved Page Builder plugin integration.
+
+5 Aug 2016 - 1.31
+- masonry compatibility with WP 4.6
+
+3 June 2016 - 1.30
+- release consists of version 1.29 plus a few minor changes to the portfolio. 
+
+18 May 2016 - 1.29 (unreleased version)
 - merged the Sydney Portfolio plugin into the theme as a widget.
 
 26 April 2016 - 1.28
