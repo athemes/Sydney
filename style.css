@@ -4,7 +4,7 @@ Theme URI: http://athemes.com/theme/sydney
 Author: aThemes
 Author URI: http://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.32
+Version: 1.33
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -397,11 +397,8 @@ Repeatable Patterns
 			 -o-transition: all 0.3s ease-in-out;
 				transition: all 0.3s ease-in-out;
 	}
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-	.widget ul {
+	.footer-widgets .widget ul,
+	.widget-area .widget ul {
 		list-style: none;
 		padding: 0;
 	}
@@ -769,6 +766,7 @@ Header
 	    padding-top: 10px;
 	    visibility: visible;
 	    left: auto;
+	    display: block !important;
 	    -webkit-transition: all 0.3s ease;
 	       -moz-transition: all 0.3s ease;
 	        -ms-transition: all 0.3s ease;
@@ -1118,6 +1116,8 @@ Hero section
 		font-weight: 300;
 	}
 .text-slider {
+  position: relative;
+  right: -99em;	
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -1127,31 +1127,21 @@ Hero section
 }
 @-webkit-keyframes fadeInRightBig {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
+    right: -99em;
   }
-
   to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
+    right: 0;
   }
 }
-
 @keyframes fadeInRightBig {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
+    right: -99em;
   }
-
   to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
+    right: 0;
   }
 }
+
 .slide-inner {
 	position: absolute;
 	top: 50%;
@@ -1379,9 +1369,6 @@ Widgets
 		padding-bottom: 24px;
 		margin: 0;
 		text-transform: uppercase;
-	}
-	.widget ul {
-		list-style: none;
 	}
 	.widget-area .widget ul li {
 		padding: 5px 0;
@@ -3034,9 +3021,6 @@ Panels
 		.footer-widgets .widget {
 			margin-bottom: 50px;
 		}
-		.text-slider-stopped {
-			top: 70%;
-		}
 	}
 	@media only screen and (max-width: 1024px) {
 		.slides-container .slide-item,
@@ -3210,3 +3194,14 @@ Panels
 			margin-bottom: 0;
 		}
 	}
+	/* Center menu vertically */
+	@media screen and (min-width: 1025px) {
+		.header-wrap .container > .row {
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-align-items: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+	}	

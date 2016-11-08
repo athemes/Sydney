@@ -112,12 +112,11 @@ function sydney_slider_template() {
                     echo '</div>';
                 }               
             ?>  
-        </div>        
+        </div>  
+        <?php if ( $text_slide ) : ?>
+            <?php echo sydney_stop_text(); ?>
+        <?php endif; ?>
     </div>
-
-    <?php if ( $text_slide ) : ?>
-        <?php echo sydney_stop_text(); ?>
-    <?php endif; ?>
 
     <?php
     }

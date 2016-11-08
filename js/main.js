@@ -278,7 +278,7 @@
 
 	var teamCarousel = function(){
 		if ( $().owlCarousel ) {
-			$(".panel-grid-cell .roll-team").owlCarousel({
+			$(".roll-team").owlCarousel({
 				navigation : false,
 				pagination: true,
 				responsive: true,
@@ -319,10 +319,20 @@
 	    $('.widget_fp_social a').attr( 'target','_blank' );
 	};
 
-  var removePreloader = function() {
+  	var removePreloader = function() {
     	$('.preloader').css('opacity', 0);
     	setTimeout(function(){$('.preloader').hide();}, 600);
-  }
+  	}
+
+  	var removeSliderTransition = function() {
+  		$('#slideshow').css('transition', 'height 99999s');
+		$( window ).on( "orientationchange", function( event ) {
+  			$('#slideshow').css('transition', 'none');
+    		setTimeout(function(){
+ 				$('#slideshow').css('transition', 'height 99999s');
+			}, 600);			
+		});  	
+  	}
 
   var portfolioIsotope = function(){
 
@@ -399,7 +409,8 @@
 		projectEffect();
 		socialMenu();
 		goTop();
-    portfolioIsotope();
+    	portfolioIsotope();
+    	removeSliderTransition();
 		removePreloader();
    	});
 })(jQuery);

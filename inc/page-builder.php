@@ -62,7 +62,7 @@ function sydney_row_styles($fields) {
 	$fields['padding'] = array(
 		'name' => __('Top/bottom padding', 'sydney'),
 		'type' => 'measurement',
-		'description' => __('Top and bottom padding for this row [default: 100px]', 'sydney'),
+		'description' => __('Add a value in the field to change the top/bottom row padding, otherwise 100px will be applied by default', 'sydney'),
 		'priority' => 4,
 		'group'	   => 'layout'
 	);
