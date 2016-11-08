@@ -38,35 +38,16 @@ class Sydney_Action extends WP_Widget {
 			$instance['action_text'] = $new_instance['action_text'];
 		} else {
 			$instance['action_text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['action_text']) ) );
-		}			
-
-		$alloptions = wp_cache_get( 'alloptions', 'options' );
-		if ( isset($alloptions['sydney_action']) )
-			delete_option('sydney_action');		  
+		}			  
 		  
 		return $instance;
 	}
 	
 	function widget($args, $instance) {
-		$cache = array();
-		if ( ! $this->is_preview() ) {
-			$cache = wp_cache_get( 'sydney_action', 'widget' );
-		}
-
-		if ( ! is_array( $cache ) ) {
-			$cache = array();
-		}
-
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
 
-		if ( isset( $cache[ $args['widget_id'] ] ) ) {
-			echo $cache[ $args['widget_id'] ];
-			return;
-		}
-
-		ob_start();
 		extract($args);
 
 		$title 			 = ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
@@ -101,12 +82,6 @@ class Sydney_Action extends WP_Widget {
 
 		echo $args['after_widget'];
 
-		if ( ! $this->is_preview() ) {
-			$cache[ $args['widget_id'] ] = ob_get_flush();
-			wp_cache_set( 'sydney_action', $cache, 'widget' );
-		} else {
-			ob_end_flush();
-		}
 	}
 	
 }

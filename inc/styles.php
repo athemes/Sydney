@@ -106,9 +106,10 @@ function sydney_custom_styles($custom) {
 		$custom .= ".header-wrap .col-md-4, .header-wrap .col-md-8 { width: 100%; text-align: center;}"."\n";
 		$custom .= "#mainnav { float: none;}"."\n";
 		$custom .= "#mainnav li { float: none; display: inline-block;}"."\n";
-		$custom .= "#mainnav ul ul li { display: block; text-align: left;}"."\n";
+		$custom .= "#mainnav ul ul li { display: block; text-align: left; float:left;}"."\n";
 		$custom .= ".site-logo, .header-wrap .col-md-4 { margin-bottom: 15px; }"."\n";
 		$custom .= ".btn-menu { margin: 0 auto; float: none; }"."\n";
+		$custom .= ".header-wrap .container > .row { display: block; }"."\n";
 	}	
 
 
@@ -124,7 +125,7 @@ function sydney_custom_styles($custom) {
 	$menu_bg_color = get_theme_mod( 'menu_bg_color', '#000000' );
 	$rgba = sydney_hex2rgba($menu_bg_color, 0.9);
 	$custom .= ".site-header.float-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
-	$custom .= "@media only screen and (max-width: 991px) { .site-header { background-color:" . esc_attr($menu_bg_color) . ";}}" . "\n";
+	$custom .= "@media only screen and (max-width: 1024px) { .site-header { background-color:" . esc_attr($menu_bg_color) . ";}}" . "\n";
 	//Site title
 	$site_title = get_theme_mod( 'site_title_color', '#ffffff' );
 	$custom .= ".site-title a, .site-title a:hover { color:" . esc_attr($site_title) . "}"."\n";
