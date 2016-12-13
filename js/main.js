@@ -69,21 +69,23 @@
 		})();
 
 		$(function() {
-          $('a[href*="#"]:not([href="#"],[class*="tab"] a,.wc-tabs a, .activity-content a)').click(function() {
-		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-		      var target = $(this.hash);
-		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-		      if (target.length) {
-		        $('html,body').animate({
-		          scrollTop: target.offset().top - 70
-		        }, 1000);
+			$('.mainnav a[href*="#"], a.roll-button[href*="#"], .smoothscroll[href*="#"]').on('click',function (e) {
+			    var target = this.hash;
+			    var $target = $(target);
 
-		        if($('#mainnav-mobi').length) $('#mainnav-mobi').hide();
-		        return false;
-		      }
-		    }
-		  });
+				if ( $target.length ) {
+			    	e.preventDefault();
+					$('html, body').stop().animate({
+					     'scrollTop': $target.offset().top - 70
+					}, 900, 'swing');
+			        
+			        if($('#mainnav-mobi').length) $('#mainnav-mobi').hide();
+			        return false;
+				}
+			});
 		});
+
+
 	};
 
 	var responsiveMenu = function() {
@@ -278,7 +280,7 @@
 
 	var teamCarousel = function(){
 		if ( $().owlCarousel ) {
-			$(".roll-team").owlCarousel({
+			$(".roll-team:not(.roll-team.no-carousel)").owlCarousel({
 				navigation : false,
 				pagination: true,
 				responsive: true,
@@ -333,6 +335,22 @@
 			}, 600);			
 		});  	
   	}
+
+    var videoButtons = function() {
+    	testMobile = isMobile.iOS();
+		$(window).on('load', function () {
+			$('#wp-custom-header').fitVids();
+			$('.fluid-width-video-wrapper + #wp-custom-header-video-button').find('i').removeClass('fa-play').addClass('fa-pause');
+			$('.fluid-width-video-wrapper + #wp-custom-header-video-button').on('click',function () {
+				$(this).find('i').toggleClass('fa-play fa-pause');
+			});
+			if (testMobile != null) {
+				$('#wp-custom-header-video-button').css('opacity', '0');
+				$('#wp-custom-header-video').prop('controls',true); 
+			}	
+		});
+    }
+
 
   var portfolioIsotope = function(){
 
@@ -412,5 +430,6 @@
     	portfolioIsotope();
     	removeSliderTransition();
 		removePreloader();
+		videoButtons();
    	});
 })(jQuery);

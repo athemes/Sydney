@@ -180,7 +180,7 @@ function sydney_scripts() {
 
 	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
-	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'', true );
+	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.js', array('jquery'),'', true );
 
 	wp_enqueue_script( 'sydney-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -238,6 +238,23 @@ function sydney_header_overlay() {
 	$overlay = get_theme_mod( 'hide_overlay', 0);
 	if ( !$overlay ) {
 		echo '<div class="overlay"></div>';
+	}
+}
+
+/**
+ * Header video
+ */
+function sydney_header_video() {
+
+	if ( !function_exists('the_custom_header_markup') ) {
+		return;
+	}
+
+	$front_header_type 	= get_theme_mod( 'front_header_type' );
+	$site_header_type 	= get_theme_mod( 'site_header_type' );
+
+	if ( ( get_theme_mod('front_header_type') == 'core-video' && is_front_page() || get_theme_mod('site_header_type') == 'core-video' && !is_front_page() ) ) {
+		the_custom_header_markup();
 	}
 }
 
@@ -311,6 +328,10 @@ require get_template_directory() . '/inc/woocommerce.php';
  */
 require get_template_directory() . '/inc/upsell/class-customize.php';
 
+/**
+ * Demo content
+ */
+require_once dirname( __FILE__ ) . '/demo-content/setup.php';
 
 /**
  *TGM Plugin activation.

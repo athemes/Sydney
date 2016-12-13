@@ -135,6 +135,7 @@ function sydney_customize_register( $wp_customize ) {
             'choices' => array(
                 'slider'    => __('Full screen slider', 'sydney'),
                 'image'     => __('Image', 'sydney'),
+                'core-video'=> __('Video', 'sydney'),
                 'nothing'   => __('No header (only menu)', 'sydney')
             ),
         )
@@ -157,6 +158,7 @@ function sydney_customize_register( $wp_customize ) {
             'choices' => array(
                 'slider'    => __('Full screen slider', 'sydney'),
                 'image'     => __('Image', 'sydney'),
+                'core-video'=> __('Video', 'sydney'),
                 'nothing'   => __('No header (only menu)', 'sydney')
             ),
         )
@@ -1670,6 +1672,7 @@ function sydney_sanitize_layout( $input ) {
     $valid = array(
         'slider'    => __('Full screen slider', 'sydney'),
         'image'     => __('Image', 'sydney'),
+        'core-video'=> __('Video', 'sydney'),
         'nothing'   => __('Nothing (only menu)', 'sydney')
     );
  

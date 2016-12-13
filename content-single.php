@@ -13,7 +13,7 @@
 	<?php endif; ?>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="title-post">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="title-post entry-title">', '</h1>' ); ?>
 
 		<?php if (get_theme_mod('hide_meta_single') != 1 ) : ?>
 		<div class="meta-post">
