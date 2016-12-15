@@ -9,6 +9,8 @@
 
 get_header(); ?>
 
+	<?php do_action('sydney_before_content'); ?>
+
 	<div id="primary" class="content-area col-md-9 <?php echo sydney_blog_layout(); ?>">
 		<main id="main" class="post-wrap" role="main">
 
@@ -45,6 +47,8 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
+	<?php do_action('sydney_after_content'); ?>
 
 <?php 
 	if ( get_theme_mod('blog_layout','classic') == 'classic' ) :

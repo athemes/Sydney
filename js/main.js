@@ -351,6 +351,15 @@
 		});
     }
 
+	var headerClone = function() { 
+	    var headerHeight = $('.site-header').outerHeight();
+	    $('.header-clone').css('height',headerHeight);
+
+		$(window).resize(function(){	
+			var headerHeight = $('.site-header').outerHeight();
+			$('.header-clone').css('height',headerHeight);
+		});		
+	} 
 
   var portfolioIsotope = function(){
 
@@ -429,7 +438,8 @@
 		goTop();
     	portfolioIsotope();
     	removeSliderTransition();
+    	videoButtons();
+    	headerClone();
 		removePreloader();
-		videoButtons();
    	});
 })(jQuery);

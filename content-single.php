@@ -6,6 +6,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+	<?php do_action('sydney_inside_top_post'); ?>
+
 	<?php if ( has_post_thumbnail() && ( get_theme_mod( 'post_feat_image' ) != 1 ) ) : ?>
 		<div class="entry-thumb">
 			<?php the_post_thumbnail('sydney-large-thumb'); ?>
@@ -35,4 +37,7 @@
 	<footer class="entry-footer">
 		<?php sydney_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+
+	<?php do_action('sydney_inside_bottom_post'); ?>
+
 </article><!-- #post-## -->

@@ -3086,6 +3086,9 @@ Panels
 			position: static;
 			background-color: rgba(0,0,0,0.9);
 		}
+		.header-clone {
+			display: none;
+		}		
 		.posts-navigation {
 			overflow: hidden;
 			margin-bottom: 30px;
