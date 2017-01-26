@@ -38,7 +38,9 @@ function sydney_custom_header_setup() {
 }
 add_action( 'after_setup_theme', 'sydney_custom_header_setup' );
 
-
+/**
+ * Video header settings
+ */
 function sydney_video_settings( $settings ) {
 	$settings['l10n']['play'] 	= '<i class="fa fa-play"></i>';
 	$settings['l10n']['pause'] 	= '<i class="fa fa-pause"></i>';
@@ -48,8 +50,6 @@ function sydney_video_settings( $settings ) {
 	return $settings;
 }
 add_filter( 'header_video_settings', 'sydney_video_settings' );
-
-
 
 if ( ! function_exists( 'sydney_header_style' ) ) :
 /**

@@ -243,8 +243,10 @@
 				var y = $(this).scrollTop();
 				if ( y >= headerFix) {
 					$('.site-header').addClass('fixed');
+					$('body').addClass('siteScrolled');
 				} else {
 					$('.site-header').removeClass('fixed');
+					$('body').removeClass('siteScrolled');
 				}
 				if ( y >= 107 ) {
 					$('.site-header').addClass('float-header');
