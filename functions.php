@@ -159,19 +159,9 @@ if ( function_exists('siteorigin_panels_activate') ) {
  */
 function sydney_scripts() {
 
-	if ( get_theme_mod('body_font_name') !='' ) {
-	    wp_enqueue_style( 'sydney-body-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('body_font_name')) );
-	} else {
-	    wp_enqueue_style( 'sydney-body-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600');
-	}
+	wp_enqueue_style( 'sydney-fonts', esc_url( sydney_google_fonts() ), array(), null );
 
-	if ( get_theme_mod('headings_font_name') !='' ) {
-	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('headings_font_name')) );
-	} else {
-	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=Raleway:400,500,600');
-	}
-
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20170321' );
 
 	wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
 
@@ -180,7 +170,7 @@ function sydney_scripts() {
 
 	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
-	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'', true );
+	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'20170321', true );
 
 	wp_enqueue_script( 'sydney-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -194,6 +184,28 @@ function sydney_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
+
+/**
+ * Fonts
+ */
+if ( !function_exists('sydney_google_fonts') ) :
+function sydney_google_fonts() {
+	$body_font 		= get_theme_mod('body_font_name', 'Source+Sans+Pro:400,400italic,600');
+	$headings_font 	= get_theme_mod('headings_font_name', 'Raleway:400,500,600');
+
+	$fonts     		= array();
+	$fonts[] 		= esc_attr( str_replace( '+', ' ', $body_font ) );
+	$fonts[] 		= esc_attr( str_replace( '+', ' ', $headings_font ) );
+
+	if ( $fonts ) {
+		$fonts_url = add_query_arg( array(
+			'family' => urlencode( implode( '|', $fonts ) )
+		), 'https://fonts.googleapis.com/css' );
+	}
+
+	return $fonts_url;	
+}
+endif;
 
 /**
  * Enqueue Bootstrap
