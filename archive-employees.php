@@ -7,8 +7,10 @@
 
 get_header(); ?>
 
+	<?php do_action('sydney_before_content'); ?>
+
 	<div id="primary" class="content-area">
-		<main id="main" class="post-wrap roll-team" role="main">
+		<main id="main" class="post-wrap roll-team no-carousel" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -63,5 +65,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
+	<?php do_action('sydney_after_content'); ?>
 
 <?php get_footer(); ?>

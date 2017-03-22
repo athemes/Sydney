@@ -129,8 +129,6 @@ class Sydney_Testimonials extends WP_Widget {
 				</a>
 			<?php endif; ?>	
 
-
-		</section>		
 	<?php
 		echo $args['after_widget'];
 		wp_reset_postdata();

@@ -27,14 +27,29 @@ function sydney_custom_header_setup() {
 		'default-image'          => get_template_directory_uri() . '/images/header.jpg',
 		'default-text-color'     => '000000',
 		'width'                  => 1920,
-		'height'                 => 600,
+		'height'                 => 1080,
 		'flex-height'            => true,
+		'video'					 => true,
+		'video-active-callback'  => '',
 		'wp-head-callback'       => 'sydney_header_style',
 		'admin-head-callback'    => 'sydney_admin_header_style',
 		'admin-preview-callback' => 'sydney_admin_header_image',
 	) ) );
 }
 add_action( 'after_setup_theme', 'sydney_custom_header_setup' );
+
+/**
+ * Video header settings
+ */
+function sydney_video_settings( $settings ) {
+	$settings['l10n']['play'] 	= '<i class="fa fa-play"></i>';
+	$settings['l10n']['pause'] 	= '<i class="fa fa-pause"></i>';
+	$settings['minWidth'] 		= '100';
+	$settings['minHeight'] 		= '100';	
+	
+	return $settings;
+}
+add_filter( 'header_video_settings', 'sydney_video_settings' );
 
 if ( ! function_exists( 'sydney_header_style' ) ) :
 /**

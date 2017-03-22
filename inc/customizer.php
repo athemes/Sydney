@@ -135,6 +135,7 @@ function sydney_customize_register( $wp_customize ) {
             'choices' => array(
                 'slider'    => __('Full screen slider', 'sydney'),
                 'image'     => __('Image', 'sydney'),
+                'core-video'=> __('Video', 'sydney'),
                 'nothing'   => __('No header (only menu)', 'sydney')
             ),
         )
@@ -157,6 +158,7 @@ function sydney_customize_register( $wp_customize ) {
             'choices' => array(
                 'slider'    => __('Full screen slider', 'sydney'),
                 'image'     => __('Image', 'sydney'),
+                'core-video'=> __('Video', 'sydney'),
                 'nothing'   => __('No header (only menu)', 'sydney')
             ),
         )
@@ -1416,6 +1418,30 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
+
+
+    //Menu items hover
+    $wp_customize->add_setting(
+        'menu_items_hover',
+        array(
+            'default'           => '#d65050',
+            'sanitize_callback' => 'sanitize_hex_color',
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+        	'menu_items_hover',
+            array(
+                'label' => __('Menu items hover', 'sydney'),
+                'section' => 'colors_header',
+                'priority' => 15
+            )
+        )
+    );
+
+
+
     //Sub menu items color
     $wp_customize->add_setting(
         'submenu_items_color',
@@ -1455,6 +1481,25 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
+    //Mobile menu
+    $wp_customize->add_setting(
+        'mobile_menu_color',
+        array(
+            'default'           => '#ffffff',
+            'sanitize_callback' => 'sanitize_hex_color',
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'mobile_menu_color',
+            array(
+                'label' => __('Mobile menu button', 'sydney'),
+                'section' => 'colors_header',
+                'priority' => 17
+            )
+        )
+    );    
     //Slider text
     $wp_customize->add_setting(
         'slider_text',
@@ -1670,6 +1715,7 @@ function sydney_sanitize_layout( $input ) {
     $valid = array(
         'slider'    => __('Full screen slider', 'sydney'),
         'image'     => __('Image', 'sydney'),
+        'core-video'=> __('Video', 'sydney'),
         'nothing'   => __('Nothing (only menu)', 'sydney')
     );
  

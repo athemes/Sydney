@@ -76,6 +76,7 @@ final class Sydney_Customize_Upsell {
 					'title'    => esc_html__( 'Ready for more?', 'sydney' ),
 					'pro_text' => esc_html__( 'Get Sydney Pro',  'sydney' ),
 					'pro_url'  => '//athemes.com/theme/sydney-pro/',
+					'priority' => 999,
 				)
 			)
 		);

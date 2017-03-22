@@ -124,7 +124,11 @@ class Sydney_Services_Type_A extends WP_Widget {
 							<div class="roll-icon-box">
 								<?php if ( has_post_thumbnail() ) : ?>
 									<div class="service-thumb">
-										<?php the_post_thumbnail('sydney-service-thumb'); ?>
+										<?php if ($link) : ?>
+											<?php echo '<a href="' . esc_url($link) . '">' . get_the_post_thumbnail(get_the_ID(), 'sydney-service-thumb') . '</a>'; ?>
+										<?php else : ?>
+											<?php the_post_thumbnail('sydney-service-thumb'); ?>
+										<?php endif; ?>
 									</div>
 								<?php elseif ($icon) : ?>			
 									<div class="icon">

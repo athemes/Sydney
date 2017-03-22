@@ -25,9 +25,7 @@ function sydney_custom_styles($custom) {
 	if ( (get_theme_mod('front_header_type','slider') == 'nothing' && is_front_page()) || (get_theme_mod('site_header_type') == 'nothing' && !is_front_page()) ) {
 		$menu_bg_color = get_theme_mod( 'menu_bg_color', '#000000' );
 		$rgba 	= sydney_hex2rgba($menu_bg_color, 0.9);
-		$custom .= ".site-header { position:relative;background-color:" . esc_attr($rgba) . ";}" . "\n";
-		$custom .= ".admin-bar .site-header,.admin-bar .site-header.float-header { top:0;}"."\n";
-		$custom .= ".site-header.fixed {position:relative;}"."\n";
+		$custom .= ".site-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
 		$custom .= ".site-header.float-header {padding:20px 0;}"."\n";
 	}
 	//Fonts
@@ -161,6 +159,14 @@ function sydney_custom_styles($custom) {
 	if ( $footer_widgets_color != '#767676' ) {
 		$custom .= "#sidebar-footer,#sidebar-footer a,.footer-widgets .widget-title { color:" . esc_attr($footer_widgets_color) . "}"."\n";	
 	}
+	//Mobile menu icon
+	$mobile_menu_color = get_theme_mod( 'mobile_menu_color', '#ffffff' );
+	$custom .= ".btn-menu { color:" . esc_attr($mobile_menu_color) . "}"."\n";
+
+	//Menu items hover
+	$menu_items_hover = get_theme_mod( 'menu_items_hover', '#d65050' );
+	$custom .= "#mainnav ul li a:hover { color:" . esc_attr($menu_items_hover) . "}"."\n";	
+
 	//Footer background
 	$footer_background = get_theme_mod( 'footer_background', '#1c1c1c' );
 	$custom .= ".site-footer { background-color:" . esc_attr($footer_background) . "}"."\n";	

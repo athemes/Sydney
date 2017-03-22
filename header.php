@@ -23,14 +23,13 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div class="preloader">
-    <div class="spinner">
-        <div class="pre-bounce1"></div>
-        <div class="pre-bounce2"></div>
-    </div>
-</div>	
+
+<?php do_action('sydney_before_site'); //Hooked: sydney_preloader() ?>
+
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'sydney' ); ?></a>
+
+	<?php do_action('sydney_before_header'); //Hooked: sydney_header_clone() ?>
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-wrap">
@@ -54,12 +53,21 @@
 			</div>
 		</div>
 	</header><!-- #masthead -->
-	<?php sydney_slider_template(); ?>
 
-	<div class="header-image">
-		<?php sydney_header_overlay(); ?>
-		<img class="header-inner" src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" alt="<?php bloginfo('name'); ?>">
+	<?php do_action('sydney_after_header'); ?>
+
+	<div class="sydney-hero-area">
+		<?php sydney_slider_template(); ?>
+		<div class="header-image">
+			<?php sydney_header_overlay(); ?>
+			<img class="header-inner" src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>">
+		</div>
+		<?php sydney_header_video(); ?>
+
+		<?php do_action('sydney_inside_hero'); ?>
 	</div>
+
+	<?php do_action('sydney_after_hero'); ?>
 
 	<div id="content" class="page-wrap">
 		<div class="container content-wrapper">

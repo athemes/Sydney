@@ -6,6 +6,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+	<?php do_action('sydney_inside_top_post'); ?>
+
 	<?php if ( has_post_thumbnail() && ( get_theme_mod( 'post_feat_image' ) != 1 ) ) : ?>
 		<div class="entry-thumb">
 			<?php the_post_thumbnail('sydney-large-thumb'); ?>
@@ -13,7 +15,7 @@
 	<?php endif; ?>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="title-post">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="title-post entry-title">', '</h1>' ); ?>
 
 		<?php if (get_theme_mod('hide_meta_single') != 1 ) : ?>
 		<div class="meta-post">
@@ -35,4 +37,7 @@
 	<footer class="entry-footer">
 		<?php sydney_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+
+	<?php do_action('sydney_inside_bottom_post'); ?>
+
 </article><!-- #post-## -->

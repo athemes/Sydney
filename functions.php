@@ -159,19 +159,9 @@ if ( function_exists('siteorigin_panels_activate') ) {
  */
 function sydney_scripts() {
 
-	if ( get_theme_mod('body_font_name') !='' ) {
-	    wp_enqueue_style( 'sydney-body-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('body_font_name')) );
-	} else {
-	    wp_enqueue_style( 'sydney-body-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600');
-	}
+	wp_enqueue_style( 'sydney-fonts', esc_url( sydney_google_fonts() ), array(), null );
 
-	if ( get_theme_mod('headings_font_name') !='' ) {
-	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('headings_font_name')) );
-	} else {
-	    wp_enqueue_style( 'sydney-headings-fonts', '//fonts.googleapis.com/css?family=Raleway:400,500,600');
-	}
-
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20170321' );
 
 	wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
 
@@ -180,7 +170,7 @@ function sydney_scripts() {
 
 	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
-	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'', true );
+	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.js', array('jquery'),'20170321', true );
 
 	wp_enqueue_script( 'sydney-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -194,6 +184,28 @@ function sydney_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
+
+/**
+ * Fonts
+ */
+if ( !function_exists('sydney_google_fonts') ) :
+function sydney_google_fonts() {
+	$body_font 		= get_theme_mod('body_font_name', 'Source+Sans+Pro:400,400italic,600');
+	$headings_font 	= get_theme_mod('headings_font_name', 'Raleway:400,500,600');
+
+	$fonts     		= array();
+	$fonts[] 		= esc_attr( str_replace( '+', ' ', $body_font ) );
+	$fonts[] 		= esc_attr( str_replace( '+', ' ', $headings_font ) );
+
+	if ( $fonts ) {
+		$fonts_url = add_query_arg( array(
+			'family' => urlencode( implode( '|', $fonts ) )
+		), 'https://fonts.googleapis.com/css' );
+	}
+
+	return $fonts_url;	
+}
+endif;
 
 /**
  * Enqueue Bootstrap
@@ -242,6 +254,23 @@ function sydney_header_overlay() {
 }
 
 /**
+ * Header video
+ */
+function sydney_header_video() {
+
+	if ( !function_exists('the_custom_header_markup') ) {
+		return;
+	}
+
+	$front_header_type 	= get_theme_mod( 'front_header_type' );
+	$site_header_type 	= get_theme_mod( 'site_header_type' );
+
+	if ( ( get_theme_mod('front_header_type') == 'core-video' && is_front_page() || get_theme_mod('site_header_type') == 'core-video' && !is_front_page() ) ) {
+		the_custom_header_markup();
+	}
+}
+
+/**
  * Polylang compatibility
  */
 if ( function_exists('pll_register_string') ) :
@@ -255,6 +284,37 @@ function sydney_polylang() {
 }
 add_action( 'admin_init', 'sydney_polylang' );
 endif;
+
+/**
+ * Preloader
+ */
+function sydney_preloader() {
+	?>
+	<div class="preloader">
+	    <div class="spinner">
+	        <div class="pre-bounce1"></div>
+	        <div class="pre-bounce2"></div>
+	    </div>
+	</div>
+	<?php
+}
+add_action('sydney_before_site', 'sydney_preloader');
+
+/**
+ * Header clone
+ */
+function sydney_header_clone() {
+
+	$front_header_type 	= get_theme_mod('front_header_type','slider');
+	$site_header_type 	=get_theme_mod('site_header_type');
+
+	if ( ( $front_header_type == 'nothing' && is_front_page() ) || ( $site_header_type == 'nothing' && !is_front_page() ) ) { ?>
+	
+	<div class="header-clone"></div>
+
+	<?php }
+}
+add_action('sydney_before_header', 'sydney_header_clone');
 
 /**
  * Implement the Custom Header feature.
@@ -311,6 +371,10 @@ require get_template_directory() . '/inc/woocommerce.php';
  */
 require get_template_directory() . '/inc/upsell/class-customize.php';
 
+/**
+ * Demo content
+ */
+require_once dirname( __FILE__ ) . '/demo-content/setup.php';
 
 /**
  *TGM Plugin activation.
