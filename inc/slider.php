@@ -15,6 +15,7 @@ function sydney_slider_template() {
     $speed      = get_theme_mod('slider_speed', '4000');
     $text_slide = get_theme_mod('textslider_slide', 0);
     $button     = sydney_slider_button();
+    $mobile_slider = get_theme_mod('mobile_slider', 'responsive');
 
     //Slider text
     if ( !function_exists('pll_register_string') ) {
@@ -58,7 +59,7 @@ function sydney_slider_template() {
 
     ?>
 
-    <div id="slideshow" class="header-slider" data-speed="<?php echo esc_attr($speed); ?>">
+    <div id="slideshow" class="header-slider" data-speed="<?php echo esc_attr($speed); ?>" data-mobileslider="<?php echo esc_attr($mobile_slider); ?>">
         <div class="slides-container">
 
         <?php $c = 1; ?>
@@ -124,7 +125,7 @@ function sydney_stop_text() {
             <h2 class="maintitle"><?php echo esc_html($slider_title_1); ?></h2>
             <p class="subtitle"><?php echo esc_html($slider_subtitle_1); ?></p>
         </div>
-        <?php sydney_slider_button(); ?>
+        <?php echo sydney_slider_button(); ?>
     </div>   
     <?php 
 }

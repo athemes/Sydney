@@ -29,7 +29,7 @@ class Sydney_Video_Widget extends WP_Widget {
 			<option value="vid-lightbox" <?php if ( 'vid-lightbox' == $video_mode ) echo 'selected="selected"'; ?>><?php echo __('Lightbox', 'sydney'); ?></option>
        	</select>
     </p>  
-	<p><label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text before the play button (only for lightbox mode):' ); ?></label>
+	<p><label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text before the play button (only for lightbox mode):', 'sydney' ); ?></label>
 	<textarea class="widefat" rows="6" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea></p>
 
 	<?php

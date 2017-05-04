@@ -190,7 +190,26 @@ function sydney_custom_styles($custom) {
 		$custom .= ".slide-inner.text-slider-stopped { display:block;}"."\n";	
     }
 
-
+    $mobile_slider = get_theme_mod('mobile_slider', 'responsive');
+    if ( $mobile_slider == 'responsive' ) {
+			$custom .= "@media only screen and (max-width: 1025px) {		
+			.mobile-slide {
+				display: block;
+			}
+			.slide-item {
+				background-image: none !important;
+			}
+			.header-slider {
+			}
+			.slide-item {
+				height: auto !important;
+			}
+			.slide-inner {
+				min-height: initial;
+			} 
+		}"."\n";     	
+    }
+    
 	//Output all the styles
 	wp_add_inline_style( 'sydney-style', $custom );	
 }

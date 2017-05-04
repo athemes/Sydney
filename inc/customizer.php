@@ -173,6 +173,27 @@ function sydney_customize_register( $wp_customize ) {
             'panel'         => 'sydney_header_panel',
         )
     );
+    //Mobile slider
+    $wp_customize->add_setting(
+        'mobile_slider',
+        array(
+            'default'           => 'responsive',
+            'sanitize_callback' => 'sydney_sanitize_mslider',
+        )
+    );
+    $wp_customize->add_control(
+        'mobile_slider',
+        array(
+            'type'        => 'radio',
+            'label'       => __('Slider mobile behavior', 'sydney'),
+            'section'     => 'sydney_slider',
+            'priority'    => 99,
+            'choices' => array(
+                'fullscreen'    => __('Full screen', 'sydney'),
+                'responsive'    => __('Responsive', 'sydney'),
+            ),
+        )
+    );    
     //Speed
     $wp_customize->add_setting(
         'slider_speed',
@@ -1418,8 +1439,6 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
-
-
     //Menu items hover
     $wp_customize->add_setting(
         'menu_items_hover',
@@ -1439,8 +1458,6 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
-
-
 
     //Sub menu items color
     $wp_customize->add_setting(
@@ -1774,6 +1791,18 @@ function sydney_sanitize_blog( $input ) {
         'fullwidth'  => __( 'Full width (no sidebar)', 'sydney' ),
         'masonry-layout'    => __( 'Masonry (grid style)', 'sydney' )
 
+    );
+    if ( array_key_exists( $input, $valid ) ) {
+        return $input;
+    } else {
+        return '';
+    }
+}
+//Mobile slider
+function sydney_sanitize_mslider( $input ) {
+    $valid = array(
+        'fullscreen'    => __('Full screen', 'sydney'),
+        'responsive'    => __('Responsive', 'sydney'),
     );
     if ( array_key_exists( $input, $valid ) ) {
         return $input;

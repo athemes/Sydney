@@ -4,7 +4,7 @@ Theme URI: http://athemes.com/theme/sydney
 Author: aThemes
 Author URI: http://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.36
+Version: 1.38
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -1699,26 +1699,6 @@ Bottom
 Preloader
 --------------------------------------------------------------*/
 
-	@keyframes hidePreloader {
-		0%{
-			opacity:1;
-		}
-		100%{
-			opacity:0;
-			left: -999em;
-			z-index: -300;
-		}
-	}
-	@-webkit-keyframes hidePreloader {
-		0%{
-			opacity:1;
-		}
-		100%{
-			opacity:0;
-			left: -999em;
-			z-index: -300;
-		}
-	}
 	.preloader {
 	    background: none repeat scroll 0 0 #fff;
 	    height: 100%;
@@ -1727,15 +1707,7 @@ Preloader
 	    text-align: center;
 	    transition: opacity 0.2s ease 0s;
 	    width: 100%;
-	    z-index: 9999;
-		-webkit-animation-duration: 1.5s;
-		animation-duration: 1.5s;
-		-webkit-animation-delay: 0.2s;
-		animation-delay: 0.2s;
-		-webkit-animation-fill-mode: forwards;
-		animation-fill-mode: forwards;
-		-webkit-animation-name: hidePreloader;
-		animation-name: hidePreloader;	    
+	    z-index: 9999;	    
 	}
 	.preloader .spinner {
 	    height: 30px;
@@ -3102,9 +3074,6 @@ Panels
 	}
 	/* Smaller than standard 980 */
 	@media only screen and (max-width: 991px) {
-		.site-header.fixed {
-			position: static !important;
-		}
 		.parallax {
 			background-size: cover;
 			background-attachment: scroll;
@@ -3164,6 +3133,9 @@ Panels
 		}  				
 	}
 	@media only screen and (max-width: 1024px) {
+		.site-header.fixed {
+			position: static !important;
+		}		
 		.slides-container .slide-item,
 		.panel-row-style {
 			background-attachment: scroll !important;
@@ -3377,21 +3349,3 @@ Panels
 	.sydney-hero-area {
 		overflow: hidden;
 	}
-
-	@media screen and (max-width: 1025px) {
-		.mobile-slide {
-			display: block;
-		}
-		.slide-item {
-			background-image: none !important;
-		}
-		.header-slider {
-		}
-		.slide-item {
-			height: auto !important;
-		}
-		.slide-inner {
-			min-height: initial;
-		}
-	}
-

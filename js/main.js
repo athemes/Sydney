@@ -66,12 +66,16 @@
 			});
 		}
 
-		$(document).ready(sliderHeight);
-		$(window).resize(function() {   
-			setTimeout(function() {
-			    sliderHeight();
-			}, 50);
-		});
+		if ($('#slideshow').data('mobileslider') === 'responsive') {
+
+			$(document).ready(sliderHeight);
+			$(window).resize(function() {   
+				setTimeout(function() {
+				    sliderHeight();
+				}, 50);
+			});
+		}
+
 
 		$(function() {
 			$('.mainnav a[href*="#"], a.roll-button[href*="#"], .smoothscroll[href*="#"]').on('click',function (e) {
@@ -397,6 +401,11 @@
 		});		
 	} 
 
+  	var removePreloader = function() {
+    	$('.preloader').css('opacity', 0);
+    	setTimeout(function(){$('.preloader').hide();}, 600);
+  	}	
+
   var portfolioIsotope = function(){
 
     if ( $('.project-wrap').length ) {
@@ -476,5 +485,6 @@
     	portfolioIsotope();
     	videoButtons();
     	headerClone();
+    	removePreloader();		
    	});
 })(jQuery);
