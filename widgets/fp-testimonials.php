@@ -44,35 +44,16 @@ class Sydney_Testimonials extends WP_Widget {
 		$instance['see_all_text'] 	= strip_tags($new_instance['see_all_text']);
 		$instance['category'] 		= strip_tags($new_instance['category']);
 		$instance['autoplay'] 		= absint($new_instance['autoplay']);
-		
-		$alloptions = wp_cache_get( 'alloptions', 'options' );
-		if ( isset($alloptions['sydney_testimonials']) )
-			delete_option('sydney_testimonials');		  
-		  
+
 		return $instance;
 	}
 
 	// display widget
 	function widget($args, $instance) {
-		$cache = array();
-		if ( ! $this->is_preview() ) {
-			$cache = wp_cache_get( 'sydney_testimonials', 'widget' );
-		}
-
-		if ( ! is_array( $cache ) ) {
-			$cache = array();
-		}
-
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
 
-		if ( isset( $cache[ $args['widget_id'] ] ) ) {
-			echo $cache[ $args['widget_id'] ];
-			return;
-		}
-
-		ob_start();
 		extract($args);
 
 		$title 			= ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
@@ -133,12 +114,6 @@ class Sydney_Testimonials extends WP_Widget {
 		echo $args['after_widget'];
 		wp_reset_postdata();
 		endif;
-		if ( ! $this->is_preview() ) {
-			$cache[ $args['widget_id'] ] = ob_get_flush();
-			wp_cache_set( 'sydney_testimonials', $cache, 'widget' );
-		} else {
-			ob_end_flush();
-		}
 	}
 	
 }

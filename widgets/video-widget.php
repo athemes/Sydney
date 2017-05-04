@@ -46,33 +46,14 @@ class Sydney_Video_Widget extends WP_Widget {
 			$instance['text'] = wp_kses_post( $new_instance['text'] );
 		}
 
-		$alloptions = wp_cache_get( 'alloptions', 'options' );
-		if ( isset($alloptions['sydney_video_widget']) )
-			delete_option('sydney_video_widget');		  
-		  
 		return $instance;
 	}
 	
 	function widget($args, $instance) {
-		$cache = array();
-		if ( ! $this->is_preview() ) {
-			$cache = wp_cache_get( 'sydney_video_widget', 'widget' );
-		}
-
-		if ( ! is_array( $cache ) ) {
-			$cache = array();
-		}
-
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
 
-		if ( isset( $cache[ $args['widget_id'] ] ) ) {
-			echo $cache[ $args['widget_id'] ];
-			return;
-		}
-
-		ob_start();
 		extract($args);
 
 		$title 	= ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
@@ -95,13 +76,6 @@ class Sydney_Video_Widget extends WP_Widget {
 		}
 		echo $after_widget;
 
-
-		if ( ! $this->is_preview() ) {
-			$cache[ $args['widget_id'] ] = ob_get_flush();
-			wp_cache_set( 'sydney_video_widget', $cache, 'widget' );
-		} else {
-			ob_end_flush();
-		}
 	}
 	
 }	

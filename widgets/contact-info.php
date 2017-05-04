@@ -39,34 +39,14 @@ class Sydney_Contact_Info extends WP_Widget {
 		$instance['address'] = strip_tags($new_instance['address']);
 		$instance['phone'] = strip_tags($new_instance['phone']);
 		$instance['email'] = sanitize_email($new_instance['email']);
-
-		$alloptions = wp_cache_get( 'alloptions', 'options' );
-		if ( isset($alloptions['sydney_contact_info']) )
-			delete_option('sydney_contact_info');		  
-		  
+	  
 		return $instance;
 	}
 		
 	function widget($args, $instance) {
-		$cache = array();
-		if ( ! $this->is_preview() ) {
-			$cache = wp_cache_get( 'sydney_contact_info', 'widget' );
-		}
-
-		if ( ! is_array( $cache ) ) {
-			$cache = array();
-		}
-
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
-
-		if ( isset( $cache[ $args['widget_id'] ] ) ) {
-			echo $cache[ $args['widget_id'] ];
-			return;
-		}
-
-		ob_start();
 		extract($args);
 
 		$title 		= ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
@@ -97,13 +77,6 @@ class Sydney_Contact_Info extends WP_Widget {
 
 		echo $after_widget;
 
-
-		if ( ! $this->is_preview() ) {
-			$cache[ $args['widget_id'] ] = ob_get_flush();
-			wp_cache_set( 'sydney_contact_info', $cache, 'widget' );
-		} else {
-			ob_end_flush();
-		}
 	}
 	
 }	

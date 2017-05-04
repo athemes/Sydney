@@ -4,7 +4,7 @@ Theme URI: http://athemes.com/theme/sydney
 Author: aThemes
 Author URI: http://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.38
+Version: 1.39
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -1854,6 +1854,11 @@ Panels
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 	}
+	/* SO post carousel fix */	
+	.sow-carousel-thumbnail .overlay {
+	    position: static;
+	    height: 100% !important;
+	}		
 /* Counter
 -------------------------------------------------------------- */
 	.roll-counter {
@@ -2342,6 +2347,10 @@ Panels
 		margin: 0;
 		border: 0;
 	}
+	.hentry .roll-testimonials blockquote {
+		background-color: transparent;
+		color: inherit;
+	}	
 	.roll-testimonials .name {
 		font-family: "Raleway", sans-serif;
 		font-size: 18px;
@@ -3238,7 +3247,13 @@ Panels
 			width: 50%;
 		}
 		.roll-counter {
-			margin-bottom: 50px;
+			margin-bottom: 30px;
+		}
+		.sydney_facts_widget .col-md-3:last-of-type .roll-counter {
+			margin-bottom: 0;
+		}
+		.roll-counter .name-count {
+			padding: 5px 0;
 		}
 		.single-post .author-post .author-avatar {
 			float: none;
@@ -3295,6 +3310,14 @@ Panels
 			display: none;
 		}
 	}
+	@media only screen and (max-width: 600px) {
+		.roll-client .client-item {
+			padding: 5px;
+			margin: 0;
+			width: 32.5%;
+		}
+	}
+
 	/* Mobile Portrait Size */
 	@media only screen and (max-width: 479px) {
 		.roll-project.fullwidth .project-item {

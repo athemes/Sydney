@@ -45,3 +45,8 @@ function sydney_set_after_import_mods() {
 
 }
 add_action( 'pt-ocdi/after_import', 'sydney_set_after_import_mods' );
+
+/**
+* Remove branding
+*/
+add_filter( 'pt-ocdi/disable_pt_branding', '__return_true' );

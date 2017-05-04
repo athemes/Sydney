@@ -16,11 +16,6 @@ class Sydney_Portfolio extends WP_Widget {
 
   public function widget( $args, $instance ) {
 
-    $cache = array();
-    if ( ! $this->is_preview() ) {
-    	$cache = wp_cache_get( 'sydney_portfolio', 'widget' );
-    }
-
     $title 		     = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
     $number         = ( ! empty( $instance['number'] ) ) ? intval( $instance['number'] ) : -1;
     $includes       = isset($instance['includes']) ? $instance['includes'] : '';
@@ -140,10 +135,6 @@ class Sydney_Portfolio extends WP_Widget {
     $instance['show_filter']    = is_null( $new_instance['show_filter'] ) ? 0 : 1;
 		$instance['show_project_title'] = is_null( $new_instance['show_project_title'] ) ? 0 : 1;
     $instance['show_all_text']  = sanitize_text_field($new_instance['show_all_text']);
-
-    $alloptions = wp_cache_get( 'alloptions', 'options' );
-    if ( isset($alloptions['sydney_portfolio_widget']) )
-    	delete_option('sydney_portfolio_widget');
 
     return $instance;
   }

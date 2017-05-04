@@ -161,7 +161,7 @@ function sydney_scripts() {
 
 	wp_enqueue_style( 'sydney-fonts', esc_url( sydney_google_fonts() ), array(), null );
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20170329' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20170504' );
 
 	wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
 
@@ -170,7 +170,7 @@ function sydney_scripts() {
 
 	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
-	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'20170329', true );
+	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'20170504', true );
 
 	wp_enqueue_script( 'sydney-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 

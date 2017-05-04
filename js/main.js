@@ -267,10 +267,9 @@
 	var counter = function() {
 		$('.roll-counter').on('on-appear', function() {
 			$(this).find('.numb-count').each(function() {
+				var to = parseInt($(this).attr('data-to'));
 				$(this).countTo({
-					formatter: function (value) {
-      					return Number(value).toLocaleString();
-    				},
+					to: to,
 				});
 			});
 		}); //counter
