@@ -83,7 +83,7 @@ class Sydney_Latest_News extends WP_Widget {
 		<?php $cat = get_term_by('slug', $category, 'category') ?>
 		<?php if ($category) : //Link to the category page instead of blog page if a category is selected ?>
 			<a href="<?php echo esc_url(get_category_link(get_cat_ID($cat -> name))); ?>" class="roll-button more-button"><?php echo $see_all_text; ?></a>
-		<?php else : ?>
+		<?php elseif ( get_option( 'page_for_posts' ) ) : ?>
 			<a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="roll-button more-button"><?php echo $see_all_text; ?></a>
 		<?php endif; ?>		
 	<?php
