@@ -3062,6 +3062,27 @@ Panels
 	background-color: #46444c;
 	color: #fff;
 }
+
+/*--------------------------------------------------------------
+Elementor and Beaver Builder
+--------------------------------------------------------------*/
+.page-template-page_front-page.elementor-page .page-wrap .content-wrapper,
+.page-template-page_front-page.fl-builder .page-wrap .content-wrapper {
+	width: 100%;
+	padding: 0 15px;
+}
+.fl-widget .widgettitle,
+div[class*="elementor-widget-wp-widget-sydney"] h5 {
+	text-align: center;
+	margin-bottom: 50px;
+	position: relative;
+	font-weight: 600;
+	line-height: normal;
+	text-transform: uppercase;
+	padding-bottom: 10px;
+	font-size: 32px;
+}
+
 /* Media Queries
 -------------------------------------------------------------- */
 	@media only screen and (min-width: 1930px) {
