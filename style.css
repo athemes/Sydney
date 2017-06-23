@@ -2959,7 +2959,69 @@ Panels
 	.roll-team .team-content .name {
 		color: #d65050;
 	}
-
+/* Woocommerce basic - full styles in wc.css
+-------------------------------------------------------------- */
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+	background-color: #d65050;
+}
+.cart-contents {
+	position: relative;
+}
+.cart-contents .fa,
+.header-account .fa {
+	font-size: 18px;
+}
+.cart-amount {
+    background-color: #d65050;
+    font-size: 12px;
+    display: block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 50%;
+    top: -10px;
+    position: absolute;
+    color: #fff;
+    right: -18px;
+    text-align: center;
+}
+.woocommerce ul.products li.product .woocommerce-LoopProduct-link p {
+	color: #767676;
+}
+ol.flex-control-nav.flex-control-thumbs {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0 -3px;
+}
+ol.flex-control-nav.flex-control-thumbs li img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+   cursor: pointer;
+}
+ol.flex-control-nav.flex-control-thumbs li {
+    width: 33.333%;
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+}
+ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
+    opacity: 0.6;
+}
+.woocommerce ul#shipping_method {
+	display: table;
+	margin: 0 auto;
+	text-align: left;
+}
+.woocommerce ul#shipping_method li {
+	padding: 0;
+}
 /* Core video
 -------------------------------------------------------------- */
 .wp-custom-header video {
