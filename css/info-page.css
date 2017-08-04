@@ -1,10 +1,9 @@
 .info-container {
 	background-color: #fff;
 	margin-right: 20px;
-	padding: 60px 30px 90px;
+	padding: 30px;
 	margin-top: 20px;
 	border: 1px solid #e5e5e5;
-	text-align: center;
 }
 .info-container::before,
 .info-container::after {
@@ -14,28 +13,77 @@
 }
 .info-title {
 	margin: 0 0 45px;
-	text-transform: uppercase;
 }
-.info-icon {
-	font-size: 34px;
-	width: auto;
-	height: auto;
+
+.hello-user {
+	font-size: 18px;
+	color: #bcbfc4;	
 }
-.info-text {
-	text-transform: uppercase;
+.hello-user span {
 }
-.info-text a {
-	color: #444;
-	text-decoration: none;
+.welcome-desc {
+	font-size: 16px;
+    max-width: 600px;
 }
-.info-text a:hover {
-	color: #00b9eb;
+.sydney-theme-tabs {
+	margin-top: 45px;
 }
-.info-block {
-	float: left;
+.sydney-tab {
+	display: none;
+	padding: 30px 10px;
+}
+.sydney-tab.show {
+	display: block;
+}
+.sydney-tab-nav .nav-button {
+	font-size: 18px;
+}
+.sydney-tab-nav a:active,
+.sydney-tab-nav a:focus {
+	box-shadow: none;
+}
+.sydney-tab-nav .nav-button.active {
+	background-color: transparent;
+	border-bottom: 1px solid #fff;
+	margin-bottom: -1px;
+}
+.nav-tab:first-of-type {
+	margin-left: 0;
+}
+.tab-column {
 	width: 45%;
-	border: 1px solid #eaeaea;
-    padding: 25px 15px 15px;
-    margin: 1%;
-    background-color: #f7f7f7;
+}
+.tab-column:first-of-type {
+	float: left;
+}
+.tab-column:last-of-type {
+	float: right;
+}
+.sydney-tab.support .dashicons {
+    display: block;
+    font-size: 32px;
+    height: auto;
+    width: auto;
+    text-align: left;
+}
+.sydney-tab.table table {
+	border-collapse: collapse;
+}
+.sydney-tab.table th,
+.sydney-tab.table td {
+	border: 1px solid #ebebeb;
+	padding: 20px;
+	text-align: center;
+}
+.sydney-tab .dash-green {
+	color: #5ad15a;
+    font-size: 28px;
+    height: auto;
+    width: auto;
+}
+.sydney-tab .dash-red {
+	color: #fc6f6f;
+    font-size: 28px;
+    height: auto;
+    width: auto;	
 }

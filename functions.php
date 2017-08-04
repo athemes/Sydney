@@ -317,6 +317,24 @@ function sydney_header_clone() {
 add_action('sydney_before_header', 'sydney_header_clone');
 
 /**
+ * Get image alt
+ */
+function sydney_get_image_alt( $image ) {
+    global $wpdb;
+
+    if( empty( $image ) ) {
+        return false;
+    }
+
+    $attachment  = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%s';", strtolower( $image ) ) );
+    $id   = ( ! empty( $attachment ) ) ? $attachment[0] : 0;
+
+    $alt = get_post_meta( $id, '_wp_attachment_image_alt', true );
+
+    return $alt;
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -401,3 +419,25 @@ function sydney_recommend_plugin() {
     tgmpa( $plugins);
 
 }
+
+/**
+ * Admin notice
+ */
+require get_template_directory() . '/inc/notices/persist-admin-notices-dismissal.php';
+
+function sydney_welcome_admin_notice() {
+	if ( ! PAnD::is_admin_notice_active( 'sydney-welcome-forever' ) ) {
+		return;
+	}
+	
+	?>
+	<div data-dismissible="sydney-welcome-forever" class="sydney-admin-notice updated notice notice-success is-dismissible">
+
+		<p><?php echo sprintf( __( 'Welcome to Sydney. To get started please make sure to visit our <a href="%s">welcome page</a>.' ), admin_url( 'themes.php?page=sydney-info.php' ) ); ?></p>
+		<a class="button" href="<?php echo admin_url( 'themes.php?page=sydney-info.php' ); ?>"><?php esc_html_e( 'Get started with Sydney', 'sydney' ); ?></a>
+
+	</div>
+	<?php
+}
+add_action( 'admin_init', array( 'PAnD', 'init' ) );
+add_action( 'admin_notices', 'sydney_welcome_admin_notice' );

@@ -65,9 +65,11 @@ function sydney_slider_template() {
         <?php $c = 1; ?>
         <?php foreach ( $images as $image ) {
         	if ( $image ) {
+
+                $image_alt = sydney_get_image_alt( $image );
         		?>
                 <div class="slide-item" style="background-image:url('<?php echo esc_url( $image ); ?>');">
-                    <img class="mobile-slide preserve" src="<?php echo esc_url( $image ); ?>"/>
+                    <img class="mobile-slide preserve" src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>"/>
                     <div class="slide-inner">
                         <div class="contain animated fadeInRightBig text-slider">
                         <h2 class="maintitle"><?php echo esc_html( $titles['slider_title_' . $c] ); ?></h2>
