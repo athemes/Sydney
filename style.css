@@ -152,7 +152,45 @@ Navigation
 	padding-right: 15px;
 }
 .post-navigation {
-	margin: 30px 0;
+	margin: 30px 0 45px;
+	background-color: #f7f7f7;
+	padding: 30px;
+	position: relative;
+}
+.post-navigation a {
+	color: #47425d;
+}
+.post-navigation .nav-previous:hover span,
+.post-navigation .nav-next:hover span {
+	color: #47425d;
+}
+.post-navigation span {
+	color: #c7c7c7;
+	transition: color 0.3s;
+}
+.post-navigation .nav-previous span {
+	margin-right: 10px;
+}
+.post-navigation .nav-previous {
+	border-right: 1px solid #ebebeb;
+}
+.post-navigation .nav-next span {
+	margin-left: 10px;
+}
+.navigation.pagination {
+	margin-top: 30px;
+}
+.nav-links .page-numbers {
+    background-color: #f7f7f7;
+    padding: 20px;
+    line-height: 1;
+    display: inline-block;
+    color: #443f3f;
+}
+.nav-links .page-numbers:not(.dots):hover,
+.nav-links .page-numbers.current {
+    background-color: #252525;
+    color: #fff;
 }
 /*--------------------------------------------------------------
 Accessibility
