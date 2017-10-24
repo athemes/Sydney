@@ -78,7 +78,7 @@
 
 
 		$(function() {
-			$('.mainnav a[href*="#"], a.roll-button[href*="#"], .smoothscroll[href*="#"]').on('click',function (e) {
+			$('.mainnav a[href*="#"], a.roll-button[href*="#"], .smoothscroll[href*="#"], .smoothscroll a[href*="#"]').on('click',function (e) {
 			    var target = this.hash;
 			    var $target = $(target);
 
