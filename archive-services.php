@@ -19,9 +19,13 @@ get_header(); ?>
 				<?php $link = get_post_meta( get_the_ID(), 'wpcf-service-link', true ); ?>
 				<div class="service col-md-4">
 					<div class="roll-icon-box">
-						<?php if ($icon) : ?>			
+						<?php if ($icon) : ?>
 						<div class="icon">
-							<?php echo '<i class="fa ' . esc_html($icon) . '"></i>'; ?>
+						<?php if ($link) : ?>
+							<?php echo '<a href="' . esc_url( $link ) . '"><i class="fa ' . esc_html( $icon ) . '"></i></a>'; ?>
+						<?php else : ?>
+							<?php echo '<i class="fa ' . esc_html( $icon ) . '"></i>'; ?>
+						<?php endif; ?>
 						</div>
 						<?php endif; ?>							
 						<div class="content">
@@ -38,7 +42,11 @@ get_header(); ?>
 				</div>
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
+		<?php
+			the_posts_pagination( array(
+				'mid_size'  => 1,
+			) );
+		?>
 
 		<?php else : ?>
 

@@ -55,8 +55,12 @@ get_header(); ?>
 			</div><!-- /.team-item -->
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
-
+			<?php
+				the_posts_pagination( array(
+					'mid_size'  => 1,
+				) );
+			?>
+		
 		<?php else : ?>
 
 			<?php get_template_part( 'content', 'none' ); ?>

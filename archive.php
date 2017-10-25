@@ -7,11 +7,15 @@
  * @package Sydney
  */
 
-get_header(); ?>
+get_header(); 
+
+$layout = sydney_blog_layout();
+
+?>
 
 	<?php do_action('sydney_before_content'); ?>
 
-	<div id="primary" class="content-area col-md-9 <?php echo sydney_blog_layout(); ?>">
+	<div id="primary" class="content-area col-md-9 <?php echo esc_attr( $layout ); ?>">
 		<main id="main" class="post-wrap" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -27,11 +31,11 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
+					if ( $layout != 'classic-alt' ) {
+						get_template_part( 'content', get_post_format() );
+					} else {
+						get_template_part( 'content', 'classic-alt' );
+					}
 				?>
 
 			<?php endwhile; ?>
@@ -55,7 +59,7 @@ get_header(); ?>
 	<?php do_action('sydney_after_content'); ?>
 
 <?php 
-	if ( get_theme_mod('blog_layout','classic') == 'classic' ) :
+	if ( ( $layout == 'classic-alt' ) || ( $layout == 'classic' ) ) :
 	get_sidebar();
 	endif;
 ?>

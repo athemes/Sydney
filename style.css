@@ -4,7 +4,7 @@ Theme URI: http://athemes.com/theme/sydney
 Author: aThemes
 Author URI: http://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.41
+Version: 1.42
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -296,6 +296,16 @@ Content
 	padding-bottom: 0;
 	background-color: transparent;
 }
+.single .meta-post .post-cat::before {
+	content: '/';
+	padding: 0 10px;
+}
+.single .meta-post .post-cat:first-of-type::before {
+	content: '';
+}
+.single .hentry .meta-post a {
+	color: #d65050;
+}
 /*--------------------------------------------------------------
 Asides
 --------------------------------------------------------------*/
@@ -434,6 +444,9 @@ Repeatable Patterns
 			-ms-transition: all 0.3s ease-in-out;
 			 -o-transition: all 0.3s ease-in-out;
 				transition: all 0.3s ease-in-out;
+	}
+	p {
+		margin-bottom: 20px;
 	}
 	.footer-widgets .widget ul,
 	.widget-area .widget ul {
@@ -636,7 +649,7 @@ Header
 		max-height: 100px;
 	}
 	.site-header {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -1066,7 +1079,9 @@ Layout
 		padding: 83px 0 100px;
 		clear: both;
 	}
-	.page-template-page_front-page .page-wrap {
+	.page-template-page_front-page .page-wrap,
+	.projects-template-post_full .page-wrap,
+	.projects-template-post_full .page-wrap .content-wrapper {
 		padding: 0;
 	}
 	.entry-page p,
@@ -1277,7 +1292,7 @@ Blog
 		margin-bottom: 30px;
 	}
 	.hentry .title-post {
-		font-size: 20px;
+		font-size: 36px;
 		font-weight: 600;
 		line-height: normal;
 		padding-bottom: 10px;
@@ -1380,6 +1395,57 @@ Blog
 	.blog-pagination ul li:hover a {
 		color: #fff;
 	}
+	/* Classic alternative layout */
+	.classic-alt.content-area .hentry:after {
+		display: none;
+	}
+	.classic-alt .hentry {
+		border-bottom: 1px solid #ebebeb;
+	}
+	.classic-alt .hentry:last-of-type {
+		border-bottom: 0;
+	}
+	.classic-alt .entry-header {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.classic-alt .entry-title {
+		font-size: 36px;
+		font-weight: 500;
+	}
+	.classic-alt .entry-title a {
+		color: #47425d;
+	}
+	.classic-alt .meta-post {
+		margin-bottom: 10px;
+	}
+	.single .meta-post a,
+	.classic-alt .meta-post a {
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		font-size: 13px;
+	}
+	.single-meta,
+	.single-meta a,
+	.classic-alt .posted-on,
+	.classic-alt .posted-on a {
+		color: #68647a;
+	}
+	.single .single-meta,
+	.classic-alt .posted-on {
+		text-decoration: underline;
+		text-transform: uppercase;
+		font-size: 13px;
+	}
+	.single .single-meta {
+		display: table;
+	}
+	.single-meta .byline {
+		padding-left: 10px;
+	}
+	.classic-alt .meta-post a {
+		color: #d65050;
+	}	
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
@@ -1527,6 +1593,18 @@ Blog single
 		line-height: 25px;
 		color: #ccc;
 	}
+	.tags-links a {
+		display: inline-block;
+		background-color: #f7f7f7;
+		padding: 8px 30px;
+		color: #47425d;
+		margin: 0 5px;
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+	.tags-links a:first-of-type {
+		margin-left: 0;
+	}	
 	/* comment post */
 /*--------------------------------------------------------------
 Comments
@@ -1558,28 +1636,40 @@ Comments
 	margin-left: 80px;
 }
 .comment-metadata {
-	font-size: 12px;
-	margin-bottom: 30px;
+	font-size: 13px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+.comment-form .form-submit {
+    margin-top: 30px;
 }
 .comment-body {
-	padding: 15px;
+	padding: 15px 0;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #f3f3f3;
 	background-color: #fff;
 }
 .reply {
-	text-align: right;
+	margin-left: 80px;
+	background-color: #e64e4e;
+	display: table;
+	margin-top: 15px;
 }
 .comment-reply-link {
-	padding: 5px;
-	font-size: 12px;
+	padding: 8px 22px;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1;
+	font-weight: 600;
+	display: table;
 }
 .comment-meta a {
 	color: #c7c7c7;
 }
 .comments-area a.url {
 	color: #505050;
-	text-decoration: underline;
+	text-decoration: none;
 }
 .bypostauthor {
 }
@@ -1592,6 +1682,9 @@ Comments
 }
 .form-submit input {
 	width: auto;
+}
+.comment-content {
+	margin-left: 80px;
 }
 /*--------------------------------------------------------------
 Portfolio single

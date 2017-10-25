@@ -230,7 +230,7 @@ add_filter( 'excerpt_length', 'sydney_excerpt_length', 999 );
  * Blog layout
  */
 function sydney_blog_layout() {
-	$layout = get_theme_mod('blog_layout','classic');
+	$layout = get_theme_mod('blog_layout','classic-alt');
 	return $layout;
 }
 
@@ -353,6 +353,10 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+function sydney_load_multiple_checkbox() {
+    require_once( trailingslashit( get_template_directory() ) . 'inc/controls/control-checkbox-multiple.php' );
+}
+add_action( 'customize_register', 'sydney_load_multiple_checkbox', 0 );
 
 /**
  * Load Jetpack compatibility file.
@@ -433,7 +437,7 @@ function sydney_welcome_admin_notice() {
 	?>
 	<div data-dismissible="sydney-welcome-forever" class="sydney-admin-notice updated notice notice-success is-dismissible">
 
-		<p><?php echo sprintf( __( 'Welcome to Sydney. To get started please make sure to visit our <a href="%s">welcome page</a>.' ), admin_url( 'themes.php?page=sydney-info.php' ) ); ?></p>
+		<p><?php echo sprintf( __( 'Welcome to Sydney. To get started please make sure to visit our <a href="%s">welcome page</a>.', 'sydney' ), admin_url( 'themes.php?page=sydney-info.php' ) ); ?></p>
 		<a class="button" href="<?php echo admin_url( 'themes.php?page=sydney-info.php' ); ?>"><?php esc_html_e( 'Get started with Sydney', 'sydney' ); ?></a>
 
 	</div>

@@ -51,8 +51,8 @@ function sydney_post_navigation() {
 		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'sydney' ); ?></h2>
 		<div class="nav-links clearfix">
 			<?php
-				previous_post_link( '<div class="nav-previous"><i class="fa fa-long-arrow-left"></i> %link</div>', '%title' );
-				next_post_link( '<div class="nav-next">%link <i class="fa fa-long-arrow-right"></i></div>', '%title' );
+				previous_post_link( '<div class="nav-previous"><span>&#10229;</span>%link</div>', '%title' );
+				next_post_link( '<div class="nav-next">%link<span>&#10230;</span></div>', '%title' );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -78,7 +78,7 @@ function sydney_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'sydney' ),
+		_x( 'Posted %s', 'post date', 'sydney' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
@@ -96,7 +96,7 @@ function sydney_posted_on() {
 	}
 
 	$categories_list = get_the_category_list( __( ', ', 'sydney' ) );
-	if ( $categories_list && sydney_categorized_blog() ) {
+	if ( !is_single() && $categories_list && sydney_categorized_blog() ) {
 		printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'sydney' ) . '</span>', $categories_list );
 	}
 }
@@ -110,9 +110,9 @@ function sydney_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'sydney' ) );
+		$tags_list = get_the_tag_list( '', __( '', 'sydney' ) );
 		if ( $tags_list && is_single() ) {
-			printf( '<span class="tags-links"><i class="fa fa-tags"></i>' . __( ' %1$s', 'sydney' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . __( ' %1$s', 'sydney' ) . '</span>', $tags_list );
 		}
 	}
 	edit_post_link( __( 'Edit', 'sydney' ), '<span class="edit-link">', '</span>' );
@@ -256,3 +256,47 @@ function sydney_category_transient_flusher() {
 }
 add_action( 'edit_category', 'sydney_category_transient_flusher' );
 add_action( 'save_post',     'sydney_category_transient_flusher' );
+
+/**
+ * Post date
+ */
+function sydney_post_date() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+	}
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+	$posted_on = sprintf(
+		/* translators: %s: post date. */
+		esc_html_x( 'Posted on %s', 'post date', '_s' ),
+		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+	);
+	echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+}
+
+/**
+ * First category
+ */
+function sydney_get_first_cat() {
+	if ( 'post' === get_post_type() ) {
+		$cats = get_the_category();
+		echo '<a href="' . esc_url( get_category_link( $cats[0]->term_id ) ) . '" title="' . esc_attr( $cats[0]->name ) . '" class="post-cat">' . esc_html( $cats[0]->name ) . '</a>';
+	}
+}
+
+/**
+ * Get all post categories
+ */
+function sydney_all_cats() {
+	$categories = get_the_category();
+	if ( $categories && sydney_categorized_blog() ) {
+		foreach ($categories as $cat) {
+			echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '" title="' . esc_attr( $cat->name ) . '" class="post-cat">' . esc_html( $cat->name ) . '</a>';
+		}
+	}
+}

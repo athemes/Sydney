@@ -100,6 +100,34 @@ function sydney_customize_register( $wp_customize ) {
             ),            
         )
     );
+    //Include CPTs in regular archives
+    $wp_customize->add_setting(
+        'sydney_include_cpts_archives',
+        array(
+            'default'           => array(),
+            'sanitize_callback' => 'sydney_sanitize_cpts_archives'
+        )
+    );
+    $wp_customize->add_control(
+        new Sydney_Customize_Control_Checkbox_Multiple(
+            $wp_customize,
+            'sydney_include_cpts_archives',
+            array(
+                'section'       => 'sydney_general',
+                'label'         => __( 'Include CPTs in archives', 'sydney' ),
+                'description'   => __( 'Check the boxes below if you would like to include custom post types in regular archives.', 'sydney' ),
+                'priority'      => 11,
+                'choices'       => array(
+                    'projects'      => __( 'Projects', 'sydney' ),
+                    'employees'     => __( 'Employees', 'sydney' ),
+                    'services'      => __( 'Services', 'sydney' ),
+                    'clients'       => __( 'Clients', 'sydney' ),
+                    'testimonials'  => __( 'Testimonials', 'sydney' )
+                )
+            )
+        )
+    );
+
     //___Header area___//
     $wp_customize->add_panel( 'sydney_header_panel', array(
         'priority'       => 10,
@@ -766,7 +794,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'blog_layout',
         array(
-            'default'           => 'classic',
+            'default'           => 'classic-alt',
             'sanitize_callback' => 'sydney_sanitize_blog',
         )
     );
@@ -779,6 +807,7 @@ function sydney_customize_register( $wp_customize ) {
             'priority'  => 11,
             'choices'   => array(
                 'classic'           => __( 'Classic', 'sydney' ),
+                'classic-alt'       => __( 'Classic (alternative)', 'sydney' ),
                 'fullwidth'         => __( 'Full width (no sidebar)', 'sydney' ),
                 'masonry-layout'    => __( 'Masonry (grid style)', 'sydney' )
             ),
@@ -1294,7 +1323,7 @@ function sydney_customize_register( $wp_customize ) {
         'body_size',
         array(
             'sanitize_callback' => 'absint',
-            'default'           => '14',
+            'default'           => '16',
         )       
     );
     $wp_customize->add_control( 'body_size', array(
@@ -1308,7 +1337,25 @@ function sydney_customize_register( $wp_customize ) {
             'step'  => 1,
         ),
     ) );
-
+    // Single post tiles
+    $wp_customize->add_setting(
+        'single_post_title_size',
+        array(
+            'sanitize_callback' => 'absint',
+            'default'           => '36',
+        )       
+    );
+    $wp_customize->add_control( 'single_post_title_size', array(
+        'type'        => 'number',
+        'priority'    => 24,
+        'section'     => 'sydney_fonts',
+        'label'       => __('Single post title size', 'sydney'),
+        'input_attrs' => array(
+            'min'   => 10,
+            'max'   => 90,
+            'step'  => 1,
+        ),
+    ) ); 
     //___Colors___//
     $wp_customize->add_panel( 'sydney_colors_panel', array(
         'priority'       => 19,
@@ -1541,7 +1588,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'body_text_color',
         array(
-            'default'           => '#767676',
+            'default'           => '#47425d',
             'sanitize_callback' => 'sanitize_hex_color',
             'transport'         => 'postMessage'
         )
@@ -1788,6 +1835,7 @@ function sydney_sanitize_sticky( $input ) {
 function sydney_sanitize_blog( $input ) {
     $valid = array(
         'classic'    => __( 'Classic', 'sydney' ),
+        'classic-alt'    => __( 'Classic (alternative)', 'sydney' ),
         'fullwidth'  => __( 'Full width (no sidebar)', 'sydney' ),
         'masonry-layout'    => __( 'Masonry (grid style)', 'sydney' )
 
@@ -1829,6 +1877,13 @@ function sydney_sanitize_checkbox( $input ) {
     } else {
         return '';
     }
+}
+//Checkboxes
+function sydney_sanitize_cpts_archives( $values ) {
+
+    $multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;
+
+    return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
 }
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

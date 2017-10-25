@@ -69,3 +69,22 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	}
 	add_action( 'wp_head', 'sydney_render_title' );
 endif;
+
+/**
+ * Include custom post types in archives
+ */
+function sydney_include_cpts_in_archives( $query ) {
+
+	$cpts = get_theme_mod( 'sydney_include_cpts_archives', array() );
+
+	$posts[] = 'post';
+
+	foreach ( $cpts as $cpt ) {
+		$posts[] = $cpt;
+	}
+	
+    if ( $query->is_main_query() && !is_admin() && $query->is_archive() ) {
+        $query->set('post_type', $posts );
+    }
+}
+add_action( 'pre_get_posts', 'sydney_include_cpts_in_archives' );
