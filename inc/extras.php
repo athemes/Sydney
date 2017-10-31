@@ -88,3 +88,15 @@ function sydney_include_cpts_in_archives( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'sydney_include_cpts_in_archives' );
+
+
+/**
+ * Support for Yoast SEO breadcrumbs
+ */
+function sydney_yoast_seo_breadcrumbs() {
+	if ( function_exists('yoast_breadcrumb') ) {
+		yoast_breadcrumb('
+		<p class="sydney-breadcrumbs">','</p>
+		');
+	}
+}

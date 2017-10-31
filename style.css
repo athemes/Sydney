@@ -3259,8 +3259,9 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 }
 
 /*--------------------------------------------------------------
-Elementor and Beaver Builder
+Integrations
 --------------------------------------------------------------*/
+/* Elementor and Beaver Builder */
 .page-template-page_front-page.elementor-page .page-wrap .content-wrapper,
 .page-template-page_front-page.fl-builder .page-wrap .content-wrapper {
 	width: 100%;
@@ -3277,7 +3278,30 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 	padding-bottom: 10px;
 	font-size: 32px;
 }
-
+/* Mailchimp for WordPress */
+.mc4wp-form label {
+	display: block;
+	width: 100%;
+}
+.mc4wp-form input:not([type="submit"]) {
+	width: 100%;
+}
+/* Yoast SEO breadcrumbs */
+.sydney-breadcrumbs {
+    background-color: #f7f7f7;
+    padding: 15px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+.sydney-breadcrumbs,
+.sydney-breadcrumbs a {
+	color: #47425d;
+}
+.sydney-breadcrumbs a {
+    text-decoration: underline;
+    margin: 0 3px;
+    text-decoration-color: #bababa;	
+}
 /* Media Queries
 -------------------------------------------------------------- */
 	@media only screen and (min-width: 1930px) {
