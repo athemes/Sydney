@@ -273,7 +273,7 @@ function sydney_post_date() {
 	);
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x( 'Posted on %s', 'post date', '_s' ),
+		esc_html_x( 'Posted on %s', 'post date', 'sydney' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.

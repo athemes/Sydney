@@ -26,7 +26,6 @@ function sydney_custom_styles($custom) {
 		$menu_bg_color = get_theme_mod( 'menu_bg_color', '#000000' );
 		$rgba 	= sydney_hex2rgba($menu_bg_color, 0.9);
 		$custom .= ".site-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
-		$custom .= ".site-header.float-header {padding:20px 0;}"."\n";
 	}
 	//Fonts
 	$body_fonts = get_theme_mod('body_font_family');	

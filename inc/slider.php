@@ -68,11 +68,11 @@ function sydney_slider_template() {
 
                 $image_alt = sydney_get_image_alt( $image );
         		?>
-                <div class="slide-item" style="background-image:url('<?php echo esc_url( $image ); ?>');">
+                <div class="slide-item slide-item-<?php echo $c; ?>" style="background-image:url('<?php echo esc_url( $image ); ?>');">
                     <img class="mobile-slide preserve" src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>"/>
                     <div class="slide-inner">
                         <div class="contain animated fadeInRightBig text-slider">
-                        <h2 class="maintitle"><?php echo esc_html( $titles['slider_title_' . $c] ); ?></h2>
+                        <h2 class="maintitle"><?php echo wp_kses_post( $titles['slider_title_' . $c] ); ?></h2>
                         <p class="subtitle"><?php echo esc_html( $subtitles['slider_subtitle_' . $c] ); ?></p>
                         </div>
                         <?php echo $button; ?>

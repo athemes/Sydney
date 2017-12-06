@@ -353,10 +353,6 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-function sydney_load_multiple_checkbox() {
-    require_once( trailingslashit( get_template_directory() ) . 'inc/controls/control-checkbox-multiple.php' );
-}
-add_action( 'customize_register', 'sydney_load_multiple_checkbox', 0 );
 
 /**
  * Load Jetpack compatibility file.

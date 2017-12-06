@@ -1,1635 +1,1883 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sydney\n"
-"POT-Creation-Date: 2015-10-03 16:42+0200\n"
-"PO-Revision-Date: 2015-10-03 16:42+0200\n"
+"POT-Creation-Date: 2017-11-02 12:19+0200\n"
+"PO-Revision-Date: 2017-11-02 12:20+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
-"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html__;esc_attr__;esc_attr_e;"
-"_x:1,2c\n"
-"X-Poedit-SearchPath-0: D:\\Programe\\InstantWP\\InstantWP_4.3.1\\iwpserver"
-"\\htdocs\\wordpress\\wp-content\\themes\\sydney\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_attr__;esc_html_e;esc_attr_e;"
+"esc_html_x:1,2c;esc_attr_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/404.php:15
+#: 404.php:15
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/404.php:19
+#: 404.php:19
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/comments.php:35
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/comments.php:53
+#: comments.php:28
+#, php-format
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:35 comments.php:53
 msgid "Comment navigation"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/comments.php:36
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/comments.php:54
+#: comments.php:36 comments.php:54
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/comments.php:37
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/comments.php:55
+#: comments.php:37 comments.php:55
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/comments.php:65
+#: comments.php:65
 msgid "Comments are closed."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-none.php:13
+#: content-classic-alt.php:34 content-page.php:18 content-search.php:32
+#: content-single.php:36 content.php:34
+msgid "Pages:"
+msgstr ""
+
+#: content-none.php:13
 msgid "Nothing Found"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-none.php:19
+#: content-none.php:19
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-none.php:23
+#: content-none.php:23
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-none.php:28
+#: content-none.php:28
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-page.php:18
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-search.php:32
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-single.php:29
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content.php:34
-msgid "Pages:"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/content-page.php:25
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:118
+#: content-page.php:25 inc/template-tags.php:118
 msgid "Edit"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/footer.php:22
+#: demo-content/setup.php:15 inc/theme-info.php:80
+msgid "Demo content"
+msgstr ""
+
+#: footer.php:24
 msgid "http://wordpress.org/"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/footer.php:22
+#: footer.php:24
 #, php-format
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/footer.php:24
+#: footer.php:26
 #, php-format
 msgid "Theme: %2$s by %1$s."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/functions.php:57
+#: functions.php:58
 msgid "Primary Menu"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/functions.php:92
+#: functions.php:93 inc/customizer.php:1350
 msgid "Sidebar"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/functions.php:105
+#: functions.php:106
 msgid "Footer "
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/functions.php:228
+#: functions.php:242
 msgid "Create your menu here"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/header.php:31
+#: functions.php:436
+#, php-format
+msgid ""
+"Welcome to Sydney. To get started please make sure to visit our <a href=\"%s"
+"\">welcome page</a>."
+msgstr ""
+
+#: functions.php:437
+msgid "Get started with Sydney"
+msgstr ""
+
+#: header.php:30
 msgid "Skip to content"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/search.php:16
-#, php-format
-msgid "Search Results for: %s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:16
+#: inc/customizer.php:16
 msgid "Site title/tagline/logo"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:49
+#: inc/customizer.php:17 inc/customizer.php:53
 msgid "General"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:66
-msgid "Upload your favicon"
+#: inc/customizer.php:61
+msgid "83"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:79
+#: inc/customizer.php:68
+msgid "Page wrapper - top padding"
+msgstr ""
+
+#: inc/customizer.php:71
+msgid ""
+"Top padding for the page wrapper (the space between the header and the page "
+"title)"
+msgstr ""
+
+#: inc/customizer.php:84
+msgid "100"
+msgstr ""
+
+#: inc/customizer.php:91
+msgid "Page wrapper - bottom padding"
+msgstr ""
+
+#: inc/customizer.php:94
+msgid ""
+"Bottom padding for the page wrapper (the space between the page content and "
+"the footer)"
+msgstr ""
+
+#: inc/customizer.php:109
 msgid "Header area"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:85
+#: inc/customizer.php:115
 msgid "Header type"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:88
+#: inc/customizer.php:118
 msgid ""
 "You can select your header type from here. After that, continue below to the "
 "next two tabs (Header Slider and Header Image) and configure them."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:103
+#: inc/customizer.php:133
 msgid "Front page header type"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:105
+#: inc/customizer.php:135
 msgid "Select the header type for your front page"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:107
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:129
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1648
+#: inc/customizer.php:137 inc/customizer.php:160 inc/customizer.php:1753
 msgid "Full screen slider"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:108
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:130
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1649
+#: inc/customizer.php:138 inc/customizer.php:161 inc/customizer.php:1754
 msgid "Image"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:109
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:131
+#: inc/customizer.php:139 inc/customizer.php:162 inc/customizer.php:1755
+msgid "Video"
+msgstr ""
+
+#: inc/customizer.php:140 inc/customizer.php:163
 msgid "No header (only menu)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:125
+#: inc/customizer.php:156
 msgid "Site header type"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:127
+#: inc/customizer.php:158
 msgid "Select the header type for all pages except the front page"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:139
+#: inc/customizer.php:171
 msgid "Header Slider"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:140
+#: inc/customizer.php:172
 msgid ""
 "You can add up to 5 images in the slider. Make sure you select where to "
 "display your slider from the Header Type section found above. You can also "
 "add a Call to action button (scroll down to find the options)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:149
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:166
+#: inc/customizer.php:189
+msgid "Slider mobile behavior"
+msgstr ""
+
+#: inc/customizer.php:193 inc/customizer.php:1825
+msgid "Full screen"
+msgstr ""
+
+#: inc/customizer.php:194 inc/customizer.php:1826 inc/theme-info.php:140
+msgid "Responsive"
+msgstr ""
+
+#: inc/customizer.php:202
 msgid "4000"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:156
+#: inc/customizer.php:209
 msgid "Slider speed"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:159
+#: inc/customizer.php:212
 msgid "Slider speed in miliseconds. Use 0 to disable [default: 4000]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:173
-msgid "Text slider speed"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:176
-msgid "Text slider speed in miliseconds [default: 4000]"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:190
+#: inc/customizer.php:226
 msgid "Stop the text slider?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:203
+#: inc/customizer.php:239
 msgid "First slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:221
+#: inc/customizer.php:257
 msgid "Upload your first image for the slider"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:233
+#: inc/customizer.php:269
 msgid "Welcome to Sydney"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:240
+#: inc/customizer.php:276
 msgid "Title for the first slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:250
+#: inc/customizer.php:286
 msgid "Feel free to look around"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:257
+#: inc/customizer.php:293
 msgid "Subtitle for the first slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:271
+#: inc/customizer.php:307
 msgid "Second slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:289
+#: inc/customizer.php:325
 msgid "Upload your second image for the slider"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:301
+#: inc/customizer.php:337
 msgid "Ready to begin your journey?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:308
+#: inc/customizer.php:344
 msgid "Title for the second slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:318
+#: inc/customizer.php:354
 msgid "Click the button below"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:325
+#: inc/customizer.php:361
 msgid "Subtitle for the second slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:339
+#: inc/customizer.php:375
 msgid "Third slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:357
+#: inc/customizer.php:393
 msgid "Upload your third image for the slider"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:376
+#: inc/customizer.php:412
 msgid "Title for the third slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:393
+#: inc/customizer.php:429
 msgid "Subtitle for the third slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:407
+#: inc/customizer.php:443
 msgid "Fourth slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:425
+#: inc/customizer.php:461
 msgid "Upload your fourth image for the slider"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:444
+#: inc/customizer.php:480
 msgid "Title for the fourth slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:461
+#: inc/customizer.php:497
 msgid "Subtitle for the fourth slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:475
+#: inc/customizer.php:511
 msgid "Fifth slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:493
+#: inc/customizer.php:529
 msgid "Upload your fifth image for the slider"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:512
+#: inc/customizer.php:548
 msgid "Title for the fifth slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:529
+#: inc/customizer.php:565
 msgid "Subtitle for the fifth slide"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:543
+#: inc/customizer.php:579
 msgid "Call to action button"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:559
+#: inc/customizer.php:595
 msgid "URL for your call to action button"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:568
+#: inc/customizer.php:604
 msgid "Click to begin"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:575
+#: inc/customizer.php:611
 msgid "Text for your call to action button"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:585
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:624
+#: inc/customizer.php:621 inc/customizer.php:660
 msgid "Menu style"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:603
+#: inc/customizer.php:639
 msgid "Sticky menu"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:606
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1692
+#: inc/customizer.php:642 inc/customizer.php:1798
 msgid "Sticky"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:607
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1693
+#: inc/customizer.php:643 inc/customizer.php:1799
 msgid "Static"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:627
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1718
+#: inc/customizer.php:663 inc/customizer.php:1837
 msgid "Inline"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:628
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1719
+#: inc/customizer.php:664 inc/customizer.php:1838
 msgid "Centered (menu and site logo)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:645
+#: inc/customizer.php:681
 msgid "Header background size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:648
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1666
+#: inc/customizer.php:684 inc/customizer.php:1772
 msgid "Cover"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:649
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1667
+#: inc/customizer.php:685 inc/customizer.php:1773
 msgid "Contain"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:665
+#: inc/customizer.php:701
 msgid "Header height [default: 300px]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:684
+#: inc/customizer.php:719
 msgid "Disable the overlay?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:702
+#: inc/customizer.php:737
 msgid "Upload your logo"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:714
+#: inc/customizer.php:749 inc/theme-info.php:180
 msgid "Blog options"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:726
+#: inc/customizer.php:761
 msgid "Layout"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:743
+#: inc/customizer.php:778
 msgid "Blog layout"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:747
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1704
+#: inc/customizer.php:782 inc/customizer.php:1810
 msgid "Classic"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:748
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1705
+#: inc/customizer.php:783 inc/customizer.php:1811
+msgid "Classic (alternative)"
+msgstr ""
+
+#: inc/customizer.php:784 inc/customizer.php:1812
 msgid "Full width (no sidebar)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:749
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1706
+#: inc/customizer.php:785 inc/customizer.php:1813
 msgid "Masonry (grid style)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:764
+#: inc/customizer.php:800
 msgid "Full width single posts?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:777
+#: inc/customizer.php:813
 msgid "Content/excerpt"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:795
+#: inc/customizer.php:831
 msgid ""
 "Check this box to display the full content of your posts on the home page."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:811
+#: inc/customizer.php:847
 msgid ""
 "Check this box to display the full content of your posts on all archives."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:828
-msgid "Excerpt lenght"
+#: inc/customizer.php:864
+msgid "Excerpt length"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:829
+#: inc/customizer.php:865
 msgid "Choose your excerpt length. Default: 55 words"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:845
+#: inc/customizer.php:880
 msgid "Meta"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:863
+#: inc/customizer.php:898
 msgid "Hide post meta on index, archives?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:880
+#: inc/customizer.php:915
 msgid "Hide post meta on singles?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:893
+#: inc/customizer.php:928
 msgid "Featured images"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:910
+#: inc/customizer.php:945
 msgid "Check this box to hide featured images on index, archives etc."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:926
+#: inc/customizer.php:961
 msgid "Check this box to hide featured images on single posts"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:939
+#: inc/customizer.php:974 inc/customizer.php:1358
 msgid "Footer"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:955
+#: inc/customizer.php:990
 msgid "Footer widget area"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:957
+#: inc/customizer.php:992
 msgid ""
 "Select the number of widget areas you want in the footer. After that, go to "
 "Appearance > Widgets and add your widgets."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:959
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1678
+#: inc/customizer.php:994 inc/customizer.php:1784
 msgid "One"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:960
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1679
+#: inc/customizer.php:995 inc/customizer.php:1785
 msgid "Two"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:961
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1680
+#: inc/customizer.php:996 inc/customizer.php:1786
 msgid "Three"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:962
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1681
+#: inc/customizer.php:997 inc/customizer.php:1787
 msgid "Four"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:973
+#: inc/customizer.php:1008
 msgid "Fonts"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:975
+#: inc/customizer.php:1010
 msgid ""
 "Google Fonts can be found here: google.com/fonts. See the documentation if "
 "you need help in selecting Google Fonts: athemes.com/documentation/sydney"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:986
+#: inc/customizer.php:1021
 msgid "Body fonts"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1003
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1051
+#: inc/customizer.php:1038 inc/customizer.php:1086
 msgid "Font name/style/sets"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1020
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1068
+#: inc/customizer.php:1055 inc/customizer.php:1103
 msgid "Font family"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1034
+#: inc/customizer.php:1069
 msgid "Headings fonts"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1082
+#: inc/customizer.php:1117
 msgid "Font sizes"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1100
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1342
+#: inc/customizer.php:1135 inc/customizer.php:1415
 msgid "Site title"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1120
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1363
+#: inc/customizer.php:1154 inc/customizer.php:1436
 msgid "Site description"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1140
+#: inc/customizer.php:1173
 msgid "Menu items"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1160
+#: inc/customizer.php:1192
 msgid "H1 font size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1180
+#: inc/customizer.php:1211
 msgid "H2 font size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1200
+#: inc/customizer.php:1230
 msgid "H3 font size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1220
+#: inc/customizer.php:1249
 msgid "H4 font size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1240
+#: inc/customizer.php:1268
 msgid "H5 font size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1260
+#: inc/customizer.php:1287
 msgid "H6 font size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1280
+#: inc/customizer.php:1306
 msgid "Body font size"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1302
+#: inc/customizer.php:1325
+msgid "Single post title size"
+msgstr ""
+
+#: inc/customizer.php:1337
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer.php:1342
+msgid "Header"
+msgstr ""
+
+#: inc/customizer.php:1375
 msgid "Primary color"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1322
+#: inc/customizer.php:1395
 msgid "Menu background"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1383
+#: inc/customizer.php:1456
 msgid "Top level menu items"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1403
+#: inc/customizer.php:1475
+msgid "Menu items hover"
+msgstr ""
+
+#: inc/customizer.php:1496
 msgid "Sub-menu items"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1422
+#: inc/customizer.php:1515
 msgid "Sub-menu background"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1442
+#: inc/customizer.php:1534
+msgid "Mobile menu button"
+msgstr ""
+
+#: inc/customizer.php:1554
 msgid "Header slider text"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1462
+#: inc/customizer.php:1574
 msgid "Body text"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1482
+#: inc/customizer.php:1594
 msgid "Sidebar background"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1502
+#: inc/customizer.php:1614
 msgid "Sidebar color"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1522
+#: inc/customizer.php:1634
 msgid "Footer widget area background"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1542
+#: inc/customizer.php:1654
 msgid "Footer widget area color"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1562
+#: inc/customizer.php:1674
 msgid "Footer background"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1582
+#: inc/customizer.php:1694
 msgid "Footer color"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1601
+#: inc/customizer.php:1713
 msgid "Rows overlay"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1616
+#: inc/customizer.php:1715
+msgid ""
+"[DEPRECATED] Please use the color option from Edit Row > Design > Overlay "
+"color"
+msgstr ""
+
+#: inc/customizer.php:1726
 msgid "Theme info"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1618
+#: inc/customizer.php:1728
 msgid "1. Documentation for Sydney can be found "
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1618
+#: inc/customizer.php:1728
 msgid "2. A full theme demo can be found "
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1618
-msgid ""
-"3. If you enjoy Sydney and want to see what Sydney Pro offers, please go "
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/customizer.php:1650
+#: inc/customizer.php:1756
 msgid "Nothing (only menu)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/extras.php:52
+#: inc/extras.php:52
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:43
+#: inc/page-builder.php:44
 msgid "Sydney Theme Widgets"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:56
+#: inc/page-builder.php:57
 msgid "Bottom Border Color"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:61
+#: inc/page-builder.php:63
 msgid "Top/bottom padding"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:63
-msgid "Top and bottom padding for this row [default: 100px]"
+#: inc/page-builder.php:65
+msgid ""
+"Add a value in the field to change the top/bottom row padding, otherwise "
+"100px will be applied by default"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:67
+#: inc/page-builder.php:70
 msgid "Center align the content?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:69
+#: inc/page-builder.php:72
 msgid "This may or may not work. It depends on the widget styles."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:73
-msgid "Background Color"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:75
-msgid "Background color of the row."
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:79
+#: inc/page-builder.php:78
 msgid "Color"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:81
+#: inc/page-builder.php:80
 msgid "Color of the row."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:85
+#: inc/page-builder.php:85
 msgid "Background Image"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:87
+#: inc/page-builder.php:87
 msgid "Background image of the row."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:91
-msgid "Row Layout"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:94
-msgid "Standard"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:95
-msgid "Full Width"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:96
-msgid "Full Width Stretched"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:101
+#: inc/page-builder.php:93
 msgid "Mobile padding"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:103
+#: inc/page-builder.php:95
 msgid "Here you can select a top/bottom row padding for screen sizes < 1024px"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:105
+#: inc/page-builder.php:97
 msgid "Default"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:106
+#: inc/page-builder.php:98
 msgid "0"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:107
+#: inc/page-builder.php:99
 msgid "15px"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:108
+#: inc/page-builder.php:100
 msgid "30px"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:109
+#: inc/page-builder.php:101
 msgid "45px"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:114
-msgid "Row Class"
+#: inc/page-builder.php:107
+msgid "Disable row overlay?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:116
-msgid "Add your own class for this row"
+#: inc/page-builder.php:113
+msgid "Overlay color"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:120
-msgid "Columns padding"
+#: inc/page-builder.php:174
+msgid "Content alignment"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/page-builder.php:122
-msgid "Remove padding between columns for this row?"
+#: inc/page-builder.php:178
+msgid "Left"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:23
+#: inc/page-builder.php:179
+msgid "Center"
+msgstr ""
+
+#: inc/page-builder.php:180
+msgid "Right"
+msgstr ""
+
+#: inc/page-builder.php:183
+msgid "This setting depends on the content, it may or may not work"
+msgstr ""
+
+#: inc/page-builder.php:187
+msgid "Widget title color"
+msgstr ""
+
+#: inc/page-builder.php:194
+msgid "Headings color"
+msgstr ""
+
+#: inc/page-builder.php:198
+msgid "This applies to all headings in the widget, except the widget title"
+msgstr ""
+
+#: inc/template-tags.php:23
 msgid "Posts navigation"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:27
+#: inc/template-tags.php:27
 msgid "Older posts"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:31
+#: inc/template-tags.php:31
 msgid "Newer posts"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:51
+#: inc/template-tags.php:51
 msgid "Post navigation"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:81
+#: inc/template-tags.php:94
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/template-tags.php:94
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:94
+msgid "% Comments"
+msgstr ""
+
+#: inc/template-tags.php:98
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:100
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: inc/template-tags.php:115
+#, php-format
+msgid " %1$s"
+msgstr ""
+
+#: inc/template-tags.php:135
+#, php-format
+msgid "Category: %s"
+msgstr ""
+
+#: inc/template-tags.php:137
+#, php-format
+msgid "Tag: %s"
+msgstr ""
+
+#: inc/template-tags.php:139
+#, php-format
+msgid "Author: %s"
+msgstr ""
+
+#: inc/template-tags.php:141
+#, php-format
+msgid "Year: %s"
+msgstr ""
+
+#: inc/template-tags.php:143
+#, php-format
+msgid "Month: %s"
+msgstr ""
+
+#: inc/template-tags.php:145
+#, php-format
+msgid "Day: %s"
+msgstr ""
+
+#: inc/template-tags.php:167
+#, php-format
+msgid "Archives: %s"
+msgstr ""
+
+#: inc/template-tags.php:171
+#, php-format
+msgid "%1$s: %2$s"
+msgstr ""
+
+#: inc/template-tags.php:173
+msgid "Archives"
+msgstr ""
+
+#: inc/template-tags.php:276
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:86
-#, php-format
-msgctxt "post author"
-msgid "%s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:94
-msgid "Leave a comment"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:94
-msgid "1 Comment"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:94
-msgid "% Comments"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:98
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:113
-msgid ", "
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:100
-#, php-format
-msgid "Posted in %1$s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:115
-#, php-format
-msgid " %1$s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:135
-#, php-format
-msgid "Category: %s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:137
-#, php-format
-msgid "Tag: %s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:139
-#, php-format
-msgid "Author: %s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:141
-#, php-format
-msgid "Year: %s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:141
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:143
-#, php-format
-msgid "Month: %s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:143
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:145
-#, php-format
-msgid "Day: %s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:145
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:148
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:150
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:152
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:154
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:156
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:158
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:160
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:162
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:164
-msgctxt "post format archive title"
-msgid "Chats"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:167
-#, php-format
-msgid "Archives: %s"
-msgstr ""
-
-#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:171
-#, php-format
-msgid "%1$s: %2$s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/template-tags.php:173
-msgid "Archives"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/theme-info.php:11
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/theme-info.php:19
+#: inc/theme-info.php:16
 msgid "Sydney Info"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/theme-info.php:20
-msgid "Theme demo"
+#: inc/theme-info.php:25
+#, php-format
+msgid "Hello, %s,"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/theme-info.php:21
-msgid "Documentation"
+#: inc/theme-info.php:26
+#, php-format
+msgid "Welcome to Sydney version %s"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/theme-info.php:22
+#: inc/theme-info.php:27
+msgid ""
+"Sydney is now installed and ready to go. To help you with the next step, "
+"we’ve gathered together on this page all the resources you might need. We "
+"hope you enjoy using Sydney. "
+msgstr ""
+
+#: inc/theme-info.php:33
+msgid "Getting started"
+msgstr ""
+
+#: inc/theme-info.php:34
+msgid "Recommended Actions"
+msgstr ""
+
+#: inc/theme-info.php:35
 msgid "Support"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/inc/theme-info.php:23
-msgid "Pro version"
+#: inc/theme-info.php:36
+msgid "Free vs Pro"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:333
+#: inc/theme-info.php:42
+msgid "Step 1 - Implement recommended actions"
+msgstr ""
+
+#: inc/theme-info.php:43
+msgid "We've made a list of steps for you to follow to get the most of Sydney."
+msgstr ""
+
+#: inc/theme-info.php:44
+msgid "Check recommended actions"
+msgstr ""
+
+#: inc/theme-info.php:46
+msgid "Step 2 - Read documentation"
+msgstr ""
+
+#: inc/theme-info.php:47
+msgid ""
+"Our documentation (including video tutorials) will have you up and running "
+"in no time."
+msgstr ""
+
+#: inc/theme-info.php:48 inc/theme-info.php:118
+msgid "Documentation"
+msgstr ""
+
+#: inc/theme-info.php:50
+msgid "Step 3 - Customize"
+msgstr ""
+
+#: inc/theme-info.php:51
+msgid "Use the Customizer to make Sydney your own."
+msgstr ""
+
+#: inc/theme-info.php:52
+msgid "Go to Customizer"
+msgstr ""
+
+#: inc/theme-info.php:56
+msgid "Install: Page Builder by SiteOrigin"
+msgstr ""
+
+#: inc/theme-info.php:57
+msgid ""
+"It is highly recommended that you install Page Builder by SiteOrigin. It "
+"will enable you to create pages by adding widgets to them using drag and "
+"drop."
+msgstr ""
+
+#: inc/theme-info.php:62 inc/theme-info.php:74 inc/theme-info.php:91
+msgid "Install and Activate"
+msgstr ""
+
+#: inc/theme-info.php:65 inc/theme-info.php:77 inc/theme-info.php:95
+msgid "Plugin installed and active!"
+msgstr ""
+
+#: inc/theme-info.php:69
+msgid "Install: Sydney Toolbox"
+msgstr ""
+
+#: inc/theme-info.php:70
+msgid ""
+"It is highly recommend that you install Sydney Toolbox. It will create "
+"custom post types like services and employees for you to use on your website."
+msgstr ""
+
+#: inc/theme-info.php:84
+msgid "Option 1 - automatic"
+msgstr ""
+
+#: inc/theme-info.php:85
+msgid ""
+"Install the following plugin and then come back here to access the importer. "
+"With it you can import all demo content and change your homepage and blog "
+"page to the ones from our demo site, automatically. It will also assign a "
+"menu."
+msgstr ""
+
+#: inc/theme-info.php:92
+msgid "Go to the importer"
+msgstr ""
+
+#: inc/theme-info.php:96
+msgid "Go to the automatic importer"
+msgstr ""
+
+#: inc/theme-info.php:100
+msgid "Option 2 - manual"
+msgstr ""
+
+#: inc/theme-info.php:101
+msgid ""
+"Download the following demo content file and then click the button to go to "
+"the WordPress default importer."
+msgstr ""
+
+#: inc/theme-info.php:102
+msgid "Download demo content"
+msgstr ""
+
+#: inc/theme-info.php:103
+msgid "Go to the manual importer"
+msgstr ""
+
+#: inc/theme-info.php:112
+msgid "Visit our forums"
+msgstr ""
+
+#: inc/theme-info.php:113
+msgid ""
+"Need help? Go ahead and visit our support forums and we'll be happy to "
+"assist you with any theme related questions you might have"
+msgstr ""
+
+#: inc/theme-info.php:114
+msgid "Visit the forums"
+msgstr ""
+
+#: inc/theme-info.php:119
+msgid ""
+"Our documentation can help you learn how to use the theme and also provides "
+"you with premade code snippets and answers to FAQs."
+msgstr ""
+
+#: inc/theme-info.php:120
+msgid "See the Documentation"
+msgstr ""
+
+#: inc/theme-info.php:128
+msgid "Feature"
+msgstr ""
+
+#: inc/theme-info.php:129
+msgid "Sydney"
+msgstr ""
+
+#: inc/theme-info.php:130
+msgid "Sydney Pro"
+msgstr ""
+
+#: inc/theme-info.php:135
+msgid "Access to all Google Fonts"
+msgstr ""
+
+#: inc/theme-info.php:145
+msgid "Parallax backgrounds"
+msgstr ""
+
+#: inc/theme-info.php:150
+msgid "Social Icons"
+msgstr ""
+
+#: inc/theme-info.php:155
+msgid "Slider, image or video header"
+msgstr ""
+
+#: inc/theme-info.php:160
+msgid "Front Page Blocks"
+msgstr ""
+
+#: inc/theme-info.php:165
+msgid "Translation ready"
+msgstr ""
+
+#: inc/theme-info.php:170
+msgid "Polylang integration"
+msgstr ""
+
+#: inc/theme-info.php:175
+msgid "Color options"
+msgstr ""
+
+#: inc/theme-info.php:185
+msgid "Widgetized footer"
+msgstr ""
+
+#: inc/theme-info.php:190
+msgid "Background image support"
+msgstr ""
+
+#: inc/theme-info.php:195
+msgid "Footer Credits option"
+msgstr ""
+
+#: inc/theme-info.php:200
+msgid ""
+"Extra widgets (timeline, latest news in carousel, pricing tables, a new "
+"employees widget and a new contact widget)"
+msgstr ""
+
+#: inc/theme-info.php:205
+msgid ""
+"Extra Customizer Options (Front Page Section Titles, Single Employees, "
+"Single Projects, Header Contact Info, Buttons)"
+msgstr ""
+
+#: inc/theme-info.php:210
+msgid "Header support for Crelly Slider"
+msgstr ""
+
+#: inc/theme-info.php:215
+msgid "Header support for shortcodes"
+msgstr ""
+
+#: inc/theme-info.php:220
+msgid "Single Post/Page Options"
+msgstr ""
+
+#: inc/theme-info.php:225
+msgid "Woocommerce compatible"
+msgstr ""
+
+#: inc/theme-info.php:230
+msgid ""
+"5 Extra Page Templates (Contact, Featured Header - Default, Featured Header "
+"- Wide, No Header - Default, No Header - Wide)"
+msgstr ""
+
+#: inc/theme-info.php:235
+msgid "Priority support"
+msgstr ""
+
+#: inc/theme-info.php:241
+msgid "Buy Sydney Pro "
+msgstr ""
+
+#: inc/upsell/class-customize.php:76
+msgid "Ready for more?"
+msgstr ""
+
+#: inc/upsell/class-customize.php:77
+msgid "Get Sydney Pro"
+msgstr ""
+
+#: plugins/class-tgm-plugin-activation.php:333
 msgid "Install Required Plugins"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:334
+#: plugins/class-tgm-plugin-activation.php:334
 msgid "Install Plugins"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:335
+#: plugins/class-tgm-plugin-activation.php:335
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:336
+#: plugins/class-tgm-plugin-activation.php:336
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:397
+#: plugins/class-tgm-plugin-activation.php:397
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:398
+#: plugins/class-tgm-plugin-activation.php:398
 msgid "Return to the dashboard"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:399
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3025
+#: plugins/class-tgm-plugin-activation.php:399
+#: plugins/class-tgm-plugin-activation.php:3029
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:400
+#: plugins/class-tgm-plugin-activation.php:400
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:401
+#: plugins/class-tgm-plugin-activation.php:401
 #, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:402
+#: plugins/class-tgm-plugin-activation.php:402
 #, php-format
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:403
+#: plugins/class-tgm-plugin-activation.php:403
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:404
+#: plugins/class-tgm-plugin-activation.php:404
 msgid "Dismiss this notice"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:405
+#: plugins/class-tgm-plugin-activation.php:405
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:520
+#: plugins/class-tgm-plugin-activation.php:520
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:521
+#: plugins/class-tgm-plugin-activation.php:521
 msgid "Update Required"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:635
+#: plugins/class-tgm-plugin-activation.php:635
 msgid "Set the parent_slug config variable instead."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:824
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3434
+#: plugins/class-tgm-plugin-activation.php:828
+#: plugins/class-tgm-plugin-activation.php:3438
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:931
+#: plugins/class-tgm-plugin-activation.php:935
 msgid ""
 "The remote plugin package does not contain a folder with the desired slug "
 "and renaming did not work."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:931
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:934
+#: plugins/class-tgm-plugin-activation.php:935
+#: plugins/class-tgm-plugin-activation.php:938
 msgid ""
 "Please contact the plugin provider and ask them to package their plugin "
 "according to the WordPress guidelines."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:934
+#: plugins/class-tgm-plugin-activation.php:938
 msgid ""
 "The remote plugin package consists of more than one file, but the files are "
 "not packaged in a folder."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:1877
-#, php-format
-msgctxt "%s = version number"
-msgid "TGMPA v%s"
+#: plugins/class-tgm-plugin-activation.php:1116
+#: plugins/class-tgm-plugin-activation.php:2828
+msgctxt "plugin A *and* plugin B"
+msgid "and"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2163
+#: plugins/class-tgm-plugin-activation.php:2167
 msgid "Required"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2166
+#: plugins/class-tgm-plugin-activation.php:2170
 msgid "Recommended"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2182
+#: plugins/class-tgm-plugin-activation.php:2186
 msgid "WordPress Repository"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2185
+#: plugins/class-tgm-plugin-activation.php:2189
 msgid "External Source"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2188
+#: plugins/class-tgm-plugin-activation.php:2192
 msgid "Pre-Packaged"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2205
+#: plugins/class-tgm-plugin-activation.php:2209
 msgid "Not Installed"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2209
+#: plugins/class-tgm-plugin-activation.php:2213
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2211
+#: plugins/class-tgm-plugin-activation.php:2215
 msgid "Active"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2217
+#: plugins/class-tgm-plugin-activation.php:2221
 msgid "Required Update not Available"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2220
+#: plugins/class-tgm-plugin-activation.php:2224
 msgid "Requires Update"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2223
+#: plugins/class-tgm-plugin-activation.php:2227
 msgid "Update recommended"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2231
+#: plugins/class-tgm-plugin-activation.php:2280
 #, php-format
-msgctxt "%1$s = install status, %2$s = update status"
-msgid "%1$s, %2$s"
-msgstr ""
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2367
-msgctxt "as in: \"version nr unknown\""
-msgid "unknown"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2375
+#: plugins/class-tgm-plugin-activation.php:2379
 msgid "Installed version:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2383
+#: plugins/class-tgm-plugin-activation.php:2387
 msgid "Minimum required version:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2395
+#: plugins/class-tgm-plugin-activation.php:2399
 msgid "Available version:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2418
+#: plugins/class-tgm-plugin-activation.php:2422
 #, php-format
 msgid ""
 "No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
 "Dashboard</a>"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2432
+#: plugins/class-tgm-plugin-activation.php:2436
 msgid "Plugin"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2433
+#: plugins/class-tgm-plugin-activation.php:2437
 msgid "Source"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2434
+#: plugins/class-tgm-plugin-activation.php:2438
 msgid "Type"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2438
+#: plugins/class-tgm-plugin-activation.php:2442
 msgid "Version"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2439
+#: plugins/class-tgm-plugin-activation.php:2443
 msgid "Status"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2487
-#, php-format
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Install %2$s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2491
-#, php-format
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Update %2$s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2496
-#, php-format
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Activate %2$s"
-msgstr ""
-
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2566
+#: plugins/class-tgm-plugin-activation.php:2570
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2599
+#: plugins/class-tgm-plugin-activation.php:2603
 msgid "Install"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2605
+#: plugins/class-tgm-plugin-activation.php:2609
 msgid "Update"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2608
+#: plugins/class-tgm-plugin-activation.php:2612
 msgid "Activate"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2639
+#: plugins/class-tgm-plugin-activation.php:2643
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2641
+#: plugins/class-tgm-plugin-activation.php:2645
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2677
+#: plugins/class-tgm-plugin-activation.php:2681
 msgid "No plugins are available to be installed at this time."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2679
+#: plugins/class-tgm-plugin-activation.php:2683
 msgid "No plugins are available to be updated at this time."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2784
+#: plugins/class-tgm-plugin-activation.php:2788
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:2810
+#: plugins/class-tgm-plugin-activation.php:2814
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3024
+#: plugins/class-tgm-plugin-activation.php:3028
 msgid "Plugin activation failed."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3358
+#: plugins/class-tgm-plugin-activation.php:3362
 #, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3360
+#: plugins/class-tgm-plugin-activation.php:3364
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3361
+#: plugins/class-tgm-plugin-activation.php:3365
 #, php-format
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3365
+#: plugins/class-tgm-plugin-activation.php:3369
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3366
+#: plugins/class-tgm-plugin-activation.php:3370
 #, php-format
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3366
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3372
+#: plugins/class-tgm-plugin-activation.php:3370
+#: plugins/class-tgm-plugin-activation.php:3376
 msgid "Show Details"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3366
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3372
+#: plugins/class-tgm-plugin-activation.php:3370
+#: plugins/class-tgm-plugin-activation.php:3376
 msgid "Hide Details"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3367
+#: plugins/class-tgm-plugin-activation.php:3371
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3368
+#: plugins/class-tgm-plugin-activation.php:3372
 #, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3371
+#: plugins/class-tgm-plugin-activation.php:3375
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3372
+#: plugins/class-tgm-plugin-activation.php:3376
 #, php-format
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3373
+#: plugins/class-tgm-plugin-activation.php:3377
 msgid "All installations have been completed."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/plugins/class-tgm-plugin-activation.php:3374
+#: plugins/class-tgm-plugin-activation.php:3378
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/contact-info.php:6
+#: search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: widgets/contact-info.php:6
 msgid "Display your contact info"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/contact-info.php:7
+#: widgets/contact-info.php:7
 msgid "Sydney: Contact info"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/contact-info.php:24
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-call-to-action.php:22
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:25
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:26
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:36
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-latest-news.php:22
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:31
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:31
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:28
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:26
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/video-widget.php:21
+#: widgets/contact-info.php:20 widgets/fp-call-to-action.php:18
+#: widgets/fp-clients.php:23 widgets/fp-employees.php:23
+#: widgets/fp-facts.php:32 widgets/fp-latest-news.php:19
+#: widgets/fp-services-type-a.php:30 widgets/fp-services-type-b.php:29
+#: widgets/fp-skills.php:24 widgets/fp-testimonials.php:22
+#: widgets/video-widget.php:20
 msgid "Title"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/contact-info.php:28
+#: widgets/contact-info.php:24
 msgid "Enter your address"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/contact-info.php:31
+#: widgets/contact-info.php:27
 msgid "Enter your phone number"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/contact-info.php:34
+#: widgets/contact-info.php:30
 msgid "Enter your email address"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-call-to-action.php:6
+#: widgets/fp-call-to-action.php:6
 msgid "Display a call to action block."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-call-to-action.php:7
+#: widgets/fp-call-to-action.php:7
 msgid "Sydney FP: Call to action"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-call-to-action.php:24
+#: widgets/fp-call-to-action.php:20
 msgid "Enter your call to action."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-call-to-action.php:26
+#: widgets/fp-call-to-action.php:22
 msgid "Link for the button"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-call-to-action.php:28
+#: widgets/fp-call-to-action.php:24
 msgid "Title for the button"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-call-to-action.php:31
+#: widgets/fp-call-to-action.php:27
 msgid "Display the button inline with the text?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:6
+#: widgets/fp-clients.php:6
 msgid "Display your clients list."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:7
+#: widgets/fp-clients.php:7
 msgid "Sydney FP: Clients"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:23
+#: widgets/fp-clients.php:21
 msgid ""
 "In order to display this widget, you must first add some clients from your "
 "admin area. Set your client logos as featured images."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:28
+#: widgets/fp-clients.php:26
 msgid "Number of clients to show (-1 shows all of them):"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:30
+#: widgets/fp-clients.php:28
 msgid ""
 "The URL for your button [In case you want a button below your clients block]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:32
+#: widgets/fp-clients.php:30
 msgid ""
 "The text for the button [Defaults to <em>See all our clients</em> if left "
 "empty]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:34
+#: widgets/fp-clients.php:32
 msgid "Enter the slug for your category or leave empty to show all clients."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-clients.php:128
+#: widgets/fp-clients.php:35
+msgid "Open clients links in a new tab?"
+msgstr ""
+
+#: widgets/fp-clients.php:111
 msgid "See all our clients"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:6
+#: widgets/fp-employees.php:6
 msgid "Display your team members in a stylish way."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:7
+#: widgets/fp-employees.php:7
 msgid "Sydney FP: Employees"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:24
+#: widgets/fp-employees.php:21
 msgid ""
 "In order to display this widget, you must first add some employees from the "
 "dashboard. Add as many as you want and the theme will automatically display "
 "them all."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:29
+#: widgets/fp-employees.php:26
 msgid "Number of employees to show (-1 shows all of them):"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:31
+#: widgets/fp-employees.php:28
 msgid "Enter an URL here if you want to section to link somewhere."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:33
+#: widgets/fp-employees.php:30
 msgid ""
 "The text for the button [Defaults to <em>See all our employees</em> if left "
 "empty]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:35
+#: widgets/fp-employees.php:32
 msgid "Enter the slug for your category or leave empty to show all employees."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:38
+#: widgets/fp-employees.php:35
 msgid "Center the employees? (use only if you have 1 or 2 employees)"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-employees.php:169
+#: widgets/fp-employees.php:140
 msgid "See all our employees"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:7
+#: widgets/fp-facts.php:7
 msgid "Show your visitors some facts about your company."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:8
+#: widgets/fp-facts.php:8
 msgid "Sydney FP: Facts"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:34
+#: widgets/fp-facts.php:30
 msgid "You can find a list of the available icons "
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:34
+#: widgets/fp-facts.php:30
 msgid "here."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:34
+#: widgets/fp-facts.php:30
 msgid "Usage example: <strong>fa-android</strong>"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:42
+#: widgets/fp-facts.php:38
 msgid "First fact name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:47
+#: widgets/fp-facts.php:43
 msgid "First fact value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:52
+#: widgets/fp-facts.php:48
 msgid "First fact icon"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:58
+#: widgets/fp-facts.php:54
 msgid "Second fact name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:63
+#: widgets/fp-facts.php:59
 msgid "Second fact value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:68
+#: widgets/fp-facts.php:64
 msgid "Second fact icon"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:74
+#: widgets/fp-facts.php:70
 msgid "Third fact name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:79
+#: widgets/fp-facts.php:75
 msgid "Third fact value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:84
+#: widgets/fp-facts.php:80
 msgid "Third fact icon"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:90
+#: widgets/fp-facts.php:86
 msgid "Fourth fact name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:95
+#: widgets/fp-facts.php:91
 msgid "Fourth fact value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-facts.php:100
+#: widgets/fp-facts.php:96
 msgid "Fourth fact icon"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-latest-news.php:6
+#: widgets/fp-latest-news.php:6
 msgid "Show the latest news from your blog."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-latest-news.php:7
+#: widgets/fp-latest-news.php:7
 msgid "Sydney FP: Latest News"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-latest-news.php:26
+#: widgets/fp-latest-news.php:23
 msgid ""
 "Enter the slug for your category or leave empty to show posts from all "
 "categories."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-latest-news.php:29
+#: widgets/fp-latest-news.php:26
 msgid ""
 "Add the text for the button here if you want to change the default <em>See "
 "all our news</em>"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-latest-news.php:79
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-latest-news.php:81
+#: widgets/fp-latest-news.php:51 widgets/fp-latest-news.php:53
 msgid "See all our news"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-list.php:11
+#: widgets/fp-list.php:11
 msgid "A simple list widget"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-list.php:13
+#: widgets/fp-list.php:13
 msgid "Sydney FP: List"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-list.php:63
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-social.php:57
+#: widgets/fp-list.php:63 widgets/fp-portfolio.php:152 widgets/fp-social.php:57
 msgid "Title:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-list.php:66
+#: widgets/fp-list.php:66
 msgid "Add a bit of text here. It will be displayed."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-list.php:69
+#: widgets/fp-list.php:69
 msgid ""
 "Add your list items here. One item per row, start each row with <strong>^</"
 "strong>. Example: <strong>^ list item </strong>"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-list.php:72
+#: widgets/fp-list.php:72
 msgid "Call to action button URL:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-list.php:75
+#: widgets/fp-list.php:75
 msgid "Call to action button text:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:11
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:11
+#: widgets/fp-portfolio.php:12
+msgid "Display your projects in a grid."
+msgstr ""
+
+#: widgets/fp-portfolio.php:13
+msgid "Sydney FP: Portfolio"
+msgstr ""
+
+#: widgets/fp-portfolio.php:35 widgets/fp-portfolio.php:148
+msgid "Show all"
+msgstr ""
+
+#: widgets/fp-portfolio.php:154
+msgid "Number of projects to show (-1 shows all of them):"
+msgstr ""
+
+#: widgets/fp-portfolio.php:156
+msgid ""
+"Enter the slugs (comma separated) for your categories or leave empty to show "
+"all projects."
+msgstr ""
+
+#: widgets/fp-portfolio.php:159
+msgid "Show navigation filter? (Category slugs must be specified)."
+msgstr ""
+
+#: widgets/fp-portfolio.php:160
+msgid "\"Show all\" text:"
+msgstr ""
+
+#: widgets/fp-portfolio.php:163
+msgid "Show project title?"
+msgstr ""
+
+#: widgets/fp-services-type-a.php:11 widgets/fp-services-type-b.php:11
 msgid "Show what services you are able to provide."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:12
+#: widgets/fp-services-type-a.php:12
 msgid "Sydney FP: Services Type A"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:29
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:29
+#: widgets/fp-services-type-a.php:28 widgets/fp-services-type-b.php:27
 msgid ""
 "In order to display this widget, you must first add some services from your "
 "admin area."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:34
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:34
+#: widgets/fp-services-type-a.php:33 widgets/fp-services-type-b.php:32
 msgid "Number of services to show (-1 shows all of them):"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:36
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:36
+#: widgets/fp-services-type-a.php:35 widgets/fp-services-type-b.php:34
 msgid ""
 "The URL for your button [In case you want a button below your services block]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:38
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:38
+#: widgets/fp-services-type-a.php:37 widgets/fp-services-type-b.php:36
 msgid ""
 "The text for the button [Defaults to <em>See all our services</em> if left "
 "empty]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:40
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:40
+#: widgets/fp-services-type-a.php:39 widgets/fp-services-type-b.php:38
 msgid "Enter the slug for your category or leave empty to show all services."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:43
+#: widgets/fp-services-type-a.php:42
 msgid "Display services in two columns instead of three?"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-a.php:153
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:168
+#: widgets/fp-services-type-a.php:43 widgets/fp-services-type-b.php:51
+msgid "Content to display:"
+msgstr ""
+
+#: widgets/fp-services-type-a.php:45 widgets/fp-services-type-b.php:53
+msgid "Full content"
+msgstr ""
+
+#: widgets/fp-services-type-a.php:46 widgets/fp-services-type-b.php:54
+msgid "Excerpt"
+msgstr ""
+
+#: widgets/fp-services-type-a.php:145 widgets/fp-services-type-b.php:160
 msgid "See all our services"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:12
+#: widgets/fp-services-type-b.php:12
 msgid "Sydney FP: Services type B"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-services-type-b.php:43
+#: widgets/fp-services-type-b.php:41
 msgid "Number of columns:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:6
+#: widgets/fp-skills.php:6
 msgid "Show your visitors some of your skills."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:7
+#: widgets/fp-skills.php:7
 msgid "Sydney FP: Skills"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:34
+#: widgets/fp-skills.php:30
 msgid "First skill name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:39
+#: widgets/fp-skills.php:35
 msgid "First skill value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:45
+#: widgets/fp-skills.php:41
 msgid "Second skill name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:50
+#: widgets/fp-skills.php:46
 msgid "Second skill value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:56
+#: widgets/fp-skills.php:52
 msgid "Third skill name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:61
+#: widgets/fp-skills.php:57
 msgid "Third skill value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:67
+#: widgets/fp-skills.php:63
 msgid "Fourth skill name"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-skills.php:72
+#: widgets/fp-skills.php:68
 msgid "Fourth skill value"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-social.php:5
+#: widgets/fp-social.php:5
 msgid "Display your social profile on your front page"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-social.php:6
+#: widgets/fp-social.php:6
 msgid "Sydney FP: Social Profile"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-social.php:52
+#: widgets/fp-social.php:52
 #, php-format
 msgid "No menus have been created yet. <a href=\"%s\">Create some</a>."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-social.php:60
+#: widgets/fp-social.php:60
 msgid ""
 "In order to display your social icons in a widget, all you need to do is go "
 "to <strong>Appearance > Menus</strong> and create a menu containing links to "
@@ -1638,67 +1886,83 @@ msgid ""
 "Youtube, Flickr, Pinterest, Tumblr, Foursquare, Behance."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-social.php:62
+#: widgets/fp-social.php:62
 msgid "Select your social menu:"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-social.php:64
+#: widgets/fp-social.php:64
 msgid "&mdash; Select &mdash;"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:6
+#: widgets/fp-testimonials.php:6
 msgid "Display your testimonials in a slider."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:7
+#: widgets/fp-testimonials.php:7
 msgid "Sydney FP: Testimonials"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:24
+#: widgets/fp-testimonials.php:20
 msgid ""
 "In order to display this widget, you must first add some testimonials from "
 "your admin area."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:29
+#: widgets/fp-testimonials.php:25
 msgid "Number of testimonials to show (-1 shows all of them):"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:31
+#: widgets/fp-testimonials.php:27
 msgid ""
 "The URL for your button [In case you want a button below your testimonials "
 "block]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:33
+#: widgets/fp-testimonials.php:29
 msgid ""
 "The text for the button [Defaults to <em>See all our testimonials</em> if "
 "left empty]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:35
+#: widgets/fp-testimonials.php:31
 msgid ""
 "Enter the slug for your category or leave empty to show all testimonials."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:37
+#: widgets/fp-testimonials.php:33
 msgid "Autoplay time [ms]"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/fp-testimonials.php:137
+#: widgets/fp-testimonials.php:108
 msgid "See all our testimonials"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/video-widget.php:6
+#: widgets/video-widget.php:6
 msgid "Display a video from Youtube, Vimeo etc."
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/video-widget.php:7
+#: widgets/video-widget.php:7
 msgid "Sydney: Video"
 msgstr ""
 
-#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\sydney/widgets/video-widget.php:25
+#: widgets/video-widget.php:24
 msgid ""
 "Paste the URL of the video (only from a network that supports oEmbed, like "
 "Youtube, Vimeo etc.):"
+msgstr ""
+
+#: widgets/video-widget.php:26
+msgid "Video mode:"
+msgstr ""
+
+#: widgets/video-widget.php:28
+msgid "Normal"
+msgstr ""
+
+#: widgets/video-widget.php:29
+msgid "Lightbox"
+msgstr ""
+
+#: widgets/video-widget.php:32
+msgid "Text before the play button (only for lightbox mode):"
 msgstr ""
