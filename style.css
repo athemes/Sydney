@@ -1217,6 +1217,10 @@ Hero section
 .header-slider {
 	overflow: hidden;
 }
+.header-slider[data-speed="0"] .slide-item {
+    opacity: 1 !important;
+}
+
 /*--------------------------------------------------------------
 Page title
 --------------------------------------------------------------*/
