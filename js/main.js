@@ -102,7 +102,7 @@
 		$(window).on('load resize', function() {
 			var currMenuType = 'desktop';
 
-			if ( matchMedia( 'only screen and (max-width: 1024px)' ).matches ) {
+			if ( matchMedia( 'only screen and (max-width: 1367px)' ).matches ) {
 				currMenuType = 'mobile';
 			}
 

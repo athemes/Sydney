@@ -3409,12 +3409,6 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 		.panel-row-style.mob-pad-45 {
 			padding: 45px 0 !important;
 		}
-		#mainnav {
-			display: none;
-		}
-		.btn-menu {
-			display: block;
-		}
 		.site-header {
 			position: static;
 			background-color: rgba(0,0,0,0.9);
@@ -3427,6 +3421,14 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 			margin-bottom: 30px;
 		}
 	}
+	@media only screen and (max-width: 1367px) {
+		#mainnav {
+			display: none;
+		}
+		.btn-menu {
+			display: block;
+		}
+	}	
 	@media only screen and (max-width: 780px) {
 		.roll-client .client-item img {
 			max-width: 100%;
