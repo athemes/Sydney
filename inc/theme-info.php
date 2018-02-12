@@ -222,7 +222,7 @@ function sydney_info_page() {
 					 <td class="greenFeature"><span class="dashicons dashicons-yes dash-green"></span></td>
 					</tr> 
 					<tr> 
-					 <td><?php esc_html_e( 'Woocommerce compatible', 'sydney' ); ?></td>
+					 <td><?php esc_html_e( 'WooCommerce compatible', 'sydney' ); ?></td>
 					 <td class="redFeature"><span class="dashicons dashicons-no-alt dash-red"></span></td>
 					 <td class="greenFeature"><span class="dashicons dashicons-yes dash-green"></span></td>
 					</tr> 
