@@ -53,11 +53,11 @@ function sydney_info_page() {
 				</div>
 
 				<div id="#actions" class="sydney-tab actions">
-					<h3><?php esc_html_e( 'Install: Page Builder by SiteOrigin', 'sydney' ); ?></h3>
-					<p><?php esc_html_e( 'It is highly recommended that you install Page Builder by SiteOrigin. It will enable you to create pages by adding widgets to them using drag and drop.', 'sydney' ); ?></p>
+					<h3><?php esc_html_e( 'Install: Elementor', 'sydney' ); ?></h3>
+					<p><?php esc_html_e( 'It is highly recommended that you install Elementor. It will enable you to create pages by adding widgets to them using drag and drop.', 'sydney' ); ?></p>
 					
-					<?php if ( !defined( 'SITEORIGIN_PANELS_VERSION' ) ) : ?>
-					<?php $so_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=siteorigin-panels'), 'install-plugin_siteorigin-panels'); ?>
+					<?php if ( !defined( 'ELEMENTOR_PATH' ) ) : ?>
+					<?php $so_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=elementor'), 'install-plugin_elementor'); ?>
 					<p>
 						<a target="_blank" class="install-now button" href="<?php echo esc_url( $so_url ); ?>"><?php esc_html_e( 'Install and Activate', 'sydney' ); ?></a>
 					</p>

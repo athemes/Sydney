@@ -262,9 +262,9 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'slider_image_1',
         array(
-            'default' => get_template_directory_uri() . '/images/1.jpg',
+            'default' => '',
             'sanitize_callback' => 'esc_url_raw',
-            'transport'         => 'postMessage'            
+            //'transport'         => 'postMessage'            
         )
     );
     $wp_customize->add_control(
@@ -284,7 +284,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'slider_title_1',
         array(
-            'default'           => __('Welcome to Sydney','sydney'),
+            'default'           => __('Click the pencil icon to change this text','sydney'),
             'sanitize_callback' => 'sydney_sanitize_text',
             'transport'         => 'postMessage'
         )
@@ -302,7 +302,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'slider_subtitle_1',
         array(
-            'default' => __('Feel free to look around','sydney'),
+            'default' => __('or go to the Customizer','sydney'),
             'sanitize_callback' => 'sydney_sanitize_text',
             'transport'         => 'postMessage'
         )
@@ -333,9 +333,9 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'slider_image_2',
         array(
-            'default' => get_template_directory_uri() . '/images/2.jpg',
+            'default' => '',
             'sanitize_callback' => 'esc_url_raw',
-            'transport'         => 'postMessage'            
+            //'transport'         => 'postMessage'            
         )
     );
     $wp_customize->add_control(
@@ -355,7 +355,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'slider_title_2',
         array(
-            'default' => __('Ready to begin your journey?','sydney'),
+            'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
             'transport'         => 'postMessage'            
         )
@@ -373,7 +373,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'slider_subtitle_2',
         array(
-            'default' => __('Click the button below','sydney'),
+            'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
             'transport'         => 'postMessage'            
         )
@@ -1900,10 +1900,10 @@ add_action( 'customize_preview_init', 'sydney_customize_preview_js' );
  */
 //Slider titles
 function sydney_partial_slider_title_1() {
-    return get_theme_mod('slider_title_1', __('Welcome to Sydney','sydney'));
+    return get_theme_mod('slider_title_1', __('Click the pencil icon to change this text','sydney'));
 }
 function sydney_partial_slider_title_2() {
-    return get_theme_mod('slider_title_2', __('Ready to begin your journey?','sydney'));
+    return get_theme_mod('slider_title_2');
 }
 function sydney_partial_slider_title_3() {
     return get_theme_mod('slider_title_3');
@@ -1916,10 +1916,10 @@ function sydney_partial_slider_title_5() {
 }
 //Slider subtitles
 function sydney_partial_slider_subtitle_1() {
-    return get_theme_mod('slider_subtitle_1', __('Feel free to look around','sydney'));
+    return get_theme_mod('slider_subtitle_1', __('or go to the Customizer','sydney'));
 }
 function sydney_partial_slider_subtitle_2() {
-    return get_theme_mod('slider_subtitle_2', __('Click the button below','sydney'));
+    return get_theme_mod('slider_subtitle_2');
 }
 function sydney_partial_slider_subtitle_3() {
     return get_theme_mod('slider_subtitle_3');

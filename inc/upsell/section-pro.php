@@ -45,7 +45,7 @@ class Sydney_Customize_Upsell_Section_Pro extends WP_Customize_Section {
 		$json = parent::json();
 
 		$json['pro_text'] = $this->pro_text;
-		$json['pro_url']  = esc_url( $this->pro_url );
+		$json['pro_url']  = $this->pro_url;
 
 		return $json;
 	}

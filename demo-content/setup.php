@@ -12,9 +12,11 @@
 function sydney_set_import_files() {
     return array(
         array(
-            'import_file_name'           => __('Demo content', 'sydney'),
-            'local_import_file'          => trailingslashit( get_template_directory() ) . 'demo-content/demo-content.xml',           
-            'local_import_widget_file'   => trailingslashit( get_template_directory() ) . 'demo-content/demo-widgets.wie',
+            'import_file_name'              => __('Demo content', 'sydney'),
+            'local_import_file'             => trailingslashit( get_template_directory() ) . 'demo-content/demo-content.xml',           
+            'local_import_widget_file'      => trailingslashit( get_template_directory() ) . 'demo-content/demo-widgets.wie',
+            'local_import_widget_file'      => trailingslashit( get_template_directory() ) . 'demo-content/demo-widgets.wie',
+            'local_import_customizer_file'  => trailingslashit( get_template_directory() ) . 'demo-content/demo-customizer.dat',           
         ),
     );
 }

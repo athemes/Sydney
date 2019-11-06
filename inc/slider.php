@@ -12,7 +12,6 @@ function sydney_slider_template() {
     if ( (get_theme_mod('front_header_type','slider') == 'slider' && is_front_page()) || (get_theme_mod('site_header_type') == 'slider' && !is_front_page()) ) {
 
     //Get the slider options
-    $speed      = get_theme_mod('slider_speed', '4000');
     $text_slide = get_theme_mod('textslider_slide', 0);
     $button     = sydney_slider_button();
     $mobile_slider = get_theme_mod('mobile_slider', 'responsive');
@@ -35,28 +34,39 @@ function sydney_slider_template() {
     	);
     } else {
     	$titles = array(
-    		'slider_title_1' => pll__( get_theme_mod('slider_title_1', 'Welcome to Sydney') ),
-    		'slider_title_2' => pll__( get_theme_mod('slider_title_2', 'Ready to begin your journey?') ),
+    		'slider_title_1' => pll__( get_theme_mod('slider_title_1', 'Click the pencil icon to change this text') ),
+    		'slider_title_2' => pll__( get_theme_mod('slider_title_2') ),
     		'slider_title_3' => pll__( get_theme_mod('slider_title_3') ),
     		'slider_title_4' => pll__( get_theme_mod('slider_title_4') ),
     		'slider_title_5' => pll__( get_theme_mod('slider_title_5') ),
     	);
     	$subtitles = array(
-    		'slider_subtitle_1' => pll__( get_theme_mod('slider_subtitle_1', 'Feel free to look around') ),
-    		'slider_subtitle_2' => pll__( get_theme_mod('slider_subtitle_2', 'Feel free to look around') ),
+    		'slider_subtitle_1' => pll__( get_theme_mod('slider_subtitle_1', 'or go to the Customizer') ),
+    		'slider_subtitle_2' => pll__( get_theme_mod('slider_subtitle_2') ),
     		'slider_subtitle_3' => pll__( get_theme_mod('slider_subtitle_3') ),
     		'slider_subtitle_4' => pll__( get_theme_mod('slider_subtitle_4') ),
-    		'slider_subtitle_5' => pll__( get_theme_mod('slider_subtitle_5') ),    		
+    		'slider_subtitle_5' => pll__( get_theme_mod('slider_subtitle_5') ),
     	);
     }
     $images = array(
-    		'slider_image_1' => get_theme_mod('slider_image_1', get_template_directory_uri() . '/images/1.jpg'),
-    		'slider_image_2' => get_theme_mod('slider_image_2', get_template_directory_uri() . '/images/2.jpg'),
+    		'slider_image_1' => get_theme_mod('slider_image_1'),
+    		'slider_image_2' => get_theme_mod('slider_image_2'),
     		'slider_image_3' => get_theme_mod('slider_image_3'),
     		'slider_image_4' => get_theme_mod('slider_image_4'),
     		'slider_image_5' => get_theme_mod('slider_image_5'),
     );
 
+
+    if ( $images['slider_image_1'] == '' ) {
+        return;
+    }
+
+    //If the second slide is empty, stop the slider
+    if ( $images['slider_image_2'] != '' ) {
+        $speed = get_theme_mod('slider_speed', '4000');
+    } else {
+        $speed = 0;
+    }
     ?>
 
     <div id="slideshow" class="header-slider" data-speed="<?php echo esc_attr($speed); ?>" data-mobileslider="<?php echo esc_attr($mobile_slider); ?>">

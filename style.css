@@ -1,10 +1,10 @@
 /*
 Theme Name: Sydney
-Theme URI: http://athemes.com/theme/sydney
+Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
-Author URI: http://athemes.com
-Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.44
+Author URI: https://athemes.com
+Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
+Version: 1.55
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -2588,6 +2588,9 @@ Panels
 	       -o-transition: background 0.3s;
 	          transition: background 0.3s;
 	}
+	.widget_sydney_testimonials .fa {
+		display: none;
+	}
 
 /* Socials
 -------------------------------------------------------------- */
@@ -3274,6 +3277,23 @@ Integrations
 	width: 100%;
 	padding: 0 15px;
 }
+/* Parallax fix */
+.panel-row-style,
+.elementor-section {
+	-webkit-transform: translate3d(0,0,0);
+}
+@-moz-document url-prefix() {
+    .panel-row-style {
+          background-position: center !important;
+    }
+}
+.elementor-section,
+.panel-row-style {
+    -moz-transform: none !important;
+}
+_:-ms-lang(x), .elementor-section, .panel-row-style { transform: none !important; }
+/* End parallax fix */
+
 .fl-widget .widgettitle,
 div[class*="elementor-widget-wp-widget-sydney"] h5 {
 	text-align: center;
@@ -3420,15 +3440,13 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 			overflow: hidden;
 			margin-bottom: 30px;
 		}
-	}
-	@media only screen and (max-width: 1367px) {
 		#mainnav {
 			display: none;
 		}
 		.btn-menu {
 			display: block;
-		}
-	}	
+		}		
+	}
 	@media only screen and (max-width: 780px) {
 		.roll-client .client-item img {
 			max-width: 100%;
@@ -3621,3 +3639,24 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 	.sydney-hero-area {
 		overflow: hidden;
 	}
+
+
+
+
+
+
+/**
+** Gutenberg *** ADD RESPONSIVE STYLES *** CHECK PAGES+GUTENBERG
+*/
+.post-template-post_nosidebar .content-area {
+	max-width: 805px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.post-template-post_nosidebar .alignfull,
+.post-template-post_nosidebar .wp-block-cover-image {
+	max-width: 100vw;
+	width: auto;
+	margin-left: -182px;
+	margin-right: -182px;
+}
