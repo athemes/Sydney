@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.55
+Version: 1.56
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -1267,7 +1267,7 @@ Blog
 --------------------------------------------------------------*/
 	.content-area .post-wrap,
 	.contact-form-wrap {
-		padding-right: 20px;
+		padding-right: 50px;
 	}
 	.content-area .hentry {
 		position: relative;
@@ -1450,13 +1450,62 @@ Blog
 	.classic-alt .meta-post a {
 		color: #d65050;
 	}	
+	/* Modern layout */
+	.content-area.modern .hentry {
+		box-shadow: 0 11px 40px rgba(79, 118, 157, 0.1);
+		padding: 40px;
+		margin-bottom: 60px;
+	}
+	.content-area.modern .entry-thumb {
+		margin: -40px -40px 40px;
+	}
+	.content-area.modern .hentry:after {
+		display: none;
+	}
+	.content-area.modern .entry-title a {
+		color: #263246;
+	}
+	.content-area.modern .entry-post {
+		color: #868990;
+	}
+	.content-area.modern .meta-post {
+		font-size: 12px;
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+	.content-area.modern .hentry .meta-post span:before,
+	.content-area.modern .post-cat {
+		color: #d65050;
+	}
+	.content-area.modern .post-cat {
+		letter-spacing: 0.5px;
+	}
+	.content-area.modern .hentry .meta-post span {
+		margin-right: 0;
+	}
+	.content-area.modern .hentry .meta-post span::after {
+		content: '|';
+		margin: 0 5px;
+		color: #868990;
+		vertical-align: top;
+	}
+	.content-area.modern .read-more {
+		color: #111111;
+		font-size: 14px;
+	}
+	.content-area.modern .read-more-gt {
+		color: #d65050;
+	}
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
+	.widget-area {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		padding: 30px;
+	}
 	.widget-area .widget {
 		position: relative;
-		margin-bottom: 30px;
-		padding-top: 50px;
+		margin-bottom: 55px;
 	}
 	.widget-area .widget:before {
 		content: "";
@@ -1473,13 +1522,12 @@ Widgets
 		height: 0;
 	}
 	.widget-area .widget-title {
-		font-size: 16px;
+		font-size: 22px;
 		line-height: normal;
-		color: #443f3f;
+		color: #263246;
 		font-weight: 600;
 		padding-bottom: 24px;
 		margin: 0;
-		text-transform: uppercase;
 	}
 	.widget-area .widget ul li {
 		padding: 5px 0;
@@ -3640,13 +3688,8 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 		overflow: hidden;
 	}
 
-
-
-
-
-
 /**
-** Gutenberg *** ADD RESPONSIVE STYLES *** CHECK PAGES+GUTENBERG
+** Gutenberg
 */
 .post-template-post_nosidebar .content-area {
 	max-width: 805px;
@@ -3659,4 +3702,10 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 	width: auto;
 	margin-left: -182px;
 	margin-right: -182px;
+}
+.post-template-post_nosidebar .alignwide {
+	max-width: none;
+    width: calc(100% + 200px);
+    position: relative;
+    left: -100px;
 }

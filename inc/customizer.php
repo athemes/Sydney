@@ -162,7 +162,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'site_header_type',
         array(
-            'default'           => 'image',
+            'default'           => 'nothing',
             'sanitize_callback' => 'sydney_sanitize_layout',
         )
     );
@@ -801,7 +801,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'blog_layout',
         array(
-            'default'           => 'classic-alt',
+            'default'           => 'modern',
             'sanitize_callback' => 'sydney_sanitize_blog',
         )
     );
@@ -815,6 +815,7 @@ function sydney_customize_register( $wp_customize ) {
             'choices'   => array(
                 'classic'           => __( 'Classic', 'sydney' ),
                 'classic-alt'       => __( 'Classic (alternative)', 'sydney' ),
+                'modern'            => __( 'Modern', 'sydney' ),
                 'fullwidth'         => __( 'Full width (no sidebar)', 'sydney' ),
                 'masonry-layout'    => __( 'Masonry (grid style)', 'sydney' )
             ),
@@ -1418,7 +1419,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'menu_bg_color',
         array(
-            'default'           => '#000000',
+            'default'           => '#263246',
             'sanitize_callback' => 'sanitize_hex_color',
         )
     );
@@ -1844,6 +1845,7 @@ function sydney_sanitize_blog( $input ) {
     $valid = array(
         'classic'    => __( 'Classic', 'sydney' ),
         'classic-alt'    => __( 'Classic (alternative)', 'sydney' ),
+        'modern'    => __( 'Modern', 'sydney' ),
         'fullwidth'  => __( 'Full width (no sidebar)', 'sydney' ),
         'masonry-layout'    => __( 'Masonry (grid style)', 'sydney' )
 

@@ -25,10 +25,12 @@ $layout = sydney_blog_layout();
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
-					if ( $layout != 'classic-alt' ) {
-						get_template_part( 'content', get_post_format() );
-					} else {
+					if ( $layout == 'modern' ) {
+						get_template_part( 'content', 'modern' );
+					} elseif ( $layout == 'classic-alt' ) {
 						get_template_part( 'content', 'classic-alt' );
+					} else {
+						get_template_part( 'content', get_post_format() );
 					}
 				?>
 
@@ -53,7 +55,7 @@ $layout = sydney_blog_layout();
 	<?php do_action('sydney_after_content'); ?>
 
 <?php 
-	if ( ( $layout == 'classic-alt' ) || ( $layout == 'classic' ) ) :
+	if ( ( $layout == 'modern' ) || ( $layout == 'classic-alt' ) || ( $layout == 'classic' ) ) :
 	get_sidebar();
 	endif;
 ?>
