@@ -22,21 +22,18 @@ function sydney_custom_styles($custom) {
 
 	$custom = '';
 	//Header
-	if ( (get_theme_mod('front_header_type','slider') == 'nothing' && is_front_page()) || (get_theme_mod('site_header_type') == 'nothing' && !is_front_page()) ) {
+	if ( (get_theme_mod('front_header_type','nothing') == 'nothing' && is_front_page()) || (get_theme_mod('site_header_type') == 'nothing' && !is_front_page()) ) {
 		$menu_bg_color = get_theme_mod( 'menu_bg_color', '#263246' );
 		$rgba 	= sydney_hex2rgba($menu_bg_color, 0.9);
 		$custom .= ".site-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
 	}
 	//Fonts
-	$body_fonts = get_theme_mod('body_font_family');	
-	$headings_fonts = get_theme_mod('headings_font_family');
-	if ( $body_fonts !='' ) {
-		$custom .= "body, #mainnav ul ul a { font-family:" . $body_fonts . "!important;}"."\n";
-	}
-	if ( $headings_fonts !='' ) {
-		$custom .= "h1, h2, h3, h4, h5, h6, #mainnav ul li a, .portfolio-info, .roll-testimonials .name, .roll-team .team-content .name, .roll-team .team-item .team-pop .name, .roll-tabs .menu-tab li a, .roll-testimonials .name, .roll-project .project-filter li a, .roll-button, .roll-counter .name-count, .roll-counter .numb-count button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"] { font-family:" . $headings_fonts . ";}"."\n";
-	}
-    //Site title
+	$body_fonts 	= get_theme_mod( 'body_font', 'Raleway' );	
+	$headings_fonts = get_theme_mod( 'headings_font', 'Raleway' );
+	$custom .= "body, #mainnav ul ul a { font-family:" . $body_fonts . ";}"."\n";
+	$custom .= "h1, h2, h3, h4, h5, h6, #mainnav ul li a, .portfolio-info, .roll-testimonials .name, .roll-team .team-content .name, .roll-team .team-item .team-pop .name, .roll-tabs .menu-tab li a, .roll-testimonials .name, .roll-project .project-filter li a, .roll-button, .roll-counter .name-count, .roll-counter .numb-count button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"] { font-family:" . $headings_fonts . ";}"."\n";
+	
+		//Site title
     $site_title_size = get_theme_mod( 'site_title_size', '32' );
     if ($site_title_size) {
         $custom .= ".site-title { font-size:" . intval($site_title_size) . "px; }"."\n";
@@ -122,6 +119,8 @@ function sydney_custom_styles($custom) {
 	$custom .= ".reply,.woocommerce div.product .woocommerce-tabs ul.tabs li.active,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button,.project-filter li a.active, .project-filter li a:hover,.preloader .pre-bounce1, .preloader .pre-bounce2,.roll-team .team-item .team-pop,.roll-progress .progress-animate,.roll-socials li a:hover,.roll-project .project-item .project-pop,.roll-project .project-filter li.active,.roll-project .project-filter li:hover,.roll-button.light:hover,.roll-button.border:hover,.roll-button,.roll-icon-box.white .icon,.owl-theme .owl-controls .owl-page.active span,.owl-theme .owl-controls.clickable .owl-page:hover span,.go-top,.bottom .socials li:hover a,.sidebar .widget:before,.blog-pagination ul li.active,.blog-pagination ul li:hover a,.content-area .hentry:after,.text-slider .maintitle:after,.error-wrap #search-submit:hover,#mainnav .sub-menu li:hover > a,#mainnav ul li ul:after, button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"], .panel-grid-cell .widget-title:after { background-color:" . esc_attr($primary_color) . "}"."\n";
 	$custom .= ".roll-socials li a:hover,.roll-socials li a,.roll-button.light:hover,.roll-button.border,.roll-button,.roll-icon-list .icon,.roll-icon-box .icon,.owl-theme .owl-controls .owl-page span,.comment .comment-detail,.widget-tags .tag-list a:hover,.blog-pagination ul li,.hentry blockquote,.error-wrap #search-submit:hover,textarea:focus,input[type=\"text\"]:focus,input[type=\"password\"]:focus,input[type=\"datetime\"]:focus,input[type=\"datetime-local\"]:focus,input[type=\"date\"]:focus,input[type=\"month\"]:focus,input[type=\"time\"]:focus,input[type=\"week\"]:focus,input[type=\"number\"]:focus,input[type=\"email\"]:focus,input[type=\"url\"]:focus,input[type=\"search\"]:focus,input[type=\"tel\"]:focus,input[type=\"color\"]:focus, button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"], .archive .team-social li a { border-color:" . esc_attr($primary_color) . "}"."\n";
 	}
+	//Primary color SVGs
+	$custom .= ".go-top:hover svg,.sydney_contact_info_widget span { fill:" . esc_attr( $primary_color ) . ";}" . "\n";
 	//Menu background
 	$menu_bg_color = get_theme_mod( 'menu_bg_color', '#000000' );
 	$rgba = sydney_hex2rgba($menu_bg_color, 0.9);
@@ -164,7 +163,7 @@ function sydney_custom_styles($custom) {
 	}
 	//Mobile menu icon
 	$mobile_menu_color = get_theme_mod( 'mobile_menu_color', '#ffffff' );
-	$custom .= ".btn-menu { color:" . esc_attr($mobile_menu_color) . "}"."\n";
+	$custom .= ".btn-menu { fill:" . esc_attr($mobile_menu_color) . "}"."\n";
 
 	//Menu items hover
 	$menu_items_hover = get_theme_mod( 'menu_items_hover', '#d65050' );

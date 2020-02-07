@@ -87,17 +87,17 @@ function sydney_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<span class="posted-on"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-calendar', false ) . '</i>' . $posted_on . '</span><span class="byline"> ' . '<i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-user', false ) . '</i>' . $byline . '</span>';
 	
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
+		echo '<span class="comments-link"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-comments', false ) . '</i>';
 		comments_popup_link( __( 'Leave a comment', 'sydney' ), __( '1 Comment', 'sydney' ), __( '% Comments', 'sydney' ) );
 		echo '</span>';
 	}
 
 	$categories_list = get_the_category_list( __( ', ', 'sydney' ) );
 	if ( !is_single() && $categories_list && sydney_categorized_blog() ) {
-		printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'sydney' ) . '</span>', $categories_list );
+		printf( '<span class="cat-links"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-categories', false ) . '</i>' . __( 'Posted in %1$s', 'sydney' ) . '</span>', $categories_list );
 	}
 }
 endif;

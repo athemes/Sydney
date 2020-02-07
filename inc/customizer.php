@@ -139,7 +139,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'front_header_type',
         array(
-            'default'           => 'slider',
+            'default'           => 'nothing',
             'sanitize_callback' => 'sydney_sanitize_layout',
         )
     );
@@ -801,7 +801,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'blog_layout',
         array(
-            'default'           => 'modern',
+            'default'           => 'classic-alt',
             'sanitize_callback' => 'sydney_sanitize_blog',
         )
     );
@@ -1042,9 +1042,53 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'title' => __('Fonts', 'sydney'),
             'priority' => 15,
-            'description' => __('Google Fonts can be found here: google.com/fonts. See the documentation if you need help in selecting Google Fonts: athemes.com/documentation/sydney', 'sydney'),
+            'description' => sprintf( __( 'You can check out previews of the Google Fonts %s', 'sydney' ), '<a target="_blank" href="https://fonts.google.com">' . __( 'here', 'sydney' ) . '</a>' ),
         )
     );
+
+    require get_template_directory() . '/inc/controls/control-checkbox-multiple.php';
+    require get_template_directory() . '/inc/controls/multiple-select/class-control-multiple-select.php';
+
+
+    //Body fonts title
+    $wp_customize->add_setting('sydney_options[info]', array(
+            'type'              => 'info_control',
+            'capability'        => 'edit_theme_options',
+            'sanitize_callback' => 'esc_attr',            
+        )
+    );
+    $wp_customize->add_control( new Sydney_Info( $wp_customize, 'general_fonts', array(
+        'label' => __('General', 'sydney'),
+        'section' => 'sydney_fonts',
+        'settings' => 'sydney_options[info]',
+        'priority' => 10
+        ) )
+    );    
+    //Body font subsets
+    $wp_customize->add_setting(
+        'font_subsets',
+        array(
+            'default'           => 'latin',
+            //'sanitize_callback' => 'sydney_sanitize_text',
+        )
+    );
+
+    $wp_customize->add_control( new Sydney_Customize_Control_Checkbox_Multiple( $wp_customize, 'font_subsets', array(
+        'label' => __( 'Font subsets', 'sydney' ),
+        'section' => 'sydney_fonts',
+        'priority' => 10,
+        'choices' => array( 
+            'latin'         => 'Latin',
+            'latin-ext'     => 'Latin Extended',
+            'cyrillic'      => 'Cyrillic',
+            'cyrillic-ext'  => 'Cyrillic Extended',
+            'greek'         => 'Greek',
+            'greek-ext'     => 'Greek Extended',
+            'vietnamese'    => 'Vietnamese',
+        ),
+        ) )
+    );   
+
     //Body fonts title
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
@@ -1060,39 +1104,59 @@ function sydney_customize_register( $wp_customize ) {
         ) )
     );    
     //Body fonts
+    $fonts = sydney_get_google_fonts();
+    $fonts = array_combine( $fonts, $fonts );
+
     $wp_customize->add_setting(
-        'body_font_name',
+        'body_font',
         array(
-            'default' => 'Source+Sans+Pro:400,400italic,600',
-            'sanitize_callback' => 'sydney_sanitize_text',
+            'default'           => 'Raleway',
+            'transport'         => 'postMessage'
+            //'sanitize_callback' => 'sydney_sanitize_text',
         )
     );
-    $wp_customize->add_control(
-        'body_font_name',
-        array(
-            'label' => __( 'Font name/style/sets', 'sydney' ),
-            'section' => 'sydney_fonts',
-            'type' => 'text',
-            'priority' => 11
-        )
-    );
-    //Body fonts family
+    $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
+
+    $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'body_font', array(
+        'label' => __( 'Font family', 'sydney' ),
+        'section' => 'sydney_fonts',
+        'type' => 'select',
+        'input_attrs' => array(
+            'multiselect' => false,
+        ),        
+        'priority' => 12,
+        'choices' => $fonts  
+        ) )
+    );   
+
+
+
     $wp_customize->add_setting(
-        'body_font_family',
+        'body_font_weights',
         array(
-            'default' => '\'Source Sans Pro\', sans-serif',
-            'sanitize_callback' => 'sydney_sanitize_text',
+            'default'           => '400,600',
+            //'sanitize_callback' => 'sydney_sanitize_text',
         )
     );
-    $wp_customize->add_control(
-        'body_font_family',
-        array(
-            'label' => __( 'Font family', 'sydney' ),
-            'section' => 'sydney_fonts',
-            'type' => 'text',
-            'priority' => 12
-        )
-    );
+
+    $wp_customize->add_control( new Sydney_Customize_Control_Checkbox_Multiple( $wp_customize, 'body_font_weights', array(
+        'label' => __('Font weights', 'sydney'),
+        'section' => 'sydney_fonts',
+        'priority' => 13,
+        'choices' => array( 
+            '100' => '100',
+            '200' => '200',
+            '300' => '300',
+            '400' => '400',
+            '500' => '500',
+            '600' => '600',
+            '700' => '700',
+            '800' => '800',
+            '900' => '900',
+        ),
+        ) )
+    );   
+    
     //Headings fonts title
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
@@ -1107,40 +1171,55 @@ function sydney_customize_register( $wp_customize ) {
         'priority' => 13
         ) )
     );      
-    //Headings fonts
+
+    //Temp test headings font
     $wp_customize->add_setting(
-        'headings_font_name',
+        'headings_font',
         array(
-            'default' => 'Raleway:400,500,600',
-            'sanitize_callback' => 'sydney_sanitize_text',
+            'default'           => 'Raleway',
+            'transport'         => 'postMessage'
+            //'sanitize_callback' => 'sydney_sanitize_text',
         )
     );
-    $wp_customize->add_control(
-        'headings_font_name',
-        array(
-            'label' => __( 'Font name/style/sets', 'sydney' ),
-            'section' => 'sydney_fonts',
-            'type' => 'text',
-            'priority' => 14
-        )
-    );
-    //Headings fonts family
+
+    $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'headings_font', array(
+        'label' => __( 'Font family', 'sydney' ),
+        'section' => 'sydney_fonts',
+        'type' => 'select',
+        'input_attrs' => array(
+            'multiselect' => false,
+        ),        
+        'priority' => 14,
+        'choices' => $fonts  
+        ) )
+    );      
+
     $wp_customize->add_setting(
-        'headings_font_family',
+        'headings_font_weights',
         array(
-            'default' => '\'Raleway\', sans-serif',
-            'sanitize_callback' => 'sydney_sanitize_text',
+            'default'           => '600',
+            //'sanitize_callback' => 'sydney_sanitize_text',
         )
     );
-    $wp_customize->add_control(
-        'headings_font_family',
-        array(
-            'label' => __( 'Font family', 'sydney' ),
-            'section' => 'sydney_fonts',
-            'type' => 'text',
-            'priority' => 15
-        )
-    );
+
+    $wp_customize->add_control( new Sydney_Customize_Control_Checkbox_Multiple( $wp_customize, 'headings_font_weights', array(
+        'label' => __('Font weights', 'sydney'),
+        'section' => 'sydney_fonts',
+        'priority' => 14,
+        'choices' => array( 
+            '100' => '100',
+            '200' => '200',
+            '300' => '300',
+            '400' => '400',
+            '500' => '500',
+            '600' => '600',
+            '700' => '700',
+            '800' => '800',
+            '900' => '900',
+        ),
+        ) )
+    );     
+
     //Font sizes title
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
@@ -1892,9 +1971,11 @@ function sydney_sanitize_checkbox( $input ) {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sydney_customize_preview_js() {
-	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20171206', true );
+    
+	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20200129', true );
 }
 add_action( 'customize_preview_init', 'sydney_customize_preview_js' );
+
 
 
 /**

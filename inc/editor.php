@@ -7,21 +7,17 @@
 function sydney_editor_styles() {
 	wp_enqueue_style( 'sydney-block-editor-styles', get_theme_file_uri( '/sydney-gutenberg-editor-styles.css' ), '', '1.0', 'all' );
 
-	wp_enqueue_style( 'sydney-fonts', esc_url( sydney_google_fonts() ), array(), null );
+	wp_enqueue_style( 'sydney-fonts', esc_url( sydney_enqueue_google_fonts() ), array(), null );
 
 
 	//Dynamic styles
 	$custom = '';
 
 	//Fonts
-	$body_fonts 	= get_theme_mod('body_font_family');	
-	$headings_fonts = get_theme_mod('headings_font_family');
-	if ( $body_fonts !='' ) {
-		$custom .= ".editor-block-list__layout, .editor-block-list__layout .editor-block-list__block { font-family:" . $body_fonts . ";}"."\n";
-	}
-	if ( $headings_fonts !='' ) {
-		$custom .= ".editor-post-title__block .editor-post-title__input, .editor-block-list__layout .editor-post-title__input, .editor-block-list__layout h1, .editor-block-list__layout h2, .editor-block-list__layout h3, .editor-block-list__layout h4, .editor-block-list__layout h5, .editor-block-list__layout h6 { font-family:" . $headings_fonts . ";}"."\n";
-	} 	   
+	$body_fonts 	= get_theme_mod('body_font', 'Raleway');	
+	$headings_fonts = get_theme_mod('headings_font', 'Raleway');
+	$custom .= ".editor-block-list__layout, .editor-block-list__layout .editor-block-list__block { font-family:" . $body_fonts . ";}"."\n";
+	$custom .= ".editor-post-title__block .editor-post-title__input, .editor-block-list__layout .editor-post-title__input, .editor-block-list__layout h1, .editor-block-list__layout h2, .editor-block-list__layout h3, .editor-block-list__layout h4, .editor-block-list__layout h5, .editor-block-list__layout h6 { font-family:" . $headings_fonts . ";}"."\n";
 	
 	
 	//H1 size

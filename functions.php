@@ -5,7 +5,6 @@
  * @package Sydney
  */
 
-
 if ( ! function_exists( 'sydney_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -154,6 +153,11 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 	require get_template_directory() . "/widgets/fp-employees.php";
 	require get_template_directory() . "/widgets/fp-latest-news.php";
 	require get_template_directory() . "/widgets/fp-portfolio.php";
+
+	/**
+	 * Page builder support
+	 */
+	require get_template_directory() . '/inc/page-builder.php';	
 }
 require get_template_directory() . "/widgets/contact-info.php";
 
@@ -169,11 +173,14 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
  */
 function sydney_scripts() {
 
-	wp_enqueue_style( 'sydney-fonts', esc_url( sydney_google_fonts() ), array(), null );
+	wp_enqueue_style( 'sydney-google-fonts', esc_url( sydney_enqueue_google_fonts() ), array(), null );
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20180710' );
+	if ( is_customize_preview() ) {
+		wp_enqueue_style( 'sydney-preview-google-fonts-body', 'https://fonts.googleapis.com/', array(), null );
+		wp_enqueue_style( 'sydney-preview-google-fonts-headings', 'https://fonts.googleapis.com/', array(), null );
+	}
 
-	wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20200129' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
@@ -182,7 +189,11 @@ function sydney_scripts() {
 
 	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'20180716', true );
 
-	wp_enqueue_script( 'sydney-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
+		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy.js', array('jquery'),'', true );
+		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy-main.js', array('jquery'),'', true );
+		wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
+	}
 
 	if ( get_theme_mod('blog_layout') == 'masonry-layout' && (is_home() || is_archive()) ) {
 
@@ -194,28 +205,6 @@ function sydney_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
-
-/**
- * Fonts
- */
-if ( !function_exists('sydney_google_fonts') ) :
-function sydney_google_fonts() {
-	$body_font 		= get_theme_mod('body_font_name', 'Source+Sans+Pro:400,400italic,600');
-	$headings_font 	= get_theme_mod('headings_font_name', 'Raleway:400,500,600');
-
-	$fonts     		= array();
-	$fonts[] 		= esc_attr( str_replace( '+', ' ', $body_font ) );
-	$fonts[] 		= esc_attr( str_replace( '+', ' ', $headings_font ) );
-
-	if ( $fonts ) {
-		$fonts_url = add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) )
-		), 'https://fonts.googleapis.com/css' );
-	}
-
-	return $fonts_url;	
-}
-endif;
 
 /**
  * Disable Elementor globals on theme activation
@@ -328,8 +317,8 @@ add_action('sydney_before_site', 'sydney_preloader');
  */
 function sydney_header_clone() {
 
-	$front_header_type 	= get_theme_mod('front_header_type','slider');
-	$site_header_type 	=get_theme_mod('site_header_type');
+	$front_header_type 	= get_theme_mod('front_header_type','nothing');
+	$site_header_type 	= get_theme_mod('site_header_type');
 
 	if ( ( $front_header_type == 'nothing' && is_front_page() ) || ( $site_header_type == 'nothing' && !is_front_page() ) ) { ?>
 	
@@ -358,6 +347,65 @@ function sydney_get_image_alt( $image ) {
 }
 
 /**
+ * Fix skip link focus in IE11.
+ *
+ * This does not enqueue the script because it is tiny and because it is only for IE11,
+ * thus it does not warrant having an entire dedicated blocking script being loaded.
+ *
+ * from TwentyTwenty
+ * 
+ * @link https://git.io/vWdr2
+ */
+function sydney_skip_link_focus_fix() {
+	?>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	<?php
+}
+add_action( 'wp_print_footer_scripts', 'sydney_skip_link_focus_fix' );
+
+/**
+ * Get SVG code for specific theme icon
+ */
+function sydney_get_svg_icon( $icon, $echo = false ) {
+	$svg_code = wp_kses( //From TwentTwenty. Keeps only allowed tags and attributes
+		Sydney_SVG_Icons::get_svg_icon( $icon ),
+		array(
+			'svg'     => array(
+				'class'       => true,
+				'xmlns'       => true,
+				'width'       => true,
+				'height'      => true,
+				'viewbox'     => true,
+				'aria-hidden' => true,
+				'role'        => true,
+				'focusable'   => true,
+			),
+			'path'    => array(
+				'fill'      => true,
+				'fill-rule' => true,
+				'd'         => true,
+				'transform' => true,
+			),
+			'polygon' => array(
+				'fill'      => true,
+				'fill-rule' => true,
+				'points'    => true,
+				'transform' => true,
+				'focusable' => true,
+			),
+		)
+	);	
+
+	if ( $echo != false ) {
+		echo $svg_code; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $svg_code;
+	}
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -383,11 +431,6 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Page builder support
- */
-require get_template_directory() . '/inc/page-builder.php';
-
-/**
  * Slider
  */
 require get_template_directory() . '/inc/slider.php';
@@ -400,7 +443,7 @@ require get_template_directory() . '/inc/styles.php';
 /**
  * Theme info
  */
-require get_template_directory() . '/inc/theme-info.php';
+require get_template_directory() . '/inc/onboarding/theme-info.php';
 
 /**
  * Woocommerce basic integration
@@ -416,6 +459,16 @@ require get_template_directory() . '/inc/upsell/class-customize.php';
  * Gutenberg
  */
 require get_template_directory() . '/inc/editor.php';
+
+/**
+ * Fonts
+ */
+require get_template_directory() . '/inc/fonts.php';
+
+/**
+ * SVG codes
+ */
+require get_template_directory() . '/inc/classes/class-sydney-svg-icons.php';
 
 /**
  *TGM Plugin activation.

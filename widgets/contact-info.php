@@ -61,17 +61,17 @@ class Sydney_Contact_Info extends WP_Widget {
 		
 		if( ($address) ) {
 			echo '<div class="contact-address">';
-			echo '<span><i class="fa fa-home"></i></span>' . $address;
+			echo '<span><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-home', false ) . '</i></span>' . $address;
 			echo '</div>';
 		}
 		if( ($phone) ) {
 			echo '<div class="contact-phone">';
-			echo '<span><i class="fa fa-phone"></i></span>' . $phone;
+			echo '<span><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-phone', false ) . '</i></span>' . $phone;
 			echo '</div>';
 		}
 		if( ($email) ) {
 			echo '<div class="contact-email">';
-			echo '<span><i class="fa fa-envelope"></i></span>' . '<a href="mailto:' . $email . '">' . $email . '</a>';
+			echo '<span><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-mail', false ) . '</i></span>' . '<a href="mailto:' . $email . '">' . $email . '</a>';
 			echo '</div>';
 		}				
 

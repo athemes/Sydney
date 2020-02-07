@@ -15,5 +15,6 @@ jQuery( document ).ready( function() {
             jQuery( this ).parents( '.customize-control' ).find( 'input[type="hidden"]' ).val( checkbox_values ).trigger( 'change' );
         }
     );
+    
 
 } ); // jQuery( document ).ready

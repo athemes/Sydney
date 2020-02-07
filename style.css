@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.58
+Version: 1.59
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -14,7 +14,6 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 Sydney is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 */
-
 
 /*--------------------------------------------------------------
 Social
@@ -302,6 +301,7 @@ Content
 }
 .single .meta-post .post-cat:first-of-type::before {
 	content: '';
+	padding: 0;
 }
 .single .hentry .meta-post a {
 	color: #d65050;
@@ -422,7 +422,9 @@ Repeatable Patterns
 				box-sizing: border-box;
 	}
 	body {
-		font: 14px/1.7 "Source Sans Pro", sans-serif;
+		font-size: 14px;
+		line-height: 1.7;
+		font-family: "Source Sans Pro", sans-serif;
 		background: #fff;
 		color: #767676;
 	}
@@ -932,7 +934,7 @@ Mobile navigation
 	#mainnav-mobi ul.sub-menu > li > a {
 		display: block;
 		text-decoration: none;
-		padding: 5px 60px;
+		padding: 10px 60px;
 		border-top-color: rgba(255,255,255,0.1);
 		-webkit-transition: all 0.2s ease-out;
 		   -moz-transition: all 0.2s ease-out;
@@ -948,40 +950,20 @@ Mobile navigation
 	}
 	.btn-menu {
 		float: right;
-		font-size: 28px;
-		font-family: "FontAwesome";
 		color: #fff;
 		text-align:center;
 		width: 28px;
 		height: 28px;
 		cursor: pointer;
-		-webkit-transition: all 0.3s ease-out;
-		   -moz-transition: all 0.3s ease-out;
-		    -ms-transition: all 0.3s ease-out;
-		     -o-transition: all 0.3s ease-out;
-		        transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
 	}
-	.btn-menu:before{
-		content: "\f0c9";
-	}
+
 	.btn-submenu {
 		position: absolute;
 		right: 20px;
 		top: 0;
-		font-family: "FontAwesome";
-		font-size: 20px;
-		line-height: 45px;
+		width: 50px;
 		text-align: center;
-		cursor: pointer;
-		width: 70px;
-		height: 44px;
-	}
-	.btn-submenu:before {
-		content: "\f107";
-		color: #fff;
-	}
-	.btn-submenu.active:before {
-		content: "\f106"
 	}
 	.btn-menu {
 		display: none
@@ -1308,6 +1290,7 @@ Blog
 	.hentry .meta-post,
 	.hentry .meta-post a {
 		color: #5e5e5e;
+		fill: #5e5e5e; 
 		font-size: 13px;
 	}
 	.hentry .meta-post span {
@@ -1317,26 +1300,6 @@ Blog
 	}
 	.hentry .meta-post .cat-links {
 		display: inline-block;
-	}
-	.hentry .meta-post span:before {
-		position: absolute;
-		left: 0;
-		top: 1px;
-		font-family: "FontAwesome";
-		line-height: normal;
-	}
-	.hentry .meta-post span.posted-on:before {
-		content:"\f073";
-	}
-	.hentry .meta-post span.byline:before {
-		content:"\f007";
-	}
-	.hentry .meta-post span.comments-link:before {
-		content:"\f086";
-	}
-	.hentry .meta-post span.cat-links:before {
-		content:"\f114";
-		top: 4px;
 	}
 	span.author.vcard {
 		padding: 0;
@@ -1437,7 +1400,6 @@ Blog
 	}
 	.single .single-meta,
 	.classic-alt .posted-on {
-		text-decoration: underline;
 		text-transform: uppercase;
 		font-size: 13px;
 	}
@@ -1666,6 +1628,7 @@ Comments
 --------------------------------------------------------------*/
 .comments-area {
 	margin-bottom: 60px;
+	margin-top: 30px;
 }
 .comments-title {
 	margin: 0 0 30px 0;
@@ -3377,6 +3340,57 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
     margin: 0 3px;
     text-decoration-color: #bababa;	
 }
+
+/*--------------------------------------------------------------
+SVGs
+--------------------------------------------------------------*/
+.sydney-svg-icon {
+	display: inline-block;
+	width: 16px;
+	vertical-align: middle;
+	line-height: 1;
+}
+.go-top svg {
+	fill: #fff;
+}
+.go-top:hover svg {
+	fill: #d65050;
+}
+.meta-post .sydney-svg-icon {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 14px;
+}
+.posted-on .sydney-svg-icon {
+	top: -1px;
+}
+.single-meta .sydney-svg-icon {
+	fill: #68647a;
+}
+.single-meta .sydney-svg-icon {
+	width: 14px;
+	margin-right: 7px;
+}
+.wp-custom-header button {
+	fill: #fff;
+}
+.btn-menu .sydney-svg-icon {
+	width: 22px;
+	fill: #fff;
+}
+.btn-submenu svg {
+	fill: #fff;
+	width: 20px;
+	transform: rotate(-180deg);
+	transition: all 0.4s;
+	position: relative;
+	top: 15px;
+}
+.btn-submenu.active svg {
+	transform: rotate(0);
+}
+
 /* Media Queries
 -------------------------------------------------------------- */
 	@media only screen and (min-width: 1930px) {
