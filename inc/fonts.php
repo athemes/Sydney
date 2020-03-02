@@ -32,15 +32,15 @@ if ( !function_exists('sydney_enqueue_google_fonts') ) :
 		$fonts 				= sydney_get_font_families_options();
 
 		//Body fonts
-		$body_weights		= get_theme_mod( 'body_font_weights', '400,600' );
-		$body_font 			= $fonts['body'] . ':' . $body_weights;
+		$body_weights		= get_theme_mod( 'body_font_weights', array( '400', '600' ) );
+		$body_font 			= $fonts['body'] . ':' . implode( ',', $body_weights );
 
 		//Headings fonts
-		$headings_weights	= get_theme_mod( 'headings_font_weights', '600' );
-		$headings_font 		= $fonts['headings'] . ':' . $headings_weights;
+		$headings_weights	= get_theme_mod( 'headings_font_weights', array( '600' ) );
+		$headings_font 		= $fonts['headings'] . ':' . implode( ',', $headings_weights );
 
 		//Subsets
-		$subsets			= get_theme_mod( 'body_font_subsets', 'latin' );
+		$subsets			= implode( ',', get_theme_mod( 'font_subsets', array( 'latin' ) ) );
 
 		//Build the font families array
 		$fonts_array		= array();

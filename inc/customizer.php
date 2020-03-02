@@ -1048,6 +1048,7 @@ function sydney_customize_register( $wp_customize ) {
 
     require get_template_directory() . '/inc/controls/control-checkbox-multiple.php';
     require get_template_directory() . '/inc/controls/multiple-select/class-control-multiple-select.php';
+    $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
 
 
     //Body fonts title
@@ -1068,15 +1069,19 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'font_subsets',
         array(
-            'default'           => 'latin',
-            //'sanitize_callback' => 'sydney_sanitize_text',
+            'default'   => array( 'latin' ),
+            'sanitize_callback' => 'sydney_sanitize_font_weights',
         )
     );
 
-    $wp_customize->add_control( new Sydney_Customize_Control_Checkbox_Multiple( $wp_customize, 'font_subsets', array(
-        'label' => __( 'Font subsets', 'sydney' ),
-        'section' => 'sydney_fonts',
-        'priority' => 10,
+    $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'font_subsets', array(
+        'label'     => __( 'Font subsets', 'sydney' ),
+        'section'   => 'sydney_fonts',
+        'priority'  => 10,
+        'type'      => 'sydney-multiple-select',
+        'input_attrs' => array(
+            'multiple' => true,
+        ),        
         'choices' => array( 
             'latin'         => 'Latin',
             'latin-ext'     => 'Latin Extended',
@@ -1111,19 +1116,15 @@ function sydney_customize_register( $wp_customize ) {
         'body_font',
         array(
             'default'           => 'Raleway',
-            'transport'         => 'postMessage'
-            //'sanitize_callback' => 'sydney_sanitize_text',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sydney_sanitize_text',
         )
     );
-    $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
 
     $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'body_font', array(
-        'label' => __( 'Font family', 'sydney' ),
-        'section' => 'sydney_fonts',
-        'type' => 'select',
-        'input_attrs' => array(
-            'multiselect' => false,
-        ),        
+        'label'     => __( 'Font family', 'sydney' ),
+        'section'   => 'sydney_fonts',
+        'type'      => 'sydney-multiple-select',      
         'priority' => 12,
         'choices' => $fonts  
         ) )
@@ -1134,15 +1135,19 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'body_font_weights',
         array(
-            'default'           => '400,600',
-            //'sanitize_callback' => 'sydney_sanitize_text',
+            'default'           =>  array('400', '600'),
+            'sanitize_callback' => 'sydney_sanitize_font_weights',
         )
     );
 
-    $wp_customize->add_control( new Sydney_Customize_Control_Checkbox_Multiple( $wp_customize, 'body_font_weights', array(
-        'label' => __('Font weights', 'sydney'),
+    $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'body_font_weights', array(
+        'label'         => __('Font weights', 'sydney'),
+        'description'   => sprintf( __( 'Please make sure your selected font weights are actually available for your font. You can check %s', 'sydney' ), '<a target="_blank" href="https://fonts.google.com">' . __( 'here', 'sydney' ) . '</a>' ),
         'section' => 'sydney_fonts',
         'priority' => 13,
+        'input_attrs' => array(
+            'multiple' => true,
+        ),        
         'choices' => array( 
             '100' => '100',
             '200' => '200',
@@ -1177,19 +1182,17 @@ function sydney_customize_register( $wp_customize ) {
         'headings_font',
         array(
             'default'           => 'Raleway',
-            'transport'         => 'postMessage'
-            //'sanitize_callback' => 'sydney_sanitize_text',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => 'sydney_sanitize_text',
         )
     );
 
     $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'headings_font', array(
         'label' => __( 'Font family', 'sydney' ),
         'section' => 'sydney_fonts',
-        'type' => 'select',
-        'input_attrs' => array(
-            'multiselect' => false,
-        ),        
+        'type' => 'select',      
         'priority' => 14,
+        'type'      => 'sydney-multiple-select',      
         'choices' => $fonts  
         ) )
     );      
@@ -1197,15 +1200,19 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'headings_font_weights',
         array(
-            'default'           => '600',
-            //'sanitize_callback' => 'sydney_sanitize_text',
+            'default'           => array( '600' ),
+            'sanitize_callback' => 'sydney_sanitize_font_weights',
         )
     );
 
-    $wp_customize->add_control( new Sydney_Customize_Control_Checkbox_Multiple( $wp_customize, 'headings_font_weights', array(
+    $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'headings_font_weights', array(
         'label' => __('Font weights', 'sydney'),
+        'description'   => sprintf( __( 'Please make sure your selected font weights are actually available for your font. You can check %s', 'sydney' ), '<a target="_blank" href="https://fonts.google.com">' . __( 'here', 'sydney' ) . '</a>' ),
         'section' => 'sydney_fonts',
         'priority' => 14,
+        'input_attrs' => array(
+            'multiple' => true,
+        ),           
         'choices' => array( 
             '100' => '100',
             '200' => '200',
@@ -1967,6 +1974,13 @@ function sydney_sanitize_checkbox( $input ) {
         return '';
     }
 }
+
+function sydney_sanitize_font_weights( $input ) {
+    if ( is_array( $input ) ) {
+        return $input;
+    }
+}
+
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */

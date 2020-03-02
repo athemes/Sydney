@@ -12,78 +12,104 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Multi select control
  */
+
+/**
+ * Customizer Control: oceanwp-multiple-select.
+ *
+ * @package     OceanWP WordPress theme
+ * @subpackage  Controls
+ * @see   		https://github.com/aristath/kirki
+ * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @since       1.0
+ */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Multi select control
+ */
 class Sydney_Select2_Custom_Control extends WP_Customize_Control {
 
-	public $type = 'dropdown_select2';
-
-	private $multiselect = false;
- 
-	private $placeholder = 'Please select...';
 	/**
-	 * Constructor
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
 	 */
-	public function __construct( $manager, $id, $args = array(), $options = array() ) {
-		parent::__construct( $manager, $id, $args );
-		// Check if this is a multi-select field
-		if ( isset( $this->input_attrs['multiselect'] ) && $this->input_attrs['multiselect'] ) {
-			$this->multiselect = true;
-		}
-		// Check if a placeholder string has been specified
-		if ( isset( $this->input_attrs['placeholder'] ) && $this->input_attrs['placeholder'] ) {
-			$this->placeholder = $this->input_attrs['placeholder'];
-		}
-	}
+	public $type = 'sydney-multiple-select';
+
 	/**
-	 * Enqueue our scripts and styles
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @access public
 	 */
 	public function enqueue() {
-
 		wp_enqueue_script( 'select2', get_template_directory_uri() . '/js/select2.min.js', array( 'jquery' ), false, true );
 		wp_enqueue_style( 'select2', get_template_directory_uri() . '/css/select2.min.css', null );
 		wp_enqueue_script( 'sydney-multiple-select', get_template_directory_uri() . '/inc/controls/multiple-select/multiple-select.js', array( 'jquery', 'customize-base', 'select2' ), false, true );
 		wp_enqueue_style( 'sydney-multiple-select', get_template_directory_uri() . '/inc/controls/multiple-select/multiple-select.css', null );
 
 	}
-	/**
-	 * Render the control in the customizer 
-	 */
-	public function render_content() {
-		$defaultValue = $this->value();
-		if ( $this->multiselect ) {
-			$defaultValue = explode( ',', $this->value() );
-		}
-	?>
-		<div class="dropdown_select2_control">
-			<?php if( !empty( $this->label ) ) { ?>
-				<label for="<?php echo esc_attr( $this->id ); ?>" class="customize-control-title">
-					<?php echo esc_html( $this->label ); ?>
-				</label>
-			<?php } ?>
-			<?php if( !empty( $this->description ) ) { ?>
-				<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
-			<?php } ?>
-			<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" class="customize-control-dropdown-select2" value="<?php echo esc_attr( $this->value() ); ?>" name="<?php echo esc_attr( $this->id ); ?>" <?php $this->link(); ?> />
-			<select name="select2-list-<?php echo ( $this->multiselect ? 'multi[]' : 'single' ); ?>" class="customize-control-select2" data-placeholder="<?php echo $this->placeholder; ?>" <?php echo ( $this->multiselect ? 'multiple="multiple" ' : '' ); ?>>
-				<?php
-					if ( !$this->multiselect ) {
 
-						echo '<option></option>';
-					}
-					foreach ( $this->choices as $key => $value ) {
-						if ( is_array( $value ) ) {
-							echo '<optgroup label="' . esc_attr( $key ) . '">';
-							foreach ( $value as $optgroupkey => $optgroupvalue ) {
-								echo '<option value="' . esc_attr( $optgroupkey ) . '" ' . ( in_array( esc_attr( $optgroupkey ), $defaultValue ) ? 'selected="selected"' : '' ) . '>' . esc_attr( $optgroupvalue ) . '</option>';
-							}
-							echo '</optgroup>';
-						}
-						else {
-							echo '<option value="' . esc_attr( $key ) . '" ' . selected( esc_attr( $key ), $defaultValue, false )  . '>' . esc_attr( $value ) . '</option>';
-						}
-					}
-				?>
-			</select>
-		</div>
-	<?php
+	/**
+	 * Refresh the parameters passed to the JavaScript via JSON.
+	 *
+	 * @see WP_Customize_Control::to_json()
+	 */
+	public function to_json() {
+		parent::to_json();
+
+		if ( isset( $this->default ) ) {
+			$this->json['default'] = $this->default;
+		} else {
+			$this->json['default'] = $this->setting->default;
+		}
+		$this->json['value']       = (array) $this->value();
+		$this->json['choices']     = $this->choices;
+		$this->json['link']        = $this->get_link();
+		$this->json['id']          = $this->id;
+
+		$this->json['inputAttrs'] = '';
+		foreach ( $this->input_attrs as $attr => $value ) {
+			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
+		}
+
+	}
+
+	/**
+	 * An Underscore (JS) template for this control's content (but not its container).
+	 *
+	 * Class variables for this control class are available in the `data` JS object;
+	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
+	 *
+	 * @see WP_Customize_Control::print_template()
+	 *
+	 * @access protected
+	 */
+	protected function content_template() {
+		?>
+		<# if ( ! data.choices ) { return; } #>
+
+		<# if ( data.label ) { #>
+			<span class="customize-control-title">{{ data.label }}</span>
+		<# } #>
+
+		<# if ( data.description ) { #>
+			<span class="description customize-control-description">{{{ data.description }}}</span>
+		<# } #>
+
+		<select {{{ data.inputAttrs }}} {{{ data.link }}}>
+
+			<# _.each( data.choices, function( label, choice ) { #>
+
+				<option value="{{ choice }}" <# if ( -1 !== data.value.indexOf( choice ) ) { #> selected="selected" <# } #>>{{ label }}</option>
+
+			<# } ) #>
+
+		</select>
+		<?php
 	}
 }

@@ -191,7 +191,7 @@ function sydney_scripts() {
 
 	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
 		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy.js', array('jquery'),'', true );
-		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy-main.js', array('jquery'),'', true );
+		wp_enqueue_script( 'sydney-so-legacy-main', get_template_directory_uri() . '/js/so-legacy-main.js', array('jquery'),'', true );
 		wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
 	}
 
