@@ -163,7 +163,7 @@ function sydney_custom_styles($custom) {
 	}
 	//Mobile menu icon
 	$mobile_menu_color = get_theme_mod( 'mobile_menu_color', '#ffffff' );
-	$custom .= ".btn-menu { fill:" . esc_attr($mobile_menu_color) . "}"."\n";
+	$custom .= ".btn-menu .sydney-svg-icon { fill:" . esc_attr($mobile_menu_color) . "}"."\n";
 
 	//Menu items hover
 	$menu_items_hover = get_theme_mod( 'menu_items_hover', '#d65050' );
