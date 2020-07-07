@@ -83,7 +83,7 @@ function sydney_posted_on() {
 	);
 
 	$byline = sprintf(
-		_x( '%s', 'post author', 'sydney' ),
+		'%s',
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -110,9 +110,9 @@ function sydney_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( '', 'sydney' ) );
+		$tags_list = get_the_tag_list( '', '' );
 		if ( $tags_list && is_single() ) {
-			printf( '<span class="tags-links">' . __( ' %1$s', 'sydney' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . '%1$s' . '</span>', $tags_list );
 		}
 	}
 	edit_post_link( __( 'Edit', 'sydney' ), '<span class="edit-link">', '</span>' );
@@ -303,5 +303,16 @@ function sydney_all_cats() {
 		foreach ($categories as $cat) {
 			echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '" title="' . esc_attr( $cat->name ) . '" class="post-cat">' . esc_html( $cat->name ) . '</a>';
 		}
+	}
+}
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+	/**
+	 * Shim for wp_body_open() function
+	 */
+	// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
+	function wp_body_open() {
+		// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedHooknameFound
+		do_action( 'wp_body_open' );
 	}
 }

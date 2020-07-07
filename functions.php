@@ -81,6 +81,12 @@ function sydney_setup() {
 
 	//Gutenberg align-wide support
 	add_theme_support( 'align-wide' );
+
+	//Forked Owl Carousel flag
+	$forked_owl = get_theme_mod( 'forked_owl_carousel', false );
+	if ( !$forked_owl ) {
+		set_theme_mod( 'forked_owl_carousel', true );
+	}	
 }
 endif; // sydney_setup
 add_action( 'after_setup_theme', 'sydney_setup' );
@@ -157,7 +163,7 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 	/**
 	 * Page builder support
 	 */
-	require get_template_directory() . '/inc/page-builder.php';	
+	require get_template_directory() . '/inc/so-page-builder.php';	
 }
 require get_template_directory() . "/widgets/contact-info.php";
 
@@ -167,6 +173,14 @@ require get_template_directory() . "/widgets/contact-info.php";
 if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
     define( 'ELEMENTOR_PARTNER_ID', 2128 );
 }
+
+/**
+ * Elementor editor scripts
+ */
+function sydney_elementor_editor_scripts() {
+	wp_enqueue_script( 'sydney-elementor-editor', get_template_directory_uri() . '/js/elementor.js', array( 'jquery' ), '20200504', true );
+}
+add_action('elementor/frontend/after_register_scripts', 'sydney_elementor_editor_scripts');
 
 /**
  * Enqueue scripts and styles.
@@ -187,7 +201,7 @@ function sydney_scripts() {
 
 	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
-	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'20180716', true );
+	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'20200504', true );
 
 	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
 		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy.js', array('jquery'),'', true );
@@ -338,7 +352,7 @@ function sydney_get_image_alt( $image ) {
         return false;
     }
 
-    $attachment  = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%s';", strtolower( $image ) ) );
+    $attachment  = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid=%s;", strtolower( $image ) ) );
     $id   = ( ! empty( $attachment ) ) ? $attachment[0] : 0;
 
     $alt = get_post_meta( $id, '_wp_attachment_image_alt', true );
@@ -449,6 +463,13 @@ require get_template_directory() . '/inc/onboarding/theme-info.php';
  * Woocommerce basic integration
  */
 require get_template_directory() . '/inc/woocommerce.php';
+
+/**
+ * WPML
+ */
+if ( class_exists( 'SitePress' ) ) {
+	require get_template_directory() . '/inc/wpml/class-sydney-wpml.php';
+}
 
 /**
  * Upsell

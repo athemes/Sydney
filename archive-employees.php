@@ -21,7 +21,7 @@ get_header(); ?>
 					$facebook = get_post_meta( get_the_ID(), 'wpcf-facebook', true );
 					$twitter  = get_post_meta( get_the_ID(), 'wpcf-twitter', true );
 					$google   = get_post_meta( get_the_ID(), 'wpcf-google-plus', true );
-					$link     = get_post_meta( get_the_ID(), 'wpcf-custom-link', true );
+					$emplink     = get_post_meta( get_the_ID(), 'wpcf-custom-link', true );
 				?>
 			<div class="team-item col-md-4">
 			    <div class="team-inner">
@@ -33,10 +33,10 @@ get_header(); ?>
 			    </div>
 			    <div class="team-content">
 			        <div class="name">
-			        	<?php if ($link == '') : ?>
+			        	<?php if ($emplink == '') : ?>
 			        		<?php the_title(); ?>
 			        	<?php else : ?>
-			        		<a href="<?php echo esc_url($link); ?>"><?php the_title(); ?></a>
+			        		<a href="<?php echo esc_url($emplink); ?>"><?php the_title(); ?></a>
 			        	<?php endif; ?>
 			        </div>
 			        <div class="pos"><?php echo esc_html($position); ?></div>

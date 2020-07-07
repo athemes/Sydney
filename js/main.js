@@ -169,8 +169,8 @@
 	};
 
 	var testimonialCarousel = function(){
-		if ( $().owlCarousel ) {
-			$('.roll-testimonials').owlCarousel({
+		if ( $().owlCarouselFork ) {
+			$('.roll-testimonials').owlCarouselFork({
 				navigation : false,
 				pagination: true,
 				responsive: true,
@@ -212,8 +212,8 @@
 
 
 	var teamCarousel = function(){
-		if ( $().owlCarousel ) {
-			$(".roll-team:not(.roll-team.no-carousel)").owlCarousel({
+		if ( $().owlCarouselFork ) {
+			$(".roll-team:not(.roll-team.no-carousel)").owlCarouselFork({
 				navigation : false,
 				pagination: true,
 				responsive: true,
@@ -226,7 +226,7 @@
 				mouseDrag: true,
 				autoHeight: false,
 				autoPlay: false,
-			}); // end owlCarousel
+			}); // end owlCarouselFork
 		} // end if
 	};
 

@@ -16,13 +16,13 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php $icon = get_post_meta( get_the_ID(), 'wpcf-service-icon', true ); ?>
-				<?php $link = get_post_meta( get_the_ID(), 'wpcf-service-link', true ); ?>
+				<?php $servicelink = get_post_meta( get_the_ID(), 'wpcf-service-link', true ); ?>
 				<div class="service col-md-4">
 					<div class="roll-icon-box">
 						<?php if ($icon) : ?>
 						<div class="icon">
-						<?php if ($link) : ?>
-							<?php echo '<a href="' . esc_url( $link ) . '"><i class="fa ' . esc_html( $icon ) . '"></i></a>'; ?>
+						<?php if ($servicelink) : ?>
+							<?php echo '<a href="' . esc_url( $servicelink ) . '"><i class="fa ' . esc_html( $icon ) . '"></i></a>'; ?>
 						<?php else : ?>
 							<?php echo '<i class="fa ' . esc_html( $icon ) . '"></i>'; ?>
 						<?php endif; ?>
@@ -30,8 +30,8 @@ get_header(); ?>
 						<?php endif; ?>							
 						<div class="content">
 							<h3>
-								<?php if ($link) : ?>
-								<a href="<?php echo esc_url($link); ?>"><?php the_title(); ?></a>
+								<?php if ($servicelink) : ?>
+								<a href="<?php echo esc_url($servicelink); ?>"><?php the_title(); ?></a>
 								<?php else : ?>
 								<?php the_title(); ?>
 								<?php endif; ?>

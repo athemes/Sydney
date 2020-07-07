@@ -11,6 +11,12 @@
 		<?php the_title( '<h1 class="title-post entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
+	<?php if ( has_post_thumbnail() && ( get_theme_mod( 'page_feat_image', 1 ) != 1 ) ) : ?>
+	<div class="entry-thumb">
+		<?php the_post_thumbnail('large-thumb'); ?>
+	</div>
+	<?php endif; ?>
+
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php

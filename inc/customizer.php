@@ -998,7 +998,23 @@ function sydney_customize_register( $wp_customize ) {
             'priority' => 23,
         )
     );
-
+    //Page images
+    $wp_customize->add_setting(
+        'page_feat_image',
+        array(
+            'sanitize_callback' => 'sydney_sanitize_checkbox',
+            'default'           => 1,
+        )       
+    );
+    $wp_customize->add_control(
+        'page_feat_image',
+        array(
+            'type' => 'checkbox',
+            'label' => __('Check this box to hide featured images on single pages', 'sydney'),
+            'section' => 'blog_options',
+            'priority' => 23,
+        )
+    );
 
 
 
