@@ -62,12 +62,35 @@
 
 		} // end if
 
-    }; 	
+	}; 	
+	
+	var aThemesgroupProductYITHActions = function() {
+
+		var product = $( '.woocommerce ul.products li.product' );
+		product.each(function (index, el) {
+			var placeholder = $( el ).find( '.yith-placeholder' );
+
+			var wcqv 		= $( el ).find( '.yith-wcqv-button' );
+			var wcwl 	= $( el ).find( '.yith-wcwl-add-to-wishlist' );
+			var compare		= $( el ).find( '.compare.button' );
+
+			placeholder.append( wcqv, wcwl, compare);
+
+		});
+	}	
 
 	$(window).on('elementor/frontend/init', function () {
         elementorFrontend.hooks.addAction('frontend/element_ready/athemes-testimonials.default', aThemesTestimonialsCarouselrun);
         elementorFrontend.hooks.addAction('frontend/element_ready/athemes-posts.default', aThemesNewsCarouselrun);		
 		elementorFrontend.hooks.addAction('frontend/element_ready/athemes-employee-carousel.default', aThemesTeamCarouselrun);
+
+		elementorFrontend.hooks.addAction( 'frontend/element_ready/global', function( $scope ) {
+			aThemesgroupProductYITHActions();
+
+		} );		
 	});
+
+
+	
 
 })(jQuery);

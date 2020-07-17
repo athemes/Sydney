@@ -87,6 +87,9 @@ function sydney_setup() {
 	if ( !$forked_owl ) {
 		set_theme_mod( 'forked_owl_carousel', true );
 	}	
+
+	//Set the compare icon for YTIH button
+	update_option( 'yith_woocompare_button_text', sydney_get_svg_icon( 'icon-compare', false ) );
 }
 endif; // sydney_setup
 add_action( 'after_setup_theme', 'sydney_setup' );
@@ -201,7 +204,7 @@ function sydney_scripts() {
 
 	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
-	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.min.js', array('jquery'),'20200504', true );
+	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.js', array('jquery'),'20200504', true );
 
 	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
 		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy.js', array('jquery'),'', true );
@@ -334,11 +337,14 @@ function sydney_header_clone() {
 	$front_header_type 	= get_theme_mod('front_header_type','nothing');
 	$site_header_type 	= get_theme_mod('site_header_type');
 
-	if ( ( $front_header_type == 'nothing' && is_front_page() ) || ( $site_header_type == 'nothing' && !is_front_page() ) ) { ?>
-	
-	<div class="header-clone"></div>
-
-	<?php }
+	if ( class_exists( 'Woocommerce' ) && is_shop() ) {
+		$shop_thumb = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
+		if ( !$shop_thumb ) {
+			echo '<div class="header-clone"></div>';
+		}		
+	} elseif ( ( $front_header_type == 'nothing' && is_front_page() ) || ( $site_header_type == 'nothing' && !is_front_page() ) ) {
+		echo '<div class="header-clone"></div>';
+	}
 }
 add_action('sydney_before_header', 'sydney_header_clone');
 

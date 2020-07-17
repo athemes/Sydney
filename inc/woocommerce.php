@@ -35,7 +35,18 @@ add_action('wp','sydney_woo_actions');
  * Theme wrappers
  */
 function sydney_wc_wrapper_start() {
-    echo '<div id="primary" class="content-area col-md-9">';
+
+    $archive_check = sydney_wc_archive_check();
+    $rs_archives = get_theme_mod( 'swc_sidebar_archives' );
+    $rs_products = get_theme_mod( 'swc_sidebar_products', 1 );
+
+    if ( ( $archive_check && $rs_archives ) || ( is_product() && $rs_products ) ) {
+        $cols = 'col-md-12';
+    } else {
+        $cols = 'col-md-9';
+    }
+
+    echo '<div id="primary" class="content-area ' . $cols . '">';
         echo '<main id="main" class="site-main" role="main">';
 }
 
@@ -107,3 +118,81 @@ function sydney_single_variation_add_to_cart_button() {
      <?php
 }
 add_action( 'woocommerce_single_variation', 'sydney_single_variation_add_to_cart_button', 21 );
+
+/**
+ * Add SVG cart icon to loop add to cart button
+ */
+function sydney_add_loop_cart_icon() {
+
+    global $product;
+
+    $type = $product->get_type();
+    
+    if ( 'simple' == $type ) {
+        $icon = '<span><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-add-cart', false ) . '</i></span> ';
+    } else {
+        $icon = '';
+    }
+
+	return sprintf(
+		'<div class="loop-button-wrapper"><a href="%s" data-quantity="%s" class="%s" %s>' . $icon . '%s</a></div>',
+		esc_url( $product->add_to_cart_url() ),
+		esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
+		esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
+		isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
+		esc_html( $product->add_to_cart_text() )
+    );  
+
+}
+add_filter( 'woocommerce_loop_add_to_cart_link', 'sydney_add_loop_cart_icon' );
+
+/**
+ * Remove sidebar from all archives
+ */
+function sydney_remove_wc_sidebar_archives() {
+    $archive_check = sydney_wc_archive_check();
+    $rs_archives = get_theme_mod( 'swc_sidebar_archives' );
+    $rs_products = get_theme_mod( 'swc_sidebar_products', 1 );
+
+    if ( ( $rs_archives && $archive_check ) || ( $rs_products && is_product() ) ) {
+        remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+    }   
+}
+add_action( 'wp', 'sydney_remove_wc_sidebar_archives' );
+
+/**
+ * Returns true if current page is shop, product archive or product tag
+ */
+function sydney_wc_archive_check() {
+    if ( is_shop() || is_product_category() || is_product_tag() ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Filter quick view button from YITH to remove the text
+ */
+function sydney_filter_yith_wcqv_button() {
+
+    global $product;
+    
+    $product_id = $product->get_id();
+
+    $button = '<a href="#" class="yith-wcqv-button" data-product_id="' . esc_attr( $product_id ) . '">' . sydney_get_svg_icon( 'icon-search', false ) . '</a>';
+    return $button;
+}
+add_filter( 'yith_add_quick_view_button_html', 'sydney_filter_yith_wcqv_button' );
+
+
+function sydney_add_yith_placeholder() {
+    echo '<div class="yith-placeholder"></div>';
+}
+add_action( 'woocommerce_before_shop_loop_item', 'sydney_add_yith_placeholder' );
+
+/**
+ * Remove additional titles from Woocommerce tabs
+ */
+add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
+add_filter( 'woocommerce_product_description_heading', '__return_false' );

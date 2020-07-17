@@ -33,3 +33,34 @@ function sydney_yoast_seo_breadcrumbs() {
 		');
 	}
 }
+
+/**
+ * Additional classes for main content area on pages
+ */
+if ( !function_exists( 'sydney_page_content_classes') ) {
+	function sydney_page_content_classes() {
+
+		if ( apply_filters( 'sydney_disable_cart_checkout_sidebar', true ) && class_exists( 'WooCommerce' ) && ( is_checkout() || is_cart() ) ) {
+			return 'col-md-12'; //full width Woocommerce checkout and cart pages
+		}
+
+		return 'col-md-9'; //default
+
+	}
+}
+
+/**
+ * Sidebar output function
+ * 
+ * hooked into sydney_get_sidebar
+ */
+function sydney_get_sidebar() {
+
+	if ( apply_filters( 'sydney_disable_cart_checkout_sidebar', true ) && class_exists( 'WooCommerce' ) && ( is_checkout() || is_cart() ) ) {
+		return; //we don't want a sidebar on the checkout and cart page
+	}
+
+	get_sidebar();
+
+}
+add_action( 'sydney_get_sidebar', 'sydney_get_sidebar' );

@@ -10,9 +10,14 @@
  * @package Sydney
  */
 
-get_header(); ?>
+get_header(); 
 
-	<div id="primary" class="content-area col-md-9">
+//Get classes for main content area
+$content_classes = sydney_page_content_classes();
+
+?>
+
+	<div id="primary" class="content-area <?php echo esc_attr( $content_classes ); ?>">
 		<main id="main" class="post-wrap" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -31,5 +36,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php do_action( 'sydney_get_sidebar' ); ?>
 <?php get_footer(); ?>
