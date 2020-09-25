@@ -8,14 +8,14 @@
 get_header(); ?>
 
 	<?php if (get_theme_mod('fullwidth_single')) { //Check if the post needs to be full width
-		$fullwidth = 'fullwidth';
+		$width = 'fullwidth';
 	} else {
-		$fullwidth = '';
+		$width = 'col-md-9';
 	} ?>
 
 	<?php do_action('sydney_before_content'); ?>
 
-	<div id="primary" class="content-area col-md-9 <?php echo $fullwidth; ?>">
+	<div id="primary" class="content-area <?php echo esc_attr( apply_filters( 'sydney_content_area_class', $width ) ); ?>">
 
 		<?php sydney_yoast_seo_breadcrumbs(); ?>
 
@@ -42,6 +42,6 @@ get_header(); ?>
 	<?php do_action('sydney_after_content'); ?>
 
 <?php if ( get_theme_mod('fullwidth_single', 0) != 1 ) {
-	get_sidebar();
+	do_action( 'sydney_get_sidebar' );
 } ?>
 <?php get_footer(); ?>

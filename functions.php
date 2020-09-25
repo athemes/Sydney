@@ -489,7 +489,14 @@ require get_template_directory() . '/inc/woocommerce.php';
  * WPML
  */
 if ( class_exists( 'SitePress' ) ) {
-	require get_template_directory() . '/inc/wpml/class-sydney-wpml.php';
+	require get_template_directory() . '/inc/integrations/wpml/class-sydney-wpml.php';
+}
+
+/**
+ * LifterLMS
+ */
+if ( class_exists( 'LifterLMS' ) ) {
+	require get_template_directory() . '/inc/integrations/lifter/class-sydney-lifterlms.php';
 }
 
 /**

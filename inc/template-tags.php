@@ -39,6 +39,11 @@ endif;
 
 if ( ! function_exists( 'sydney_post_navigation' ) ) :
 function sydney_post_navigation() {
+
+	if ( !apply_filters( 'sydney_single_post_nav_enable', true ) ) {
+		return;
+	}	
+
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );

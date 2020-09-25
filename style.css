@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.68
+Version: 1.69
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.4
@@ -500,6 +500,8 @@ Repeatable Patterns
 	.text-white { color: #fff !important; }
 	.text-dark { color: #443f3f !important;}
 	button,
+	.llms-button-action,
+	.llms-student-dashboard .llms-button-secondary,
 	input[type="button"],
 	input[type="reset"],
 	input[type="submit"] {
@@ -523,6 +525,8 @@ Repeatable Patterns
 		        transition: all 0.3s;
 	}
 	button:hover,
+	.llms-button-action:hover,
+	.llms-student-dashboard .llms-button-secondary:hover,
 	input[type="button"]:hover,
 	input[type="reset"]:hover,
 	input[type="submit"]:hover {
@@ -1228,47 +1232,6 @@ Hero section
     opacity: 1 !important;
 }
 
-/*--------------------------------------------------------------
-Page title
---------------------------------------------------------------*/
-	.page-title {
-		color: #ccc;
-		padding-top: 100px;
-	}
-	.page-title .col-md-6 {
-		float: none;
-	}
-	.page-title-inner {
-		display: table;
-		width: 100%;
-		height: 100%;
-		position: relative;
-		z-index: 1;
-	}
-	.page-title-cap {
-		display: table-cell;
-		vertical-align: middle;
-	}
-	.page-title .breadcrumbs {
-		display: table-cell;
-		list-style: none;
-		text-align: left;
-		vertical-align: middle;
-	}
-	.page-title h1 {
-		margin: 0;
-		font-size: 18px;
-		color: #ccc;
-	}
-	.breadcrumbs ul {
-		margin: 0;
-	}
-	.breadcrumbs ul li {
-		display: inline;
-	}
-	.breadcrumbs ul li a:hover {
-		text-decoration: underline;
-	}
 /*--------------------------------------------------------------
 Blog
 --------------------------------------------------------------*/
@@ -3086,10 +3049,12 @@ Panels
 	.roll-icon-list .content h3 a:hover {
 		color: #d65050;
 	}
+	.llms-student-dashboard .llms-button-secondary,
 	.roll-button {
 		background-color: #d65050;
 		border: 1px solid #d65050;
 	}
+	.llms-student-dashboard .llms-button-secondary:hover,
 	.roll-button:hover {
 		color: #d65050;
 	}

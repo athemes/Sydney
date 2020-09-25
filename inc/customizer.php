@@ -2321,6 +2321,19 @@ function sydney_sanitize_menu_container( $input ) {
     }
 }
 /**
+ * Selects
+ */
+function sydney_sanitize_selects( $input, $setting ){
+          
+    $input = sanitize_key($input);
+
+    $choices = $setting->manager->get_control( $setting->id )->choices;
+                      
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
+      
+}
+
+/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sydney_customize_preview_js() {
