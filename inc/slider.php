@@ -76,7 +76,7 @@ function sydney_slider_template() {
         <?php foreach ( $images as $image ) {
         	if ( $image ) {
 
-                $image_alt = sydney_get_image_alt( $image );
+                $image_alt = sydney_image_alt( $image );
         		?>
                 <div class="slide-item slide-item-<?php echo $c; ?>" style="background-image:url('<?php echo esc_url( $image ); ?>');">
                     <img class="mobile-slide preserve" src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>"/>

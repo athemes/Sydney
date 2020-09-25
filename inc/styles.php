@@ -27,27 +27,28 @@ function sydney_custom_styles($custom) {
 	if ( $yith_buttons_visible ) {
 		$custom .= ".yith-placeholder > * { opacity:1!important;left:0!important;}"."\n";
 	}
-	if ( class_exists( 'Woocommerce' ) && is_shop() ) {
-		$shop_thumb = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
-		if ( $shop_thumb ) {
-			$custom .= ".header-image { background-image:url(" . esc_url($shop_thumb) . ")!important;display:block;}"."\n";	
-			$custom .= ".site-header { background-color:transparent;}" . "\n";
-			$custom .= "@media only screen and (max-width: 1024px) { .sydney-hero-area .header-image { height:300px!important; }}" . "\n";
-		}
-		$shop_overlay = get_theme_mod( 'hide_overlay_shop' );
-		if ( $shop_overlay ) {
-			$custom .= ".header-image .overlay { background-color:transparent;}" . "\n";
-		}
-	} elseif ( class_exists( 'Woocommerce' ) && is_product_category() ) {
+
+	//Get thumbnails for shop and shop archives
+	$shop_thumb = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
+	if ( class_exists( 'Woocommerce' ) && is_product_category() ) {
 	    global $wp_query;
 	    $cat 			= $wp_query->get_queried_object();
 	    $thumbnail_id 	= get_term_meta( $cat->term_id, 'thumbnail_id', true );
 		$shop_archive_thumb	= wp_get_attachment_url( $thumbnail_id );
-		if ( $shop_archive_thumb ) {
-			$custom .= ".header-image { background-image:url(" . esc_url($shop_archive_thumb) . ")!important;display:block;}"."\n";	
-			$custom .= ".site-header { background-color:transparent;}" . "\n";
-			$custom .= "@media only screen and (max-width: 1024px) { .sydney-hero-area .header-image { height:300px!important; }}" . "\n";
+	}
+
+	if ( class_exists( 'Woocommerce' ) && is_shop() && $shop_thumb ) {
+		$custom .= ".header-image { background-image:url(" . esc_url($shop_thumb) . ")!important;display:block;}"."\n";	
+		$custom .= ".site-header { background-color:transparent;}" . "\n";
+		$custom .= "@media only screen and (max-width: 1024px) { .sydney-hero-area .header-image { height:300px!important; }}" . "\n";
+		$shop_overlay = get_theme_mod( 'hide_overlay_shop' );
+		if ( $shop_overlay ) {
+			$custom .= ".header-image .overlay { background-color:transparent;}" . "\n";
 		}
+	} elseif ( class_exists( 'Woocommerce' ) && is_product_category() && $shop_archive_thumb ) {
+		$custom .= ".header-image { background-image:url(" . esc_url($shop_archive_thumb) . ")!important;display:block;}"."\n";	
+		$custom .= ".site-header { background-color:transparent;}" . "\n";
+		$custom .= "@media only screen and (max-width: 1024px) { .sydney-hero-area .header-image { height:300px!important; }}" . "\n";
 	} elseif ( (get_theme_mod('front_header_type','nothing') == 'nothing' && is_front_page()) || (get_theme_mod('site_header_type') == 'nothing' && !is_front_page()) ) {
 		$menu_bg_color = get_theme_mod( 'menu_bg_color', '#263246' );
 		$rgba 	= sydney_hex2rgba($menu_bg_color, 0.9);

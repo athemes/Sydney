@@ -29,25 +29,25 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-wrap">
-            <div class="container">
+            <div class="<?php echo esc_attr( sydney_menu_container() ); ?>">
                 <div class="row">
-				<div class="col-md-4 col-sm-8 col-xs-12">
-		        <?php if ( get_theme_mod('site_logo') ) : ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" /></a>
-					<?php if ( is_home() && !is_front_page() ) : ?>
-						<h1 class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
+					<div class="col-md-4 col-sm-8 col-xs-12">
+					<?php if ( get_theme_mod('site_logo') ) : ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" /></a>
+						<?php if ( is_home() && !is_front_page() ) : ?>
+							<h1 class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
+						<?php endif; ?>
+					<?php else : ?>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	        
 					<?php endif; ?>
-				<?php else : ?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	        
-		        <?php endif; ?>
-				</div>
-				<div class="col-md-8 col-sm-4 col-xs-12">
-					<div class="btn-menu"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
-					<nav id="mainnav" class="mainnav" role="navigation">
-						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
-					</nav><!-- #site-navigation -->
-				</div>
+					</div>
+					<div class="col-md-8 col-sm-4 col-xs-12">
+						<div class="btn-menu"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
+						<nav id="mainnav" class="mainnav" role="navigation">
+							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
+						</nav><!-- #site-navigation -->
+					</div>
 				</div>
 			</div>
 		</div>

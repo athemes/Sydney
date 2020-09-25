@@ -18,7 +18,7 @@ jQuery( document ).ready(
 					var slug = button.attr( 'data-slug' );
 					var url = button.attr( 'href' );
 					var redirect = $( button ).attr( 'data-redirect' );
-					button.text( wp.updates.l10n.installing );
+					button.text( 'Installing...' );
 					button.addClass( 'updating-message' );
 					wp.updates.installPlugin(
 						{

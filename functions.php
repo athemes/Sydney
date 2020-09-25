@@ -337,12 +337,27 @@ function sydney_header_clone() {
 	$front_header_type 	= get_theme_mod('front_header_type','nothing');
 	$site_header_type 	= get_theme_mod('site_header_type');
 
-	if ( class_exists( 'Woocommerce' ) && is_shop() ) {
-		$shop_thumb = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
-		if ( !$shop_thumb ) {
-			echo '<div class="header-clone"></div>';
-		}		
-	} elseif ( ( $front_header_type == 'nothing' && is_front_page() ) || ( $site_header_type == 'nothing' && !is_front_page() ) ) {
+	if ( class_exists( 'Woocommerce' ) ) {
+
+		if ( is_shop() ) {
+			$shop_thumb = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
+
+			if ( $shop_thumb ) {
+				return;
+			}
+		} elseif ( is_product_category() ) {
+			global $wp_query;
+			$cat 				= $wp_query->get_queried_object();
+			$thumbnail_id 		= get_term_meta( $cat->term_id, 'thumbnail_id', true );
+			$shop_archive_thumb	= wp_get_attachment_url( $thumbnail_id );
+			
+			if ( $shop_archive_thumb ) {
+				return;
+			}
+		}
+	}
+
+	if ( ( $front_header_type == 'nothing' && is_front_page() ) || ( $site_header_type == 'nothing' && !is_front_page() ) ) {
 		echo '<div class="header-clone"></div>';
 	}
 }

@@ -156,8 +156,6 @@ class Sydney_Recommended_Plugins {
 			)
 		);
 
-		wp_enqueue_script( 'plugin-install' );
-		wp_enqueue_script( 'updates' );
 		wp_enqueue_script( 'sydney-plugin-install' );
 	}
 }

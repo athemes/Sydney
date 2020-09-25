@@ -282,4 +282,7 @@ function sydney_info_page_styles() {
 
 	wp_enqueue_script( 'sydney-info-script', get_template_directory_uri() . '/inc/onboarding/assets/info-page.js', array('jquery'),'', true );
 
+	wp_enqueue_script( 'plugin-install' );
+	wp_enqueue_script( 'updates' );	
+
 }

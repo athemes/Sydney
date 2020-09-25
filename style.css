@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.64
+Version: 1.68
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.4
@@ -898,6 +898,10 @@ Header
 	#mainnav-mobi ul li::before {
 		content: '';
 	}
+	.fw-menu-container {
+		padding-left: 60px;
+		padding-right: 60px;
+	}	
 /*--------------------------------------------------------------
 Mobile navigation
 --------------------------------------------------------------*/
@@ -3726,7 +3730,41 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
     margin: 0 3px;
     text-decoration-color: #bababa;	
 }
-
+/* Elementor slider block */
+.athemes-hero-slider .slide-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.athemes-hero-slider .hero-slide-inner {
+    transform: translatey(-50%);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+}
+.elementor-section-boxed .athemes-hero-slider .hero-slide-inner {
+	padding: 30px;
+}
+.elementor-section-boxed .athemes-hero-slider .hero-slide-inner .container {
+	width: 100%;
+}
+.athemes-hero-slider .swiper-button-next, .athemes-hero-slider .swiper-button-prev {
+	background: none;
+	fill: #fff;
+}
+.athemes-hero-slider .swiper-pagination-bullet {
+	width: 20px;
+	height: 6px;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.athemes-hero-slider .roll-button {
+	display: inline-block;
+	margin-top: 20px;
+}
 /*--------------------------------------------------------------
 SVGs
 --------------------------------------------------------------*/
@@ -3895,7 +3933,11 @@ SVGs
 		}
 		.btn-menu {
 			display: block;
-		}		
+		}	
+		.fw-menu-container {
+			padding-left: 30px;
+			padding-right: 30px;
+		}			
 	}
 	@media only screen and (max-width: 780px) {
 		.roll-client .client-item img {
@@ -4073,6 +4115,8 @@ SVGs
 	}
 	/* Center menu vertically */
 	@media screen and (min-width: 1025px) {
+		#mainnav > div > ul,
+		.header-wrap .fw-menu-container > .row,
 		.header-wrap .container > .row {
 			display: -webkit-flex;
 			display: -ms-flexbox;
@@ -4081,6 +4125,19 @@ SVGs
 			    -ms-flex-align: center;
 			        align-items: center;
 		}
+		#mainnav > div > ul {
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+		}
+		.menu-centered #mainnav > div > ul {
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+				justify-content: center;
+		}
+		.menu-centered .fw-menu-container > .row {
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;			
+		}		
 	}
 	/* Mobile slider */
 	.mobile-slide {
