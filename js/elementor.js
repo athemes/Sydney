@@ -86,11 +86,8 @@
 
 		elementorFrontend.hooks.addAction( 'frontend/element_ready/global', function( $scope ) {
 			aThemesgroupProductYITHActions();
-
 		} );		
 	});
 
-
-	
 
 })(jQuery);

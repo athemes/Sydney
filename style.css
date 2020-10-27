@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
-Version: 1.71
+Version: 1.72
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.4
@@ -17,6 +17,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 Sydney is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 */
 
+html {
+	scroll-behavior: smooth;
+}
 /*--------------------------------------------------------------
 Social
 --------------------------------------------------------------*/
@@ -1849,6 +1852,12 @@ Preloader
 	    width: 100%;
 	    z-index: 9999;	    
 	}
+	.preloader.disable {
+		opacity: 0;
+	}
+	.preloader.hide {
+		display: none;
+	}	
 	.preloader .spinner {
 	    height: 30px;
 	    left: 50%;
@@ -3547,25 +3556,7 @@ section.woocommerce-bacs-bank-details {
 	position: relative;
 }
 .wp-custom-header .wp-custom-header-video-button {
-	position: absolute;
-	bottom: 10%;
-	left: -webkit-calc(50% - 25px);
-	left: calc(50% - 25px);
-	height: 50px;
-	width: 50px;
-	padding: 0;
-	border: 0;
-	border-radius: 50%;
-	background-color: rgba(51, 51, 51, 0.70);
-	-webkit-transition: background-color 0.4s;
-	transition: background-color 0.4s;
-}
-.wp-custom-header .wp-custom-header-video-button:hover {
-	color: #fff;
-	background-color: #333;
-}
-.wp-custom-header .wp-custom-header-video-button:focus {
-	outline: none;
+	display: none;
 }
 
 /* Lightbox video
@@ -4132,4 +4123,14 @@ SVGs
     width: calc(100% + 200px);
     position: relative;
     left: -100px;
+}
+
+#mainnav-mobi.hidden {
+	display: none;
+}
+#mainnav-mobi.toggled {
+	display: block;
+}
+.sub-menu.toggled {
+	display: block !important;
 }

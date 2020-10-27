@@ -195,19 +195,29 @@ function sydney_scripts() {
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
-	wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
+	wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20202020', true );
 
-	wp_enqueue_script( 'sydney-main', get_template_directory_uri() . '/js/main.js', array('jquery'),'20200504', true );
+	if ( class_exists( 'Elementor\Plugin' ) ) {
+		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );		
+	}
 
 	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
+		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy.js', array('jquery'),'', true );
 		wp_enqueue_script( 'sydney-so-legacy-main', get_template_directory_uri() . '/js/so-legacy-main.js', array('jquery'),'', true );
 		wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
 	}
 
-	if ( get_theme_mod('blog_layout') == 'masonry-layout' && (is_home() || is_archive()) ) {
+	//Enqueue hero slider script only if the slider is in use
+	$slider_home = get_theme_mod('front_header_type','nothing');
+	$slider_site = get_theme_mod('site_header_type');
+	if ( ( $slider_home == 'slider' && is_front_page() ) || ( $slider_site == 'slider' && !is_front_page() ) ) {
+		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
+		wp_enqueue_script( 'sydney-hero-slider', get_template_directory_uri() . '/js/hero-slider.js', array('jquery'),'', true );
+	}
 
-		wp_enqueue_script( 'sydney-masonry-init', get_template_directory_uri() . '/js/masonry-init.js', array('masonry'),'', true );
+	if ( get_theme_mod('blog_layout') == 'masonry-layout' && (is_home() || is_archive()) ) {
+		wp_enqueue_script( 'sydney-masonry-init', get_template_directory_uri() . '/js/masonry-init.js', array('jquery', 'masonry'),'', true );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -525,6 +535,11 @@ require get_template_directory() . '/inc/fonts.php';
  * SVG codes
  */
 require get_template_directory() . '/inc/classes/class-sydney-svg-icons.php';
+
+/**
+ * Review notice
+ */
+require get_template_directory() . '/inc/notices/class-sydney-review.php';
 
 /**
  *TGM Plugin activation.

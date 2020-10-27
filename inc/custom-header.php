@@ -42,8 +42,8 @@ add_action( 'after_setup_theme', 'sydney_custom_header_setup' );
  * Video header settings
  */
 function sydney_video_settings( $settings ) {
-	$settings['l10n']['play'] 	= '<i class="sydney-svg-icon">' . sydney_get_svg_icon( "icon-play", false ) . '</i>';
-	$settings['l10n']['pause'] 	= '<i class="sydney-svg-icon">' . sydney_get_svg_icon( "icon-pause", false ) . '</i>';
+	$settings['l10n']['play'] 	= '';
+	$settings['l10n']['pause'] 	= '';
 	$settings['minWidth'] 		= '100';
 	$settings['minHeight'] 		= '100';	
 	

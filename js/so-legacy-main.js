@@ -97,13 +97,172 @@
 		});	
 	};    
 
+	var videoPopup = function() {
+
+		function closePopup() {
+			if ( $('.sydney-video.vid-lightbox .video-overlay').hasClass('popup-show') ) {
+			    
+				var popup = $('.sydney-video.vid-lightbox .video-overlay.popup-show');
+
+			    if ( popup.find('iframe').hasClass('yt-video') ) {
+			    	var vid = popup.find('iframe').attr('src').replace("&autoplay=1", "");
+			    } else {
+			    	var vid = popup.find('iframe').attr('src').replace("?autoplay=1", "");
+			    }
+			    popup.find('iframe').attr('src', vid);
+			    popup.removeClass('popup-show');			    		
+			}			
+		}
+
+		$('.toggle-popup').on('click',function (e) {
+			e.preventDefault();
+			$(this).siblings().addClass('popup-show');
+			
+			var url =$(this).siblings().find('iframe').attr('src');
+
+			if (url.indexOf('youtube.com') !== -1) {
+        		$(this).siblings().find('iframe')[0].src += "&autoplay=1";
+        		$(this).siblings().find('iframe').addClass('yt-video');
+    		} else if (url.indexOf('vimeo.com') !== -1) {
+        		$(this).siblings().find('iframe')[0].src += "?autoplay=1";
+        		$(this).siblings().find('iframe').addClass('vimeo-video');
+    		}
+
+		});
+
+		$(document).keyup(function(e) {
+			if (e.keyCode == 27) {
+			    closePopup();
+			}
+		});
+
+		$('.sydney-video.vid-lightbox .video-overlay').on('click',function () {
+			closePopup();
+		});
+
+		$('.sydney-video.vid-lightbox').parents('.panel-row-style').css({'z-index': '12', 'overflow': 'visible'});	
+
+	};	
+
+	var panelscrolls = function() {
+		testMobile = isMobile.any();
+		if (testMobile == null) {
+			$(".panel-row-style").parallax("50%", 0.3);
+		}
+	};	
+
+	var teamCarousel = function(){
+		if ( $().owlCarouselFork ) {
+			$(".roll-team:not(.roll-team.no-carousel)").owlCarouselFork({
+				navigation : false,
+				pagination: true,
+				responsive: true,
+				items: 3,
+				itemsDesktopSmall: [1400,3],
+				itemsTablet:[970,2],
+				itemsTabletSmall: [600,1],
+				itemsMobile: [360,1],
+				touchDrag: true,
+				mouseDrag: true,
+				autoHeight: false,
+				autoPlay: false,
+			}); // end owlCarouselFork
+		} // end if
+	};
+
+	var testimonialCarousel = function(){
+		if ( $().owlCarouselFork ) {
+			$('.roll-testimonials').owlCarouselFork({
+				navigation : false,
+				pagination: true,
+				responsive: true,
+				items: 1,
+				itemsDesktop: [3000,1],
+				itemsDesktopSmall: [1400,1],
+				itemsTablet:[970,1],
+				itemsTabletSmall: [600,1],
+				itemsMobile: [360,1],
+				touchDrag: true,
+				mouseDrag: true,
+				autoHeight: true,
+				autoPlay: $('.roll-testimonials').data('autoplay')
+			});
+		}
+	};	
+
+	var socialMenu = function() {
+	    $('.widget_fp_social a').attr( 'target','_blank' );
+	};
+
+	var portfolioIsotope = function(){
+
+		if ( $('.project-wrap').length ) {
+	
+		  $('.project-wrap').each(function() {
+	
+			var self       = $(this);
+			var filterNav  = self.find('.project-filter').find('a');
+	
+			var projectIsotope = function($selector){
+	
+			  $selector.isotope({
+				filter: '*',
+				itemSelector: '.project-item',
+				percentPosition: true,
+				animationOptions: {
+					duration: 750,
+					easing: 'liniar',
+					queue: false,
+				}
+			  });
+	
+			}
+	
+			self.children().find('.isotope-container').imagesLoaded( function() {
+			  projectIsotope(self.children().find('.isotope-container'));
+			});
+	
+			$(window).load(function(){
+			  projectIsotope(self.children().find('.isotope-container'));
+			});
+	
+			filterNav.click(function(){
+				var selector = $(this).attr('data-filter');
+				filterNav.removeClass('active');
+				$(this).addClass('active');
+	
+				self.find('.isotope-container').isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 750,
+						easing: 'liniar',
+						queue: false,
+					}
+				});
+	
+				return false;
+	
+			});
+	
+		  });
+	
+		}
+	
+	  };	
+
 	// Dom Ready
 	$(function() {       
 		counter();
 		progressBar();
 		detectViewport();
+		videoPopup();
         rollAnimation();
 		panelsStyling();
-        projectEffect();
+		projectEffect();
+		teamCarousel();
+		socialMenu();
+		testimonialCarousel();
+		portfolioIsotope();
+		panelscrolls();
    	});
 })(jQuery); 
