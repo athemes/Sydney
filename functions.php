@@ -171,13 +171,6 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 require get_template_directory() . "/widgets/contact-info.php";
 
 /**
- * Elementor ID
- */
-if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
-    define( 'ELEMENTOR_PARTNER_ID', 2128 );
-}
-
-/**
  * Elementor editor scripts
  */
 function sydney_elementor_editor_scripts() {
@@ -497,6 +490,20 @@ if ( class_exists( 'SitePress' ) ) {
  */
 if ( class_exists( 'LifterLMS' ) ) {
 	require get_template_directory() . '/inc/integrations/lifter/class-sydney-lifterlms.php';
+}
+
+/**
+ * Learndash
+ */
+if ( class_exists( 'SFWD_LMS' ) ) {
+	require get_template_directory() . '/inc/integrations/learndash/class-sydney-learndash.php';
+}
+
+/**
+ * Learnpress
+ */
+if ( class_exists( 'LearnPress' ) ) {
+	require get_template_directory() . '/inc/integrations/learnpress/class-sydney-learnpress.php';
 }
 
 /**
