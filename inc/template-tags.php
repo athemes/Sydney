@@ -70,9 +70,9 @@ if ( ! function_exists( 'sydney_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function sydney_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	$time_string = '<time class="entry-date published updated" datetime="%1$s" ' . sydney_get_schema( 'published_date' ) . '>%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s" ' . sydney_get_schema( 'modified_date' ) . '>%4$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
@@ -89,7 +89,7 @@ function sydney_posted_on() {
 
 	$byline = sprintf(
 		'%s',
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		'<span class="author vcard" ' . sydney_get_schema( 'author_name' ) . '><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
 	echo '<span class="posted-on"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-calendar', false ) . '</i>' . $posted_on . '</span><span class="byline"> ' . '<i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-user', false ) . '</i>' . $byline . '</span>';
@@ -266,9 +266,9 @@ add_action( 'save_post',     'sydney_category_transient_flusher' );
  * Post date
  */
 function sydney_post_date( $notext = false ) {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	$time_string = '<time class="entry-date published updated" datetime="%1$s" ' . sydney_get_schema( 'published_date' ) . '>%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s" ' . sydney_get_schema( 'modified_date' ) . '>%4$s</time>';
 	}
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),

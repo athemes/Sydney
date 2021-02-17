@@ -190,12 +190,12 @@ function sydney_scripts() {
 		wp_enqueue_style( 'sydney-preview-google-fonts-headings', 'https://fonts.googleapis.com/', array(), null );
 	}
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20200129' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20210120' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
-	wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20202020', true );
+	wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20210120', true );
 
 	if ( class_exists( 'Elementor\Plugin' ) ) {
 		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );		
@@ -204,7 +204,7 @@ function sydney_scripts() {
 	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
 		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy.js', array('jquery'),'', true );
-		wp_enqueue_script( 'sydney-so-legacy-main', get_template_directory_uri() . '/js/so-legacy-main.js', array('jquery'),'', true );
+		wp_enqueue_script( 'sydney-so-legacy-main', get_template_directory_uri() . '/js/so-legacy-main.min.js', array('jquery'),'', true );
 		wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
 	}
 
@@ -479,11 +479,6 @@ require get_template_directory() . '/inc/slider.php';
 require get_template_directory() . '/inc/styles.php';
 
 /**
- * Theme info
- */
-require get_template_directory() . '/inc/onboarding/theme-info.php';
-
-/**
  * Woocommerce basic integration
  */
 require get_template_directory() . '/inc/woocommerce.php';
@@ -542,53 +537,16 @@ require get_template_directory() . '/inc/classes/class-sydney-svg-icons.php';
 require get_template_directory() . '/inc/notices/class-sydney-review.php';
 
 /**
- *TGM Plugin activation.
+ * Schema
  */
-require_once dirname( __FILE__ ) . '/plugins/class-tgm-plugin-activation.php';
-
-add_action( 'tgmpa_register', 'sydney_recommend_plugin' );
-function sydney_recommend_plugin() {
-
-	$plugins = array();
-
-	if ( !defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
-	    $plugins[] = array(
-	            'name'               => 'Elementor',
-	            'slug'               => 'elementor',
-	            'required'           => false,
-	    );
-	}
-
-	if ( !function_exists('wpcf_init') ) {
-	    $plugins[] = array(
-		        'name'               => 'Sydney Toolbox - custom posts and fields for the Sydney theme',
-		        'slug'               => 'sydney-toolbox',
-		        'required'           => false,
-		);
-	}
-
-    tgmpa( $plugins);
-
-}
+require get_template_directory() . '/inc/schema.php';
 
 /**
- * Admin notice
+ * Theme dashboard.
  */
-require get_template_directory() . '/inc/notices/persist-admin-notices-dismissal.php';
+require get_template_directory() . '/theme-dashboard/class-theme-dashboard.php';
 
-function sydney_welcome_admin_notice() {
-	if ( ! PAnD::is_admin_notice_active( 'sydney-welcome-forever' ) ) {
-		return;
-	}
-	
-	?>
-	<div data-dismissible="sydney-welcome-forever" class="sydney-admin-notice updated notice notice-success is-dismissible">
-
-		<p><?php echo sprintf( __( 'Welcome to Sydney. To get started please make sure to visit our <a href="%s">welcome page</a>.', 'sydney' ), admin_url( 'themes.php?page=sydney-info.php' ) ); ?></p>
-		<a class="button" href="<?php echo admin_url( 'themes.php?page=sydney-info.php' ); ?>"><?php esc_html_e( 'Get started with Sydney', 'sydney' ); ?></a>
-
-	</div>
-	<?php
-}
-add_action( 'admin_init', array( 'PAnD', 'init' ) );
-add_action( 'admin_notices', 'sydney_welcome_admin_notice' );
+/**
+ * Theme dashboard settings.
+ */
+require get_template_directory() . '/inc/theme-dashboard-settings.php';

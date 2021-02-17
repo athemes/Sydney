@@ -1,41 +1,15 @@
+"use strict";
+
+if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+}
+
 var sydney = sydney || {};
-
-/**
- * Back to top
- */
-sydney.backToTop = {
-	init: function() {
-		this.displayButton();	
-	},
-
-	setup: function() {
-		let icon 	= document.getElementsByClassName( 'go-top' )[0];
-
-		var vertDist = window.scrollY;
-
-		if ( vertDist > 800 ) {
-			icon.classList.add( 'show' );
-		} else {
-			icon.classList.remove( 'show' );
-		}
-	
-		icon.addEventListener( 'click', function() {
-			window.scrollTo({
-				top: 0,
-				left: 0,
-				behavior: 'smooth',
-			});
-		} );
-	},
-
-	displayButton: function() {
-		this.setup();
-
-		window.addEventListener( 'scroll', function() {
-			this.setup();
-		}.bind( this ) );		
-	},
-};
 
 /**
  * Back to top
@@ -48,7 +22,7 @@ sydney.backToTop = {
 	setup: function() {
 		const icon 	= document.getElementsByClassName( 'go-top' )[0];
 
-		var vertDist = window.scrollY;
+		var vertDist = window.pageYOffset;
 
 		if ( vertDist > 800 ) {
 			icon.classList.add( 'show' );
@@ -128,7 +102,7 @@ sydney.stickyMenu = {
 			return;
         }
         
-		var vertDist = window.scrollY;
+		var vertDist = window.pageYOffset;
         var elDist 	 = header.offsetTop;
         
 
@@ -169,31 +143,50 @@ sydney.mobileMenu = {
 
             mobileMenu.setAttribute( 'id', 'mainnav-mobi' );
 
-            mobileMenu.classList.add( 'hidden' );
+            mobileMenu.classList.add( 'syd-hidden' );
 
             var itemsWithChildren = mobileMenu.querySelectorAll( '.menu-item-has-children' );
             const svgSubmenu = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"/></svg>';
 
-            for ( const itemWC of itemsWithChildren ) {
-                itemWC.getElementsByTagName( 'ul' )[0].style.display = 'none';
-                itemWC.getElementsByTagName( 'a' )[0].insertAdjacentHTML('beforeend', '<span class="btn-submenu">' + svgSubmenu + '</span>');
-            }
+			itemsWithChildren.forEach(
+				function(currentValue, currentIndex, listObj) {
+					currentValue.getElementsByTagName( 'ul' )[0].style.display = 'none';
+					currentValue.getElementsByTagName( 'a' )[0].insertAdjacentHTML('beforeend', '<span class="btn-submenu">' + svgSubmenu + '</span>');
+				},
+				'myThisArg'
+			  );
+
 
             this.toggle( menuToggle, mobileMenu );
 
             const submenuToggles 	= mobileMenu.querySelectorAll( '.btn-submenu' );
-            for ( const submenuToggle of submenuToggles ) {
-                this.submenuToggle( submenuToggle );                    
-            }
+
+			submenuToggles.forEach(
+				function(currentValue, currentIndex, listObj) {
+					currentValue.addEventListener( 'click', function(e) {
+						e.preventDefault();
+						var parent = currentValue.parentNode.parentNode;
+						parent.getElementsByClassName( 'sub-menu' )[0].classList.toggle( 'toggled' );
+					} );
+				},
+				'myThisArg'
+			  );
+
+
         } else {
             const mobile = document.getElementById( 'mainnav-mobi' );
 
             if ( typeof( mobile ) != 'undefined' && mobile != null ) {
                 mobile.setAttribute( 'id', 'mainnav' );
                 const submenuToggles 	= mobile.querySelectorAll( '.btn-submenu' );
-                for ( const submenuToggle of submenuToggles ) {
-                    submenuToggle.remove();                    
-                }                
+
+				submenuToggles.forEach(
+					function(currentValue, currentIndex, listObj) {
+						currentValue.remove(); 
+					},
+					'myThisArg'
+				  );				
+
             }
         }
     },

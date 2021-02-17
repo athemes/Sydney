@@ -12,7 +12,7 @@
 			<?php sydney_get_first_cat(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
-		<?php the_title( sprintf( '<h2 class="title-post entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php the_title( sprintf( '<h2 class="title-post entry-title" ' . sydney_get_schema( "headline" ) . '><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 		<?php sydney_post_date(); ?>
 	</header><!-- .entry-header -->
 
@@ -22,7 +22,7 @@
 	</div>
 	<?php endif; ?>
 	
-	<div class="entry-post">
+	<div class="entry-post" <?php sydney_do_schema( 'entry_content' ); ?>>
 		<?php if ( (get_theme_mod('full_content_home') == 1 && is_home() ) || (get_theme_mod('full_content_archives') == 1 && is_archive() ) ) : ?>
 			<?php the_content(); ?>
 		<?php else : ?>

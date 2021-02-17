@@ -20,7 +20,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-post">
+	<div class="entry-post" <?php sydney_do_schema( 'entry_content' ); ?>>
 		<?php if ( (get_theme_mod('full_content_home') == 1 && is_home() ) || (get_theme_mod('full_content_archives') == 1 && is_archive() ) ) : ?>
 			<?php the_content(); ?>
 		<?php else : ?>

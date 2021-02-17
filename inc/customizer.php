@@ -118,6 +118,23 @@ function sydney_customize_register( $wp_customize ) {
         )
     );
 
+    $wp_customize->add_setting(
+        'sydney_enable_schema',
+        array(
+            'sanitize_callback' => 'sydney_sanitize_checkbox',
+        )       
+    );
+    $wp_customize->add_control(
+        'sydney_enable_schema',
+        array(
+            'type'      => 'checkbox',
+            'label'     => __('Enable Schema markup', 'sydney'),
+            'section'   => 'sydney_general',
+            'priority'  => 10,
+        )
+    );
+
+
     //___Header area___//
     $wp_customize->add_panel( 'sydney_header_panel', array(
         'priority'       => 10,

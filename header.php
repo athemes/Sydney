@@ -17,7 +17,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> <?php sydney_do_schema( 'html' ); ?>>
 <?php wp_body_open(); ?>
 
 <?php do_action('sydney_before_site'); //Hooked: sydney_preloader() ?>
@@ -27,13 +27,13 @@
 
 	<?php do_action('sydney_before_header'); //Hooked: sydney_header_clone() ?>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header" role="banner" <?php sydney_do_schema( 'header' ); ?>>
 		<div class="header-wrap">
             <div class="<?php echo esc_attr( sydney_menu_container() ); ?>">
                 <div class="row">
 					<div class="col-md-4 col-sm-8 col-xs-12">
 					<?php if ( get_theme_mod('site_logo') ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" /></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
 						<?php if ( is_home() && !is_front_page() ) : ?>
 							<h1 class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
 						<?php endif; ?>
@@ -44,7 +44,7 @@
 					</div>
 					<div class="col-md-8 col-sm-4 col-xs-12">
 						<div class="btn-menu"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
-						<nav id="mainnav" class="mainnav" role="navigation">
+						<nav id="mainnav" class="mainnav" role="navigation" <?php sydney_do_schema( 'nav' ); ?>>
 							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
 						</nav><!-- #site-navigation -->
 					</div>

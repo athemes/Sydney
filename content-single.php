@@ -14,7 +14,7 @@
 			<?php sydney_all_cats(); ?>
 		</div>
 
-		<?php the_title( '<h1 class="title-post entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="title-post entry-title" ' . sydney_get_schema( "headline" ) . '>', '</h1>' ); ?>
 
 		<?php if ( get_theme_mod('hide_meta_single') != 1 && apply_filters( 'sydney_single_post_meta_enable', true ) ) : ?>
 		<div class="single-meta">
@@ -29,7 +29,7 @@
 		</div>
 	<?php endif; ?>
 
-	<div class="entry-content">
+	<div class="entry-content" <?php sydney_do_schema( 'entry_content' ); ?>>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
