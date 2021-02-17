@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page. Looking for a quick start with Sydney? With just a few clicks, you can import one of our existing demos (https://athemes.com/sydney-demos/)
-Version: 1.74
+Version: 1.75
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.4
@@ -854,7 +854,7 @@ Header
 	#mainnav ul li ul li ul {
 		left: 100%;
 	}
-	#mainnav li:hover > ul {
+	#mainnav:not(.mainnav.toggled) li:hover > ul {
 	    opacity: 1;
 	    padding-top: 10px;
 	    visibility: visible;
@@ -911,9 +911,11 @@ Header
 		transition: all 0.3s ease;
 		-webkit-transition: all 0.3s ease;
 	}
+	.mainnav.toggled ul li a,
 	#mainnav-mobi ul li a {
-		float: none;
+		float: none !important;
 	}
+	.mainnav.toggled ul li::before,
 	#mainnav-mobi ul li::before {
 		content: '';
 	}
@@ -924,35 +926,47 @@ Header
 /*--------------------------------------------------------------
 Mobile navigation
 --------------------------------------------------------------*/
+	.mainnav.toggled {
+		display: block !important;
+		top: 100%;
+	}	
+	.mainnav.toggled,
 	#mainnav-mobi {
 		display: block;
 		margin: 0 auto;
 		width: 100%;
 		position: absolute;
-		top:28px;
 		background-color: #1c1c1c;
 		margin-top: 15px;
 		z-index: 1000;
 	}
+	#mainnav-mobi {
+		top: 28px;
+	}
+	.mainnav.toggled ul,
 	#mainnav-mobi ul {
 		display: block;
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
+	.mainnav.toggled ul li,
 	#mainnav-mobi ul li {
 		margin:0;
 		position: relative;
 		text-align: left;
 		border-top: 1px solid #252525;
 		cursor: pointer;
+		float: none !important;
 	}
+	.mainnav.toggled ul > li > a,
 	#mainnav-mobi ul > li > a {
 		display: block;
 		text-decoration: none;
 		padding: 10px 50px;
 		color: #fff;
 	}
+	.mainnav.toggled ul.sub-menu,
 	#mainnav-mobi ul.sub-menu {
 		top: 100%;
 		left: 0;
@@ -960,18 +974,23 @@ Mobile navigation
 		position: relative;
 		background-color: #161625;
 	}
+	.mainnav.toggled > ul > li > ul > li,
+	.mainnav.toggled > ul > li > ul > li > ul > li,
 	#mainnav-mobi > ul > li > ul > li,
 	#mainnav-mobi > ul > li > ul > li > ul > li {
 		position: relative;
 		border-top: 1px solid #252525;
 		background-color: #222;
 	}
+	.mainnav.toggled > ul > li > ul > li >  a,
 	#mainnav-mobi > ul > li > ul > li >  a {
 		padding-left: 70px !important
 	}
+	.mainnav.toggled > ul > li > ul > li > ul > li a,
 	#mainnav-mobi > ul > li > ul > li > ul > li a {
 		padding-left: 90px !important
 	}
+	.mainnav.toggled ul.sub-menu > li > a,
 	#mainnav-mobi ul.sub-menu > li > a {
 		display: block;
 		text-decoration: none;
@@ -982,9 +1001,35 @@ Mobile navigation
 		     -o-transition: all 0.2s ease-out;
 		        transition: all 0.2s ease-out;
 	}
+	.mainnav.toggled > ul > li > ul > li:first-child a,
 	#mainnav-mobi > ul > li > ul > li:first-child a {
 		border-top: none;
 	}
+
+	#mainnav.toggled ul.sub-menu,
+	#mainnav.toggled ul ul a {
+		width: 100%;
+		left: 0;
+	}
+
+	#mainnav.toggled li > .sub-menu > li > a {
+		padding: 10px 50px;
+	}
+
+	#mainnav.toggled ul li ul:after {
+		display: none;
+	}
+
+	#mainnav.toggled .sub-menu li a {
+		background: transparent !important;
+	}
+
+	#mainnav.toggled ul ul li {
+		padding: 0 14px;
+	}
+
+	.mainnav.toggled ul.sub-menu > li > a:hover,
+	.mainnav.toggled > ul > li > ul > li.active > a,
 	#mainnav-mobi ul.sub-menu > li > a:hover,
 	#mainnav-mobi > ul > li > ul > li.active > a {
 		color: #fff;
@@ -1005,6 +1050,15 @@ Mobile navigation
 		top: 0;
 		width: 50px;
 		text-align: center;
+	}
+	.btn-submenu.is-amp {
+		color: #fff;
+		font-size: 26px;
+	}
+	@media ( min-width: 1025px ) {
+		.btn-submenu {
+			display: none;
+		}
 	}
 	.btn-menu {
 		display: none
@@ -4141,6 +4195,12 @@ SVGs
 }
 #mainnav-mobi.toggled {
 	display: block;
+}
+.btn-submenu.toggled ~ .sub-menu {
+	display: block !important;
+	position: relative !important;
+	opacity: 1 !important;
+	visibility: visible !important;
 }
 .sub-menu.toggled {
 	display: block !important;

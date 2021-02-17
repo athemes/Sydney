@@ -20,6 +20,8 @@ function sydney_hex2rgba($color, $opacity = false) {
 //Dynamic styles
 function sydney_custom_styles($custom) {
 
+	$is_amp = sydney_is_amp();
+
 	$custom = '';
 
 	//Woocommerce
@@ -47,9 +49,11 @@ function sydney_custom_styles($custom) {
 		}
 	} elseif ( class_exists( 'Woocommerce' ) && is_product_category() && $shop_archive_thumb ) {
 		$custom .= ".header-image { background-image:url(" . esc_url($shop_archive_thumb) . ")!important;display:block;}"."\n";	
-		$custom .= ".site-header { background-color:transparent;}" . "\n";
+		if ( !$is_amp ) {
+			$custom .= ".site-header { background-color:transparent;}" . "\n";
+		}
 		$custom .= "@media only screen and (max-width: 1024px) { .sydney-hero-area .header-image { height:300px!important; }}" . "\n";
-	} elseif ( (get_theme_mod('front_header_type','nothing') == 'nothing' && is_front_page()) || (get_theme_mod('site_header_type') == 'nothing' && !is_front_page()) ) {
+	} elseif ( $is_amp || (get_theme_mod('front_header_type','nothing') == 'nothing' && is_front_page()) || (get_theme_mod('site_header_type') == 'nothing' && !is_front_page()) ) {
 		$menu_bg_color = get_theme_mod( 'menu_bg_color', '#263246' );
 		$rgba 	= sydney_hex2rgba($menu_bg_color, 0.9);
 		$custom .= ".site-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
@@ -149,6 +153,11 @@ function sydney_custom_styles($custom) {
 		$custom .= ".btn-menu { margin: 0 auto; float: none; }"."\n";
 		$custom .= ".header-wrap .container > .row { display: block; }"."\n";
 	}	
+
+	//AMP
+	if ( 'sticky' == $sticky_menu && $is_amp ) {
+		$custom .= ".site-header { position: -webkit-sticky;position: sticky;}"."\n";
+	}
 
 
 	//__COLORS
@@ -261,6 +270,10 @@ function sydney_custom_styles($custom) {
 		h5 { font-size: 16px;}
 		h6 { font-size: 14px;}
 	}" . "\n";
+
+	if ( $is_amp ) {
+		$custom .= ".go-top { bottom: 30px;opacity:1;visibility:visible;}" . "\n";
+	}
 
 	$custom = apply_filters( 'sydney_custom_css', $custom );
 	

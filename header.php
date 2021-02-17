@@ -18,6 +18,9 @@
 </head>
 
 <body <?php body_class(); ?> <?php sydney_do_schema( 'html' ); ?>>
+
+<span id="toptarget"></span>
+
 <?php wp_body_open(); ?>
 
 <?php do_action('sydney_before_site'); //Hooked: sydney_preloader() ?>
@@ -43,8 +46,8 @@
 					<?php endif; ?>
 					</div>
 					<div class="col-md-8 col-sm-4 col-xs-12">
-						<div class="btn-menu"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
-						<nav id="mainnav" class="mainnav" role="navigation" <?php sydney_do_schema( 'nav' ); ?>>
+						<div class="btn-menu" aria-expanded="false" <?php echo wp_kses_post( apply_filters( 'sydney_nav_toggle_data_attrs', '' ) ); ?>><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
+						<nav id="mainnav" class="mainnav" role="navigation" <?php sydney_do_schema( 'nav' ); ?> <?php echo wp_kses_post( apply_filters( 'sydney_nav_data_attrs', '' ) ); ?>>
 							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
 						</nav><!-- #site-navigation -->
 					</div>

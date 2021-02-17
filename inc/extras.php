@@ -120,3 +120,10 @@ function sydney_image_alt( $image ) {
 		return $alt;
 	}
 }
+
+/**
+ * Check AMP endpoint
+ */
+function sydney_is_amp() {
+	return function_exists( 'amp_is_request' ) && amp_is_request();
+}

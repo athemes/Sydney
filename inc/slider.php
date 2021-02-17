@@ -69,6 +69,8 @@ function sydney_slider_template() {
     }
     ?>
 
+    <?php if ( !sydney_is_amp() ) : ?>
+
     <div id="slideshow" class="header-slider" data-speed="<?php echo esc_attr($speed); ?>" data-mobileslider="<?php echo esc_attr($mobile_slider); ?>">
         <div class="slides-container">
 
@@ -99,6 +101,38 @@ function sydney_slider_template() {
             <?php echo sydney_stop_text(); ?>
         <?php endif; ?>
     </div>
+
+    <?php else : ?>       
+
+    <div id="slideshow" class="header-slider" data-speed="<?php echo esc_attr($speed); ?>" data-mobileslider="<?php echo esc_attr($mobile_slider); ?>">
+        <div class="slides-container">
+            <amp-carousel type="slides" width="450" height="300" layout="responsive" controls loop autoplay delay="3000" role="region">
+            <?php $c = 1; ?>
+            <?php foreach ( $images as $image ) {
+                if ( $image ) {
+
+                    $image_alt = sydney_image_alt( $image );
+                    ?>
+                    <div class="slide-item slide-item-<?php echo $c; ?>" style="background-image:url('<?php echo esc_url( $image ); ?>');">
+                        <img class="mobile-slide preserve" src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>"/>
+                        <div class="slide-inner">
+                            <div class="contain animated fadeInRightBig text-slider">
+                            <h2 class="maintitle"><?php echo wp_kses_post( $titles['slider_title_' . $c] ); ?></h2>
+                            <p class="subtitle"><?php echo esc_html( $subtitles['slider_subtitle_' . $c] ); ?></p>
+                            </div>
+                            <?php echo $button; ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+                $c++;
+            }
+            ?>
+            </amp-carousel>
+        </div>
+    </div>
+
+    <?php endif; ?>
 
     <?php
     }
