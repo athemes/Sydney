@@ -295,7 +295,9 @@ function sydney_post_date( $notext = false ) {
 function sydney_get_first_cat() {
 	if ( 'post' === get_post_type() ) {
 		$cats = get_the_category();
-		echo '<a href="' . esc_url( get_category_link( $cats[0]->term_id ) ) . '" title="' . esc_attr( $cats[0]->name ) . '" class="post-cat">' . esc_html( $cats[0]->name ) . '</a>';
+		if( isset($cats[0]) ) {
+			echo '<a href="' . esc_url( get_category_link( $cats[0]->term_id ) ) . '" title="' . esc_attr( $cats[0]->name ) . '" class="post-cat">' . esc_html( $cats[0]->name ) . '</a>';
+		}
 	}
 }
 

@@ -154,7 +154,7 @@ sydney.mobileMenu = {
 					currentValue.getElementsByTagName( 'a' )[0].insertAdjacentHTML('beforeend', '<span class="btn-submenu">' + svgSubmenu + '</span>');
 				},
 				'myThisArg'
-			  );
+			);
 
 
             this.toggle( menuToggle, mobileMenu );
@@ -178,7 +178,8 @@ sydney.mobileMenu = {
 
             if ( typeof( mobile ) != 'undefined' && mobile != null ) {
                 mobile.setAttribute( 'id', 'mainnav' );
-                const submenuToggles 	= mobile.querySelectorAll( '.btn-submenu' );
+				mobile.classList.remove( 'toggled' );
+                const submenuToggles = mobile.querySelectorAll( '.btn-submenu' );
 
 				submenuToggles.forEach(
 					function(currentValue, currentIndex, listObj) {
@@ -271,4 +272,40 @@ window.addEventListener("load", function() {
 		}
 	}
 	})(window, document);
+});
+
+/**
+ * Support for isotope + lazyload from third party plugins
+ */
+ window.addEventListener("load", function() {
+	if( 
+		typeof Isotope !== 'undefined' && 
+		( 
+			typeof lazySizes !== 'undefined' || // Autoptimize and others
+			typeof lazyLoadOptions !== 'undefined' || // Lazy Load (by WP Rocket)
+			typeof a3_lazyload_extend_params !== 'undefined' // a3 Lazy Load
+		) 
+	) {
+		const isotopeContainer = document.querySelectorAll( '.isotope-container' );
+		if( isotopeContainer.length ) {
+			isotopeContainer.forEach(
+				function(container) {
+					
+					const images = container.querySelectorAll( '.isotope-item img[data-lazy-src], .isotope-item img[data-src]' );
+					if( images.length ) {
+						images.forEach(function(image){
+							if( image !== null ) {
+								image.addEventListener( 'load', function(){
+									// Currently the isotope container always is a jQuery object
+									jQuery( container ).isotope('layout');
+								} );
+							}
+						}, 'myThisArg');
+					}
+	
+				},
+				'myThisArg'
+			);
+		}
+	}
 });

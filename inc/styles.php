@@ -71,6 +71,16 @@ function sydney_custom_styles($custom) {
 		.woocommerce ul.products li.product:hover .price {opacity: 0;} }" . "\n";
 	}
 
+	global $post;
+	if ( isset( $post ) ) {
+		$elementor_page = get_post_meta( $post->ID, '_elementor_edit_mode', true );
+		if ( !$elementor_page ) {
+			$custom .= "html { scroll-behavior: smooth;}" . "\n";
+		}
+	} else {
+		$custom .= "html { scroll-behavior: smooth;}" . "\n";
+	}	
+
 	//Fonts
 	$body_fonts 	= get_theme_mod( 'body_font', 'Raleway' );	
 	$headings_fonts = get_theme_mod( 'headings_font', 'Raleway' );
@@ -149,7 +159,9 @@ function sydney_custom_styles($custom) {
 		$custom .= "#mainnav { float: none;}"."\n";
 		$custom .= "#mainnav li { float: none; display: inline-block;}"."\n";
 		$custom .= "#mainnav ul ul li { display: block; text-align: left; float:left;}"."\n";
-		$custom .= ".site-logo, .header-wrap .col-md-4 { margin-bottom: 15px; }"."\n";
+		if( get_bloginfo( 'description' ) || get_bloginfo( 'name' ) || get_theme_mod('site_logo') ) {
+			$custom .= ".site-logo, .header-wrap .col-md-4 { margin-bottom: 15px; }"."\n";
+		}
 		$custom .= ".btn-menu { margin: 0 auto; float: none; }"."\n";
 		$custom .= ".header-wrap .container > .row { display: block; }"."\n";
 	}	

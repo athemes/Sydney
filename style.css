@@ -4,10 +4,10 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page. Looking for a quick start with Sydney? With just a few clicks, you can import one of our existing demos (https://athemes.com/sydney-demos/)
-Version: 1.75
+Version: 1.79
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 5.4
+Tested up to: 5.7.2
 Requires PHP: 5.6
 Text Domain: sydney
 Tags: two-columns, right-sidebar, block-styles, custom-colors, custom-background, custom-header, custom-menu, featured-images, sticky-post, theme-options, threaded-comments, translation-ready
@@ -17,9 +17,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 Sydney is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 */
 
-html {
-	scroll-behavior: smooth;
-}
 /*--------------------------------------------------------------
 Social
 --------------------------------------------------------------*/
@@ -866,7 +863,7 @@ Header
 	         -o-transition: all 0.3s ease;
 	            transition: all 0.3s ease;
 	}
-	#mainnav li:hover > ul ul {
+	#mainnav:not(.mainnav.toggled) li:hover > ul ul {
 		padding-top: 0;
 		left: 100%;
 	}
@@ -2200,7 +2197,7 @@ Panels
 	margin-right: 15px;
 }
 .sydney_contact_info_widget div {
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 /* Icon List
 -------------------------------------------------------------- */
@@ -4189,7 +4186,20 @@ SVGs
     position: relative;
     left: -100px;
 }
-
+@media (min-width: 1024px) {
+	.no-sidebar .entry-content .alignfull {
+		margin: 20px calc(50% - 50vw);
+		max-width: 100vw;
+		width: 100vw;	
+	}
+	.no-sidebar .entry-content .alignwide {
+		margin: 20px calc(25% - 25vw);
+		width: auto;
+	}	
+}
+.wp-block-group.has-background {
+	padding: 20px 30px;
+}
 #mainnav-mobi.syd-hidden {
 	display: none;
 }

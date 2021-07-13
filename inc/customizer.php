@@ -6,8 +6,6 @@
  */
 
 function sydney_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->remove_control( 'header_textcolor' );
     $wp_customize->remove_control( 'display_header_text' );
     $wp_customize->get_section( 'header_image' )->panel = 'sydney_header_panel';
@@ -17,7 +15,6 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->get_section( 'colors' )->title = __('General', 'sydney');
     $wp_customize->get_section( 'colors' )->panel = 'sydney_colors_panel';
     $wp_customize->get_section( 'colors' )->priority = '10';
-
 
     //Partials
     for ($i = 1; $i < 5; $i++) { 

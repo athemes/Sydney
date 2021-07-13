@@ -17,43 +17,26 @@ function sydney_slider_template() {
     $mobile_slider = get_theme_mod('mobile_slider', 'responsive');
 
     //Slider text
-    if ( !function_exists('pll_register_string') ) {
-    	$titles = array(
-    		'slider_title_1' => get_theme_mod('slider_title_1', 'Welcome to Sydney'),
-    		'slider_title_2' => get_theme_mod('slider_title_2', 'Ready to begin your journey?'),
-    		'slider_title_3' => get_theme_mod('slider_title_3'),
-    		'slider_title_4' => get_theme_mod('slider_title_4'),
-    		'slider_title_5' => get_theme_mod('slider_title_5'),
-    	);
-    	$subtitles = array(
-    		'slider_subtitle_1' => get_theme_mod('slider_subtitle_1', 'Feel free to look around'),
-    		'slider_subtitle_2' => get_theme_mod('slider_subtitle_2', 'Feel free to look around'),
-    		'slider_subtitle_3' => get_theme_mod('slider_subtitle_3'),
-    		'slider_subtitle_4' => get_theme_mod('slider_subtitle_4'),
-    		'slider_subtitle_5' => get_theme_mod('slider_subtitle_5'),    		
-    	);
-    } else {
-    	$titles = array(
-    		'slider_title_1' => pll__( get_theme_mod('slider_title_1', 'Click the pencil icon to change this text') ),
-    		'slider_title_2' => pll__( get_theme_mod('slider_title_2') ),
-    		'slider_title_3' => pll__( get_theme_mod('slider_title_3') ),
-    		'slider_title_4' => pll__( get_theme_mod('slider_title_4') ),
-    		'slider_title_5' => pll__( get_theme_mod('slider_title_5') ),
-    	);
-    	$subtitles = array(
-    		'slider_subtitle_1' => pll__( get_theme_mod('slider_subtitle_1', 'or go to the Customizer') ),
-    		'slider_subtitle_2' => pll__( get_theme_mod('slider_subtitle_2') ),
-    		'slider_subtitle_3' => pll__( get_theme_mod('slider_subtitle_3') ),
-    		'slider_subtitle_4' => pll__( get_theme_mod('slider_subtitle_4') ),
-    		'slider_subtitle_5' => pll__( get_theme_mod('slider_subtitle_5') ),
-    	);
-    }
+    $titles = array(
+        'slider_title_1' => get_theme_mod('slider_title_1', 'Welcome to Sydney'),
+        'slider_title_2' => get_theme_mod('slider_title_2', 'Ready to begin your journey?'),
+        'slider_title_3' => get_theme_mod('slider_title_3'),
+        'slider_title_4' => get_theme_mod('slider_title_4'),
+        'slider_title_5' => get_theme_mod('slider_title_5'),
+    );
+    $subtitles = array(
+        'slider_subtitle_1' => get_theme_mod('slider_subtitle_1', 'Feel free to look around'),
+        'slider_subtitle_2' => get_theme_mod('slider_subtitle_2', 'Feel free to look around'),
+        'slider_subtitle_3' => get_theme_mod('slider_subtitle_3'),
+        'slider_subtitle_4' => get_theme_mod('slider_subtitle_4'),
+        'slider_subtitle_5' => get_theme_mod('slider_subtitle_5'),    		
+    );
     $images = array(
-    		'slider_image_1' => get_theme_mod('slider_image_1'),
-    		'slider_image_2' => get_theme_mod('slider_image_2'),
-    		'slider_image_3' => get_theme_mod('slider_image_3'),
-    		'slider_image_4' => get_theme_mod('slider_image_4'),
-    		'slider_image_5' => get_theme_mod('slider_image_5'),
+        'slider_image_1' => get_theme_mod('slider_image_1'),
+        'slider_image_2' => get_theme_mod('slider_image_2'),
+        'slider_image_3' => get_theme_mod('slider_image_3'),
+        'slider_image_4' => get_theme_mod('slider_image_4'),
+        'slider_image_5' => get_theme_mod('slider_image_5'),
     );
 
 
@@ -141,13 +124,8 @@ endif;
 
 function sydney_slider_button() {
 
-    if ( !function_exists('pll_register_string') ) {
-        $slider_button      = get_theme_mod('slider_button_text', 'Click to begin');
-        $slider_button_url  = get_theme_mod('slider_button_url','#primary');        
-    } else {
-        $slider_button      = pll__(get_theme_mod('slider_button_text', 'Click to begin'));
-        $slider_button_url  = pll__(get_theme_mod('slider_button_url','#primary'));
-    }
+    $slider_button      = get_theme_mod('slider_button_text', 'Click to begin');
+    $slider_button_url  = get_theme_mod('slider_button_url','#primary');            
 
     if ($slider_button) {
         return '<a href="' . esc_url($slider_button_url) . '" class="roll-button button-slider">' . esc_html($slider_button) . '</a>';
@@ -157,13 +135,8 @@ function sydney_slider_button() {
 
 function sydney_stop_text() {
 
-    if ( !function_exists('pll_register_string') ) {
-        $slider_title_1     = get_theme_mod('slider_title_1', 'Welcome to Sydney');
-        $slider_subtitle_1  = get_theme_mod('slider_subtitle_1','Feel free to look around');
-    } else {
-        $slider_title_1     = pll__(get_theme_mod('slider_title_1', 'Welcome to Sydney'));
-        $slider_subtitle_1  = pll__(get_theme_mod('slider_subtitle_1','Feel free to look around')); 
-    }
+    $slider_title_1     = get_theme_mod('slider_title_1', 'Welcome to Sydney');
+    $slider_subtitle_1  = get_theme_mod('slider_subtitle_1','Feel free to look around');
 
     ?>    
     <div class="slide-inner text-slider-stopped">
