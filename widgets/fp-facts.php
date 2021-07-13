@@ -27,7 +27,14 @@ class Sydney_Facts extends WP_Widget {
 		$fact_four_max  	= isset( $instance['fact_four_max'] ) ? esc_html( $instance['fact_four_max'] ) : '';
 		$fact_four_icon  	= isset( $instance['fact_four_icon'] ) ? esc_html( $instance['fact_four_icon'] ) : '';	
 	?>
-	<p><?php _e('You can find a list of the available icons ', 'sydney'); ?><a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_blank"><?php _e('here.', 'sydney'); ?></a>&nbsp;<?php _e('Usage example: <strong>fa-android</strong>', 'sydney'); ?></p>
+	<p><?php _e('You can find a list of the available icons ', 'sydney'); ?><a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_blank"><?php _e('here.', 'sydney'); ?></a>&nbsp;
+		<?php 
+		if( get_option( 'sydney-fontawesome-v5' ) ) {
+			_e( 'Usage example: <strong>fas fa-cloud</strong> (solid). <strong>far fa-building</strong> (regular), <strong>fas fa-android</strong> (brands)', 'sydney' );
+		} else {
+			_e( 'Usage example: <strong>fa-android</strong>', 'sydney' );
+		} ?>
+	</p>
 	<p>
 	<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'sydney'); ?></label>
 	<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
@@ -127,20 +134,22 @@ class Sydney_Facts extends WP_Widget {
 		}
 		extract($args);
 
+		$icon_prefix = sydney_get_fontawesome_prefix();
+
 		$title 			= ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
 		$title 			= apply_filters( 'widget_title', $title, $instance, $this->id_base );
 		$fact_one   	= isset( $instance['fact_one'] ) ? esc_html( $instance['fact_one'] ) : '';
 		$fact_one_max  	= isset( $instance['fact_one_max'] ) ? esc_html( $instance['fact_one_max'] ) : '';
-		$fact_one_icon  = isset( $instance['fact_one_icon'] ) ? esc_html( $instance['fact_one_icon'] ) : '';
+		$fact_one_icon  = isset( $instance['fact_one_icon'] ) ? esc_html( $icon_prefix . $instance['fact_one_icon'] ) : '';
 		$fact_two   	= isset( $instance['fact_two'] ) ? esc_attr( $instance['fact_two'] ) : '';
 		$fact_two_max  	= isset( $instance['fact_two_max'] ) ? esc_html( $instance['fact_two_max'] ) : '';
-		$fact_two_icon  = isset( $instance['fact_two_icon'] ) ? esc_html( $instance['fact_two_icon'] ) : '';
+		$fact_two_icon  = isset( $instance['fact_two_icon'] ) ? esc_html( $icon_prefix . $instance['fact_two_icon'] ) : '';
 		$fact_three   	= isset( $instance['fact_three'] ) ? esc_attr( $instance['fact_three'] ) : '';
 		$fact_three_max	= isset( $instance['fact_three_max'] ) ? esc_html( $instance['fact_three_max'] ) : '';
-		$fact_three_icon= isset( $instance['fact_three_icon'] ) ? esc_html( $instance['fact_three_icon'] ) : '';
+		$fact_three_icon= isset( $instance['fact_three_icon'] ) ? esc_html( $icon_prefix . $instance['fact_three_icon'] ) : '';
 		$fact_four   	= isset( $instance['fact_four'] ) ? esc_attr( $instance['fact_four'] ) : '';		
 		$fact_four_max 	= isset( $instance['fact_four_max'] ) ? esc_html( $instance['fact_four_max'] ) : '';
-		$fact_four_icon = isset( $instance['fact_four_icon'] ) ? esc_html( $instance['fact_four_icon'] ) : '';		
+		$fact_four_icon = isset( $instance['fact_four_icon'] ) ? esc_html( $icon_prefix . $instance['fact_four_icon'] ) : '';		
 
 		echo $args['before_widget'];
 ?>
@@ -150,7 +159,7 @@ class Sydney_Facts extends WP_Widget {
 		<?php if ($fact_one !='') : ?>
 		<div class="col-md-3 col-sm-3">
 			<div class="roll-counter">
-				<i class="fa <?php echo $fact_one_icon; ?>"></i>
+				<i class="<?php echo $fact_one_icon; ?>"></i>
 				<div class="name-count"><?php echo $fact_one; ?></div>
 				<div class="numb-count" data-from="0" data-to="<?php echo $fact_one_max; ?>" data-speed="2000" data-waypoint-active="yes"><?php echo $fact_one_max; ?></div>
 			</div>
@@ -159,7 +168,7 @@ class Sydney_Facts extends WP_Widget {
 		<?php if ($fact_two !='') : ?>
 		<div class="col-md-3 col-sm-3">
 			<div class="roll-counter">
-				<i class="fa <?php echo $fact_two_icon; ?>"></i>
+				<i class="<?php echo $fact_two_icon; ?>"></i>
 				<div class="name-count"><?php echo $fact_two; ?></div>
 				<div class="numb-count" data-from="0" data-to="<?php echo $fact_two_max; ?>" data-speed="2000" data-waypoint-active="yes"><?php echo $fact_two_max; ?></div>
 			</div>
@@ -168,7 +177,7 @@ class Sydney_Facts extends WP_Widget {
 		<?php if ($fact_three !='') : ?>
 		<div class="col-md-3 col-sm-3">
 			<div class="roll-counter">
-				<i class="fa <?php echo $fact_three_icon; ?>"></i>
+				<i class="<?php echo $fact_three_icon; ?>"></i>
 				<div class="name-count"><?php echo $fact_three; ?></div>
 				<div class="numb-count" data-from="0" data-to="<?php echo $fact_three_max; ?>" data-speed="2000" data-waypoint-active="yes"><?php echo $fact_three_max; ?></div>
 			</div>
@@ -177,7 +186,7 @@ class Sydney_Facts extends WP_Widget {
 		<?php if ($fact_four !='') : ?>
 		<div class="col-md-3 col-sm-3">
 			<div class="roll-counter">
-				<i class="fa <?php echo $fact_four_icon; ?>"></i>
+				<i class="<?php echo $fact_four_icon; ?>"></i>
 				<div class="name-count"><?php echo $fact_four; ?></div>
 				<div class="numb-count" data-from="0" data-to="<?php echo $fact_four_max; ?>" data-speed="2000" data-waypoint-active="yes"><?php echo $fact_four_max; ?></div>
 			</div>

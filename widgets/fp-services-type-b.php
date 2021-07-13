@@ -106,6 +106,8 @@ class Sydney_Services_Type_B extends WP_Widget {
 
 		echo $args['before_widget'];
 
+		$fa_prefix = sydney_get_fontawesome_prefix();
+
 		if ($services->have_posts()) :
 ?>
 			<?php if ( $title ) echo $before_title . $title . $after_title; ?>
@@ -127,9 +129,9 @@ class Sydney_Services_Type_B extends WP_Widget {
 								<?php elseif ($icon) : ?>			
 									<div class="icon">
 										<?php if ($link) : ?>
-											<?php echo '<a href="' . esc_url($link) . '"><i class="fa ' . esc_html($icon) . '"></i></a>'; ?>
+											<?php echo '<a href="' . esc_url($link) . '"><i class="' . esc_html($fa_prefix . $icon) . '"></i></a>'; ?>
 										<?php else : ?>
-											<?php echo '<i class="fa ' . esc_html($icon) . '"></i>'; ?>
+											<?php echo '<i class="' . esc_html($fa_prefix . $icon) . '"></i>'; ?>
 										<?php endif; ?>
 									</div>
 								<?php endif; ?>

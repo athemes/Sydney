@@ -79,6 +79,8 @@ class Sydney_Services_Type_A extends WP_Widget {
 		$two_cols 		= isset( $instance['two_cols'] ) ? $instance['two_cols'] : false;
 		$content_excerpt = isset( $instance['content_excerpt'] ) ? esc_html($instance['content_excerpt']) : 'fullcontent';
 
+		$fa_prefix = sydney_get_fontawesome_prefix();
+
 		$services = new WP_Query( array(
 			'no_found_rows'       => true,
 			'post_status'         => 'publish',
@@ -113,9 +115,9 @@ class Sydney_Services_Type_A extends WP_Widget {
 								<?php elseif ($icon) : ?>			
 									<div class="icon">
 										<?php if ($link) : ?>
-											<?php echo '<a href="' . esc_url($link) . '"><i class="fa ' . esc_html($icon) . '"></i></a>'; ?>
+											<?php echo '<a href="' . esc_url($link) . '"><i class="' . esc_html($fa_prefix . $icon) . '"></i></a>'; ?>
 										<?php else : ?>
-											<?php echo '<i class="fa ' . esc_html($icon) . '"></i>'; ?>
+											<?php echo '<i class="' . esc_html($fa_prefix . $icon) . '"></i>'; ?>
 										<?php endif; ?>
 									</div>
 								<?php endif; ?>

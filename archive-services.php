@@ -12,9 +12,13 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="post-wrap" role="main">
 
-		<?php if ( have_posts() ) : ?>
+		<?php 
+			// Get fontawesome prefix
+			$fa_prefix = sydney_get_fontawesome_prefix( 'fab ' );
+		
+			if ( have_posts() ) :
+				while ( have_posts() ) : the_post(); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
 				<?php $icon = get_post_meta( get_the_ID(), 'wpcf-service-icon', true ); ?>
 				<?php $servicelink = get_post_meta( get_the_ID(), 'wpcf-service-link', true ); ?>
 				<div class="service col-md-4">
@@ -22,9 +26,9 @@ get_header(); ?>
 						<?php if ($icon) : ?>
 						<div class="icon">
 						<?php if ($servicelink) : ?>
-							<?php echo '<a href="' . esc_url( $servicelink ) . '"><i class="fa ' . esc_html( $icon ) . '"></i></a>'; ?>
+							<?php echo '<a href="' . esc_url( $servicelink ) . '"><i class="' . esc_html( $fa_prefix . $icon ) . '"></i></a>'; ?>
 						<?php else : ?>
-							<?php echo '<i class="fa ' . esc_html( $icon ) . '"></i>'; ?>
+							<?php echo '<i class="' . esc_html( $fa_prefix . $icon ) . '"></i>'; ?>
 						<?php endif; ?>
 						</div>
 						<?php endif; ?>							

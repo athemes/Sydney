@@ -127,3 +127,30 @@ function sydney_image_alt( $image ) {
 function sydney_is_amp() {
 	return function_exists( 'amp_is_request' ) && amp_is_request();
 }
+
+/**
+ * Update fontawesome ajax callback
+ */
+function sydney_update_fontawesome_callback() {
+	check_ajax_referer( 'sydney-fa-updt-nonce', 'nonce' );
+
+	update_option( 'sydney-fontawesome-v5', true );
+
+	wp_send_json( array(
+		'success' => true
+	) );
+}
+add_action( 'wp_ajax_sydney_update_fontawesome_callback', 'sydney_update_fontawesome_callback' );
+
+/**
+ * Check which version of fontawesome is active 
+ * and return the needed class prefix
+ */
+function sydney_get_fontawesome_prefix( $v5_prefix = '' ) {
+	$fa_prefix = 'fa '; // v4
+	if( get_option( 'sydney-fontawesome-v5' ) ) {
+		$fa_prefix = $v5_prefix;
+	}
+
+	return $fa_prefix;
+}

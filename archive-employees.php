@@ -40,17 +40,22 @@ get_header(); ?>
 			        	<?php endif; ?>
 			        </div>
 			        <div class="pos"><?php echo esc_html($position); ?></div>
-								<ul class="team-social">
-									<?php if ($facebook != '') : ?>
-										<li><a class="facebook" href="<?php echo esc_url($facebook); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
-									<?php endif; ?>
-									<?php if ($twitter != '') : ?>
-										<li><a class="twitter" href="<?php echo esc_url($twitter); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
-									<?php endif; ?>
-									<?php if ($google != '') : ?>
-										<li><a class="google" href="<?php echo esc_url($google); ?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-									<?php endif; ?>
-								</ul>			        
+
+						<?php 
+						// Get fontawesome prefix
+						$fa_prefix = sydney_get_fontawesome_prefix( 'fab ' ); ?>
+							
+						<ul class="team-social">
+							<?php if ($facebook != '') : ?>
+								<li><a class="facebook" href="<?php echo esc_url($facebook); ?>" target="_blank"><i class="<?php echo esc_attr( $fa_prefix ); ?>fa-facebook"></i></a></li>
+							<?php endif; ?>
+							<?php if ($twitter != '') : ?>
+								<li><a class="twitter" href="<?php echo esc_url($twitter); ?>" target="_blank"><i class="<?php echo esc_attr( $fa_prefix ); ?>fa-twitter"></i></a></li>
+							<?php endif; ?>
+							<?php if ($google != '') : ?>
+								<li><a class="google" href="<?php echo esc_url($google); ?>" target="_blank"><i class="<?php echo esc_attr( $fa_prefix ); ?>fa-google-plus"></i></a></li>
+							<?php endif; ?>
+						</ul>			        
 			    </div>
 			</div><!-- /.team-item -->
 			<?php endwhile; ?>

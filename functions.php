@@ -171,6 +171,22 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 require get_template_directory() . "/widgets/contact-info.php";
 
 /**
+ * Enqueue scripts and styles.
+ */
+function sydney_admin_scripts() {
+	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
+		wp_enqueue_script( 'sydney-admin-functions', get_template_directory_uri() . '/js/admin-functions.js', array('jquery'),'', true );
+		wp_localize_script( 'sydney-admin-functions', 'sydneyadm', array(
+			'fontawesomeUpdate' => array(
+				'confirmMessage' => __( 'Are you sure? Keep in mind this is a global change and you will need update your icons class names in all theme widgets and post types that use Font Awesome 4 icons.', 'sydney' ),
+				'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'sydney' )
+			)
+		) );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'sydney_admin_scripts' );
+
+/**
  * Elementor editor scripts
  */
 function sydney_elementor_editor_scripts() {
@@ -222,7 +238,11 @@ function sydney_scripts() {
 		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 		wp_enqueue_script( 'sydney-so-legacy-scripts', get_template_directory_uri() . '/js/so-legacy.js', array('jquery'),'', true );
 		wp_enqueue_script( 'sydney-so-legacy-main', get_template_directory_uri() . '/js/so-legacy-main.min.js', array('jquery'),'', true );
-		wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
+		if( get_option( 'sydney-fontawesome-v5' ) ) {
+			wp_enqueue_style( 'sydney-font-awesome-v5', get_template_directory_uri() . '/fonts/font-awesome-v5/all.min.css' );
+		} else {
+			wp_enqueue_style( 'sydney-font-awesome', get_template_directory_uri() . '/fonts/font-awesome.min.css' );
+		}
 	}
 
 
@@ -554,3 +574,50 @@ require get_template_directory() . '/theme-dashboard/class-theme-dashboard.php';
  * Theme dashboard settings.
  */
 require get_template_directory() . '/inc/theme-dashboard-settings.php';
+
+/*
+ * Enable fontawesome 5 on first time theme activation
+ */
+function sydney_enable_fontawesome_latest_version() {
+	if( !get_option( 'sydney-fontawesome-v5' ) ) {
+		update_option( 'sydney-fontawesome-v5', true );
+	}
+}
+add_action('after_switch_theme', 'sydney_enable_fontawesome_latest_version');
+
+/**
+ * Sydney Toolbox and fontawesome update notice
+ */
+if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
+	function sydney_toolbox_fa_update_admin_notice(){
+		$all_plugins    = get_plugins();
+		$active_plugins = get_option( 'active_plugins' );
+		$theme_version  = wp_get_theme( 'sydney' )->Version;
+
+		// Check if Sydney Toolbox plugin is active
+		if( ! in_array( 'sydney-toolbox/sydney-toolbox.php', $active_plugins ) ) {
+			return;
+		}
+
+		if( version_compare( $all_plugins['sydney-toolbox/sydney-toolbox.php']['Version'], '1.16', '>=' ) ) {
+			if( !get_option( 'sydney-fontawesome-v5' ) ) { ?> 
+				<div class="updated" style="padding-bottom: 10px;">
+					<p>
+						<strong><?php esc_html_e( 'Sydney Font Awesome Update: ', 'sydney'); ?></strong> <?php esc_html_e( 'Your website is currently running the version 4. Click in the below button to update to version 5.', 'sydney' ); ?>
+						<br>
+						<strong><?php esc_html_e( 'Important: ', 'sydney'); ?></strong> <?php esc_html_e( 'This is a global change. That means this change will affect all website icons and you will need update the icons class names in all theme widgets and post types that use Font Awesome 4 icons. For example: "fa-android" to "fab fa-android".', 'sydney' ); ?>
+					</p>
+					<a href="#" class="button sydney-update-fontawesome" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-fa-updt-nonce' ) ); ?>"><?php esc_html_e( 'Update to v5', 'sydney' ); ?></a>
+					<br>
+				</div>
+			<?php
+			}
+			return;
+		}
+
+		echo '<div class="updated">';
+		echo '    <p>'. sprintf( __( '<strong>Sydney %s</strong> needs the latest version of <strong>Sydney Toolbox</strong> plugin. Please update the plugin <a href="%s">here</a>.', 'sydney' ), $theme_version, admin_url( 'plugins.php' ) ) .'</p>';
+		echo '</div>';
+	}
+	add_action('admin_notices', 'sydney_toolbox_fa_update_admin_notice');
+}

@@ -46,7 +46,7 @@ Social
 }
 .social-widget li a::before,
 .social-menu-widget a:before {
-	font-family: FontAwesome;
+	font-family: "FontAwesome", "Font Awesome 5 Brands";
 	color: inherit;
 }
 .social-menu-widget li a,
@@ -891,7 +891,7 @@ Header
 	}
 	/* Icons */
 	#mainnav ul li::before {
-		font-family: Fontawesome;
+		font-family: "Fontawesome", "Font Awesome 5 Free";
 		color: #fff;
 		float: left;
 		margin: 5px 5px 0 0;
@@ -1837,7 +1837,8 @@ Footer
 		left: 0;
 		top: 0;
 		content: "\f041";
-		font-family: "FontAwesome";
+		font-family: "FontAwesome", "Font Awesome 5 Free";
+		font-weight: 900;
 		font-size: 16px;
 	}
 	.widget-info .infomation li.phone:before {
@@ -2251,7 +2252,8 @@ Panels
 	}
 	.roll-list li:before {
 		content: "\f006";
-		font-family: "FontAwesome";
+		content: "\f005";
+		font-family: "FontAwesome", "Font Awesome 5 Free";
 		font-size: 15px;
 		position: absolute;
 		left: 0;
@@ -2714,7 +2716,8 @@ Panels
 		left: 0;
 		top: 4px;
 		content: "\f041";
-		font-family: "FontAwesome";
+		font-family: "FontAwesome", "Font Awesome 5 Free";
+		font-weight: 900;
 		font-size: 20px;
 	}
 	.roll-infomation li.phone:before {
