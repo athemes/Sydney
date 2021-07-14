@@ -617,7 +617,7 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) && ( isset($pagenow) && $pagenow == 
 
 		<div class="notice notice-success thd-theme-dashboard-notice-success is-dismissible">
 			<p>
-				<?php echo sprintf( __( '<strong>Optional:</strong> Now <strong>Sydney</strong> is compatible with Font Awesome 5. For it is needed the latest version of <strong>Sydney Toolbox</strong> plugin. You can update the plugin <a href="%s">here</a>.', 'sydney' ), admin_url( 'plugins.php' ) ); ?><br>
+				<?php echo wp_kses_post( sprintf( __( '<strong>Optional:</strong> Now <strong>Sydney</strong> is compatible with Font Awesome 5. For it is needed the latest version of <strong>Sydney Toolbox</strong> plugin. You can update the plugin <a href="%s">here</a>.', 'sydney' ), admin_url( 'plugins.php' ) ) ); ?><br>
 				<strong><?php esc_html_e( 'Important: ', 'sydney'); ?></strong> <?php esc_html_e( 'This is a global change. That means this change will affect all website icons and you will need update the icons class names in all theme widgets and post types that use Font Awesome 4 icons. For example: "fa-android" to "fab fa-android".', 'sydney' ); ?>
 			</p>
 		</div>
