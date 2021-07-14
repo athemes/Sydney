@@ -30,7 +30,7 @@ class Sydney_Facts extends WP_Widget {
 	<p><?php _e('You can find a list of the available icons ', 'sydney'); ?><a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_blank"><?php _e('here.', 'sydney'); ?></a>&nbsp;
 		<?php 
 		if( get_option( 'sydney-fontawesome-v5' ) ) {
-			_e( 'Usage example: <strong>fas fa-cloud</strong> (solid). <strong>far fa-building</strong> (regular), <strong>fas fa-android</strong> (brands)', 'sydney' );
+			_e( 'Usage example: <strong>fas fa-cloud</strong> (solid). <strong>far fa-building</strong> (regular), <strong>fab fa-android</strong> (brands)', 'sydney' );
 		} else {
 			_e( 'Usage example: <strong>fa-android</strong>', 'sydney' );
 		} ?>
