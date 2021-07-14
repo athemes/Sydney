@@ -555,3 +555,10 @@
     .notice.thd-theme-dashboard-notice .notice-dismiss {
       z-index: 19;
     }
+    
+.notice.thd-theme-dashboard-notice-success {
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 15px 20px;
+}

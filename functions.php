@@ -578,8 +578,8 @@ require get_template_directory() . '/inc/theme-dashboard-settings.php';
 /*
  * Enable fontawesome 5 on first time theme activation
  */
-function sydney_enable_fontawesome_latest_version() {
-	if( !get_option( 'sydney-fontawesome-v5' ) ) {
+function sydney_enable_fontawesome_latest_version( $old_theme_name ) {
+	if( !get_option( 'sydney-fontawesome-v5' ) && !in_array( $old_theme_name, array( 'Sydney', 'Sydney Child', 'Sydney Pro', 'Sydney Pro Child' ) ) ) {
 		update_option( 'sydney-fontawesome-v5', true );
 	}
 }
@@ -588,7 +588,7 @@ add_action('after_switch_theme', 'sydney_enable_fontawesome_latest_version');
 /**
  * Sydney Toolbox and fontawesome update notice
  */
-if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
+if ( defined( 'SITEORIGIN_PANELS_VERSION' ) && ( isset($pagenow) && $pagenow == 'themes.php' ) && isset( $_GET['page'] ) && $_GET['page'] == 'theme-dashboard' ) {
 	function sydney_toolbox_fa_update_admin_notice(){
 		$all_plugins    = get_plugins();
 		$active_plugins = get_option( 'active_plugins' );
@@ -601,23 +601,27 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
 
 		if( version_compare( $all_plugins['sydney-toolbox/sydney-toolbox.php']['Version'], '1.16', '>=' ) ) {
 			if( !get_option( 'sydney-fontawesome-v5' ) ) { ?> 
-				<div class="updated" style="padding-bottom: 10px;">
+				<div class="notice notice-success thd-theme-dashboard-notice-success is-dismissible">
 					<p>
 						<strong><?php esc_html_e( 'Sydney Font Awesome Update: ', 'sydney'); ?></strong> <?php esc_html_e( 'Your website is currently running the version 4. Click in the below button to update to version 5.', 'sydney' ); ?>
 						<br>
 						<strong><?php esc_html_e( 'Important: ', 'sydney'); ?></strong> <?php esc_html_e( 'This is a global change. That means this change will affect all website icons and you will need update the icons class names in all theme widgets and post types that use Font Awesome 4 icons. For example: "fa-android" to "fab fa-android".', 'sydney' ); ?>
 					</p>
-					<a href="#" class="button sydney-update-fontawesome" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-fa-updt-nonce' ) ); ?>"><?php esc_html_e( 'Update to v5', 'sydney' ); ?></a>
+					<a href="#" class="button sydney-update-fontawesome" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-fa-updt-nonce' ) ); ?>" style="margin-bottom: 9px;"><?php esc_html_e( 'Update to v5', 'sydney' ); ?></a>
 					<br>
 				</div>
 			<?php
 			}
 			return;
-		}
+		} ?>
 
-		echo '<div class="updated">';
-		echo '    <p>'. sprintf( __( '<strong>Sydney %s</strong> needs the latest version of <strong>Sydney Toolbox</strong> plugin. Please update the plugin <a href="%s">here</a>.', 'sydney' ), $theme_version, admin_url( 'plugins.php' ) ) .'</p>';
-		echo '</div>';
+		<div class="notice notice-success thd-theme-dashboard-notice-success is-dismissible">
+			<p>
+				<?php echo sprintf( __( '<strong>Optional:</strong> Now <strong>Sydney</strong> is compatible with Font Awesome 5. For it is needed the latest version of <strong>Sydney Toolbox</strong> plugin. You can update the plugin <a href="%s">here</a>.', 'sydney' ), admin_url( 'plugins.php' ) ); ?><br>
+				<strong><?php esc_html_e( 'Important: ', 'sydney'); ?></strong> <?php esc_html_e( 'This is a global change. That means this change will affect all website icons and you will need update the icons class names in all theme widgets and post types that use Font Awesome 4 icons. For example: "fa-android" to "fab fa-android".', 'sydney' ); ?>
+			</p>
+		</div>
+<?php
 	}
 	add_action('admin_notices', 'sydney_toolbox_fa_update_admin_notice');
 }
