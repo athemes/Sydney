@@ -330,12 +330,15 @@ function sydney_header_video() {
 
 /**
  * Preloader
+ * Hook into 'wp_body_open' to ensure compatibility with 
+ * header/footer builder plugins
  */
 function sydney_preloader() {
 
 	if ( sydney_is_amp() ) {
 		return;
 	}
+
 	?>
 	<div class="preloader">
 	    <div class="spinner">
@@ -345,7 +348,8 @@ function sydney_preloader() {
 	</div>
 	<?php
 }
-add_action('sydney_before_site', 'sydney_preloader');
+add_action('wp_body_open', 'sydney_preloader');
+add_action('elementor/theme/before_do_header', 'sydney_preloader'); // Elementor Pro Header Builder
 
 /**
  * Header clone
@@ -625,3 +629,13 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) && ( isset($pagenow) && $pagenow == 
 	}
 	add_action('admin_notices', 'sydney_toolbox_fa_update_admin_notice');
 }
+
+/*
+* Append gotop button html on footer
+* Ensure compatibility with plugins that handle with footer like header/footer builders
+*/
+function sydney_append_gotop_html() { ?>
+	<a on="tap:toptarget.scrollTo(duration=200)" class="go-top"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-chevron-up', true ); ?></i></a>
+<?php
+}
+add_action('wp_footer', 'sydney_append_gotop_html', 1);
