@@ -241,7 +241,7 @@ function sydney_dashboard_settings( $settings ) {
 
 	// Review.
 	$settings['review_link']       = 'https://wordpress.org/support/theme/sydney/reviews/';
-	$settings['suggest_idea_link'] = 'https://athemes.circle.so/c/give-feedback';
+	$settings['suggest_idea_link'] = 'https://forums.athemes.com/c/feature-requests/15';
 
 	// Support.
 	$settings['support_link']     = 'https://forums.athemes.com/';
