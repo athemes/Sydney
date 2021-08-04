@@ -581,9 +581,12 @@ require get_template_directory() . '/inc/theme-dashboard-settings.php';
 
 /*
  * Enable fontawesome 5 on first time theme activation
+ * Check if the old theme is sydney to avoid enable the fa5 automatic and break icons
+ * Since this hook also run on theme updates
  */
 function sydney_enable_fontawesome_latest_version( $old_theme_name ) {
-	if( !get_option( 'sydney-fontawesome-v5' ) && !in_array( $old_theme_name, array( 'Sydney', 'Sydney Child', 'Sydney Pro', 'Sydney Pro Child' ) ) ) {
+	$old_theme_name = strtolower( $old_theme_name );
+	if( !get_option( 'sydney-fontawesome-v5' ) && strpos( $old_theme_name, 'sydney' ) === FALSE ) {
 		update_option( 'sydney-fontawesome-v5', true );
 	}
 }
