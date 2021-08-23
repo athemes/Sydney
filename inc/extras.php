@@ -154,3 +154,90 @@ function sydney_get_fontawesome_prefix( $v5_prefix = '' ) {
 
 	return $fa_prefix;
 }
+
+/*
+* Append gotop button html on footer
+* Ensure compatibility with plugins that handle with footer like header/footer builders
+*/
+function sydney_append_gotop_html() {
+	
+	$enable = get_theme_mod( 'enable_scrolltop', 1 );
+
+	if ( !$enable ) {
+		return;
+	}
+
+	$type 		= get_theme_mod( 'scrolltop_type', 'icon' );			
+	$text 		= get_theme_mod( 'scrolltop_text', esc_html__( 'Back to top', 'sydney' ) );	
+	$icon		= get_theme_mod( 'scrolltop_icon', 'icon2' );
+	$visibility = get_theme_mod( 'scrolltop_visibility', 'all' );
+	$position 	= get_theme_mod( 'scrolltop_position', 'right' );
+
+	echo '<a on="tap:toptarget.scrollTo(duration=200)" class="go-top visibility-' . esc_attr( $visibility ) . ' position-' . esc_attr( $position ) . '">';
+	if ( 'text' === $type ) {
+		echo '<span>' . esc_html( $text ) . '</span>';
+	}
+	echo 	'<i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-btt-' . $icon, false ) . '</i>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo '</a>';
+
+}
+add_action('wp_footer', 'sydney_append_gotop_html', 1);
+
+/**
+ * Get social network
+ */
+function sydney_get_social_network( $social ) {
+
+	$networks = array( 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest' );
+
+	foreach ( $networks as $network ) {
+		$found = strpos( $social, $network );
+
+		if ( $found !== false ) {
+			return $network;
+		}
+	}
+}
+
+/**
+ * Social profile list
+ */
+function sydney_social_profile( $location ) {
+		
+	$social_links = get_theme_mod( $location );
+
+	if ( !$social_links ) {
+		return;
+	}
+
+	$social_links = explode( ',', $social_links );
+
+	$items = '<div class="social-profile">';
+	foreach ( $social_links as $social ) {
+		$network = sydney_get_social_network( $social );
+		if ( $network ) {
+			$items .= '<a target="_blank" href="' . esc_url( $social ) . '"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-' . esc_html( $network ), false ) . '</i></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+	$items .= '</div>';
+
+	echo $items; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
+ * Footer credits
+ */
+function sydney_footer_credits() {
+
+	/* translators: %1$1s, %2$2s theme copyright tags*/
+	$credits 	= get_theme_mod( 'footer_credits', sprintf( esc_html__( '%1$1s. Proudly powered by %2$2s', 'sydney' ), '{copyright} {year} {site_title}', '{theme_author}' ) );
+
+	$tags 		= array( '{theme_author}', '{site_title}', '{copyright}', '{year}' );
+	$replace 	= array( '<a rel="nofollow" href="https://athemes.com/theme/sydney/">' . esc_html__( 'Sydney', 'sydney' ) . '</a>', get_bloginfo( 'name' ), '&copy;', date('Y') );
+
+	$credits 	= str_replace( $tags, $replace, $credits );
+
+	$credits	= '<div class="sydney-credits">' . $credits . '</div>';
+
+	return $credits;
+}

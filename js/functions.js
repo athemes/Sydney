@@ -22,24 +22,27 @@ sydney.backToTop = {
 	setup: function() {
 		const icon 	= document.getElementsByClassName( 'go-top' )[0];
 
-		var vertDist = window.pageYOffset;
+		if ( typeof(icon) != 'undefined' && icon != null ) {
+			var vertDist = window.pageYOffset;
 
-		if ( vertDist > 800 ) {
-			icon.classList.add( 'show' );
-		} else {
-			icon.classList.remove( 'show' );
+			if ( vertDist > 800 ) {
+				icon.classList.add( 'show' );
+			} else {
+				icon.classList.remove( 'show' );
+			}
+		
+			icon.addEventListener( 'click', function() {
+				window.scrollTo({
+					top: 0,
+					left: 0,
+					behavior: 'smooth',
+				});
+			} );
 		}
-	
-		icon.addEventListener( 'click', function() {
-			window.scrollTo({
-				top: 0,
-				left: 0,
-				behavior: 'smooth',
-			});
-		} );
 	},
 
 	displayButton: function() {
+		
 		this.setup();
 
 		window.addEventListener( 'scroll', function() {

@@ -44,7 +44,7 @@ function sydney_customize_register( $wp_customize ) {
         public $label = '';
         public function render_content() {
         ?>
-            <h3 style="margin-top:30px;padding:12px;color:#000;background:#cbcbcb;text-align:center;text-transform:uppercase;"><?php echo esc_html( $this->label ); ?></h3>
+            <h3 style="padding:12px;color:#000;background:#cbcbcb;text-align:center;text-transform:uppercase;"><?php echo esc_html( $this->label ); ?></h3>
         <?php
         }
     }    
@@ -59,77 +59,39 @@ function sydney_customize_register( $wp_customize ) {
         }
     }
 
+    /**
+     * Callbacks and sanitize
+     */
+    require get_template_directory() . '/inc/customizer/callbacks.php';
+    require get_template_directory() . '/inc/customizer/sanitize.php';
 
-    //___General___//
-    $wp_customize->add_section(
-        'sydney_general',
-        array(
-            'title'         => __('General', 'sydney'),
-            'priority'      => 8,
-        )
-    );
-    //Top padding
-    $wp_customize->add_setting(
-        'wrapper_top_padding',
-        array(
-            'default' => __('83','sydney'),
-            'sanitize_callback' => 'absint',
-        )
-    );
-    $wp_customize->add_control(
-        'wrapper_top_padding',
-        array(
-            'label'         => __( 'Page wrapper - top padding', 'sydney' ),
-            'section'       => 'sydney_general',
-            'type'          => 'number',
-            'description'   => __('Top padding for the page wrapper (the space between the header and the page title)', 'sydney'),       
-            'priority'      => 10,
-            'input_attrs' => array(
-                'min'   => 0,
-                'max'   => 160,
-                'step'  => 1,
-            ),            
-        )
-    );
-    //Bottom padding
-    $wp_customize->add_setting(
-        'wrapper_bottom_padding',
-        array(
-            'default' => __('100','sydney'),
-            'sanitize_callback' => 'absint',
-        )
-    );
-    $wp_customize->add_control(
-        'wrapper_bottom_padding',
-        array(
-            'label'         => __( 'Page wrapper - bottom padding', 'sydney' ),
-            'section'       => 'sydney_general',
-            'type'          => 'number',
-            'description'   => __('Bottom padding for the page wrapper (the space between the page content and the footer)', 'sydney'),       
-            'priority'      => 10,
-            'input_attrs' => array(
-                'min'   => 0,
-                'max'   => 160,
-                'step'  => 1,
-            ),            
-        )
-    );
+    /**
+     * Controls
+     */
+    //require get_template_directory() . '/inc/customizer/controls/typography/class_sydney_typography.php';
+    require get_template_directory() . '/inc/customizer/controls/repeater/class_sydney_repeater.php';
+    require get_template_directory() . '/inc/customizer/controls/alpha-color/class_sydney_alpha_color.php';
+    require get_template_directory() . '/inc/customizer/controls/radio-images/class_sydney_radio_images.php';
+    require get_template_directory() . '/inc/customizer/controls/radio-buttons/class_sydney_radio_buttons.php';
+    require get_template_directory() . '/inc/customizer/controls/responsive-slider/class_sydney_responsive_slider.php';
+    require get_template_directory() . '/inc/customizer/controls/class_sydney_tab_control.php';
+    require get_template_directory() . '/inc/customizer/controls/class_sydney_text_control.php';
+    //require get_template_directory() . '/inc/customizer/controls/class_sydney_tinymce_control.php';
+    require get_template_directory() . '/inc/customizer/controls/class_sydney_divider_control.php';
+    require get_template_directory() . '/inc/customizer/controls/toggle/class_sydney_toggle_control.php';
+    //require get_template_directory() . '/inc/customizer/controls/color-palettes/class_sydney_color_palettes_control.php';
+    //require get_template_directory() . '/inc/customizer/controls/color-palettes/class_sydney_custom_palettes_control.php';
+    //require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';    
 
-    $wp_customize->add_setting(
-        'sydney_enable_schema',
-        array(
-            'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
-    );
-    $wp_customize->add_control(
-        'sydney_enable_schema',
-        array(
-            'type'      => 'checkbox',
-            'label'     => __('Enable Schema markup', 'sydney'),
-            'section'   => 'sydney_general',
-            'priority'  => 10,
-        )
-    );
+    require get_template_directory() . '/inc/customizer/controls/control-checkbox-multiple.php';
+    require get_template_directory() . '/inc/customizer/controls/multiple-select/class-control-multiple-select.php';
+    $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
+
+    /**
+     * Options
+     */
+    require get_template_directory() . '/inc/customizer/options/general.php';
+    require get_template_directory() . '/inc/customizer/options/footer.php';
 
 
     //___Header area___//
@@ -1252,42 +1214,6 @@ function sydney_customize_register( $wp_customize ) {
         )
     );
 
-
-
-    //___Footer___//
-    $wp_customize->add_section(
-        'sydney_footer',
-        array(
-            'title'         => __('Footer', 'sydney'),
-            'priority'      => 18,
-        )
-    );
-    //Front page
-    $wp_customize->add_setting(
-        'footer_widget_areas',
-        array(
-            'default'           => '3',
-            'sanitize_callback' => 'sydney_sanitize_fw',
-        )
-    );
-    $wp_customize->add_control(
-        'footer_widget_areas',
-        array(
-            'type'        => 'radio',
-            'label'       => __('Footer widget area', 'sydney'),
-            'section'     => 'sydney_footer',
-            'description' => __('Select the number of widget areas you want in the footer. After that, go to Appearance > Widgets and add your widgets.', 'sydney'),
-            'choices' => array(
-                '1'     => __('One', 'sydney'),
-                '2'     => __('Two', 'sydney'),
-                '3'     => __('Three', 'sydney'),
-                '4'     => __('Four', 'sydney')
-            ),
-        )
-    );
-
-
-
     //___Fonts___//
     $wp_customize->add_section(
         'sydney_fonts',
@@ -1297,11 +1223,6 @@ function sydney_customize_register( $wp_customize ) {
             'description' => sprintf( __( 'You can check out previews of the Google Fonts %s', 'sydney' ), '<a target="_blank" href="https://fonts.google.com">' . __( 'here', 'sydney' ) . '</a>' ),
         )
     );
-
-    require get_template_directory() . '/inc/controls/control-checkbox-multiple.php';
-    require get_template_directory() . '/inc/controls/multiple-select/class-control-multiple-select.php';
-    $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
-
 
     //Body fonts title
     $wp_customize->add_setting('sydney_options[info]', array(
@@ -1724,15 +1645,7 @@ function sydney_customize_register( $wp_customize ) {
             'priority'      => 12,
             'panel'         => 'sydney_colors_panel',
         )
-    );
-    $wp_customize->add_section(
-        'colors_footer',
-        array(
-            'title'         => __('Footer', 'sydney'),
-            'priority'      => 13,
-            'panel'         => 'sydney_colors_panel',
-        )
-    );    
+    );   
     $wp_customize->add_setting(
         'primary_color',
         array(
@@ -1991,86 +1904,7 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
-    //Footer widget area
-    $wp_customize->add_setting(
-        'footer_widgets_background',
-        array(
-            'default'           => '#252525',
-            'sanitize_callback' => 'sanitize_hex_color',
-            'transport'         => 'postMessage'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'footer_widgets_background',
-            array(
-                'label' => __('Footer widget area background', 'sydney'),
-                'section' => 'colors_footer',
-                'priority' => 22
-            )
-        )
-    );
-    //Footer widget color
-    $wp_customize->add_setting(
-        'footer_widgets_color',
-        array(
-            'default'           => '#767676',
-            'sanitize_callback' => 'sanitize_hex_color',
-            'transport'         => 'postMessage'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'footer_widgets_color',
-            array(
-                'label' => __('Footer widget area color', 'sydney'),
-                'section' => 'colors_footer',
-                'priority' => 23
-            )
-        )
-    );
-    //Footer background
-    $wp_customize->add_setting(
-        'footer_background',
-        array(
-            'default'           => '#1c1c1c',
-            'sanitize_callback' => 'sanitize_hex_color',
-            'transport'         => 'postMessage'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'footer_background',
-            array(
-                'label' => __('Footer background', 'sydney'),
-                'section' => 'colors_footer',
-                'priority' => 24
-            )
-        )
-    );
-    //Footer color
-    $wp_customize->add_setting(
-        'footer_color',
-        array(
-            'default'           => '#666666',
-            'sanitize_callback' => 'sanitize_hex_color',
-            'transport'         => 'postMessage'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'footer_color',
-            array(
-                'label' => __('Footer color', 'sydney'),
-                'section' => 'colors_footer',
-                'priority' => 25
-            )
-        )
-    );
+    
     //Rows overlay
     $wp_customize->add_setting(
         'rows_overlay',
@@ -2099,7 +1933,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'title' => __('Theme info', 'sydney'),
             'priority' => 139,
-            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="http://athemes.com/documentation/sydney/">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="http://demo.athemes.com/sydney/">here</a></p>',         
+            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="https://docs.athemes.com/category/8-sydney">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="https://demo.athemes.com/sydney/">here</a></p>',         
         )
     );
     $wp_customize->add_setting('sydney_theme_docs', array(
@@ -2228,10 +2062,7 @@ function sydney_sanitize_layout( $input ) {
         return '';
     }
 }
-//Text
-function sydney_sanitize_text( $input ) {
-    return wp_kses_post( force_balance_tags( $input ) );
-}
+
 //Background size
 function sydney_sanitize_bg_size( $input ) {
     $valid = array(
@@ -2352,9 +2183,23 @@ function sydney_sanitize_selects( $input, $setting ){
  */
 function sydney_customize_preview_js() {
     
+    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.css' );
+
 	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20200129', true );
 }
 add_action( 'customize_preview_init', 'sydney_customize_preview_js' );
+
+/**
+ * Customizer assets
+ */
+function sydney_customize_footer_scripts() {
+    
+    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.css' );
+    wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.js', array( 'jquery', 'jquery-ui-core' ), '20210810', true );
+
+}
+add_action( 'customize_controls_print_footer_scripts', 'sydney_customize_footer_scripts' );
+
 
 
 

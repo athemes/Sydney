@@ -92,9 +92,14 @@
 	//Footer widgets color
 	wp.customize('footer_widgets_color',function( value ) {
 		value.bind( function( newval ) {
-			$('#sidebar-footer,#sidebar-footer a,.footer-widgets .widget-title').css('color', newval );
+			$('.sidebar-column .widget').css('color', newval );
 		} );
 	});	
+	wp.customize('footer_widgets_links_color',function( value ) {
+		value.bind( function( newval ) {
+			$('.sidebar-column .widget a').css('color', newval );
+		} );
+	});		
 	//Footer background
 	wp.customize('footer_background',function( value ) {
 		value.bind( function( newval ) {
@@ -104,7 +109,7 @@
 	//Footer color
 	wp.customize('footer_color',function( value ) {
 		value.bind( function( newval ) {
-			$('.site-footer,.site-footer a').css('color', newval );
+			$('.sydney-credits,.sydney-credits a').css('color', newval );
 		} );
 	});
 
@@ -176,5 +181,202 @@
 		} );
 	} );	
 
+
+	//Start port
+	//Back to top
+	wp.customize( 'scrolltop_radius', function( value ) {
+		value.bind( function( to ) {
+			$( '.go-top.show' ).css( 'border-radius', to + 'px' );
+		} );
+	} );
+	wp.customize( 'scrolltop_side_offset', function( value ) {
+		value.bind( function( to ) {
+			$( '.go-top.position-right' ).css( 'right', to + 'px' );
+			$( '.go-top.position-left' ).css( 'left', to + 'px' );
+		} );
+	} );
+	wp.customize( 'scrolltop_bottom_offset', function( value ) {
+		value.bind( function( to ) {
+			$( '.go-top' ).css( 'bottom', to + 'px' );
+		} );
+	} );
+	wp.customize( 'scrolltop_icon_size', function( value ) {
+		value.bind( function( to ) {
+			$( '.go-top .sydney-svg-icon, .go-top .sydney-svg-icon svg' ).css( 'width', to + 'px' );
+			$( '.go-top .sydney-svg-icon, .go-top .sydney-svg-icon svg' ).css( 'height', to + 'px' );
+		} );
+	} );
+	wp.customize( 'scrolltop_padding', function( value ) {
+		value.bind( function( to ) {
+			$( '.go-top' ).css( 'padding', to + 'px' );
+		} );
+	} );
+
+	//Background colors
+	var $bg_color_options = { "scrolltop_bg_color":".go-top", };
+
+	$.each( $bg_color_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+				$( selector ).css( 'background-color', to );
+			} );
+		} );
+	});
+
+	//Colors
+	var $color_options = { "scrolltop_color":".go-top", "footer_widgets_title_color":".sidebar-column .widget .widget-title" };
+
+	$.each( $color_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+				$( selector ).css( 'color', to );
+			} );
+		} );
+	});	
+
+	//Stroke
+	var $stroke_options = { "scrolltop_color":".go-top svg", };
+
+	$.each( $stroke_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+				$( selector ).css( 'stroke', to );
+			} );
+		} );
+	});		
+
+	//Background hover
+	var $bg_hover_options = { "scrolltop_bg_color_hover":".go-top:hover" , };
+
+	$.each( $bg_hover_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+		
+				$( 'head' ).find( '#sydney-customizer-styles-' + option ).remove();
+	
+				var output = selector + ' { background-color:' + to + '!important; }';
+	
+				$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '">' + output + '</style>' );
+	
+			} );
+		} );
+	});		
+
+	//Stroke hover
+	var $stroke_hover_options = { "scrolltop_color_hover":".go-top:hover svg", };
+
+	$.each( $stroke_hover_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+		
+				$( 'head' ).find( '#sydney-customizer-stroke-' + option ).remove();
+	
+				var output = selector + ' { stroke:' + to + '!important; }';
+	
+				$( 'head' ).append( '<style id="sydney-customizer-stroke-' + option + '">' + output + '</style>' );
+	
+			} );
+		} );
+	});		
+
+	//Color hover
+	var $color_hover_options = { "scrolltop_color_hover":".go-top:hover", "footer_widgets_links_hover_color":".sidebar-column .widget a:hover"};
+
+	$.each( $color_hover_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+		
+				$( 'head' ).find( '#sydney-customizer-styles-' + option ).remove();
+	
+				var output = selector + ' { color:' + to + '!important; }';
+	
+				$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '">' + output + '</style>' );
+	
+			} );
+		} );
+	});
+
+	//Fill
+	var $fill_options = {"footer_color":".site-info .sydney-svg-icon svg"};
+
+	$.each( $fill_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+				$( selector ).css( 'fill', to );
+			} );
+		} );
+	});	
+
+	//Border color
+	var $border_color_options = { "footer_credits_divider_color":".site-info,.site-footer","footer_widgets_divider_color":".footer-widgets,.footer-widgets-grid" };
+
+	$.each( $border_color_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+				$( selector ).css( 'border-color', to );
+			} );
+		} );
+	});		
+
+	//Responsive
+	var $devices 	= { "desktop": "(min-width: 992px)", "tablet": "(min-width: 576px) and (max-width: 991px)", "mobile": "(max-width: 575px)" };
+	
+	var $topBottPad = { "footer_widgets_padding":".footer-widgets-grid", };
+	$.each( $topBottPad, function( option, selector ) {
+		$.each( $devices, function( device, mediaSize ) {
+			wp.customize( option + '_' + device, function( value ) {
+				value.bind( function( to ) {
+				
+					$( 'head' ).find( '#sydney-customizer-styles-' + option + '_' + device ).remove();
+		
+					var output = '@media ' + mediaSize + ' {' + selector + ' { padding-top:' + to + 'px;padding-bottom:' + to + 'px; } }';
+		
+					$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '_' + device + '">' + output + '</style>' );
+				} );
+			} );
+		});
+	});
+	var $fontSizes 	= { "footer_widgets_title_size":".sidebar-column .widget .widget-title", };
+	$.each( $fontSizes, function( option, selector ) {
+		$.each( $devices, function( device, mediaSize ) {
+			wp.customize( option + '_' + device, function( value ) {
+				value.bind( function( to ) {
+				
+					$( 'head' ).find( '#botiga-customizer-styles-' + option + '_' + device ).remove();
+		
+					var output = '@media ' + mediaSize + ' {' + selector + ' { font-size:' + to + 'px; } }';
+		
+					$( 'head' ).append( '<style id="botiga-customizer-styles-' + option + '_' + device + '">' + output + '</style>' );
+				} );
+			} );
+		});
+	});		
+	
+	
+
+	//Footer
+	wp.customize( 'footer_widgets_column_spacing_desktop', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-widgets-grid' ).css( 'gap', to + 'px' );
+		} );
+	} );
+	wp.customize( 'footer_widgets_divider_size', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-widgets,.footer-widgets-grid' ).css( 'border-width', to );
+		} );
+	} );
+	wp.customize( 'footer_credits_divider_size', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-info,.site-footer' ).css( 'border-width', to );
+		} );
+	} );	
+	wp.customize( 'footer_credits_padding_desktop', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-info' ).css( {
+				'padding-top': to + 'px',
+				'padding-bottom': to + 'px'
+			} );
+		} );
+	} );
 
 } )( jQuery );

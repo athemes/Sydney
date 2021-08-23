@@ -62,7 +62,7 @@ final class Sydney_Customize_Upsell {
 	public function sections( $manager ) {
 
 		// Load custom sections.
-		require_once( trailingslashit( get_template_directory() ) . 'inc/upsell/section-pro.php' );
+		require_once( trailingslashit( get_template_directory() ) . 'inc/customizer/upsell/section-pro.php' );
 
 		// Register custom section types.
 		$manager->register_section_type( 'Sydney_Customize_Upsell_Section_Pro' );
@@ -91,9 +91,9 @@ final class Sydney_Customize_Upsell {
 	 */
 	public function enqueue_control_scripts() {
 
-		wp_enqueue_script( 'sydney-upsell-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/upsell/customize-controls.js', array( 'customize-controls' ) );
+		wp_enqueue_script( 'sydney-upsell-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/upsell/customize-controls.js', array( 'customize-controls' ) );
 
-		wp_enqueue_style( 'sydney-upsell-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/upsell/customize-controls.css' );
+		wp_enqueue_style( 'sydney-upsell-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/upsell/customize-controls.css' );
 	}
 }
 

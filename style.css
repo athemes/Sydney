@@ -1526,6 +1526,9 @@ Widgets
 		position: relative;
 		margin-bottom: 55px;
 	}
+	.sidebar-column .widget:last-of-type {
+		margin-bottom: 0;
+	}
 	.widget-area .widget:before {
 		content: "";
 		position: absolute;
@@ -1800,19 +1803,87 @@ Portfolio single
 Footer
 --------------------------------------------------------------*/
 	.footer-widgets {
-		padding: 95px 0;
+		border: 0;
+		padding: 0;
 		background-color: #252525;
-	}
-	.footer .copyr {
-		color: #a8a8a8;
-		margin-bottom: 0;
 	}
 	.footer-widgets .widget-title {
 		text-transform: uppercase;
-		color: #c5c5c5;
+		color: #fff;
 		line-height: normal;
 		margin: 5px 0 0;
 	}
+	.footer-widgets,
+	.footer-widgets a {
+		color: #666666;
+	}
+	.footer-widgets-grid {
+		padding: 95px 0;
+		display: grid;
+		gap: 30px;
+	}
+
+	.footer-widgets-grid.footer-layout-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.footer-widgets-grid.footer-layout-col2-bigleft {
+		grid-template-columns: 2fr 1fr;
+	}
+
+	.footer-widgets-grid.footer-layout-col2-bigright {
+		grid-template-columns: 1fr 2fr;
+	}
+
+	.footer-widgets-grid.footer-layout-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.footer-widgets-grid.footer-layout-col3-bigleft {
+		grid-template-columns: 3fr 1fr 1fr;
+	}
+
+	.footer-widgets-grid.footer-layout-col3-bigright {
+		grid-template-columns: 1fr 1fr 3fr;
+	}
+
+	.footer-widgets-grid.footer-layout-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.footer-widgets-grid.footer-layout-col4-bigleft {
+		grid-template-columns: 2fr 1fr 1fr 1fr;
+	}
+
+	.footer-widgets-grid.footer-layout-col4-bigright {
+		grid-template-columns: 1fr 1fr 1fr 2fr;
+	}
+
+	.footer-widgets-grid.align-middle {
+	-webkit-box-align: center;
+		-ms-flex-align: center;
+			align-items: center;
+	}
+
+	.footer-widgets-grid.align-bottom {
+	-webkit-box-align: end;
+		-ms-flex-align: end;
+			align-items: end;
+	}
+
+	.visibility-mobile-only {
+	display: none;
+	}
+
+	@media (max-width: 991px) {
+		.visibility-desktop-only {
+			display: none;
+		}
+		.visibility-mobile-only {
+			display: block;
+		}
+	}
+
 	/* widget info */
 	.widget-info .logo-footer {
 		margin-bottom: 36px;
@@ -1868,10 +1939,11 @@ Footer
 /*--------------------------------------------------------------
 Bottom
 --------------------------------------------------------------*/
+	.site-info {
+		padding: 20px 0;
+	}
 	.site-footer {
 		background-color: #1c1c1c;
-		line-height: 35px;
-		padding: 15px 0;
 	}
 	.site-footer,
 	.site-footer a {
@@ -1901,6 +1973,15 @@ Bottom
 	}
 	.site-footer .socials li:hover a {
 		color: #fff;
+	}
+	.social-profile {
+		text-align: right;
+	}
+	.social-profile a {
+		margin-right: 20px;
+	}
+	.social-profile a:last-of-type {
+		margin-right: 0;
 	}
 /*--------------------------------------------------------------
 Preloader
@@ -1993,17 +2074,16 @@ Go to top button
 		bottom: -45px;
 		color: #fff;
 		display: block;
-		font-size: 22px;
-		line-height: 35px;
+		line-height: 1;
 		text-align: center;
-		width: 40px;
-		height: 40px;
+		padding: 15px;
 		visibility: hidden;
 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 		filter: alpha(opacity=0);
 		opacity: 0;
 		z-index: 9999;
 		cursor: pointer;
+		font-size: 14px;
 		-webkit-border-radius: 2px;
 		   -moz-border-radius: 2px;
 			 -o-border-radius: 2px;
@@ -2014,6 +2094,10 @@ Go to top button
 		     -o-transition: all 0.5s;
 		        transition: all 0.5s;
 	}
+    .go-top.position-left {
+        right: auto;
+        left: 20px;
+    }	
 	.go-top:hover {
 		background-color: #fff;
 	}
@@ -2023,6 +2107,10 @@ Go to top button
 		opacity: 1;
 		visibility: visible;
 		bottom : 11px;
+	}
+	.go-top span {
+		margin-right: 7px;
+		vertical-align: middle;
 	}
 
 /*--------------------------------------------------------------
@@ -3797,10 +3885,13 @@ SVGs
 	line-height: 1;
 }
 .go-top svg {
-	fill: #fff;
+	stroke: #fff;
+	width: 18px;
+	height: 18px;
 }
 .go-top:hover svg {
-	fill: #d65050;
+	fill: none;
+	stroke: #d65050;
 }
 .meta-post .sydney-svg-icon {
 	position: absolute;
@@ -3840,6 +3931,17 @@ SVGs
 
 /* Media Queries
 -------------------------------------------------------------- */
+	.visibility-mobile-only {
+		display: none;
+	}
+	@media (max-width: 991px) {
+		.visibility-desktop-only {
+			display: none;
+		}
+		.visibility-mobile-only {
+			display: block;
+		}    
+	}
 	@media only screen and (min-width: 1930px) {
 		.parallax {
 			background-size: cover;
@@ -3915,7 +4017,11 @@ SVGs
   		}
 		.blog-post:nth-of-type(2n+1) {
 		    clear: left;
-		}  				
+		}  	
+		.footer-widgets {
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}					
 	}
 	@media only screen and (max-width: 1024px) {
 		.site-header.fixed {
@@ -4089,8 +4195,18 @@ SVGs
 		.fluid-width-video-wrapper + #wp-custom-header-video-button {
 			display: none;
 		}
+		.footer-widgets-grid {
+			grid-template-columns: 1fr !important;
+		}	
+		.site-info .sydney-credits,
+		.site-info .social-profile {
+			text-align: center;
+		}
+		.site-info .social-profile {
+			margin-top: 15px;;
+		}				
 	}
-	@media only screen and (max-width: 600px) {
+	@media only screen and (max-width: 575px) {
 		.roll-client .client-item {
 			padding: 5px;
 			margin: 0;

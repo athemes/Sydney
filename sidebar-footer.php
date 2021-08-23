@@ -3,43 +3,54 @@
  *
  * @package Sydney
  */
+
+//Footer widgets options
+$container 	= get_theme_mod( 'footer_container', 'container' );
+$layout 	= get_theme_mod( 'footer_widget_areas', '3' );
+$alignment 	= get_theme_mod( 'footer_widgets_alignment', 'top' );
+$visibility = get_theme_mod( 'footer_widgets_visibility', 'all' );
+
+if ( !is_active_sidebar( 'footer-1' ) || 'disabled' === $layout ) {
+	return;
+}
+
+switch ($layout) {
+
+	case '4':
+	case 'col4-bigleft':
+	case 'col4-bigright':	
+		$column_no  = 4;
+		break;
+
+	case '3':
+	case 'col3-bigleft':
+	case 'col3-bigright':
+		$column_no  = 3;
+		break;
+
+	case '2':
+	case 'col2-bigleft':
+	case 'col2-bigright':
+		$column_no  = 2;
+		break;
+
+	default:
+		$column_no  = 1;
+		break;
+}
+
 ?>
 
-
-	<?php //Set widget areas classes based on user choice
-		$widget_areas = get_theme_mod('footer_widget_areas', '3');
-		if ($widget_areas == '3') {
-			$cols = 'col-md-4';
-		} elseif ($widget_areas == '4') {
-			$cols = 'col-md-3';
-		} elseif ($widget_areas == '2') {
-			$cols = 'col-md-6';
-		} else {
-			$cols = 'col-md-12';
-		}
-	?>
-
-	<div id="sidebar-footer" class="footer-widgets widget-area" role="complementary">
-		<div class="container">
-			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-				<div class="sidebar-column <?php echo $cols; ?>">
-					<?php dynamic_sidebar( 'footer-1'); ?>
-				</div>
+<div id="sidebar-footer" class="footer-widgets widget-area visibility-<?php echo esc_attr( $visibility ); ?>">
+	<div class="<?php echo esc_attr( $container ); ?>">
+		<div class="footer-widgets-grid footer-layout-<?php echo esc_attr( $layout ); ?> align-<?php echo esc_attr( $alignment ); ?>">
+		<?php for ( $i = 1; $i <= $column_no; $i++ ) { ?>
+			<?php if ( is_active_sidebar( 'footer-' . $i ) ) : ?>
+			<div class="sidebar-column">
+				<?php dynamic_sidebar( 'footer-' . $i); ?>
+			</div>
 			<?php endif; ?>	
-			<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-				<div class="sidebar-column <?php echo $cols; ?>">
-					<?php dynamic_sidebar( 'footer-2'); ?>
-				</div>
-			<?php endif; ?>	
-			<?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
-				<div class="sidebar-column <?php echo $cols; ?>">
-					<?php dynamic_sidebar( 'footer-3'); ?>
-				</div>
-			<?php endif; ?>	
-			<?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
-				<div class="sidebar-column <?php echo $cols; ?>">
-					<?php dynamic_sidebar( 'footer-4'); ?>
-				</div>
-			<?php endif; ?>	
-		</div>	
+		<?php } ?>
+		</div>
 	</div>
+</div>	

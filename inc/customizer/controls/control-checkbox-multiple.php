@@ -14,17 +14,6 @@ class Sydney_Customize_Control_Checkbox_Multiple extends WP_Customize_Control {
     public $type = 'checkbox-multiple';
 
     /**
-     * Enqueue scripts/styles.
-     *
-     * @since  1.0.0
-     * @access public
-     * @return void
-     */
-    public function enqueue() {
-        wp_enqueue_script( 'sydney-multiple-checkbox-script', trailingslashit( get_template_directory_uri() ) . 'js/customize-controls.js', array( 'jquery' ) );
-    }
-
-    /**
      * Displays the control content.
      *
      * @since  1.0.0

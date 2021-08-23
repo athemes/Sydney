@@ -111,8 +111,7 @@ function sydney_widgets_init() {
 	) );
 
 	//Footer widget areas
-	$widget_areas = get_theme_mod('footer_widget_areas', '3');
-	for ($i=1; $i<=$widget_areas; $i++) {
+	for ( $i=1; $i <= 4; $i++ ) {
 		register_sidebar( array(
 			'name'          => __( 'Footer ', 'sydney' ) . $i,
 			'id'            => 'footer-' . $i,
@@ -208,13 +207,13 @@ function sydney_scripts() {
 		wp_enqueue_style( 'sydney-preview-google-fonts-headings', 'https://fonts.googleapis.com/', array(), null );
 	}
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20210526' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20210823' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
 	if ( !$is_amp ) {
-		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20210120', true );
+		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20210823', true );
 		
 		//Enqueue hero slider script only if the slider is in use
 		$slider_home = get_theme_mod('front_header_type','nothing');
@@ -442,12 +441,16 @@ function sydney_get_svg_icon( $icon, $echo = false ) {
 				'aria-hidden' => true,
 				'role'        => true,
 				'focusable'   => true,
+				'fill'        => true,
 			),
 			'path'    => array(
 				'fill'      => true,
 				'fill-rule' => true,
 				'd'         => true,
 				'transform' => true,
+				'stroke'	=> true,
+				'stroke-width' => true,
+				'stroke-linejoin' => true
 			),
 			'polygon' => array(
 				'fill'      => true,
@@ -455,6 +458,13 @@ function sydney_get_svg_icon( $icon, $echo = false ) {
 				'points'    => true,
 				'transform' => true,
 				'focusable' => true,
+			),
+			'rect'    => array(
+				'x'      => true,
+				'y'      => true,
+				'width'  => true,
+				'height' => true,
+				'transform' => true
 			),
 		)
 	);	
@@ -484,7 +494,7 @@ require get_template_directory() . '/inc/extras.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -542,7 +552,7 @@ require get_template_directory() . '/inc/integrations/class-sydney-amp.php';
 /**
  * Upsell
  */
-require get_template_directory() . '/inc/upsell/class-customize.php';
+require get_template_directory() . '/inc/customizer/upsell/class-customize.php';
 
 /**
  * Gutenberg
@@ -632,13 +642,3 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) && ( isset($pagenow) && $pagenow == 
 	}
 	add_action('admin_notices', 'sydney_toolbox_fa_update_admin_notice');
 }
-
-/*
-* Append gotop button html on footer
-* Ensure compatibility with plugins that handle with footer like header/footer builders
-*/
-function sydney_append_gotop_html() { ?>
-	<a on="tap:toptarget.scrollTo(duration=200)" class="go-top"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-chevron-up', true ); ?></i></a>
-<?php
-}
-add_action('wp_footer', 'sydney_append_gotop_html', 1);
