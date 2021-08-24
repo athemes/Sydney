@@ -705,6 +705,10 @@ span.delete:hover {
           box-sizing: border-box;
 }
 
+.customize-section-description {
+  padding: 0 12px;
+}
+
 .sydney-radio-images-wrapper {
   margin: 0 -5px;
 }
