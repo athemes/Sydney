@@ -17,7 +17,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->get_section( 'colors' )->priority = '10';
 
     //Partials
-    for ($i = 1; $i < 5; $i++) { 
+    for ($i = 1; $i < 5; $i++) {
         $wp_customize->selective_refresh->add_partial( 'slider_title_' . $i, array(
             'selector'          => '.slide-item-' . $i . ' .maintitle',
             'render_callback'   => 'sydney_partial_slider_title_' . $i,
@@ -25,12 +25,12 @@ function sydney_customize_register( $wp_customize ) {
         $wp_customize->selective_refresh->add_partial( 'slider_subtitle_' . $i, array(
             'selector'          => '.slide-item-' . $i . ' .subtitle',
             'render_callback'   => 'sydney_partial_slider_subtitle_' . $i,
-        ) );        
-    }    
+        ) );
+    }
     $wp_customize->selective_refresh->add_partial( 'slider_button_text', array(
         'selector'          => '.button-slider',
         'render_callback'   => 'sydney_partial_slider_button_text',
-    ) );   
+    ) );
 
     //Divider
     class Sydney_Divider extends WP_Customize_Control {
@@ -47,7 +47,7 @@ function sydney_customize_register( $wp_customize ) {
             <h3 style="padding:12px;color:#000;background:#cbcbcb;text-align:center;text-transform:uppercase;"><?php echo esc_html( $this->label ); ?></h3>
         <?php
         }
-    }    
+    }
     //Titles
     class Sydney_Theme_Info extends WP_Customize_Control {
         public $type = 'info';
@@ -81,7 +81,7 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/controls/toggle/class_sydney_toggle_control.php';
     //require get_template_directory() . '/inc/customizer/controls/color-palettes/class_sydney_color_palettes_control.php';
     //require get_template_directory() . '/inc/customizer/controls/color-palettes/class_sydney_custom_palettes_control.php';
-    //require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';    
+    //require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';
 
     require get_template_directory() . '/inc/customizer/controls/control-checkbox-multiple.php';
     require get_template_directory() . '/inc/customizer/controls/multiple-select/class-control-multiple-select.php';
@@ -107,7 +107,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'title'         => __('Header type', 'sydney'),
             'priority'      => 10,
-            'panel'         => 'sydney_header_panel', 
+            'panel'         => 'sydney_header_panel',
             'description'   => __('You can select your header type from here. After that, continue below to the next two tabs (Header Slider and Header Image) and configure them.', 'sydney'),
         )
     );
@@ -156,7 +156,7 @@ function sydney_customize_register( $wp_customize ) {
                 'nothing'   => __('No header (only menu)', 'sydney')
             ),
         )
-    );    
+    );
     //___Slider___//
     $wp_customize->add_section(
         'sydney_slider',
@@ -187,7 +187,7 @@ function sydney_customize_register( $wp_customize ) {
                 'responsive'    => __('Responsive', 'sydney'),
             ),
         )
-    );    
+    );
     //Speed
     $wp_customize->add_setting(
         'slider_speed',
@@ -202,7 +202,7 @@ function sydney_customize_register( $wp_customize ) {
             'label' => __( 'Slider speed', 'sydney' ),
             'section' => 'sydney_slider',
             'type' => 'number',
-            'description'   => __('Slider speed in miliseconds. Use 0 to disable [default: 4000]', 'sydney'),       
+            'description'   => __('Slider speed in miliseconds. Use 0 to disable [default: 4000]', 'sydney'),
             'priority' => 7
         )
     );
@@ -210,7 +210,7 @@ function sydney_customize_register( $wp_customize ) {
         'textslider_slide',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'textslider_slide',
@@ -225,7 +225,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 's1', array(
@@ -234,13 +234,13 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 10
         ) )
-    );    
+    );
     $wp_customize->add_setting(
         'slider_image_1',
         array(
             'default' => '',
             'sanitize_callback' => 'esc_url_raw',
-            //'transport'         => 'postMessage'            
+            //'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -291,12 +291,12 @@ function sydney_customize_register( $wp_customize ) {
             'type' => 'text',
             'priority' => 13
         )
-    );           
+    );
     //Image 2
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 's2', array(
@@ -305,13 +305,13 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 14
         ) )
-    );    
+    );
     $wp_customize->add_setting(
         'slider_image_2',
         array(
             'default' => '',
             'sanitize_callback' => 'esc_url_raw',
-            //'transport'         => 'postMessage'            
+            //'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -333,7 +333,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -351,7 +351,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -362,12 +362,12 @@ function sydney_customize_register( $wp_customize ) {
             'type' => 'text',
             'priority' => 17
         )
-    );    
+    );
     //Image 3
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 's3', array(
@@ -376,13 +376,13 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 18
         ) )
-    );    
+    );
     $wp_customize->add_setting(
         'slider_image_3',
         array(
             'default-image' => '',
             'sanitize_callback' => 'esc_url_raw',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -404,7 +404,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -422,7 +422,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -433,12 +433,12 @@ function sydney_customize_register( $wp_customize ) {
             'type' => 'text',
             'priority' => 21
         )
-    );            
+    );
     //Image 4
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 's4', array(
@@ -447,13 +447,13 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 22
         ) )
-    );    
+    );
     $wp_customize->add_setting(
         'slider_image_4',
         array(
             'default-image' => '',
             'sanitize_callback' => 'esc_url_raw',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -475,7 +475,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -493,7 +493,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -504,12 +504,12 @@ function sydney_customize_register( $wp_customize ) {
             'type' => 'text',
             'priority' => 25
         )
-    );    
+    );
     //Image 5
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 's5', array(
@@ -518,7 +518,7 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 26
         ) )
-    );    
+    );
     $wp_customize->add_setting(
         'slider_image_5',
         array(
@@ -546,7 +546,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default'           => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -564,7 +564,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => '',
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -580,7 +580,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'hbutton', array(
@@ -589,13 +589,13 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 30
         ) )
-    );     
+    );
     $wp_customize->add_setting(
         'slider_button_url',
         array(
             'default' => '#primary',
             'sanitize_callback' => 'esc_url_raw',
-            'transport'         => 'postMessage'                        
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -612,7 +612,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default' => __('Click to begin','sydney'),
             'sanitize_callback' => 'sydney_sanitize_text',
-            'transport'         => 'postMessage'            
+            'transport'         => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -623,14 +623,14 @@ function sydney_customize_register( $wp_customize ) {
             'type' => 'text',
             'priority' => 32
         )
-    );         
+    );
     //___Menu style___//
     $wp_customize->add_section(
         'sydney_menu_style',
         array(
             'title'         => __('Menu layout', 'sydney'),
             'priority'      => 15,
-            'panel'         => 'sydney_header_panel', 
+            'panel'         => 'sydney_header_panel',
         )
     );
     //Sticky menu
@@ -695,7 +695,7 @@ function sydney_customize_register( $wp_customize ) {
                 'fw-menu-container' => __('Full width', 'sydney'),
             ),
         )
-    );    
+    );
     //Custom menu item
     $wp_customize->add_setting(
         'header_button_html',
@@ -717,12 +717,12 @@ function sydney_customize_register( $wp_customize ) {
                 'html'      => __( 'HTML', 'sydney'   ),
             ),
         )
-    );    
+    );
 
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Divider( $wp_customize, 'hcs_sep', array(
@@ -731,7 +731,7 @@ function sydney_customize_register( $wp_customize ) {
             'priority' => 11,
             'active_callback' => 'sydney_header_custom_btn_active_callback'
         ) )
-    ); 
+    );
 
     $wp_customize->add_setting(
         'header_custom_item_btn_link',
@@ -772,7 +772,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default'           => 1,
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'header_custom_item_btn_target',
@@ -783,14 +783,14 @@ function sydney_customize_register( $wp_customize ) {
             'priority'          => 11,
             'active_callback'   => 'sydney_header_custom_btn_active_callback'
         )
-    );  
+    );
     $wp_customize->add_setting(
         'header_custom_item_btn_tb_padding',
         array(
             'sanitize_callback' => 'absint',
             'default'           => '12',
             'transport'         => 'postMessage'
-        )       
+        )
     );
     $wp_customize->add_control( 'header_custom_item_btn_tb_padding', array(
         'type'        => 'number',
@@ -810,7 +810,7 @@ function sydney_customize_register( $wp_customize ) {
             'sanitize_callback' => 'absint',
             'default'           => '35',
             'transport'         => 'postMessage'
-        )       
+        )
     );
     $wp_customize->add_control( 'header_custom_item_btn_lr_padding', array(
         'type'        => 'number',
@@ -831,7 +831,7 @@ function sydney_customize_register( $wp_customize ) {
             'sanitize_callback' => 'absint',
             'default'           => '13',
             'transport'         => 'postMessage'
-        )       
+        )
     );
     $wp_customize->add_control( 'header_custom_item_btn_font_size', array(
         'type'        => 'number',
@@ -844,7 +844,7 @@ function sydney_customize_register( $wp_customize ) {
             'step'  => 1,
         ),
         'active_callback'   => 'sydney_header_custom_btn_active_callback'
-    ) ); 
+    ) );
     //Border radius
     $wp_customize->add_setting(
         'header_custom_item_btn_radius',
@@ -852,7 +852,7 @@ function sydney_customize_register( $wp_customize ) {
             'sanitize_callback' => 'absint',
             'default'           => '3',
             'transport'         => 'postMessage'
-        )       
+        )
     );
     $wp_customize->add_control( 'header_custom_item_btn_radius', array(
         'type'        => 'number',
@@ -871,7 +871,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Divider( $wp_customize, 'hcs_html_sep', array(
@@ -880,13 +880,13 @@ function sydney_customize_register( $wp_customize ) {
             'priority' => 11,
             'active_callback' => 'sydney_header_custom_html_active_callback'
         ) )
-    );     
+    );
     $wp_customize->add_setting(
         'header_custom_item_html',
         array(
             'sanitize_callback' => 'sydney_sanitize_text',
-            'default'           => '<a href="#">Your content</a>',
-        )       
+            'default'           => sprintf( '<a href="#">%s</a>', __('Your content', 'sydney') ),
+        )
     );
     $wp_customize->add_control( 'header_custom_item_html', array(
         'type'        => 'textarea',
@@ -924,7 +924,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '300',
-        )       
+        )
     );
     $wp_customize->add_control( 'header_height', array(
         'type'        => 'number',
@@ -942,7 +942,7 @@ function sydney_customize_register( $wp_customize ) {
         'hide_overlay',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'hide_overlay',
@@ -952,7 +952,7 @@ function sydney_customize_register( $wp_customize ) {
             'section'   => 'header_image',
             'priority'  => 12,
         )
-    );    
+    );
     //Logo Upload
     $wp_customize->add_setting(
         'site_logo',
@@ -981,12 +981,12 @@ function sydney_customize_register( $wp_customize ) {
             'title' => __('Blog options', 'sydney'),
             'priority' => 13,
         )
-    );  
+    );
     // Blog layout
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'layout', array(
@@ -995,7 +995,7 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 10
         ) )
-    );    
+    );
     $wp_customize->add_setting(
         'blog_layout',
         array(
@@ -1018,13 +1018,13 @@ function sydney_customize_register( $wp_customize ) {
                 'masonry-layout'    => __( 'Masonry (grid style)', 'sydney' )
             ),
         )
-    ); 
+    );
     //Full width singles
     $wp_customize->add_setting(
         'fullwidth_single',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'fullwidth_single',
@@ -1039,7 +1039,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'content', array(
@@ -1048,14 +1048,14 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 13
         ) )
-    );          
+    );
     //Full content posts
     $wp_customize->add_setting(
       'full_content_home',
       array(
         'sanitize_callback' => 'sydney_sanitize_checkbox',
-        'default' => 0,     
-      )   
+        'default' => 0,
+      )
     );
     $wp_customize->add_control(
         'full_content_home',
@@ -1070,8 +1070,8 @@ function sydney_customize_register( $wp_customize ) {
       'full_content_archives',
       array(
         'sanitize_callback' => 'sydney_sanitize_checkbox',
-        'default' => 0,     
-      )   
+        'default' => 0,
+      )
     );
     $wp_customize->add_control(
         'full_content_archives',
@@ -1081,14 +1081,14 @@ function sydney_customize_register( $wp_customize ) {
             'section' => 'blog_options',
             'priority' => 15,
         )
-    );    
+    );
     //Excerpt
     $wp_customize->add_setting(
         'exc_lenght',
         array(
             'sanitize_callback' => 'absint',
             'default'           => '55',
-        )       
+        )
     );
     $wp_customize->add_control( 'exc_lenght', array(
         'type'        => 'number',
@@ -1106,7 +1106,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'meta', array(
@@ -1115,14 +1115,14 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 17
         ) )
-    ); 
+    );
     //Hide meta index
     $wp_customize->add_setting(
       'hide_meta_index',
       array(
         'sanitize_callback' => 'sydney_sanitize_checkbox',
-        'default' => 0,     
-      )   
+        'default' => 0,
+      )
     );
     $wp_customize->add_control(
       'hide_meta_index',
@@ -1138,8 +1138,8 @@ function sydney_customize_register( $wp_customize ) {
       'hide_meta_single',
       array(
         'sanitize_callback' => 'sydney_sanitize_checkbox',
-        'default' => 0,     
-      )   
+        'default' => 0,
+      )
     );
     $wp_customize->add_control(
       'hide_meta_single',
@@ -1154,7 +1154,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'images', array(
@@ -1163,13 +1163,13 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 21
         ) )
-    );     
+    );
     //Index images
     $wp_customize->add_setting(
         'index_feat_image',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'index_feat_image',
@@ -1185,7 +1185,7 @@ function sydney_customize_register( $wp_customize ) {
         'post_feat_image',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'post_feat_image',
@@ -1202,7 +1202,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
             'default'           => 1,
-        )       
+        )
     );
     $wp_customize->add_control(
         'page_feat_image',
@@ -1228,7 +1228,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'general_fonts', array(
@@ -1237,7 +1237,7 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 10
         ) )
-    );    
+    );
     //Body font subsets
     $wp_customize->add_setting(
         'font_subsets',
@@ -1254,8 +1254,8 @@ function sydney_customize_register( $wp_customize ) {
         'type'      => 'sydney-multiple-select',
         'input_attrs' => array(
             'multiple' => true,
-        ),        
-        'choices' => array( 
+        ),
+        'choices' => array(
             'latin'         => 'Latin',
             'latin-ext'     => 'Latin Extended',
             'cyrillic'      => 'Cyrillic',
@@ -1265,13 +1265,13 @@ function sydney_customize_register( $wp_customize ) {
             'vietnamese'    => 'Vietnamese',
         ),
         ) )
-    );   
+    );
 
     //Body fonts title
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'body_fonts', array(
@@ -1280,7 +1280,7 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 10
         ) )
-    );    
+    );
     //Body fonts
     $fonts = sydney_get_google_fonts();
     $fonts = array_combine( $fonts, $fonts );
@@ -1297,11 +1297,11 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'body_font', array(
         'label'     => __( 'Font family', 'sydney' ),
         'section'   => 'sydney_fonts',
-        'type'      => 'sydney-multiple-select',      
+        'type'      => 'sydney-multiple-select',
         'priority' => 12,
-        'choices' => $fonts  
+        'choices' => $fonts
         ) )
-    );   
+    );
 
 
 
@@ -1320,8 +1320,8 @@ function sydney_customize_register( $wp_customize ) {
         'priority' => 13,
         'input_attrs' => array(
             'multiple' => true,
-        ),        
-        'choices' => array( 
+        ),
+        'choices' => array(
             '100' => '100',
             '200' => '200',
             '300' => '300',
@@ -1333,13 +1333,13 @@ function sydney_customize_register( $wp_customize ) {
             '900' => '900',
         ),
         ) )
-    );   
-    
+    );
+
     //Headings fonts title
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'headings_fonts', array(
@@ -1348,7 +1348,7 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_options[info]',
         'priority' => 13
         ) )
-    );      
+    );
 
     //Temp test headings font
     $wp_customize->add_setting(
@@ -1363,12 +1363,12 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_control( new Sydney_Select2_Custom_Control( $wp_customize, 'headings_font', array(
         'label' => __( 'Font family', 'sydney' ),
         'section' => 'sydney_fonts',
-        'type' => 'select',      
+        'type' => 'select',
         'priority' => 14,
-        'type'      => 'sydney-multiple-select',      
-        'choices' => $fonts  
+        'type'      => 'sydney-multiple-select',
+        'choices' => $fonts
         ) )
-    );      
+    );
 
     $wp_customize->add_setting(
         'headings_font_weights',
@@ -1385,8 +1385,8 @@ function sydney_customize_register( $wp_customize ) {
         'priority' => 14,
         'input_attrs' => array(
             'multiple' => true,
-        ),           
-        'choices' => array( 
+        ),
+        'choices' => array(
             '100' => '100',
             '200' => '200',
             '300' => '300',
@@ -1398,13 +1398,13 @@ function sydney_customize_register( $wp_customize ) {
             '900' => '900',
         ),
         ) )
-    );     
+    );
 
     //Font sizes title
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'font_sizes', array(
@@ -1420,7 +1420,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '32',
-        )       
+        )
     );
     $wp_customize->add_control( 'site_title_size', array(
         'type'        => 'number',
@@ -1432,14 +1432,14 @@ function sydney_customize_register( $wp_customize ) {
             'max'   => 90,
             'step'  => 1,
         ),
-    ) ); 
+    ) );
     // Site description
     $wp_customize->add_setting(
         'site_desc_size',
         array(
             'sanitize_callback' => 'absint',
             'default'           => '16',
-        )       
+        )
     );
     $wp_customize->add_control( 'site_desc_size', array(
         'type'        => 'number',
@@ -1451,14 +1451,14 @@ function sydney_customize_register( $wp_customize ) {
             'max'   => 50,
             'step'  => 1,
         ),
-    ) );  
+    ) );
     // Nav menu
     $wp_customize->add_setting(
         'menu_size',
         array(
             'sanitize_callback' => 'absint',
             'default'           => '14',
-        )       
+        )
     );
     $wp_customize->add_control( 'menu_size', array(
         'type'        => 'number',
@@ -1470,14 +1470,14 @@ function sydney_customize_register( $wp_customize ) {
             'max'   => 50,
             'step'  => 1,
         ),
-    ) );           
+    ) );
     //H1 size
     $wp_customize->add_setting(
         'h1_size',
         array(
             'sanitize_callback' => 'absint',
             'default'           => '52',
-        )       
+        )
     );
     $wp_customize->add_control( 'h1_size', array(
         'type'        => 'number',
@@ -1496,7 +1496,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '42',
-        )       
+        )
     );
     $wp_customize->add_control( 'h2_size', array(
         'type'        => 'number',
@@ -1515,7 +1515,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '32',
-        )       
+        )
     );
     $wp_customize->add_control( 'h3_size', array(
         'type'        => 'number',
@@ -1534,7 +1534,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '25',
-        )       
+        )
     );
     $wp_customize->add_control( 'h4_size', array(
         'type'        => 'number',
@@ -1553,7 +1553,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '20',
-        )       
+        )
     );
     $wp_customize->add_control( 'h5_size', array(
         'type'        => 'number',
@@ -1572,7 +1572,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '18',
-        )       
+        )
     );
     $wp_customize->add_control( 'h6_size', array(
         'type'        => 'number',
@@ -1591,7 +1591,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '16',
-        )       
+        )
     );
     $wp_customize->add_control( 'body_size', array(
         'type'        => 'number',
@@ -1610,7 +1610,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'sanitize_callback' => 'absint',
             'default'           => '36',
-        )       
+        )
     );
     $wp_customize->add_control( 'single_post_title_size', array(
         'type'        => 'number',
@@ -1622,7 +1622,7 @@ function sydney_customize_register( $wp_customize ) {
             'max'   => 90,
             'step'  => 1,
         ),
-    ) ); 
+    ) );
     //___Colors___//
     $wp_customize->add_panel( 'sydney_colors_panel', array(
         'priority'       => 19,
@@ -1645,7 +1645,7 @@ function sydney_customize_register( $wp_customize ) {
             'priority'      => 12,
             'panel'         => 'sydney_colors_panel',
         )
-    );   
+    );
     $wp_customize->add_setting(
         'primary_color',
         array(
@@ -1684,7 +1684,7 @@ function sydney_customize_register( $wp_customize ) {
                 'priority' => 12
             )
         )
-    );     
+    );
     //Site title
     $wp_customize->add_setting(
         'site_title_color',
@@ -1823,7 +1823,7 @@ function sydney_customize_register( $wp_customize ) {
                 'priority' => 17
             )
         )
-    );    
+    );
     //Slider text
     $wp_customize->add_setting(
         'slider_text',
@@ -1863,7 +1863,7 @@ function sydney_customize_register( $wp_customize ) {
                 'priority' => 19
             )
         )
-    );    
+    );
     //Sidebar backgound
     $wp_customize->add_setting(
         'sidebar_background',
@@ -1904,7 +1904,7 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
-    
+
     //Rows overlay
     $wp_customize->add_setting(
         'rows_overlay',
@@ -1933,13 +1933,13 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'title' => __('Theme info', 'sydney'),
             'priority' => 139,
-            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="https://docs.athemes.com/category/8-sydney">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="https://demo.athemes.com/sydney/">here</a></p>',         
+						'description' => sprintf( '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">%1$s <a target="_blank" href="https://docs.athemes.com/category/8-sydney">%3$s</a>.</p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">%2$s <a target="_blank" href="https://demo.athemes.com/sydney/">%3$s</a>.</p>', __('1. Documentation for Sydney can be found', 'sydney'), __('2. A full theme demo can be found', 'sydney'), __('here', 'sydney') ),
         )
     );
     $wp_customize->add_setting('sydney_theme_docs', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
+            'sanitize_callback' => 'esc_attr',
         )
     );
     $wp_customize->add_control( new Sydney_Theme_Info( $wp_customize, 'documentation', array(
@@ -1947,7 +1947,7 @@ function sydney_customize_register( $wp_customize ) {
         'settings' => 'sydney_theme_docs',
         'priority' => 10
         ) )
-    );  
+    );
 
     /* Woocommerce */
     //Sidebar
@@ -1955,7 +1955,7 @@ function sydney_customize_register( $wp_customize ) {
         'swc_sidebar_archives',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'swc_sidebar_archives',
@@ -1965,13 +1965,13 @@ function sydney_customize_register( $wp_customize ) {
             'section'   => 'woocommerce_product_catalog',
             'priority'  => 14,
         )
-    );  
+    );
     //Show cart button on hover
     $wp_customize->add_setting(
         'wc_button_hover',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'wc_button_hover',
@@ -1981,7 +1981,7 @@ function sydney_customize_register( $wp_customize ) {
             'section'   => 'woocommerce_product_catalog',
             'priority'  => 14,
         )
-    );      
+    );
     //Sidebar
     $wp_customize->add_section(
         'sydney_wc_singles',
@@ -1990,13 +1990,13 @@ function sydney_customize_register( $wp_customize ) {
             'panel'         => 'woocommerce',
             'priority'      => 14,
         )
-    );    
+    );
     $wp_customize->add_setting(
         'swc_sidebar_products',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
             'default'           => 1
-        )       
+        )
     );
     $wp_customize->add_control(
         'swc_sidebar_products',
@@ -2006,13 +2006,13 @@ function sydney_customize_register( $wp_customize ) {
             'section'   => 'sydney_wc_singles',
             'priority'  => 14,
         )
-    );    
+    );
     //YITH
     $wp_customize->add_setting(
         'yith_buttons_visible',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'yith_buttons_visible',
@@ -2029,7 +2029,7 @@ function sydney_customize_register( $wp_customize ) {
         'hide_overlay_shop',
         array(
             'sanitize_callback' => 'sydney_sanitize_checkbox',
-        )       
+        )
     );
     $wp_customize->add_control(
         'hide_overlay_shop',
@@ -2039,7 +2039,7 @@ function sydney_customize_register( $wp_customize ) {
             'section'   => 'woocommerce_product_catalog',
             'priority'  => 16,
         )
-    );              
+    );
 
 }
 add_action( 'customize_register', 'sydney_customize_register' );
@@ -2055,7 +2055,7 @@ function sydney_sanitize_layout( $input ) {
         'core-video'=> __('Video', 'sydney'),
         'nothing'   => __('Nothing (only menu)', 'sydney')
     );
- 
+
     if ( array_key_exists( $input, $valid ) ) {
         return $input;
     } else {
@@ -2169,13 +2169,13 @@ function sydney_sanitize_menu_container( $input ) {
  * Selects
  */
 function sydney_sanitize_selects( $input, $setting ){
-          
+
     $input = sanitize_key($input);
 
     $choices = $setting->manager->get_control( $setting->id )->choices;
-                      
-    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
-      
+
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+
 }
 
 /**
@@ -2190,7 +2190,7 @@ add_action( 'customize_preview_init', 'sydney_customize_preview_js' );
  * Customizer assets
  */
 function sydney_customize_footer_scripts() {
-    
+
     wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.css' );
     wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.js', array( 'jquery', 'jquery-ui-core' ), '20210810', true );
 
