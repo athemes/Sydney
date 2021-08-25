@@ -780,7 +780,7 @@ span.delete:hover {
   right: 3px;
 }
 
-.customize-control-number:not(#customize-control-woocommerce_catalog_columns):not(#customize-control-woocommerce_catalog_rows):not(#customize-control-wrapper_top_padding):not(#customize-control-wrapper_bottom_padding) {
+.customize-control-number:not(#customize-control-woocommerce_thumbnail_image_width):not(#customize-control-woocommerce_single_image_width):not(#customize-control-woocommerce_catalog_columns):not(#customize-control-woocommerce_catalog_rows):not(#customize-control-wrapper_top_padding):not(#customize-control-wrapper_bottom_padding) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -792,7 +792,7 @@ span.delete:hover {
   align-items: center;
 }
 
-.customize-control-number:not(#customize-control-woocommerce_catalog_columns):not(#customize-control-woocommerce_catalog_rows):not(#customize-control-wrapper_top_padding):not(#customize-control-wrapper_bottom_padding) input {
+.customize-control-number:not(#customize-control-woocommerce_thumbnail_image_width):not(#customize-control-woocommerce_single_image_width):not(#customize-control-woocommerce_catalog_columns):not(#customize-control-woocommerce_catalog_rows):not(#customize-control-wrapper_top_padding):not(#customize-control-wrapper_bottom_padding) input {
   max-width: 64px;
 }
 
