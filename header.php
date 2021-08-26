@@ -31,6 +31,7 @@
 	<?php do_action('sydney_before_header'); //Hooked: sydney_header_clone() ?>
 
 	<header id="masthead" class="site-header" role="banner" <?php sydney_do_schema( 'header' ); ?>>
+		<?php do_action('sydney_before_inside_masthead'); ?>
 		<div class="header-wrap">
             <div class="<?php echo esc_attr( sydney_menu_container() ); ?>">
                 <div class="row">
@@ -42,7 +43,7 @@
 						<?php endif; ?>
 					<?php else : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	        
+						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 					<?php endif; ?>
 					</div>
 					<div class="col-md-8 col-sm-4 col-xs-12">
@@ -54,6 +55,7 @@
 				</div>
 			</div>
 		</div>
+		<?php do_action('sydney_after_inside_masthead'); ?>
 	</header><!-- #masthead -->
 
 	<?php do_action('sydney_after_header'); ?>
@@ -78,4 +80,4 @@
 
 	<div id="content" class="page-wrap">
 		<div class="container content-wrapper">
-			<div class="row">	
+			<div class="row">
