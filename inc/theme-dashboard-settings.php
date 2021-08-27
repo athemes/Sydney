@@ -72,7 +72,7 @@ function sydney_free_vs_pro_html() {
 			</tr>
 			<tr>
 				<td><?php esc_html_e( 'Footer credits', 'sydney' ); ?></td>
-				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
+				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 			</tr>
 			<tr>
@@ -172,8 +172,8 @@ function sydney_dashboard_settings( $settings ) {
 				),
 				array(
 					'name'          => esc_html__( 'Footer Credits', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_footer_credits',
+					'type'          => 'free',
+					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_section_footer_credits',
 				),
 				array(
 					'name'          => esc_html__( 'Footer Contact', 'sydney' ),

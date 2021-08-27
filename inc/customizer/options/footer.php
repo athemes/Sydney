@@ -153,7 +153,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_con
 		'section' => 'sydney_section_footer_widgets',
 		'choices' => array(
 			'container' 		=> esc_html__( 'Contained', 'sydney' ),
-			'container-fluid' 	=> esc_html__( 'Fullwidth', 'sydney' ),
+			'container-fluid' 	=> esc_html__( 'Full-width', 'sydney' ),
 		)
 	)
 ) );
@@ -392,7 +392,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_wid
 		'section' 	=> 'sydney_section_footer_widgets',
 		'choices' 	=> array(
 			'contained' 	=> esc_html__( 'Contained', 'sydney' ),
-			'fullwidth' 	=> esc_html__( 'Fullwidth', 'sydney' ),
+			'fullwidth' 	=> esc_html__( 'Full-width', 'sydney' ),
 		),
 		'active_callback' 	=> 'sydney_callback_footer_widgets_divider'
 	)
@@ -560,7 +560,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_cre
 		'section' => 'sydney_section_footer_credits',
 		'choices' => array(
 			'container' 		=> esc_html__( 'Contained', 'sydney' ),
-			'container-fluid' 	=> esc_html__( 'Fullwidth', 'sydney' ),
+			'container-fluid' 	=> esc_html__( 'Full-width', 'sydney' ),
 		)
 	)
 ) );
@@ -738,7 +738,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_cre
 		'section' 	=> 'sydney_section_footer_credits',
 		'choices' 	=> array(
 			'contained' 	=> esc_html__( 'Contained', 'sydney' ),
-			'fullwidth' 	=> esc_html__( 'Fullwidth', 'sydney' ),
+			'fullwidth' 	=> esc_html__( 'Full-width', 'sydney' ),
 		),
 		'active_callback' 	=> 'sydney_callback_footer_credits_divider'
 	)
