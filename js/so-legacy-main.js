@@ -114,7 +114,7 @@
 				$(this).find('.widget-title').css('color', titleColor );
 			}
 			if ( headingsColor ) {
-				$(this).find('h1,h2,h3:not(.widget-title),h4,h5,h6,h3 a').css('color', headingsColor );
+				$(this).find('h1:not(.ignore),h2:not(.ignore),h3:not(.widget-title):not(.ignore),h4:not(.ignore),h5:not(.ignore),h6:not(.ignore),h3:not(.ignore) a').css('color', headingsColor );
 			}			
 		});	
 	};    
