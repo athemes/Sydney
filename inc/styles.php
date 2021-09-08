@@ -360,6 +360,28 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $footer_credits_padding = get_theme_mod( 'footer_credits_padding_desktop', 20 );
 			$custom .= ".site-info { padding-top:" . esc_attr( $footer_credits_padding ) . 'px;padding-bottom:' . esc_attr( $footer_credits_padding ) . "px;}" . "\n";
 
+			//Buttons
+			$custom .= $this->get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), 'button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
+			$custom .= $this->get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), 'button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
+
+			$buttons_radius = get_theme_mod( 'buttons_radius' );
+			$custom .= "button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"] { border-radius:" . intval( $buttons_radius ) . "px;}" . "\n";
+
+			$custom .= $this->get_font_sizes_css( 'button_font_size', $defaults = array( 'desktop' => 14, 'tablet' => 14, 'mobile' => 14 ), 'button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
+			$button_text_transform = get_theme_mod( 'button_text_transform', 'uppercase' );
+			$custom .= "button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"] { text-transform:" . esc_attr( $button_text_transform ) . ";}" . "\n";
+
+			$custom .= $this->get_background_color_css( 'button_background_color', '', 'button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );			
+			$custom .= $this->get_background_color_css( 'button_background_color_hover', '', 'button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover' );			
+
+			$custom .= $this->get_color_css( 'button_color', '', 'button,.checkout-button.button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );			
+			$custom .= $this->get_color_css( 'button_color_hover', '', 'button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover' );			
+
+			$button_border_color = get_theme_mod( 'button_border_color', '' );
+			$button_border_color_hover = get_theme_mod( 'button_border_color_hover', '' );
+			$custom .= ".is-style-outline .wp-block-button__link, .roll-button, .wp-block-button__link.is-style-outline,button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"] { border-color:" . esc_attr( $button_border_color ) . ";}" . "\n";
+			$custom .= "button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type=\"button\"]:hover,input[type=\"reset\"]:hover,input[type=\"submit\"]:hover { border-color:" . esc_attr( $button_border_color_hover ) . ";}" . "\n";
+
             /* End porting */
         
             $custom = apply_filters( 'sydney_custom_css', $custom );

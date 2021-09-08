@@ -211,9 +211,8 @@
 			$( '.go-top' ).css( 'padding', to + 'px' );
 		} );
 	} );
-
 	//Background colors
-	var $bg_color_options = { "scrolltop_bg_color":".go-top", };
+	var $bg_color_options = { "button_background_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_bg_color":".go-top", };
 
 	$.each( $bg_color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -224,7 +223,7 @@
 	});
 
 	//Colors
-	var $color_options = { "scrolltop_color":".go-top", "footer_widgets_title_color":".sidebar-column .widget .widget-title" };
+	var $color_options = { "single_post_meta_color":".single .entry-header .entry-meta,.single .entry-header .entry-meta a","single_post_title_color":".single .entry-header .entry-title","loop_post_text_color":".posts-layout .entry-post","loop_post_title_color":".posts-layout .entry-title a","loop_post_meta_color":".posts-layout .entry-meta,.posts-layout .entry-meta a","button_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_color":".go-top", "footer_widgets_title_color":".sidebar-column .widget .widget-title" };
 
 	$.each( $color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -246,15 +245,32 @@
 	});		
 
 	//Background hover
-	var $bg_hover_options = { "scrolltop_bg_color_hover":".go-top:hover" , };
+	var $bg_hover_options = { "button_background_color_hover":"button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type=\"button\"]:hover,input[type=\"reset\"]:hover,input[type=\"submit\"]:hover","scrolltop_bg_color_hover":".go-top:hover" , };
 
 	$.each( $bg_hover_options, function( option, selector ) {
+		wp.customize( option, function( value ) {
+			value.bind( function( to ) {
+
+				$( 'head' ).find( '#sydney-customizer-styles-' + option ).remove();
+
+				var output = selector + ' { background-color:' + to + '!important; }';
+
+				$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '">' + output + '</style>' );
+
+			} );
+		} );
+	});		
+
+	//Border hover
+	var $border_hover_options = { "button_border_color_hover":"button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type=\"button\"]:hover,input[type=\"reset\"]:hover,input[type=\"submit\"]:hover", };
+
+	$.each( $border_hover_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
 			value.bind( function( to ) {
 		
 				$( 'head' ).find( '#sydney-customizer-styles-' + option ).remove();
 	
-				var output = selector + ' { background-color:' + to + '!important; }';
+				var output = selector + ' { border-color:' + to + '!important; }';
 	
 				$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '">' + output + '</style>' );
 	
@@ -268,30 +284,30 @@
 	$.each( $stroke_hover_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
 			value.bind( function( to ) {
-		
+
 				$( 'head' ).find( '#sydney-customizer-stroke-' + option ).remove();
-	
+
 				var output = selector + ' { stroke:' + to + '!important; }';
-	
+
 				$( 'head' ).append( '<style id="sydney-customizer-stroke-' + option + '">' + output + '</style>' );
-	
+
 			} );
 		} );
 	});		
 
 	//Color hover
-	var $color_hover_options = { "scrolltop_color_hover":".go-top:hover", "footer_widgets_links_hover_color":".sidebar-column .widget a:hover"};
+	var $color_hover_options = { "button_color_hover":"button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type=\"button\"]:hover,input[type=\"reset\"]:hover,input[type=\"submit\"]:hover","scrolltop_color_hover":".go-top:hover", "footer_widgets_links_hover_color":".sidebar-column .widget a:hover"};
 
 	$.each( $color_hover_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
 			value.bind( function( to ) {
-		
+
 				$( 'head' ).find( '#sydney-customizer-styles-' + option ).remove();
-	
+
 				var output = selector + ' { color:' + to + '!important; }';
-	
+
 				$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '">' + output + '</style>' );
-	
+
 			} );
 		} );
 	});
@@ -308,7 +324,7 @@
 	});	
 
 	//Border color
-	var $border_color_options = { "footer_credits_divider_color":".site-info,.site-footer","footer_widgets_divider_color":".footer-widgets,.footer-widgets-grid" };
+	var $border_color_options = { "button_border_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","footer_credits_divider_color":".site-info,.site-footer","footer_widgets_divider_color":".footer-widgets,.footer-widgets-grid" };
 
 	$.each( $border_color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -316,7 +332,7 @@
 				$( selector ).css( 'border-color', to );
 			} );
 		} );
-	});		
+	});
 
 	//Responsive
 	var $devices 	= { "desktop": "(min-width: 992px)", "tablet": "(min-width: 576px) and (max-width: 991px)", "mobile": "(max-width: 575px)" };

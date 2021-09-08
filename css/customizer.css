@@ -975,3 +975,6 @@ span.delete:hover {
 .customize-control-sydney-tab-control {
   margin-bottom: 26px;
 }
+#customize-control-button_top_bottom_padding {
+  margin-top: 20px;
+}

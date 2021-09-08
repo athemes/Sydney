@@ -39,3 +39,8 @@ body.block-editor-page .edit-post-visual-editor .editor-block-list__block[data-a
 .editor-block-list__layout .wp-block-quote:not(.is-large):not(.is-style-large) {
 	border-left: 3px solid #d65050;
 }
+
+.wp-block-button__link {
+	border-radius: 3px;
+	transition: all 0.3s ease-in-out;
+}
