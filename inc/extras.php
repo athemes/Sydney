@@ -86,6 +86,27 @@ function sydney_get_sidebar() {
 		return; //we don't want a sidebar on the checkout and cart page
 	}
 
+	global $post;
+
+	$sidebar_archives 		= get_theme_mod( 'sidebar_archives', 1 );
+
+	$disable_sidebar_pages 	= get_theme_mod( 'fullwidth_pages', 0 );
+
+	if ( is_page() && $disable_sidebar_pages ) {
+		return;
+	}
+
+	if ( !is_singular() && !$sidebar_archives ) {
+		return;
+	} elseif ( is_singular() && isset( $post ) ) {
+		$disable_sidebar 			= get_post_meta( $post->ID, '_sydney_page_disable_sidebar', true );
+		$disable_sidebar_customizer = get_theme_mod( 'sidebar_single_post', 1 );
+
+		if ( $disable_sidebar || !$disable_sidebar_customizer ) {
+			return;
+		}
+	}
+
 	get_sidebar();
 
 }

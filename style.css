@@ -1381,19 +1381,19 @@ Blog
 	.error-404 .page-content p {
 		margin-bottom: 30px;
 	}
-	.masonry-layout {
+	.layout5 {
 		width: 100%;
 		padding: 0;
 	}
-	.masonry-layout .hentry {
+	.layout5 .hentry {
 		width: 360px;
 		margin: 15px;
 		padding: 0;
 	}
-	.masonry-layout .post-wrap {
+	.layout5 .post-wrap {
 		padding: 0;
 	}
-	.masonry-layout .hentry:after {
+	.layout5 .hentry:after {
 		width: 0;
 		height: 0;
 	}
@@ -1469,55 +1469,6 @@ Blog
 	.classic-alt .meta-post a {
 		color: #d65050;
 	}	
-	/* Modern layout */
-	.content-area.modern .hentry {
-		box-shadow: 0 11px 40px rgba(79, 118, 157, 0.1);
-		padding: 40px;
-		margin-bottom: 60px;
-	}
-	.content-area.modern .entry-thumb {
-		margin: -40px -40px 40px;
-	}
-	.content-area.modern .hentry:after {
-		display: none;
-	}
-	.content-area.modern .entry-title a {
-		color: #263246;
-	}
-	.content-area.modern .entry-post {
-		color: #868990;
-	}
-	.content-area.modern .meta-post {
-		font-size: 12px;
-		text-transform: uppercase;
-		font-weight: 600;
-	}
-	.content-area.modern .hentry .meta-post span:before,
-	.content-area.modern .post-cat {
-		color: #d65050;
-	}
-	.content-area.modern .hentry .meta-post span:first-of-type {
-		padding-left: 0;
-	}
-	.content-area.modern .post-cat {
-		letter-spacing: 0.5px;
-	}
-	.content-area.modern .hentry .meta-post span {
-		margin-right: 0;
-	}
-	.content-area.modern .hentry .meta-post span::after {
-		content: '|';
-		margin: 0 5px;
-		color: #868990;
-		vertical-align: top;
-	}
-	.content-area.modern .read-more {
-		color: #111111;
-		font-size: 14px;
-	}
-	.content-area.modern .read-more-gt {
-		color: #d65050;
-	}
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
@@ -3958,7 +3909,7 @@ SVGs
 		.roll-project.fullwidth .project-item {
 			width: 25%;
 		}
-		.masonry-layout .hentry {
+		.layout5 .hentry {
 			width: 455px;
 		}
 	}
@@ -3972,7 +3923,7 @@ SVGs
 		.roll-counter .numb-count {
 			font-size: 24px;
 		}
-		.masonry-layout .hentry {
+		.layout5 .hentry {
 			width: 345px;
 		}
 		.header-wrap .col-md-8 {
@@ -4108,7 +4059,7 @@ SVGs
 		.posts-layout {
 			max-width: 100%;
 		}
-		.masonry-layout .hentry {
+		.layout5 .hentry {
 			width: 100%;
 			margin: 0 0 30px;
 			padding: 0 15px;
