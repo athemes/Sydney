@@ -4492,3 +4492,10 @@ SVGs
 .sub-menu.toggled {
 	display: block !important;
 }
+@media (min-width: 991px) {
+	.content-area.sidebar-left {
+			padding-right: 15px;
+			padding-left: 60px;
+			float: right;
+	}
+}
