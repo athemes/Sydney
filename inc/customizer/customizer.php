@@ -1666,28 +1666,6 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
-    
-    //Rows overlay
-    $wp_customize->add_setting(
-        'rows_overlay',
-        array(
-            'default'           => '#000000',
-            'sanitize_callback' => 'sanitize_hex_color',
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'rows_overlay',
-            array(
-                'label'         => __('Rows overlay', 'sydney'),
-                'section'       => 'colors',
-                'description'   => __('[DEPRECATED] Please use the color option from Edit Row > Design > Overlay color', 'sydney'),
-                'priority'      => 26
-            )
-        )
-    );
-
 
     //___Theme info___//
     $wp_customize->add_section(
