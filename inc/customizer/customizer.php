@@ -92,7 +92,8 @@ function sydney_customize_register( $wp_customize ) {
      */
     require get_template_directory() . '/inc/customizer/options/general.php';
     require get_template_directory() . '/inc/customizer/options/footer.php';
-
+    require get_template_directory() . '/inc/customizer/options/blog.php';
+    require get_template_directory() . '/inc/customizer/options/blog-single.php';
 
     //___Header area___//
     $wp_customize->add_panel( 'sydney_header_panel', array(
