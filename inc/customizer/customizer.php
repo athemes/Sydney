@@ -86,7 +86,8 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/controls/control-checkbox-multiple.php';
     require get_template_directory() . '/inc/customizer/controls/multiple-select/class-control-multiple-select.php';
     $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
-
+    $wp_customize->register_control_type( '\Kirki\Control\sortable' );
+    
     /**
      * Options
      */

@@ -344,3 +344,13 @@ function sydney_callback_topbar_center_contents() {
 		return false;
 	}	
 }
+
+function sydney_callback_related_post_title() {
+    $enable = get_theme_mod( 'single_post_show_related_posts', 0 );
+
+	if ( $enable ) {
+		return true;
+	} else {
+		return false;
+	}		
+}
