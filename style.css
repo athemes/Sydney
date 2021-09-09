@@ -300,7 +300,8 @@ Content
 }
 .page .page-wrap .content-wrapper,
 .single .page-wrap .content-wrapper {
-	padding: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 .page-template-page_front-page .page-wrap .content-wrapper {
 	padding-top: 0;
