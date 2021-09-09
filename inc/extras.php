@@ -285,3 +285,152 @@ function sydney_footer_credits() {
 
 	return $credits;
 }
+
+/**
+ * Masonry data for HTML intialization
+ */
+function sydney_masonry_data() {
+
+	$layout = get_theme_mod( 'blog_layout', 'layout2' );
+
+	if ( 'layout5' !== $layout ) {
+		return; //Output data only for the masonry layout (layout5)
+	}
+
+	$data = 'data-masonry=\'{ "itemSelector": "article", "horizontalOrder": true }\'';
+
+	echo apply_filters( 'sydney_masonry_data', wp_kses_post( $data ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
+ * Sidebar position
+ */
+function sydney_sidebar_position() {
+
+	$sidebar_archives_position 	= get_theme_mod( 'sidebar_archives_position', 'sidebar-right' );
+
+	if ( !is_singular() ) {
+		$class = $sidebar_archives_position;
+
+		return esc_attr( $class );
+	} 
+
+	global $post;
+
+	if ( !isset( $post ) ) {
+		return;
+	}
+
+	$sidebar_post_position 		= get_theme_mod( 'sidebar_single_post_position', 'sidebar-right' );
+	$sidebar_page_position 		= get_theme_mod( 'sidebar_single_page_position', 'sidebar-right' );
+
+	if ( is_single() ) {
+		$class = $sidebar_post_position;
+	} elseif ( is_page() ) {
+		$class = $sidebar_page_position;
+	}
+
+	return esc_attr( $class );
+}
+
+/**
+ * Post author bio
+ */
+function sydney_post_author_bio() {
+
+	$single_post_show_author_box = get_theme_mod( 'single_post_show_author_box', 0 );
+
+	if ( !$single_post_show_author_box ) {
+		return;
+	}
+
+	?>
+	<div class="single-post-author">
+		<div class="author-avatar vcard">
+			<?php echo get_avatar( get_the_author_meta( 'ID' ), 60 ); ?>
+		</div>
+
+		<div class="author-content">
+			<h3 class="author-name">
+				<?php
+					printf(
+						/* translators: %s: Author name */
+						esc_html__( 'By %s', 'sydney' ),
+						esc_html( get_the_author() )
+					);
+				?>
+			</h3>		
+			<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+			<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
+				<?php
+					printf(
+						/* translators: %s: Author name */
+						__( 'See all posts by %s', 'sydney' ),// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						esc_html( get_the_author() )
+					);
+				?>
+			</a>
+		</div>
+	</div>
+	<?php
+}
+add_action( 'sydney_after_single_entry', 'sydney_post_author_bio', 21 );
+
+/**
+ * Related posts
+ */
+function sydney_related_posts() {
+
+	$single_post_show_related_posts = get_theme_mod( 'single_post_show_related_posts', 0 );
+
+	if ( !$single_post_show_related_posts ) {
+		return;
+	}
+
+	$related_title 	= get_theme_mod( 'related_posts_title', esc_html__( 'You might also like:', 'sydney' ) );
+    $post_id 		= get_the_ID();
+    $cat_ids 		= array();
+    $categories 	= get_the_category( $post_id );
+
+    if(	!empty($categories) && !is_wp_error( $categories ) ):
+        foreach ( $categories as $category ):
+            array_push( $cat_ids, $category->term_id );
+        endforeach;
+    endif;
+
+    $query_args = array( 
+        'category__in'   	=> $cat_ids,
+        'post__not_in'    	=> array( $post_id ),
+        'posts_per_page'  	=> '3',
+     );
+
+    $related_cats_post = new WP_Query( $query_args );
+
+    if( $related_cats_post->have_posts()) :
+		echo '<div class="sydney-related-posts">';
+
+			if ( '' !== $related_title ) {
+				echo '<h3>' . esc_html( $related_title ) . '</h3>';
+			}
+			echo '<div class="row">';
+			while( $related_cats_post->have_posts() ): $related_cats_post->the_post(); ?>
+				<div class="col-md-4">
+					<div class="related-post">
+						<div class="entry-thumb">
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'medium-thumb' ); ?></a>
+						</div>	
+						<div class="entry-meta">
+							<?php sydney_posted_on(); ?>
+						</div>
+						<?php the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?>
+					</div>
+				</div>
+			<?php endwhile;
+			echo '</div>';
+		echo '</div>';
+
+        wp_reset_postdata();
+     endif;
+
+}
+add_action( 'sydney_after_single_entry', 'sydney_related_posts', 31 );
