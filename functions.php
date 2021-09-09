@@ -222,11 +222,6 @@ function sydney_scripts() {
 			wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 			wp_enqueue_script( 'sydney-hero-slider', get_template_directory_uri() . '/js/hero-slider.js', array('jquery'),'', true );
 		}
-
-		if ( get_theme_mod('blog_layout') == 'masonry-layout' && (is_home() || is_archive()) ) {
-			wp_enqueue_script( 'sydney-masonry-init', get_template_directory_uri() . '/js/masonry-init.js', array('jquery', 'masonry'),'', true );
-		}
-
 	}
 
 	if ( class_exists( 'Elementor\Plugin' ) ) {
