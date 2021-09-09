@@ -92,36 +92,46 @@ function sydney_posted_on() {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s" ' . sydney_get_schema( 'modified_date' ) . '>%4$s</time>';
 	}
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
+	$time_string = sprintf(
+		$time_string,
+		esc_attr( get_the_date( DATE_W3C ) ),
 		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_attr( get_the_modified_date( DATE_W3C ) ),
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = sprintf(
-		_x( 'Posted %s', 'post date', 'sydney' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-	$byline = sprintf(
-		'%s',
-		'<span class="author vcard" ' . sydney_get_schema( 'author_name' ) . '><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
-
-	echo '<span class="posted-on"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-calendar', false ) . '</i>' . $posted_on . '</span><span class="byline"> ' . '<i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-user', false ) . '</i>' . $byline . '</span>';
-	
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-comments', false ) . '</i>';
-		comments_popup_link( __( 'Leave a comment', 'sydney' ), __( '1 Comment', 'sydney' ), __( '% Comments', 'sydney' ) );
-		echo '</span>';
-	}
-
-	$categories_list = get_the_category_list( __( ', ', 'sydney' ) );
-	if ( !is_single() && $categories_list && sydney_categorized_blog() ) {
-		printf( '<span class="cat-links"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-categories', false ) . '</i>' . __( 'Posted in %1$s', 'sydney' ) . '</span>', $categories_list );
-	}
+	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
+endif;
+
+if ( ! function_exists( 'sydney_posted_by' ) ) :
+	/**
+	 * Prints HTML with meta information for the current author.
+	 */
+	function sydney_posted_by() {
+		global $post;
+		$author = $post->post_author;
+		$show_avatar = get_theme_mod( 'show_avatar', 0 );
+
+		$byline = '<span class="author vcard">';
+		if ( $show_avatar ) {
+			$avatar = get_avatar( get_the_author_meta( 'email', $author ) , 16 );
+		} else {
+			$avatar = '';
+		}
+
+		$byline .= sprintf(
+			_x( 'By %1$s %2$s', 'post author', 'sydney' ),
+			$avatar,
+			'<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>'
+		);
+
+		$byline .= '</span>';
+
+		echo '<span class="byline">' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 endif;
 
 if ( ! function_exists( 'sydney_entry_footer' ) ) :
@@ -129,16 +139,46 @@ if ( ! function_exists( 'sydney_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function sydney_entry_footer() {
+
+	$single_post_show_tags = get_theme_mod( 'single_post_show_tags', 1 );
+
+	if ( !$single_post_show_tags ) {
+		return;
+	}
+
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', '' );
+		$tags_list = get_the_tag_list( '', __( '', 'sydney' ) );
 		if ( $tags_list && is_single() ) {
-			printf( '<span class="tags-links">' . '%1$s' . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . __( ' %1$s', 'sydney' ) . '</span>', $tags_list );
 		}
 	}
 	edit_post_link( __( 'Edit', 'sydney' ), '<span class="edit-link">', '</span>' );
 }
+endif;
+
+if ( ! function_exists( 'sydney_post_categories' ) ) :
+	function sydney_post_categories() {
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'sydney' ) );
+			if ( $categories_list ) {
+				/* translators: 1: list of categories. */
+				printf( '<span class="cat-links">' . '%1$s' . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}		
+	}
+endif;
+
+if ( ! function_exists( 'sydney_entry_comments' ) ) :
+	function sydney_entry_comments() {
+		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			comments_popup_link( esc_html__( '0 comments', 'sydney' ), esc_html__( '1 comment', 'sydney' ), esc_html__( '% comments', 'sydney' ) );
+			echo '</span>';
+		}		
+	}
 endif;
 
 if ( ! function_exists( 'the_archive_title' ) ) :

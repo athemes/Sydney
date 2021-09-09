@@ -274,13 +274,8 @@ Content
 }
 .hentry {
 }
-.byline,
 .updated:not(.published) {
 	display: none;
-}
-.single .byline,
-.group-blog .byline {
-	display: inline;
 }
 .single .entry-header,
 .page .entry-header {
@@ -1316,17 +1311,6 @@ Blog
 	.content-area .hentry:first-child {
 		padding-top: 0;
 	}
-	.content-area .hentry:after {
-		content: "";
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 30px;
-		height: 1px;
-	}
-	.content-area .hentry:first-child:after {
-		height: 0;
-	}
 	.hentry .post-content {
 		overflow: hidden;
 	}
@@ -1388,6 +1372,13 @@ Blog
 		width: 0;
 		height: 0;
 	}
+	.layout3 .row {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+	}	
 	/* Blog pagination */
 	.blog-pagination ul {
 		width: 100%;
@@ -1410,44 +1401,16 @@ Blog
 	.blog-pagination ul li:hover a {
 		color: #fff;
 	}
-	/* Classic alternative layout */
-	.classic-alt.content-area .hentry:after {
-		display: none;
-	}
-	.classic-alt .hentry {
-		border-bottom: 1px solid #ebebeb;
-	}
-	.classic-alt .hentry:last-of-type {
-		border-bottom: 0;
-	}
-	.classic-alt .entry-header {
-		text-align: center;
-		margin-bottom: 30px;
-	}
-	.classic-alt .entry-title {
-		font-size: 36px;
-		font-weight: 500;
-	}
-	.classic-alt .entry-title a {
-		color: #47425d;
-	}
-	.classic-alt .meta-post {
-		margin-bottom: 10px;
-	}
-	.single .meta-post a,
-	.classic-alt .meta-post a {
+	.single .meta-post a {
 		text-transform: uppercase;
 		letter-spacing: 5px;
 		font-size: 13px;
 	}
 	.single-meta,
-	.single-meta a,
-	.classic-alt .posted-on,
-	.classic-alt .posted-on a {
+	.single-meta a {
 		color: #68647a;
 	}
-	.single .single-meta,
-	.classic-alt .posted-on {
+	.single .single-meta {
 		text-transform: uppercase;
 		font-size: 13px;
 	}
@@ -1456,9 +1419,6 @@ Blog
 	}
 	.single-meta .byline {
 		padding-left: 10px;
-	}
-	.classic-alt .meta-post a {
-		color: #d65050;
 	}	
 /*--------------------------------------------------------------
 Widgets
@@ -3093,9 +3053,6 @@ Panels
 		border-color: #d65050;
 	}
 	.text-slider .maintitle:after {
-		background-color: #d65050;
-	}
-	.content-area .hentry:after {
 		background-color: #d65050;
 	}
 	.hentry .meta-post a:hover {
