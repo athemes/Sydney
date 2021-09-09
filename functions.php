@@ -487,6 +487,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
+ * Posts archive
+ */
+require get_template_directory() . '/inc/classes/class-sydney-posts-archive.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer/customizer.php';
