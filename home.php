@@ -54,9 +54,5 @@ $layout = sydney_blog_layout();
 
 	<?php do_action('sydney_after_content'); ?>
 
-<?php 
-	if ( ( $layout == 'modern' ) || ( $layout == 'classic-alt' ) || ( $layout == 'classic' ) ) :
-	get_sidebar();
-	endif;
-?>
+<?php do_action( 'sydney_get_sidebar' ); ?>
 <?php get_footer(); ?>

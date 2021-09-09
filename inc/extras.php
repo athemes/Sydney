@@ -21,6 +21,12 @@ function sydney_body_classes( $classes ) {
 
 	$menu_style = get_theme_mod( 'menu_style', 'inline' );
 	$classes[] = 'menu-' . esc_attr( $menu_style );
+
+	$sidebar_archives = get_theme_mod( 'sidebar_archives', 1 );
+
+	if ( !is_singular() && !$sidebar_archives ) {
+		$classes[] = 'no-sidebar';
+	}
 	
 	return $classes;
 }
@@ -40,17 +46,34 @@ function sydney_yoast_seo_breadcrumbs() {
 /**
  * Additional classes for main content area on pages
  */
-if ( !function_exists( 'sydney_page_content_classes') ) {
-	function sydney_page_content_classes() {
+function sydney_page_content_classes() {
+	global $post;
 
-		if ( apply_filters( 'sydney_disable_cart_checkout_sidebar', true ) && class_exists( 'WooCommerce' ) && ( is_checkout() || is_cart() ) ) {
-			return 'col-md-12'; //full width Woocommerce checkout and cart pages
+	$sidebar_archives = get_theme_mod( 'sidebar_archives', 1 );
+
+	if ( !is_singular() && !$sidebar_archives ) {
+		return 'col-md-12';
+	} 
+	
+	$disable_sidebar_pages 	= get_theme_mod( 'fullwidth_pages', 0 );
+
+	if ( is_page() && $disable_sidebar_pages ) {
+		return 'no-sidebar';
+	}	
+
+	if ( is_single() && isset( $post ) ) {
+		$disable_sidebar 		= get_post_meta( $post->ID, '_sydney_page_disable_sidebar', true );
+		$sidebar_single_post 	= get_theme_mod( 'sidebar_single_post', 1 );
+
+		if ( $disable_sidebar || !$sidebar_single_post ) {
+			return 'no-sidebar';
 		}
+	}		
 
-		return 'col-md-9'; //default
+	return 'col-md-9'; //default
 
-	}
 }
+add_filter( 'sydney_content_area_class', 'sydney_page_content_classes' );
 
 /**
  * Sidebar output function

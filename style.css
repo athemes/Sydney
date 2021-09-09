@@ -1305,6 +1305,9 @@ Blog
 	.contact-form-wrap {
 		padding-right: 50px;
 	}
+	.no-sidebar .content-area .post-wrap {
+		padding-right: 0;
+	}
 	.content-area .hentry {
 		position: relative;
 		padding-top: 50px;
