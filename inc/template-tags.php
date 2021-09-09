@@ -380,3 +380,48 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 		do_action( 'wp_body_open' );
 	}
 }
+
+if ( ! function_exists( 'sydney_single_post_meta' ) ) :
+	/**
+	 * Single post meta
+	 */
+	function sydney_single_post_meta( $location ) {
+
+		$disable = get_theme_mod( 'hide_meta_single', 0 ); 
+
+		if ( $disable || apply_filters( 'sydney_single_post_meta_enable', false ) ) {
+			return;
+		}
+
+		$elements 				= get_theme_mod( 'single_post_meta_elements', array( 'sydney_posted_by', 'sydney_posted_on', 'sydney_post_categories' ) );
+		$archive_meta_delimiter = get_theme_mod( 'archive_meta_delimiter', 'dot' );
+
+		echo '<div class="entry-meta ' . esc_attr( $location ) . ' delimiter-' . esc_attr( $archive_meta_delimiter ) . '">';
+		foreach( $elements as $element ) {
+			call_user_func( $element );
+		}			
+		echo '</div>';		
+	}
+endif;
+
+
+
+if ( ! function_exists( 'sydney_single_post_thumbnail' ) ) :
+	/**
+	 * Single post featured image
+	 */
+	function sydney_single_post_thumbnail( $disable ) {
+
+		$show_mods = get_theme_mod( 'single_post_show_featured', 1 );
+
+		if ( !has_post_thumbnail() || $disable || !$show_mods ) {
+			return; //return if no image set or disabled from meta or customizer
+		}
+
+		?>
+		<div class="entry-thumb">
+			<?php the_post_thumbnail('large-thumb'); ?>
+		</div>
+		<?php
+	}
+endif;

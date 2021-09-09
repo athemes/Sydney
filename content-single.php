@@ -4,30 +4,39 @@
  */
 ?>
 
+<?php 
+$disable_title 					= get_post_meta( $post->ID, '_sydney_page_disable_title', true );
+$disable_featured 				= get_post_meta( $post->ID, '_sydney_page_disable_post_featured', true );
+$single_post_image_placement 	= get_theme_mod( 'single_post_image_placement', 'below' );
+$single_post_meta_position		= get_theme_mod( 'single_post_meta_position', 'below-title' );
+?>
+
+<?php do_action( 'sydney_before_single_entry' ); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 	<?php do_action('sydney_inside_top_post'); ?>
 
+	<?php if ( 'above' === $single_post_image_placement ) : ?>
+		<?php sydney_single_post_thumbnail( $disable_featured ); ?>
+	<?php endif; ?>
+
+	<?php if ( !$disable_title ) : ?>
 	<header class="entry-header">
-		
-		<div class="meta-post">
-			<?php sydney_all_cats(); ?>
-		</div>
+		<?php if ( 'post' === get_post_type() && 'above-title' === $single_post_meta_position ) : ?>
+			<?php sydney_single_post_meta( 'entry-meta-above' ); ?>
+		<?php endif; ?>
 
 		<?php the_title( '<h1 class="title-post entry-title" ' . sydney_get_schema( "headline" ) . '>', '</h1>' ); ?>
 
-		<?php if ( get_theme_mod('hide_meta_single') != 1 && apply_filters( 'sydney_single_post_meta_enable', true ) ) : ?>
-		<div class="single-meta">
-			<?php sydney_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		<?php if ( 'post' === get_post_type() && 'below-title' === $single_post_meta_position ) : ?>
+			<?php sydney_single_post_meta( 'entry-meta-below' ); ?>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php if ( has_post_thumbnail() && ( get_theme_mod( 'post_feat_image' ) != 1 ) ) : ?>
-		<div class="entry-thumb">
-			<?php the_post_thumbnail('large-thumb'); ?>
-		</div>
 	<?php endif; ?>
+
+	<?php if ( 'below' === $single_post_image_placement ) : ?>
+		<?php sydney_single_post_thumbnail( $disable_featured ); ?>
+	<?php endif; ?>	
 
 	<div class="entry-content" <?php sydney_do_schema( 'entry_content' ); ?>>
 		<?php the_content(); ?>
@@ -46,3 +55,4 @@
 	<?php do_action('sydney_inside_bottom_post'); ?>
 
 </article><!-- #post-## -->
+<?php do_action( 'sydney_after_single_entry' ); ?>

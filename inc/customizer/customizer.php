@@ -1021,22 +1021,7 @@ function sydney_customize_register( $wp_customize ) {
             ),
         )
     ); 
-    
-    //Featured images
-    $wp_customize->add_setting('sydney_options[info]', array(
-            'type'              => 'info_control',
-            'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
-        )
-    );
-    $wp_customize->add_control( new Sydney_Info( $wp_customize, 'images', array(
-        'label' => __('Featured images', 'sydney'),
-        'section' => 'blog_options',
-        'settings' => 'sydney_options[info]',
-        'priority' => 21
-        ) )
-    );     
-    
+
     //___Fonts___//
     $wp_customize->add_section(
         'sydney_fonts',
