@@ -226,7 +226,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $slider_text = get_theme_mod( 'slider_text', '#ffffff' );
             $custom .= ".text-slider .maintitle, .text-slider .subtitle { color:" . esc_attr($slider_text) . "}"."\n";
             //Body
-            $body_text = get_theme_mod( 'body_text_color', '#47425d' );
+            $body_text = get_theme_mod( 'body_text_color' );
             $custom .= "body { color:" . esc_attr($body_text) . "}"."\n";
             //Sidebar background
             $sidebar_background = get_theme_mod( 'sidebar_background', '#ffffff' );
@@ -381,6 +381,51 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$button_border_color_hover = get_theme_mod( 'button_border_color_hover', '' );
 			$custom .= ".is-style-outline .wp-block-button__link, .roll-button, .wp-block-button__link.is-style-outline,button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"] { border-color:" . esc_attr( $button_border_color ) . ";}" . "\n";
 			$custom .= "button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type=\"button\"]:hover,input[type=\"reset\"]:hover,input[type=\"submit\"]:hover { border-color:" . esc_attr( $button_border_color_hover ) . ";}" . "\n";
+
+            //Blog
+            $list_image_size = get_theme_mod( 'archive_featured_image_size_desktop', 30 );
+            $custom .= ".posts-layout .list-image { width:" . esc_attr( $list_image_size ) . "%;}" . "\n";
+            $custom .= ".posts-layout .list-content { width:" . (100 - esc_attr( $list_image_size ) ) . "%;}" . "\n";
+
+            $image_spacing = get_theme_mod( 'archive_featured_image_spacing_desktop', 24 );
+            $custom .= ".content-area:not(.layout4):not(.layout6) .posts-layout .entry-thumb { margin:0 0 " . esc_attr( $image_spacing ) . "px 0;}" . "\n";
+            $custom .= ".layout4 .entry-thumb, .layout6 .entry-thumb { margin:0 " . esc_attr( $image_spacing ) . "px 0 0;}" . "\n";
+            $custom .= ".layout6 article:nth-of-type(even) .list-image .entry-thumb { margin:0 0 0 " . esc_attr( $image_spacing ) . "px;}" . "\n";
+
+            $archive_title_spacing = get_theme_mod( 'archive_title_spacing', 16 );
+            $custom .= ".posts-layout .entry-header { margin-bottom:" . esc_attr( $archive_title_spacing ) . "px;}" . "\n";
+
+            $archive_meta_spacing = get_theme_mod( 'archive_meta_spacing', 15 );
+            $custom .= ".posts-layout .entry-meta.below-excerpt { margin:" . esc_attr( $archive_meta_spacing ) . "px 0 0;}" . "\n";
+            $custom .= ".posts-layout .entry-meta.above-title { margin:0 0 " . esc_attr( $archive_meta_spacing ) . "px;}" . "\n";
+
+            $custom .= $this->get_color_css( 'single_post_title_color', '', '.single .entry-header .entry-title' );
+            $custom .= $this->get_color_css( 'single_post_meta_color', '', '.single .entry-header .entry-meta,.single .entry-header .entry-meta a' );
+            $custom .= $this->get_font_sizes_css( 'single_post_meta_size', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), '.single .entry-meta' );
+            $custom .= $this->get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 48, 'mobile' => 48 ), '.single .entry-header .entry-title' );
+            $custom .= $this->get_color_css( 'loop_post_text_color', '#233452', '.posts-layout .entry-post' );
+            $custom .= $this->get_color_css( 'loop_post_title_color', '#00102E', '.posts-layout .entry-title a' );
+            $custom .= $this->get_color_css( 'loop_post_meta_color', '#737C8C', '.posts-layout .author,.posts-layout .entry-meta a' );
+            $custom .= $this->get_font_sizes_css( 'loop_post_text_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.posts-layout .entry-post' );
+            $custom .= $this->get_font_sizes_css( 'loop_post_meta_size', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), '.posts-layout .entry-meta' );
+            $custom .= $this->get_font_sizes_css( 'loop_post_title_size', $defaults = array( 'desktop' => 32, 'tablet' => 32, 'mobile' => 32 ), '.posts-layout .entry-title' );
+
+            //Single 
+            $single_post_header_alignment = get_theme_mod( 'single_post_header_alignment', 'left' );
+            if ( 'middle' === $single_post_header_alignment ) {
+                $custom .= ".single-post .entry-header { text-align:center;} .single-post .entry-header .entry-meta { -webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;}" . "\n";
+            }
+
+            $single_post_header_spacing = get_theme_mod( 'single_post_header_spacing', 40 );
+            $custom .= ".single .entry-header { margin-bottom:" . esc_attr( $single_post_header_spacing ) . "px;}" . "\n";
+
+            $single_post_image_spacing = get_theme_mod( 'single_post_header_spacing', 38 );
+            $custom .= ".single .entry-thumb { margin-bottom:" . esc_attr( $single_post_header_spacing ) . "px;}" . "\n";
+
+
+            $single_post_meta_spacing = get_theme_mod( 'single_post_meta_spacing', 24 );
+            $custom .= ".single .entry-meta-above { margin-bottom:" . esc_attr( $single_post_meta_spacing ) . "px;}" . "\n";
+            $custom .= ".single .entry-meta-below { margin-top:" . esc_attr( $single_post_meta_spacing ) . "px;}" . "\n";
 
             /* End porting */
         
