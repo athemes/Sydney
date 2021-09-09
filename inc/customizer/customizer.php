@@ -976,52 +976,6 @@ function sydney_customize_register( $wp_customize ) {
         )
     );
 
-    //___Blog options___//
-    $wp_customize->add_section(
-        'blog_options',
-        array(
-            'title' => __('Blog options', 'sydney'),
-            'priority' => 13,
-        )
-    );  
-    // Blog layout
-    $wp_customize->add_setting('sydney_options[info]', array(
-            'type'              => 'info_control',
-            'capability'        => 'edit_theme_options',
-            'sanitize_callback' => 'esc_attr',            
-        )
-    );
-    $wp_customize->add_control( new Sydney_Info( $wp_customize, 'layout', array(
-        'label' => __('Layout', 'sydney'),
-        'section' => 'blog_options',
-        'settings' => 'sydney_options[info]',
-        'priority' => 10
-        ) )
-    );    
-    $wp_customize->add_setting(
-        'blog_layout',
-        array(
-            'default'           => 'classic-alt',
-            'sanitize_callback' => 'sydney_sanitize_blog',
-        )
-    );
-    $wp_customize->add_control(
-        'blog_layout',
-        array(
-            'type'      => 'radio',
-            'label'     => __('Blog layout', 'sydney'),
-            'section'   => 'blog_options',
-            'priority'  => 11,
-            'choices'   => array(
-                'classic'           => __( 'Classic', 'sydney' ),
-                'classic-alt'       => __( 'Classic (alternative)', 'sydney' ),
-                'modern'            => __( 'Modern', 'sydney' ),
-                'fullwidth'         => __( 'Full width (no sidebar)', 'sydney' ),
-                'masonry-layout'    => __( 'Masonry (grid style)', 'sydney' )
-            ),
-        )
-    ); 
-
     //___Fonts___//
     $wp_customize->add_section(
         'sydney_fonts',

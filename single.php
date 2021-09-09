@@ -7,6 +7,8 @@
 
 get_header(); ?>
 
+	<?php $sidebar_pos 	= sydney_sidebar_position(); ?>
+
 	<?php if (get_theme_mod('fullwidth_single')) { //Check if the post needs to be full width
 		$width = 'fullwidth';
 	} else {
@@ -15,7 +17,7 @@ get_header(); ?>
 
 	<?php do_action('sydney_before_content'); ?>
 
-	<div id="primary" class="content-area <?php echo esc_attr( apply_filters( 'sydney_content_area_class', $width ) ); ?>">
+	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', $width ) ); ?>">
 
 		<?php sydney_yoast_seo_breadcrumbs(); ?>
 
@@ -24,8 +26,6 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
-
-			<?php sydney_post_navigation(); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
@@ -41,7 +41,5 @@ get_header(); ?>
 
 	<?php do_action('sydney_after_content'); ?>
 
-<?php if ( get_theme_mod('fullwidth_single', 0) != 1 ) {
-	do_action( 'sydney_get_sidebar' );
-} ?>
+<?php do_action( 'sydney_get_sidebar' ); ?>
 <?php get_footer(); ?>

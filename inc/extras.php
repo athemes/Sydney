@@ -22,11 +22,12 @@ function sydney_body_classes( $classes ) {
 	$menu_style = get_theme_mod( 'menu_style', 'inline' );
 	$classes[] = 'menu-' . esc_attr( $menu_style );
 
-	$sidebar_archives = get_theme_mod( 'sidebar_archives', 1 );
+	$sidebar_archives 		= get_theme_mod( 'sidebar_archives', 1 );
+	$sidebar_single_post 	= get_theme_mod( 'sidebar_single_post', 1 );
 
-	if ( !is_singular() && !$sidebar_archives ) {
+	if ( ( !is_singular() && !$sidebar_archives ) || ( is_single() && !$sidebar_single_post ) ) {
 		$classes[] = 'no-sidebar';
-	}
+	} 
 	
 	return $classes;
 }

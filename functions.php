@@ -46,7 +46,7 @@ function sydney_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size('sydney-large-thumb', 830);
+	add_image_size('sydney-large-thumb', 920);
 	add_image_size('sydney-medium-thumb', 550, 400, true);
 	add_image_size('sydney-small-thumb', 230);
 	add_image_size('sydney-service-thumb', 350);
