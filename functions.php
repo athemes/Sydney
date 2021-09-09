@@ -585,6 +585,11 @@ require get_template_directory() . '/inc/schema.php';
 require get_template_directory() . '/theme-dashboard/class-theme-dashboard.php';
 
 /**
+ * Theme update migration functions
+ */
+require get_template_directory() . '/inc/theme-update.php';
+
+/**
  * Theme dashboard settings.
  */
 require get_template_directory() . '/inc/theme-dashboard-settings.php';
