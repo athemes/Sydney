@@ -1381,15 +1381,6 @@ Blog
 	.error-404 .page-content p {
 		margin-bottom: 30px;
 	}
-	.layout5 {
-		width: 100%;
-		padding: 0;
-	}
-	.layout5 .hentry {
-		width: 360px;
-		margin: 15px;
-		padding: 0;
-	}
 	.layout5 .post-wrap {
 		padding: 0;
 	}
@@ -3909,9 +3900,6 @@ SVGs
 		.roll-project.fullwidth .project-item {
 			width: 25%;
 		}
-		.layout5 .hentry {
-			width: 455px;
-		}
 	}
 	/* Smaller than standard 980 */
 	@media only screen and (max-width: 991px) {
@@ -3922,9 +3910,6 @@ SVGs
 		}
 		.roll-counter .numb-count {
 			font-size: 24px;
-		}
-		.layout5 .hentry {
-			width: 345px;
 		}
 		.header-wrap .col-md-8 {
 			padding: 0;
@@ -4058,11 +4043,6 @@ SVGs
 	@media only screen and (max-width: 767px) {
 		.posts-layout {
 			max-width: 100%;
-		}
-		.layout5 .hentry {
-			width: 100%;
-			margin: 0 0 30px;
-			padding: 0 15px;
 		}
 		.text-slider-section {
 			min-height: 190px;

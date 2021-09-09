@@ -65,6 +65,23 @@ function sydney_post_navigation() {
 }
 endif;
 
+/**
+ * Archives post navigation
+ */
+if ( ! function_exists( 'sydney_posts_navigation' ) ) :
+function sydney_posts_navigation() {
+
+	if ( !apply_filters( 'sydney_archive_post_nav_enable', true ) ) {
+		return;
+	}
+
+	the_posts_pagination( array(
+		'mid_size'  => 1,
+	) );	
+
+}
+endif;
+
 if ( ! function_exists( 'sydney_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.

@@ -7,18 +7,15 @@
  * @package Sydney
  */
 
-get_header(); 
+get_header();
 
-$layout = sydney_blog_layout();
-
+$layout 		= sydney_blog_layout();
+$sidebar_pos 	= sydney_sidebar_position();
 ?>
 
 	<?php do_action('sydney_before_content'); ?>
 
-	<div id="primary" class="content-area col-md-9 <?php echo esc_attr( $layout ); ?>">
-
-		<?php sydney_yoast_seo_breadcrumbs(); ?>
-
+	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( $layout ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', 'col-md-9' ) ); ?>">
 		<main id="main" class="post-wrap" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -31,24 +28,16 @@ $layout = sydney_blog_layout();
 			</header><!-- .page-header -->
 
 			<div class="posts-layout">
-			<?php while ( have_posts() ) : the_post(); ?>
+				<div class="row" <?php sydney_masonry_data(); ?>>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-					if ( $layout != 'classic-alt' ) {
-						get_template_part( 'content', get_post_format() );
-					} else {
-						get_template_part( 'content', 'classic-alt' );
-					}
-				?>
+						<?php get_template_part( 'content', get_post_format() ); ?>
 
-			<?php endwhile; ?>
+					<?php endwhile; ?>
+				</div>
 			</div>
 			
-		<?php
-			the_posts_pagination( array(
-				'mid_size'  => 1,
-			) );
-		?>	
+			<?php sydney_posts_navigation(); ?>	
 
 		<?php else : ?>
 
