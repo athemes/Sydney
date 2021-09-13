@@ -241,14 +241,14 @@ function sydney_dashboard_settings( $settings ) {
 
 	// Review.
 	$settings['review_link']       = 'https://wordpress.org/support/theme/sydney/reviews/';
-	$settings['suggest_idea_link'] = 'https://forums.athemes.com/c/feature-requests/15';
+	$settings['suggest_idea_link'] = 'https://athemes.com/feature-request/';
 
 	// Support.
-	$settings['support_link']     = 'https://forums.athemes.com/';
+	$settings['support_link']     = 'https://wordpress.org/support/theme/sydney/';
 	$settings['support_pro_link'] = 'https://athemes.com/theme/sydney-pro/?utm_source=theme_info&utm_medium=link&utm_campaign=Sydney';
 
 	// Community.
-	$settings['community_link'] = 'https://community.athemes.com/';
+	$settings['community_link'] = 'https://www.facebook.com/groups/athemes/';
 
 	$theme = wp_get_theme();
 	// Changelog.
