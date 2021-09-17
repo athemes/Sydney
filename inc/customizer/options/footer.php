@@ -243,7 +243,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'footer_widgets_title_color',
 	array(
-		'default'           => '#212121',
+		'default'           => '',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
