@@ -168,7 +168,7 @@ function sydney_dashboard_settings( $settings ) {
 				array(
 					'name'          => esc_html__( 'Blog Options', 'sydney' ),
 					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=blog_options',
+					'customize_uri' => '/wp-admin/customize.php?autofocus[panel]=sydney_panel_blog',
 				),
 				array(
 					'name'          => esc_html__( 'Footer Credits', 'sydney' ),
