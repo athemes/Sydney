@@ -392,7 +392,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= ".layout4 .entry-thumb, .layout6 .entry-thumb { margin:0 " . esc_attr( $image_spacing ) . "px 0 0;}" . "\n";
             $custom .= ".layout6 article:nth-of-type(even) .list-image .entry-thumb { margin:0 0 0 " . esc_attr( $image_spacing ) . "px;}" . "\n";
 
-            $archive_title_spacing = get_theme_mod( 'archive_title_spacing', 16 );
+            $archive_title_spacing = get_theme_mod( 'archive_title_spacing', 24 );
             $custom .= ".posts-layout .entry-header { margin-bottom:" . esc_attr( $archive_title_spacing ) . "px;}" . "\n";
 
             $archive_meta_spacing = get_theme_mod( 'archive_meta_spacing', 15 );

@@ -85,11 +85,11 @@ function sydney_editor_styles() {
 	$custom .= Sydney_Custom_CSS::get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
 
 	$buttons_radius = get_theme_mod( 'buttons_radius' );
-	$css .= "div.editor-styles-wrapper .wp-block-button__link { border-radius:" . intval( $buttons_radius ) . "px;}" . "\n";
+	$custom .= "div.editor-styles-wrapper .wp-block-button__link { border-radius:" . intval( $buttons_radius ) . "px;}" . "\n";
 
 	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'button_font_size', $defaults = array( 'desktop' => 13, 'tablet' => 13, 'mobile' => 13 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
 	$button_text_transform = get_theme_mod( 'button_text_transform', 'none' );
-	$css .= "div.editor-styles-wrapper .wp-block-button__link { text-transform:" . esc_attr( $button_text_transform ) . ";}" . "\n";
+	$custom .= "div.editor-styles-wrapper .wp-block-button__link { text-transform:" . esc_attr( $button_text_transform ) . ";}" . "\n";
 
 	$custom .= Sydney_Custom_CSS::get_background_color_css( 'button_background_color', '', 'div.editor-styles-wrapper .wp-block-button__link' );			
 	$custom .= Sydney_Custom_CSS::get_background_color_css( 'button_background_color_hover', '', 'div.editor-styles-wrapper .wp-block-button__link:hover' );			
@@ -99,8 +99,8 @@ function sydney_editor_styles() {
 
 	$button_border_color = get_theme_mod( 'button_border_color', '' );
 	$button_border_color_hover = get_theme_mod( 'button_border_color_hover', '' );
-	$css .= "div.editor-styles-wrapper .is-style-outline .wp-block-button__link,div.editor-styles-wrapper .wp-block-button__link.is-style-outline,div.editor-styles-wrapper .wp-block-button__link { border-color:" . esc_attr( $button_border_color ) . ";}" . "\n";
-	$css .= "div.editor-styles-wrapper .wp-block-button__link:hover { border-color:" . esc_attr( $button_border_color_hover ) . ";}" . "\n";
+	$custom .= "div.editor-styles-wrapper .is-style-outline .wp-block-button__link,div.editor-styles-wrapper .wp-block-button__link.is-style-outline,div.editor-styles-wrapper .wp-block-button__link { border-color:" . esc_attr( $button_border_color ) . ";}" . "\n";
+	$custom .= "div.editor-styles-wrapper .wp-block-button__link:hover { border-color:" . esc_attr( $button_border_color_hover ) . ";}" . "\n";
 
 	
 	//Output all the styles

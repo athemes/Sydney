@@ -700,6 +700,7 @@ Header
 	}
 	.site-logo {
 		max-height: 100px;
+		width: auto;
 	}
 	.site-header {
 		position: fixed;
@@ -1378,7 +1379,7 @@ Blog
 	color: var(--sydney-grey-color);
 }
 .posts-layout .entry-header {
-	margin-bottom: 16px;
+	margin-bottom: 24px;
 }
 .posts-layout .entry-post p:last-of-type {
 	margin-bottom: 0;
@@ -1439,6 +1440,11 @@ span.author.vcard {
 }
 .posts-layout .post-align-right .entry-header {
 	text-align: right;
+}
+.posts-layout .post-align-right .entry-meta {
+	-webkit-box-pack: flex-end;
+		-ms-flex-pack: flex-end;
+			justify-content: flex-end;
 }
 .posts-layout .list-image {
 	width: 35%;

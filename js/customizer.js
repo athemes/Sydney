@@ -352,7 +352,7 @@
 			} );
 		});
 	});
-	var $fontSizes 	= { "footer_widgets_title_size":".sidebar-column .widget .widget-title", };
+	var $fontSizes 	= { "body_font_size":"body","h1_font_size":"h1:not(.site-title)","h2_font_size":"h2","h3_font_size":"h3","h4_font_size":"h4","h5_font_size":"h5","h6_font_size":"h6","single_product_title_size":".product-gallery-summary .entry-title","single_product_price_size":".product-gallery-summary .price","loop_post_text_size":".posts-layout .entry-post","loop_post_meta_size":".posts-layout .entry-meta","loop_post_title_size":".posts-layout .entry-title","single_post_title_size": ".single .entry-header .entry-title","single_post_meta_size": ".single .entry-meta","footer_widgets_title_size":".sidebar-column .widget .widget-title", };
 	$.each( $fontSizes, function( option, selector ) {
 		$.each( $devices, function( device, mediaSize ) {
 			wp.customize( option + '_' + device, function( value ) {
@@ -410,8 +410,8 @@
 	} );
 	wp.customize( 'archive_meta_spacing', function( value ) {
 		value.bind( function( to ) {
-			$( '.posts-layout .entry-meta.below-excerpt' ).css( 'margin-top', to + 'px 0' );
-			$( '.posts-layout .entry-meta.above-title' ).css( 'margin-bottom', to + 'px 0' );
+			$( '.posts-layout .entry-meta.below-excerpt' ).css( 'margin-top', to + 'px' );
+			$( '.posts-layout .entry-meta.above-title' ).css( 'margin-bottom', to + 'px' );
 		} );
 	} );
 	wp.customize( 'archive_title_spacing', function( value ) {

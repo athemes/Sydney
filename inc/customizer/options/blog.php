@@ -321,7 +321,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'archives_l
 ) );
 
 $wp_customize->add_setting( 'archive_title_spacing', array(
-	'default'   		=> 16,
+	'default'   		=> 24,
 	'sanitize_callback' => 'absint',
 	'transport'			=> 'postMessage',
 ) );			
@@ -524,52 +524,6 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'archive_me
 		),
 	)
 ) );
-
-//Nav
-$wp_customize->add_setting( 'blog_divider_4',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'blog_divider_4',
-		array(
-			'section' 		=> 'sydney_section_blog_archives',
-		)
-	)
-);
-$wp_customize->add_setting( 'archive_nav_title',
-	array(
-		'default' 			=> '',
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'archive_nav_title',
-		array(
-			'label'			=> esc_html__( 'Posts navigation', 'sydney' ),
-			'section' 		=> 'sydney_section_blog_archives',
-		)
-	)
-);
-$wp_customize->add_setting(
-	'disable_archive_post_nav',
-	array(
-		'default'           => 0,
-		'sanitize_callback' => 'sydney_sanitize_checkbox',
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Toggle_Control(
-		$wp_customize,
-		'disable_archive_post_nav',
-		array(
-			'label'         	=> esc_html__( 'Disable posts navigation', 'sydney' ),
-			'section'       	=> 'sydney_section_blog_archives',
-		)
-	)
-);
-
 
 /**
  * Styling

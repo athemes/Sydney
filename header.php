@@ -36,7 +36,11 @@
                 <div class="row">
 					<div class="col-md-4 col-sm-8 col-xs-12">
 					<?php if ( get_theme_mod('site_logo') ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
+						<?php
+							$logo_id 	= attachment_url_to_postid( get_theme_mod( 'site_logo' ) );
+							$logo_attrs = wp_get_attachment_image_src( $logo_id );
+						?>						
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img width="<?php echo esc_attr( $logo_attrs[1] ); ?>" height="<?php echo esc_attr( $logo_attrs[2] ); ?>" class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
 						<?php if ( is_home() && !is_front_page() ) : ?>
 							<h1 class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
 						<?php endif; ?>
