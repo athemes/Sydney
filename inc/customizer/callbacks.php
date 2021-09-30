@@ -354,3 +354,13 @@ function sydney_callback_related_post_title() {
 		return false;
 	}		
 }
+
+function sydney_callback_menu_position() {
+    $layout = get_theme_mod( 'header_layout_desktop', 'header_layout_2' );
+
+	if ( 'header_layout_2' === $layout ) {
+		return true;
+	} else {
+		return false;
+	}		
+}
