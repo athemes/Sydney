@@ -19,6 +19,7 @@ Sydney is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic,
 
 :root {
 	--sydney-headings-color: #00102E;
+	--sydney-dark-background: #00102E;
 	--sydney-grey-color: #737C8C;
 	--sydney-text-color: #233452;
 	--sydney-light-background: #F4F5F7;
@@ -4112,6 +4113,10 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 .woocommerce ul.products li.product:hover .yith-placeholder > *:nth-child(3) {
 	transition-delay: 0.4s;
 }
+.woocommerce-cart .content-area,
+.woocommerce-checkout .content-area {
+	width: 100%;
+}
 .single-product .entry-summary .compare svg,
 .woocommerce ul.products li.product .compare svg,
 .woocommerce ul.products li.product .yith-wcqv-button svg {
@@ -4248,7 +4253,7 @@ a.shipping-calculator-button {
 .shipping-calculator-form {
 	margin-top: 20px;
 }
-.woocommerce a.remove {
+.woocommerce .woocommerce-cart-form a.remove {
 	display: block;
     font-size: 20px;
     height: 28px;
@@ -4260,7 +4265,7 @@ a.shipping-calculator-button {
     font-weight: 700;
     margin: 0 auto;
 }
-.woocommerce a.remove:hover {
+.woocommerce .woocommerce-cart-form a.remove:hover {
     color: #fff!important;
     background: #ff6565;
     border-color: #ff6565;
