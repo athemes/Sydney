@@ -188,6 +188,14 @@ function sydney_admin_scripts() {
 add_action( 'admin_enqueue_scripts', 'sydney_admin_scripts' );
 
 /**
+ * Use the modern header in new installs
+ */
+function sydney_set_modern_header_flag() {
+	update_option( 'sydney-update-header', true );
+}
+add_action( 'after_switch_theme', 'sydney_set_modern_header_flag' );
+
+/**
  * Elementor editor scripts
  */
 function sydney_elementor_editor_scripts() {

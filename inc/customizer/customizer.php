@@ -8,10 +8,10 @@
 function sydney_customize_register( $wp_customize ) {
 	$wp_customize->remove_control( 'header_textcolor' );
     $wp_customize->remove_control( 'display_header_text' );
-    $wp_customize->get_section( 'header_image' )->panel = 'sydney_header_panel';
-    $wp_customize->get_section( 'header_image' )->priority = '13';
-    $wp_customize->get_section( 'title_tagline' )->priority = '9';
-    $wp_customize->get_section( 'title_tagline' )->title = __('Site title/tagline/logo', 'sydney');
+    $wp_customize->get_section( 'header_image' )->panel = 'sydney_panel_hero';
+    $wp_customize->get_section( 'header_image' )->priority = 99;
+    $wp_customize->get_section( 'title_tagline' )->priority = 9;
+    $wp_customize->get_section( 'title_tagline' )->panel = 'sydney_panel_header';
     $wp_customize->get_section( 'colors' )->title = __('General', 'sydney');
     $wp_customize->get_section( 'colors' )->panel = 'sydney_colors_panel';
     $wp_customize->get_section( 'colors' )->priority = '10';
@@ -99,27 +99,35 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/options/blog-single.php';
 
     //___Header area___//
-    $wp_customize->add_panel( 'sydney_header_panel', array(
+    $wp_customize->add_panel( 'sydney_panel_hero', array(
         'priority'       => 10,
         'capability'     => 'edit_theme_options',
         'theme_supports' => '',
-        'title'          => __('Header area', 'sydney'),
+        'title'          => __('Hero area', 'sydney'),
     ) );
     //___Header type___//
     $wp_customize->add_section(
         'sydney_header_type',
         array(
-            'title'         => __('Header type', 'sydney'),
+            'title'         => __('Hero type', 'sydney'),
             'priority'      => 10,
-            'panel'         => 'sydney_header_panel', 
-            'description'   => __('You can select your header type from here. After that, continue below to the next two tabs (Header Slider and Header Image) and configure them.', 'sydney'),
+            'panel'         => 'sydney_panel_hero', 
+            'description'   => __('You can select your header type from here. After that, continue below to the next two tabs (Hero Slider and Header Image) and configure them.', 'sydney'),
         )
     );
+
+    if ( !get_option( 'sydney-update-header' ) ) {
+        $front_default = 'slider';
+        $site_default = 'image';
+    } else {
+        $front_default = 'nothing';
+        $site_default = 'nothing';
+    }    
     //Front page
     $wp_customize->add_setting(
         'front_header_type',
         array(
-            'default'           => 'nothing',
+            'default'           =>  $front_default,
             'sanitize_callback' => 'sydney_sanitize_layout',
         )
     );
@@ -142,7 +150,7 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_setting(
         'site_header_type',
         array(
-            'default'           => 'image',
+            'default'           => $site_default,
             'sanitize_callback' => 'sydney_sanitize_layout',
         )
     );
@@ -152,7 +160,7 @@ function sydney_customize_register( $wp_customize ) {
             'type'        => 'radio',
             'label'       => __('Site header type', 'sydney'),
             'section'     => 'sydney_header_type',
-            'description' => __('Select the header type for all pages except the front page', 'sydney'),
+            'description' => __('Select the hero type for all pages except the front page', 'sydney'),
             'choices' => array(
                 'slider'    => __('Full screen slider', 'sydney'),
                 'image'     => __('Image', 'sydney'),
@@ -165,10 +173,10 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->add_section(
         'sydney_slider',
         array(
-            'title'         => __('Header Slider', 'sydney'),
-            'description'   => __('You can add up to 5 images in the slider. Make sure you select where to display your slider from the Header Type section found above. You can also add a Call to action button (scroll down to find the options)', 'sydney'),
+            'title'         => __('Hero Slider', 'sydney'),
+            'description'   => __('You can add up to 5 images in the slider. Make sure you select where to display your slider from the Hero  Type section found above. You can also add a Call to action button (scroll down to find the options)', 'sydney'),
             'priority'      => 11,
-            'panel'         => 'sydney_header_panel',
+            'panel'         => 'sydney_panel_hero',
         )
     );
     //Mobile slider
@@ -628,13 +636,15 @@ function sydney_customize_register( $wp_customize ) {
             'priority' => 32
         )
     );         
+
+    if ( !get_option( 'sydney-update-header' ) ) {
     //___Menu style___//
     $wp_customize->add_section(
         'sydney_menu_style',
         array(
             'title'         => __('Menu layout', 'sydney'),
             'priority'      => 15,
-            'panel'         => 'sydney_header_panel', 
+            'panel'         => 'sydney_panel_hero', 
         )
     );
     //Sticky menu
@@ -899,6 +909,8 @@ function sydney_customize_register( $wp_customize ) {
         'label'       => __('Custom HTML', 'sydney'),
         'active_callback'   => 'sydney_header_custom_html_active_callback'
     ) );
+
+    }
 
 
     //Header image size
@@ -1449,47 +1461,6 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );     
-    //Site title
-    $wp_customize->add_setting(
-        'site_title_color',
-        array(
-            'default'           => '#ffffff',
-            'sanitize_callback' => 'sanitize_hex_color',
-            'transport'         => 'postMessage'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'site_title_color',
-            array(
-                'label' => __('Site title', 'sydney'),
-                'section' => 'colors_header',
-                'settings' => 'site_title_color',
-                'priority' => 13
-            )
-        )
-    );
-    //Site desc
-    $wp_customize->add_setting(
-        'site_desc_color',
-        array(
-            'default'           => '#ffffff',
-            'sanitize_callback' => 'sanitize_hex_color',
-            'transport'         => 'postMessage'
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'site_desc_color',
-            array(
-                'label' => __('Site description', 'sydney'),
-                'section' => 'colors_header',
-                'priority' => 14
-            )
-        )
-    );
     //Top level menu items
     $wp_customize->add_setting(
         'top_items_color',
@@ -1602,7 +1573,7 @@ function sydney_customize_register( $wp_customize ) {
             $wp_customize,
             'slider_text',
             array(
-                'label' => __('Header slider text', 'sydney'),
+                'label' => __('Hero slider text', 'sydney'),
                 'section' => 'colors_header',
                 'priority' => 18
             )

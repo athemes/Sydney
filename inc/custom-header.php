@@ -58,7 +58,13 @@ if ( ! function_exists( 'sydney_header_style' ) ) :
  * @see sydney_custom_header_setup().
  */
 function sydney_header_style() {
-	if ( get_header_image() && ( get_theme_mod('front_header_type') == 'image' && is_front_page() || get_theme_mod('site_header_type', 'image') == 'image' && !is_front_page() ) ) {
+    if ( !get_option( 'sydney-update-header' ) ) {
+        $site_header = get_theme_mod('site_header_type','image');
+    } else {
+        $site_header = get_theme_mod('site_header_type','nothing');
+    }
+
+	if ( get_header_image() && ( get_theme_mod('front_header_type') == 'image' && is_front_page() || $site_header == 'image' && !is_front_page() ) ) {
 	?>
 	<style type="text/css">
 		.header-image {

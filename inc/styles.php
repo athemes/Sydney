@@ -208,10 +208,10 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= ".site-header.float-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
             $custom .= "@media only screen and (max-width: 1024px) { .site-header { background-color:" . esc_attr($menu_bg_color) . ";}}" . "\n";
             //Site title
-            $site_title = get_theme_mod( 'site_title_color', '#ffffff' );
-            $custom .= ".site-title a, .site-title a:hover { color:" . esc_attr($site_title) . "}"."\n";
+            $site_title = get_theme_mod( 'site_title_color' );
+            $custom .= ".site-title a { color:" . esc_attr($site_title) . "}"."\n";
             //Site desc
-            $site_desc = get_theme_mod( 'site_desc_color', '#ffffff' );
+            $site_desc = get_theme_mod( 'site_desc_color' );
             $custom .= ".site-description { color:" . esc_attr($site_desc) . "}"."\n";
             //Top level menu items color
             $top_items_color = get_theme_mod( 'top_items_color', '#ffffff' );

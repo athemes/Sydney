@@ -28,6 +28,15 @@ function sydney_body_classes( $classes ) {
 	if ( ( !is_singular() && !$sidebar_archives ) || ( is_single() && !$sidebar_single_post ) ) {
 		$classes[] = 'no-sidebar';
 	} 
+
+	//Transparent header
+	global $post;
+	if ( isset( $post ) ) {
+		$transparent_menu = get_post_meta( $post->ID, '_sydney_transparent_menu', true );
+		if ( $transparent_menu ) {
+			$classes[] = 'transparent-header';
+		}
+	}
 	
 	return $classes;
 }

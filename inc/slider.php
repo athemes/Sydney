@@ -9,7 +9,13 @@
 if ( ! function_exists( 'sydney_slider_template' ) ) :
 function sydney_slider_template() {
 
-    if ( (get_theme_mod('front_header_type','nothing') == 'slider' && is_front_page()) || (get_theme_mod('site_header_type') == 'slider' && !is_front_page()) ) {
+    if ( !get_option( 'sydney-update-header' ) ) {
+        $front_header = get_theme_mod('front_header_type','slider');
+    } else {
+        $front_header = get_theme_mod('front_header_type','nothing');
+    }
+
+    if ( ($front_header == 'slider' && is_front_page()) || (get_theme_mod('site_header_type') == 'slider' && !is_front_page()) ) {
 
     //Get the slider options
     $text_slide = get_theme_mod('textslider_slide', 0);
