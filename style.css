@@ -1280,15 +1280,6 @@ Header
 	 .header-item:last-child {
 		 margin-right: 0;
 	}
-	 .top-bar-contact a i, .header-contact a i {
-		 margin-right: 5px;
-	}
-	 .top-bar-contact a {
-		 margin-right: 15px;
-	}
-	 .top-bar-contact a:last-of-type {
-		 margin-right: 0;
-	}
 	 .header-contact a {
 		 display: block;
 		 margin-bottom: 5px;
@@ -1366,64 +1357,6 @@ Header
 	 .search-overlay.active {
 		 opacity: 1;
 		 left: 0;
-	}
-	.top-bar {
-		background-color: var(--sydney-dark-background);
-		font-size: 14px;
-		border-bottom: 1px solid rgba(255,255,255,0.1);
-	}
-	.top-bar,
-	.top-bar a {
-		color: #fff;
-	}
-	.top-bar a:hover {
-		opacity: 0.8;
-	}
-	.top-bar svg {
-		fill: #fff;
-	}
-	.top-bar .header-elements.delimiter-dot > *, .top-bar .header-elements.delimiter-vertical > *, .top-bar .header-elements.delimiter-horizontal > * {
-		margin-right: 0;
-	}
-	.top-bar .header-elements.delimiter-dot > *:after, .top-bar .header-elements.delimiter-vertical > *:after, .top-bar .header-elements.delimiter-horizontal > *:after {
-		padding: 0 10px;
-	}
-	.top-bar .header-elements.delimiter-dot > *:last-child:after, .top-bar .header-elements.delimiter-vertical > *:last-child:after, .top-bar .header-elements.delimiter-horizontal > *:last-child:after {
-		display: none;
-	}
-	.top-bar .header-elements.delimiter-dot > *:after {
-		content: '\00B7';
-	}
-	.top-bar .header-elements.delimiter-vertical > *:after {
-		content: '\007C';
-	}
-	.top-bar .header-elements.delimiter-horizontal > *:after {
-		content: '\0023AF';
-	}
-	.top-bar .header-elements.delimiter-dot > *:after, .top-bar .header-elements.delimiter-vertical > *:after, .top-bar .header-elements.delimiter-horizontal > *:after {
-		padding: 0 15px;
-	}
-	 .top-bar-inner {
-		 padding-top: 15px;
-		 padding-bottom: 15px;
-	}
-	 .top-bar .social-profile {
-		 line-height: 1;
-	}
-	 .top-bar .social-profile a {
-		 margin-right: 15px;
-	}
-	 .top-bar .social-profile a:last-of-type {
-		 margin-right: 0;
-	}
-	 .top-bar .header-item {
-		 display: flex;
-	}
-	 .top-bar .col-md-6:last-of-type {
-		 justify-content: flex-end;
-	}
-	 .top-bar .col-md-6 > *:after {
-		 color: rgba(255, 255, 255, 0.3);
 	}
 	 .header-image img {
 		 width: 100%;

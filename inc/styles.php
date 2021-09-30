@@ -103,7 +103,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $body_fonts 	= get_theme_mod( 'body_font', 'Raleway' );	
             $headings_fonts = get_theme_mod( 'headings_font', 'Raleway' );
             $custom .= "body, #mainnav ul ul a { font-family:" . $body_fonts . ";}"."\n";
-            $custom .= "h1, h2, h3, h4, h5, h6, #mainnav ul li a, .portfolio-info, .roll-testimonials .name, .roll-team .team-content .name, .roll-team .team-item .team-pop .name, .roll-tabs .menu-tab li a, .roll-testimonials .name, .roll-project .project-filter li a, .roll-button, .roll-counter .name-count, .roll-counter .numb-count button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"] { font-family:" . $headings_fonts . ";}"."\n";
+            $custom .= "h1, h2, h3, h4, h5, h6, .portfolio-info, .roll-testimonials .name, .roll-team .team-content .name, .roll-team .team-item .team-pop .name, .roll-tabs .menu-tab li a, .roll-testimonials .name, .roll-project .project-filter li a, .roll-button, .roll-counter .name-count, .roll-counter .numb-count button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"] { font-family:" . $headings_fonts . ";}"."\n";
             
                 //Site title
             $site_title_size = get_theme_mod( 'site_title_size', '32' );

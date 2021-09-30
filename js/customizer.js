@@ -211,8 +211,10 @@
 			$( '.go-top' ).css( 'padding', to + 'px' );
 		} );
 	} );
+
+
 	//Background colors
-	var $bg_color_options = { "button_background_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_bg_color":".go-top", };
+	var $bg_color_options = { "offcanvas_menu_background":".sydney-offcanvas-menu","mobile_header_background":"#masthead-mobile","main_header_submenu_background":".mainnav ul ul li","main_header_bottom_background":".bottom-header-row","main_header_background":".main-header,.header-search-form","topbar_background":".top-bar","button_background_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_bg_color":".go-top", };
 
 	$.each( $bg_color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -223,7 +225,7 @@
 	});
 
 	//Colors
-	var $color_options = { "single_post_meta_color":".single .entry-header .entry-meta,.single .entry-header .entry-meta a","single_post_title_color":".single .entry-header .entry-title","loop_post_text_color":".posts-layout .entry-post","loop_post_title_color":".posts-layout .entry-title a","loop_post_meta_color":".posts-layout .entry-meta,.posts-layout .entry-meta a","button_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_color":".go-top", "footer_widgets_title_color":".sidebar-column .widget .widget-title" };
+	var $color_options = { "offcanvas_menu_color": ".sydney-offcanvas-menu, .sydney-offcanvas-menu a:not(.button)","mobile_header_color":"#masthead-mobile,#masthead-mobile .site-description,#masthead-mobile a:not(.button)","main_header_submenu_color":".mainnav ul ul a","main_header_bottom_color":".bottom-header-row, .bottom-header-row .header-contact a,.bottom-header-row .mainnav .menu > li > a","main_header_color":".main-header .site-title a,.main-header .site-description,.main-header .mainnav .menu > li > a, .main-header .header-contact a", "topbar_color":".top-bar, .top-bar a","single_post_meta_color":".single .entry-header .entry-meta,.single .entry-header .entry-meta a","single_post_title_color":".single .entry-header .entry-title","loop_post_text_color":".posts-layout .entry-post","loop_post_title_color":".posts-layout .entry-title a","loop_post_meta_color":".posts-layout .entry-meta,.posts-layout .entry-meta a","button_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_color":".go-top", "footer_widgets_title_color":".sidebar-column .widget .widget-title" };
 
 	$.each( $color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -313,7 +315,7 @@
 	});
 
 	//Fill
-	var $fill_options = {"footer_color":".site-info .sydney-svg-icon svg"};
+	var $fill_options = {"offcanvas_menu_color": ".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","offcanvas_menu_color":".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","main_header_bottom_color":".bottom-header-row .sydney-svg-icon svg,.dropdown-symbol .ws-svg-icon svg","main_header_color":".site-header .header-item svg, .site-header .dropdown-symbol .ws-svg-icon svg", "topbar_color":".top-bar svg","footer_color":".site-info .sydney-svg-icon svg"};
 
 	$.each( $fill_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -324,7 +326,7 @@
 	});	
 
 	//Border color
-	var $border_color_options = { "button_border_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","footer_credits_divider_color":".site-info,.site-footer","footer_widgets_divider_color":".footer-widgets,.footer-widgets-grid" };
+	var $border_color_options = { "link_separator_color":".sydney-offcanvas-menu .mainnav ul li","button_border_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","footer_credits_divider_color":".site-info,.site-footer","footer_widgets_divider_color":".footer-widgets,.footer-widgets-grid" };
 
 	$.each( $border_color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -332,21 +334,21 @@
 				$( selector ).css( 'border-color', to );
 			} );
 		} );
-	});
+	});		
 
 	//Responsive
 	var $devices 	= { "desktop": "(min-width: 992px)", "tablet": "(min-width: 576px) and (max-width: 991px)", "mobile": "(max-width: 575px)" };
-	
+
 	var $topBottPad = { "footer_widgets_padding":".footer-widgets-grid", };
 	$.each( $topBottPad, function( option, selector ) {
 		$.each( $devices, function( device, mediaSize ) {
 			wp.customize( option + '_' + device, function( value ) {
 				value.bind( function( to ) {
-				
+
 					$( 'head' ).find( '#sydney-customizer-styles-' + option + '_' + device ).remove();
-		
+
 					var output = '@media ' + mediaSize + ' {' + selector + ' { padding-top:' + to + 'px;padding-bottom:' + to + 'px; } }';
-		
+
 					$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '_' + device + '">' + output + '</style>' );
 				} );
 			} );
@@ -357,18 +359,16 @@
 		$.each( $devices, function( device, mediaSize ) {
 			wp.customize( option + '_' + device, function( value ) {
 				value.bind( function( to ) {
-				
-					$( 'head' ).find( '#botiga-customizer-styles-' + option + '_' + device ).remove();
-		
+
+					$( 'head' ).find( '#sydney-customizer-styles-' + option + '_' + device ).remove();
+
 					var output = '@media ' + mediaSize + ' {' + selector + ' { font-size:' + to + 'px; } }';
-		
-					$( 'head' ).append( '<style id="botiga-customizer-styles-' + option + '_' + device + '">' + output + '</style>' );
+
+					$( 'head' ).append( '<style id="sydney-customizer-styles-' + option + '_' + device + '">' + output + '</style>' );
 				} );
 			} );
 		});
-	});		
-	
-	
+	});
 
 	//Footer
 	wp.customize( 'footer_widgets_column_spacing_desktop', function( value ) {
@@ -434,6 +434,74 @@
 			$( '.single .entry-meta-above' ).css( 'margin-bottom', to + 'px' );
 			$( '.single .entry-meta-below' ).css( 'margin-top', to + 'px' );
 		} );
+	} );
+	
+
+	//Header		
+	wp.customize( 'main_header_padding', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-header-inner, .top-header-row' ).css( {
+				paddingTop:  to + 'px',
+				paddingBottom:  to + 'px',
+			} );
+		} );
+	} );
+	wp.customize( 'main_header_bottom_padding', function( value ) {
+		value.bind( function( to ) {
+			$( '.bottom-header-inner' ).css( {
+				paddingTop:  to + 'px',
+				paddingBottom:  to + 'px',
+			} );
+		} );
 	} );	
+	
+	wp.customize( 'main_header_divider_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.main-header, .bottom-header-row,.top-header-row,.site-header-inner, .bottom-header-inner' ).css( 'border-color', to );
+		} );
+	} );
+
+	wp.customize( 'mobile_menu_alignment', function( value ) {
+		value.bind( function( to ) {
+			$( '.sydney-offcanvas-menu .mainnav ul li' ).css( 'text-align', to );
+		} );
+	} );		
+
+	wp.customize( 'mobile_menu_link_spacing', function( value ) {
+		value.bind( function( to ) {
+			$( '.sydney-offcanvas-menu .mainnav a' ).css( 'padding-top', to/2 );
+			$( '.sydney-offcanvas-menu .mainnav a' ).css( 'padding-bottom', to/2 );
+		} );
+	} );		
+
+	wp.customize( 'mobile_header_padding', function( value ) {
+		value.bind( function( to ) {
+			$( '.mobile-header' ).css( {
+				paddingTop:  to + 'px',
+				paddingBottom:  to + 'px',
+			} );
+		} );
+	} );	
+
+	wp.customize( 'mobile_header_separator_width', function( value ) {
+		value.bind( function( to ) {
+			$( '.sydney-offcanvas-menu .mainnav ul li' ).css( 'border-bottom-width', to + 'px' );
+		} );
+	} );	
+
+	var $maxWidth = {
+		"site_logo_size": ".site-logo"
+	};
+	$.each($maxWidth, function (option, selector) {
+		$.each($devices, function (device, mediaSize) {
+			wp.customize(option + '_' + device, function (value) {
+			value.bind(function (to) {
+				$('head').find('#sydney-customizer-styles-' + option + '_' + device).remove();
+				var output = '@media ' + mediaSize + ' {' + selector + ' { max-height:' + to + 'px; } }';
+				$('head').append('<style id="sydney-customizer-styles-' + option + '_' + device + '">' + output + '</style>');
+			});
+			});
+		});
+	});	
 		
 } )( jQuery );
