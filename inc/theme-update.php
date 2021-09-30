@@ -73,3 +73,40 @@ function sydney_migrate_blog_layout() {
     set_theme_mod( 'sydney_migrate_blog_layout_flag', true );
 }
 add_action( 'init', 'sydney_migrate_blog_layout' );
+
+/**
+ * Header update notice
+ * 
+ * @since 1.8.1
+ * 
+ */
+function sydney_header_update_notice_1_8_1() {
+    
+    if ( !get_option( 'sydney-update-header' ) ) { ?>
+
+    <div class="notice notice-success thd-theme-dashboard-notice-success is-dismissible">
+        <h3><?php esc_html_e( 'Sydney Header Update', 'sydney'); ?></h3>
+        <p>
+            <?php esc_html_e( 'Update your header if you want to take advantage of the latest options.', 'sydney' ); ?>
+        </p>
+        <a href="#" class="button sydney-update-header" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Update Theme Header', 'sydney' ); ?></a>
+    </div>
+    <?php }
+}
+add_action( 'admin_notices', 'sydney_header_update_notice_1_8_1' );
+
+/**
+ * Header update ajax callback
+ * 
+ * @since 1.8.1
+ */
+function sydney_header_update_notice_1_8_1_callback() {
+	check_ajax_referer( 'sydney-update-header-nonce', 'nonce' );
+
+	update_option( 'sydney-update-header', true );
+
+	wp_send_json( array(
+		'success' => true
+	) );
+}
+add_action( 'wp_ajax_sydney_header_update_notice_1_8_1_callback', 'sydney_header_update_notice_1_8_1_callback' );

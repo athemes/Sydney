@@ -527,6 +527,10 @@ function sydney_header_elements() {
  * Add submenu icons
  */
 function sydney_add_submenu_icons( $item_output, $item, $depth, $args ) {
+
+	if ( false == get_option( 'sydney-update-header' ) ) {
+		return $item_output;
+	}
 	
 	if ( empty( $args->theme_location ) || 'primary' !== $args->theme_location ) {
 		return $item_output;
