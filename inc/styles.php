@@ -427,6 +427,80 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= ".single .entry-meta-above { margin-bottom:" . esc_attr( $single_post_meta_spacing ) . "px;}" . "\n";
             $custom .= ".single .entry-meta-below { margin-top:" . esc_attr( $single_post_meta_spacing ) . "px;}" . "\n";
 
+            //Header
+			$custom .= $this->get_max_width_css( 'site_logo_size', $defaults = array( 'desktop' => 180, 'tablet' => 100, 'mobile' => 100 ), '.custom-logo-link img' );
+
+			$main_header_divider_width 	= get_theme_mod( 'main_header_divider_width', 'fullwidth' );
+			$main_header_divider_size 	= get_theme_mod( 'main_header_divider_size', 0 );
+			$main_header_divider_color 	= get_theme_mod( 'main_header_divider_color' );
+            
+			if ( 'fullwidth' === $main_header_divider_width ) {
+                $custom .= ".main-header, .bottom-header-row { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";}" . "\n";
+				if ( 0 == $main_header_divider_size ) {
+					$custom .= ".header_layout_3,.header_layout_4,.header_layout_5 { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
+				}            
+			} else {
+                $custom .= ".top-header-row,.main-header-inner, .bottom-header-inner { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";} .main-header,.bottom-header-row {border:0;}" . "\n";
+				if ( 0 == $main_header_divider_size ) {
+					$custom .= ".top-header-row { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
+				}            
+			}
+
+			$custom .= $this->get_background_color_css( 'main_header_background', '', '.main-header,.header-search-form' );
+			$custom .= $this->get_color_css( 'main_header_color', '', '.main-header .site-title a,.main-header .site-description,.main-header #mainnav .menu > li > a, .main-header .header-contact a' );
+			$custom .= $this->get_fill_css( 'main_header_color', '', '.main-header .sydney-svg-icon svg, .main-header .dropdown-symbol .sydney-svg-icon svg' );
+
+			$custom .= $this->get_background_color_css( 'main_header_bottom_background', '', '.bottom-header-row' );
+			$custom .= $this->get_color_css( 'main_header_bottom_color', '', '.bottom-header-row, .bottom-header-row .header-contact a,.bottom-header-row #mainnav .menu > li > a' );
+			$custom .= $this->get_color_css( 'color_link_hover', '', '.bottom-header-row #mainnav .menu > li > a:hover' );
+			$custom .= $this->get_fill_css( 'main_header_bottom_color', '', '.bottom-header-row .header-item svg,.dropdown-symbol .sydney-svg-icon svg' );
+			
+			$main_header_padding 	= get_theme_mod( 'main_header_padding', 15 );
+			$custom .= ".main-header .main-header-inner, .main-header .top-header-row { padding-top:" . esc_attr( $main_header_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_padding ) . "px;}" . "\n";
+
+			$main_header_bottom_padding = get_theme_mod( 'main_header_bottom_padding', 15 );
+			$custom .= ".bottom-header-inner { padding-top:" . esc_attr( $main_header_bottom_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_bottom_padding ) . "px;}" . "\n";
+
+			$custom .= $this->get_background_color_css( 'main_header_submenu_background', '', '.mainnav ul ul li' );
+			$custom .= $this->get_color_css( 'main_header_submenu_color', '', '.mainnav ul ul a' );
+
+			//Header mini cart
+			$custom .= $this->get_color_css( 'color_body_text', '', '.main-header-cart .count-number' );
+			$custom .= $this->get_background_color_rgba_css( 'color_body_text', '#212121', '.main-header-cart .widget_shopping_cart .widgettitle:after, .main-header-cart .widget_shopping_cart .woocommerce-mini-cart__buttons:before', '0.1' );
+
+			//Mobile menu
+			$mobile_menu_alignment = get_theme_mod( 'mobile_menu_alignment', 'left' );
+			$custom .= ".sydney-offcanvas-menu .mainnav ul li { text-align:" . esc_attr( $mobile_menu_alignment ) . ";}" . "\n";
+
+			$mobile_menu_link_separator 	= get_theme_mod( 'mobile_menu_link_separator', 0 );
+			$link_separator_color 			= get_theme_mod( 'link_separator_color', 'rgba(238, 238, 238, 0.14)' );
+			$mobile_header_separator_width	= get_theme_mod( 'mobile_header_separator_width', 1 );
+
+			if ( $mobile_menu_link_separator ) {
+				$custom .= ".sydney-offcanvas-menu .mainnav ul li { padding-top:5px;border-bottom: " . intval( $mobile_header_separator_width ) . "px solid " . esc_attr( $link_separator_color ) . ";}" . "\n";
+			}
+
+			$mobile_menu_link_spacing = get_theme_mod( 'mobile_menu_link_spacing', 20 );
+			$custom .= ".sydney-offcanvas-menu .mainnav a { padding:" . esc_attr( $mobile_menu_link_spacing )/2 . "px 0;}" . "\n";
+
+			$custom .= $this->get_background_color_css( 'mobile_header_background', '', '#masthead-mobile' );
+			$custom .= $this->get_color_css( 'mobile_header_color', '', '#masthead-mobile .site-description, #masthead-mobile a:not(.button)' );
+			$custom .= $this->get_fill_css( 'mobile_header_color', '', '#masthead-mobile svg' );
+
+			$mobile_header_padding = get_theme_mod( 'mobile_header_padding', 15 );
+			$custom .= ".mobile-header { padding-top:" . esc_attr( $mobile_header_padding ) . 'px;padding-bottom:' . esc_attr( $mobile_header_padding ) . "px;}" . "\n";
+
+			$custom .= $this->get_background_color_css( 'offcanvas_menu_background', '', '.sydney-offcanvas-menu' );
+			$custom .= $this->get_color_css( 'offcanvas_menu_color', '', '.sydney-offcanvas-menu,.sydney-offcanvas-menu #mainnav a:not(.button),.sydney-offcanvas-menu a:not(.button)' );
+			$custom .= $this->get_fill_css( 'offcanvas_menu_color', '', '.sydney-offcanvas-menu svg, .sydney-offcanvas-menu .dropdown-symbol .sydney-svg-icon svg' );
+
+			$offcanvas_mode = get_theme_mod( 'header_offcanvas_mode', 'layout1' );
+			if ( 'layout2' === $offcanvas_mode ) {
+				$custom .= ".sydney-offcanvas-menu {max-width:100%;}" . "\n";
+			}            
+
+            $custom .= $this->get_max_height_css( 'site_logo_size', $defaults = array( 'desktop' => 100, 'tablet' => 100, 'mobile' => 100 ), '.site-logo' );            
+
             /* End porting */
         
             $custom = apply_filters( 'sydney_custom_css', $custom );
@@ -532,6 +606,24 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			return $css;
 		}			
 
+		//Max height
+		public static function get_max_height_css( $setting, $defaults = array(), $selector ) {
+			$devices 	= array( 
+				'desktop' 	=> '@media (min-width: 992px)',
+				'tablet'	=> '@media (min-width: 576px) and (max-width:  991px)',
+				'mobile'	=> '@media (max-width: 575px)'
+			);
+
+			$css = '';
+
+			foreach ( $devices as $device => $media ) {
+				$mod = get_theme_mod( $setting . '_' . $device, $defaults[$device] );
+				$css .= $media . ' { ' . $selector . ' { max-height:' . intval( $mod ) . 'px;} }' . "\n";	
+			}
+
+			return $css;
+		}	
+
 		//Top bottom padding
 		public static function get_top_bottom_padding_css( $setting, $defaults = array(), $selector ) {
 			$devices 	= array( 
@@ -580,6 +672,15 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
     
             return $output;
         }
+
+		/**
+		 * Get background color rgba CSS
+		 */
+		public static function get_background_color_rgba_css( $setting, $default, $selector, $opacity ) {
+			$mod = get_theme_mod( $setting, $default );
+
+			return $selector . '{ background-color:' . esc_attr( Sydney_Custom_CSS::get_instance()->hex2rgba( $mod, $opacity ) ) . ';}' . "\n";
+		}        
 
 	}
 
