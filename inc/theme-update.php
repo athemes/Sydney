@@ -87,9 +87,18 @@ function sydney_header_update_notice_1_8_1() {
     <div class="notice notice-success thd-theme-dashboard-notice-success is-dismissible">
         <h3><?php esc_html_e( 'Sydney Header Update', 'sydney'); ?></h3>
         <p>
-            <?php esc_html_e( 'Update your header if you want to take advantage of the latest options.', 'sydney' ); ?>
+            <?php esc_html_e( 'This version of Sydney comes with a new and improved header. Activate it by clicking the button below and you can access new options.', 'sydney' ); ?>
         </p>
-        <a href="#" class="button sydney-update-header" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Update Theme Header', 'sydney' ); ?></a>
+        <p>
+            <?php esc_html_e( 'Note 1: your current header customizations will be lost and you will have to use the new options to customize your header.', 'sydney' ); ?>
+        </p>   
+        <p>
+            <?php esc_html_e( 'Note 2: this upgrade refers only to the header (site identity and menu bar). It does not change any settings regarding your hero area (slider, video etc).', 'sydney' ); ?>
+        </p>             
+        <p>
+            <?php echo sprintf( esc_html__( 'Want to see the new header options before upgrading? Check out our %s.', 'sydney' ), '<a target="_blank" href="#">documentation</a>' ); ?>
+        </p>
+        <a href="#" class="button sydney-update-header" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Upgrade Theme Header', 'sydney' ); ?></a>
     </div>
     <?php }
 }
