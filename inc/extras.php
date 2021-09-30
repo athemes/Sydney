@@ -435,3 +435,107 @@ function sydney_related_posts() {
 
 }
 add_action( 'sydney_after_single_entry', 'sydney_related_posts', 31 );
+
+/**
+ * Default header components
+ */
+function sydney_get_default_header_components() {
+	$components = array(
+		'l1'		=> array( 'search', 'woocommerce_icons' ),
+		'l3left'	=> array( 'search' ),
+		'l3right'	=> array( 'woocommerce_icons' ),
+		'l4top'		=> array( 'search' ),
+		'l4bottom'	=> array( 'woocommerce_icons' ),
+		'l5topleft'	=> array(),
+		'l5topright'=> array( 'woocommerce_icons' ),
+		'l5bottom'	=> array( 'search' ),
+		'mobile'	=> array( 'search' ),
+		'offcanvas'	=> array()
+	);
+
+	return apply_filters( 'sydney_default_header_components', $components );
+}
+
+/**
+ * Header layouts
+ */
+function sydney_header_layouts() {
+	$choices = array(			
+		'header_layout_1' => array(
+			'label' => esc_html__( 'Layout 1', 'sydney' ),
+			'url'   => '%s/images/customizer/hl1.svg'
+		),
+		'header_layout_2' => array(
+			'label' => esc_html__( 'Layout 2', 'sydney' ),
+			'url'   => '%s/images/customizer/hl2.svg'
+		),		
+		'header_layout_3' => array(
+			'label' => esc_html__( 'Layout 3', 'sydney' ),
+			'url'   => '%s/images/customizer/hl3.svg'
+		),				
+		'header_layout_4' => array(
+			'label' => esc_html__( 'Layout 4', 'sydney' ),
+			'url'   => '%s/images/customizer/hl4.svg'
+		),
+		'header_layout_5' => array(
+			'label' => esc_html__( 'Layout 5', 'sydney' ),
+			'url'   => '%s/images/customizer/hl5.svg'
+		),
+	);
+
+	return apply_filters( 'sydney_header_layout_choices', $choices );
+}
+
+/**
+ * Mobile header layouts
+ */
+function sydney_mobile_header_layouts() {
+	$choices = array(			
+		'header_mobile_layout_1' => array(
+			'label' => esc_html__( 'Layout 1', 'sydney' ),
+			'url'   => '%s/images/customizer/mhl1.svg'
+		),
+		'header_mobile_layout_2' => array(
+			'label' => esc_html__( 'Layout 2', 'sydney' ),
+			'url'   => '%s/images/customizer/mhl2.svg'
+		),		
+		'header_mobile_layout_3' => array(
+			'label' => esc_html__( 'Layout 3', 'sydney' ),
+			'url'   => '%s/images/customizer/mhl3.svg'
+		),
+	);
+
+	return apply_filters( 'sydney_mobile_header_layout_choices', $choices );
+}
+
+/**
+ * Header elements
+ */
+function sydney_header_elements() {
+
+	$elements = array(
+		'search' 			=> esc_html__( 'Search', 'sydney' ),
+		'woocommerce_icons' => esc_html__( 'Cart &amp; account icons', 'sydney' ),
+		'button' 			=> esc_html__( 'Button', 'sydney' ),
+		'contact_info' 		=> esc_html__( 'Contact info', 'sydney' ),
+	);
+
+	return apply_filters( 'sydney_header_elements', $elements );
+}
+
+/**
+ * Add submenu icons
+ */
+function sydney_add_submenu_icons( $item_output, $item, $depth, $args ) {
+	
+	if ( empty( $args->theme_location ) || 'primary' !== $args->theme_location ) {
+		return $item_output;
+	}
+
+	if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+		return $item_output . '<span tabindex=0 class="dropdown-symbol"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-down', false ) . '</i></span>';
+	}
+
+    return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'sydney_add_submenu_icons', 10, 4 );

@@ -173,15 +173,17 @@ require get_template_directory() . "/widgets/contact-info.php";
  * Enqueue scripts and styles.
  */
 function sydney_admin_scripts() {
-	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
-		wp_enqueue_script( 'sydney-admin-functions', get_template_directory_uri() . '/js/admin-functions.js', array('jquery'),'', true );
-		wp_localize_script( 'sydney-admin-functions', 'sydneyadm', array(
-			'fontawesomeUpdate' => array(
-				'confirmMessage' => __( 'Are you sure? Keep in mind this is a global change and you will need update your icons class names in all theme widgets and post types that use Font Awesome 4 icons.', 'sydney' ),
-				'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'sydney' )
-			)
-		) );
-	}
+	wp_enqueue_script( 'sydney-admin-functions', get_template_directory_uri() . '/js/admin-functions.js', array('jquery'),'', true );
+	wp_localize_script( 'sydney-admin-functions', 'sydneyadm', array(
+		'fontawesomeUpdate' => array(
+			'confirmMessage' => __( 'Are you sure? Keep in mind this is a global change and you will need update your icons class names in all theme widgets and post types that use Font Awesome 4 icons.', 'sydney' ),
+			'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'sydney' )
+		),
+		'headerUpdate' => array(
+			'confirmMessage' => __( 'Are you sure you want to upgrade your header?', 'sydney' ),
+			'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'sydney' )
+		),		
+	) );
 }
 add_action( 'admin_enqueue_scripts', 'sydney_admin_scripts' );
 
