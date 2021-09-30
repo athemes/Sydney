@@ -92,6 +92,8 @@ function sydney_customize_register( $wp_customize ) {
      * Options
      */
     require get_template_directory() . '/inc/customizer/options/general.php';
+    require get_template_directory() . '/inc/customizer/options/header.php';
+    require get_template_directory() . '/inc/customizer/options/header-mobile.php';
     require get_template_directory() . '/inc/customizer/options/footer.php';
     require get_template_directory() . '/inc/customizer/options/blog.php';
     require get_template_directory() . '/inc/customizer/options/blog-single.php';
