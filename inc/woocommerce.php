@@ -196,3 +196,83 @@ add_action( 'woocommerce_before_shop_loop_item', 'sydney_add_yith_placeholder' )
  */
 add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 add_filter( 'woocommerce_product_description_heading', '__return_false' );
+
+if ( ! function_exists( 'sydney_woocommerce_cart_link_fragment' ) ) {
+	/**
+	 * Cart Fragments.
+	 *
+	 * Ensure cart contents update when products are added to the cart via AJAX.
+	 *
+	 * @param array $fragments Fragments to refresh via AJAX.
+	 * @return array Fragments to refresh via AJAX.
+	 */
+	function sydney_woocommerce_cart_link_fragment( $fragments ) {
+		ob_start();
+		?>
+
+		<span class="cart-count"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-cart', true ); ?></i><span class="count-number"><?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?></span></span>
+
+		<?php
+		$fragments['.cart-count'] = ob_get_clean();
+
+		return $fragments;
+	}
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'sydney_woocommerce_cart_link_fragment' );
+
+if ( ! function_exists( 'sydney_woocommerce_cart_link' ) ) {
+	/**
+	 * Cart Link.
+	 *
+	 * Displayed a link to the cart including the number of items present and the cart total.
+	 *
+	 * @return void
+	 */
+	function sydney_woocommerce_cart_link() {
+
+		$link = '<a class="cart-contents" href="' . esc_url( wc_get_cart_url() ) . '" title="' . esc_attr__( 'View your shopping cart', 'sydney' ) . '">';
+		$link .= '<span class="cart-count"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-cart', false ) . '</i><span class="count-number">' . esc_html( WC()->cart->get_cart_contents_count() ) . '</span></span>';
+		$link .= '</a>';
+
+		return $link;
+	}
+}
+
+if ( ! function_exists( 'sydney_woocommerce_header_cart' ) ) {
+	/**
+	 * Display Header Cart.
+	 *
+	 * @return void
+	 */
+	function sydney_woocommerce_header_cart() {
+		$show_cart 		= get_theme_mod( 'enable_header_cart', 1 );
+		$show_account 	= get_theme_mod( 'enable_header_account', 1 );
+
+		if ( is_cart() ) {
+			$class = 'current-menu-item';
+		} else {
+			$class = '';
+		}
+		?>
+
+		<?php if ( $show_account ) : ?>
+		<?php echo '<a class="header-item wc-account-link" href="' . esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ) . '" title="' . esc_html__( 'Your account', 'sydney' ) . '"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-user', false ) . '</i></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php endif; ?>	
+
+		<?php if ( $show_cart ) : ?>
+		<div id="site-header-cart" class="site-header-cart header-item">
+			<div class="<?php echo esc_attr( $class ); ?>">
+				<?php echo sydney_woocommerce_cart_link();  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</div>
+			<?php
+			$instance = array(
+				'title' => esc_html__( 'Your cart', 'sydney' ),
+			);
+
+			the_widget( 'WC_Widget_Cart', $instance );
+			?>
+		</div>
+		<?php endif; ?>
+		<?php
+	}
+}

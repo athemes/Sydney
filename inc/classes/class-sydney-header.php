@@ -562,24 +562,27 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 				<div class="header-wrap">
 					<div class="<?php echo esc_attr( sydney_menu_container() ); ?>">
 						<div class="row">
-						<div class="col-md-4 col-sm-8 col-xs-12">
-						<?php if ( get_theme_mod('site_logo') ) : ?>
-							<?php
-								$logo_id 	= attachment_url_to_postid( get_theme_mod( 'site_logo' ) );
-								$logo_attrs = wp_get_attachment_image_src( $logo_id );
-							?>						
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img width="<?php echo esc_attr( $logo_attrs[1] ); ?>" height="<?php echo esc_attr( $logo_attrs[2] ); ?>" class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
-						<?php else : ?>
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-							<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	        
-						<?php endif; ?>
-						</div>
-						<div class="col-md-8 col-sm-4 col-xs-12">
-							<div class="btn-menu" aria-expanded="false" <?php echo wp_kses_post( apply_filters( 'sydney_nav_toggle_data_attrs', '' ) ); ?>><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
-							<nav id="mainnav" class="mainnav" role="navigation" <?php sydney_do_schema( 'nav' ); ?> <?php echo wp_kses_post( apply_filters( 'sydney_nav_data_attrs', '' ) ); ?>>
-								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
-							</nav><!-- #site-navigation -->
-						</div>
+							<div class="col-md-4 col-sm-8 col-xs-12">
+							<?php if ( get_theme_mod('site_logo') ) : ?>
+								<?php
+									$logo_id 	= attachment_url_to_postid( get_theme_mod( 'site_logo' ) );
+									$logo_attrs = wp_get_attachment_image_src( $logo_id );
+								?>						
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img width="<?php echo esc_attr( $logo_attrs[1] ); ?>" height="<?php echo esc_attr( $logo_attrs[2] ); ?>" class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
+								<?php if ( is_home() && !is_front_page() ) : ?>
+									<h1 class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
+								<?php endif; ?>
+							<?php else : ?>
+								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+								<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>	        
+							<?php endif; ?>
+							</div>
+							<div class="col-md-8 col-sm-4 col-xs-12">
+								<div class="btn-menu" aria-expanded="false" <?php echo wp_kses_post( apply_filters( 'sydney_nav_toggle_data_attrs', '' ) ); ?>><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
+								<nav id="mainnav" class="mainnav" role="navigation" <?php sydney_do_schema( 'nav' ); ?> <?php echo wp_kses_post( apply_filters( 'sydney_nav_data_attrs', '' ) ); ?>>
+									<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
+								</nav><!-- #site-navigation -->
+							</div>
 						</div>
 					</div>
 				</div>
