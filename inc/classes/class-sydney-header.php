@@ -542,7 +542,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		 * Sticky mode
 		 */
 		public function sticky() {
-			$enabled 	= get_theme_mod( 'enable_sticky_header', 0 );
+			$enabled 	= get_theme_mod( 'enable_sticky_header', 1 );
 			$type 		= get_theme_mod( 'sticky_header_type', 'always' );
 			$sticky		= '';
 

@@ -216,7 +216,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'header_con
 $wp_customize->add_setting(
 	'enable_sticky_header',
 	array(
-		'default'           => 0,
+		'default'           => 1,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
 	)
 );

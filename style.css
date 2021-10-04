@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page. Looking for a quick start with Sydney? With just a few clicks, you can import one of our existing demos (https://athemes.com/sydney-demos/)
-Version: 1.80
+Version: 1.81
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.7.2
@@ -1016,6 +1016,9 @@ Header
 	.sydney-offcanvas-menu, .mobile-header {
 		display: none;
 	}
+	.sydney-offcanvas-menu .dropdown-symbol {
+		margin-left: 0 !important;
+	}
 	.sydney-offcanvas-menu .header-search,
 	.sydney-offcanvas-menu .wc-account-link,
 	.sydney-offcanvas-menu .site-header-cart {
@@ -1160,10 +1163,14 @@ Header
 	 .mobile-header-item {
 		 margin-bottom: 30px;
 	}
+	.main-header .header-contact,
+	.bottom-header-row .header-contact,
 	.mobile-header .header-contact {
 		background: transparent !important;
 		border: 0 !important;
 		width: auto !important;
+		position: static !important;
+		padding: 0 !important;
 	}
 	 .mobile-header-item:last-of-type {
 		 margin-bottom: 0;
@@ -1172,7 +1179,7 @@ Header
 		 text-align: right;
 	}
 	 @media (max-width: 1024px) {
-		 .bottom-header-row, .site-header {
+		 .bottom-header-row, .main-header {
 			 display: none;
 		}
 		 .mobile-header {
