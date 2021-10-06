@@ -207,12 +207,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $rgba = $this->hex2rgba($menu_bg_color, 0.9);
             $custom .= ".site-header.float-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
             $custom .= "@media only screen and (max-width: 1024px) { .site-header { background-color:" . esc_attr($menu_bg_color) . ";}}" . "\n";
-            //Site title
-            $site_title = get_theme_mod( 'site_title_color' );
-            $custom .= ".site-title a { color:" . esc_attr($site_title) . "}"."\n";
-            //Site desc
-            $site_desc = get_theme_mod( 'site_desc_color' );
-            $custom .= ".site-description { color:" . esc_attr($site_desc) . "}"."\n";
+
             //Top level menu items color
             $top_items_color = get_theme_mod( 'top_items_color', '#ffffff' );
             $custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";
@@ -499,7 +494,14 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 				$custom .= ".sydney-offcanvas-menu {max-width:100%;}" . "\n";
 			}            
 
-            $custom .= $this->get_max_height_css( 'site_logo_size', $defaults = array( 'desktop' => 100, 'tablet' => 100, 'mobile' => 100 ), '.site-logo' );            
+            $custom .= $this->get_max_height_css( 'site_logo_size', $defaults = array( 'desktop' => 100, 'tablet' => 100, 'mobile' => 100 ), '.site-logo' );      
+            
+            //Site title
+            $site_title = get_theme_mod( 'site_title_color' );
+            $custom .= ".site-title a, .site-title a:visited, .main-header .site-title a, .main-header .site-title a:visited  { color:" . esc_attr($site_title) . "}"."\n";
+            //Site desc
+            $site_desc = get_theme_mod( 'site_desc_color' );
+            $custom .= ".site-description, .main-header .site-description { color:" . esc_attr($site_desc) . "}"."\n";
 
             /* End porting */
         

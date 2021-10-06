@@ -315,7 +315,7 @@
 	});
 
 	//Fill
-	var $fill_options = {"offcanvas_menu_color": ".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","offcanvas_menu_color":".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","main_header_bottom_color":".bottom-header-row .sydney-svg-icon svg,.dropdown-symbol .ws-svg-icon svg","main_header_color":".site-header .header-item svg, .site-header .dropdown-symbol .ws-svg-icon svg", "topbar_color":".top-bar svg","footer_color":".site-info .sydney-svg-icon svg"};
+	var $fill_options = {"offcanvas_menu_color": ".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","offcanvas_menu_color":".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","main_header_bottom_color":".bottom-header-row .sydney-svg-icon svg,.dropdown-symbol .ws-svg-icon svg","main_header_color":".main-header .header-item svg, .main-header .dropdown-symbol .sydney-svg-icon svg", "topbar_color":".top-bar svg","footer_color":".site-info .sydney-svg-icon svg"};
 
 	$.each( $fill_options, function( option, selector ) {
 		wp.customize( option, function( value ) {

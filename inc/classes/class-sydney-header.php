@@ -314,10 +314,10 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 				<header id="masthead-mobile" class="main-header mobile-header">
 					<div class="<?php echo esc_attr( $container ); ?>">
 						<div class="row valign">
-							<div class="col-sm-4 col-xs-4">
+							<div class="col-sm-4 col-grow-mobile">
 								<?php $this->logo(); ?>
 							</div>
-							<div class="col-sm-8 col-xs-8 header-elements valign align-right">
+							<div class="col-sm-8 col-grow-mobile header-elements valign align-right">
 								<?php $this->render_components( 'mobile' ); ?>
 								<?php $this->trigger(); ?>
 							</div>						

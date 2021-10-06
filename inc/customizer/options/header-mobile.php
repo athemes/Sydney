@@ -98,7 +98,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'header_offcanvas_mode',
 		array(
-			'label'    	=> esc_html__( 'Offcanvas mode', 'sydney' ),
+			'label'    	=> esc_html__( 'Off-canvas mode', 'sydney' ),
 			'section'  	=> 'sydney_section_mobile_header',
 			'cols'		=> 2,
 			'choices'  => array(
@@ -281,7 +281,7 @@ $wp_customize->add_setting( 'mobile_header_padding', array(
 
 $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'mobile_header_padding',
 	array(
-		'label' 		=> esc_html__( 'Top&amp;bottom padding', 'sydney' ),
+		'label' 		=> esc_html__( 'Top &amp; bottom padding', 'sydney' ),
 		'section' 		=> 'sydney_section_mobile_header',
 		'is_responsive'	=> 0,
 		'settings' 		=> array (

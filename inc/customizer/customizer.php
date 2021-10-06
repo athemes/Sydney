@@ -11,7 +11,11 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->get_section( 'header_image' )->panel = 'sydney_panel_hero';
     $wp_customize->get_section( 'header_image' )->priority = 99;
     $wp_customize->get_section( 'title_tagline' )->priority = 9;
-    $wp_customize->get_section( 'title_tagline' )->panel = 'sydney_panel_header';
+
+    if ( get_option( 'sydney-update-header' ) ) {
+        $wp_customize->get_section( 'title_tagline' )->panel = 'sydney_panel_header';
+    }
+
     $wp_customize->get_section( 'colors' )->title = __('General', 'sydney');
     $wp_customize->get_section( 'colors' )->panel = 'sydney_colors_panel';
     $wp_customize->get_section( 'colors' )->priority = '10';
@@ -92,8 +96,11 @@ function sydney_customize_register( $wp_customize ) {
      * Options
      */
     require get_template_directory() . '/inc/customizer/options/general.php';
-    require get_template_directory() . '/inc/customizer/options/header.php';
-    require get_template_directory() . '/inc/customizer/options/header-mobile.php';
+    if ( get_option( 'sydney-update-header' ) ) {
+        require get_template_directory() . '/inc/customizer/options/header.php';
+        require get_template_directory() . '/inc/customizer/options/header-mobile.php';
+    }
+
     require get_template_directory() . '/inc/customizer/options/footer.php';
     require get_template_directory() . '/inc/customizer/options/blog.php';
     require get_template_directory() . '/inc/customizer/options/blog-single.php';
@@ -117,7 +124,7 @@ function sydney_customize_register( $wp_customize ) {
     );
 
     if ( !get_option( 'sydney-update-header' ) ) {
-        $front_default = 'slider';
+        $front_default = 'nothing';
         $site_default = 'image';
     } else {
         $front_default = 'nothing';
@@ -637,7 +644,7 @@ function sydney_customize_register( $wp_customize ) {
         )
     );         
 
-    if ( !get_option( 'sydney-update-header' ) ) {
+    if ( false == get_option( 'sydney-update-header' ) ) {
     //___Menu style___//
     $wp_customize->add_section(
         'sydney_menu_style',
@@ -1461,6 +1468,51 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );     
+
+    if ( false == get_option('sydney-update-header' ) ) {
+        //Site title
+        $wp_customize->add_setting(
+            'site_title_color',
+            array(
+                'default'           => '#ffffff',
+                'sanitize_callback' => 'sanitize_hex_color',
+                'transport'         => 'postMessage'
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'site_title_color',
+                array(
+                    'label' => __('Site title', 'sydney'),
+                    'section' => 'colors_header',
+                    'settings' => 'site_title_color',
+                    'priority' => 13
+                )
+            )
+        );
+        //Site desc
+        $wp_customize->add_setting(
+            'site_desc_color',
+            array(
+                'default'           => '#ffffff',
+                'sanitize_callback' => 'sanitize_hex_color',
+                'transport'         => 'postMessage'
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'site_desc_color',
+                array(
+                    'label' => __('Site description', 'sydney'),
+                    'section' => 'colors_header',
+                    'priority' => 14
+                )
+            )
+        );
+    }
+
     //Top level menu items
     $wp_customize->add_setting(
         'top_items_color',

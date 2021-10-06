@@ -59,7 +59,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'site_l
 $wp_customize->add_setting(
 	'site_title_color',
 	array(
-		'default'           => '#fff',
+		'default'           => '',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -78,7 +78,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'site_desc_color',
 	array(
-		'default'           => '#fff',
+		'default'           => '',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -208,7 +208,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'header_con
 		'section' => 'sydney_section_main_header',
 		'choices' => array(
 			'container' 		=> esc_html__( 'Contained', 'sydney' ),
-			'container-fluid' 	=> esc_html__( 'Fullwidth', 'sydney' ),
+			'container-fluid' 	=> esc_html__( 'Full-width', 'sydney' ),
 		)
 	)
 ) );

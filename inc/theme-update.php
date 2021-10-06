@@ -81,6 +81,10 @@ add_action( 'init', 'sydney_migrate_blog_layout' );
  * 
  */
 function sydney_header_update_notice_1_8_1() {
+
+    if ( get_option( 'sydney-update-header-dismiss' ) ) {
+        return;
+    }
     
     if ( !get_option( 'sydney-update-header' ) ) { ?>
 
@@ -89,20 +93,29 @@ function sydney_header_update_notice_1_8_1() {
         <p>
             <?php esc_html_e( 'This version of Sydney comes with a new and improved header. Activate it by clicking the button below and you can access new options.', 'sydney' ); ?>
         </p>
+
         <p>
-            <?php esc_html_e( 'Note 1: your current header customizations will be lost and you will have to use the new options to customize your header.', 'sydney' ); ?>
+            <?php esc_html_e( 'Note 1: this upgrade is optional, there is no need to do it if you are happy with your current header.', 'sydney' ); ?>
+        </p>         
+        <p>
+            <?php esc_html_e( 'Note 2: your current header customizations will be lost and you will have to use the new options to customize your header.', 'sydney' ); ?>
         </p>   
         <p>
-            <?php esc_html_e( 'Note 2: this upgrade refers only to the header (site identity and menu bar). It does not change any settings regarding your hero area (slider, video etc).', 'sydney' ); ?>
+            <?php esc_html_e( 'Note 3: this upgrade refers only to the header (site identity and menu bar). It does not change any settings regarding your hero area (slider, video etc).', 'sydney' ); ?>
+        </p>    
+        <p>
+            <?php esc_html_e( 'Note 4: Please take a full backup of your website before upgrading.', 'sydney' ); ?>
         </p>             
         <p>
             <?php echo sprintf( esc_html__( 'Want to see the new header options before upgrading? Check out our %s.', 'sydney' ), '<a target="_blank" href="https://docs.athemes.com/collection/370-sydney">documentation</a>' ); ?>
         </p>
         <a href="#" class="button sydney-update-header" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Upgrade Theme Header', 'sydney' ); ?></a>
+        <a href="#" class="button sydney-update-header-dismiss" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-dismiss-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Dismiss this notice', 'sydney' ); ?></a> 
     </div>
     <?php }
 }
 add_action( 'admin_notices', 'sydney_header_update_notice_1_8_1' );
+
 
 /**
  * Header update ajax callback
@@ -119,3 +132,19 @@ function sydney_header_update_notice_1_8_1_callback() {
 	) );
 }
 add_action( 'wp_ajax_sydney_header_update_notice_1_8_1_callback', 'sydney_header_update_notice_1_8_1_callback' );
+
+/**
+ * Header update ajax callback
+ * 
+ * @since 1.82
+ */
+function sydney_header_update_dismiss_notice_1_8_2_callback() {
+	check_ajax_referer( 'sydney-update-header-dismiss-nonce', 'nonce' );
+
+	update_option( 'sydney-update-header-dismiss', true );
+
+	wp_send_json( array(
+		'success' => true
+	) );
+}
+add_action( 'wp_ajax_sydney_header_update_dismiss_notice_1_8_2_callback', 'sydney_header_update_dismiss_notice_1_8_2_callback' );

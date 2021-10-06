@@ -173,7 +173,7 @@ require get_template_directory() . "/widgets/contact-info.php";
  * Enqueue scripts and styles.
  */
 function sydney_admin_scripts() {
-	wp_enqueue_script( 'sydney-admin-functions', get_template_directory_uri() . '/js/admin-functions.js', array('jquery'),'', true );
+	wp_enqueue_script( 'sydney-admin-functions', get_template_directory_uri() . '/js/admin-functions.js', array('jquery'),'20211006', true );
 	wp_localize_script( 'sydney-admin-functions', 'sydneyadm', array(
 		'fontawesomeUpdate' => array(
 			'confirmMessage' => __( 'Are you sure? Keep in mind this is a global change and you will need update your icons class names in all theme widgets and post types that use Font Awesome 4 icons.', 'sydney' ),
@@ -182,7 +182,11 @@ function sydney_admin_scripts() {
 		'headerUpdate' => array(
 			'confirmMessage' => __( 'Are you sure you want to upgrade your header?', 'sydney' ),
 			'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'sydney' )
-		),		
+		),
+		'headerUpdateDimiss' => array(
+			'confirmMessage' => __( 'Are you sure you want to dismiss this notice?', 'sydney' ),
+			'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'sydney' )
+		),					
 	) );
 }
 add_action( 'admin_enqueue_scripts', 'sydney_admin_scripts' );
@@ -217,13 +221,13 @@ function sydney_scripts() {
 		wp_enqueue_style( 'sydney-preview-google-fonts-headings', 'https://fonts.googleapis.com/', array(), null );
 	}
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20210917' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20211006' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
 	if ( !$is_amp ) {
-		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20210917', true );
+		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20211006', true );
 		
 		//Enqueue hero slider script only if the slider is in use
 		$slider_home = get_theme_mod('front_header_type','nothing');
