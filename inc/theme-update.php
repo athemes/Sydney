@@ -110,7 +110,7 @@ function sydney_header_update_notice_1_8_1() {
             <?php echo sprintf( esc_html__( 'Want to see the new header options before upgrading? Check out our %s.', 'sydney' ), '<a target="_blank" href="https://docs.athemes.com/collection/370-sydney">documentation</a>' ); ?>
         </p>
         <a href="#" class="button sydney-update-header" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Upgrade Theme Header', 'sydney' ); ?></a>
-        <a href="#" class="button sydney-update-header-dismiss" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-dismiss-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Dismiss this notice', 'sydney' ); ?></a> 
+        <a href="#" class="button sydney-update-header-dismiss" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-header-dismiss-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Continue to use the old header', 'sydney' ); ?></a> 
     </div>
     <?php }
 }
