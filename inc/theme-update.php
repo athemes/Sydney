@@ -148,3 +148,78 @@ function sydney_header_update_dismiss_notice_1_8_2_callback() {
 	) );
 }
 add_action( 'wp_ajax_sydney_header_update_dismiss_notice_1_8_2_callback', 'sydney_header_update_dismiss_notice_1_8_2_callback' );
+
+/**
+ * Migrate font families and sizes
+ * 
+ * Sydney free
+ */
+function sydney_migrate_typography() {
+
+    $flag = get_theme_mod( 'sydney_migrate_typography', false );
+
+    if ( true === $flag ) {
+        return;
+    }
+
+    //Migrate body fonts 
+    $body_font = get_theme_mod( 'body_font', 'Raleway' );
+
+    if ( 'Raleway' !== $body_font ) {
+
+        $body_font_family = json_encode(
+            array(
+                'font' 			=> $body_font,
+                'regularweight' => 'regular',
+                'category' 		=> 'sans-serif'
+            )
+        );        
+        
+        set_theme_mod( 'sydney_body_font', $body_font_family );
+    }
+
+    //Migrate headings fonts
+    $headings_font = get_theme_mod( 'headings_font', 'Raleway' );
+
+    if ( 'Raleway' !== $headings_font ) {
+
+        $headings_font_family = json_encode(
+            array(
+                'font' 			=> $headings_font,
+                'regularweight' => '600',
+                'category' 		=> 'sans-serif'
+            )
+        );        
+        
+        set_theme_mod( 'sydney_body_font', $headings_font_family );
+    }    
+
+    //Font sizes
+    $h1_size = get_theme_mod( 'h1_size', 52 );
+    set_theme_mod( 'h1_font_size_desktop', $h1_size );
+    
+    $h2_size = get_theme_mod( 'h2_size', 42 );
+    set_theme_mod( 'h2_font_size_desktop', $h2_size );
+
+    $h3_size = get_theme_mod( 'h3_size', 32 );
+    set_theme_mod( 'h3_font_size_desktop', $h3_size );
+
+    $h4_size = get_theme_mod( 'h4_size', 25 );
+    set_theme_mod( 'h4_font_size_desktop', $h4_size );
+
+    $h5_size = get_theme_mod( 'h5_size', 20 );
+    set_theme_mod( 'h5_font_size_desktop', $h5_size );
+
+    $h6_size = get_theme_mod( 'h6_size', 18 );
+    set_theme_mod( 'h6_font_size_desktop', $h6_size );
+
+    $body_size = get_theme_mod( 'body_size', 16 );
+    set_theme_mod( 'body_font_size_desktop', $body_size );
+
+    $single_post_title_size = get_theme_mod( 'single_post_title_size', 36 );
+    set_theme_mod( 'single_post_title_size_desktop', $single_post_title_size );
+
+    //Set flag
+    set_theme_mod( 'sydney_migrate_typography', true );
+}
+add_action( 'init', 'sydney_migrate_typography' );

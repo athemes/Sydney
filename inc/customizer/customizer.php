@@ -72,7 +72,7 @@ function sydney_customize_register( $wp_customize ) {
     /**
      * Controls
      */
-    //require get_template_directory() . '/inc/customizer/controls/typography/class_sydney_typography.php';
+    require get_template_directory() . '/inc/customizer/controls/typography/class_sydney_typography.php';
     require get_template_directory() . '/inc/customizer/controls/repeater/class_sydney_repeater.php';
     require get_template_directory() . '/inc/customizer/controls/alpha-color/class_sydney_alpha_color.php';
     require get_template_directory() . '/inc/customizer/controls/radio-images/class_sydney_radio_images.php';
@@ -100,7 +100,7 @@ function sydney_customize_register( $wp_customize ) {
         require get_template_directory() . '/inc/customizer/options/header.php';
         require get_template_directory() . '/inc/customizer/options/header-mobile.php';
     }
-
+    require get_template_directory() . '/inc/customizer/options/typography.php';
     require get_template_directory() . '/inc/customizer/options/footer.php';
     require get_template_directory() . '/inc/customizer/options/blog.php';
     require get_template_directory() . '/inc/customizer/options/blog-single.php';

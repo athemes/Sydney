@@ -525,12 +525,12 @@ Repeatable Patterns
 	strong {
 		font-weight: 600;
 	}
-	h1 { font: 52px/1.1 "Raleway", sans-serif;}
-	h2 { font: 42px/1.1 "Raleway", sans-serif;}
-	h3 { font: 32px/1.1 "Raleway", sans-serif;}
-	h4 { font: 25px/1.1 "Raleway", sans-serif;}
-	h5 { font: 20px/1.1 "Raleway", sans-serif;}
-	h6 { font: 18px/1.1 "Raleway", sans-serif;}
+	h1 { font: 52px/1.2 "Raleway", sans-serif;}
+	h2 { font: 42px/1.2 "Raleway", sans-serif;}
+	h3 { font: 32px/1.2 "Raleway", sans-serif;}
+	h4 { font: 25px/1.2 "Raleway", sans-serif;}
+	h5 { font: 20px/1.2 "Raleway", sans-serif;}
+	h6 { font: 18px/1.2 "Raleway", sans-serif;}
 	h1, h2, h3, h4, h5, h6 {
 		color: #443f3f;
 		font-weight: 600;
@@ -4760,7 +4760,9 @@ SVGs
 	/* All Mobile Sizes */
 	@media only screen and (max-width: 767px) {
 		.col-grow-mobile {
-			flex-grow: 1;
+			-webkit-box-flex: 1;
+			-ms-flex-positive: 1;
+				flex-grow: 1;
 		}
 		.posts-layout {
 			max-width: 100%;
