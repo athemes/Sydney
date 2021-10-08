@@ -353,7 +353,7 @@ sydney.stickyMenu = {
 		}
 
 
-		if ( vertDist >= elDist ) {
+		if ( vertDist > elDist ) {
 			sticky.classList.add( 'sticky-active' );
 		} else {
 			sticky.classList.remove( 'sticky-active' );
@@ -367,15 +367,17 @@ sydney.stickyMenu = {
  */
 sydney.headerSearch = {
 	init: function() {
-		var self            = this,
-			button 		    = document.querySelectorAll( '.header-search' ),
-			form 			= window.matchMedia('(max-width: 1024px)').matches ? document.querySelector( '#masthead-mobile .header-search-form' ) : document.querySelector( '#masthead .header-search-form' ),
-			searchInput 	= form.getElementsByClassName('search-field')[0],
-			searchBtn 	    = form.getElementsByClassName('search-submit')[0];
+
+		var self            = this;
+		var button 		    = document.querySelectorAll( '.header-search' );
+		var form 			= window.matchMedia('(max-width: 1024px)').matches ? document.querySelector( '#masthead-mobile .header-search-form' ) : document.querySelector( '#masthead .header-search-form' );
 
 		if ( button.length === 0 ) {
 			return;
 		}
+		
+		var searchInput 	= form.getElementsByClassName('search-field')[0];
+		var searchBtn 	    = form.getElementsByClassName('search-submit')[0];
 
 		for ( var buttonEl of button ) {
 			buttonEl.addEventListener( 'click', function(e){
