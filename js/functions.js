@@ -220,7 +220,11 @@ sydney.removePreloader = {
 	},
 
 	remove: function() {
-		const preloader 	= document.getElementsByClassName( 'preloader' )[0];
+		const preloader = document.getElementsByClassName( 'preloader' )[0];
+
+		if ( typeof( preloader ) == 'undefined' && preloader == null ) {
+			return;
+		}
 
         preloader.classList.add( 'disable' );
         setTimeout(function(){ preloader.classList.add( 'hide' ); }, 600);

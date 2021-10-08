@@ -80,16 +80,36 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'sydney_enable_schema',
 	array(
+		'default'           => 0,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
-	)       
+	)
 );
 $wp_customize->add_control(
-	'sydney_enable_schema',
+	new Sydney_Toggle_Control(
+		$wp_customize,
+		'sydney_enable_schema',
+		array(
+			'label'         	=> esc_html__( 'Enable Schema markup', 'sydney' ),
+			'section'       	=> 'sydney_general',
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'enable_preloader',
 	array(
-		'type'      => 'checkbox',
-		'label'     => __('Enable Schema markup', 'sydney'),
-		'section'   => 'sydney_general',
-		'priority'  => 10,
+		'default'           => 1,
+		'sanitize_callback' => 'sydney_sanitize_checkbox',
+	)
+);
+$wp_customize->add_control(
+	new Sydney_Toggle_Control(
+		$wp_customize,
+		'enable_preloader',
+		array(
+			'label'         	=> esc_html__( 'Enable preloader', 'sydney' ),
+			'section'       	=> 'sydney_general',
+		)
 	)
 );
 

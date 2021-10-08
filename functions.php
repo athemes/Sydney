@@ -222,7 +222,7 @@ function sydney_scripts() {
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
 	if ( !$is_amp ) {
-		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20211008', true );
+		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.js', array(), '20211008', true );
 		
 		//Enqueue hero slider script only if the slider is in use
 		$slider_home = get_theme_mod('front_header_type','nothing');
@@ -338,7 +338,9 @@ function sydney_header_video() {
  */
 function sydney_preloader() {
 
-	if ( sydney_is_amp() ) {
+	$preloader = get_theme_mod( 'enable_preloader', 1 );
+
+	if ( sydney_is_amp() || !$preloader ) {
 		return;
 	}
 
