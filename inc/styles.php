@@ -456,8 +456,9 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$main_header_bottom_padding = get_theme_mod( 'main_header_bottom_padding', 15 );
 			$custom .= ".bottom-header-inner { padding-top:" . esc_attr( $main_header_bottom_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_bottom_padding ) . "px;}" . "\n";
 
-			$custom .= $this->get_background_color_css( 'main_header_submenu_background', '', '.mainnav ul ul li' );
-			$custom .= $this->get_color_css( 'main_header_submenu_color', '', '.mainnav ul ul a' );
+			$custom .= $this->get_background_color_css( 'main_header_submenu_background', '', '.bottom-header-row #mainnav ul ul li, .main-header #mainnav ul ul li' );
+			$custom .= $this->get_color_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li a,.bottom-header-row #mainnav ul ul li:hover a, .main-header #mainnav ul ul li:hover a,.main-header #mainnav ul ul li a' );
+			$custom .= $this->get_fill_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li svg, .main-header #mainnav ul ul li svg' );
 
 			//Header mini cart
 			$custom .= $this->get_color_css( 'color_body_text', '', '.main-header-cart .count-number' );
