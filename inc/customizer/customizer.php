@@ -1387,25 +1387,7 @@ function sydney_customize_register( $wp_customize ) {
             'step'  => 1,
         ),
     ) );
-    // Single post tiles
-    $wp_customize->add_setting(
-        'single_post_title_size',
-        array(
-            'sanitize_callback' => 'absint',
-            'default'           => '36',
-        )       
-    );
-    $wp_customize->add_control( 'single_post_title_size', array(
-        'type'        => 'number',
-        'priority'    => 24,
-        'section'     => 'sydney_fonts',
-        'label'       => __('Single post title size', 'sydney'),
-        'input_attrs' => array(
-            'min'   => 10,
-            'max'   => 90,
-            'step'  => 1,
-        ),
-    ) ); 
+
     //___Colors___//
     $wp_customize->add_panel( 'sydney_colors_panel', array(
         'priority'       => 19,

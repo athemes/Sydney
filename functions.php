@@ -214,20 +214,15 @@ function sydney_scripts() {
 
 	$is_amp = sydney_is_amp();
 
-	wp_enqueue_style( 'sydney-google-fonts', esc_url( sydney_enqueue_google_fonts() ), array(), null );
+	wp_enqueue_style( 'sydney-google-fonts', esc_url( sydney_google_fonts_url() ), array(), null );
 
-	if ( is_customize_preview() ) {
-		wp_enqueue_style( 'sydney-preview-google-fonts-body', 'https://fonts.googleapis.com/', array(), null );
-		wp_enqueue_style( 'sydney-preview-google-fonts-headings', 'https://fonts.googleapis.com/', array(), null );
-	}
-
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20211006' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20211008' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
 	if ( !$is_amp ) {
-		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20211006', true );
+		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20211008', true );
 		
 		//Enqueue hero slider script only if the slider is in use
 		$slider_home = get_theme_mod('front_header_type','nothing');
