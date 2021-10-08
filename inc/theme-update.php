@@ -204,7 +204,7 @@ function sydney_migrate_typography() {
     $h3_size = get_theme_mod( 'h3_size', 32 );
     set_theme_mod( 'h3_font_size_desktop', $h3_size );
 
-    $h4_size = get_theme_mod( 'h4_size', 25 );
+    $h4_size = get_theme_mod( 'h4_size', 24 );
     set_theme_mod( 'h4_font_size_desktop', $h4_size );
 
     $h5_size = get_theme_mod( 'h5_size', 20 );

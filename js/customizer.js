@@ -503,5 +503,98 @@
 			});
 		});
 	});	
+
+
+	//Typography
+	wp.customize( 'sydney_body_font', function( value ) {
+		value.bind( function( to ) {
+
+			$( 'head' ).find( '#sydney-preview-google-fonts-body-css' ).remove();
+
+			$( 'head' ).append( '<link id="sydney-preview-google-fonts-body-css" href="" rel="stylesheet">' );
+
+			$( '#sydney-preview-google-fonts-body-css' ).attr( 'href', 'https://fonts.googleapis.com/css?family=' + jQuery.parseJSON( to )['font'].replace(/ /g, '+') + ':' + jQuery.parseJSON( to )['regularweight'] + '&display=swap' );
+
+			$( 'body' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
+			$( 'body' ).css( 'font-weight', jQuery.parseJSON( to )['regularweight'] );
+
+		} );
+	} );	
+
+	wp.customize( 'sydney_headings_font', function( value ) {
+		value.bind( function( to ) {
+
+			$( 'head' ).find( '#sydney-preview-google-fonts-headings-css' ).remove();
+
+			$( 'head' ).append( '<link id="sydney-preview-google-fonts-headings-css" href="" rel="stylesheet">' );
+
+			$( '#sydney-preview-google-fonts-headings-css' ).attr( 'href', 'https://fonts.googleapis.com/css?family=' + jQuery.parseJSON( to )['font'].replace(/ /g, '+') + ':' + jQuery.parseJSON( to )['regularweight'] + '&display=swap' );
+
+			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
+
+			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'font-weight', jQuery.parseJSON( to )['regularweight'] );
+
+		} );
+	} );	
+
+	wp.customize( 'headings_font_style', function( value ) {
+		value.bind( function( to ) {
+			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'font-style', to );
+		} );
+	} );
+
+	wp.customize( 'headings_line_height', function( value ) {
+		value.bind( function( to ) {
+			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'line-height', to );
+		} );
+	} );
+
+	wp.customize( 'headings_letter_spacing', function( value ) {
+		value.bind( function( to ) {
+			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'letter-spacing', to + 'px' );
+		} );
+	} );
+	
+	wp.customize( 'headings_text_transform', function( value ) {
+		value.bind( function( to ) {
+			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'text-transform', to );
+		} );
+	} );	
+
+	wp.customize( 'headings_text_decoration', function( value ) {
+		value.bind( function( to ) {
+			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'text-decoration', to );
+		} );
+	} );	
+
+	wp.customize( 'body_font_style', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).css( 'font-style', to );
+		} );
+	} );
+
+	wp.customize( 'body_line_height', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).css( 'line-height', to );
+		} );
+	} );
+
+	wp.customize( 'body_letter_spacing', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).css( 'letter-spacing', to + 'px' );
+		} );
+	} );
+	
+	wp.customize( 'body_text_transform', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).css( 'text-transform', to );
+		} );
+	} );	
+
+	wp.customize( 'body_text_decoration', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).css( 'text-decoration', to );
+		} );
+	} );	
 		
 } )( jQuery );

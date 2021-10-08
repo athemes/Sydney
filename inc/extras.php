@@ -552,3 +552,74 @@ function sydney_add_submenu_icons( $item_output, $item, $depth, $args ) {
     return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'sydney_add_submenu_icons', 10, 4 );
+
+/**
+ * Google Fonts URL
+ */
+function sydney_google_fonts_url() {
+	$fonts_url 	= '';
+	$subsets 	= 'latin';
+
+	$defaults = json_encode(
+		array(
+			'font' 			=> 'System default',
+			'regularweight' => 'regular',
+			'category' 		=> 'sans-serif'
+		)
+	);	
+
+	//Get and decode options
+	$body_font		= get_theme_mod( 'sydney_body_font', $defaults );
+	$headings_font 	= get_theme_mod( 'sydney_headings_font', $defaults );
+
+	$body_font 		= json_decode( $body_font, true );
+	$headings_font 	= json_decode( $headings_font, true );
+
+	if ( 'System default' === $body_font['font'] && 'System default' === $headings_font['font'] ) {
+		return; //return early if defaults are active
+	}
+
+	$font_families = array();
+
+	$font_families[] = $body_font['font'] . ':' . $body_font['regularweight'];
+		
+	$font_families[] = $headings_font['font'] . ':' . $headings_font['regularweight'];
+
+	$query_args = array(
+		'family' => urlencode( implode( '|', $font_families ) ),
+		'subset' => urlencode( $subsets ),
+		'display' => urlencode( 'swap' ),
+	);
+
+	$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+
+	return esc_url_raw( $fonts_url );
+}
+
+/**
+ * Google fonts preconnect
+ */
+function sydney_preconnect_google_fonts() {
+
+	$defaults = json_encode(
+		array(
+			'font' 			=> 'System default',
+			'regularweight' => 'regular',
+			'category' 		=> 'sans-serif'
+		)
+	);	
+
+	$body_font		= get_theme_mod( 'sydney_body_font', $defaults );
+	$headings_font 	= get_theme_mod( 'sydney_headings_font', $defaults );
+
+	$body_font 		= json_decode( $body_font, true );
+	$headings_font 	= json_decode( $headings_font, true );
+
+	if ( 'System default' === $body_font['font'] && 'System default' === $headings_font['font'] ) {
+		return;
+	}
+
+	echo '<link rel="preconnect" href="//fonts.googleapis.com">';
+	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+}
+add_action( 'wp_head', 'sydney_preconnect_google_fonts' );

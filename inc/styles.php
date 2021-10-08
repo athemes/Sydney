@@ -503,6 +503,53 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $site_desc = get_theme_mod( 'site_desc_color' );
             $custom .= ".site-description, .main-header .site-description { color:" . esc_attr($site_desc) . "}"."\n";
 
+			//Typography 
+			$typography_defaults = json_encode(
+				array(
+					'font' 			=> 'System default',
+					'regularweight' => 'regular',
+					'category' 		=> 'sans-serif'
+				)
+			);
+
+			$body_font		= get_theme_mod( 'sydney_body_font', $typography_defaults );
+			$headings_font 	= get_theme_mod( 'sydney_headings_font', $typography_defaults );
+		
+			$body_font 		= json_decode( $body_font, true );
+			$headings_font 	= json_decode( $headings_font, true );
+			
+			if ( 'System default' !== $body_font['font'] ) {
+				$custom .= 'body { font-family:' . esc_attr( $body_font['font'] ) . ',' . esc_attr( $body_font['category'] ) . ';}' . "\n";	
+			}
+			
+			if ( 'System default' !== $headings_font['font'] ) {
+				$custom .= 'h1,h2,h3,h4,h5,h6,.site-title { font-family:' . esc_attr( $headings_font['font'] ) . ',' . esc_attr( $headings_font['category'] ) . ';}' . "\n";
+			}
+
+			$headings_font_style 		= get_theme_mod( 'headings_font_style' );
+			$headings_line_height 		= get_theme_mod( 'headings_line_height', 1.2 );
+			$headings_letter_spacing 	= get_theme_mod( 'headings_letter_spacing' );
+			$headings_text_transform 	= get_theme_mod( 'headings_text_transform' );
+			$headings_text_decoration 	= get_theme_mod( 'headings_text_decoration' );
+
+			$custom .= "h1,h2,h3,h4,h5,h6,.site-title { text-decoration:" . esc_attr( $headings_text_decoration ) . ";text-transform:" . esc_attr( $headings_text_transform ) . ";font-style:" . esc_attr( $headings_font_style ) . ";line-height:" . esc_attr( $headings_line_height ) . ";letter-spacing:" . esc_attr( $headings_letter_spacing ) . "px;}" . "\n";	
+
+			$custom .= $this->get_font_sizes_css( 'h1_font_size', $defaults = array( 'desktop' => 52, 'tablet' => 42, 'mobile' => 32 ), 'h1:not(.site-title)' );
+			$custom .= $this->get_font_sizes_css( 'h2_font_size', $defaults = array( 'desktop' => 42, 'tablet' => 32, 'mobile' => 24 ), 'h2' );
+			$custom .= $this->get_font_sizes_css( 'h3_font_size', $defaults = array( 'desktop' => 32, 'tablet' => 24, 'mobile' => 20 ), 'h3' );
+			$custom .= $this->get_font_sizes_css( 'h4_font_size', $defaults = array( 'desktop' => 24, 'tablet' => 18, 'mobile' => 16 ), 'h4' );
+			$custom .= $this->get_font_sizes_css( 'h5_font_size', $defaults = array( 'desktop' => 20, 'tablet' => 16, 'mobile' => 16 ), 'h5' );
+			$custom .= $this->get_font_sizes_css( 'h6_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), 'h6' );
+
+            $body_font_style 		= get_theme_mod( 'body_font_style' );
+			$body_line_height 		= get_theme_mod( 'body_line_height', 1.68 );
+			$body_letter_spacing 	= get_theme_mod( 'body_letter_spacing' );
+			$body_text_transform 	= get_theme_mod( 'body_text_transform' );
+			$body_text_decoration 	= get_theme_mod( 'body_text_decoration' );
+
+			$custom .= "body { text-decoration:" . esc_attr( $body_text_decoration ) . ";text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
+			$custom .= $this->get_font_sizes_css( 'body_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), 'body' );            
+
             /* End porting */
         
             $custom = apply_filters( 'sydney_custom_css', $custom );
