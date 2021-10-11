@@ -4,7 +4,7 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page. Looking for a quick start with Sydney? With just a few clicks, you can import one of our existing demos (https://athemes.com/sydney-demos/)
-Version: 1.82
+Version: 1.83
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tested up to: 5.7.2
@@ -478,9 +478,9 @@ Repeatable Patterns
 				box-sizing: border-box;
 	}
 	body {
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 1.7;
-		font-family: "Source Sans Pro", sans-serif;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 		background: #fff;
 		color: var(--sydney-text-color);
 	}
@@ -525,16 +525,18 @@ Repeatable Patterns
 	strong {
 		font-weight: 600;
 	}
-	h1 { font: 52px/1.2 "Raleway", sans-serif;}
-	h2 { font: 42px/1.2 "Raleway", sans-serif;}
-	h3 { font: 32px/1.2 "Raleway", sans-serif;}
-	h4 { font: 24px/1.2 "Raleway", sans-serif;}
-	h5 { font: 20px/1.2 "Raleway", sans-serif;}
-	h6 { font: 18px/1.2 "Raleway", sans-serif;}
+	h1 { font-size: 52px;}
+	h2 { font-size: 42px;}
+	h3 { font-size: 32px;}
+	h4 { font-size: 24px;}
+	h5 { font-size: 20px;}
+	h6 { font-size: 18px;}
 	h1, h2, h3, h4, h5, h6 {
-		color: #443f3f;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+		color: var(--sydney-headings-color);
 		font-weight: 600;
 		margin: 10px 0 24px;
+		line-height: 1.2;
 	}
 	.text-white { color: #fff !important; }
 	.text-dark { color: #443f3f !important;}
@@ -546,22 +548,14 @@ Repeatable Patterns
 	input[type="submit"] {
 		position: relative;
 		display: inline-block;
-		font-family: "Raleway", sans-serif;
 		font-size: 13px;
 		line-height: 24px;
 		font-weight: 700;
 		padding: 12px 34px;
 		color: #fff;
 		text-transform: uppercase;
-		-webkit-border-radius: 3px;
-		   -moz-border-radius: 3px;
-			 -o-border-radius: 3px;
-				border-radius: 3px;
-		-webkit-transition: all 0.3s;
-		   -moz-transition: all 0.3s;
-		    -ms-transition: all 0.3s;
-		     -o-transition: all 0.3s;
-		        transition: all 0.3s;
+		border-radius: 3px;
+		transition: all 0.3s;
 	}
 	button:hover,
 	.llms-button-action:hover,
@@ -828,7 +822,6 @@ Header
 		position: relative;
 		display: block;
 		font-size: 14px;
-		font-family: "Raleway", sans-serif;
 		color: #fff;
 		font-weight: 500;
 		text-decoration: none;
@@ -839,7 +832,6 @@ Header
 	}
 	#mainnav ul ul a {
 		width: 180px;
-		font-family: "Source Sans Pro", sans-serif !important;
 	}
 	#mainnav > ul > li:last-child {
 		padding-right: 0;
@@ -2174,8 +2166,6 @@ Widgets
 	.widget-area .widget-title {
 		font-size: 22px;
 		line-height: normal;
-		color: #263246;
-		font-weight: 600;
 		padding-bottom: 24px;
 		margin: 0;
 	}
@@ -2436,7 +2426,6 @@ Portfolio single
 		background-color: #f7f7f7;
 		border: 1px solid #eee;
 		padding: 25px 25px 40px;
-		font-family: "Raleway", sans-serif;
 	}
 	.portfolio-info h5 {
 		margin: 0 0 15px;
@@ -2610,6 +2599,9 @@ Bottom
 	.site-footer,
 	.site-footer a {
 		color: #666;
+	}
+	.site-footer svg {
+		fill: #666;
 	}
 	.site-footer .socials {
 		margin: 0;
@@ -2830,10 +2822,6 @@ Panels
 	.roll-counter i {
 		font-size: 30px;
 	}
-	.roll-counter .name-count,
-	.roll-counter .numb-count {
-		font-family: "Raleway", sans-serif;
-	}
 	.roll-counter .name-count {
 		font-size: 14px;
 		font-weight: 600;
@@ -3014,7 +3002,6 @@ Panels
 	.roll-button {
 		position: relative;
 		display: inline-block;
-		font-family: "Raleway", sans-serif;
 		font-size: 13px;
 		line-height: 24px;
 		font-weight: 700;
@@ -3131,7 +3118,6 @@ Panels
 	.project-filter li a {
 	    color: #767676;
 	    display: block;
-	    font-family: "Raleway",sans-serif;
 	    font-size: 13px;
 	    font-weight: 600;
 	    outline: 0;
@@ -3316,7 +3302,6 @@ Panels
 		color: inherit;
 	}	
 	.roll-testimonials .name {
-		font-family: "Raleway", sans-serif;
 		font-size: 18px;
 		font-weight: 500;
 	}
@@ -3549,7 +3534,6 @@ Panels
 		margin-right: 2px;
 	}
 	.roll-tabs .menu-tab li a {
-		font-family: "Raleway", sans-serif;
 		font-size: 14px;
 		font-weight: 500;
 		display: block;
@@ -3636,7 +3620,6 @@ Panels
 		text-align: center;
 	}
 	.roll-team .team-item .team-pop .name {
-		font-family: "Raleway", sans-serif;
 		font-size: 16px;
 		font-weight: 600;
 		color: #fff;
@@ -3738,7 +3721,6 @@ Panels
 		text-align: center;
 	}
 	.roll-team .team-content .name {
-		font-family: "Raleway", sans-serif;
 		font-size: 16px;
 		font-weight: 600;
 		padding: 12px 0 2px;
@@ -4845,9 +4827,6 @@ SVGs
 			min-height: 0;
 			top: auto;
 			bottom: 0;
-		}
-		.site-title {
-			font-size: 22px !important;
 		}
 		.fluid-width-video-wrapper + #wp-custom-header-video-button {
 			display: none;

@@ -98,68 +98,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             } else {
                 $custom .= "html { scroll-behavior: smooth;}" . "\n";
             }	
-        
-            //Fonts
-            $body_fonts 	= get_theme_mod( 'body_font', 'Raleway' );	
-            $headings_fonts = get_theme_mod( 'headings_font', 'Raleway' );
-            $custom .= "body, #mainnav ul ul a { font-family:" . $body_fonts . ";}"."\n";
-            $custom .= "h1, h2, h3, h4, h5, h6, .portfolio-info, .roll-testimonials .name, .roll-team .team-content .name, .roll-team .team-item .team-pop .name, .roll-tabs .menu-tab li a, .roll-testimonials .name, .roll-project .project-filter li a, .roll-button, .roll-counter .name-count, .roll-counter .numb-count button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"] { font-family:" . $headings_fonts . ";}"."\n";
-            
-                //Site title
-            $site_title_size = get_theme_mod( 'site_title_size', '32' );
-            if ($site_title_size) {
-                $custom .= ".site-title { font-size:" . intval($site_title_size) . "px; }"."\n";
-            }
-            //Site description
-            $site_desc_size = get_theme_mod( 'site_desc_size', '16' );
-            if ($site_desc_size) {
-                $custom .= ".site-description { font-size:" . intval($site_desc_size) . "px; }"."\n";
-            }
-            //Menu
-            $menu_size = get_theme_mod( 'menu_size', '14' );
-            if ($menu_size) {
-                $custom .= "#mainnav ul li a { font-size:" . intval($menu_size) . "px; }"."\n";
-            }    	    	
-            //H1 size
-            $h1_size = get_theme_mod( 'h1_size','52' );
-            if ($h1_size) {
-                $custom .= "h1 { font-size:" . intval($h1_size) . "px; }"."\n";
-            }
-            //H2 size
-            $h2_size = get_theme_mod( 'h2_size','42' );
-            if ($h2_size) {
-                $custom .= "h2 { font-size:" . intval($h2_size) . "px; }"."\n";
-            }
-            //H3 size
-            $h3_size = get_theme_mod( 'h3_size','32' );
-            if ($h3_size) {
-                $custom .= "h3 { font-size:" . intval($h3_size) . "px; }"."\n";
-            }
-            //H4 size
-            $h4_size = get_theme_mod( 'h4_size','25' );
-            if ($h4_size) {
-                $custom .= "h4 { font-size:" . intval($h4_size) . "px; }"."\n";
-            }
-            //H5 size
-            $h5_size = get_theme_mod( 'h5_size','20' );
-            if ($h5_size) {
-                $custom .= "h5 { font-size:" . intval($h5_size) . "px; }"."\n";
-            }
-            //H6 size
-            $h6_size = get_theme_mod( 'h6_size','18' );
-            if ($h6_size) {
-                $custom .= "h6 { font-size:" . intval($h6_size) . "px; }"."\n";
-            }
-            //Body size
-            $body_size = get_theme_mod( 'body_size', '16' );
-            if ($body_size) {
-                $custom .= "body { font-size:" . intval($body_size) . "px; }"."\n";
-            }
-            //Single post title
-            $single_post_title_size = get_theme_mod( 'single_post_title_size', '36' );
-            if ($single_post_title_size) {
-                $custom .= ".single .hentry .title-post { font-size:" . intval($single_post_title_size) . "px; }"."\n";
-            }
+
             //Header image
             $header_bg_size = get_theme_mod('header_bg_size','cover');	
             $header_height = get_theme_mod('header_height','300');
@@ -276,16 +215,6 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
                 }"."\n";     	
             }
         
-            //Small screens font sizes
-            $custom .= "@media only screen and (max-width: 780px) { 
-                h1 { font-size: 32px;}
-                h2 { font-size: 28px;}
-                h3 { font-size: 22px;}
-                h4 { font-size: 18px;}
-                h5 { font-size: 16px;}
-                h6 { font-size: 14px;}
-            }" . "\n";
-        
             if ( $is_amp ) {
                 $custom .= ".go-top { bottom: 30px;opacity:1;visibility:visible;}" . "\n";
             }
@@ -397,7 +326,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= $this->get_color_css( 'single_post_title_color', '', '.single .entry-header .entry-title' );
             $custom .= $this->get_color_css( 'single_post_meta_color', '', '.single .entry-header .entry-meta,.single .entry-header .entry-meta a' );
             $custom .= $this->get_font_sizes_css( 'single_post_meta_size', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), '.single .entry-meta' );
-            $custom .= $this->get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 48, 'mobile' => 48 ), '.single .entry-header .entry-title' );
+            $custom .= $this->get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 32, 'mobile' => 32 ), '.single .entry-header .entry-title' );
             $custom .= $this->get_color_css( 'loop_post_text_color', '#233452', '.posts-layout .entry-post' );
             $custom .= $this->get_color_css( 'loop_post_title_color', '#00102E', '.posts-layout .entry-title a' );
             $custom .= $this->get_color_css( 'loop_post_meta_color', '#737C8C', '.posts-layout .author,.posts-layout .entry-meta a' );
@@ -504,6 +433,9 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $site_desc = get_theme_mod( 'site_desc_color' );
             $custom .= ".site-description, .main-header .site-description { color:" . esc_attr($site_desc) . "}"."\n";
 
+			$custom .= $this->get_font_sizes_css( 'site_title_font_size', $defaults = array( 'desktop' => 32, 'tablet' => 24, 'mobile' => 20 ), '.site-title' );
+			$custom .= $this->get_font_sizes_css( 'site_desc_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.site-description' );
+
 			//Typography 
 			$typography_defaults = json_encode(
 				array(
@@ -520,11 +452,11 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$headings_font 	= json_decode( $headings_font, true );
 			
 			if ( 'System default' !== $body_font['font'] ) {
-				$custom .= 'body { font-family:' . esc_attr( $body_font['font'] ) . ',' . esc_attr( $body_font['category'] ) . ';}' . "\n";	
+				$custom .= 'body { font-family:' . esc_attr( $body_font['font'] ) . ',' . esc_attr( $body_font['category'] ) . '; font-weight: ' . esc_attr( $body_font['regularweight'] ) . ';}' . "\n";	
 			}
 			
 			if ( 'System default' !== $headings_font['font'] ) {
-				$custom .= 'h1,h2,h3,h4,h5,h6,.site-title { font-family:' . esc_attr( $headings_font['font'] ) . ',' . esc_attr( $headings_font['category'] ) . ';}' . "\n";
+				$custom .= 'h1,h2,h3,h4,h5,h6,.site-title { font-family:' . esc_attr( $headings_font['font'] ) . ',' . esc_attr( $headings_font['category'] ) . '; font-weight: ' . esc_attr( $headings_font['regularweight'] ) . ';}' . "\n";
 			}
 
 			$headings_font_style 		= get_theme_mod( 'headings_font_style' );
@@ -548,8 +480,9 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$body_text_transform 	= get_theme_mod( 'body_text_transform' );
 			$body_text_decoration 	= get_theme_mod( 'body_text_decoration' );
 
-			$custom .= "body { text-decoration:" . esc_attr( $body_text_decoration ) . ";text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
-			$custom .= $this->get_font_sizes_css( 'body_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), 'body' );            
+			$custom .= "p, .posts-layout .entry-post { text-decoration:" . esc_attr( $body_text_decoration ) . "}" . "\n";	
+			$custom .= "body, .posts-layout .entry-post { text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
+			$custom .= $this->get_font_sizes_css( 'body_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), 'body, .posts-layout .entry-post' );            
 
             /* End porting */
         

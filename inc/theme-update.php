@@ -191,7 +191,7 @@ function sydney_migrate_typography() {
             )
         );        
         
-        set_theme_mod( 'sydney_body_font', $headings_font_family );
+        set_theme_mod( 'sydney_headings_font', $headings_font_family );
     }    
 
     //Font sizes
@@ -216,8 +216,14 @@ function sydney_migrate_typography() {
     $body_size = get_theme_mod( 'body_size', 16 );
     set_theme_mod( 'body_font_size_desktop', $body_size );
 
-    $single_post_title_size = get_theme_mod( 'single_post_title_size', 36 );
+    $single_post_title_size = get_theme_mod( 'single_post_title_size', 48 );
     set_theme_mod( 'single_post_title_size_desktop', $single_post_title_size );
+
+    $site_title_size = get_theme_mod( 'site_title_size', 32 );
+    set_theme_mod( 'site_title_font_size_desktop', $site_title_size );
+
+    $site_desc_size = get_theme_mod( 'site_desc_size', 16 );
+    set_theme_mod( 'site_desc_font_size_desktop', $site_desc_size );
 
     //Set flag
     set_theme_mod( 'sydney_migrate_typography', true );

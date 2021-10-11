@@ -242,7 +242,7 @@ add_action('wp_footer', 'sydney_append_gotop_html', 1);
  */
 function sydney_get_social_network( $social ) {
 
-	$networks = array( 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest' );
+	$networks = array( 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest', 'amazon', 'tiktok' );
 
 	foreach ( $networks as $network ) {
 		$found = strpos( $social, $network );
@@ -581,9 +581,20 @@ function sydney_google_fonts_url() {
 
 	$font_families = array();
 
-	$font_families[] = $body_font['font'] . ':' . $body_font['regularweight'];
+	if ( 'System default' !== $body_font['font'] ) {
+		$font_families[] = $body_font['font'] . ':' . $body_font['regularweight'];
+	}
+
+	if ( 'System default' !== $headings_font['font'] ) {
+
+		$old_weights = get_theme_mod( 'headings_font_weights' );
 		
-	$font_families[] = $headings_font['font'] . ':' . $headings_font['regularweight'];
+		if ( is_array( $old_weights ) && in_array( '400', $old_weights ) ) {
+			$headings_font['regularweight'] = '400';
+		}
+
+		$font_families[] = $headings_font['font'] . ':' . $headings_font['regularweight'];
+	}
 
 	$query_args = array(
 		'family' => urlencode( implode( '|', $font_families ) ),

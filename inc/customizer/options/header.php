@@ -55,6 +55,19 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'site_l
 	)
 ) );
 
+$wp_customize->add_setting( 'title_tagline_divider_1',
+	array(
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'title_tagline_divider_1',
+		array(
+			'section' 		=> 'title_tagline',
+			'priority' 			=> 60
+		)
+	)
+);
 
 $wp_customize->add_setting(
 	'site_title_color',
@@ -71,6 +84,58 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Site title color', 'sydney' ),
 			'section'       	=> 'title_tagline',
+			'priority' 			=> 61
+		)
+	)
+);
+
+$wp_customize->add_setting( 'site_title_font_size_desktop', array(
+	'default'   		=> 32,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_setting( 'site_title_font_size_tablet', array(
+	'default'   		=> 24,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_setting( 'site_title_font_size_mobile', array(
+	'default'   		=> 20,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'site_title_font_size',
+	array(
+		'label' 		=> esc_html__( 'Site title font size', 'sydney' ),
+		'section' 		=> 'title_tagline',
+		'is_responsive'	=> 1,
+		'settings' 		=> array (
+			'size_desktop' 		=> 'site_title_font_size_desktop',
+			'size_tablet' 		=> 'site_title_font_size_tablet',
+			'size_mobile' 		=> 'site_title_font_size_mobile',
+		),
+		'priority' 			=> 62,
+		'input_attrs' => array (
+			'min'	=> 12,
+			'max'	=> 100,
+			'step'  => 1
+		)
+	)
+) );
+
+$wp_customize->add_setting( 'title_tagline_divider_2',
+	array(
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'title_tagline_divider_2',
+		array(
+			'section' 		=> 'title_tagline',
+			'priority' 			=> 62
 		)
 	)
 );
@@ -90,9 +155,47 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Site description color', 'sydney' ),
 			'section'       	=> 'title_tagline',
+			'priority' 			=> 63
 		)
 	)
 );
+
+$wp_customize->add_setting( 'site_desc_font_size_desktop', array(
+	'default'   		=> 16,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_setting( 'site_desc_font_size_tablet', array(
+	'default'   		=> 16,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_setting( 'site_desc_font_size_mobile', array(
+	'default'   		=> 16,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'site_desc_font_size',
+	array(
+		'label' 		=> esc_html__( 'Site description font size', 'sydney' ),
+		'section' 		=> 'title_tagline',
+		'is_responsive'	=> 1,
+		'settings' 		=> array (
+			'size_desktop' 		=> 'site_desc_font_size_desktop',
+			'size_tablet' 		=> 'site_desc_font_size_tablet',
+			'size_mobile' 		=> 'site_desc_font_size_mobile',
+		),
+		'priority' 			=> 64,
+		'input_attrs' => array (
+			'min'	=> 12,
+			'max'	=> 100,
+			'step'  => 1
+		)
+	)
+) );
 
 /**
  * Main header

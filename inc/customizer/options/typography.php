@@ -593,7 +593,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'body_text_
 		'choices' => array(
 			'none' 			=> '-',
 			'underline' 	=> '<div style="text-decoration:underline;">U</div>',
-			'lowercase' 	=> '<div style="text-decoration:line-through;">S</div>',
+			'line-through' 	=> '<div style="text-decoration:line-through;">S</div>',
 		)
 	)
 ) );
