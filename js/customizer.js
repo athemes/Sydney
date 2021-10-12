@@ -510,13 +510,15 @@
 		value.bind( function( to ) {
 
 			$( 'head' ).find( '#sydney-preview-google-fonts-body-css' ).remove();
+			$( 'head' ).find( '#sydney-preview-body-weight-css' ).remove();
 
 			$( 'head' ).append( '<link id="sydney-preview-google-fonts-body-css" href="" rel="stylesheet">' );
 
 			$( '#sydney-preview-google-fonts-body-css' ).attr( 'href', 'https://fonts.googleapis.com/css?family=' + jQuery.parseJSON( to )['font'].replace(/ /g, '+') + ':' + jQuery.parseJSON( to )['regularweight'] + '&display=swap' );
 
 			$( 'body' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
-			$( 'body' ).css( 'font-weight', jQuery.parseJSON( to )['regularweight'] );
+
+			$( 'head' ).append('<style id="sydney-preview-body-weight-css" type="text/css">body {font-weight:' + jQuery.parseJSON( to )['regularweight'] + ';}</style>');
 
 		} );
 	} );	
@@ -525,6 +527,7 @@
 		value.bind( function( to ) {
 
 			$( 'head' ).find( '#sydney-preview-google-fonts-headings-css' ).remove();
+			$( 'head' ).find( '#sydney-preview-headings-weight-css' ).remove();
 
 			$( 'head' ).append( '<link id="sydney-preview-google-fonts-headings-css" href="" rel="stylesheet">' );
 
@@ -532,7 +535,7 @@
 
 			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
 
-			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'font-weight', jQuery.parseJSON( to )['regularweight'] );
+			$( 'head' ).append('<style id="sydney-preview-headings-weight-css" type="text/css">h1,h2,h3,h4,h5,h6,.site-title {font-weight:' + jQuery.parseJSON( to )['regularweight'] + ';}</style>');
 
 		} );
 	} );	
