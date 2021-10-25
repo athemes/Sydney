@@ -584,7 +584,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= "input::placeholder { color:" . esc_attr( $color_forms_placeholder ) . ";opacity:1;}" . "\n";
 			$custom .= "input:-ms-input-placeholder { color:" . esc_attr( $color_forms_placeholder ) . ";}" . "\n";
 			$custom .= "input::-ms-input-placeholder { color:" . esc_attr( $color_forms_placeholder ) . ";}" . "\n";
-						
+
             /* End porting */
         
             $custom = apply_filters( 'sydney_custom_css', $custom );
@@ -766,6 +766,14 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			return $selector . '{ background-color:' . esc_attr( Sydney_Custom_CSS::get_instance()->hex2rgba( $mod, $opacity ) ) . ';}' . "\n";
 		}        
 
+ 		/**
+		 * Get border color rgba CSS
+		 */
+		public static function get_border_color_rgba_css( $setting, $default, $selector, $opacity, $important = false ) {
+			$mod = get_theme_mod( $setting, $default );
+
+			return $selector . '{ border-color:' . esc_attr( Sydney_Custom_CSS::get_instance()->hex2rgba( $mod, $opacity ) ) . ( $important ? '!important' : '' ) .';}' . "\n";
+		}
 	}
 
 	/**

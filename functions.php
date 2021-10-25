@@ -196,6 +196,15 @@ add_action( 'admin_enqueue_scripts', 'sydney_admin_scripts' );
  */
 function sydney_set_modern_header_flag() {
 	update_option( 'sydney-update-header', true );
+
+	//Disable old content position code
+	update_option( 'sydney_woo_content_pos_disable', true );
+
+	//Disable single product sidebar
+	set_theme_mod( 'swc_sidebar_products', true );
+
+	//Disable shop archive sidebar
+	set_theme_mod( 'shop_archive_sidebar', 'no-sidebar' );	
 }
 add_action( 'after_switch_theme', 'sydney_set_modern_header_flag' );
 
