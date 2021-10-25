@@ -484,6 +484,107 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= "body, .posts-layout .entry-post { text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
 			$custom .= $this->get_font_sizes_css( 'body_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), 'body, .posts-layout .entry-post' );            
 
+			//Woocommerce single
+			$single_sku 	 	= get_theme_mod( 'single_product_sku', 1 );
+			$single_categories  = get_theme_mod( 'single_product_categories', 1 );
+			$single_tags 	 	= get_theme_mod( 'single_product_tags', 1 );
+			$single_sticky_add_to_cart_elements_spacing = get_theme_mod( 'single_sticky_add_to_cart_elements_spacing', 35 );
+
+			if( !$single_sku ) {
+				$custom .= ".single-product .product_meta .sku_wrapper { display: none }";
+			}
+			if( !$single_categories ) {
+				$custom .= ".single-product .product_meta .posted_in { display: none }";
+			}
+			if( !$single_tags ) {
+				$custom .= ".single-product .product_meta .tagged_as { display: none }";
+			}
+			if( !$single_sku && !$single_categories && !$single_tags ) {
+				$custom .= ".single-product .product_meta { border-top: 0; }";
+			}
+
+			$custom .= $this->get_font_sizes_css( 'single_product_title_size', $defaults = array( 'desktop' => 32, 'tablet' => 32, 'mobile' => 32 ), '.woocommerce div.product .product-gallery-summary .entry-title' );
+			$custom .= $this->get_font_sizes_css( 'single_product_price_size', $defaults = array( 'desktop' => 24, 'tablet' => 24, 'mobile' => 24 ), '.woocommerce div.product .product-gallery-summary .price .amount' );            
+
+            //Woocommerce loop
+            $shop_product_element_spacing = get_theme_mod( 'shop_product_element_spacing', 12 );
+			$custom .= ".woocommerce  ul.products li.product .col-md-7 > *,.woocommerce  ul.products li.product .col-md-8 > *,.woocommerce  ul.products li.product > * { margin-bottom:" . esc_attr( $shop_product_element_spacing ) . "px;}" . "\n";
+
+			$shop_product_sale_tag_layout 	= get_theme_mod( 'shop_product_sale_tag_layout', 'layout2' );
+			$shop_sale_tag_spacing			= get_theme_mod( 'shop_sale_tag_spacing', 20 );
+			$shop_sale_tag_radius			= get_theme_mod( 'shop_sale_tag_radius', 0 );
+
+			$custom .= ".wc-block-grid__product-onsale, span.onsale {border-radius:" . esc_attr( $shop_sale_tag_radius ) . "px;top:" . esc_attr( $shop_sale_tag_spacing ) . "px!important;left:" . esc_attr( $shop_sale_tag_spacing ) . "px!important;}" . "\n";
+			if ( 'layout2' === $shop_product_sale_tag_layout ) {
+				$custom .= ".wc-block-grid__product-onsale, .products span.onsale {left:auto!important;right:" . esc_attr( $shop_sale_tag_spacing ) . "px;}" . "\n";
+			}
+
+			$custom .= $this->get_color_css( 'single_product_sale_color', '', '.wc-block-grid__product-onsale, span.onsale' );
+			$custom .= $this->get_background_color_css( 'single_product_sale_background_color', '', '.wc-block-grid__product-onsale, span.onsale' );
+			$custom .= $this->get_color_css( 'shop_product_product_title', '', 'ul.wc-block-grid__products li.wc-block-grid__product .wc-block-grid__product-title, ul.wc-block-grid__products li.wc-block-grid__product .woocommerce-loop-product__title, ul.wc-block-grid__products li.product .wc-block-grid__product-title, ul.wc-block-grid__products li.product .woocommerce-loop-product__title, ul.products li.wc-block-grid__product .wc-block-grid__product-title, ul.products li.wc-block-grid__product .woocommerce-loop-product__title, ul.products li.product .wc-block-grid__product-title, ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-category__title, .woocommerce-loop-product__title .botiga-wc-loop-product__title' );
+
+			$custom .= $this->get_color_css( 'color_body_text', '', 'a.wc-forward:not(.checkout-button)' );
+			$custom .= $this->get_color_css( 'color_link_hover', '', 'a.wc-forward:not(.checkout-button):hover' );
+			$custom .= $this->get_color_css( 'button_color_hover', '', '.woocommerce-pagination li .page-numbers:hover' );
+			$custom .= $this->get_border_color_rgba_css( 'color_body_text', '#212121', '.woocommerce-sorting-wrapper', '0.1' );
+
+            $shop_categories_alignment = get_theme_mod( 'shop_categories_alignment', 'center' );
+			$custom .= "ul.products li.product-category .woocommerce-loop-category__title { text-align:" . esc_attr( $shop_categories_alignment ) . ";}" . "\n";
+
+			$shop_categories_layout = get_theme_mod( 'shop_categories_layout', 'layout1' );
+			$shop_categories_radius = get_theme_mod( 'shop_categories_radius', 0 );
+			$custom .= "ul.products li.product-category > a, ul.products li.product-category > a > img { border-radius:" . esc_attr( $shop_categories_radius ) . "px;}" . "\n";
+			if( 'layout4' === $shop_categories_layout ) {
+				$custom .= ".product-category-item-layout4 ul.products li.product-category > a h2 { border-radius: 0 0 " . esc_attr( $shop_categories_radius ) . "px " . esc_attr( $shop_categories_radius ) . "px;}" . "\n";
+			}
+
+			//Cart display coupon form
+			$shop_cart_show_coupon_form = get_theme_mod( 'shop_cart_show_coupon_form', 1 );
+			if( !$shop_cart_show_coupon_form ) {
+				$css .= '.woocommerce-cart .coupon { display: none; }';
+			}
+
+			//Cart display coupon form
+			$shop_checkout_show_coupon_form = get_theme_mod( 'shop_checkout_show_coupon_form', 1 );
+			if( !$shop_checkout_show_coupon_form ) {
+				$css .= '.woocommerce-checkout .woocommerce-form-coupon-toggle { display: none; }';
+			} 
+
+			$shop_product_card_style 		= get_theme_mod( 'shop_product_card_style', 'layout1' );
+			$shop_product_card_border_color = get_theme_mod( 'shop_product_card_border_color', '#eee' );
+			$shop_product_card_border_size 	= get_theme_mod( 'shop_product_card_border_size', 1 );
+			$shop_product_card_background 	= get_theme_mod( 'shop_product_card_background' );
+			$shop_product_card_radius 		= get_theme_mod( 'shop_product_card_radius' );
+			$shop_product_card_thumb_radius = get_theme_mod( 'shop_product_card_thumb_radius' );
+
+			if ( 'layout2' === $shop_product_card_style || 'layout3' === $shop_product_card_style ) {
+				$custom .= ".woocommerce-page ul.products li.product { background-color: " . esc_attr( $shop_product_card_background ) . ";border-radius: " . intval( $shop_product_card_radius ) . "px; border: " . intval( $shop_product_card_border_size ) . "px solid " . esc_attr( $shop_product_card_border_color ) . ";padding:30px;}" . "\n";			
+				$custom .= "ul.products li.wc-block-grid__product .loop-image-wrap, ul.products li.product .loop-image-wrap { overflow:hidden;border-radius:" . esc_attr( $shop_product_card_thumb_radius ) . "px;}" . "\n";
+			}
+
+			if ( 'layout3' === $shop_product_card_style ) {
+				$custom .= "ul.wc-block-grid__products li.wc-block-grid__product .loop-image-wrap, ul.wc-block-grid__products li.product .loop-image-wrap, ul.products li.wc-block-grid__product .loop-image-wrap, ul.products li.product .loop-image-wrap { margin:-30px -30px 12px;}" . "\n";
+			}  
+            
+            //Global colors
+			$custom .= $this->get_color_css( 'color_link_default', '', '.entry-content a:not(.button)' );
+			$custom .= $this->get_color_css( 'color_link_hover', '', '.entry-content a:not(.button):hover' );
+			$custom .= $this->get_color_css( 'color_heading_1', '', 'h1' );
+			$custom .= $this->get_color_css( 'color_heading_2', '', 'h2' );
+			$custom .= $this->get_color_css( 'color_heading_3', '', 'h3' );
+			$custom .= $this->get_color_css( 'color_heading_4', '', 'h4' );
+			$custom .= $this->get_color_css( 'color_heading_5', '', 'h5' );
+			$custom .= $this->get_color_css( 'color_heading_6', '', 'h6' );            
+
+			$custom .= $this->get_color_css( 'color_forms_text', '', 'input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="number"],input[type="tel"],input[type="range"],input[type="date"],input[type="month"],input[type="week"],input[type="time"],input[type="datetime"],input[type="datetime-local"],input[type="color"],textarea,select,.woocommerce .select2-container .select2-selection--single,.woocommerce-page .select2-container .select2-selection--single,input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="range"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, textarea:focus, select:focus, .woocommerce .select2-container .select2-selection--single:focus, .woocommerce-page .select2-container .select2-selection--single:focus,.select2-container--default .select2-selection--single .select2-selection__rendered,.wp-block-search .wp-block-search__input,.wp-block-search .wp-block-search__input:focus' );
+			$custom .= $this->get_background_color_css( 'color_forms_background', '', 'input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="number"],input[type="tel"],input[type="range"],input[type="date"],input[type="month"],input[type="week"],input[type="time"],input[type="datetime"],input[type="datetime-local"],input[type="color"],textarea,select,.woocommerce .select2-container .select2-selection--single,.woocommerce-page .select2-container .select2-selection--single,.woocommerce-cart .woocommerce-cart-form .actions .coupon input[type="text"]' );
+			$color_forms_borders 	= get_theme_mod( 'color_forms_borders' );
+			$custom .= "input[type=\"text\"],input[type=\"email\"],input[type=\"url\"],input[type=\"password\"],input[type=\"search\"],input[type=\"number\"],input[type=\"tel\"],input[type=\"range\"],input[type=\"date\"],input[type=\"month\"],input[type=\"week\"],input[type=\"time\"],input[type=\"datetime\"],input[type=\"datetime-local\"],input[type=\"color\"],textarea,select,.woocommerce .select2-container .select2-selection--single,.woocommerce-page .select2-container .select2-selection--single,.woocommerce-account fieldset,.woocommerce-account .woocommerce-form-login, .woocommerce-account .woocommerce-form-register,.woocommerce-cart .woocommerce-cart-form .actions .coupon input[type=\"text\"],.wp-block-search .wp-block-search__input { border-color:" . esc_attr( $color_forms_borders ) . ";}" . "\n";
+			$color_forms_placeholder 	= get_theme_mod( 'color_forms_placeholder' );
+			$custom .= "input::placeholder { color:" . esc_attr( $color_forms_placeholder ) . ";opacity:1;}" . "\n";
+			$custom .= "input:-ms-input-placeholder { color:" . esc_attr( $color_forms_placeholder ) . ";}" . "\n";
+			$custom .= "input::-ms-input-placeholder { color:" . esc_attr( $color_forms_placeholder ) . ";}" . "\n";
+						
             /* End porting */
         
             $custom = apply_filters( 'sydney_custom_css', $custom );
