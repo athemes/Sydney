@@ -717,7 +717,7 @@ jQuery(document).ready(function ($) {
  */
 
 jQuery(document).ready(function ($) {
-  var Botiga_Accordion = {
+  var Sydney_Accordion = {
     init: function init() {
       this.firstTime = true;
 
@@ -812,6 +812,6 @@ jQuery(document).ready(function ($) {
     }
   };
   $(document).ready(function () {
-    Botiga_Accordion.init();
+    Sydney_Accordion.init();
   });
 });

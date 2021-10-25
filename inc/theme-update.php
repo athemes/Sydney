@@ -229,3 +229,26 @@ function sydney_migrate_typography() {
     set_theme_mod( 'sydney_migrate_typography', true );
 }
 add_action( 'init', 'sydney_migrate_typography' );
+
+
+/**
+ * Migrate Woocommerce options
+ * 
+ */
+function sydney_migrate_woo_options() {
+
+    $flag = get_theme_mod( 'sydney_migrate_woo_options', false );
+
+    if ( true === $flag ) {
+        return;
+    }
+
+    $swc_sidebar_archives = get_theme_mod( 'swc_sidebar_archives', 0 );
+    if ( $swc_sidebar_archives ) {
+        set_theme_mod( 'shop_archive_sidebar', 'no-sidebar' );
+    }
+
+    //Set flag
+    set_theme_mod( 'sydney_migrate_woo_options', true );
+}
+add_action( 'init', 'sydney_migrate_woo_options' );

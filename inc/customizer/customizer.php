@@ -83,9 +83,7 @@ function sydney_customize_register( $wp_customize ) {
     //require get_template_directory() . '/inc/customizer/controls/class_sydney_tinymce_control.php';
     require get_template_directory() . '/inc/customizer/controls/class_sydney_divider_control.php';
     require get_template_directory() . '/inc/customizer/controls/toggle/class_sydney_toggle_control.php';
-    //require get_template_directory() . '/inc/customizer/controls/color-palettes/class_sydney_color_palettes_control.php';
-    //require get_template_directory() . '/inc/customizer/controls/color-palettes/class_sydney_custom_palettes_control.php';
-    //require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';    
+    require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';    
 
     require get_template_directory() . '/inc/customizer/controls/control-checkbox-multiple.php';
     require get_template_directory() . '/inc/customizer/controls/multiple-select/class-control-multiple-select.php';
@@ -104,6 +102,8 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/options/footer.php';
     require get_template_directory() . '/inc/customizer/options/blog.php';
     require get_template_directory() . '/inc/customizer/options/blog-single.php';
+    require get_template_directory() . '/inc/customizer/options/woocommerce.php';
+    require get_template_directory() . '/inc/customizer/options/woocommerce-single.php';
 
     //___Header area___//
     $wp_customize->add_panel( 'sydney_panel_hero', array(

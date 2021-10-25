@@ -908,7 +908,7 @@ span.delete:hover {
 }
 
 .sydney-accordion-hide {
-  display: none;
+  display: none !important;
 }
 
 .sydney-accordion-title {
