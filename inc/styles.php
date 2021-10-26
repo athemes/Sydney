@@ -88,6 +88,15 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
                 .woocommerce ul.products li.product:hover .woocommerce-loop-product__title,
                 .woocommerce ul.products li.product:hover .price {opacity: 0;} }" . "\n";
             }
+			
+			$loop_product_alignment = get_theme_mod( 'swc_loop_product_alignment', 'center' );
+            $custom .= ".woocommerce ul.products li.product { text-align:" . esc_attr( $loop_product_alignment ) . ";}"."\n";
+
+            if ( 'left' === $loop_product_alignment ) {
+                $custom .= ".woocommerce ul.products li.product .star-rating { margin-left:0;}"."\n";
+            } elseif ( 'right' === $loop_product_alignment ) {
+                $custom .= ".woocommerce ul.products li.product .star-rating { margin-right:0;}"."\n";
+            }
         
             global $post;
             if ( isset( $post ) ) {

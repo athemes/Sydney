@@ -612,103 +612,6 @@ function sydney_remove_wc_breadcrumbs() {
 add_action( 'wp', 'sydney_remove_wc_breadcrumbs' );
 
 /**
- * Show trust badge on single products
- */
-function sydney_show_wc_trust_badge() {
-
-    $trust_badge_image = get_theme_mod( 'swc_trust_badge_image' );
- 
-    if( !empty($trust_badge_image) ) { ?>
- 
-         <div class="wc-trust-badge-wrapper">
-             <strong class="wc-trust-badge-title"><?php esc_html_e( 'Guaranteed Safe Checkout', 'sydney' ); ?></strong>
-             <img src="<?php echo esc_url( $trust_badge_image ); ?>" class="img-fluid" alt="<?php esc_attr_e( 'Guaranteed Safe Checkout', 'sydney' ); ?>"  />
-         </div>
-         <?php
-     }
- 
- }
- add_action( 'woocommerce_product_meta_end', 'sydney_show_wc_trust_badge' );
- 
- /**
-  * Show reasons list
-  */
- function sydney_reasons_list_output() {
- 
-     $reasons_list       = explode( ',', get_theme_mod( 'swc_repeater_reasons' ) );
-     $reasons_list_title = get_theme_mod( 'swc_repeater_reasons_title' ); 
-     $reasons_list_icon  = sydney_get_svg_icon( 'icon-check-circle', false );
-     $allowed            = Sydney_SVG_Icons::get_allowed_svg_tags();
- 
-     if( empty($reasons_list[0])  && empty($reasons_list_title) ) {
-         return;
-     } ?>
- 
-     <div class="wc-reasons-list">
-         <?php if( !empty($reasons_list_title) ) : ?>
-             <strong class="wc-reasons-list-title"><?php echo esc_html( $reasons_list_title ); ?></strong>
-         <?php endif; ?>
- 
-         <?php if( !empty($reasons_list[0]) ) : ?>
-             <?php foreach( $reasons_list as $list_text ) : ?>
- 
-                 <div class="wc-reasons-list-item">
-                     <div class="wc-reasons-list-item-icon">
-                         <?php echo wp_kses( apply_filters( 'sydney_reasons_list_icon', $reasons_list_icon ), $allowed ); ?>
-                     </div>  
-                     <div class="wc-reasons-list-item-text">
-                         <?php esc_html_e( $list_text ); ?>
-                     </div>
-                 </div>
- 
-             <?php endforeach; ?>
-         <?php endif; ?>
-     </div>
- 
-     <?php
- }
- add_action( 'woocommerce_product_meta_end', 'sydney_reasons_list_output' );
-
-/**
- * Cart sidebar
- */
-function sydney_sidebar_cart() {
-    ?>
-    <div id="sidebar-cart" class="sidebar-cart">
-        <div class="sidebar-cart-close"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i></div>
-        <span>
-            <?php
-            $instance = array(
-                'title' => esc_html__( 'Your cart', 'sydney' ),
-            );
-
-            the_widget( 'WC_Widget_Cart', $instance );
-            ?>
-        </span>
-    </div>	
-    <div class="cart-overlay"></div>
-    <?php
-}
-add_action( 'sydney_after_site', 'sydney_sidebar_cart' );
-
-/**
- * Distraction free checkout
- */
-function sydney_distraction_free_checkout( $custom ) {
-
-    $df_checkout = get_theme_mod( 'swc_df_checkout', 0 );
-
-    if ( !is_checkout() || !$df_checkout ) {
-        return $custom;
-    }
-
-    $custom .= "#mainnav, .header-contact, .sydney-hero-area { display:none;}"."\n";
-
-    return $custom;
-}
-add_filter( 'sydney_custom_css', 'sydney_distraction_free_checkout' );
-
-/**
  * Legacy functions
  */
 
@@ -840,25 +743,9 @@ function sydney_wc_archive_layout() {
  */
 function sydney_loop_product_structure() {
 	$elements 	= get_theme_mod( 'shop_card_elements', array( 'woocommerce_template_loop_product_title', 'woocommerce_template_loop_rating', 'woocommerce_template_loop_price' ) );
-	$layout		= get_theme_mod( 'shop_product_card_layout', 'layout1' );
 
-	if ( 'layout1' === $layout ) {
-		foreach ( $elements as $element ) {
-			call_user_func( $element );
-		}
-	} else {
-		$elements = array_diff( $elements, array( 'woocommerce_template_loop_price' ) );
-
-		echo '<div class="row">';
-		echo '<div class="col-md-7">';
-		foreach ( $elements as $element ) {
-			call_user_func( $element );
-		}		
-		echo '</div>';
-		echo '<div class="col-md-5 loop-price-inline">';
-			woocommerce_template_loop_price();
-		echo '</div>';
-		echo '</div>';
+	foreach ( $elements as $element ) {
+		call_user_func( $element );
 	}
 }
 
@@ -1307,55 +1194,8 @@ function sydney_sale_badge( $html, $post, $product ) {
 	}	
 
 	$text 			= get_theme_mod( 'sale_badge_text', esc_html__( 'Sale!', 'sydney' ) );
-	$enable_perc 	= get_theme_mod( 'sale_badge_percent', 0 );
-	$perc_text 		= get_theme_mod( 'sale_percentage_text', '-{value}%' );
+	$badge = '<span class="onsale">' . esc_html( $text ) . '</span>';
 
-	if ( !$enable_perc ) {
-		$badge = '<span class="onsale">' . esc_html( $text ) . '</span>';
-	} else {
-		if ( $product->is_type('variable' ) ) {
-			$percentages = array();
-			$prices = $product->get_variation_prices();
-	  
-			foreach( $prices['price'] as $key => $price ){
-				if( $prices['regular_price'][$key] !== $price ){
-					$percentages[] = round( 100 - ( floatval($prices['sale_price'][$key]) / floatval($prices['regular_price'][$key]) * 100 ) );
-				}
-			}
-			$percentage = max( $percentages );
-	  
-		} elseif ( $product->is_type('grouped') ) {
-			$percentages 	= array();
-			$children_ids 	= $product->get_children();
-	  
-			foreach ( $children_ids as $child_id ) {
-				$child_product = wc_get_product($child_id);
-	  
-				$regular_price = (float) $child_product->get_regular_price();
-				$sale_price    = (float) $child_product->get_sale_price();
-	  
-				if ( $sale_price != 0 || ! empty($sale_price) ) {
-					$percentages[] = round(100 - ($sale_price / $regular_price * 100));
-				}
-			}
-			$percentage = max($percentages) ;
-		} else {
-			$regular_price = (float) $product->get_regular_price();
-			$sale_price    = (float) $product->get_sale_price();
-	  
-			if ( $sale_price != 0 || ! empty($sale_price) ) {
-				$percentage = round(100 - ($sale_price / $regular_price * 100) );
-			} else {
-				return $html;
-			}
-		}
-
-		$perc_text = str_replace( '{value}', $percentage, $perc_text );
-
-		$badge = '<span class="onsale">' . esc_html( $perc_text ) . '</span>';
-
-	}
-	
 	return $badge;
 }
 add_filter( 'woocommerce_sale_flash', 'sydney_sale_badge', 10, 3 );

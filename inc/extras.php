@@ -59,6 +59,44 @@ function sydney_yoast_seo_breadcrumbs() {
 function sydney_page_content_classes() {
 	global $post;
 
+	if ( class_exists( 'Woocommerce' ) && is_woocommerce() ) {
+		$archive_check 			= sydney_wc_archive_check();
+		$shop_single_sidebar	= get_theme_mod( 'swc_sidebar_products', 0 );  
+		$archive_sidebar 		= get_theme_mod( 'shop_archive_sidebar', 'sidebar-left' );
+	
+		if ( is_product() ) {
+			if ( $shop_single_sidebar ) {
+				$cols = 'col-md-12';
+			} else {
+				$cols = 'col-md-9';
+			}
+		} elseif ( $archive_check ) {
+			$shop_categories_layout = get_theme_mod( 'shop_categories_layout', 'layout1' );
+		
+			if ( 'no-sidebar' === $archive_sidebar ) {
+				remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+				$columns = 'col-md-12';
+			} else {
+				$columns = 'col-md-9';
+			}
+		
+			if ( 'sidebar-top' === $archive_sidebar ) {
+				$shop_archive_sidebar_top_columns = get_theme_mod( 'shop_archive_sidebar_top_columns', '4' );
+		
+				$archive_sidebar .= ' sidebar-top-columns-' . $shop_archive_sidebar_top_columns;
+			}
+		
+			$archive_sidebar .= ' product-category-item-' . $shop_categories_layout;
+			
+			$layout = get_theme_mod( 'shop_archive_layout', 'product-grid' );	
+		
+			$cols = $archive_sidebar . ' ' . $layout . ' ' . $columns;
+		}
+
+		
+		return $cols;
+	}	
+
 	$sidebar_archives = get_theme_mod( 'sidebar_archives', 1 );
 
 	if ( !is_singular() && !$sidebar_archives ) {
@@ -126,6 +164,10 @@ add_action( 'sydney_get_sidebar', 'sydney_get_sidebar' );
  * Custom header button
  */
 function sydney_add_header_menu_button( $items, $args ) {
+
+    if ( get_option( 'sydney-update-header' ) ) {
+        return $items;
+    }	
 
 	$type = get_theme_mod( 'header_button_html', 'nothing' );
 

@@ -259,35 +259,7 @@ $wp_customize->add_control(
         )
     )
 );
-$wp_customize->add_setting(
-	'shop_product_card_layout',
-	array(
-		'default'           => 'layout1',
-		'sanitize_callback' => 'sanitize_key',
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Radio_Images(
-		$wp_customize,
-		'shop_product_card_layout',
-		array(
-			'label'    	=> esc_html__( 'Layout', 'sydney' ),
-			'section'  	=> 'woocommerce_product_catalog',
-			'cols'		=> 3,
-			'choices'  => array(
-				'layout1' => array(
-					'label' => esc_html__( 'Layout 1', 'sydney' ),
-					'url'   => '%s/images/customizer/pc1.svg'
-				),
-				'layout2' => array(
-					'label' => esc_html__( 'Layout 2', 'sydney' ),
-					'url'   => '%s/images/customizer/pc2.svg'
-				),		
-			),
-			'priority'	 => 110
-		)
-	)
-); 
+
 
 $wp_customize->add_setting(
 	'shop_product_add_to_cart_layout',
@@ -312,54 +284,12 @@ $wp_customize->add_control(
 				'layout2' => array(
 					'label' => esc_html__( 'Layout 2', 'sydney' ),
 					'url'   => '%s/images/customizer/ac2.svg'
-				),	
-				'layout3' => array(
-					'label' => esc_html__( 'Layout 3', 'sydney' ),
-					'url'   => '%s/images/customizer/ac3.svg'
-				),	
-				'layout4' => array(
-					'label' => esc_html__( 'Layout 4', 'sydney' ),
-					'url'   => '%s/images/customizer/ac4.svg'
 				),										
 			),
 			'priority'	 => 120
 		)
 	)
 ); 
-
-$wp_customize->add_setting(
-	'shop_product_quickview_layout',
-	array(
-		'default'           => 'layout1',
-		'sanitize_callback' => 'sanitize_key',
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Radio_Images(
-		$wp_customize,
-		'shop_product_quickview_layout',
-		array(
-			'label'    	=> esc_html__( 'Quick view', 'sydney' ),
-			'section'  	=> 'woocommerce_product_catalog',
-			'cols'		=> 3,
-			'choices'  => array(
-				'layout1' => array(
-					'label' => esc_html__( 'Layout 1', 'sydney' ),
-					'url'   => '%s/images/customizer/qw1.svg'
-				),
-				'layout2' => array(
-					'label' => esc_html__( 'Layout 2', 'sydney' ),
-					'url'   => '%s/images/customizer/qw2.svg'
-				),	
-				'layout3' => array(
-					'label' => esc_html__( 'Layout 3', 'sydney' ),
-					'url'   => '%s/images/customizer/qw3.svg'
-				),										
-			),
-			'priority'	 => 130
-		)
-	)
-);
 
 $wp_customize->add_setting( 'shop_card_elements', array(
 	'default'  	=> array( 'woocommerce_template_loop_product_title', 'woocommerce_template_loop_rating', 'woocommerce_template_loop_price' ),
@@ -433,7 +363,7 @@ $wp_customize->add_control(
         array(
             'label'         => esc_html__( 'Sale tag', 'sydney' ),
             'section'       => 'woocommerce_product_catalog',
-            'until'         => 'sale_percentage_text',
+            'until'         => 'sale_badge_text',
 			'priority'	 	=> 170
         )
     )
@@ -523,41 +453,6 @@ $wp_customize->add_control( 'sale_badge_text', array(
 	'type'        => 'text',
 	'section'     => 'woocommerce_product_catalog',
 	'priority'	  => 210
-) );
-
-$wp_customize->add_setting(
-	'sale_badge_percent',
-	array(
-		'default'           => 0,
-		'sanitize_callback' => 'sydney_sanitize_checkbox',
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Toggle_Control(
-		$wp_customize,
-		'sale_badge_percent',
-		array(
-			'label'         	=> esc_html__( 'Display sale percentage', 'sydney' ),
-			'section'       	=> 'woocommerce_product_catalog',
-			'priority'	 		=> 220
-		)
-	)
-);
-
-$wp_customize->add_setting(
-	'sale_percentage_text',
-	array(
-		'sanitize_callback' => 'sydney_sanitize_text',
-		'default'           => '-{value}%',
-	)       
-);
-$wp_customize->add_control( 'sale_percentage_text', array(
-	'label'       		=> esc_html__( 'Sale percentage text', 'sydney' ),
-	'description' 		=> wp_kses_post( __( 'You may use the {value} tag. E.g. <strong>{value}% OFF!</strong>', 'sydney' ) ),
-	'type'        		=> 'text',
-	'section'     		=> 'woocommerce_product_catalog',
-	'active_callback'	=> 'sydney_callback_sale_percentage',
-	'priority'	 		=> 230
 ) );
 
 //Categories
@@ -833,66 +728,11 @@ $wp_customize->add_control(
         array(
             'label'         => esc_html__( 'Product card', 'sydney' ),
             'section'       => 'woocommerce_product_catalog',
-            'until'         => 'shop_product_card_border_color',
+            'until'         => 'swc_loop_product_price_color',
 			'priority'	 	=> 280
         )
     )
 );
-$wp_customize->add_setting(
-	'shop_product_card_style',
-	array(
-		'default'           => 'layout1',
-		'sanitize_callback' => 'sanitize_key',
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Radio_Images(
-		$wp_customize,
-		'shop_product_card_style',
-		array(
-			'label'    	=> esc_html__( 'Card Style', 'sydney' ),
-			'section'  	=> 'woocommerce_product_catalog',
-			'cols'		=> 3,
-			'choices'  => array(
-				'layout1' => array(
-					'label' => esc_html__( 'Layout 1', 'sydney' ),
-					'url'   => '%s/images/customizer/card1.svg'
-				),
-				'layout2' => array(
-					'label' => esc_html__( 'Layout 2', 'sydney' ),
-					'url'   => '%s/images/customizer/card2.svg'
-				),
-				'layout3' => array(
-					'label' => esc_html__( 'Layout 3', 'sydney' ),
-					'url'   => '%s/images/customizer/card3.svg'
-				),						
-			),
-			'priority'	 => 290
-		)
-	)
-); 
-
-$wp_customize->add_setting( 'shop_product_card_radius', array(
-	'default'   		=> 0,
-	'transport'			=> 'postMessage',
-	'sanitize_callback' => 'absint',
-) );			
-
-$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'shop_product_card_radius',
-	array(
-		'label' 		=> esc_html__( 'Card radius', 'sydney' ),
-		'section' 		=> 'woocommerce_product_catalog',
-		'is_responsive'	=> 0,
-		'settings' 		=> array (
-			'size_desktop' 		=> 'shop_product_card_radius',
-		),
-		'input_attrs' => array (
-			'min'	=> 0,
-			'max'	=> 100
-		),
-		'priority'	 => 300
-	)
-) );
 
 $wp_customize->add_setting( 'shop_product_card_thumb_radius', array(
 	'default'   		=> 0,
@@ -990,48 +830,6 @@ $wp_customize->add_control(
 			'label' => __('Product prices color', 'sydney'),
 			'section' => 'woocommerce_product_catalog',
 			'priority'	=> 342
-		)
-	)
-); 
-
-$wp_customize->add_setting( 'shop_product_card_border_size', array(
-	'default'   		=> 1,
-	'transport'			=> 'postMessage',
-	'sanitize_callback' => 'absint',
-) );			
-
-$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'shop_product_card_border_size',
-	array(
-		'label' 		=> esc_html__( 'Border size', 'sydney' ),
-		'section' 		=> 'woocommerce_product_catalog',
-		'is_responsive'	=> 0,
-		'settings' 		=> array (
-			'size_desktop' 		=> 'shop_product_card_border_size',
-		),
-		'input_attrs' => array (
-			'min'	=> 0,
-			'max'	=> 100
-		),
-		'priority'	 => 350
-	)
-) );
-
-$wp_customize->add_setting(
-	'shop_product_card_border_color',
-	array(
-		'default'           => '#eeeeee',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'shop_product_card_border_color',
-		array(
-			'label'         	=> esc_html__( 'Border color', 'sydney' ),
-			'section'       	=> 'woocommerce_product_catalog',
-			'priority'	 		=> 360
 		)
 	)
 );

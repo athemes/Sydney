@@ -3994,7 +3994,6 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
     line-height: 1;
     background: #252525;
     font-weight: 400;
-    border-radius: 0;
     padding: 5px 12px !important;
     text-transform: uppercase;
     letter-spacing: 1px;

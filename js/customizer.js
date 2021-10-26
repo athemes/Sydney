@@ -214,7 +214,7 @@
 
 
 	//Background colors
-	var $bg_color_options = { "offcanvas_menu_background":".sydney-offcanvas-menu","mobile_header_background":"#masthead-mobile","main_header_submenu_background":".mainnav ul ul li","main_header_bottom_background":".bottom-header-row","main_header_background":".main-header,.header-search-form","topbar_background":".top-bar","button_background_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_bg_color":".go-top", };
+	var $bg_color_options = { "color_forms_background":"input[type=\"text\"],input[type=\"email\"],input[type=\"url\"],input[type=\"password\"],input[type=\"search\"],input[type=\"number\"],input[type=\"tel\"],input[type=\"range\"],input[type=\"date\"],input[type=\"month\"],input[type=\"week\"],input[type=\"time\"],input[type=\"datetime\"],input[type=\"datetime-local\"],input[type=\"color\"],textarea,select,.woocommerce .select2-container .select2-selection--single,.woocommerce-page .select2-container .select2-selection--single,.woocommerce-cart .woocommerce-cart-form .actions .coupon input[type=\"text\"]","shop_product_card_background":".woocommerce-page ul.products li.product","offcanvas_menu_background":".sydney-offcanvas-menu","mobile_header_background":"#masthead-mobile","main_header_submenu_background":".mainnav ul ul li","main_header_bottom_background":".bottom-header-row","main_header_background":".main-header,.header-search-form","topbar_background":".top-bar","button_background_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_bg_color":".go-top", };
 
 	$.each( $bg_color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -225,7 +225,7 @@
 	});
 
 	//Colors
-	var $color_options = { "offcanvas_menu_color": ".sydney-offcanvas-menu, .sydney-offcanvas-menu a:not(.button)","mobile_header_color":"#masthead-mobile,#masthead-mobile .site-description,#masthead-mobile a:not(.button)","main_header_submenu_color":".mainnav ul ul a","main_header_bottom_color":".bottom-header-row, .bottom-header-row .header-contact a,.bottom-header-row .mainnav .menu > li > a","main_header_color":".main-header .site-title a,.main-header .site-description,.main-header .mainnav .menu > li > a, .main-header .header-contact a", "topbar_color":".top-bar, .top-bar a","single_post_meta_color":".single .entry-header .entry-meta,.single .entry-header .entry-meta a","single_post_title_color":".single .entry-header .entry-title","loop_post_text_color":".posts-layout .entry-post","loop_post_title_color":".posts-layout .entry-title a","loop_post_meta_color":".posts-layout .entry-meta,.posts-layout .entry-meta a","button_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_color":".go-top", "footer_widgets_title_color":".sidebar-column .widget .widget-title" };
+	var $color_options = { "color_forms_text":"input[type=\"text\"],input[type=\"email\"],input[type=\"url\"],input[type=\"password\"],input[type=\"search\"],input[type=\"number\"],input[type=\"tel\"],input[type=\"range\"],input[type=\"date\"],input[type=\"month\"],input[type=\"week\"],input[type=\"time\"],input[type=\"datetime\"],input[type=\"datetime-local\"],input[type=\"color\"],textarea,select,.woocommerce .select2-container .select2-selection--single,input[type=\"text\"]:focus,input[type=\"email\"]:focus,input[type=\"url\"]:focus,input[type=\"password\"]:focus,input[type=\"search\"]:focus,input[type=\"number\"]:focus,input[type=\"tel\"]:focus,input[type=\"range\"]:focus,input[type=\"date\"]:focus,input[type=\"month\"]:focus,input[type=\"week\"]:focus,input[type=\"time\"]:focus,input[type=\"datetime\"]:focus,input[type=\"datetime-local\"]:focus,input[type=\"color\"]:focus,textarea:focus,select:focus,.woocommerce .select2-container .select2-selection--single:focus,.woocommerce-page .select2-container .select2-selection--single,.select2-container--default .select2-selection--single .select2-selection__rendered","color_link_default":".entry-content a:not(.button)","color_heading_1":"h1","color_heading_2":"h2,.wp-block-search .wp-block-search__label","color_heading_3":"h3","color_heading_4":"h4,.product-gallery-summary .product_meta,.product-gallery-summary .product_meta a,.woocommerce-breadcrumb,.woocommerce-breadcrumb a,.woocommerce-tabs ul.tabs li a,.product-gallery-summary .woocommerce-Price-amount,.woocommerce-mini-cart-item .quantity,.woocommerce-mini-cart__total .woocommerce-Price-amount,.order-total .woocommerce-Price-amount","color_heading_5":"h5:not(.sticky-addtocart-title)","color_heading_6":"h6","offcanvas_menu_color": ".sydney-offcanvas-menu, .sydney-offcanvas-menu a:not(.button)","mobile_header_color":"#masthead-mobile,#masthead-mobile .site-description,#masthead-mobile a:not(.button)","main_header_submenu_color":".mainnav ul ul a","main_header_bottom_color":".bottom-header-row, .bottom-header-row .header-contact a,.bottom-header-row .mainnav .menu > li > a","main_header_color":".main-header .site-title a,.main-header .site-description,.main-header .mainnav .menu > li > a, .main-header .header-contact a", "topbar_color":".top-bar, .top-bar a","single_post_meta_color":".single .entry-header .entry-meta,.single .entry-header .entry-meta a","single_post_title_color":".single .entry-header .entry-title","loop_post_text_color":".posts-layout .entry-post","loop_post_title_color":".posts-layout .entry-title a","loop_post_meta_color":".posts-layout .entry-meta,.posts-layout .entry-meta a","button_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","scrolltop_color":".go-top", "footer_widgets_title_color":".sidebar-column .widget .widget-title" };
 
 	$.each( $color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -298,7 +298,7 @@
 	});		
 
 	//Color hover
-	var $color_hover_options = { "button_color_hover":"button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type=\"button\"]:hover,input[type=\"reset\"]:hover,input[type=\"submit\"]:hover","scrolltop_color_hover":".go-top:hover", "footer_widgets_links_hover_color":".sidebar-column .widget a:hover"};
+	var $color_hover_options = { "color_link_hover":".entry-content a:not(.button):hover","button_color_hover":"button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type=\"button\"]:hover,input[type=\"reset\"]:hover,input[type=\"submit\"]:hover","scrolltop_color_hover":".go-top:hover", "footer_widgets_links_hover_color":".sidebar-column .widget a:hover"};
 
 	$.each( $color_hover_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -326,7 +326,7 @@
 	});	
 
 	//Border color
-	var $border_color_options = { "link_separator_color":".sydney-offcanvas-menu .mainnav ul li","button_border_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","footer_credits_divider_color":".site-info,.site-footer","footer_widgets_divider_color":".footer-widgets,.footer-widgets-grid" };
+	var $border_color_options = { "color_forms_borders":"input[type=\"text\"],input[type=\"email\"],input[type=\"url\"],input[type=\"password\"],input[type=\"search\"],input[type=\"number\"],input[type=\"tel\"],input[type=\"range\"],input[type=\"date\"],input[type=\"month\"],input[type=\"week\"],input[type=\"time\"],input[type=\"datetime\"],input[type=\"datetime-local\"],input[type=\"color\"],textarea,select,.woocommerce .select2-container .select2-selection--single,.woocommerce-page .select2-container .select2-selection--single,.woocommerce-account fieldset,.woocommerce-account .woocommerce-form-login, .woocommerce-account .woocommerce-form-register,.woocommerce-cart .woocommerce-cart-form .actions .coupon input[type=\"text\"]","shop_product_card_border_color": ".woocommerce-page ul.products li.product","link_separator_color":".sydney-offcanvas-menu .mainnav ul li","button_border_color":"button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]","footer_credits_divider_color":".site-info,.site-footer","footer_widgets_divider_color":".footer-widgets,.footer-widgets-grid" };
 
 	$.each( $border_color_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -610,6 +610,48 @@
 		value.bind( function( to ) {
 			$( '.woocommerce .product-gallery-summary .product_title' ).css( 'color', to );
 		} );
+	} );
+	
+	//Woocommerce port
+	wp.customize( 'shop_product_element_spacing', function( value ) {
+		value.bind( function( to ) {
+			$( '.woocommerce  ul.products li.product .col-md-7 > *,.woocommerce  ul.products li.product .col-md-8 > *,.woocommerce  ul.products li.product > *' ).css( 'margin-bottom', to + 'px' );
+		} );
+	} );
+	
+	wp.customize( 'shop_sale_tag_radius', function( value ) {
+		value.bind( function( to ) {
+			$( '.wc-block-grid__product-onsale, span.onsale' ).css( 'border-radius', to + 'px' );
+		} );
 	} );	
+
+	wp.customize( 'shop_product_card_radius', function( value ) {
+		value.bind( function( to ) {
+			$( '.woocommerce ul.products li.product' ).css( 'border-radius', to + 'px' );
+		} );
+	} );
+
+	wp.customize( 'shop_product_card_thumb_radius', function( value ) {
+		value.bind( function( to ) {
+			$( '.woocommerce ul.products li.product .loop-image-wrap' ).css( 'border-radius', to + 'px' );
+		} );
+	} );
+
+	wp.customize( 'shop_product_card_border_size', function( value ) {
+		value.bind( function( to ) {
+			$( '.woocommerce ul.products li.product' ).css( 'border-width', to + 'px' );
+		} );
+	} );	
+
+	//Placeholders
+	wp.customize( 'color_forms_placeholder', function( value ) {
+		value.bind( function( to ) {
+			$( 'head' ).find( '#sydney-customizer-styles-color_forms_placeholder' ).remove();
+		
+			var output = 'input::placeholder {color:' + to + ';opacity:1;} input:-ms-input-placeholder {color:' + to + ';} input::-ms-input-placeholder {color:' + to + ';}';
+
+			$( 'head' ).append( '<style id="sydney-customizer-styles-color_forms_placeholder">' + output + '</style>' )			
+		} );
+	} );		
 		
 } )( jQuery );
