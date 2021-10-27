@@ -225,13 +225,13 @@ function sydney_scripts() {
 
 	wp_enqueue_style( 'sydney-google-fonts', esc_url( sydney_google_fonts_url() ), array(), null );
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20211011' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20211026' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
 	if ( !$is_amp ) {
-		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.js', array(), '20211011', true );
+		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.js', array(), '20211026', true );
 		
 		//Enqueue hero slider script only if the slider is in use
 		$slider_home = get_theme_mod('front_header_type','nothing');
@@ -505,6 +505,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Page metabox
+ */
+require get_template_directory() . '/inc/classes/class-sydney-page-metabox.php';
 
 /**
  * Posts archive

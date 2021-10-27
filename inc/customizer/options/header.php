@@ -223,7 +223,7 @@ $wp_customize->add_control(
 			'label' 				=> '',
 			'section'       		=> 'sydney_section_main_header',
 			'controls_general'		=> json_encode( array( '#customize-control-header_layout_desktop','#customize-control-header_divider_1','#customize-control-main_header_settings_title','#customize-control-main_header_menu_position','#customize-control-header_container','#customize-control-enable_sticky_header','#customize-control-sticky_header_type','#customize-control-header_divider_2','#customize-control-main_header_elements_title','#customize-control-header_components_l1','#customize-control-header_components_l3left','#customize-control-header_components_l3right','#customize-control-header_components_l4top','#customize-control-header_components_l4bottom','#customize-control-header_components_l5topleft','#customize-control-header_components_l5topright','#customize-control-header_components_l5bottom','#customize-control-header_divider_3','#customize-control-main_header_cart_account_title','#customize-control-enable_header_cart','#customize-control-enable_header_account','#customize-control-header_divider_4','#customize-control-main_header_button_title','#customize-control-header_button_text','#customize-control-header_button_link','#customize-control-header_button_newtab','#customize-control-header_divider_5','#customize-control-main_header_contact_info_title','#customize-control-header_contact_mail','#customize-control-header_contact_phone', ) ),
-			'controls_design'		=> json_encode( array( '#customize-control-menu_items_hover','#customize-control-main_header_submenu_color','#customize-control-main_header_submenu_background','#customize-control-main_header_bottom_padding','#customize-control-main_header_bottom_background', '#customize-control-main_header_bottom_color','#customize-control-main_header_divider_7','#customize-control-main_header_background','#customize-control-main_header_color','#customize-control-main_header_divider_6','#customize-control-main_header_padding','#customize-control-main_header_divider_size','#customize-control-main_header_divider_color','#customize-control-main_header_divider_width' ) ),
+			'controls_design'		=> json_encode( array( '#customize-control-enable_top_menu_typography','#customize-control-menu_typography_title','#customize-control-main_header_divider_8','#customize-control-sydney_menu_font','#customize-control-menu_items_text_transform','#customize-control-sydney_menu_font_size','#customize-control-menu_items_hover','#customize-control-main_header_submenu_color','#customize-control-main_header_submenu_background','#customize-control-main_header_bottom_padding','#customize-control-main_header_bottom_background', '#customize-control-main_header_bottom_color','#customize-control-main_header_divider_7','#customize-control-main_header_background','#customize-control-main_header_color','#customize-control-main_header_divider_6','#customize-control-main_header_padding','#customize-control-main_header_divider_size','#customize-control-main_header_divider_color','#customize-control-main_header_divider_width' ) ),
 		)
 	)
 );
@@ -944,5 +944,121 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'main_heade
 			'contained' 	=> esc_html__( 'Contained', 'sydney' ),
 			'fullwidth' 	=> esc_html__( 'Full-width', 'sydney' ),
 		),
+	)
+) );
+
+/**
+ * Menu typography
+ */
+$wp_customize->add_setting( 'main_header_divider_8',
+	array(
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'main_header_divider_8',
+		array(
+			'section' 			=> 'sydney_section_main_header',
+		)
+	)
+);
+$wp_customize->add_setting( 'menu_typography_title',
+	array(
+		'default' 			=> '',
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'menu_typography_title',
+		array(
+			'label'				=> esc_html__( 'Top-level menu items', 'sydney' ),
+			'section' 			=> 'sydney_section_main_header',
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'enable_top_menu_typography',
+	array(
+		'default'           => 0,
+		'sanitize_callback' => 'sydney_sanitize_checkbox',
+	)
+);
+$wp_customize->add_control(
+	new Sydney_Toggle_Control(
+		$wp_customize,
+		'enable_top_menu_typography',
+		array(
+			'label'         	=> esc_html__( 'Enable top-level menu items typography options', 'sydney' ),
+			'section'       	=> 'sydney_section_main_header',
+		)
+	)
+);
+
+$wp_customize->add_setting( 'sydney_menu_font',
+	array(
+		'default'           => '{"font":"System default","regularweight":"bold","category":"sans-serif"}',
+		'sanitize_callback' => 'sydney_google_fonts_sanitize',
+		'transport'	 		=> 'postMessage'
+	)
+);
+
+
+$wp_customize->add_control( new Sydney_Typography_Control( $wp_customize, 'sydney_menu_font',
+	array(
+		'section' => 'sydney_section_main_header',
+		'settings' => array (
+			'family' => 'sydney_menu_font',
+		),
+		'input_attrs' => array(
+			'font_count'    => 'all',
+			'orderby'       => 'alpha',
+			'disableRegular' => false,
+		),
+		'active_callback' => 'sydney_callback_menu_typography'
+	)
+) );
+
+$wp_customize->add_setting( 'menu_items_text_transform',
+	array(
+		'default' 			=> 'none',
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage',
+	)
+);
+$wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'menu_items_text_transform',
+	array(
+		'label'   => esc_html__( 'Text transform', 'sydney' ),
+		'section' => 'sydney_section_main_header',
+		'choices' => array(
+			'none' 			=> '-',
+			'capitalize' 	=> 'Aa',
+			'lowercase' 	=> 'aa',
+			'uppercase' 	=> 'AA',
+		),
+		'active_callback' => 'sydney_callback_menu_typography'
+	)
+) );
+
+$wp_customize->add_setting( 'sydney_menu_font_size_desktop', array(
+	'default'   		=> 14,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'sydney_menu_font_size',
+	array(
+		'label' 		=> esc_html__( 'Menu Items Font size', 'sydney' ),
+		'section' 		=> 'sydney_section_main_header',
+		'is_responsive'	=> 0,
+		'settings' 		=> array (
+			'size_desktop' 		=> 'sydney_menu_font_size_desktop',
+		),
+		'input_attrs' => array (
+			'min'	=> 12,
+			'max'	=> 100,
+			'step'  => 1
+		),
+		'active_callback' => 'sydney_callback_menu_typography'
 	)
 ) );

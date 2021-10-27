@@ -613,11 +613,13 @@ function sydney_google_fonts_url() {
 	//Get and decode options
 	$body_font		= get_theme_mod( 'sydney_body_font', $defaults );
 	$headings_font 	= get_theme_mod( 'sydney_headings_font', $defaults );
+	$menu_font 		= get_theme_mod( 'sydney_menu_font', $defaults );
 
 	$body_font 		= json_decode( $body_font, true );
 	$headings_font 	= json_decode( $headings_font, true );
+	$menu_font 		= json_decode( $menu_font, true );
 
-	if ( 'System default' === $body_font['font'] && 'System default' === $headings_font['font'] ) {
+	if ( 'System default' === $body_font['font'] && 'System default' === $headings_font['font'] && 'System default' === $menu_font['font'] ) {
 		return; //return early if defaults are active
 	}
 
@@ -626,6 +628,10 @@ function sydney_google_fonts_url() {
 	if ( 'System default' !== $body_font['font'] ) {
 		$font_families[] = $body_font['font'] . ':' . $body_font['regularweight'];
 	}
+
+	if ( 'System default' !== $menu_font['font'] ) {
+		$font_families[] = $menu_font['font'] . ':' . $menu_font['regularweight'];
+	}		
 
 	if ( 'System default' !== $headings_font['font'] ) {
 

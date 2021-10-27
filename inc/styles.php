@@ -365,7 +365,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
 			$main_header_divider_width 	= get_theme_mod( 'main_header_divider_width', 'fullwidth' );
 			$main_header_divider_size 	= get_theme_mod( 'main_header_divider_size', 0 );
-			$main_header_divider_color 	= get_theme_mod( 'main_header_divider_color' );
+			$main_header_divider_color 	= get_theme_mod( 'main_header_divider_color', 'rgba(255,255,255,0.1)' );
             
 			if ( 'fullwidth' === $main_header_divider_width ) {
                 $custom .= ".main-header, .bottom-header-row { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";}" . "\n";
@@ -468,6 +468,24 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 				$custom .= 'h1,h2,h3,h4,h5,h6,.site-title { font-family:' . esc_attr( $headings_font['font'] ) . ',' . esc_attr( $headings_font['category'] ) . '; font-weight: ' . esc_attr( $headings_font['regularweight'] ) . ';}' . "\n";
 			}
 
+            $enable_top_menu_typography = get_theme_mod( 'enable_top_menu_typography', 0 );
+            if ( $enable_top_menu_typography ) {
+
+                $menu_font		= get_theme_mod( 'sydney_menu_font', $typography_defaults );
+                $menu_font 	    = json_decode( $menu_font, true );
+
+                $menu_text_transform = get_theme_mod( 'menu_items_text_transform' );
+
+                if ( 'System default' !== $menu_font['font'] ) {
+                    $custom .= '#mainnav > div > ul > li > a { font-family:' . esc_attr( $menu_font['font'] ) . ',' . esc_attr( $menu_font['category'] ) . '; font-weight: ' . esc_attr( $menu_font['regularweight'] ) . ';}' . "\n";	
+                }
+
+                $custom .= "#mainnav > div > ul > li > a { text-transform:" . esc_attr( $menu_text_transform ) . ";}" . "\n";	
+       
+                $custom .= $this->get_font_sizes_css( 'sydney_menu_font_size', $defaults = array( 'desktop' => 14, 'tablet' => 14, 'mobile' => 14 ), '#mainnav > div > ul > li > a' );
+
+            }			
+
 			$headings_font_style 		= get_theme_mod( 'headings_font_style' );
 			$headings_line_height 		= get_theme_mod( 'headings_line_height', 1.2 );
 			$headings_letter_spacing 	= get_theme_mod( 'headings_letter_spacing' );
@@ -550,13 +568,13 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			//Cart display coupon form
 			$shop_cart_show_coupon_form = get_theme_mod( 'shop_cart_show_coupon_form', 1 );
 			if( !$shop_cart_show_coupon_form ) {
-				$css .= '.woocommerce-cart .coupon { display: none; }';
+				$custom .= '.woocommerce-cart .coupon { display: none; }';
 			}
 
 			//Cart display coupon form
 			$shop_checkout_show_coupon_form = get_theme_mod( 'shop_checkout_show_coupon_form', 1 );
 			if( !$shop_checkout_show_coupon_form ) {
-				$css .= '.woocommerce-checkout .woocommerce-form-coupon-toggle { display: none; }';
+				$custom .= '.woocommerce-checkout .woocommerce-form-coupon-toggle { display: none; }';
 			} 
 
 			$shop_product_card_style 		= get_theme_mod( 'shop_product_card_style', 'layout1' );

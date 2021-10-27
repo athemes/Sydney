@@ -364,3 +364,13 @@ function sydney_callback_menu_position() {
 		return false;
 	}		
 }
+
+function sydney_callback_menu_typography() {
+    $enable = get_theme_mod( 'enable_top_menu_typography', 0 );
+
+	if ( $enable ) {
+		return true;
+	} else {
+		return false;
+	}		
+}

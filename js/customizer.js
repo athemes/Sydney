@@ -354,7 +354,7 @@
 			} );
 		});
 	});
-	var $fontSizes 	= { "single_product_title_size":".woocommerce div.product .product-gallery-summary .entry-title","single_product_price_size":".woocommerce div.product .product-gallery-summary .price .amount","site_desc_font_size":".site-description","site_title_font_size":".site-title","body_font_size":"body, .posts-layout .entry-post","h1_font_size":"h1:not(.site-title)","h2_font_size":"h2","h3_font_size":"h3","h4_font_size":"h4","h5_font_size":"h5","h6_font_size":"h6","single_product_title_size":".product-gallery-summary .entry-title","single_product_price_size":".product-gallery-summary .price","loop_post_text_size":".posts-layout .entry-post","loop_post_meta_size":".posts-layout .entry-meta","loop_post_title_size":".posts-layout .entry-title","single_post_title_size": ".single .entry-header .entry-title","single_post_meta_size": ".single .entry-meta","footer_widgets_title_size":".sidebar-column .widget .widget-title", };
+	var $fontSizes 	= { "sydney_menu_font_size":"#mainnav > div > ul > li > a","single_product_title_size":".woocommerce div.product .product-gallery-summary .entry-title","single_product_price_size":".woocommerce div.product .product-gallery-summary .price .amount","site_desc_font_size":".site-description","site_title_font_size":".site-title","body_font_size":"body, .posts-layout .entry-post","h1_font_size":"h1:not(.site-title)","h2_font_size":"h2","h3_font_size":"h3","h4_font_size":"h4","h5_font_size":"h5","h6_font_size":"h6","single_product_title_size":".product-gallery-summary .entry-title","single_product_price_size":".product-gallery-summary .price","loop_post_text_size":".posts-layout .entry-post","loop_post_meta_size":".posts-layout .entry-meta","loop_post_title_size":".posts-layout .entry-title","single_post_title_size": ".single .entry-header .entry-title","single_post_meta_size": ".single .entry-meta","footer_widgets_title_size":".sidebar-column .widget .widget-title", };
 	$.each( $fontSizes, function( option, selector ) {
 		$.each( $devices, function( device, mediaSize ) {
 			wp.customize( option + '_' + device, function( value ) {
@@ -540,6 +540,23 @@
 		} );
 	} );	
 
+	wp.customize( 'sydney_menu_font', function( value ) {
+		value.bind( function( to ) {
+
+			$( 'head' ).find( '#sydney-preview-google-fonts-menu-css' ).remove();
+			$( 'head' ).find( '#sydney-preview-menu-weight-css' ).remove();
+
+			$( 'head' ).append( '<link id="sydney-preview-google-fonts-menu-css" href="" rel="stylesheet">' );
+
+			$( '#sydney-preview-google-fonts-menu-css' ).attr( 'href', 'https://fonts.googleapis.com/css?family=' + jQuery.parseJSON( to )['font'].replace(/ /g, '+') + ':' + jQuery.parseJSON( to )['regularweight'] + '&display=swap' );
+
+			$( '#mainnav > div > ul > li > a' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
+
+			$( 'head' ).append('<style id="sydney-preview-menu-weight-css" type="text/css">#mainnav > div > ul > li > a {font-weight:' + jQuery.parseJSON( to )['regularweight'] + ';}</style>');
+
+		} );
+	} );		
+
 	wp.customize( 'headings_font_style', function( value ) {
 		value.bind( function( to ) {
 			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'font-style', to );
@@ -561,6 +578,12 @@
 	wp.customize( 'headings_text_transform', function( value ) {
 		value.bind( function( to ) {
 			$( 'h1,h2,h3,h4,h5,h6,.site-title' ).css( 'text-transform', to );
+		} );
+	} );	
+
+	wp.customize( 'menu_items_text_transform', function( value ) {
+		value.bind( function( to ) {
+			$( '#mainnav > div > ul > li > a' ).css( 'text-transform', to );
 		} );
 	} );	
 
