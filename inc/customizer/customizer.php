@@ -99,8 +99,11 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/options/blog.php';
     require get_template_directory() . '/inc/customizer/options/blog-single.php';
     require get_template_directory() . '/inc/customizer/options/colors.php';
-    require get_template_directory() . '/inc/customizer/options/woocommerce.php';
-    require get_template_directory() . '/inc/customizer/options/woocommerce-single.php';
+    if ( class_exists( 'Woocommerce' ) ) {
+        require get_template_directory() . '/inc/customizer/options/woocommerce.php';
+        require get_template_directory() . '/inc/customizer/options/woocommerce-single.php';
+    }
+
 
     //___Header area___//
     $wp_customize->add_panel( 'sydney_panel_hero', array(

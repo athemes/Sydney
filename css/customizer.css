@@ -978,3 +978,6 @@ span.delete:hover {
 #customize-control-button_top_bottom_padding {
   margin-top: 20px;
 }
+.wp-picker-container .wp-color-result.button:focus-visible {
+  outline: 2px solid #000;
+}

@@ -185,7 +185,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
         
             //Menu items hover
             $menu_items_hover = get_theme_mod( 'menu_items_hover', '#d65050' );
-            $custom .= "#mainnav ul li a:hover { color:" . esc_attr($menu_items_hover) . "}"."\n";	
+            $custom .= "#mainnav ul li a:hover, .main-header #mainnav .menu > li > a:hover { color:" . esc_attr($menu_items_hover) . "}"."\n";
 
             //Rows overlay
             $rows_overlay = get_theme_mod( 'rows_overlay', '#000000' );

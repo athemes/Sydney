@@ -49,7 +49,7 @@ class Sydney_Radio_Buttons extends WP_Customize_Control {
 
 				<div class="radio-buttons">
 					<?php foreach ( $this->choices as $key => $value ) { ?>
-						<label class="radio-button-label">
+						<label class="radio-button-label" tabindex="0">
 							<input type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php $this->link(); ?> <?php checked( esc_attr( $key ), $this->value() ); ?>/>
 							<span><?php echo wp_kses( $value, $allowed_tags ); ?></span>
 						</label>

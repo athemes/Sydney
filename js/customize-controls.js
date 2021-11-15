@@ -815,3 +815,39 @@ jQuery(document).ready(function ($) {
     Sydney_Accordion.init();
   });
 });
+
+
+/**
+ * Controls a11y
+ */
+
+ jQuery(document).ready(function ($) {
+  "use strict";
+
+  $('.customize-control-sydney-toggle-control').each(function () {
+    
+    $(this).find('label').on('keydown', function (event) {
+      var enterPressed = (event.key === 'Enter' || event.keyCode === 13);
+
+      if (!enterPressed) { 
+        return; 
+      }
+
+      $( this ).click();
+    });
+  });
+
+  $('.customize-control-sydney-radio-buttons').each(function () {
+    
+    $(this).find('label').on('keydown', function (event) {
+      var enterPressed = (event.key === 'Enter' || event.keyCode === 13);
+
+      if (!enterPressed) { 
+        return; 
+      }
+
+      $( this ).click();
+    });
+  });
+
+});

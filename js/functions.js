@@ -27,6 +27,23 @@ var sydney = sydney || {};
 		if ( ! siteNavigation ) {
 			return;
 		}
+
+		//Toggle submenus
+		var submenuToggles = siteNavigation.querySelectorAll( '.dropdown-symbol' );
+
+		for ( var submenuToggle of submenuToggles ) {
+			submenuToggle.addEventListener('keydown', function(e) {
+				var isTabPressed = (e.key === 'Enter' || e.keyCode === 13);
+
+				if (!isTabPressed) { 
+					return; 
+				}
+				e.preventDefault();
+				var parent = this.parentNode;
+				console.log(parent);
+				parent.getElementsByClassName( 'sub-menu' )[0].classList.toggle( 'toggled' );
+			});
+		}		
 	
 		const button 		= document.getElementsByClassName( 'menu-toggle' )[ 0 ];
 		const closeButton 	= document.getElementsByClassName( 'mobile-menu-close' )[ 0 ];
@@ -159,7 +176,7 @@ var sydney = sydney || {};
 	
 			if ( event.type === 'touchstart' ) {
 				const menuItem = this.parentNode;
-				event.preventDefault();
+
 				for ( const link of menuItem.parentNode.children ) {
 					if ( menuItem !== link ) {
 						link.classList.remove( 'focus' );

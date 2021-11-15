@@ -19,7 +19,7 @@ class Sydney_Toggle_Control extends WP_Customize_Control {
 		<div class="toggle-switch-control">
 			<div class="toggle-switch">
 				<input type="checkbox" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" class="toggle-switch-checkbox" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?>>
-				<label class="toggle-switch-label" for="<?php echo esc_attr( $this->id ); ?>">
+				<label class="toggle-switch-label" for="<?php echo esc_attr( $this->id ); ?>" tabindex="0">
 					<span class="toggle-switch-inner"></span>
 					<span class="toggle-switch-switch"></span>
 				</label>
