@@ -1264,6 +1264,16 @@ Header
 	 .main-header.header_layout_3 .site-header-inner, .site-header.header_layout_4 .site-header-inner, .main-header.header_layout_5 .site-header-inner {
 		 padding: 0;
 	}
+	.transparent-header .sticky-header.sticky-scrolltop {
+		position: absolute;
+		z-index: 19;
+		width: 100%;
+		top: 0;
+		transition: all 0.5s;
+	}
+	.admin-bar.transparent-header .sticky-header.sticky-scrolltop {
+		top: 32px;
+	}
 	 .sticky-header.sticky-scrolltop {
 		 position: sticky;
 		 top: -200px;
