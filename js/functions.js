@@ -314,8 +314,8 @@ sydney.stickyMenu = {
  */
  sydney.stickyHeader = {
 	init: function() {
-		const sticky 	= document.getElementsByClassName( 'sticky-header' )[0],
-		body            = document.getElementsByTagName( 'body' )[0];
+		const sticky 	= document.getElementsByClassName( 'sticky-header' )[0];
+		const body      = document.getElementsByTagName( 'body' )[0];
 
 		if ( 'undefined' === typeof sticky ) {
 			return;
@@ -336,8 +336,10 @@ sydney.stickyMenu = {
 			   console.log( elDist, lastScrollTop );
 			    if ( scroll < lastScrollTop ) {
 					sticky.classList.add( 'is-sticky' );
+					body.classList.add( 'sticky-active' );
 				} else {
 					sticky.classList.remove( 'is-sticky' );
+					body.classList.remove( 'sticky-active' );
 				}
 				if ( lastScrollTop < elDist ) {
 					sticky.classList.remove( 'is-sticky' );
@@ -358,6 +360,7 @@ sydney.stickyMenu = {
 
 	sticky: function() {
 		const sticky 	= document.getElementsByClassName( 'sticky-header' )[0];
+		const body      = document.getElementsByTagName( 'body' )[0];
 
 		if ( sticky.classList.contains( 'header_layout_1' ) || sticky.classList.contains( 'header_layout_2' ) ) {
 			var vertDist = window.pageYOffset;
@@ -376,8 +379,10 @@ sydney.stickyMenu = {
 
 		if ( vertDist > elDist ) {
 			sticky.classList.add( 'sticky-active' );
+			body.classList.add( 'sticky-active' );
 		} else {
 			sticky.classList.remove( 'sticky-active' );
+			body.classList.remove( 'sticky-active' );
 		}
 		
 	}
