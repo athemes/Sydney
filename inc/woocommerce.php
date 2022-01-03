@@ -164,7 +164,7 @@ function sydney_woo_actions() {
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
 
 		//Add elements from sortable option
-		add_action( 'woocommerce_after_shop_loop_item', 'sydney_loop_product_structure', 9 );		
+		add_action( 'woocommerce_after_shop_loop_item', 'sydney_loop_product_structure', 9 );
 
 	}
 
@@ -745,7 +745,14 @@ function sydney_loop_product_structure() {
 	$elements 	= get_theme_mod( 'shop_card_elements', array( 'woocommerce_template_loop_product_title', 'woocommerce_template_loop_rating', 'woocommerce_template_loop_price' ) );
 
 	foreach ( $elements as $element ) {
-		call_user_func( $element );
+
+		if ( 'woocommerce_template_loop_product_title' == $element ) { //wrap product title in link
+			echo '<a href="' . esc_url( get_the_permalink() ) . '">';
+				call_user_func( $element );
+			echo '</a>';
+		} else {
+			call_user_func( $element );
+		}
 	}
 }
 

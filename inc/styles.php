@@ -682,7 +682,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		}		
 
 		//Font sizes
-		public static function get_font_sizes_css( $setting, $defaults = array(), $selector ) {
+		public static function get_font_sizes_css( $setting, $defaults, $selector ) {
 			$devices 	= array( 
 				'desktop' 	=> '@media (min-width: 992px)',
 				'tablet'	=> '@media (min-width: 576px) and (max-width:  991px)',
@@ -700,7 +700,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		}
 		
 		//Max width
-		public static function get_max_width_css( $setting, $defaults = array(), $selector ) {
+		public static function get_max_width_css( $setting, $defaults, $selector ) {
 			$devices 	= array( 
 				'desktop' 	=> '@media (min-width: 992px)',
 				'tablet'	=> '@media (min-width: 576px) and (max-width:  991px)',
@@ -718,7 +718,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		}			
 
 		//Max height
-		public static function get_max_height_css( $setting, $defaults = array(), $selector ) {
+		public static function get_max_height_css( $setting, $defaults, $selector ) {
 			$devices 	= array( 
 				'desktop' 	=> '@media (min-width: 992px)',
 				'tablet'	=> '@media (min-width: 576px) and (max-width:  991px)',
@@ -736,7 +736,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		}	
 
 		//Top bottom padding
-		public static function get_top_bottom_padding_css( $setting, $defaults = array(), $selector ) {
+		public static function get_top_bottom_padding_css( $setting, $defaults, $selector ) {
 			$devices 	= array( 
 				'desktop' 	=> '@media (min-width: 992px)',
 				'tablet'	=> '@media (min-width: 576px) and (max-width:  991px)',
@@ -754,7 +754,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		}	
 
 		//Left right padding
-		public static function get_left_right_padding_css( $setting, $defaults = array(), $selector ) {
+		public static function get_left_right_padding_css( $setting, $defaults, $selector ) {
 			$devices 	= array( 
 				'desktop' 	=> '@media (min-width: 992px)',
 				'tablet'	=> '@media (min-width: 576px) and (max-width:  991px)',
