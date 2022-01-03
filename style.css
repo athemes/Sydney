@@ -545,7 +545,10 @@ Repeatable Patterns
 	.llms-student-dashboard .llms-button-secondary,
 	input[type="button"],
 	input[type="reset"],
-	input[type="submit"] {
+	input[type="submit"],
+	div.wpforms-container-full .wpforms-form input[type=submit],
+	div.wpforms-container-full .wpforms-form button[type=submit],
+	div.wpforms-container-full .wpforms-form .wpforms-page-button {
 		position: relative;
 		display: inline-block;
 		font-size: 13px;
@@ -557,12 +560,16 @@ Repeatable Patterns
 		border-radius: 3px;
 		transition: all 0.3s;
 	}
+	
 	button:hover,
 	.llms-button-action:hover,
 	.llms-student-dashboard .llms-button-secondary:hover,
 	input[type="button"]:hover,
 	input[type="reset"]:hover,
-	input[type="submit"]:hover {
+	input[type="submit"]:hover,
+	div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+	div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+	div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
 		background-color: transparent;
 	}
 	.select2-container--default .select2-selection--single,
@@ -3763,14 +3770,20 @@ Panels
 	button,
 	input[type="button"],
 	input[type="reset"],
-	input[type="submit"] {
+	input[type="submit"],
+	div.wpforms-container-full .wpforms-form input[type=submit],
+	div.wpforms-container-full .wpforms-form button[type=submit],
+	div.wpforms-container-full .wpforms-form .wpforms-page-button {
 		background-color: #d65050;
 		border: 1px solid #d65050;
 	}
 	button:hover,
 	input[type="button"]:hover,
 	input[type="reset"]:hover,
-	input[type="submit"]:hover {
+	input[type="submit"]:hover,
+	div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+	div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+	div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
 		background-color: transparent;
 		color: #d65050;
 	}
