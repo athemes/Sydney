@@ -531,11 +531,14 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		 * Mobile menu trigger
 		 */
 		public function trigger() { ?>
-			<?php $icon = get_theme_mod( 'mobile_menu_icon', 'mobile-icon2' ); ?>
-			<a href="#" class="menu-toggle">
-				<i class="sydney-svg-icon"><?php sydney_get_svg_icon( $icon, true ); ?></i>
-			</a>
-			<?php
+			<?php if ( function_exists('max_mega_menu_is_enabled') && max_mega_menu_is_enabled( 'primary' ) ) : ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
+			<?php else: ?>	
+				<?php $icon = get_theme_mod( 'mobile_menu_icon', 'mobile-icon2' ); ?>
+				<a href="#" class="menu-toggle">
+					<i class="sydney-svg-icon"><?php sydney_get_svg_icon( $icon, true ); ?></i>
+				</a>
+			<?php endif;
 		}
 
 		/**

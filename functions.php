@@ -575,6 +575,13 @@ if ( class_exists( 'LearnPress' ) ) {
 }
 
 /**
+ * Max Mega Menu
+ */
+if ( function_exists('max_mega_menu_is_enabled') ) {
+	require get_template_directory() . '/inc/integrations/class-sydney-maxmegamenu.php';
+}
+
+/**
  * AMP
  */
 require get_template_directory() . '/inc/integrations/class-sydney-amp.php';
