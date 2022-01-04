@@ -469,7 +469,12 @@ sydney.mobileMenu = {
 	menu: function() {
 
         if ( window.matchMedia( "(max-width: 1024px)" ).matches ) {
-            const mobileMenu = document.getElementsByClassName( 'mainnav' )[0];          
+            const mobileMenu = document.getElementsByClassName( 'mainnav' )[0];   
+			
+			if ( typeof( mobileMenu ) == 'undefined' || mobileMenu == null ) {
+				return;
+			}
+
             const menuToggle = document.getElementsByClassName( 'btn-menu' )[0];
 
             mobileMenu.setAttribute( 'id', 'mainnav-mobi' );
