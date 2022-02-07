@@ -469,7 +469,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'single
 $wp_customize->add_setting(
 	'single_post_title_color',
 	array(
-		'default'           => '#212121',
+		'default'           => '#00102E',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)

@@ -1782,15 +1782,36 @@ span.author.vcard {
 	padding: 0;
 	margin: 0;
 }
+.hentry .wp-block-quote.is-style-large,
 .hentry blockquote {
-	background-color: #333;
-	color: #fff;
-	font-size: 16px;
-	font-style: italic;
-	line-height: 23px;
-	margin-bottom: 30px;
-	padding: 30px 35px;
+	background-color: var(--sydney-light-background);
+	font-size: 22px;
+	margin: 30px 0;
+	padding: 30px 30px 30px 40px;
 	position: relative;
+	font-style: normal;
+	border-left: 3px solid #000;
+}
+.hentry .wp-block-quote.is-style-large p {
+	font-style: normal;
+	font-size: 32px;
+}
+.hentry blockquote cite {
+	color: var(--sydney-grey-color);
+	text-transform: uppercase;
+	font-size: 12px;
+	font-style: normal;
+	letter-spacing: 1px;
+}
+.hentry .wp-block-quote.is-style-large cite {
+	font-size: 12px;
+}
+.hentry .wp-block-pullquote blockquote {
+	padding: 30px;
+	border: 3px solid #000;
+}
+.hentry .wp-block-pullquote p {
+	font-size: 32px;
 }
 .fullwidth {
 	width: 100%;
@@ -3286,9 +3307,7 @@ input[type="color"]:focus {
 .hentry .meta-post a:hover {
 	color: #d65050;
 }
-.hentry blockquote {
-	border-left: 3px solid #d65050;
-}
+
 .blog-pagination ul li {
 	border: 1px solid #d65050;
 }

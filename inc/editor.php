@@ -17,7 +17,7 @@ function sydney_editor_styles() {
 	$typography_defaults = json_encode(
 		array(
 			'font' 			=> 'System default',
-			'regularweight' => 'regular',
+			'regularweight' => '400',
 			'category' 		=> 'sans-serif'
 		)
 	);
@@ -28,17 +28,26 @@ function sydney_editor_styles() {
 	$body_font 		= json_decode( $body_font, true );
 	$headings_font 	= json_decode( $headings_font, true );
 
-	$custom .= ".editor-block-list__layout, .editor-block-list__layout .editor-block-list__block { font-family:" . esc_attr( $body_font['font'] ) . ',' . esc_attr( $body_font['category'] ) . '; font-weight: ' . esc_attr( $body_font['regularweight'] ) . ';}' . "\n";
-	$custom .= ".editor-post-title__block .editor-post-title__input, .editor-block-list__layout .editor-post-title__input, .editor-block-list__layout h1, .editor-block-list__layout h2, .editor-block-list__layout h3, .editor-block-list__layout h4, .editor-block-list__layout h5, .editor-block-list__layout h6 { font-family:" . esc_attr( $headings_font['font'] ) . ',' . esc_attr( $headings_font['category'] ) . '; font-weight: ' . esc_attr( $headings_font['regularweight'] ) . ';}' . "\n";
+	$custom .= ".editor-styles-wrapper, .editor-styles-wrapper .editor-block-list__block { font-family:" . esc_attr( $body_font['font'] ) . ',' . esc_attr( $body_font['category'] ) . '; font-weight: ' . esc_attr( $body_font['regularweight'] ) . ';}' . "\n";
+	$custom .= ".editor-post-title__block .editor-post-title__input, .editor-styles-wrapper .editor-post-title__input, .editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6 { font-family:" . esc_attr( $headings_font['font'] ) . ',' . esc_attr( $headings_font['category'] ) . '; font-weight: ' . esc_attr( $headings_font['regularweight'] ) . ';}' . "\n";
 	
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h1_font_size', $defaults = array( 'desktop' => 52, 'tablet' => 42, 'mobile' => 32 ), '.editor-block-list__layout h1' );
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h2_font_size', $defaults = array( 'desktop' => 42, 'tablet' => 32, 'mobile' => 24 ), '.editor-block-list__layout h2' );
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h3_font_size', $defaults = array( 'desktop' => 32, 'tablet' => 24, 'mobile' => 20 ), '.editor-block-list__layout h3' );
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h4_font_size', $defaults = array( 'desktop' => 24, 'tablet' => 18, 'mobile' => 16 ), '.editor-block-list__layout h4' );
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h5_font_size', $defaults = array( 'desktop' => 20, 'tablet' => 16, 'mobile' => 16 ), '.editor-block-list__layout h5' );
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h6_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.editor-block-list__layout h6' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h1_font_size', $defaults = array( 'desktop' => 52, 'tablet' => 42, 'mobile' => 32 ), '.editor-styles-wrapper h1' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h2_font_size', $defaults = array( 'desktop' => 42, 'tablet' => 32, 'mobile' => 24 ), '.editor-styles-wrapper h2' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h3_font_size', $defaults = array( 'desktop' => 32, 'tablet' => 24, 'mobile' => 20 ), '.editor-styles-wrapper h3' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h4_font_size', $defaults = array( 'desktop' => 24, 'tablet' => 18, 'mobile' => 16 ), '.editor-styles-wrapper h4' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h5_font_size', $defaults = array( 'desktop' => 20, 'tablet' => 16, 'mobile' => 16 ), '.editor-styles-wrapper h5' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h6_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.editor-styles-wrapper h6' );
 
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'body_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.editor-block-list__block, .editor-block-list__block p' );            
+
+	$custom .= Sydney_Custom_CSS::get_color_css( 'color_heading_1', '#00102E', 'div.editor-styles-wrapper h1' );
+	$custom .= Sydney_Custom_CSS::get_color_css( 'color_heading_2', '#00102E', 'div.editor-styles-wrapper h2' );
+	$custom .= Sydney_Custom_CSS::get_color_css( 'color_heading_3', '#00102E', 'div.editor-styles-wrapper h3' );
+	$custom .= Sydney_Custom_CSS::get_color_css( 'color_heading_4', '#00102E', 'div.editor-styles-wrapper h4' );
+	$custom .= Sydney_Custom_CSS::get_color_css( 'color_heading_5', '#00102E', 'div.editor-styles-wrapper h5' );
+	$custom .= Sydney_Custom_CSS::get_color_css( 'color_heading_6', '#00102E', 'div.editor-styles-wrapper h6' );
+	$custom .= Sydney_Custom_CSS::get_color_css( 'single_post_title_color', '#00102E', '.editor-post-title__block .editor-post-title__input, .editor-styles-wrapper .editor-post-title__input' );
+
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'body_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.editor-styles-wrapper, .editor-styles-wrapper p' );            
 	
 	$body_font_style 		= get_theme_mod( 'body_font_style' );
 	$body_line_height 		= get_theme_mod( 'body_line_height', 1.68 );
@@ -46,29 +55,16 @@ function sydney_editor_styles() {
 	$body_text_transform 	= get_theme_mod( 'body_text_transform' );
 	$body_text_decoration 	= get_theme_mod( 'body_text_decoration' );
 
-	$custom .= ".editor-block-list__block p { text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
+	$custom .= ".editor-styles-wrapper p { text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
 
 	//Single post title
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 32, 'mobile' => 32 ), '.editor-post-title__block .editor-post-title__input, .editor-block-list__layout .editor-post-title__input' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 32, 'mobile' => 32 ), '.editor-post-title__block .editor-post-title__input, .editor-styles-wrapper .editor-post-title__input' );
 
 	//__COLORS
-	//Primary color
-	$primary_color = get_theme_mod( 'primary_color', '#d65050' );
-	$custom .= ".editor-block-list__layout blockquote.wp-block-quote, .editor-block-list__layout .wp-block-quote:not(.is-large):not(.is-style-large) { border-color:" . esc_attr($primary_color) . "}"."\n";
 
 	//Body
 	$body_text = get_theme_mod( 'body_text_color', '#47425d' );
-	$custom .= ".editor-block-list__layout, .editor-block-list__layout .editor-block-list__block { color:" . esc_attr($body_text) . "}"."\n";
-
-	//Small screens font sizes
-	$custom .= "@media only screen and (max-width: 780px) { 
-		h1 { font-size: 32px;}
-		h2 { font-size: 28px;}
-		h3 { font-size: 22px;}
-		h4 { font-size: 18px;}
-		h5 { font-size: 16px;}
-		h6 { font-size: 14px;}
-	}" . "\n";
+	$custom .= ".editor-styles-wrapper, .editor-styles-wrapper .editor-block-list__block { color:" . esc_attr($body_text) . "}"."\n";
 
 	//Buttons
 	$custom .= Sydney_Custom_CSS::get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
