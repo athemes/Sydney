@@ -682,3 +682,24 @@ function sydney_preconnect_google_fonts() {
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
 }
 add_action( 'wp_head', 'sydney_preconnect_google_fonts' );
+
+/**
+ * Google fonts preconnect
+ */
+function sydney_404_page_content() {
+	?>
+	<section class="error-404 not-found">
+		<header class="page-header">
+			<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'sydney' ); ?></h1>
+		</header><!-- .page-header -->
+
+		<div class="page-content">
+			<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sydney' ); ?></p>
+
+			<?php get_search_form(); ?>
+
+		</div><!-- .page-content -->
+	</section><!-- .error-404 -->
+	<?php
+}
+add_action( 'sydney_404_content', 'sydney_404_page_content' );
