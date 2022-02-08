@@ -7,17 +7,18 @@
 }
 
 /* Main column width */
-
-
 .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > *,
 .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > * {
-	max-width: 805px;
+	max-width: 790px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-body.block-editor-page .edit-post-visual-editor .editor-block-list__block[data-align=full] {
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *[data-align=full] {
 	max-width: none;
+}
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *[data-align=wide] {
+	max-width: calc(790px + 10vw);
 }
 
 /* Blockquotes */
