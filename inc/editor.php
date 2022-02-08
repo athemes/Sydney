@@ -55,7 +55,7 @@ function sydney_editor_styles() {
 	$body_text_transform 	= get_theme_mod( 'body_text_transform' );
 	$body_text_decoration 	= get_theme_mod( 'body_text_decoration' );
 
-	$custom .= ".editor-styles-wrapper p { text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
+	$custom .= ".editor-styles-wrapper > *:not(.wp-block-heading) { text-transform:" . esc_attr( $body_text_transform ) . ";font-style:" . esc_attr( $body_font_style ) . ";line-height:" . esc_attr( $body_line_height ) . ";letter-spacing:" . esc_attr( $body_letter_spacing ) . "px;}" . "\n";	
 
 	//Single post title
 	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 32, 'mobile' => 32 ), '.editor-post-title__block .editor-post-title__input, .editor-styles-wrapper .editor-post-title__input' );

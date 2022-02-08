@@ -1729,7 +1729,7 @@ Blog
 }
 
 .entry-content > * {
-	margin-bottom: 1.4em;
+	margin-bottom: 1.5em;
 }
 .entry-content > .elementor,
 .entry-content > .panel-layout {
@@ -1747,9 +1747,7 @@ body:not(.elementor-page):not(.panel-layout) .entry-content h6 {
 	margin-top: 1.2em;
 	margin-bottom: 0.5em;
 }
-body:not(.elementor-page):not(.panel-layout) .entry-content p {
-	margin-bottom: 1.6em;
-}
+
 .content-area .hentry {
 	position: relative;
 	padding-bottom: 20px;
