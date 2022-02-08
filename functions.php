@@ -82,6 +82,9 @@ function sydney_setup() {
 	//Gutenberg align-wide support
 	add_theme_support( 'align-wide' );
 
+	//Enable template editing. Can't use theme.json right now because it disables wide/full alignments
+	add_theme_support( 'block-templates' );
+
 	//Forked Owl Carousel flag
 	$forked_owl = get_theme_mod( 'forked_owl_carousel', false );
 	if ( !$forked_owl ) {
