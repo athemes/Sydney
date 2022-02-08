@@ -4,6 +4,7 @@
 	--sydney-grey-color: #737C8C;
 	--sydney-text-color: #233452;
 	--sydney-light-background: #F4F5F7;
+	--sydney-button-background: #d65050;
 }
 
 /* General */
@@ -93,7 +94,27 @@
 	margin-bottom: 45px;
 }
 
-.wp-block-button__link {
+/* Buttons */
+.editor-styles-wrapper .wp-block-button {
+	margin-bottom: 0;
+}
+.editor-styles-wrapper .wp-block-button__link {
 	border-radius: 3px;
 	transition: all 0.3s ease-in-out;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+.editor-styles-wrapper .wp-block-button:not(.is-style-outline) .wp-block-button__link {
+	background-color: var(--sydney-button-background);
+}
+.editor-styles-wrapper .wp-block-button:not(.is-style-outline) .wp-block-button__link:hover {
+	opacity: 0.85;
+}
+.editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color) {
+	color: var(--sydney-button-background);
+}
+.editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color):hover {
+	background-color: var(--sydney-button-background);
+	border-color: var(--sydney-button-background);
+	color: #fff;
 }

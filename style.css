@@ -23,6 +23,7 @@ Sydney is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic,
 	--sydney-grey-color: #737C8C;
 	--sydney-text-color: #233452;
 	--sydney-light-background: #F4F5F7;
+	--sydney-button-background: #d65050;
 }
 
 .valign {
@@ -4466,6 +4467,22 @@ SVGs
 /**
 ** Gutenberg
 */
+.wp-block-button__link {
+	font-weight: 600;
+	background-color: var(--sydney-button-background);
+}
+.wp-block-button__link:hover {
+	opacity: 0.85;
+}
+.wp-block-button.is-style-outline a:not(.has-text-color) {
+	color: var(--sydney-button-background);
+}
+.wp-block-button.is-style-outline a:not(.has-text-color):hover {
+	background-color: var(--sydney-button-background);
+	border-color: var(--sydney-button-background);
+	color: #fff;
+}
+
 .post-template-post_nosidebar .content-area {
 	max-width: 805px;
 	margin-left: auto;

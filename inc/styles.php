@@ -662,6 +662,15 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
 			return $selector . '{ color:' . esc_attr( $mod ) . ';}' . "\n";
 		}	
+
+		/**
+		 * Get border color CSS
+		 */
+		public static function get_border_color_css( $setting, $default, $selector ) {
+			$mod = get_theme_mod( $setting, $default );
+
+			return $selector . '{ border-color:' . esc_attr( $mod ) . ';}' . "\n";
+		}			
 		
 		/**
 		 * Get fill CSS
