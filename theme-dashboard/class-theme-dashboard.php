@@ -100,7 +100,6 @@ class Sydney_Theme_Dashboard {
 
 		add_action( 'switch_theme', array( $this, 'reset_notices' ) );
 		add_action( 'after_switch_theme', array( $this, 'reset_notices' ) );
-		
 	}
 
 	/**
@@ -116,7 +115,6 @@ class Sydney_Theme_Dashboard {
 	 * @param string $page Current page.
 	 */
 	public function admin_enqueue_scripts( $page ) {
-		
 		wp_enqueue_script( 'sydney', get_template_directory_uri() . '/theme-dashboard/scripts.js', array( 'jquery' ), filemtime( get_template_directory() . '/theme-dashboard/scripts.js' ), true );
 
 		wp_localize_script( 'sydney', 'thd_localize', array(
@@ -322,6 +320,13 @@ class Sydney_Theme_Dashboard {
 				}
 				?>
 				<div class="thd-theme-feature <?php echo esc_attr( $feature_status ); ?>">
+
+					<?php if ( isset( $feature['text'] ) && $feature['text'] ) : ?>
+						<div class="thd-feature-help"></div>
+						<div class="thd-feature-help-text"><?php echo $feature['text']; ?></div>
+					<?php endif; ?>
+
+
 					<div class="thd-theme-feature-row">
 						<?php if ( isset( $feature['name'] ) && $feature['name'] ) { ?>
 							<div class="thd-theme-feature-name">
@@ -348,9 +353,31 @@ class Sydney_Theme_Dashboard {
 							</div>
 						<?php } ?>
 					</div>
-					<div class="thd-theme-feature-row">
+					<div class="thd-theme-feature-row thd-action-row">
+					<?php
+						if ( isset( $feature['activate_uri'] ) && $feature['activate_uri'] ) {
+
+							$activate_uri = $feature['activate_uri'];
+
+							if ( isset( $feature['type'] ) && 'pro' === $feature['type'] ) {
+								$activate_uri = $this->pro_status ? '?page=theme-dashboard' . $activate_uri : 'javascript:void(0);';
+							}
+							?>
+							<?php if ( !Sydney_Modules::is_module_active( $feature['slug'] ) ) : ?>
+								<a href="<?php echo esc_attr( $activate_uri ); ?>=1" class="thd-theme-feature-customize">
+									<?php esc_html_e( 'Activate', 'sydney' ); ?>
+								</a>
+							<?php else : ?>
+								<a href="<?php echo esc_attr( $activate_uri ); ?>=0" class="thd-theme-feature-customize">
+									<?php esc_html_e( 'Deactivate', 'sydney' ); ?>
+								</a>
+								<?php if ( $feature['link'] ) : ?>
+									<a class="thd-theme-feature-customize thd-theme-feature-proceed" href="<?php echo esc_url( $feature['link'] ); ?>"><?php echo esc_html( $feature['link_label'] ); ?></a>
+								<?php endif; ?>								
+							<?php endif; ?>
+
 						<?php
-						if ( isset( $feature['customize_uri'] ) && $feature['customize_uri'] ) {
+						} elseif ( isset( $feature['customize_uri'] ) && $feature['customize_uri'] ) {
 
 							$customize_uri = $feature['customize_uri'];
 
@@ -384,15 +411,15 @@ class Sydney_Theme_Dashboard {
 					</div>
 					<div class="thd-performance-item-content">
 						<div class="thd-performance-item-name">
-							<?php esc_html_e( 'Best WordPress Speed Optimization Plugins', 'sydney' ); ?>
+							<?php esc_html_e( 'Best WordPress Speed Optimization Plugins', 'theme-dashboard' ); ?>
 						</div>
 
 						<div class="thd-performance-item-desc">
-							<?php esc_html_e( 'We run through the top 10 WordPress performance plugins to keep your site running fast. Goes beyond just caching plugins (though those are on there too!). A must-read for all WordPress site owners.', 'sydney' ); ?>
+							<?php esc_html_e( 'We run through the top 10 WordPress performance plugins to keep your site running fast. Goes beyond just caching plugins (though those are on there too!). A must-read for all WordPress site owners.', 'theme-dashboard' ); ?>
 						</div>
 
 						<a class="thd-performance-item-read-more" href="https://athemes.com/collections/best-wordpress-speed-optimization-plugins/" target="_blank">
-							<?php esc_html_e( 'Read more', 'sydney' ); ?>
+							<?php esc_html_e( 'Read more', 'theme-dashboard' ); ?>
 						</a>
 					</div>
 				</div>
@@ -404,15 +431,15 @@ class Sydney_Theme_Dashboard {
 					</div>
 					<div class="thd-performance-item-content">
 						<div class="thd-performance-item-name">
-							<?php esc_html_e( 'WP Rocket Review', 'sydney' ); ?>
+							<?php esc_html_e( 'WP Rocket Review', 'theme-dashboard' ); ?>
 						</div>
 
 						<div class="thd-performance-item-desc">
-							<?php esc_html_e( 'Every site that is serious about speed (and should be pretty much all sites these days) needs a caching plugin and WP Rocket is our pick of the bunch. Get the lowdown on why we recommend it n our data-backed review: ', 'sydney' ); ?>
+							<?php esc_html_e( 'Every site that is serious about speed (and should be pretty much all sites these days) needs a caching plugin and WP Rocket is our pick of the bunch. Get the lowdown on why we recommend it n our data-backed review: ', 'theme-dashboard' ); ?>
 						</div>
 
 						<a class="thd-performance-item-read-more" href="https://athemes.com/reviews/wp-rocket-review/" target="_blank">
-							<?php esc_html_e( 'Read more', 'sydney' ); ?>
+							<?php esc_html_e( 'Read more', 'theme-dashboard' ); ?>
 						</a>
 					</div>
 				</div>
@@ -424,15 +451,15 @@ class Sydney_Theme_Dashboard {
 					</div>
 					<div class="thd-performance-item-content">
 						<div class="thd-performance-item-name">
-							<?php esc_html_e( 'Fastest WordPress Hosts', 'sydney' ); ?>
+							<?php esc_html_e( 'Fastest WordPress Hosts', 'theme-dashboard' ); ?>
 						</div>
 
 						<div class="thd-performance-item-desc">
-							<?php esc_html_e( 'A slow host can really put a drag on your site’s performance, even an optimized one. Make sure you get a host that won’t hold you back by reading our review, complete with real speed tests, of the fastest WordPress hosts. ', 'sydney' ); ?>
+							<?php esc_html_e( 'A slow host can really put a drag on your site’s performance, even an optimized one. Make sure you get a host that won’t hold you back by reading our review, complete with real speed tests, of the fastest WordPress hosts. ', 'theme-dashboard' ); ?>
 						</div>
 
 						<a class="thd-performance-item-read-more" href="https://athemes.com/reviews/fastest-wordpress-hosting/" target="_blank">
-							<?php esc_html_e( 'Read more', 'sydney' ); ?>
+							<?php esc_html_e( 'Read more', 'theme-dashboard' ); ?>
 						</a>
 					</div>
 				</div>
@@ -454,7 +481,7 @@ class Sydney_Theme_Dashboard {
 		<div class="thd-hero">
 			<div class="thd-hero-content">
 				<div class="thd-hero-hello">
-					<?php esc_html_e( 'Hello, ', 'sydney' ); ?>
+					<?php esc_html_e( 'Hello, ', 'theme-dashboard' ); ?>
 
 					<?php
 					$current_user = wp_get_current_user();
@@ -462,7 +489,7 @@ class Sydney_Theme_Dashboard {
 					echo esc_html( $current_user->display_name );
 					?>
 
-					<?php esc_html_e( '👋🏻', 'sydney' ); ?>
+					<?php esc_html_e( '👋🏻', 'theme-dashboard' ); ?>
 				</div>
 
 				<div class="thd-hero-title">
@@ -499,19 +526,19 @@ class Sydney_Theme_Dashboard {
 					?>
 
 					<a href="<?php echo esc_url( add_query_arg( 'page', $this->starter_menu_slug, admin_url( 'themes.php' ) ) ); ?>" data-target="<?php echo esc_attr( $target ); ?>" class="thd-hero-go button button-primary">
-						<?php esc_html_e( 'Starter Sites', 'sydney' ); ?>
+						<?php esc_html_e( 'Starter Sites', 'theme-dashboard' ); ?>
 					</a>
 
 					<?php if ( 'themes.php' === $pagenow && 'themes' === $screen->base ) { ?>
 						<a href="<?php echo esc_url( add_query_arg( 'page', $this->menu_slug, admin_url( 'themes.php' ) ) ); ?>" class="button">
-							<?php esc_html_e( 'Theme Dashboard', 'sydney' ); ?>
+							<?php esc_html_e( 'Theme Dashboard', 'theme-dashboard' ); ?>
 						</a>
 					<?php } ?>
 				</div>
 
 				<?php if ( 'active' !== $this->get_plugin_status( $this->starter_plugin_path ) ) { ?>
 					<div class="thd-hero-notion">
-						<?php esc_html_e( 'Clicking “Starter Sites” button will install and activate the demo importer plugin.', 'sydney' ); ?>
+						<?php esc_html_e( 'Clicking “Starter Sites” button will install and activate the demo importer plugin.', 'theme-dashboard' ); ?>
 					</div>
 				<?php } ?>
 			</div>
@@ -531,7 +558,6 @@ class Sydney_Theme_Dashboard {
 	 * Html Carcase
 	 */
 	public function html_carcase() {
-		
 		?>
 		<div class="thd-wrap thd-theme-dashboard">
 			<div class="thd-header">
@@ -539,7 +565,7 @@ class Sydney_Theme_Dashboard {
 					<div class="thd-header-col thd-header-col-logo">
 						<div class="thd-logo">
 							<a target="_blank" href="<?php echo esc_url( 'https://athemes.com/' ); ?>">
-								<img width="96px" height="24px" src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/logo.svg' ); ?>" alt="<?php esc_attr_e( 'aThemes', 'sydney' ); ?>">
+								<img width="96px" height="24px" src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/logo.svg' ); ?>" alt="<?php esc_html_e( 'aThemes', 'sydney' ); ?>">
 							</a>
 						</div>
 					</div>
@@ -659,7 +685,7 @@ class Sydney_Theme_Dashboard {
 							</div>
 							<div class="thd-panel-content">
 								<div class="thd-title">
-									<?php echo wp_kses_post( __( 'Join our community', 'sydney' ) ); ?>
+									<?php echo wp_kses_post( __( 'Join Our Community', 'sydney' ) ); ?>
 								</div>
 
 								<div class="thd-description"><?php esc_html_e( 'Discuss products and ask for community support or help the community.', 'sydney' ); ?></div>
@@ -716,7 +742,7 @@ class Sydney_Theme_Dashboard {
 								<div class="thd-description"><?php esc_html_e( 'Let us know. We\'d love to hear from you.', 'sydney' ); ?></div>
 
 								<a href="<?php echo esc_url( $this->settings['suggest_idea_link'] ); ?>" class="thd-suggest-idea-link" target="_blank">
-									<?php echo esc_html_e( 'Suggest an idea', 'sydney' ); ?>
+									<?php echo esc_html_e( 'Suggest an Idea', 'sydney' ); ?>
 								</a>
 							</div>
 						</div>
@@ -783,7 +809,6 @@ class Sydney_Theme_Dashboard {
 		if ( isset( $_POST['notice'] ) ) { // Input var ok; sanitization ok.
 
 			set_transient( sanitize_text_field( wp_unslash( $_POST['notice'] ) ), true, 0 ); // Input var ok.
-
 		}
 	}
 
@@ -793,7 +818,6 @@ class Sydney_Theme_Dashboard {
 	 * @param string $page Current page.
 	 */
 	public function notice_enqueue_scripts( $page ) {
-		
 		wp_enqueue_script( 'jquery' );
 
 		ob_start();

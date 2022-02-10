@@ -229,7 +229,10 @@ function sydney_dashboard_settings( $settings ) {
 			'visible' => array( 'free', 'pro' ),
 		),
 	);
-
+	
+	//Insert modules
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules() );
+	
 	// Documentation.
 	$settings['documentation_link'] = 'https://docs.athemes.com/category/8-sydney';
 

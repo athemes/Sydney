@@ -634,6 +634,11 @@ require get_template_directory() . '/inc/theme-update.php';
  */
 require get_template_directory() . '/inc/theme-dashboard-settings.php';
 
+/**
+ * Premium modules
+ */
+require get_template_directory() . '/inc/classes/class-sydney-modules.php';
+
 /*
  * Enable fontawesome 5 on first time theme activation
  * Check if the old theme is sydney to avoid enable the fa5 automatic and break icons
