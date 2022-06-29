@@ -284,7 +284,7 @@ add_action('wp_footer', 'sydney_append_gotop_html', 1);
  */
 function sydney_get_social_network( $social ) {
 
-	$networks = array( 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest', 'amazon', 'tiktok' );
+	$networks = array( 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest', 'amazon', 'tiktok', 'telegram', 'whatsapp', 'wa.me', 't.me' );
 
 	foreach ( $networks as $network ) {
 		$found = strpos( $social, $network );
@@ -605,10 +605,10 @@ function sydney_google_fonts_url() {
 	$defaults = json_encode(
 		array(
 			'font' 			=> 'System default',
-			'regularweight' => 'regular',
+			'regularweight' => '400',
 			'category' 		=> 'sans-serif'
 		)
-	);	
+	);
 
 	//Get and decode options
 	$body_font		= get_theme_mod( 'sydney_body_font', $defaults );
@@ -626,12 +626,21 @@ function sydney_google_fonts_url() {
 	$font_families = array();
 
 	if ( 'System default' !== $body_font['font'] ) {
-		$font_families[] = $body_font['font'] . ':' . $body_font['regularweight'];
+		if ( 'regular' === $body_font['regularweight'] ) {
+			$body_font['regularweight'] = '400';
+		}
+
+		$font_families[] = $body_font['font'] . ':wght@' . $body_font['regularweight'];
 	}
 
 	if ( 'System default' !== $menu_font['font'] ) {
-		$font_families[] = $menu_font['font'] . ':' . $menu_font['regularweight'];
-	}		
+
+		if ( 'regular' === $menu_font['regularweight'] ) {
+			$menu_font['regularweight'] = '400';
+		}
+				
+		$font_families[] = $menu_font['font'] . ':wght@' . $menu_font['regularweight'];
+	}	
 
 	if ( 'System default' !== $headings_font['font'] ) {
 
@@ -641,16 +650,25 @@ function sydney_google_fonts_url() {
 			$headings_font['regularweight'] = '400';
 		}
 
-		$font_families[] = $headings_font['font'] . ':' . $headings_font['regularweight'];
+		if ( 'regular' === $headings_font['regularweight'] ) {
+			$headings_font['regularweight'] = '400';
+		}		
+
+		$font_families[] = $headings_font['font'] . ':wght@' . $headings_font['regularweight'];
 	}
+	
+	$fonts_url = add_query_arg( array(
+		'family' => implode( '&family=', $font_families ),
+		'display' => 'swap',
+	), 'https://fonts.googleapis.com/css2' );
 
-	$query_args = array(
-		'family' => urlencode( implode( '|', $font_families ) ),
-		'subset' => urlencode( $subsets ),
-		'display' => urlencode( 'swap' ),
-	);
+	// Load google fonts locally
+	$load_locally = get_theme_mod( 'perf_google_fonts_local', 0 );
+	if( $load_locally ) {
+		require_once get_theme_file_path( 'vendor/wptt-webfont-loader/wptt-webfont-loader.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
-	$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+		return wptt_get_webfont_url( $fonts_url );
+	}
 
 	return esc_url_raw( $fonts_url );
 }
@@ -659,6 +677,12 @@ function sydney_google_fonts_url() {
  * Google fonts preconnect
  */
 function sydney_preconnect_google_fonts() {
+
+	$load_locally = get_theme_mod( 'perf_google_fonts_local', 0 );
+
+	if ( $load_locally ) {
+		return;
+	}
 
 	$defaults = json_encode(
 		array(

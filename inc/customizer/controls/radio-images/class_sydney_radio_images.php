@@ -42,6 +42,7 @@ class Sydney_Radio_Images extends WP_Customize_Control {
 		<script type="text/javascript">
 			jQuery( document ).ready( function() {
 				jQuery( '#<?php echo esc_attr( "input_{$this->id}" ); ?>' ).buttonset();
+				jQuery( '#<?php echo esc_attr( "input_{$this->id}" ); ?>' ).find( 'label' ).removeClass( 'ui-button' );
 			} );
 		</script>
 	<?php }

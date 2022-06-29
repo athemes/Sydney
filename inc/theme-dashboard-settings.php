@@ -34,12 +34,7 @@ function sydney_free_vs_pro_html() {
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 			</tr>
 			<tr>
-				<td><?php esc_html_e( 'Native AMP support', 'sydney' ); ?></td>
-				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
-				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
-			</tr>
-			<tr>
-				<td><?php esc_html_e( 'Sticky menu', 'sydney' ); ?></td>
+				<td><?php esc_html_e( 'Sticky and transparent menu', 'sydney' ); ?></td>
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 			</tr>
@@ -58,38 +53,49 @@ function sydney_free_vs_pro_html() {
 			<tr>
 				<td><?php esc_html_e( 'Starter sites', 'sydney' ); ?></td>
 				<td><span class="thd-badge">5</span></td>
-				<td><span class="thd-badge">16</span></td>
+				<td><span class="thd-badge">18</span></td>
 			</tr>
 			<tr>
-				<td><?php esc_html_e( 'Header support for shortcodes', 'sydney' ); ?></td>
+				<td><?php esc_html_e( 'Templates Module', 'sydney' ); ?></td>
 				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 			</tr>
 			<tr>
-				<td><?php esc_html_e( 'Transparent menu bar', 'sydney' ); ?></td>
+				<td><?php esc_html_e( 'Extended Header Module', 'sydney' ); ?></td>
 				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 			</tr>
+			<tr>
+				<td><?php esc_html_e( 'Extended WooCommerce Module', 'sydney' ); ?></td>
+				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
+				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
+			</tr>
+			<tr>
+				<td><?php esc_html_e( 'Built-in Wishlist, Product Swatch', 'sydney' ); ?></td>
+				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
+				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
+			</tr>							
+			<tr>
+				<td><?php esc_html_e( 'Extended Blog Module', 'sydney' ); ?></td>
+				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
+				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
+			</tr>					
+			<tr>
+				<td><?php esc_html_e( 'Breadcrumbs Module', 'sydney' ); ?></td>
+				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
+				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
+			</tr>		
+			<tr>
+				<td><?php esc_html_e( 'Extended Footer Module', 'sydney' ); ?></td>
+				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
+				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
+			</tr>									
 			<tr>
 				<td><?php esc_html_e( 'Footer credits', 'sydney' ); ?></td>
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
 			</tr>
-			<tr>
-				<td><?php esc_html_e( 'WooCommerce support', 'sydney' ); ?></td>
-				<td><span class="thd-badge">Basic</span></td>
-				<td><span class="thd-badge">Extended</span></td>
-			</tr>
-			<tr>
-				<td><?php esc_html_e( 'Cart and account icons in the menu', 'sydney' ); ?></td>
-				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
-				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
-			</tr>	
-			<tr>
-				<td><?php esc_html_e( 'Sidebar minicart', 'sydney' ); ?></td>
-				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
-				<td><span class="thd-badge thd-badge-success"><i class="dashicons dashicons-saved"></i></span></td>
-			</tr>						
+					
 			<tr>
 				<td><?php esc_html_e( 'Hooks system', 'sydney' ); ?></td>
 				<td><span class="thd-badge thd-badge-warning"><i class="dashicons dashicons-no-alt"></i></span></td>
@@ -98,7 +104,7 @@ function sydney_free_vs_pro_html() {
 			<tr>
 				<td><?php esc_html_e( 'Custom Elementor widgets', 'sydney' ); ?></td>
 				<td><span class="thd-badge">5</span></td>
-				<td><span class="thd-badge">9</span></td>
+				<td><span class="thd-badge">16</span></td>
 			</tr>
 		</tbody>
 	</table>
@@ -106,7 +112,7 @@ function sydney_free_vs_pro_html() {
 	<div class="thd-separator"></div>
 
 	<h4>
-		<a href="https://docs.athemes.com/article/226-differences-between-sydney-and-sydney-pro" target="_blank">
+		<a href="https://athemes.com/sydney-upgrade/#see-all-features" target="_blank">
 			<?php esc_html_e( 'Full list of differences between Sydney and Sydney Pro', 'sydney' ); ?>
 		</a>
 	</h4>
@@ -114,7 +120,7 @@ function sydney_free_vs_pro_html() {
 	<div class="thd-separator"></div>
 
 	<p>
-		<a href="https://athemes.com/theme/sydney-pro/?utm_source=theme_table&utm_medium=button&utm_campaign=Sydney" class="thd-button button">
+		<a href="https://athemes.com/sydney-upgrade/?utm_source=theme_table&utm_medium=button&utm_campaign=Sydney" class="thd-button button themetable-button">
 			<?php esc_html_e( 'Get Sydney Pro Today', 'sydney' ); ?>
 		</a>
 	</p>
@@ -148,27 +154,27 @@ function sydney_dashboard_settings( $settings ) {
 				array(
 					'name'          => esc_html__( 'Change Site Title or Logo', 'sydney' ),
 					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=title_tagline',
+					'customize_uri' => admin_url( '/customize.php?autofocus[section]=title_tagline' ),
 				),
 				array(
 					'name'          => esc_html__( 'Header Options', 'sydney' ),
 					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[panel]=sydney_header_panel',
+					'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_header_panel' ),
 				),
 				array(
 					'name'          => esc_html__( 'Color Options', 'sydney' ),
 					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[panel]=sydney_colors_panel',
+					'customize_uri' => admin_url( '/customize.php?autofocus[section]=colors' ),
 				),
 				array(
 					'name'          => esc_html__( 'Font Options', 'sydney' ),
 					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_fonts',
+					'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_panel_typography' ),
 				),
 				array(
 					'name'          => esc_html__( 'Blog Options', 'sydney' ),
 					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[panel]=sydney_panel_blog',
+					'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_panel_blog' ),
 				),
 				array(
 					'name'          => esc_html__( 'Footer Credits', 'sydney' ),
@@ -180,41 +186,6 @@ function sydney_dashboard_settings( $settings ) {
 					'type'          => 'free',
 					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_section_buttons',
 				),				
-				array(
-					'name'          => esc_html__( 'Footer Contact', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_footer_contact',
-				),
-				array(
-					'name'          => esc_html__( 'Front Page Section Titles', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_fp_titles',
-				),
-				array(
-					'name'          => esc_html__( 'Single Employees', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_single_employees',
-				),
-				array(
-					'name'          => esc_html__( 'Single Projects', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_single_projects',
-				),
-				array(
-					'name'          => esc_html__( 'Top bar', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_contact_info',
-				),
-				array(
-					'name'          => esc_html__( 'Extra Widget Area', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_extra_widget_area',
-				),
-				array(
-					'name'          => esc_html__( 'Google Maps', 'sydney' ),
-					'type'          => 'pro',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_pro_maps',
-				),
 			),
 		),
 		array(
@@ -232,7 +203,25 @@ function sydney_dashboard_settings( $settings ) {
 	
 	//Insert modules
 	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules() );
-	
+
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
+		array(
+			'name'          => esc_html__( 'Top bar', 'sydney' ),
+			'type'          => 'pro',
+			'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_contact_info',
+		),
+		array(
+			'name'          => esc_html__( 'Extra Widget Area', 'sydney' ),
+			'type'          => 'pro',
+			'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_extra_widget_area',
+		),
+		array(
+			'name'          => esc_html__( 'Google Maps', 'sydney' ),
+			'type'          => 'pro',
+			'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_pro_maps',
+		),
+	) );
+
 	// Documentation.
 	$settings['documentation_link'] = 'https://docs.athemes.com/category/8-sydney';
 
@@ -240,7 +229,7 @@ function sydney_dashboard_settings( $settings ) {
 	$settings['promo_title']  = esc_html__( 'Upgrade to Pro', 'sydney' );
 	$settings['promo_desc']   = esc_html__( 'Take Sydney to a whole other level by upgrading to the Pro version.', 'sydney' );
 	$settings['promo_button'] = esc_html__( 'Discover Sydney Pro', 'sydney' );
-	$settings['promo_link']   = 'https://athemes.com/theme/sydney-pro/?utm_source=theme_info&utm_medium=link&utm_campaign=Sydney';
+	$settings['promo_link']   = 'https://athemes.com/sydney-upgrade/?utm_source=theme_info&utm_medium=link&utm_campaign=Sydney';
 
 	// Review.
 	$settings['review_link']       = 'https://wordpress.org/support/theme/sydney/reviews/';
@@ -248,10 +237,10 @@ function sydney_dashboard_settings( $settings ) {
 
 	// Support.
 	$settings['support_link']     = 'https://wordpress.org/support/theme/sydney/';
-	$settings['support_pro_link'] = 'https://athemes.com/theme/sydney-pro/?utm_source=theme_info&utm_medium=link&utm_campaign=Sydney';
+	$settings['support_pro_link'] = 'https://athemes.com/sydney-upgrade/?utm_source=theme_support&utm_medium=link&utm_campaign=Sydney';
 
 	// Community.
-	$settings['community_link'] = 'https://community.athemes.com/';
+	$settings['community_link'] = 'https://www.facebook.com/groups/athemes/';
 
 	$theme = wp_get_theme();
 	// Changelog.
@@ -282,7 +271,7 @@ function sydney_demos_settings( $settings ) {
 
 	// Pro.
 	$settings['pro_label'] = esc_html__( 'Get Sydney Pro', 'sydney' );
-	$settings['pro_link']  = 'https://athemes.com/theme/sydney-pro/?utm_source=theme_table&utm_medium=button&utm_campaign=Sydney';
+	$settings['pro_link']  = 'https://athemes.com/sydney-upgrade/?utm_source=theme_table&utm_medium=button&utm_campaign=Sydney';
 
 	return $settings;
 }

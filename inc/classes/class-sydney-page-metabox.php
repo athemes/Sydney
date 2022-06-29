@@ -24,11 +24,7 @@ class Sydney_Page_Metabox {
 
 	public function add_meta_box( $post_type ) {
 		
-		$types = get_post_types(
-			array(
-				'public' => true,
-			)
-		);
+		$types = array( 'post', 'page' );
 
         if ( in_array( $post_type, $types ) && ( 'attachment' !== $post_type ) ) {
 			add_meta_box(

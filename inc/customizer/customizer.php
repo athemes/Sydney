@@ -80,6 +80,7 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/controls/class_sydney_divider_control.php';
     require get_template_directory() . '/inc/customizer/controls/toggle/class_sydney_toggle_control.php';
     require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';    
+    require get_template_directory() . '/inc/customizer/controls/class_sydney_upsell_message.php';    
 
     require get_template_directory() . '/inc/customizer/controls/control-checkbox-multiple.php';
     require get_template_directory() . '/inc/customizer/controls/multiple-select/class-control-multiple-select.php';
@@ -99,11 +100,13 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/options/blog.php';
     require get_template_directory() . '/inc/customizer/options/blog-single.php';
     require get_template_directory() . '/inc/customizer/options/colors.php';
+    require get_template_directory() . '/inc/customizer/options/upsell.php';
+    require get_template_directory() . '/inc/customizer/options/performance.php';
+
     if ( class_exists( 'Woocommerce' ) ) {
         require get_template_directory() . '/inc/customizer/options/woocommerce.php';
         require get_template_directory() . '/inc/customizer/options/woocommerce-single.php';
     }
-
 
     //___Header area___//
     $wp_customize->add_panel( 'sydney_panel_hero', array(
@@ -1003,7 +1006,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'title' => __('Theme info', 'sydney'),
             'priority' => 139,
-            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="https://docs.athemes.com/category/8-sydney">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="https://demo.athemes.com/sydney/">here</a></p>',         
+            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="https://docs.athemes.com/category/8-sydney">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="https://demo.athemes.com/sydney-main/">here</a></p>',         
         )
     );
     $wp_customize->add_setting('sydney_theme_docs', array(

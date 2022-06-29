@@ -407,19 +407,19 @@ class Sydney_Theme_Dashboard {
 			<div class="thd-performance-item">
 				<div class="thd-performance-item-outer">
 					<div class="thd-performance-item-thumbnail">
-						<img src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/fastest-wordpress-hosting.jpg' ); ?>">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/best-wordpress-speed.jpg' ); ?>">
 					</div>
 					<div class="thd-performance-item-content">
 						<div class="thd-performance-item-name">
-							<?php esc_html_e( 'Best WordPress Speed Optimization Plugins', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'Best WordPress Speed Optimization Plugins', 'sydney' ); ?>
 						</div>
 
 						<div class="thd-performance-item-desc">
-							<?php esc_html_e( 'We run through the top 10 WordPress performance plugins to keep your site running fast. Goes beyond just caching plugins (though those are on there too!). A must-read for all WordPress site owners.', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'We run through the top 10 WordPress performance plugins to keep your site running fast. Goes beyond just caching plugins (though those are on there too!). A must-read for all WordPress site owners.', 'sydney' ); ?>
 						</div>
 
 						<a class="thd-performance-item-read-more" href="https://athemes.com/collections/best-wordpress-speed-optimization-plugins/" target="_blank">
-							<?php esc_html_e( 'Read more', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'Read more', 'sydney' ); ?>
 						</a>
 					</div>
 				</div>
@@ -431,15 +431,15 @@ class Sydney_Theme_Dashboard {
 					</div>
 					<div class="thd-performance-item-content">
 						<div class="thd-performance-item-name">
-							<?php esc_html_e( 'WP Rocket Review', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'WP Rocket Review', 'sydney' ); ?>
 						</div>
 
 						<div class="thd-performance-item-desc">
-							<?php esc_html_e( 'Every site that is serious about speed (and should be pretty much all sites these days) needs a caching plugin and WP Rocket is our pick of the bunch. Get the lowdown on why we recommend it n our data-backed review: ', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'Every site that is serious about speed (and should be pretty much all sites these days) needs a caching plugin and WP Rocket is our pick of the bunch. Get the lowdown on why we recommend it n our data-backed review: ', 'sydney' ); ?>
 						</div>
 
 						<a class="thd-performance-item-read-more" href="https://athemes.com/reviews/wp-rocket-review/" target="_blank">
-							<?php esc_html_e( 'Read more', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'Read more', 'sydney' ); ?>
 						</a>
 					</div>
 				</div>
@@ -447,19 +447,19 @@ class Sydney_Theme_Dashboard {
 			<div class="thd-performance-item">
 				<div class="thd-performance-item-outer">
 					<div class="thd-performance-item-thumbnail">
-						<img src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/best-wordpress-speed.jpg' ); ?>">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/fastest-wordpress-hosting.jpg' ); ?>">
 					</div>
 					<div class="thd-performance-item-content">
 						<div class="thd-performance-item-name">
-							<?php esc_html_e( 'Fastest WordPress Hosts', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'Fastest WordPress Hosts', 'sydney' ); ?>
 						</div>
 
 						<div class="thd-performance-item-desc">
-							<?php esc_html_e( 'A slow host can really put a drag on your site’s performance, even an optimized one. Make sure you get a host that won’t hold you back by reading our review, complete with real speed tests, of the fastest WordPress hosts. ', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'A slow host can really put a drag on your site’s performance, even an optimized one. Make sure you get a host that won’t hold you back by reading our review, complete with real speed tests, of the fastest WordPress hosts. ', 'sydney' ); ?>
 						</div>
 
 						<a class="thd-performance-item-read-more" href="https://athemes.com/reviews/fastest-wordpress-hosting/" target="_blank">
-							<?php esc_html_e( 'Read more', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'Read more', 'sydney' ); ?>
 						</a>
 					</div>
 				</div>
@@ -481,7 +481,7 @@ class Sydney_Theme_Dashboard {
 		<div class="thd-hero">
 			<div class="thd-hero-content">
 				<div class="thd-hero-hello">
-					<?php esc_html_e( 'Hello, ', 'theme-dashboard' ); ?>
+					<?php esc_html_e( 'Hello, ', 'sydney' ); ?>
 
 					<?php
 					$current_user = wp_get_current_user();
@@ -489,7 +489,7 @@ class Sydney_Theme_Dashboard {
 					echo esc_html( $current_user->display_name );
 					?>
 
-					<?php esc_html_e( '👋🏻', 'theme-dashboard' ); ?>
+					<?php esc_html_e( '👋🏻', 'sydney' ); ?>
 				</div>
 
 				<div class="thd-hero-title">
@@ -526,19 +526,19 @@ class Sydney_Theme_Dashboard {
 					?>
 
 					<a href="<?php echo esc_url( add_query_arg( 'page', $this->starter_menu_slug, admin_url( 'themes.php' ) ) ); ?>" data-target="<?php echo esc_attr( $target ); ?>" class="thd-hero-go button button-primary">
-						<?php esc_html_e( 'Starter Sites', 'theme-dashboard' ); ?>
+						<?php esc_html_e( 'Starter Sites', 'sydney' ); ?>
 					</a>
 
 					<?php if ( 'themes.php' === $pagenow && 'themes' === $screen->base ) { ?>
 						<a href="<?php echo esc_url( add_query_arg( 'page', $this->menu_slug, admin_url( 'themes.php' ) ) ); ?>" class="button">
-							<?php esc_html_e( 'Theme Dashboard', 'theme-dashboard' ); ?>
+							<?php esc_html_e( 'Theme Dashboard', 'sydney' ); ?>
 						</a>
 					<?php } ?>
 				</div>
 
 				<?php if ( 'active' !== $this->get_plugin_status( $this->starter_plugin_path ) ) { ?>
 					<div class="thd-hero-notion">
-						<?php esc_html_e( 'Clicking “Starter Sites” button will install and activate the demo importer plugin.', 'theme-dashboard' ); ?>
+						<?php esc_html_e( 'Clicking “Starter Sites” button will install and activate the demo importer plugin.', 'sydney' ); ?>
 					</div>
 				<?php } ?>
 			</div>
@@ -662,16 +662,16 @@ class Sydney_Theme_Dashboard {
 								<?php if ( ! $this->pro_status ) { ?>
 									<div class="thd-conttent-secondary">
 										<div class="thd-title">
-											<?php echo wp_kses_post( __( 'Priority Support', 'sydney' ) ); ?>
+											<?php echo wp_kses_post( __( 'Upgrade to priority support', 'sydney' ) ); ?>
 
 											<div class="thd-badge"><?php esc_html_e( 'pro', 'sydney' ); ?></div>
 										</div>
 
-										<div class="thd-description"><?php esc_html_e( 'Want your questions answered faster? Go Pro to be first in the queue!', 'sydney' ); ?></div>
+										<div class="thd-description"><?php esc_html_e( 'Get direct support from our developers via email. We aim to answer all priority support requests within 24 hours.', 'sydney' ); ?></div>
 
 										<div class="thd-button-wrap">
 											<a href="<?php echo esc_url( $this->settings['support_pro_link'] ); ?>" class="thd-button button" target="_blank">
-												<?php echo esc_html_e( 'Go PRO', 'sydney' ); ?>
+												<?php echo esc_html_e( 'Get Priority Support', 'sydney' ); ?>
 											</a>
 										</div>
 									</div>

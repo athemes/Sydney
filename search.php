@@ -5,7 +5,14 @@
  * @package Sydney
  */
 
-get_header(); ?>
+get_header();
+
+$layout 		= sydney_blog_layout();
+$sidebar_pos 	= sydney_sidebar_position();
+$archive_title_layout = get_theme_mod( 'archive_title_layout', 'layout1' );
+?>
+
+	<?php do_action('sydney_before_content'); ?>
 
 	<div id="primary" class="content-area col-md-9">
 		<main id="main" class="post-wrap" role="main">
@@ -16,21 +23,17 @@ get_header(); ?>
 				<h3><?php printf( __( 'Search Results for: %s', 'sydney' ), '<span>' . get_search_query() . '</span>' ); ?></h3>
 			</header><!-- .page-header -->
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<div class="posts-layout">
+				<div class="row" <?php sydney_masonry_data(); ?> <?php echo esc_attr( apply_filters( 'sydney_posts_layout_row', '' ) ); ?>>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'content', 'search' );
-				?>
+						<?php get_template_part( 'content', get_post_format() ); ?>
 
-			<?php endwhile; ?>
+					<?php endwhile; ?>
+				</div>
+			</div>
 
-			<?php the_posts_navigation(); ?>
+			<?php sydney_posts_navigation(); ?>	
 
 		<?php else : ?>
 
@@ -41,5 +44,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+	<?php do_action('sydney_after_content'); ?>
+
+<?php do_action( 'sydney_get_sidebar' ); ?>
 <?php get_footer(); ?>

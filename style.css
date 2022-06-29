@@ -4,10 +4,10 @@ Theme URI: https://athemes.com/theme/sydney
 Author: aThemes
 Author URI: https://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page. Looking for a quick start with Sydney? With just a few clicks, you can import one of our existing demos (https://athemes.com/sydney-demos/)
-Version: 2.01
+Version: 2.08
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tested up to: 5.7.2
+Tested up to: 5.9
 Requires PHP: 5.6
 Text Domain: sydney
 Tags: two-columns, right-sidebar, block-styles, custom-colors, custom-background, custom-header, custom-menu, featured-images, sticky-post, theme-options, threaded-comments, translation-ready
@@ -545,7 +545,6 @@ Repeatable Patterns
 		display: inline-block;
 		font-size: 13px;
 		line-height: 24px;
-		font-weight: 700;
 		padding: 12px 34px;
 		color: #fff;
 		text-transform: uppercase;
@@ -1225,6 +1224,11 @@ Header
 		top: 0;
 		transition: all 0.5s;
 	}
+	.transparent-header .bottom-header_layout_3.sticky-header.sticky-scrolltop:not(.is-sticky),
+	.transparent-header .bottom-header_layout_4.sticky-header.sticky-scrolltop:not(.is-sticky),
+	.transparent-header .bottom-header_layout_5.sticky-header.sticky-scrolltop:not(.is-sticky) {
+		position: static;
+	}	
 	.admin-bar.transparent-header .sticky-header.sticky-scrolltop {
 		top: 32px;
 	}
@@ -1585,6 +1589,7 @@ Layout
 }
 .header-slider {
 	-moz-transform: none;
+	transform: none;
 }	
 /*--------------------------------------------------------------
 Parallax
@@ -2685,8 +2690,9 @@ Panels
 	display: inline-block;
 	font-size: 13px;
 	line-height: 24px;
-	font-weight: 700;
+	font-weight: 500;
 	padding: 12px 35px;
+	letter-spacing: 1px;
 	color: #fff;
 	text-transform: uppercase;
 			border-radius: 3px;
@@ -3682,9 +3688,8 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 	padding: 30px 10px;
 }
 .woocommerce-cart table.cart .coupon .button {
-	background-color: #cecece;
-	color: #443f3f;
-	
+	background-color: var(--sydney-light-background);
+    color: var(--sydney-headings-color);
 }
 .woocommerce-cart table.cart td.actions .coupon .input-text,
 .woocommerce-cart table.cart .coupon .button,
@@ -3957,10 +3962,6 @@ Integrations
 	padding: 0 15px;
 }
 /* Parallax fix */
-.panel-row-style,
-.elementor-section {
-	-webkit-transform: translate3d(0,0,0);
-}
 @-moz-document url-prefix() {
     .panel-row-style {
           background-position: center !important;

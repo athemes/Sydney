@@ -30,7 +30,7 @@ $wp_customize->add_control(
 		array(
 			'label' 				=> '',
 			'section'       		=> 'sydney_section_mobile_header',
-			'controls_general'		=> json_encode( array( '#customize-control-header_layout_mobile','#customize-control-header_components_mobile','#customize-control-mobile_header_divider_1','#customize-control-header_offcanvas_mode','#customize-control-header_components_offcanvas','#customize-control-mobile_header_divider_2','#customize-control-mobile_menu_alignment','#customize-control-mobile_menu_link_separator','#customize-control-mobile_menu_link_spacing','#customize-control-mobile_menu_icon', ) ),
+			'controls_general'		=> json_encode( array( '#customize-control-sydney_upsell_mobile_header','#customize-control-header_layout_mobile','#customize-control-header_components_mobile','#customize-control-mobile_header_divider_1','#customize-control-header_offcanvas_mode','#customize-control-header_components_offcanvas','#customize-control-mobile_header_divider_2','#customize-control-mobile_menu_alignment','#customize-control-mobile_menu_link_separator','#customize-control-mobile_menu_link_spacing','#customize-control-mobile_menu_icon', ) ),
 			'controls_design'		=> json_encode( array( '#customize-control-mobile_header_bar_title','#customize-control-mobile_header_offcanvas_title','#customize-control-mobile_header_separator_title','#customize-control-mobile_header_background','#customize-control-mobile_header_color','#customize-control-mobile_header_padding','#customize-control-mobile_header_divider_3','#customize-control-offcanvas_menu_background','#customize-control-offcanvas_menu_color','#customize-control-mobile_header_divider_4','#customize-control-mobile_header_separator_width','#customize-control-link_separator_color', ) ),
 		)
 	)

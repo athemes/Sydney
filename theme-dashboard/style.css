@@ -283,20 +283,21 @@
     align-items: flex-start;
     padding: 24px; }
   .thd-theme-dashboard .thd-panel-support .thd-conttent-secondary {
-    background: linear-gradient(116.29deg, #335EEA 0%, #2143B1 100%);
+    background: #F8F9FD;
     color: #FFFFFF; }
     .thd-theme-dashboard .thd-panel-support .thd-conttent-secondary .thd-title {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: #FFFFFF; }
+      color: #1d2327; }
     .thd-theme-dashboard .thd-panel-support .thd-conttent-secondary .thd-badge {
-      background: #FFFFFF;
-      color: #007CBA;
+      background: #007CBA;
+      color: #FFFFFF;
       font-weight: normal; }
     .thd-theme-dashboard .thd-panel-support .thd-conttent-secondary .thd-description {
-      color: #FFFFFF; }
+      color: #697B96; }
+      .thd-theme-dashboard .thd-panel .thd-panel-content .thd-panel-tab p a.themetable-button,
     .thd-theme-dashboard .thd-panel-support .thd-conttent-secondary .thd-button {
       border-color: #3FB28F;
       background: #3FB28F;
@@ -351,43 +352,20 @@
 
 .thd-theme-dashboard .thd-panel-promo {
   position: relative;
-  background: linear-gradient(116.29deg, #335EEA 0%, #2143B1 100%);
+  background: #F8F9FD;
   padding: 24px; }
-  .thd-theme-dashboard .thd-panel-promo:before {
-    background-image: url("./images/pattern-1@2x.png");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    width: 66px;
-    height: 97px;
-    content: ''; }
-  .thd-theme-dashboard .thd-panel-promo:after {
-    background-image: url("./images/pattern-2@2x.png");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 15px;
-    right: 0;
-    width: 55px;
-    height: 64px;
-    content: '';
-    opacity: 0.75; }
   .thd-theme-dashboard .thd-panel-promo .thd-panel-inner {
     position: relative;
     z-index: 1; }
   .thd-theme-dashboard .thd-panel-promo .thd-heading {
     width: 100%;
-    color: #FFFFFF; }
+    color: #1d2327; }
   .thd-theme-dashboard .thd-panel-promo .thd-badge {
     background: #FFFFFF;
     color: #007CBA;
     font-weight: normal; }
   .thd-theme-dashboard .thd-panel-promo .thd-description {
-    color: #FFFFFF; }
+    color: #697B96; }
   .thd-theme-dashboard .thd-panel-promo .thd-button-wrap {
     margin-top: auto;
     padding-top: 2rem; }

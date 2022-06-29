@@ -25,13 +25,67 @@ if ( ! class_exists( 'Sydney_Modules' ) ) {
 			$modules = array(
 				array(
 					'slug'			=> 'templates',
-					'name'          => esc_html__( 'Templates', 'sydney' ),
+					'name'          => esc_html__( 'Templates Module', 'sydney' ),
 					'type'          => 'pro',
 					'link' 			=> 'http://',
 					'link_label'	=> esc_html__( 'Build templates', 'sydney' ),
 					'activate_uri' 	=> '&amp;activate_module_templates', //param is added in dashboard class
 					'text'			=> __( 'Create header, footer or content templates.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/435-templates-system-overview">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
-				),									
+				),		
+				array(
+					'slug'			=> 'ext-header',
+					'name'          => esc_html__( 'Extended Header Module', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[panel]=sydney_panel_header' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_ext-header', //param is added in dashboard class
+					'text'			=> __( 'New features for your header area.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/436-pro-extended-header-module">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),	
+				array(
+					'slug'			=> 'ext-woocommerce',
+					'name'          => esc_html__( 'Extended WooCommerce', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[panel]=woocommerce' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_ext-woocommerce', //param is added in dashboard class
+					'text'			=> __( 'Extra features for WooCommerce', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/444-pro-extended-woocommerce-module">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),				
+				array(
+					'slug'			=> 'ext-blog',
+					'name'          => esc_html__( 'Extended Blog Module', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[panel]=sydney_panel_blog' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_ext-blog', //param is added in dashboard class
+					'text'			=> __( 'Extra features for your blog.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/438-pro-extended-blog-module">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),		
+				array(
+					'slug'			=> 'breadcrumbs',
+					'name'          => esc_html__( 'Breadcrumbs Module', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[section]=sydney_breadcrumbs' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_breadcrumbs', //param is added in dashboard class
+					'text'			=> __( 'Breadcrumbs functionality.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/440-pro-breadcrumbs">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),	
+				array(
+					'slug'			=> 'ext-footer',
+					'name'          => esc_html__( 'Extended Footer Module', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[panel]=sydney_panel_footer' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_ext-footer', //param is added in dashboard class
+					'text'			=> __( 'Extra features for your footer', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/442-pro-extended-footer-module">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),		
+				array(
+					'slug'			=> 'quick-links',
+					'name'          => esc_html__( 'Quick Links Module', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[section]=sydney_quicklinks' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_quick-links', //param is added in dashboard class
+					'text'			=> __( 'Floating quick links bar (contact, social etc.)', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/443-pro-quick-links-module">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),															
 			);
 		
 			return $modules;

@@ -299,3 +299,13 @@ function sydney_footer_default_colors() {
     set_theme_mod( 'sydney_update_footer_defaults', true );
 }
 add_action( 'after_switch_theme', 'sydney_footer_default_colors' );
+
+
+/**
+ * Set local Google Fonts by default
+ * 
+ */
+function sydney_default_local_google_fonts() {
+    set_theme_mod( 'perf_google_fonts_local', 1 );
+}
+add_action( 'after_switch_theme', 'sydney_default_local_google_fonts' );

@@ -17,7 +17,17 @@ function sydney_wc_support() {
     $enable_zoom 	= get_theme_mod( 'single_zoom_effects', 1 );
     $enable_gallery = get_theme_mod( 'single_gallery_slider', 1 );
 
-    add_theme_support( 'woocommerce' );
+	add_theme_support(
+		'woocommerce',
+		array(
+			'thumbnail_image_width' => 420,
+			'single_image_width'    => 800,
+			'product_grid'          => array(
+				'default_columns' => 3,
+			),
+		)
+	);
+	
     add_theme_support( 'wc-product-gallery-lightbox' );
 
     if ( $enable_gallery ) {
@@ -307,7 +317,7 @@ add_filter( 'woocommerce_enqueue_styles', 'sydney_dequeue_styles' );
  * Enqueue custom CSS for Woocommerce
  */
 function sydney_woocommerce_css() {
-    wp_enqueue_style( 'sydney-wc-css', get_template_directory_uri() . '/woocommerce/css/wc.css', array(), '20211020' );
+    wp_enqueue_style( 'sydney-wc-css', get_template_directory_uri() . '/woocommerce/css/wc.min.css', array(), '20220616' );
 
 
 	//Enqueue gallery scripts for quick view
@@ -394,23 +404,32 @@ add_filter( 'woocommerce_output_related_products_args', 'sydney_related_products
 function sydney_single_variation_add_to_cart_button() {
     global $product;
     ?>
-    <div class="woocommerce-variation-add-to-cart variations_button">
-	    <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+	<div class="woocommerce-variation-add-to-cart variations_button">
+		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
-        <?php
-            do_action( 'woocommerce_before_add_to_cart_quantity' );
+		<?php
+		do_action( 'woocommerce_before_add_to_cart_quantity' );
 
-            woocommerce_quantity_input( array(
-                'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( $_POST['quantity'] ) : 1,
-            ) );
+		woocommerce_quantity_input(
+			array(
+				'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
+				'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+				'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+			)
+		);
 
-            do_action( 'woocommerce_after_add_to_cart_quantity' );
-        ?>
-        <button type="submit" class="roll-button cart-button"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-        <input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
-        <input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
-        <input type="hidden" name="variation_id" class="variation_id" value="0" />
-    </div>
+		do_action( 'woocommerce_after_add_to_cart_quantity' );
+		?>
+
+		<button type="submit" class="single_add_to_cart_button roll-button"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+
+		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
+
+		<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
+		<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
+		<input type="hidden" name="variation_id" class="variation_id" value="0" />
+	</div>
+
      <?php
 }
 add_action( 'woocommerce_single_variation', 'sydney_single_variation_add_to_cart_button', 21 );
@@ -592,7 +611,7 @@ add_filter( 'woocommerce_product_description_heading', '__return_false' );
  */
 function sydney_woocommerce_product_thumbnails_columns() { 
 
-    $columns = get_theme_mod( 'swc_gallery_columns', '4' );
+    $columns = get_theme_mod( 'swc_gallery_columns', 4 );
 
     return $columns; 
 }; 

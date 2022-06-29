@@ -228,13 +228,13 @@ function sydney_scripts() {
 
 	wp_enqueue_style( 'sydney-google-fonts', esc_url( sydney_google_fonts_url() ), array(), null );
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20220121' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20220616' );
 
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
 	if ( !$is_amp ) {
-		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.js', array(), '20211026', true );
+		wp_enqueue_script( 'sydney-functions', get_template_directory_uri() . '/js/functions.min.js', array(), '20220628', true );
 		
 		//Enqueue hero slider script only if the slider is in use
 		$slider_home = get_theme_mod('front_header_type','nothing');
@@ -273,6 +273,7 @@ add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
 function sydney_disable_elementor_globals () {
 	update_option( 'elementor_disable_color_schemes', 'yes' );
 	update_option( 'elementor_disable_typography_schemes', 'yes' );
+	update_option( 'elementor_onboarded', true );
 }
 add_action('after_switch_theme', 'sydney_disable_elementor_globals');
 

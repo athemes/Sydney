@@ -73,9 +73,9 @@ final class Sydney_Customize_Upsell {
 				$manager,
 				'sydney_upsell',
 				array(
-					'title'    => esc_html__( 'Ready for more?', 'sydney' ),
-					'pro_text' => esc_html__( 'Get Sydney Pro',  'sydney' ),
-					'pro_url'  => 'https://athemes.com/theme/sydney-pro/?utm_source=theme_customizer&utm_medium=sydney_customizer&utm_campaign=Sydney',
+					'title'    => esc_html__( 'Want more customization options?', 'sydney' ),
+					'pro_text' => esc_html__( 'Buy Sydney Pro',  'sydney' ),
+					'pro_url'  => 'https://athemes.com/sydney-upgrade/?utm_source=theme_customizer&utm_medium=sydney_customizer&utm_campaign=Sydney',
 					'priority' => -999,
 				)
 			)

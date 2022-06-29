@@ -981,3 +981,6 @@ span.delete:hover {
 .wp-picker-container .wp-color-result.button:focus-visible {
   outline: 2px solid #000;
 }
+.customize-control-kirki-sortable:not(.sydney-hide-control) .kirki-sortable-item.invisible {
+  visibility: visible !important;
+}

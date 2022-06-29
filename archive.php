@@ -22,7 +22,7 @@ $sidebar_pos 	= sydney_sidebar_position();
 
 			<header class="page-header">
 				<?php
-					the_archive_title( '<h3 class="archive-title">', '</h3>' );
+					the_archive_title( '<h1 class="archive-title">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
