@@ -576,7 +576,9 @@ function sydney_add_loop_cart_icon( $icon, $product, $args ) {
     );  
 
 }
-add_filter( 'woocommerce_loop_add_to_cart_link', 'sydney_add_loop_cart_icon', 10, 3 );
+if ( !function_exists( 'tutor' ) ) {
+	add_filter( 'woocommerce_loop_add_to_cart_link', 'sydney_add_loop_cart_icon', 10, 3 );
+}
 
 /**
  * Filter quick view button from YITH to remove the text
@@ -822,7 +824,9 @@ function sydney_filter_loop_add_to_cart( $button, $product, $args ) {
 
 	return $button;
 }
-add_filter( 'woocommerce_loop_add_to_cart_link', 'sydney_filter_loop_add_to_cart', 10, 3 );
+if ( !function_exists( 'tutor' ) ) {
+	add_filter( 'woocommerce_loop_add_to_cart_link', 'sydney_filter_loop_add_to_cart', 10, 3 );
+}
 
 /**
  * Wrap loop button
