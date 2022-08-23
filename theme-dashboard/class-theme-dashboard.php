@@ -565,7 +565,7 @@ class Sydney_Theme_Dashboard {
 					<div class="thd-header-col thd-header-col-logo">
 						<div class="thd-logo">
 							<a target="_blank" href="<?php echo esc_url( 'https://athemes.com/' ); ?>">
-								<img width="96px" height="24px" src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/logo.svg' ); ?>" alt="<?php esc_html_e( 'aThemes', 'sydney' ); ?>">
+								<img width="96px" height="24px" src="<?php echo esc_url( get_template_directory_uri() . '/theme-dashboard/images/logo.svg' ); ?>" alt="<?php esc_attr_e( 'aThemes', 'sydney' ); ?>">
 							</a>
 						</div>
 					</div>

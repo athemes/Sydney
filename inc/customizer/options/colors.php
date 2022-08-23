@@ -468,7 +468,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 	$wp_customize->add_setting(
 		'top_items_color',
 		array(
-			'default'           => '#ffffff',
+			'default'           => '#233452',
 			'sanitize_callback' => 'sanitize_hex_color',
 			'transport'         => 'postMessage'
 		)
@@ -596,7 +596,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'sidebar_col
 $wp_customize->add_setting(
 	'sidebar_background',
 	array(
-		'default'           => '#ffffff',
+		'default'           => '',
 		'sanitize_callback' => 'sanitize_hex_color',
 		'transport'         => 'postMessage'
 	)
@@ -616,7 +616,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'sidebar_color',
 	array(
-		'default'           => '#767676',
+		'default'           => '#737C8C',
 		'sanitize_callback' => 'sanitize_hex_color',
 		'transport'         => 'postMessage'
 	)

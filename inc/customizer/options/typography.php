@@ -175,7 +175,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'h1_title',
 );
 
 $wp_customize->add_setting( 'h1_font_size_desktop', array(
-	'default'   		=> 64,
+	'default'   		=> 48,
 	'transport'			=> 'postMessage',
 	'sanitize_callback' => 'absint',
 ) );
@@ -226,7 +226,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'h2_title',
 );
 
 $wp_customize->add_setting( 'h2_font_size_desktop', array(
-	'default'   		=> 48,
+	'default'   		=> 38,
 	'transport'			=> 'postMessage',
 	'sanitize_callback' => 'absint',
 ) );

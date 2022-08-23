@@ -41,7 +41,7 @@ switch ($layout) {
 
 ?>
 
-<div id="sidebar-footer" class="footer-widgets widget-area visibility-<?php echo esc_attr( $visibility ); ?>">
+<div id="sidebar-footer" class="footer-widgets visibility-<?php echo esc_attr( $visibility ); ?>">
 	<div class="<?php echo esc_attr( $container ); ?>">
 		<div class="footer-widgets-grid footer-layout-<?php echo esc_attr( $layout ); ?> align-<?php echo esc_attr( $alignment ); ?>">
 		<?php for ( $i = 1; $i <= $column_no; $i++ ) { ?>

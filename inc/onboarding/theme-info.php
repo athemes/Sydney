@@ -118,13 +118,13 @@ function sydney_info_page() {
 						<span class="dashicons dashicons-sos"></span>
 						<h3><?php esc_html_e( 'Visit our forums', 'sydney' ); ?></h3>
 						<p><?php esc_html_e( 'Need help? Go ahead and visit our support forums and we\'ll be happy to assist you with any theme related questions you might have', 'sydney' ); ?></p>
-							<a href="https://forums.athemes.com/c/sydney" target="_blank"><?php esc_html_e( 'Visit the forums', 'sydney' ); ?></a>				
+							<a href="https://wordpress.org/support/theme/sydney/" target="_blank"><?php esc_html_e( 'Visit the forums', 'sydney' ); ?></a>				
 							</div>
 						<div class="tab-column">
 						<span class="dashicons dashicons-book-alt"></span>
 						<h3><?php esc_html_e( 'Documentation', 'sydney' ); ?></h3>
 						<p><?php esc_html_e( 'Our documentation can help you learn how to use the theme and also provides you with premade code snippets and answers to FAQs.', 'sydney' ); ?></p>
-						<a href="http://docs.athemes.com/category/8-sydney" target="_blank"><?php esc_html_e( 'See the Documentation', 'sydney' ); ?></a>
+						<a href="https://docs.athemes.com/category/8-sydney" target="_blank"><?php esc_html_e( 'See the Documentation', 'sydney' ); ?></a>
 						</div>
 					</div>
 				</div>

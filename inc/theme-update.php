@@ -195,10 +195,10 @@ function sydney_migrate_typography() {
     }    
 
     //Font sizes
-    $h1_size = get_theme_mod( 'h1_size', 52 );
+    $h1_size = get_theme_mod( 'h1_size', 48 );
     set_theme_mod( 'h1_font_size_desktop', $h1_size );
     
-    $h2_size = get_theme_mod( 'h2_size', 42 );
+    $h2_size = get_theme_mod( 'h2_size', 38 );
     set_theme_mod( 'h2_font_size_desktop', $h2_size );
 
     $h3_size = get_theme_mod( 'h3_size', 32 );
@@ -272,28 +272,28 @@ function sydney_footer_default_colors() {
     $footer_color               = get_theme_mod( 'footer_color' );
 
     if ( '#252525' !== $footer_widgets_background ) {
-        set_theme_mod( 'footer_widgets_background', '#00102E' );
+        set_theme_mod( 'footer_widgets_background', '#f0f0f0' );
     }
   
     if ( '#666666' !== $footer_widgets_color ) {
-        set_theme_mod( 'footer_widgets_color', '#ffffff' );
+        set_theme_mod( 'footer_widgets_color', '#233452' );
     }  
     
     if ( '#666666' !== $footer_widgets_links_color ) {
-        set_theme_mod( 'footer_widgets_links_color', '#ffffff' );
+        set_theme_mod( 'footer_widgets_links_color', '#233452' );
     }     
 
     if ( '#1c1c1c' !== $footer_background ) {
-        set_theme_mod( 'footer_background', '#00102E' );
+        set_theme_mod( 'footer_background', '#f0f0f0' );
     }  
     
     if ( '#666666' !== $footer_color ) {
-        set_theme_mod( 'footer_color', '#ffffff' );
+        set_theme_mod( 'footer_color', '#233452' );
     }      
 
     //enable and configure divider
     set_theme_mod( 'footer_credits_divider', 1 );
-    set_theme_mod( 'footer_credits_divider_color', 'rgba(255,255,255,0.1)' );
+    set_theme_mod( 'footer_credits_divider_color', 'rgba(0,0,0,0.1)' );
 
     //Set flag
     set_theme_mod( 'sydney_update_footer_defaults', true );

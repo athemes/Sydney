@@ -76,7 +76,7 @@ class Sydney_Page_Metabox {
 	?>
 	<?php if ( 'page' == get_post_type( $post ) ) : ?>
 	<p>
-		<label><input type="checkbox" name="sydney_transparent_menu" value="1" <?php checked( $merge_top_bar, 1 ); ?> /><?php esc_attr_e( 'Transparent menu bar', 'sydney' ); ?></label>
+		<label><input type="checkbox" name="sydney_transparent_menu" value="1" <?php checked( $merge_top_bar, 1 ); ?> /><?php esc_html_e( 'Transparent menu bar', 'sydney' ); ?></label>
 	</p>	
 	<?php endif; ?>
 

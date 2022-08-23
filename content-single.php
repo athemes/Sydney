@@ -13,7 +13,7 @@ $single_post_meta_position		= get_theme_mod( 'single_post_meta_position', 'below
 
 <?php do_action( 'sydney_before_single_entry' ); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
+	<div class="content-inner">
 	<?php do_action('sydney_inside_top_post'); ?>
 
 	<?php if ( 'above' === $single_post_image_placement ) : ?>
@@ -53,6 +53,7 @@ $single_post_meta_position		= get_theme_mod( 'single_post_meta_position', 'below
 	</footer><!-- .entry-footer -->
 
 	<?php do_action('sydney_inside_bottom_post'); ?>
+	</div>
 
 </article><!-- #post-## -->
 <?php do_action( 'sydney_after_single_entry' ); ?>

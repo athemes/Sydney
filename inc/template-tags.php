@@ -83,6 +83,8 @@ function sydney_posts_navigation() {
 
 	the_posts_pagination( array(
 		'mid_size'  => 1,
+		'prev_text' => '&lt;',
+		'next_text' => '&gt;',
 	) );	
 
 }
