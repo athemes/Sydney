@@ -211,9 +211,6 @@ Navigation
 .post-navigation .nav-next span {
 	margin-left: 10px;
 }
-.navigation.pagination {
-	margin-top: 30px;
-}
 .woocommerce nav.woocommerce-pagination ul li {
 	border: 0;
 }
@@ -1699,7 +1696,7 @@ Blog
 --------------------------------------------------------------*/
 .content-area .post-wrap,
 .contact-form-wrap {
-	padding-right: 30px;
+	padding-right: 45px;
 }
 .no-sidebar .page-wrap {
 	overflow-x: hidden;
