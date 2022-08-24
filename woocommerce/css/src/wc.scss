@@ -1,5 +1,16 @@
 @charset "UTF-8";
-
+.woocommerce nav.woocommerce-pagination ul {
+	border: 0;
+	margin: 0;
+}
+@media ( min-width: 991px ) {
+	nav.woocommerce-pagination {
+		margin-top: 45px;
+	}
+}
+.woocommerce nav.woocommerce-pagination ul li {
+	border: 0;
+}
 .woocommerce .quantity .qty,
 .woocommerce a.remove,
 .woocommerce nav.woocommerce-pagination,

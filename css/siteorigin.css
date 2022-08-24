@@ -1,0 +1,418 @@
+/*--------------------------------------------------------------
+Social
+--------------------------------------------------------------*/
+.social-menu-widget {
+	padding: 0;
+	margin: 0 auto;
+	display: table;
+	text-align: center;
+}
+.widget-area .widget_fp_social a,
+.social-menu-widget a,
+.social-menu-widget a:hover {
+	color: #d65050;
+}
+.social-menu-widget li {
+	display: inline-block;
+	padding: 5px 20px;
+	list-style: none;
+	line-height: 1;
+}
+.widget-area .widget_fp_social div ul li {
+	padding: 5px 10px;
+	line-height: 1;
+}
+.social-menu-widget a {
+	text-decoration: none;
+}
+.social-widget li a::before,
+.social-menu-widget a:before {
+	font-family: "FontAwesome", "Font Awesome 5 Brands";
+	color: inherit;
+}
+.social-menu-widget li a,
+.social-widget a {
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+}
+.social-menu-widget li a:hover,
+.social-widget a:hover {
+}
+.social-menu-widget a:before {
+	font-size: 50px;
+	text-shadow: 0 0 1px #222;
+}
+.widget-area .widget_fp_social a:before {
+	font-size: 34px;
+}
+.social-menu-widget a[href*="twitter.com"]::before {
+	content: '\f099';
+}
+.social-menu-widget a[href*="facebook.com"]::before {
+	content: '\f09a';
+}
+.social-menu-widget a[href*="plus.google.com"]::before {
+	content: '\f0d5';
+}
+.social-menu-widget a[href*="google.com/+"]::before {
+	content: '\f0d5';
+}
+.social-menu-widget a[href*="dribbble.com"]::before {
+	content: '\f17d';
+}
+.social-menu-widget a[href*="pinterest.com"]::before {
+	content: '\f231';
+}
+.social-menu-widget a[href*="youtube.com"]::before {
+	content: '\f167';
+}
+.social-menu-widget a[href*="flickr.com"]::before {
+	content: '\f16e';
+}
+.social-menu-widget a[href*="vimeo.com"]::before {
+	content: '\f194';
+}
+.social-menu-widget a[href*="instagram.com"]::before {
+	content: '\f16d';
+}
+.social-menu-widget a[href*="linkedin.com"]::before {
+	content: '\f0e1';
+}
+.social-menu-widget a[href*="foursquare.com"]::before {
+	content: '\f180';
+}
+.social-menu-widget a[href*="tumblr.com"]::before {
+	content: '\f173';
+}
+.social-menu-widget a[href*="behance.net"]::before {
+	content: '\f1b4';
+}
+.social-menu-widget a[href*="deviantart.com"]::before {
+	content: '\f1bd';
+}
+.social-menu-widget a[href*="soundcloud.com"]::before {
+	content: '\f1be';
+}
+.social-menu-widget a[href*="spotify.com"]::before {
+	content: '\f1bc';
+}
+.social-menu-widget a[href*="weibo.com"]::before {
+	content: '\f18a';
+}
+.social-menu-widget a[href*="xing.com"]::before {
+	content: '\f168';
+}
+.social-menu-widget a[href*="trello.com"]::before {
+	content: '\f181';
+}
+
+.panel-grid {
+	max-width: 1170px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.panel-row-style[data-hasbg="hasbg"] {
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 11;
+	overflow: hidden;
+}
+.panel-grid .overlay {
+	z-index: -1;
+}
+.no-col-padding .panel-grid-cell {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+/* SO post carousel fix */	
+.sow-carousel-thumbnail .overlay {
+	position: static;
+	height: 100% !important;
+}		
+/* Counter
+-------------------------------------------------------------- */
+.roll-counter {
+	text-align: center;
+}
+.roll-counter i {
+	font-size: 30px;
+}
+.roll-counter .name-count {
+	font-size: 14px;
+	font-weight: 600;
+	padding: 15px 0;
+}
+.roll-counter .numb-count {
+	font-size: 44px;
+	padding: 0;
+	font-weight: 600;
+}
+/* Clients
+-------------------------------------------------------------- */
+.roll-client {
+	text-align: center;
+}
+.roll-client .client-item {
+	float: none;
+	display: inline-block;
+	width: 19%;
+	text-align: center;
+	margin: 15px 0;
+}
+.roll-client .client-item img {
+	max-width: 150px;
+}
+/* Icon Box
+-------------------------------------------------------------- */
+.service {
+	margin-bottom: 30px;
+}
+.widget_sydney_services_type_b .service {
+	margin-bottom: 20px;
+}
+.widget_sydney_services_type_b .service-thumb {
+	float: left;
+	max-width: 120px;
+	margin-right: 30px;
+	margin-top: 7px;
+}
+.service.col-md-4:nth-of-type(3n+1) {
+	clear: left;
+}
+.service.col-md-6:nth-of-type(2n+1) {
+	clear: left;
+}
+.roll-icon-box {
+	text-align: center;
+}
+.roll-icon-box .service-thumb {
+	margin: 0 auto 20px;
+}
+.roll-icon-box .icon {
+	text-align: center;
+	width: 70px;
+	height: 70px;
+	line-height: 75px;
+	margin: 0 auto 20px;
+	border-radius: 50%;
+}
+.roll-icon-box.left {
+	text-align: left;
+}
+.roll-icon-box.left .icon {
+	float: left;
+	margin-top: 7px;
+	margin-right: 30px;
+}
+.roll-icon-box .icon i {
+	font-size: 26px;
+}
+.roll-icon-box .content {
+	overflow: hidden;
+}
+.roll-icon-box .content h3 {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: normal;
+	margin: 7px 0 10px;
+}
+.roll-icon-box .content h3,
+.roll-icon-box .content h3 a {
+	color: #443f3f;
+}
+.roll-icon-box .content p {
+	margin: 0;
+}
+/* Icon List
+-------------------------------------------------------------- */
+.roll-icon-list {
+	padding-top: 15px;
+}
+.roll-icon-list .icon {
+	text-align: center;
+	width: 70px;
+	height: 70px;
+	line-height: 75px;
+	float: left;
+	margin-right: 30px;
+	margin-top: 7px;
+	border-radius: 50%;
+}
+.roll-icon-list .icon i {
+	font-size: 26px;
+}
+.roll-icon-list .list-item {
+	margin-bottom: 30px;
+}
+.roll-icon-list .content {
+	overflow: hidden;
+}
+.roll-icon-list .content h3 {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: normal;
+	margin: 7px 0 10px;
+}
+.roll-icon-list .content h3 a {
+	color: #443f3f;
+}
+.roll-icon-list .content p {
+	margin-bottom: 0;
+}
+
+/* List
+-------------------------------------------------------------- */
+.roll-list {
+	list-style: none;
+	margin: 0 0 30px 10px;
+}
+.roll-list li {
+	line-height: 32px;
+	position: relative;
+	padding-left: 40px;
+}
+.roll-list li:before {
+	content: "\f006";
+	content: "\f005";
+	font-family: "FontAwesome", "Font Awesome 5 Free";
+	font-size: 15px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/* Socials
+-------------------------------------------------------------- */
+.roll-socials li {
+	display: inline-block;
+	text-align: center;
+	margin: 2px 8px 8px 0;
+}
+.roll-socials li:last-child {
+	margin-right: 0;
+}
+.roll-socials li a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background-color: transparent;
+	font-size: 16px;
+	border-radius: 50%;
+}
+.roll-socials li a:hover {
+	color: #fff;
+}
+
+/* Progress Bar
+-------------------------------------------------------------- */
+.roll-progress {
+	position: relative;
+	margin-bottom: 20px;
+}
+.roll-progress .name {
+	position: absolute;
+	left: 0;
+	top:0;
+}
+.roll-progress .name,
+.roll-progress .perc {
+	font-weight: 400;
+}
+.roll-progress .progress-animate {
+	height: 10px;
+	width: 0;
+	border-radius: 2px;
+}
+.roll-progress .progress-bar {
+	background: #f3f3f3;
+	width: 100%;
+	margin-top: 10px;
+	border-radius: 2px;
+}
+.roll-progress .perc {
+	width: 0;
+	text-align: right;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+.roll-progress .perc.show {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+/* Promo Box
+-------------------------------------------------------------- */
+.roll-promobox {
+	text-align: center;
+	padding: 20px 0;
+}
+.roll-promobox .promo-controls {
+	margin-top: 25px;
+}
+.roll-promobox .title {
+	font-size: 18px;
+	margin-bottom: 10px;
+	color: #8e8e8e;
+	font-weight: 500;
+}
+.roll-promobox .promo-content p {
+	margin-bottom: 40px;
+	font-size: 16px;
+}
+.roll-promobox.aside-style {
+	text-align: left
+}
+.roll-promobox.aside-style .promo-content p {
+	padding-bottom: 15px;
+}
+.roll-promobox.aside-style .promo-wrap {
+	display: table;
+	overflow: hidden;
+	width: 100%;
+}
+.roll-promobox.aside-style .promo-content {
+	display: table-cell;
+	vertical-align: middle;
+	width: 70%;
+}
+.roll-promobox.aside-style .promo-content p {
+	margin: 0 0 5px;
+}
+.roll-promobox.aside-style .promo-controls {
+	display: table-cell;
+	margin: 0;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	width: 30%;
+}
+
+.roll-icon-box .icon {
+	border: 1px solid #d65050;
+}
+.roll-icon-box .icon i,
+.roll-icon-box .content h3 a:hover {
+	color: #d65050;
+}
+.roll-icon-box.white .icon {
+	background-color: #d65050;
+}
+.roll-icon-box.white .content h3 a {
+	color: #d65050;
+}
+.roll-icon-list .icon {
+	border: 1px solid #d65050;
+}
+.roll-icon-list .icon i,
+.roll-icon-list .content h3 a:hover {
+	color: #d65050;
+}
+.roll-progress .progress-animate {
+	background-color: #d65050;
+}
