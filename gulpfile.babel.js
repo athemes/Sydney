@@ -115,6 +115,33 @@
 		);
 });
 
+gulp.task('stylesMin', () => {
+	return gulp
+		.src(config.mainCSSSRC, {allowEmpty: true})
+		.pipe(plumber(errorHandler))
+		.pipe(
+			sass({
+				errLogToConsole: config.errLogToConsole,
+				outputStyle: 'compressed',
+				precision: config.precision
+			})
+		)
+		.on('error', sass.logError)
+		.pipe(autoprefixer(config.BROWSERS_LIST))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
+		.pipe(gulp.dest(config.mainCSSDest))
+		.pipe(filter('**/*.css')) // Filtering stream to only css files.
+		.pipe(mmq({log: true})) // Merge Media Queries only for .min.css version.
+		.pipe(browserSync.stream()) // Reloads style.css if that is enqueued.
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> STYLES Minified — completed!\n',
+				onLast: true
+			})
+		);
+});
+
 /*  
  * Customizer Styles
  */
@@ -223,10 +250,11 @@ gulp.task('wooStylesMin', () => {
   */
  gulp.task(
 	 'default',
-	 gulp.parallel( 'wooStyles', 'wooStylesMin', 'mainStyles', browsersync, () => {
+	 gulp.parallel( 'stylesMin', 'wooStyles', 'wooStylesMin', 'mainStyles', browsersync, () => {
 		 gulp.watch( config.watchPhp, reload); // Reload on PHP file changes.
 		 gulp.watch( config.watchWooStyles, gulp.parallel('wooStyles') );
 		 gulp.watch( config.watchWooStyles, gulp.parallel('wooStylesMin') );
 		 gulp.watch( config.mainCSS, gulp.parallel('mainStyles') );
+		 gulp.watch( config.mainCSS, gulp.parallel('stylesMin') );
 	 })
  ); 

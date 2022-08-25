@@ -160,7 +160,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $top_items_color = get_theme_mod( 'top_items_color', '#233452' );
             $custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";
             //Sub menu items color
-            $submenu_items_color = get_theme_mod( 'submenu_items_color', '#ffffff' );
+            $submenu_items_color = get_theme_mod( 'submenu_items_color', '#233452' );
             $custom .= "#mainnav .sub-menu li a { color:" . esc_attr($submenu_items_color) . "}"."\n";
             //Sub menu background
             $submenu_background = get_theme_mod( 'submenu_background', '#1c1c1c' );
@@ -264,7 +264,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
 			$footer_credits_divider 		= get_theme_mod( 'footer_credits_divider', 0 );
 			$footer_credits_divider_width 	= get_theme_mod( 'footer_credits_divider_width', 'contained' );
-			$footer_credits_divider_size 	= get_theme_mod( 'footer_credits_divider_size', 1 );
+			$footer_credits_divider_size 	= get_theme_mod( 'footer_credits_divider_size', 0 );
 			$footer_credits_divider_color 	= get_theme_mod( 'footer_credits_divider_color', 'rgba(33,33,33,0.1)' );			
 			if ( $footer_credits_divider ) {
 				if ( 'contained' === $footer_credits_divider_width ) {
@@ -630,7 +630,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
 			$custom = $this->output_css();
 
-			wp_add_inline_style( 'sydney-style', $custom );
+			wp_add_inline_style( 'sydney-style-min', $custom );
 		}
 
 		/**

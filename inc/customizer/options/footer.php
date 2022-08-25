@@ -695,7 +695,7 @@ $wp_customize->add_control(
 
 $wp_customize->add_setting( 'footer_credits_divider_size', array(
 	'sanitize_callback' => 'absint',
-	'default' 			=> 1,
+	'default' 			=> 0,
 	'transport' 		=> 'postMessage'
 ) );
 

@@ -150,3 +150,9 @@ Hero section
 		padding: 15px 0;
 	}
 }
+@media only screen and (max-width: 1024px) {
+    .slides-container .slide-item {
+        background-attachment: scroll !important;
+        background-position: center !important;
+    }
+}

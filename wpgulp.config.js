@@ -20,7 +20,9 @@ const browserAutoOpen = false;
 const injectChanges = true;
 
 //Main CSS file
-const mainCSS = 'style.css';
+const mainCSS = './css/styles.css';
+const mainCSSSRC = './css/styles.css';
+const mainCSSDest = './css';
 
 // >>>>> Style options.
 // Path to main .scss file.
@@ -137,7 +139,7 @@ const watchPhp = './**/*.php';
 
 // >>>>> Zip file config.
 // Must have.zip at the end.
-const zipName = 'sydne.zip';
+const zipName = 'sydney.zip';
 
 // Must be a folder outside of the zip folder.
 const zipDestination = './../'; // Default: Parent folder.
@@ -253,4 +255,6 @@ module.exports = {
 	jsReviewsAdvancedFile,
 	jsReviewsAdvSRC,
 	watchJsReviewsAdv,
+	mainCSSSRC,
+	mainCSSDest
 };

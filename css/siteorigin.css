@@ -416,3 +416,107 @@ Social
 .roll-progress .progress-animate {
 	background-color: #d65050;
 }
+/* Lightbox video
+-------------------------------------------------------------- */
+.sydney-video .video-text,
+.sydney-video .toggle-popup, 
+.sydney-video .close-popup {
+	display: none;
+}
+.sydney-video.vid-lightbox .video-text {
+	display: block;
+	margin-bottom: 30px;
+}
+.sydney-video.vid-lightbox .video-text:empty {
+	margin-bottom: 0;
+}
+.sydney-video.vid-lightbox .popup-show .close-popup {
+    display: block;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    z-index: 12;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+.sydney-video.vid-lightbox .sydney-video-inner {
+	max-width: 720px;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+.sydney-video.vid-lightbox .video-overlay {
+	position: fixed;
+	top: 0;
+	left: -9999em;
+	height: 100%;
+	width: 100%;
+	z-index: 9998;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.sydney-video.vid-lightbox .popup-show {
+	left: 0;
+}
+.sydney-video.vid-lightbox {
+	text-align: center;
+}
+.sydney-video.vid-lightbox .toggle-popup {
+    width: 60px;
+    height: 60px;
+    display: table;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 12px 0 rgba(83, 85, 93, 0.3);
+    border-radius: 50%;
+    line-height: 60px;
+    font-size: 28px;
+    color: #46444c;
+    transition: all 0.4s;
+}
+.sydney-video.vid-lightbox .toggle-popup:hover {
+	background-color: #46444c;
+	color: #fff;
+}
+
+@media only screen and (max-width: 1024px) {
+    .panel-row-style {
+        background-attachment: scroll !important;
+        background-position: center !important;
+    }
+    .panel-row-style.mob-pad-0 {
+        padding: 0 !important;
+    }
+    .panel-row-style.mob-pad-15 {
+        padding: 15px 0 !important;
+    }
+    .panel-row-style.mob-pad-30 {
+        padding: 30px 0 !important;
+    }
+    .panel-row-style.mob-pad-45 {
+        padding: 45px 0 !important;
+    }
+}
+@media only screen and (max-width: 780px) {
+    .roll-client .client-item img {
+        max-width: 100%;
+      }
+      .panel-grid-cell {
+           padding-left:15px !important;
+        padding-right:15px !important;
+        margin-bottom: 15px !important;
+      }
+}
+@media only screen and (max-width: 575px) {
+    .roll-client .client-item {
+        padding: 5px;
+        margin: 0;
+        width: 32.5%;
+    }
+    .facts-section.style2 .col-md-3 {
+        width: 100%;
+    }	
+}
