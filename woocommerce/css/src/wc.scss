@@ -130,7 +130,7 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 .product_meta {
 	margin-top: 30px;
 	padding-top: 30px;
-	border-top: 1px solid #ebebeb;
+	border-top: 1px solid var(--sydney-border-color);
 }
 .product_meta > * {
 	display: block;
@@ -138,7 +138,7 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 .woocommerce-product-details__short-description {
 	margin-bottom: 30px;
 	padding-bottom: 30px;
-	border-bottom: 1px solid #ebebeb;	
+	border-bottom: 1px solid var(--sydney-border-color);	
 }
 .woocommerce-product-details__short-description p:last-of-type {
 	margin: 0;
@@ -214,7 +214,7 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 }
 .woocommerce-tabs.wc-tabs-wrapper {
 	margin-bottom: 45px;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid var(--sydney-border-color);
 }
 .woocommerce-MyAccount-navigation li a {
 	color: #443f3f;
@@ -621,7 +621,7 @@ p.demo_store {
 
 .woocommerce small.note {
 	display: block;
-	color: #777;
+	color: var(--sydney-grey-color);
 	font-size: .857em;
 	margin-top: 10px
 }
@@ -630,8 +630,8 @@ p.demo_store {
 	margin: 0 0 30px;
 	padding: 0 0 5px;
 	font-size: .92em;
-	color: #777;
-	border-bottom: 1px solid #ebebeb
+	color: var(--sydney-grey-color);
+	border-bottom: 1px solid var(--sydney-border-color)
 }
 
 .woocommerce .woocommerce-breadcrumb:after,
@@ -641,7 +641,7 @@ p.demo_store {
 }
 
 .woocommerce .woocommerce-breadcrumb a {
-	color: #777
+	color: var(--sydney-grey-color)
 }
 
 .woocommerce .quantity .qty {
@@ -1152,14 +1152,14 @@ p.price span.woocommerce-Price-amount.amount {
 
 .woocommerce #reviews h2 small {
 	float: right;
-	color: #777;
+	color: var(--sydney-grey-color);
 	font-size: 15px;
 	margin: 10px 0 0
 }
 
 .woocommerce #reviews h2 small a {
 	text-decoration: none;
-	color: #777
+	color: var(--sydney-grey-color)
 }
 
 .woocommerce #reviews #respond {
@@ -1201,7 +1201,7 @@ p.price span.woocommerce-Price-amount.amount {
 }
 
 .woocommerce #reviews #comments ol.commentlist li .meta {
-	color: #777;
+	color: var(--sydney-grey-color);
 	font-size: .75em
 }
 
@@ -2165,7 +2165,7 @@ p.price span.woocommerce-Price-amount.amount {
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals p small {
-	color: #777;
+	color: var(--sydney-grey-color);
 	font-size: .83em
 }
 
@@ -2194,7 +2194,7 @@ p.price span.woocommerce-Price-amount.amount {
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals table small {
-	color: #777
+	color: var(--sydney-grey-color)
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals table select {
@@ -2237,7 +2237,7 @@ p.price span.woocommerce-Price-amount.amount {
 
 .woocommerce-checkout .checkout .create-account small {
 	font-size: 11px;
-	color: #777;
+	color: var(--sydney-grey-color);
 	font-weight: 400
 }
 
@@ -2386,7 +2386,7 @@ p.price span.woocommerce-Price-amount.amount {
 
 .woocommerce-checkout #payment div.payment_box span.help {
 	font-size: .857em;
-	color: #777;
+	color: var(--sydney-grey-color);
 	font-weight: 400
 }
 
