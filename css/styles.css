@@ -341,6 +341,10 @@ Repeatable Patterns
 		background: var(--sydney-light-background);
 		color: var(--sydney-text-color);
 	}
+	.page-template-page_front-page.elementor-page,
+	.page-template-page_front-page.panel-layout {
+		background: #fff;
+	}
 	a {
 		text-decoration: none;
 		transition: all 0.3s ease-in-out;
