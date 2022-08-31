@@ -508,7 +508,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 					?>						
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img width="<?php echo esc_attr( $logo_attrs[1] ); ?>" height="<?php echo esc_attr( $logo_attrs[2] ); ?>" class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
 				
-					<?php if ( is_home() && !is_front_page() && 'main' == $context ) : ?>
+					<?php if ( is_home() && 'main' == $context ) : ?>
 						<h1 class="screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
 					<?php endif; ?>
 				<?php else : ?>
