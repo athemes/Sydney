@@ -103,7 +103,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 									<?php $this->menu(); ?>
 								</div>
 								<div class="col-md-2">
-									<?php $this->logo(); ?>
+									<?php $this->logo( $context = 'main' ); ?>
 								</div>
 								<div class="col-md-5 header-elements">
 									<?php $this->render_components( 'l1' ); ?>
@@ -129,7 +129,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 						<div class="site-header-inner">
 							<div class="row valign">
 								<div class="header-col">
-									<?php $this->logo(); ?>
+									<?php $this->logo( $context = 'main' ); ?>
 								</div>
 								<div class="header-col menu-col menu-<?php echo esc_attr( $menu_position ); ?>">
 									<?php $this->menu(); ?>
@@ -171,7 +171,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 									<?php $this->render_components( 'l3left' ); ?>
 								</div>
 								<div class="col-md-4">
-									<?php $this->logo(); ?>
+									<?php $this->logo( $context = 'main' ); ?>
 								</div>							
 								<div class="col-md-4 header-elements">
 									<?php $this->render_components( 'l3right' ); ?>
@@ -219,7 +219,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 						<div class="top-header-row">
 							<div class="row valign">
 								<div class="col-md-4">
-									<?php $this->logo(); ?>
+									<?php $this->logo( $context = 'main' ); ?>
 								</div>
 								<div class="col-md-8 header-elements">
 									<?php $this->render_components( 'l4top' ); ?>
@@ -274,7 +274,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 									<?php $this->render_components( 'l5topleft' ); ?>
 								</div>
 								<div class="col-md-4">
-									<?php $this->logo(); ?>
+									<?php $this->logo( $context = 'main' ); ?>
 								</div>							
 								<div class="col-md-4 header-elements">
 									<?php $this->render_components( 'l5topright' ); ?>
@@ -497,7 +497,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		/**
 		 * Site branding
 		*/		
-		public function logo() {
+		public function logo( $context = false ) {
 			?>
 			<div class="site-branding">
 
@@ -507,6 +507,10 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 						$logo_attrs = wp_get_attachment_image_src( $logo_id, 'large' );
 					?>						
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img width="<?php echo esc_attr( $logo_attrs[1] ); ?>" height="<?php echo esc_attr( $logo_attrs[2] ); ?>" class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
+				
+					<?php if ( is_home() && !is_front_page() && 'main' == $context ) : ?>
+						<h1 class="screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
+					<?php endif; ?>
 				<?php else : ?>
 					<?php if ( is_front_page() && is_home() ) :
 						?>
