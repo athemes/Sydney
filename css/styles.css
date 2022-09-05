@@ -491,7 +491,6 @@ Repeatable Patterns
 
 	textarea,
 	input {
-		-webkit-appearance: none;
 		text-shadow: none;
 		box-shadow: none;
 	}

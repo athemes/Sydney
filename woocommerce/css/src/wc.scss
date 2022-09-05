@@ -269,6 +269,10 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 .woocommerce-checkout .post-wrap {
 	padding-right: 0 !important;
 }
+
+.woocommerce-checkout-review-order-table {
+	border: 0 !important;
+}
 .woocommerce-cart table.cart button.button[name="update_cart"] {
 	background: #000;
 	color: #fff;
@@ -283,7 +287,7 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 	font-weight: 400;
 }
 .woocommerce-shipping-methods input {
-	margin-right: 10px;
+	margin-right: 10px !important;
 }
 .woocommerce ul#shipping_method {
 	display: block;
@@ -364,7 +368,7 @@ a.shipping-calculator-button {
 	border-color: #dbdbdb;
 }
 .woocommerce-form__label-for-checkbox span {
-	padding-left: 20px;
+	padding-left: 15px;
 }
 .woocommerce-checkout ul#shipping_method {
 	margin-bottom: 0;
@@ -1841,8 +1845,8 @@ p.price span.woocommerce-Price-amount.amount {
 }
 
 .woocommerce ul#shipping_method li {
-	margin: 0;
-	padding: .25em 0 .25em 22px;
+	margin: 0 0 10px 0;
+	padding: 0;
 	list-style: none
 }
 
@@ -2277,7 +2281,7 @@ p.price span.woocommerce-Price-amount.amount {
 }
 
 .woocommerce-checkout #payment ul.payment_methods li input {
-	margin: 0 1em 0 0
+	margin-right: 10px !important;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li img {
@@ -2299,12 +2303,12 @@ p.price span.woocommerce-Price-amount.amount {
 .woocommerce-checkout #payment div.payment_box {
 	position: relative;
 	width: 96%;
-	padding: 1em 2%;
+	padding: 15px;
 	margin: 1em 0;
 	font-size: .92em;
 	border-radius: 2px;
 	line-height: 1.5;
-	background-color: #efefef;
+	background-color: var(--sydney-light-background);
 	color: #515151
 }
 
@@ -2395,7 +2399,9 @@ p.price span.woocommerce-Price-amount.amount {
 .woocommerce-checkout #payment div.payment_box .form-row {
 	margin: 0 0 1em
 }
-
+.woocommerce-checkout #payment div.payment_box p:first-child {
+	margin-top: 0;
+}
 .woocommerce-checkout #payment div.payment_box p:last-child {
 	margin-bottom: 0
 }
@@ -2403,12 +2409,12 @@ p.price span.woocommerce-Price-amount.amount {
 .woocommerce-checkout #payment div.payment_box:after {
 	content: "";
 	display: block;
-	border: 8px solid #efefef;
+	border: 8px solid var(--sydney-light-background);
 	border-right-color: transparent;
 	border-left-color: transparent;
 	border-top-color: transparent;
 	position: absolute;
-	top: -3px;
+	top: -1px;
 	left: 0;
 	margin: -1em 0 0 2em
 }
