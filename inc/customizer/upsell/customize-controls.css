@@ -12,6 +12,10 @@
 	        justify-content: space-between;
 }
 
+#customize-theme-controls #accordion-section-sydney_upsell .button {
+	margin-left: 20px;
+}
+
 .sydney-upsell-feature-wrapper {
 	display: -webkit-box;
 	display: -ms-flexbox;
