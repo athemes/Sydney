@@ -694,22 +694,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting(
-	'swc_df_checkout',
-	array(
-		'sanitize_callback' => 'sydney_sanitize_checkbox',
-	)       
-);
-$wp_customize->add_control(
-	'swc_df_checkout',
-	array(
-		'type'      => 'checkbox',
-		'label'     => __('Enable distraction free checkout', 'sydney'),
-		'section'   => 'woocommerce_checkout',
-		'priority'  => 10,
-	)
-);   
-
 /**
  * Styling
  */
