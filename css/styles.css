@@ -255,6 +255,7 @@ object {
 img {
 	max-width: 100%;
 	height: auto;
+	vertical-align: middle;
 }
 .fitVids-wrapper {
 	position: relative;
@@ -401,6 +402,7 @@ Repeatable Patterns
 		text-transform: uppercase;
 		border-radius: 3px;
 		transition: all 0.3s;
+		cursor: pointer;
 	}
 	
 	button:hover,
@@ -1427,6 +1429,16 @@ Parallax
 /*--------------------------------------------------------------
 Blog
 --------------------------------------------------------------*/
+.content-area.sidebar-left .post-wrap {
+	padding-right: 0;
+}
+.content-area.sidebar-left.no-sidebar {
+	float: none;
+	padding-left: 15px;
+}
+.no-sidebar .content-area.sidebar-left {
+	padding-left: 15px;
+}
 .content-area .post-wrap,
 .contact-form-wrap {
 	padding-right: 45px;
@@ -1440,13 +1452,9 @@ Blog
 }
 .no-sidebar .content-area .post-wrap {
 	padding-right: 0;
+	padding-left: 0;
 }
-.single-post .no-sidebar .entry-thumb, .single-post.no-sidebar .entry-thumb {
-	max-width: 920px;
-	margin-left: auto;
-	margin-right: auto;
-}
-.single-post .no-sidebar .entry-header, .single-post .no-sidebar .entry-content, .single-post .no-sidebar .entry-footer, .single-post .no-sidebar .post-navigation, .single-post .no-sidebar .comments-area, .single-post .no-sidebar .single-post-author, .single-post.no-sidebar .entry-header, .single-post.no-sidebar .entry-content, .single-post.no-sidebar .entry-footer, .single-post.no-sidebar .post-navigation, .single-post.no-sidebar .comments-area, .single-post.no-sidebar .single-post-author {
+.single-post .no-sidebar .entry-header, .single-post .no-sidebar .entry-content, .single-post .no-sidebar .entry-footer,.single-post .no-sidebar .comments-area, .single-post .no-sidebar .single-post-author, .single-post.no-sidebar .entry-header, .single-post.no-sidebar .entry-content, .single-post.no-sidebar .entry-footer, .single-post.no-sidebar .comments-area, .single-post.no-sidebar .single-post-author {
 	max-width: 730px;
 	margin-left: auto;
 	margin-right: auto;
@@ -1481,6 +1489,9 @@ body:not(.elementor-page):not(.panel-layout) .entry-content h6 {
 .content-area .entry-thumb {
 	text-align: center;
 	margin-bottom: 24px;
+}
+.single .related-post .entry-thumb {
+	margin-bottom: 12px;
 }
 .hentry .title-post {
 	margin: 0;
@@ -1717,6 +1728,7 @@ span.author.vcard {
 .entry-meta .avatar {
 	border-radius: 50%;
 	margin-left: 5px;
+	vertical-align: middle;
 }
 .entry-meta .author a.url {
 	color: var(--sydney-headings-color);
@@ -1852,6 +1864,9 @@ Blog single
 .content-inner .entry-thumb {
 	margin-left: -60px;
 	margin-right: -60px;
+}
+.entry-thumb.feat-img-top {
+	margin-top: -60px;
 }
 .tags-links a {
 	display: inline-block;
@@ -2905,6 +2920,9 @@ SVGs
 			margin-left: -30px;
 			margin-right: -30px;
 		}
+		.entry-thumb.feat-img-top {
+			margin-top: -30px;
+		}
 		.parallax {
 			background-size: cover;
 			background-attachment: scroll;
@@ -3227,8 +3245,8 @@ SVGs
 }
 @media (min-width: 991px) {
 	.content-area.sidebar-left {
-			padding-right: 15px;
-			padding-left: 60px;
-			float: right;
+		padding-right: 15px;
+		padding-left: 60px;
+		float: right;
 	}
 }

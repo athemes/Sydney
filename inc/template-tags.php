@@ -418,7 +418,7 @@ if ( ! function_exists( 'sydney_single_post_thumbnail' ) ) :
 	/**
 	 * Single post featured image
 	 */
-	function sydney_single_post_thumbnail( $disable ) {
+	function sydney_single_post_thumbnail( $disable, $class = false ) {
 
 		$show_mods = get_theme_mod( 'single_post_show_featured', 1 );
 
@@ -427,7 +427,7 @@ if ( ! function_exists( 'sydney_single_post_thumbnail' ) ) :
 		}
 
 		?>
-		<div class="entry-thumb">
+		<div class="entry-thumb <?php echo esc_attr( $class ? $class : '' ); ?>">
 			<?php the_post_thumbnail('large-thumb'); ?>
 		</div>
 		<?php

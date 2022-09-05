@@ -57,7 +57,7 @@ $wp_customize->add_control(
 			'label' 				=> '',
 			'section'       		=> 'sydney_section_footer_widgets',
 			'controls_general'		=> json_encode( array( '#customize-control-sydney_upsell_footer_widgets','#customize-control-footer_widgets_visibility', '#customize-control-footer_widgets_alignment', '#customize-control-footer_widget_sections', '#customize-control-footer_widget_areas', '#customize-control-footer_container', '#customize-control-footer_divider_1', '#customize-control-footer_divider_2') ),
-			'controls_design'		=> json_encode( array( '#customize-control-footer_widgets_links_hover_color', '#customize-control-footer_widgets_links_color', '#customize-control-footer_widgets_color', '#customize-control-footer_widgets_title_color', '#customize-control-footer_widgets_title_size', '#customize-control-footer_divider_5', '#customize-control-footer_widgets_divider_width', '#customize-control-footer_widgets_divider_color', '#customize-control-footer_widgets_divider_size', '#customize-control-footer_divider_3', '#customize-control-footer_divider_4', '#customize-control-footer_widgets_divider', '#customize-control-footer_widgets_column_spacing', '#customize-control-footer_widgets_background', '#customize-control-footer_widgets_padding' ) ),
+			'controls_design'		=> json_encode( array( '#customize-control-footer_widgets_links_hover_color', '#customize-control-footer_widgets_links_color', '#customize-control-footer_widgets_color', '#customize-control-footer_widgets_headings_color', '#customize-control-footer_widgets_title_color', '#customize-control-footer_widgets_title_size', '#customize-control-footer_divider_5', '#customize-control-footer_widgets_divider_width', '#customize-control-footer_widgets_divider_color', '#customize-control-footer_widgets_divider_size', '#customize-control-footer_divider_3', '#customize-control-footer_divider_4', '#customize-control-footer_widgets_divider', '#customize-control-footer_widgets_column_spacing', '#customize-control-footer_widgets_background', '#customize-control-footer_widgets_padding' ) ),
 		)
 	)
 );
@@ -253,7 +253,26 @@ $wp_customize->add_control(
 		$wp_customize,
 		'footer_widgets_title_color',
 		array(
-			'label'         	=> esc_html__( 'Widget titles color', 'sydney' ),
+			'label'         	=> esc_html__( 'Widget titles color (deprecated)', 'sydney' ),
+			'section'       	=> 'sydney_section_footer_widgets',
+		)
+	)
+);
+
+$wp_customize->add_setting(
+	'footer_widgets_headings_color',
+	array(
+		'default'           => '',
+		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_control(
+	new Sydney_Alpha_Color(
+		$wp_customize,
+		'footer_widgets_headings_color',
+		array(
+			'label'         	=> esc_html__( 'Headings color', 'sydney' ),
 			'section'       	=> 'sydney_section_footer_widgets',
 		)
 	)

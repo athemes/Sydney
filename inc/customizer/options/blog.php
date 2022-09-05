@@ -362,7 +362,7 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting( 'exc_lenght', array(
-	'default'   		=> 12,
+	'default'   		=> 22,
 	'sanitize_callback' => 'absint',
 ) );			
 

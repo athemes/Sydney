@@ -70,6 +70,10 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
   padding: 0;
 }
 
+.single-product.woocommerce ul.products li.product a img {
+  margin-bottom: 12px;
+}
+
 .woocommerce ul.products li.product .button {
   font-size: 13px;
   text-transform: uppercase;
@@ -317,7 +321,7 @@ ol.flex-control-nav.flex-control-thumbs li img:not(.flex-active) {
 
 .woocommerce-cart .post-wrap,
 .woocommerce-checkout .post-wrap {
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 
 .woocommerce-cart table.cart button.button[name="update_cart"] {
@@ -2169,7 +2173,7 @@ p.price span.woocommerce-Price-amount.amount {
 }
 
 .woocommerce-cart table.cart img {
-  width: 32px;
+  max-width: 100px;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -2185,7 +2189,6 @@ p.price span.woocommerce-Price-amount.amount {
   box-sizing: border-box;
   border: 1px solid #d3ced2;
   padding: 0 5px;
-  height: 32px;
   margin: 0 5px 0 0;
   outline: 0;
   line-height: 1;

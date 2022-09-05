@@ -17,7 +17,7 @@ $single_post_meta_position		= get_theme_mod( 'single_post_meta_position', 'below
 	<?php do_action('sydney_inside_top_post'); ?>
 
 	<?php if ( 'above' === $single_post_image_placement ) : ?>
-		<?php sydney_single_post_thumbnail( $disable_featured ); ?>
+		<?php sydney_single_post_thumbnail( $disable_featured, $class = 'feat-img-top' ); ?>
 	<?php endif; ?>
 
 	<?php if ( !$disable_title ) : ?>

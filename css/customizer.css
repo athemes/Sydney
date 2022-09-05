@@ -816,6 +816,7 @@ span.delete:hover {
   margin-bottom: 5px;
 }
 
+#customize-control-shop_page_title span, #customize-control-shop_page_description span, #customize-control-shop_product_sorting span, #customize-control-shop_results_count span, #customize-control-shop_breadcrumbs span,
 #sub-accordion-section-sydney_section_mobile_header li:not(.customize-control-sydney-text-control) .customize-control-title,
 #sub-accordion-section-sydney_section_buttons li:not(.customize-control-sydney-text-control) .customize-control-title,
 #sub-accordion-section-sydney_section_scrolltotop li:not(.customize-control-sydney-text-control) .customize-control-title,

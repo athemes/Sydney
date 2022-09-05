@@ -680,7 +680,6 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 1,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
-		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_control(
