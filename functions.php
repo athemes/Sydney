@@ -46,7 +46,7 @@ function sydney_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size('sydney-large-thumb', 920);
+	add_image_size('sydney-large-thumb', 1000);
 	add_image_size('sydney-medium-thumb', 550, 400, true);
 	add_image_size('sydney-small-thumb', 230);
 	add_image_size('sydney-service-thumb', 350);
@@ -244,17 +244,19 @@ function sydney_scripts() {
 		if ( ( $slider_home == 'slider' && is_front_page() ) || ( $slider_site == 'slider' && !is_front_page() ) ) {
 			wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 			wp_enqueue_script( 'sydney-hero-slider', get_template_directory_uri() . '/js/hero-slider.js', array('jquery'),'', true );
-			wp_enqueue_style( 'sydney-hero-slider', get_template_directory_uri() . '/css/hero-slider.css', array(), '20220824' );
+			wp_enqueue_style( 'sydney-hero-slider', get_template_directory_uri() . '/css/components/hero-slider.min.css', array(), '20220824' );
 		}
 	}
 
 	if ( class_exists( 'Elementor\Plugin' ) ) {
 		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );		
+
+		wp_enqueue_style( 'sydney-elementor', get_template_directory_uri() . '/css/components/elementor.min.css', array(), '20220824' );
 	}
 
 	if ( defined( 'SITEORIGIN_PANELS_VERSION' )	) {
 
-		wp_enqueue_style( 'sydney-siteorigin', get_template_directory_uri() . '/css/siteorigin.css', array(), '20220824' );
+		wp_enqueue_style( 'sydney-siteorigin', get_template_directory_uri() . '/css/components/siteorigin.min.css', array(), '20220824' );
 
 		wp_enqueue_script( 'sydney-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'),'', true );
 
@@ -270,7 +272,7 @@ function sydney_scripts() {
 	}
 
 	if ( is_singular() && ( comments_open() || '0' != get_comments_number() ) ) {
-		wp_enqueue_style( 'sydney-comments', get_template_directory_uri() . '/css/comments.css', array(), '20220824' );
+		wp_enqueue_style( 'sydney-comments', get_template_directory_uri() . '/css/components/comments.min.css', array(), '20220824' );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
