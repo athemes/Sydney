@@ -228,7 +228,7 @@ function sydney_scripts() {
 
 	wp_enqueue_style( 'sydney-google-fonts', esc_url( sydney_google_fonts_url() ), array(), null );
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20220616' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20220824' );
 	
 	wp_enqueue_style( 'sydney-style-min', get_template_directory_uri() . '/css/styles.min.css', '', '20220824' );
 

@@ -1006,7 +1006,12 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'title' => __('Theme info', 'sydney'),
             'priority' => 139,
-            'description' => '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="https://docs.athemes.com/category/8-sydney">here</a></p><p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __('2. A full theme demo can be found ', 'sydney') . '<a target="_blank" href="https://demo.athemes.com/sydney-main/">here</a></p>',         
+            'description' => 
+            '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __(' 1. Documentation for Sydney can be found ', 'sydney') . '<a target="_blank" href="https://docs.athemes.com/category/8-sydney">here</a></p>' 
+            . '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' . __(' 2. All of our starter sites, both free and pro, can be previewed ', 'sydney') . '<a target="_blank" href="https://athemes.com/sydney-demos">here</a></p>'
+            . '<p style="padding-bottom: 10px;border-bottom: 1px solid #d3d2d2">' .  __(' 3. You can receive free support on the community forums ', 'sydney') . '<a target="_blank" href="https://wordpress.org/support/theme/sydney/">here</a></p>'
+            .  __(' 4. Priority email support is available for our premium users. You can upgrade ', 'sydney') . '<a target="_blank" href="https://athemes.com/sydney-upgrade/?utm_source=theme_customizer_deep&utm_medium=sydney_customizer&utm_campaign=Sydney">here</a>'   
+                 
         )
     );
     $wp_customize->add_setting('sydney_theme_docs', array(

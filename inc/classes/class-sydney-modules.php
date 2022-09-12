@@ -30,7 +30,7 @@ if ( ! class_exists( 'Sydney_Modules' ) ) {
 					'link' 			=> 'http://',
 					'link_label'	=> esc_html__( 'Build templates', 'sydney' ),
 					'activate_uri' 	=> '&amp;activate_module_templates', //param is added in dashboard class
-					'text'			=> __( 'Create header, footer or content templates.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/435-templates-system-overview">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+					'text'			=> __( 'Build headers, footers etc. with Elementor.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/435-templates-system-overview">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
 				),		
 				array(
 					'slug'			=> 'ext-header',
