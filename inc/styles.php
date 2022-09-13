@@ -158,7 +158,10 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
             //Top level menu items color
             $top_items_color = get_theme_mod( 'top_items_color', '#233452' );
-            $custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";
+			if ( $top_items_color != '#233452' ) {
+				$custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";	
+			}
+
             //Sub menu items color
             $submenu_items_color = get_theme_mod( 'submenu_items_color', '#233452' );
             $custom .= "#mainnav .sub-menu li a { color:" . esc_attr($submenu_items_color) . "}"."\n";

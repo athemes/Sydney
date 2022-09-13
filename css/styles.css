@@ -1235,6 +1235,14 @@ Header
 	top: 32px;
 	z-index: 999;
 }	
+.transparent-header #masthead:not(.sticky-active),
+.transparent-header #masthead:not(.sticky-active) .site-description,
+.transparent-header #masthead:not(.sticky-active) a {
+	color: #fff;
+}
+.transparent-header #masthead:not(.sticky-active) svg {
+	fill: #fff;
+}
 /*--------------------------------------------------------------
 Mobile navigation
 --------------------------------------------------------------*/
