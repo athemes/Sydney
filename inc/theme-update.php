@@ -272,28 +272,28 @@ function sydney_footer_default_colors() {
     $footer_color               = get_theme_mod( 'footer_color' );
 
     if ( '#252525' !== $footer_widgets_background ) {
-        set_theme_mod( 'footer_widgets_background', '#f0f0f0' );
+        set_theme_mod( 'footer_widgets_background', '#00102E' );
     }
   
     if ( '#666666' !== $footer_widgets_color ) {
-        set_theme_mod( 'footer_widgets_color', '#233452' );
+        set_theme_mod( 'footer_widgets_color', '#ffffff' );
     }  
     
     if ( '#666666' !== $footer_widgets_links_color ) {
-        set_theme_mod( 'footer_widgets_links_color', '#233452' );
+        set_theme_mod( 'footer_widgets_links_color', '#ffffff' );
     }     
 
     if ( '#1c1c1c' !== $footer_background ) {
-        set_theme_mod( 'footer_background', '#f0f0f0' );
+        set_theme_mod( 'footer_background', '#00102E' );
     }  
     
     if ( '#666666' !== $footer_color ) {
-        set_theme_mod( 'footer_color', '#233452' );
+        set_theme_mod( 'footer_color', '#ffffff' );
     }      
 
     //enable and configure divider
     set_theme_mod( 'footer_credits_divider', 1 );
-    set_theme_mod( 'footer_credits_divider_color', 'rgba(0,0,0,0.1)' );
+    set_theme_mod( 'footer_credits_divider_color', 'rgba(255,255,255,0.1)' );
 
     //Set flag
     set_theme_mod( 'sydney_update_footer_defaults', true );

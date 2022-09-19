@@ -157,10 +157,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= "@media only screen and (max-width: 1024px) { .site-header { background-color:" . esc_attr($menu_bg_color) . ";}}" . "\n";
 
             //Top level menu items color
-            $top_items_color = get_theme_mod( 'top_items_color', '#233452' );
-			if ( $top_items_color != '#233452' ) {
-				$custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";	
-			}
+            $top_items_color = get_theme_mod( 'top_items_color', '#ffffff' );
+			$custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";	
 
             //Sub menu items color
             $submenu_items_color = get_theme_mod( 'submenu_items_color', '#233452' );
@@ -175,11 +173,11 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $body_text = get_theme_mod( 'body_text_color' );
             $custom .= "body { color:" . esc_attr($body_text) . "}"."\n";
             //Sidebar background
-            $sidebar_background = get_theme_mod( 'sidebar_background' );
-            $custom .= "#secondary .widget { background-color:" . esc_attr($sidebar_background) . "}"."\n";
+            $sidebar_background = get_theme_mod( 'sidebar_background', '#ffffff' );
+            $custom .= "#secondary { background-color:" . esc_attr($sidebar_background) . "}"."\n";
             //Sidebar color
             $sidebar_color = get_theme_mod( 'sidebar_color', '#737C8C' );
-            $custom .= "#secondary a { color:" . esc_attr($sidebar_color) . "}"."\n";	
+            $custom .= "#secondary, #secondary a { color:" . esc_attr($sidebar_color) . "}"."\n";	
            
 
             //Mobile menu icon
@@ -325,7 +323,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= ".posts-layout .list-content { width:" . (100 - esc_attr( $list_image_size ) ) . "%;}" . "\n";
 
             $image_spacing = get_theme_mod( 'archive_featured_image_spacing_desktop', 24 );
-            $custom .= ".content-area:not(.layout4):not(.layout6) .posts-layout .entry-thumb { margin:0 -60px " . esc_attr( $image_spacing ) . "px -60px;}" . "\n";
+			$custom .= ".content-area:not(.layout4):not(.layout6) .posts-layout .entry-thumb { margin:0 0 " . esc_attr( $image_spacing ) . "px 0;}" . "\n";
             $custom .= ".layout4 .entry-thumb, .layout6 .entry-thumb { margin:0 " . esc_attr( $image_spacing ) . "px 0 0;}" . "\n";
             $custom .= ".layout6 article:nth-of-type(even) .list-image .entry-thumb { margin:0 0 0 " . esc_attr( $image_spacing ) . "px;}" . "\n";
 
@@ -401,9 +399,9 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= ".bottom-header-inner { padding-top:" . esc_attr( $main_header_bottom_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_bottom_padding ) . "px;}" . "\n";
 
 			$custom .= $this->get_background_color_css( 'main_header_submenu_background', '', '.bottom-header-row #mainnav ul ul li, .main-header #mainnav ul ul li' );
-			$custom .= $this->get_color_css( 'main_header_submenu_color', '#233452', '.bottom-header-row #mainnav ul ul li a,.bottom-header-row #mainnav ul ul li:hover a, .main-header #mainnav ul ul li:hover a,.main-header #mainnav ul ul li a' );
-			$custom .= $this->get_fill_css( 'main_header_submenu_color', '#233452', '.bottom-header-row #mainnav ul ul li svg, .main-header #mainnav ul ul li svg' );
-
+			$custom .= $this->get_color_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li a,.bottom-header-row #mainnav ul ul li:hover a, .main-header #mainnav ul ul li:hover a,.main-header #mainnav ul ul li a' );
+			$custom .= $this->get_fill_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li svg, .main-header #mainnav ul ul li svg' );
+			
 			//Header mini cart
 			$custom .= $this->get_color_css( 'color_body_text', '', '.main-header-cart .count-number' );
 			$custom .= $this->get_background_color_rgba_css( 'color_body_text', '#212121', '.main-header-cart .widget_shopping_cart .widgettitle:after, .main-header-cart .widget_shopping_cart .woocommerce-mini-cart__buttons:before', '0.1' );

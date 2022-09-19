@@ -80,7 +80,7 @@
 	//Sidebar color
 	wp.customize('sidebar_color',function( value ) {
 		value.bind( function( newval ) {
-			$('.widget-area a').css('color', newval );
+			$('.widget-area,.widget-area a, .widget-area .widget-title').css('color', newval );
 		} );
 	});
 	//Footer widgets background

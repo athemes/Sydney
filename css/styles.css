@@ -1,9 +1,9 @@
 :root {
 	--sydney-headings-color: #00102E;
-	--sydney-dark-background: #f0f0f0;
+	--sydney-dark-background: #00102E;
 	--sydney-grey-color: #737C8C;
 	--sydney-text-color: #233452;
-	--sydney-light-background: #f7f7f7;
+	--sydney-light-background: #F4F5F7;
 	--sydney-button-background: #d65050;
 	--sydney-border-color: #dbdbdb;
 }
@@ -339,12 +339,8 @@ Repeatable Patterns
 		font-size: 16px;
 		line-height: 1.7;
 		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-		background: var(--sydney-light-background);
-		color: var(--sydney-text-color);
-	}
-	.page-template-page_front-page.elementor-page,
-	.page-template-page_front-page.panel-layout {
 		background: #fff;
+		color: var(--sydney-text-color);
 	}
 	a {
 		text-decoration: none;
@@ -505,7 +501,7 @@ Header
 }
 .site-title a,
 .site-title a:hover {
-	color: var(--sydney-headings-color);
+	color: #fff;
 }
 .site-logo {
 	max-height: 100px;
@@ -607,7 +603,7 @@ Header
 #mainnav ul li a {
 	position: relative;
 	display: block;
-	color: var(--sydney-text-color);
+	color: #fff;
 	font-weight: 500;
 	text-decoration: none;
 	outline: none;
@@ -638,7 +634,7 @@ Header
 	top: 0;
 }
 #mainnav .dropdown-symbol {
-	fill: var(--sydney-text-color);
+	fill: #fff;
 	margin-left: 8px;
 	position: relative;
 	top: -2px;
@@ -677,7 +673,7 @@ Header
 	z-index: 99999;
 }
 #mainnav .sub-menu li a {
-	color: var(--sydney-text-color);
+	color: #fff;
 	display: block;
 	line-height: 30px;
 	background: #1c1c1c;
@@ -686,7 +682,7 @@ Header
 	transition: all 0.3s ease;
 }
 #mainnav .sub-menu li:hover > a {
-	color: var(--sydney-text-color);
+	color: #fff;
 }
 #mainnav li:hover > .sub-menu > li > a {
 	padding: 8px 18px;
@@ -727,7 +723,7 @@ Header
 }
 .main-header,
 .header-search-form {
-	background-color: #fff;
+	background-color: var(--sydney-dark-background);
 	z-index: 999;
 }
 .bottom-header-row #mainnav,
@@ -753,7 +749,7 @@ Header
 }
 .bottom-header-row #mainnav ul ul li,
 .main-header #mainnav ul ul li {
-	background-color: var(--sydney-dark-background);
+	background-color: #233452;
 	display: flex;
 	align-items: center;
 	padding: 5px 18px;
@@ -973,9 +969,12 @@ Header
 	.site-title {
 		margin: 0;
 }
-	.site-description {
+.site-title a, .site-title a:visited {
+	color: #fff;
+}
+.site-description {
+	color: #efefef;
 	margin: 5px 0 0;
-	color: var(--sydney-grey-color);
 }
 .header-elements {
 	display: -webkit-box;
@@ -986,7 +985,7 @@ Header
 			align-items: center;
 }
 .header-elements svg {
-	fill: var(--sydney-text-color);
+	fill: #fff;
 	max-height: 14px;
 }
 .header_layout_1 .header-elements, .header_layout_2 .header-elements {
@@ -1235,14 +1234,6 @@ Header
 	top: 32px;
 	z-index: 999;
 }	
-.transparent-header #masthead:not(.sticky-active),
-.transparent-header #masthead:not(.sticky-active) .site-description,
-.transparent-header #masthead:not(.sticky-active) a {
-	color: #fff;
-}
-.transparent-header #masthead:not(.sticky-active) svg {
-	fill: #fff;
-}
 /*--------------------------------------------------------------
 Mobile navigation
 --------------------------------------------------------------*/
@@ -1416,6 +1407,10 @@ Layout
 .owl-carousel {
 		-webkit-transform: translate3d(0,0,0);
 }
+.header-slider {
+	-moz-transform: none;
+	transform: none;
+}
 
 /*--------------------------------------------------------------
 Parallax
@@ -1429,6 +1424,9 @@ Parallax
 /*--------------------------------------------------------------
 Blog
 --------------------------------------------------------------*/
+.single .hentry {
+	margin-bottom: 60px;
+}
 .content-area.sidebar-left .post-wrap {
 	padding-right: 0;
 }
@@ -1441,7 +1439,7 @@ Blog
 }
 .content-area .post-wrap,
 .contact-form-wrap {
-	padding-right: 45px;
+	padding-right: 30px;
 }
 .no-sidebar .page-wrap {
 	overflow-x: hidden;
@@ -1617,7 +1615,7 @@ span.author.vcard {
 	width: 100%;
 	max-width: 100%;		
 }
-.layout4 .content-inner, .layout6 .content-inner {
+.layout4 article, .layout6 article {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1786,9 +1784,18 @@ span.author.vcard {
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
+#secondary {
+	padding: 30px;
+}
 .widget-area .widget {
 	position: relative;
 	margin-bottom: 60px;
+}
+.widget-area .widget_block {
+	margin-bottom: 30px;
+}
+.widget-area .widget:last-child {
+	margin-bottom: 0;
 }
 .sidebar-column .widget:last-of-type {
 	margin-bottom: 0;
@@ -1842,32 +1849,7 @@ Widgets
 /*--------------------------------------------------------------
 Blog single
 --------------------------------------------------------------*/
-.content-inner {
-	padding: 60px;
-	background-color: #fff;
-	height: 100%;
-}
-.content-area.layout3 .content-inner,
-.content-area.layout5 .content-inner {
-	padding: 30px;
-}
-.content-area.layout3 .entry-thumb,
-.content-area.layout5 .entry-thumb {
-	margin-top: -30px !important;
-	margin-left: -30px !important;
-	margin-right: -30px !important;
-}
-.content-area.layout1 .entry-thumb {
-	margin-top: -60px !important;
-}
 
-.content-inner .entry-thumb {
-	margin-left: -60px;
-	margin-right: -60px;
-}
-.entry-thumb.feat-img-top {
-	margin-top: -60px;
-}
 .tags-links a {
 	display: inline-block;
 	background-color: var(--sydney-grey-color);
@@ -2395,22 +2377,6 @@ SVGs
 
 /* Smaller than standard 980 */
 @media only screen and (max-width: 991px) {
-	.content-inner {
-		padding: 30px;
-	}
-	.content-area:not(.layout4):not(.layout6) .posts-layout .entry-thumb {
-		margin: 0 -30px 24px -30px;
-	}
-	.content-area.layout3 .posts-layout .entry-thumb {
-		margin: -30px -30px 24px -30px;
-	}		
-	.content-inner .entry-thumb {
-		margin-left: -30px;
-		margin-right: -30px;
-	}
-	.entry-thumb.feat-img-top {
-		margin-top: -30px;
-	}
 	.parallax {
 		background-size: cover;
 		background-attachment: scroll;

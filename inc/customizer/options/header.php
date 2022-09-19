@@ -698,7 +698,7 @@ $wp_customize->add_control( 'header_contact_phone', array(
 $wp_customize->add_setting(
 	'main_header_background',
 	array(
-		'default'           => '#ffffff',
+		'default'           => '#00102E',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -736,7 +736,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'main_header_color',
 	array(
-		'default'           => '#233452',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -795,7 +795,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'main_header_submenu_background',
 	array(
-		'default'           => '#f2f2f2',
+		'default'           => '#233452',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -814,7 +814,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'main_header_submenu_color',
 	array(
-		'default'           => '#233452',
+		'default'           => '#fff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)

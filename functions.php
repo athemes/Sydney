@@ -75,7 +75,7 @@ function sydney_setup() {
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'sydney_custom_background_args', array(
-		'default-color' => 'f7f7f7',
+		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 
@@ -228,10 +228,6 @@ function sydney_scripts() {
 
 	wp_enqueue_style( 'sydney-google-fonts', esc_url( sydney_google_fonts_url() ), array(), null );
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20220824' );
-	
-	wp_enqueue_style( 'sydney-style-min', get_template_directory_uri() . '/css/styles.min.css', '', '20220824' );
-
 	wp_enqueue_style( 'sydney-ie9', get_template_directory_uri() . '/css/ie9.css', array( 'sydney-style' ) );
 	wp_style_add_data( 'sydney-ie9', 'conditional', 'lte IE 9' );
 
@@ -278,6 +274,10 @@ function sydney_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+	wp_enqueue_style( 'sydney-style-min', get_template_directory_uri() . '/css/styles.min.css', '', '20220919' );
+
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20220919' );
 }
 add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
 
