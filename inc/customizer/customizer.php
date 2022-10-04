@@ -102,6 +102,8 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/options/colors.php';
     require get_template_directory() . '/inc/customizer/options/upsell.php';
     require get_template_directory() . '/inc/customizer/options/performance.php';
+    require get_template_directory() . '/inc/customizer/options/cpt-panels.php';
+    require get_template_directory() . '/inc/customizer/options/layouts.php';
 
     if ( class_exists( 'Woocommerce' ) ) {
         require get_template_directory() . '/inc/customizer/options/woocommerce.php';
@@ -1027,6 +1029,15 @@ function sydney_customize_register( $wp_customize ) {
         ) )
     ); 
 
+    //___Pages___//
+    $wp_customize->add_section(
+        'sydney_cpt_page',
+        array(
+            'title' => __('Pages', 'sydney'),
+            'priority' => 13,
+        )
+    ); 
+
 }
 add_action( 'customize_register', 'sydney_customize_register' );
 
@@ -1168,7 +1179,11 @@ function sydney_sanitize_selects( $input, $setting ){
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sydney_customize_preview_js() {
-	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20220822', true );
+	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20221004', true );
+
+    $post_type_array = sydney_get_posts_types_for_js();
+
+    wp_localize_script( 'sydney_customizer', 'syd_data', array( 'post_types' => $post_type_array ) );
 }
 add_action( 'customize_preview_init', 'sydney_customize_preview_js' );
 
@@ -1177,14 +1192,11 @@ add_action( 'customize_preview_init', 'sydney_customize_preview_js' );
  */
 function sydney_customize_footer_scripts() {
     
-    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.css', '', '20211026' );
-    wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.js', array( 'jquery', 'jquery-ui-core' ), '20211026', true );
+    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20221004' );
+    wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.min.js', array( 'jquery', 'jquery-ui-core' ), '20221004', true );
 
 }
 add_action( 'customize_controls_print_footer_scripts', 'sydney_customize_footer_scripts' );
-
-
-
 
 /**
  * Partials callbacks
@@ -1243,4 +1255,32 @@ function sydney_header_custom_html_active_callback() {
     } else {
         return false;
     }
+}
+
+function sydney_get_posts_types_for_js() {
+    //Send post types to js
+    $args       = array(
+        'public' => true,
+    );
+    $post_types = get_post_types( $args, 'objects' );
+    
+    //Remove unwanted post types
+    $unset_types = array(
+        'product',
+        'attachment',
+        'e-landing-page',
+        'elementor_library',
+        'athemes_hf',
+    );
+    
+    foreach ( $unset_types as $type ) {
+        unset( $post_types[ $type ] );
+    }
+    
+    $post_type_array = array();
+    foreach ( $post_types as $post_type ) {
+        $post_type_array[] = $post_type->name;
+    }
+
+    return $post_type_array;
 }

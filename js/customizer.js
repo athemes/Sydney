@@ -685,6 +685,29 @@
 
 			$( 'head' ).append( '<style id="sydney-customizer-styles-color_forms_placeholder">' + output + '</style>' )			
 		} );
-	} );		
+	} );	
+	
+
+	var $types = syd_data.post_types;
+	$.each($types, function (index, value) {
+		// Boxed content
+		wp.customize( value + '_boxed_content', function( val ) {
+			val.bind( function( to ) {
+				if ( 'unboxed' === to ) {
+					$( '.content-inner' ).css( {
+						'padding': 0,
+						'background': 'transparent',
+						'box-shadow': 'none',
+					} );
+				} else {
+					$( '.content-inner' ).css( {
+						'padding': 60,
+						'background': '#fff',
+						'box-shadow': '0 0 15px 0 rgba(0,0,0,0.05)',
+					} );
+				}
+			} );
+		} );
+	} );
 		
 } )( jQuery );

@@ -53,5 +53,5 @@
 	<?php do_action('sydney_after_hero'); ?>
 
 	<div id="content" class="page-wrap">
-		<div class="container content-wrapper">
+		<div class="content-wrapper <?php echo esc_attr( apply_filters( 'sydney_main_container', 'container' ) ); ?>">
 			<div class="row">	

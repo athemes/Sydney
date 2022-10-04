@@ -1,5 +1,12 @@
 "use strict";
 
+//Add spacing for CPT panels
+jQuery( document ).ready(function($) {
+	var panels = $('li[id^="accordion-panel-sydney_panel_cpt_"]');
+	panels.first().css( 'margin-top', '10px' );
+	panels.last().css( 'margin-bottom', '10px' );
+} );
+
 jQuery( document ).ready( function() {
 
     /* === Checkbox Multiple Control === */

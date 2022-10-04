@@ -161,7 +161,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";	
 
             //Sub menu items color
-            $submenu_items_color = get_theme_mod( 'submenu_items_color', '#233452' );
+            $submenu_items_color = get_theme_mod( 'submenu_items_color', '#ffffff' );
             $custom .= "#mainnav .sub-menu li a { color:" . esc_attr($submenu_items_color) . "}"."\n";
             //Sub menu background
             $submenu_background = get_theme_mod( 'submenu_background', '#1c1c1c' );
@@ -197,7 +197,17 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $pw_bottom_padding = get_theme_mod( 'wrapper_bottom_padding', '100' );
             $custom .= ".page-wrap { padding-top:" . intval($pw_top_padding) . "px;}"."\n";	
             $custom .= ".page-wrap { padding-bottom:" . intval($pw_bottom_padding) . "px;}"."\n";	
-        
+
+			if ( is_singular() ) {
+                $post_type = get_post_type();
+
+                //Boxed content
+                $boxed = get_theme_mod( $post_type . '_boxed_content', 'unboxed' );
+                if ( $boxed == 'boxed' ) {
+                    $custom .= ".content-inner { padding: 60px; background-color: #fff; box-shadow: 0 0 15px 0 rgba(0,0,0,0.05);}"."\n";
+                    $custom .= "@media only screen and (max-width: 767px) { .content-inner {padding: 20px;} }" . "\n";
+                }
+            }
         
             $text_slide = get_theme_mod('textslider_slide', 0);
             if ( $text_slide ) {

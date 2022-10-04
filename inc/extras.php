@@ -107,16 +107,22 @@ function sydney_page_content_classes() {
 
 	if ( is_page() && $disable_sidebar_pages ) {
 		return 'no-sidebar';
-	}	
-
-	if ( is_single() && isset( $post ) ) {
+	} elseif ( is_singular( 'post' ) ) {
 		$disable_sidebar 		= get_post_meta( $post->ID, '_sydney_page_disable_sidebar', true );
 		$sidebar_single_post 	= get_theme_mod( 'sidebar_single_post', 1 );
 
 		if ( $disable_sidebar || !$sidebar_single_post ) {
 			return 'no-sidebar';
 		}
-	}		
+	} elseif ( is_singular() ) {
+
+		$post_type = get_post_type();
+		$enable = get_theme_mod( 'sidebar_single_' . $post_type, 1 );
+
+		if ( !$enable ) {
+			return 'no-sidebar';
+		}
+	}	
 
 	return 'col-md-9'; //default
 
@@ -129,6 +135,10 @@ add_filter( 'sydney_content_area_class', 'sydney_page_content_classes' );
  * hooked into sydney_get_sidebar
  */
 function sydney_get_sidebar() {
+
+	if ( false == apply_filters( 'sydney_show_sidebar', true ) ) {
+		return;
+	}
 
 	if ( apply_filters( 'sydney_disable_cart_checkout_sidebar', true ) && class_exists( 'WooCommerce' ) && ( is_checkout() || is_cart() ) ) {
 		return; //we don't want a sidebar on the checkout and cart page
@@ -359,27 +369,22 @@ function sydney_masonry_data() {
  */
 function sydney_sidebar_position() {
 
-	$sidebar_archives_position 	= get_theme_mod( 'sidebar_archives_position', 'sidebar-right' );
+	$class = '';
 
 	if ( !is_singular() ) {
+		$sidebar_archives_position 	= get_theme_mod( 'sidebar_archives_position', 'sidebar-right' );
 		$class = $sidebar_archives_position;
+	} elseif ( is_singular() ) {
+		global $post;
 
-		return esc_attr( $class );
-	} 
+		if ( !isset( $post ) ) {
+			return;
+		}
 
-	global $post;
+		$post_type 			= get_post_type();
+		$sidebar_position 	= get_theme_mod( 'sidebar_single_' . $post_type . '_position', 'sidebar-right' );
 
-	if ( !isset( $post ) ) {
-		return;
-	}
-
-	$sidebar_post_position 		= get_theme_mod( 'sidebar_single_post_position', 'sidebar-right' );
-	$sidebar_page_position 		= get_theme_mod( 'sidebar_single_page_position', 'sidebar-right' );
-
-	if ( is_single() ) {
-		$class = $sidebar_post_position;
-	} elseif ( is_page() ) {
-		$class = $sidebar_page_position;
+		$class = $sidebar_position;
 	}
 
 	return esc_attr( $class );
@@ -727,3 +732,39 @@ function sydney_404_page_content() {
 	<?php
 }
 add_action( 'sydney_404_content', 'sydney_404_page_content' );
+
+/**
+ * Container layouts
+ */
+function sydney_single_container_layout() {
+
+	if ( !is_singular() ) {
+		return;
+	}
+
+	$post_type = get_post_type();
+
+	$layout = get_theme_mod( $post_type . '_container_layout', 'normal' );
+
+	//Add container type class
+	add_filter( 'sydney_content_area_class', function( $class ) use ( $layout ) {
+		$class .= ' container-' . $layout;
+
+		return $class;
+	} );
+
+	if ( 'stretched' === $layout ) {
+		add_filter( 'sydney_main_container', function() {
+			$class = ' container-fluid';
+
+			return $class;
+		} );
+	}
+
+	//Handle the sidebar
+	$enable_sidebar = get_theme_mod( 'sidebar_single_' . $post_type, 1 );
+	if ( !$enable_sidebar || 'narrow' === $layout ) {
+		add_filter( 'sydney_show_sidebar', '__return_false' );
+	}
+}
+add_action( 'wp', 'sydney_single_container_layout' );

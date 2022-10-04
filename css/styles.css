@@ -1452,10 +1452,12 @@ Blog
 	padding-right: 0;
 	padding-left: 0;
 }
-.single-post .no-sidebar .entry-header, .single-post .no-sidebar .entry-content, .single-post .no-sidebar .entry-footer,.single-post .no-sidebar .comments-area, .single-post .no-sidebar .single-post-author, .single-post.no-sidebar .entry-header, .single-post.no-sidebar .entry-content, .single-post.no-sidebar .entry-footer, .single-post.no-sidebar .comments-area, .single-post.no-sidebar .single-post-author {
+.container-narrow {
 	max-width: 730px;
 	margin-left: auto;
 	margin-right: auto;
+	float: none;
+	width: auto;
 }
 
 .entry-content > * {

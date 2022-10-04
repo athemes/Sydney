@@ -12,6 +12,8 @@
 
 get_header(); 
 
+$sidebar_pos = sydney_sidebar_position();
+
 //Get classes for main content area
 if ( apply_filters( 'sydney_disable_cart_checkout_sidebar', true ) && class_exists( 'WooCommerce' ) && ( is_checkout() || is_cart() ) ) {
 	$width = 'col-md-12';
@@ -20,7 +22,7 @@ if ( apply_filters( 'sydney_disable_cart_checkout_sidebar', true ) && class_exis
 }
 ?>
 
-	<div id="primary" class="content-area <?php echo esc_attr( apply_filters( 'sydney_content_area_class', $width ) ); ?>">
+	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', $width ) ); ?>">
 		<main id="main" class="post-wrap" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
