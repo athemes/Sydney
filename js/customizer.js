@@ -709,5 +709,73 @@
 			} );
 		} );
 	} );
+
+	// Color options
+	var $color_options = sydney_theme_options;
+
+	$.each( $color_options, function( key, css ) {
+		wp.customize( css.option, function( value ) {
+			
+			value.bind( function( to, prev ) {
+
+				var output = '';
+
+				$.each( $color_options, function( key, css2 ) {	
+					if( css.option === css2.option ) {
+						var unit = typeof css2.unit !== 'undefined' ? css2.unit : '';
+
+						if( typeof css2.condition !== 'undefined' ) {
+							if( typeof window.parent.window.wp.customize( css2.condition ) !== 'undefined' ) {
+								if( window.parent.window.wp.customize.control( css2.condition ).setting._value !== css2.cond_value ) {
+									return;
+								}
+							}
+						}
+
+						if( ! to ) {
+							to = 'transparent';
+						}
+
+						if( ! unit ) {
+							to = typeof css2.rgba !== 'undefined' ? hexToRGB( to, css2.rgba ) : to;
+						}
+
+						if( typeof css2.pseudo === 'undefined' ) {
+	
+							if( typeof css2.prop === 'string' ) {
+								$( css2.selector ).css( css2.prop, to + unit );
+							} else {
+								$.each( css2.prop, function( propkey, propvalue ) {
+									$( css2.selector ).css( propvalue, to + unit );
+								} );
+							}
+	
+						} else {
+							
+							if( typeof css2.prop === 'string' ) {
+								output += css2.selector + '{ '+ css2.prop +': '+ to +'!important; }'; 
+							} else {
+								$.each( css2.prop, function( propkey, propvalue ) {
+									output += css2.selector + '{ '+ propvalue +': '+ to +'!important; }';
+								} );
+							}
+						}
+					}
+				});
+
+				if( output ) {
+
+					if( $( '#sydney-customizer-styles-misc-'+ css.option ).get(0) ) {
+						$( '#sydney-customizer-styles-misc-'+ css.option ).text( output );
+					} else {
+						$( 'head' ).append( '<style id="sydney-customizer-styles-misc-'+ css.option +'">' + output + '</style>' );
+					}
+
+				}
+
+			} );
+
+		} );
+	} );	
 		
 } )( jQuery );

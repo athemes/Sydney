@@ -535,6 +535,11 @@ require get_template_directory() . '/inc/classes/class-sydney-page-metabox.php';
 require get_template_directory() . '/inc/classes/class-sydney-posts-archive.php';
 
 /**
+ * Display conditions
+ */
+require get_template_directory() . '/inc/display-conditions.php';
+
+/**
  * Header
  */
 require get_template_directory() . '/inc/classes/class-sydney-header.php';

@@ -17,24 +17,70 @@ $wp_customize->add_panel(
 );
 
 /**
- * Move existing sections into general panel
+ * Layouts
  */
-$wp_customize->get_section( 'background_image' )->panel = 'sydney_panel_general';
-
-//___General___//
 $wp_customize->add_section(
-	'sydney_general',
+	'sydney_section_layouts',
 	array(
-		'panel'			=> 'sydney_panel_general',
-		'title'         => __('Misc', 'sydney'),
-		'priority'      => 8,
+		'title'         => esc_html__( 'Layouts', 'sydney'),
+		'priority'      => 10,
+		'panel'         => 'sydney_panel_general',
 	)
 );
+
+//Container width
+$wp_customize->add_setting(
+	'container_width',
+	array(
+		'default'           => 1170,
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	'container_width',
+	array(
+		'label'         => esc_html__( 'Container width', 'sydney'),
+		'section'       => 'sydney_section_layouts',
+		'type'          => 'number',
+		'priority'      => 10,
+		'input_attrs'   => array(
+			'min'   => 600,
+			'max'   => 1920,
+			'step'  => 5,
+		),
+	)
+);
+
+//Narrow container width
+$wp_customize->add_setting(
+	'narrow_container_width',
+	array(
+		'default'           => 860,
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	'narrow_container_width',
+	array(
+		'label'         => esc_html__( 'Narrow container width', 'sydney'),
+		'section'       => 'sydney_section_layouts',
+		'type'          => 'number',
+		'priority'      => 10,
+		'input_attrs'   => array(
+			'min'   => 600,
+			'max'   => 1920,
+			'step'  => 5,
+		),
+	)
+);
+
 //Top padding
 $wp_customize->add_setting(
 	'wrapper_top_padding',
 	array(
-		'default' => __('83','sydney'),
+		'default' => 83,
 		'sanitize_callback' => 'absint',
 	)
 );
@@ -42,7 +88,7 @@ $wp_customize->add_control(
 	'wrapper_top_padding',
 	array(
 		'label'         => __( 'Page wrapper - top padding', 'sydney' ),
-		'section'       => 'sydney_general',
+		'section'       => 'sydney_section_layouts',
 		'type'          => 'number',
 		'description'   => __('Top padding for the page wrapper (the space between the header and the page title)', 'sydney'),       
 		'priority'      => 10,
@@ -57,7 +103,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'wrapper_bottom_padding',
 	array(
-		'default' => __('100','sydney'),
+		'default' => 100,
 		'sanitize_callback' => 'absint',
 	)
 );
@@ -65,7 +111,7 @@ $wp_customize->add_control(
 	'wrapper_bottom_padding',
 	array(
 		'label'         => __( 'Page wrapper - bottom padding', 'sydney' ),
-		'section'       => 'sydney_general',
+		'section'       => 'sydney_section_layouts',
 		'type'          => 'number',
 		'description'   => __('Bottom padding for the page wrapper (the space between the page content and the footer)', 'sydney'),       
 		'priority'      => 10,
@@ -74,6 +120,21 @@ $wp_customize->add_control(
 			'max'   => 160,
 			'step'  => 1,
 		),            
+	)
+);
+
+/**
+ * Move existing sections into general panel
+ */
+$wp_customize->get_section( 'background_image' )->panel = 'sydney_panel_general';
+
+//___General___//
+$wp_customize->add_section(
+	'sydney_general',
+	array(
+		'panel'			=> 'sydney_panel_general',
+		'title'         => __('Misc', 'sydney'),
+		'priority'      => 8,
 	)
 );
 

@@ -1479,7 +1479,9 @@ body:not(.elementor-page):not(.panel-layout) .entry-content h6 {
 	margin-top: 1.2em;
 	margin-bottom: 0.5em;
 }
-
+.container-narrow .post-wrap {
+	padding-right: 0;
+}
 .content-area .hentry {
 	position: relative;
 }

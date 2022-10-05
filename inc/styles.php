@@ -30,6 +30,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {	
+			$this->customizer_js = array();
+
 			add_action( 'wp_enqueue_scripts', array( $this, 'print_styles' ) );
 		}
 
@@ -397,6 +399,9 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= $this->get_color_css( 'main_header_color', '', '.main-header .site-title a,.main-header .site-description,.main-header #mainnav .menu > li > a, .main-header .header-contact a' );
 			$custom .= $this->get_fill_css( 'main_header_color', '', '.main-header .sydney-svg-icon svg, .main-header .dropdown-symbol .sydney-svg-icon svg' );
 
+			$custom .= $this->get_color_css( 'main_header_color_sticky', '', '.sticky-active .main-header .site-title a,.sticky-active .main-header .site-description, .sticky-active .main-header #mainnav .menu > li > a,.sticky-active .main-header .header-contact a,.sticky-active .main-header .logout-link, .sticky-active .main-header .html-item, .sticky-active .main-header .sydney-login-toggle' );
+            $custom .= $this->get_fill_css( 'main_header_color_sticky', '', '.sticky-active .main-header .sydney-svg-icon svg,.sticky-active .main-header .dropdown-symbol .sydney-svg-icon svg' );  
+
 			$custom .= $this->get_background_color_css( 'main_header_bottom_background', '', '.bottom-header-row' );
 			$custom .= $this->get_color_css( 'main_header_bottom_color', '', '.bottom-header-row, .bottom-header-row .header-contact a,.bottom-header-row #mainnav .menu > li > a' );
 			$custom .= $this->get_color_css( 'color_link_hover', '', '.bottom-header-row #mainnav .menu > li > a:hover' );
@@ -627,6 +632,17 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= "input::-ms-input-placeholder { color:" . esc_attr( $color_forms_placeholder ) . ";}" . "\n";
 
             /* End porting */
+
+			//Container widths
+			$container_width = get_theme_mod( 'container_width', 1170 );
+			if ( 1170 !== $container_width ) {
+				$custom .= '@media (min-width: 1200px) { .container { width:100%;max-width: ' . intval( $container_width ) . 'px; } }';
+			}
+
+			$narrow_container_width = get_theme_mod( 'narrow_container_width', 860 );
+			if ( 860 !== $narrow_container_width ) {
+				$custom .= '@media (min-width: 1200px) { .container-narrow { width:100%;max-width: ' . intval( $narrow_container_width ) . 'px; } }';
+			}
         
             $custom = apply_filters( 'sydney_custom_css', $custom );
 
@@ -643,6 +659,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom = $this->output_css();
 
 			wp_add_inline_style( 'sydney-style-min', $custom );
+
+			wp_localize_script( 'sydney_customizer', 'sydney_theme_options', $this->customizer_js );
 		}
 
 		/**
@@ -662,8 +680,10 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		/**
 		 * Get color CSS
 		 */
-		public static function get_background_color_css( $setting, $default, $selector ) {
+		public static function get_background_color_css( $setting, $default, $selector, $important = false ) {
 			$mod = get_theme_mod( $setting, $default );
+
+			Sydney_Custom_CSS::get_instance()->mount_customizer_js_options( $selector, $setting, 'background-color', '', $important );
 
 			return $selector . '{ background-color:' . esc_attr( $mod ) . ';}' . "\n";
 		}
@@ -671,11 +691,13 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		/**
 		 * Get color CSS
 		 */
-		public static function get_color_css( $setting, $default, $selector ) {
+		public static function get_color_css( $setting, $default, $selector, $important = false ) {
 			$mod = get_theme_mod( $setting, $default );
 
+            Sydney_Custom_CSS::get_instance()->mount_customizer_js_options( $selector, $setting, 'color', '', $important );
+
 			return $selector . '{ color:' . esc_attr( $mod ) . ';}' . "\n";
-		}	
+		}		
 
 		/**
 		 * Get border color CSS
@@ -689,8 +711,10 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		/**
 		 * Get fill CSS
 		 */
-		public static function get_fill_css( $setting, $default, $selector ) {
+		public static function get_fill_css( $setting, $default, $selector, $important = false ) {
 			$mod = get_theme_mod( $setting, $default );
+
+			Sydney_Custom_CSS::get_instance()->mount_customizer_js_options( $selector, $setting, 'fill', '', $important );
 
 			return $selector . '{ fill:' . esc_attr( $mod ) . ';}' . "\n";
 		}	
@@ -720,6 +744,24 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			}
 
 			return $css;
+		}
+
+		public static function mount_customizer_js_options( $selector = '', $setting = '', $prop = '', $opacity = '', $important = false ) {
+			$options = array(
+				'option'   => $setting,
+				'selector' => $selector,
+				'prop'     => $prop
+			);
+
+			if( $opacity ) {
+				$options[ 'rgba' ] = $opacity;
+			}
+
+			// if( strpos( $selector, ':after' ) !== FALSE || strpos( $selector, ':before' ) !== FALSE || strpos( $selector, ':hover' ) !== FALSE || $important ) {
+				$options[ 'pseudo' ] = true;
+			// }
+			
+			Sydney_Custom_CSS::get_instance()->customizer_js[] = $options;
 		}
 		
 		//Max width

@@ -63,6 +63,18 @@ body {
 	}
 }
 
+.header-search-form {
+	left: auto;
+	right: -9999em;
+}
+.header-search-form.active {
+	right: 0;
+}
+.header-item {
+	margin-right: 0;
+	margin-left: 25px;
+}
+
 /* 3. Carousel */
 .owl-carousel {
 	direction: ltr;

@@ -37,6 +37,12 @@ function sydney_body_classes( $classes ) {
 			$classes[] = 'transparent-header';
 		}
 	}
+
+	//Customizer transparent header
+	$transparent_header = sydney_get_display_conditions( 'transparent_header', false );
+	if ( $transparent_header ) {
+		$classes[] = 'transparent-header';
+	}
 	
 	return $classes;
 }

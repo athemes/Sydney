@@ -86,7 +86,8 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/controls/multiple-select/class-control-multiple-select.php';
     $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
     $wp_customize->register_control_type( '\Kirki\Control\sortable' );
-    
+    require get_template_directory() . '/inc/customizer/controls/display-conditions/class_sydney_display_conditions_control.php';
+
     /**
      * Options
      */
@@ -1188,6 +1189,12 @@ function sydney_customize_preview_js() {
 add_action( 'customize_preview_init', 'sydney_customize_preview_js' );
 
 /**
+ * Load display conditions template
+ */
+require get_template_directory() . '/inc/customizer/controls/display-conditions/display-conditions-script-template.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+require get_template_directory() . '/inc/customizer/controls/display-conditions/ajax-callback.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+
+/**
  * Customizer assets
  */
 function sydney_customize_footer_scripts() {
@@ -1195,6 +1202,14 @@ function sydney_customize_footer_scripts() {
     wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20221004' );
     wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.min.js', array( 'jquery', 'jquery-ui-core' ), '20221004', true );
 
+    $post_type_array = sydney_get_posts_types_for_js();
+
+    wp_localize_script( 'sydney-customizer-scripts', 'syd_data',
+        array( 
+            'post_types' => $post_type_array,
+            'ajax_url'   => admin_url( 'admin-ajax.php' ),
+            'ajax_nonce' => wp_create_nonce( 'sydney_ajax_nonce' ),
+    ) );
 }
 add_action( 'customize_controls_print_footer_scripts', 'sydney_customize_footer_scripts' );
 

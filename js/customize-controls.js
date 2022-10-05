@@ -858,3 +858,144 @@ jQuery(document).ready(function ($) {
   });
 
 });
+
+/**
+ * Display Conditions Control
+ */
+
+ jQuery(document).ready(function ($) {
+	$(document).on('sydney-display-conditions-select2-initalize', function (event, item) {
+	  var $item = $(item);
+	  var $control = $item.closest('.sydney-display-conditions-control');
+	  var $typeSelectWrap = $item.find('.sydney-display-conditions-select2-type');
+	  var $typeSelect = $typeSelectWrap.find('select');
+	  var $conditionSelectWrap = $item.find('.sydney-display-conditions-select2-condition');
+	  var $conditionSelect = $conditionSelectWrap.find('select');
+	  var $idSelectWrap = $item.find('.sydney-display-conditions-select2-id');
+	  var $idSelect = $idSelectWrap.find('select');
+	  $typeSelect.select2({
+		width: '100%',
+		minimumResultsForSearch: -1
+	  });
+	  $typeSelect.on('select2:select', function (event) {
+		$typeSelectWrap.attr('data-type', event.params.data.id);
+	  });
+	  $conditionSelect.select2({
+		width: '100%'
+	  });
+	  $conditionSelect.on('select2:select', function (event) {
+		var $element = $(event.params.data.element);
+
+		if ($element.data('ajax')) {
+		  $idSelectWrap.removeClass('hidden');
+		} else {
+		  $idSelectWrap.addClass('hidden');
+		}
+
+		$idSelect.val(null).trigger('change');
+	  });
+	  var isAjaxSelected = $conditionSelect.find(':selected').data('ajax');
+
+	  if (isAjaxSelected) {
+		$idSelectWrap.removeClass('hidden');
+	  }
+
+	  $idSelect.select2({
+		width: '100%',
+		placeholder: '',
+		allowClear: true,
+		minimumInputLength: 1,
+		ajax: {
+		  url: ajaxurl,
+		  dataType: 'json',
+		  delay: 250,
+		  cache: true,
+		  data: function data(params) {
+			return {
+			  action: 'sydney_display_conditions_select_ajax',
+			  term: params.term,
+			  nonce: syd_data.ajax_nonce,
+			  source: $conditionSelect.val()
+			};
+		  },
+		  processResults: function processResults(response, params) {
+			if (response.success) {
+			  return {
+				results: response.data
+			  };
+			}
+
+			return {};
+		  }
+		}
+	  });
+	});
+	$(document).on('click', '.sydney-display-conditions-modal-toggle', function (event) {
+	  event.preventDefault();
+	  var $button = $(this);
+	  var template = wp.template('sydney-display-conditions-template');
+	  var $control = $button.closest('.sydney-display-conditions-control');
+	  var $modal = $control.find('.sydney-display-conditions-modal');
+
+	  if (!$modal.data('initialized')) {
+		$control.append(template($control.data('condition-settings')));
+		var $items = $control.find('.sydney-display-conditions-modal-content-list-item').not('.hidden');
+
+		if ($items.length) {
+		  $items.each(function () {
+			$(document).trigger('sydney-display-conditions-select2-initalize', this);
+		  });
+		}
+
+		$modal = $control.find('.sydney-display-conditions-modal');
+		$modal.data('initialized', true);
+		$modal.addClass('open');
+	  } else {
+		$modal.toggleClass('open');
+	  }
+	});
+	$(document).on('click', '.sydney-display-conditions-modal', function (event) {
+	  event.preventDefault();
+	  var $modal = $(this);
+
+	  if ($(event.target).is($modal)) {
+		$modal.removeClass('open');
+	  }
+	});
+	$(document).on('click', '.sydney-display-conditions-modal-add', function (event) {
+	  event.preventDefault();
+	  var $button = $(this);
+	  var $control = $button.closest('.sydney-display-conditions-control');
+	  var $modal = $control.find('.sydney-display-conditions-modal');
+	  var $list = $modal.find('.sydney-display-conditions-modal-content-list');
+	  var $item = $modal.find('.sydney-display-conditions-modal-content-list-item').first().clone();
+	  var conditionGroup = $button.data('condition-group');
+	  $item.removeClass('hidden');
+	  $item.find('.sydney-display-conditions-select2-condition').not('[data-condition-group="' + conditionGroup + '"]').remove();
+	  $list.append($item);
+	  $(document).trigger('sydney-display-conditions-select2-initalize', $item);
+	});
+	$(document).on('click', '.sydney-display-conditions-modal-remove', function (event) {
+	  event.preventDefault();
+	  var $item = $(this).closest('.sydney-display-conditions-modal-content-list-item');
+	  $item.remove();
+	});
+	$(document).on('click', '.sydney-display-conditions-modal-save', function (event) {
+	  event.preventDefault();
+	  var data = [];
+	  var $button = $(this);
+	  var $control = $button.closest('.sydney-display-conditions-control');
+	  var $modal = $control.find('.sydney-display-conditions-modal');
+	  var $textarea = $control.find('.sydney-display-conditions-textarea');
+	  var $items = $modal.find('.sydney-display-conditions-modal-content-list-item').not('.hidden');
+	  $items.each(function () {
+		var $item = $(this);
+		data.push({
+		  type: $item.find('select[name="type"]').val(),
+		  condition: $item.find('select[name="condition"]').val(),
+		  id: $item.find('select[name="id"]').val()
+		});
+	  });
+	  $textarea.val(JSON.stringify(data)).trigger('change');
+	});
+  });
