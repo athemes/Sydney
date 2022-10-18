@@ -97,7 +97,7 @@ function sydney_display_conditions_script_template() {
 				),
 				array(
 					'id'   => 'product-id',
-					'text' => esc_html__( 'Product ID', 'sydney' ),
+					'text' => esc_html__( 'Product name', 'sydney' ),
 					'ajax' => true,
 				),
 			),
@@ -111,27 +111,27 @@ function sydney_display_conditions_script_template() {
 		'options' => array(
 			array(
 				'id'   => 'post-id',
-				'text' => esc_html__( 'Post ID', 'sydney' ),
+				'text' => esc_html__( 'Post name', 'sydney' ),
 				'ajax' => true,
 			),
 			array(
 				'id'   => 'page-id',
-				'text' => esc_html__( 'Page ID', 'sydney' ),
+				'text' => esc_html__( 'Page name', 'sydney' ),
 				'ajax' => true,
 			),
 			array(
 				'id'   => 'category-id',
-				'text' => esc_html__( 'Category ID', 'sydney' ),
+				'text' => esc_html__( 'Category name', 'sydney' ),
 				'ajax' => true,
 			),
 			array(
 				'id'   => 'tag-id',
-				'text' => esc_html__( 'Tag ID', 'sydney' ),
+				'text' => esc_html__( 'Tag name', 'sydney' ),
 				'ajax' => true,
 			),
 			array(
 				'id'   => 'author-id',
-				'text' => esc_html__( 'Author ID', 'sydney' ),
+				'text' => esc_html__( 'Author name', 'sydney' ),
 				'ajax' => true,
 			),
 		),
@@ -148,17 +148,17 @@ function sydney_display_conditions_script_template() {
 			'options' => array(
 				array(
 					'id'   => 'cpt-post-id',
-					'text' => esc_html__( 'CPT: Post ID', 'sydney' ),
+					'text' => esc_html__( 'CPT: Post name', 'sydney' ),
 					'ajax' => true,
 				),
 				array(
 					'id'   => 'cpt-term-id',
-					'text' => esc_html__( 'CPT: Term ID', 'sydney' ),
+					'text' => esc_html__( 'CPT: Term name', 'sydney' ),
 					'ajax' => true,
 				),
 				array(
 					'id'   => 'cpt-taxonomy-id',
-					'text' => esc_html__( 'CPT: Taxonomy ID', 'sydney' ),
+					'text' => esc_html__( 'CPT: Taxonomy name', 'sydney' ),
 					'ajax' => true,
 				),
 			),
