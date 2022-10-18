@@ -694,9 +694,14 @@ function sydney_google_fonts_url() {
  */
 function sydney_preconnect_google_fonts() {
 
-	$load_locally = get_theme_mod( 'perf_google_fonts_local', 0 );
+	$load_locally  		= get_theme_mod( 'perf_google_fonts_local', 0 );
+	$disable_preconnect = get_theme_mod( 'perf_disable_preconnect', 0 );
+	if ( $load_locally || $disable_preconnect ) {
+		return;
+	}
 
-	if ( $load_locally ) {
+	//Disable preconnect if popular plugins for local fonts are active
+	if ( function_exists( 'omgf_init') || class_exists( 'EverPress\LGF' ) ) {
 		return;
 	}
 
