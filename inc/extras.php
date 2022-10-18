@@ -25,7 +25,7 @@ function sydney_body_classes( $classes ) {
 	$sidebar_archives 		= get_theme_mod( 'sidebar_archives', 1 );
 	$sidebar_single_post 	= get_theme_mod( 'sidebar_single_post', 1 );
 
-	if ( ( !is_singular() && !$sidebar_archives ) || ( is_single() && !$sidebar_single_post ) ) {
+	if ( ( !is_singular() && !$sidebar_archives ) || ( is_singular( 'post' ) && !$sidebar_single_post ) ) {
 		$classes[] = 'no-sidebar';
 	} 
 
@@ -164,9 +164,14 @@ function sydney_get_sidebar() {
 		return;
 	} elseif ( is_singular() && isset( $post ) ) {
 		$disable_sidebar 			= get_post_meta( $post->ID, '_sydney_page_disable_sidebar', true );
-		$disable_sidebar_customizer = get_theme_mod( 'sidebar_single_post', 1 );
+		
+		if ( is_singular( 'post' ) ) {
+			$sidebar_customizer = get_theme_mod( 'sidebar_single_post', 1 );
+		} else {
+			$sidebar_customizer = true;
+		}
 
-		if ( $disable_sidebar || !$disable_sidebar_customizer ) {
+		if ( $disable_sidebar || !$sidebar_customizer ) {
 			return;
 		}
 	}
