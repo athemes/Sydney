@@ -795,6 +795,28 @@ span.delete:hover {
 .customize-control-number:not(#customize-control-woocommerce_thumbnail_image_width):not(#customize-control-woocommerce_single_image_width):not(#customize-control-woocommerce_catalog_columns):not(#customize-control-woocommerce_catalog_rows):not(#customize-control-wrapper_top_padding):not(#customize-control-wrapper_bottom_padding) input {
   max-width: 64px;
 }
+#customize-control-hero_slider_divider_1,
+#customize-control-hero_slider_divider_2,
+#customize-control-hero_slider_divider_3 {
+  margin-bottom: 15px;
+}
+#sub-accordion-section-sydney_slider .sydney-accordion-title::before {
+  content: "\f128";
+  font-family: 'dashicons';
+  vertical-align: bottom;
+  font-size: 16px;
+  color: #bdbdbd;
+  margin-right: 7px;
+}
+
+#sub-accordion-section-sydney_slider #customize-control-accordion_hero_slider_button a::before {
+  content: "\f103";
+}
+
+#sub-accordion-section-sydney_slider #customize-control-accordion_hero_slider_settings a::before {
+  content: "\f111";
+}
+#customize-control-slider_speed input,
 #customize-control-narrow_container_width input,
 #customize-control-container_width input {
   max-width: 90px !important;
@@ -818,6 +840,7 @@ span.delete:hover {
 #customize-control-h6_title {
   margin-bottom: 5px;
 }
+#sub-accordion-section-sydney_slider li:not(.customize-control-sydney-text-control) .customize-control-title,
 ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-text-control) .customize-control-title,
 #customize-control-shop_page_title span, #customize-control-shop_page_description span, #customize-control-shop_product_sorting span, #customize-control-shop_results_count span, #customize-control-shop_breadcrumbs span,
 #sub-accordion-section-sydney_section_mobile_header li:not(.customize-control-sydney-text-control) .customize-control-title,
