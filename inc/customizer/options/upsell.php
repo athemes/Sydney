@@ -139,3 +139,26 @@ $wp_customize->add_control(
         )
     ) 
 );
+
+/**
+ * Slider
+ */
+$wp_customize->add_setting( 
+    'sydney_upsell_hero_slider',
+	array(
+		'default'           => '',
+		'sanitize_callback' => 'sydney_sanitize_text'
+	)
+);
+
+$wp_customize->add_control( 
+    new Sydney_Upsell_Message( 
+        $wp_customize, 
+        'sydney_upsell_hero_slider',
+        array(
+            'section'     => 'sydney_slider',
+            'description' => __( 'More slider options are available in Sydney Pro', 'sydney' ),
+            'priority'    => 999
+        )
+    ) 
+);
