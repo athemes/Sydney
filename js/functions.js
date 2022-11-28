@@ -237,14 +237,16 @@ sydney.removePreloader = {
 	},
 
 	remove: function() {
-		const preloader = document.getElementsByClassName( 'preloader' )[0];
+		const preloader 	= document.querySelectorAll( '.preloader' );
 
 		if ( typeof( preloader ) == 'undefined' && preloader == null ) {
 			return;
 		}
 
-        preloader.classList.add( 'disable' );
-        setTimeout(function(){ preloader.classList.add( 'hide' ); }, 600);
+		for ( var pr of preloader ) {
+			pr.classList.add( 'disable' );
+			setTimeout(function(){ pr.classList.add( 'hide' ); }, 600);
+		}
 	},
 };
 

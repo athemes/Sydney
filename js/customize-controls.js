@@ -86,36 +86,51 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
   "use strict";
 
+  let clickFlag = false;
+
   $('.sydney-devices-preview').find('button').on('click', function (event) {
-    if ($(this).hasClass('preview-desktop')) {
-      $('.sydney-devices-preview').find('.preview-desktop').addClass('active');
-      $('.sydney-devices-preview').find('.preview-tablet').removeClass('active');
-      $('.sydney-devices-preview').find('.preview-mobile').removeClass('active');
-      $('.font-size-desktop').addClass('active');
-      $('.font-size-tablet').removeClass('active');
-      $('.font-size-mobile').removeClass('active');
-      $('.wp-full-overlay-footer .devices button[data-device="desktop"]').trigger('click');
-    } else if ($(this).hasClass('preview-tablet')) {
-      $('.sydney-devices-preview').find('.preview-tablet').addClass('active');
-      $('.sydney-devices-preview').find('.preview-desktop').removeClass('active');
-      $('.sydney-devices-preview').find('.preview-mobile').removeClass('active');
-      $('.font-size-desktop').removeClass('active');
-      $('.font-size-tablet').addClass('active');
-      $('.font-size-mobile').removeClass('active');
-      $('.wp-full-overlay-footer .devices button[data-device="tablet"]').trigger('click');
-    } else {
-      $('.sydney-devices-preview').find('.preview-mobile').addClass('active');
-      $('.sydney-devices-preview').find('.preview-desktop').removeClass('active');
-      $('.sydney-devices-preview').find('.preview-tablet').removeClass('active');
-      $('.font-size-desktop').removeClass('active');
-      $('.font-size-tablet').removeClass('active');
-      $('.font-size-mobile').addClass('active');
-      $('.wp-full-overlay-footer .devices button[data-device="mobile"]').trigger('click');
-    }
+	if (clickFlag) {
+		clickFlag = false;
+		return false;
+	}
+
+	clickFlag = true;
+
+	let device = '';
+	if ($(this).hasClass('preview-desktop')) {
+	  $('.sydney-devices-preview').find('.preview-desktop').addClass('active');
+	  $('.sydney-devices-preview').find('.preview-tablet').removeClass('active');
+	  $('.sydney-devices-preview').find('.preview-mobile').removeClass('active');
+	  $('.font-size-desktop').addClass('active');
+	  $('.font-size-tablet').removeClass('active');
+	  $('.font-size-mobile').removeClass('active');
+	  $('.wp-full-overlay-footer .devices button[data-device="desktop"]').trigger('click');
+	} else if ($(this).hasClass('preview-tablet')) {
+	  $('.sydney-devices-preview').find('.preview-tablet').addClass('active');
+	  $('.sydney-devices-preview').find('.preview-desktop').removeClass('active');
+	  $('.sydney-devices-preview').find('.preview-mobile').removeClass('active');
+	  $('.font-size-desktop').removeClass('active');
+	  $('.font-size-tablet').addClass('active');
+	  $('.font-size-mobile').removeClass('active');
+	  $('.wp-full-overlay-footer .devices button[data-device="tablet"]').trigger('click');
+	} else {
+	  $('.sydney-devices-preview').find('.preview-mobile').addClass('active');
+	  $('.sydney-devices-preview').find('.preview-desktop').removeClass('active');
+	  $('.sydney-devices-preview').find('.preview-tablet').removeClass('active');
+	  $('.font-size-desktop').removeClass('active');
+	  $('.font-size-tablet').removeClass('active');
+	  $('.font-size-mobile').addClass('active');
+	  $('.wp-full-overlay-footer .devices button[data-device="mobile"]').trigger('click');
+	}
   });
   $(' .wp-full-overlay-footer .devices button ').on('click', function () {
-    var device = $(this).attr('data-device');
-    $('.sydney-devices-preview').find('.preview-' + device).trigger('click');
+	if (clickFlag) {
+		clickFlag = false;
+		return false;
+	}
+
+	var device = $(this).attr('data-device');
+	$('.sydney-devices-preview').find('.preview-' + device).trigger('click');
   });
 });
 /**

@@ -662,6 +662,10 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'sydney_header_add_to_cart_frag
  */
 function sydney_nav_cart ( $items, $args ) {
 
+	if ( get_option( 'sydney-update-header' ) ) {
+		return $items;
+	}
+
     $swc_show_cart_menu = get_theme_mod('swc_show_cart_menu');
     if ( $swc_show_cart_menu ) {
         if ( $args -> theme_location == 'primary' ) {
@@ -676,6 +680,11 @@ add_filter( 'wp_nav_menu_items', 'sydney_nav_cart', 10, 2 );
  * Woocommerce account link in header
  */
 function sydney_woocommerce_account_link( $items, $args ) {
+
+	if ( get_option( 'sydney-update-header' ) ) {
+		return $items;
+	}
+
     $swc_show_cart_menu = get_theme_mod('swc_show_cart_menu');
     if ( $swc_show_cart_menu && ( $args -> theme_location == 'primary' ) ) {
         if ( is_user_logged_in() ) {
