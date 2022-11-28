@@ -655,6 +655,17 @@ require get_template_directory() . '/inc/theme-update.php';
 require get_template_directory() . '/inc/theme-dashboard-settings.php';
 
 /**
+ * Template library for Elementor
+ */
+function sydney_elementor_template_library() {
+	if ( did_action( 'elementor/loaded' ) ) {
+		require get_template_directory() . '/inc/integrations/elementor/library/library-manager.php';
+		require get_template_directory() . '/inc/integrations/elementor/library/library-source.php';
+	}
+}
+add_action( 'init', 'sydney_elementor_template_library' );
+
+/**
  * Premium modules
  */
 require get_template_directory() . '/inc/classes/class-sydney-modules.php';
