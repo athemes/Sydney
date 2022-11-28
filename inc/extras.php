@@ -333,7 +333,7 @@ function sydney_social_profile( $location ) {
 	foreach ( $social_links as $social ) {
 		$network = sydney_get_social_network( $social );
 		if ( $network ) {
-			$items .= '<a target="_blank" href="' . esc_url( $social ) . '"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-' . esc_html( $network ), false ) . '</i></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			$items .= '<a target="_blank" href="' . esc_url( $social ) . '"><span class="screen-reader-text">' . esc_html( $social ) . '</span><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-' . esc_html( $network ), false ) . '</i></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 	$items .= '</div>';

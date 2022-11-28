@@ -72,7 +72,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 							<?php $this->logo(); ?>
 						</div>
 						<div class="col-xs-4 align-right">
-							<a class="mobile-menu-close" href="#"><i class="sydney-svg-icon icon-cancel"><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i></a>
+							<a class="mobile-menu-close" href="#"><i class="sydney-svg-icon icon-cancel"><span class="screen-reader-text"><?php echo esc_html__( 'Close menu', 'sydney' ); ?></span><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i></a>
 						</div>
 					</div>
 				</div>
@@ -471,6 +471,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		public function search() {
 			?>
 				<a href="#" class="header-search header-item">
+					<span class="screen-reader-text"><?php echo esc_html__( 'Search', 'sydney' ); ?></span>
 					<i class="sydney-svg-icon icon-search active"><?php sydney_get_svg_icon( 'icon-search', true ); ?></i>
 					<i class="sydney-svg-icon icon-cancel"><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i>
 				</a>
@@ -540,6 +541,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 			<?php else: ?>	
 				<?php $icon = get_theme_mod( 'mobile_menu_icon', 'mobile-icon2' ); ?>
 				<a href="#" class="menu-toggle">
+					<span class="screen-reader-text"><?php echo esc_html__( 'Toggle menu', 'sydney' ); ?></span>
 					<i class="sydney-svg-icon"><?php sydney_get_svg_icon( $icon, true ); ?></i>
 				</a>
 			<?php endif;
@@ -585,7 +587,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 							<?php endif; ?>
 							</div>
 							<div class="col-md-8 col-sm-4 col-xs-12">
-								<div class="btn-menu" aria-expanded="false" <?php echo wp_kses_post( apply_filters( 'sydney_nav_toggle_data_attrs', '' ) ); ?>><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
+								<div class="btn-menu" aria-expanded="false" <?php echo wp_kses_post( apply_filters( 'sydney_nav_toggle_data_attrs', '' ) ); ?>><span class="screen-reader-text"><?php echo esc_html__( 'Toggle menu', 'sydney' ); ?></span><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
 								<nav id="mainnav" class="mainnav" role="navigation" <?php sydney_do_schema( 'nav' ); ?> <?php echo wp_kses_post( apply_filters( 'sydney_nav_data_attrs', '' ) ); ?>>
 									<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
 								</nav><!-- #site-navigation -->
