@@ -85,7 +85,16 @@ if ( ! class_exists( 'Sydney_Modules' ) ) {
 					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
 					'activate_uri' 	=> '&amp;activate_module_quick-links', //param is added in dashboard class
 					'text'			=> __( 'Floating quick links bar (contact, social etc.)', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/443-pro-quick-links-module">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
-				),															
+				),
+				array(
+					'slug'			=> 'modal',
+					'name'          => esc_html__( 'Modal', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[section]=sydney_section_modal_popup' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_modal', //param is added in dashboard class
+					'text'			=> __( 'Modal with custom content', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/modal-in-sydney-pro/">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),	
 			);
 		
 			return $modules;

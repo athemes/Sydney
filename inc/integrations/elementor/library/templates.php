@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <script type="text/template" id="template-sydney-templateLibrary-header-logo">
-	<img src="<?php echo get_template_directory_uri() . '/images/logo.svg'; ?>" alt="Main Logo">
+	<img src="<?php echo esc_url( get_template_directory_uri() . '/images/logo.svg' ); ?>" alt="Main Logo">
 	<h2 style="margin-left:10px;">Sydney Studio</h2>
 </script>
 

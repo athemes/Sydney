@@ -82,7 +82,6 @@
 	height: 60px;
 }
 .sydney-templateLibrary-template-title{
-	position: absolute;
 	bottom: 0;
 	left: 0;
 	padding: 5px 0;
@@ -106,7 +105,13 @@
 	top: -1px;
 	right: 5px;
 }
-
+#sydney-templateLibrary-toolbar-filter .select2-container.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 36px;
+}
+#sydney-templateLibrary-toolbar-filter .select2-container.select2-container--default .select2-selection--single {
+	height: 36px;
+	padding: 0 10px;
+}
 .sydney-TemplateLibrary_header-menu .elementor-template-library-menu-item.elementor-active {
 	border-color: #D63C3F;
 }
