@@ -60,6 +60,15 @@ if ( ! class_exists( 'Sydney_Modules' ) ) {
 					'text'			=> __( 'Extra features for your blog.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/438-pro-extended-blog-module">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
 				),		
 				array(
+					'slug'			=> 'page-headers',
+					'name'          => esc_html__( 'Page Headers', 'sydney' ),
+					'type'          => 'pro',
+					//'link' 		=> admin_url( '/customize.php?autofocus[section]=sydney_breadcrumbs' ),
+					//'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_page-headers', //param is added in dashboard class
+					'text'			=> __( 'Page Header options for posts, pages, archives etc.', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/how-to-customize-page-headers-in-sydney-pro">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),				
+				array(
 					'slug'			=> 'breadcrumbs',
 					'name'          => esc_html__( 'Breadcrumbs Module', 'sydney' ),
 					'type'          => 'pro',
@@ -95,6 +104,24 @@ if ( ! class_exists( 'Sydney_Modules' ) ) {
 					'activate_uri' 	=> '&amp;activate_module_modal', //param is added in dashboard class
 					'text'			=> __( 'Modal with custom content', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/modal-in-sydney-pro/">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
 				),	
+				array(
+					'slug'			=> 'elementor-tools',
+					'name'          => esc_html__( 'Elementor Tools', 'sydney' ),
+					'type'          => 'pro',
+					//'link' 			=> admin_url( '/customize.php?autofocus[section]=sydney_section_modal_popup' ),
+					//'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_elementor-tools', //param is added in dashboard class
+					'text'			=> __( 'Custom CSS and other tools for Elementor', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/elementor-toolbox-module/">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),
+				array(
+					'slug'			=> 'live-chat',
+					'name'          => esc_html__( 'Live Chat', 'sydney' ),
+					'type'          => 'pro',
+					'link' 			=> admin_url( '/customize.php?autofocus[section]=sydney_section_live_chat' ),
+					'link_label'	=> esc_html__( 'Customize', 'sydney' ),
+					'activate_uri' 	=> '&amp;activate_module_live-chat', //param is added in dashboard class
+					'text'			=> __( 'Live chat floating icon', 'sydney' ) . '<div><a target="_blank" href="https://docs.athemes.com/article/live-chat-in-sydney/">' . __( 'Documentation article', 'sydney' ) . '</a></div>',
+				),				
 			);
 		
 			return $modules;
