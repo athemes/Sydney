@@ -215,6 +215,7 @@ if ( !class_exists( 'Sydney_Posts_Archive' ) ) :
 			$read_more 				= get_theme_mod( 'read_more_link', 0 );
 			$full_content_home 		= get_theme_mod('full_content_home', 0 );		//Legacy option
 			$full_content_archives 	= get_theme_mod('full_content_archives', 0 );	//Legacy option
+			$archive_content_type	= get_theme_mod( 'archive_content_type', 'excerpt' );
 
 			if ( !$excerpt ) {
 				return;
@@ -222,7 +223,7 @@ if ( !class_exists( 'Sydney_Posts_Archive' ) ) :
 			?>
 			<div class="entry-post" <?php sydney_do_schema( 'entry_content' ); ?>>
 				<?php
-				if ( ( $full_content_home == 1 && is_home() ) || ( $full_content_archives == 1 && is_archive() ) ) {
+				if ( 'content' === $archive_content_type || ( $full_content_home == 1 && is_home() ) || ( $full_content_archives == 1 && is_archive() ) ) {
 					the_content();
 				} else {
 					the_excerpt();
