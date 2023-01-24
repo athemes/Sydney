@@ -354,6 +354,7 @@ Repeatable Patterns
 		transition: all 0.3s ease-in-out;
 	}
 	p {
+		margin-block-start: 0;
 		margin-bottom: 20px;
 	}
 	.footer-widgets .widget ul,

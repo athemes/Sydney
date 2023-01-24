@@ -313,6 +313,10 @@ class Sydney_Theme_Dashboard {
 			<?php
 			foreach ( $data as $feature ) {
 
+				if ( isset( $feature['type'] ) && 'heading' === $feature['type'] ) {
+					echo '<h2>Heading</h2>';
+				}
+
 				$feature_status = 'thd-theme-feature-active';
 
 				if ( isset( $feature['type'] ) && 'pro' === $feature['type'] ) {

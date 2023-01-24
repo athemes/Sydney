@@ -396,7 +396,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= $this->get_background_color_css( 'main_header_background', '', '.main-header,.header-search-form' );
 			$custom .= $this->get_background_color_css( 'main_header_background_sticky', '', '.main-header.sticky-active' );
 
-			$custom .= $this->get_color_css( 'main_header_color', '', '.main-header .site-title a,.main-header .site-description,.main-header #mainnav .menu > li > a, .main-header .header-contact a' );
+			$custom .= $this->get_color_css( 'main_header_color', '', '.main-header .site-title a,.main-header .site-description,.main-header #mainnav .menu > li > a,#mainnav .nav-menu > li > a, .main-header .header-contact a' );
 			$custom .= $this->get_fill_css( 'main_header_color', '', '.main-header .sydney-svg-icon svg, .main-header .dropdown-symbol .sydney-svg-icon svg' );
 
 			$custom .= $this->get_color_css( 'main_header_color_sticky', '', '.sticky-active .main-header .site-title a,.sticky-active .main-header .site-description, .sticky-active .main-header #mainnav .menu > li > a,.sticky-active .main-header .header-contact a,.sticky-active .main-header .logout-link, .sticky-active .main-header .html-item, .sticky-active .main-header .sydney-login-toggle' );
