@@ -150,43 +150,7 @@ function sydney_dashboard_settings( $settings ) {
 			'name'    => esc_html__( 'Theme Features', 'sydney' ),
 			'type'    => 'features',
 			'visible' => array( 'free', 'pro' ),
-			'data'    => array(
-				array(
-					'name'          => esc_html__( 'Change Site Title or Logo', 'sydney' ),
-					'type'          => 'free',
-					'customize_uri' => admin_url( '/customize.php?autofocus[section]=title_tagline' ),
-				),
-				array(
-					'name'          => esc_html__( 'Header Options', 'sydney' ),
-					'type'          => 'free',
-					'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_header_panel' ),
-				),
-				array(
-					'name'          => esc_html__( 'Color Options', 'sydney' ),
-					'type'          => 'free',
-					'customize_uri' => admin_url( '/customize.php?autofocus[section]=colors' ),
-				),
-				array(
-					'name'          => esc_html__( 'Font Options', 'sydney' ),
-					'type'          => 'free',
-					'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_panel_typography' ),
-				),
-				array(
-					'name'          => esc_html__( 'Blog Options', 'sydney' ),
-					'type'          => 'free',
-					'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_panel_blog' ),
-				),
-				array(
-					'name'          => esc_html__( 'Footer Credits', 'sydney' ),
-					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_section_footer_credits',
-				),
-				array(
-					'name'          => esc_html__( 'Buttons', 'sydney' ),
-					'type'          => 'free',
-					'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_section_buttons',
-				),				
-			),
+			'data'    => array(),
 		),
 		array(
 			'name'    => esc_html__( 'Free vs PRO', 'sydney' ),
@@ -201,20 +165,104 @@ function sydney_dashboard_settings( $settings ) {
 		),
 	);
 	
-	//Insert modules
-	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules() );
-
+	//General features
 	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
+		array(
+			'name'          => esc_html__( 'General', 'sydney' ),
+			'type'          => 'heading',
+		),		
+		array(
+			'name'          => esc_html__( 'Color Options', 'sydney' ),
+			'type'          => 'free',
+			'customize_uri' => admin_url( '/customize.php?autofocus[section]=colors' ),
+		),
+		array(
+			'name'          => esc_html__( 'Typography Options', 'sydney' ),
+			'type'          => 'free',
+			'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_panel_typography' ),
+		),	
+		array(
+			'name'          => esc_html__( 'Buttons', 'sydney' ),
+			'type'          => 'free',
+			'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_section_buttons',
+		),	
+	) );
+
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules( 'general' ) );
+
+	//Header features
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
+		array(
+			'name'          => esc_html__( 'Header', 'sydney' ),
+			'type'          => 'heading',
+		),										
+		array(
+			'name'          => esc_html__( 'Change Site Title or Logo', 'sydney' ),
+			'type'          => 'free',
+			'customize_uri' => admin_url( '/customize.php?autofocus[section]=title_tagline' ),
+		),
+		array(
+			'name'          => esc_html__( 'Header Options', 'sydney' ),
+			'type'          => 'free',
+			'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_header_panel' ),
+		),
 		array(
 			'name'          => esc_html__( 'Top bar', 'sydney' ),
 			'type'          => 'pro',
 			'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_contact_info',
 		),
+	) );
+
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules( 'header' ) ); //insert modules
+
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
 		array(
 			'name'          => esc_html__( 'Extra Widget Area', 'sydney' ),
 			'type'          => 'pro',
 			'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_extra_widget_area',
 		),
+	) );
+
+	//Blog features
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
+		array(
+			'name'          => esc_html__( 'Blog & pages', 'sydney' ),
+			'type'          => 'heading',
+		),	
+		array(
+			'name'          => esc_html__( 'Blog Options', 'sydney' ),
+			'type'          => 'free',
+			'customize_uri' => admin_url( '/customize.php?autofocus[panel]=sydney_panel_blog' ),
+		),
+	) );
+
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules( 'blog' ) ); //insert modules
+
+	//Footer features
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
+		array(
+			'name'          => esc_html__( 'Footer', 'sydney' ),
+			'type'          => 'heading',
+		),
+		array(
+			'name'          => esc_html__( 'Footer Credits', 'sydney' ),
+			'type'          => 'free',
+			'customize_uri' => '/wp-admin/customize.php?autofocus[section]=sydney_section_footer_credits',
+		),
+	) );
+
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules( 'footer' ) ); //insert modules
+
+	//Integration features
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
+		array(
+			'name'          => esc_html__( 'Integrations', 'sydney' ),
+			'type'          => 'heading',
+		),
+	) );
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], Sydney_Modules::get_modules( 'integrations' ) ); //insert modules
+
+	$settings['tabs'][0]['data'] = array_merge( $settings['tabs'][0]['data'], array(
 		array(
 			'name'          => esc_html__( 'Google Maps', 'sydney' ),
 			'type'          => 'pro',

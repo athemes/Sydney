@@ -314,7 +314,8 @@ class Sydney_Theme_Dashboard {
 			foreach ( $data as $feature ) {
 
 				if ( isset( $feature['type'] ) && 'heading' === $feature['type'] ) {
-					echo '<h2>Heading</h2>';
+					echo '<h2 class="thd-section-title">' . esc_html( $feature['name'] ) . '</h2>';
+					continue;
 				}
 
 				$feature_status = 'thd-theme-feature-active';

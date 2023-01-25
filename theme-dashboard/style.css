@@ -1,4 +1,10 @@
 /* Theme Dashboard */
+.thd-section-title {
+  grid-column: 1/-1;
+  margin-bottom: 0;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+}
 .thd-theme-dashboard .button {
   transition: 0.25s;
   box-shadow: none !important;
@@ -400,7 +406,7 @@
     border: 1px solid #F8F9FD;
     background: #F8F9FD;
     border-radius: 2px;
-    padding: 24px; }
+    padding: 18px; }
   .thd-theme-dashboard .thd-theme-features .thd-theme-feature-row.thd-action-row {
     justify-content: flex-start;
   }
