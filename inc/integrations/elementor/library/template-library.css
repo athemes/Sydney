@@ -1,8 +1,3 @@
-
-.elementor-templates-modal__header__menu-area {
-	display: none; /* Temporary disable Blocks/Pages menu */
-}
-
 .sydney-templateLibrary-preview {
 	overflow: hidden;
 	margin: auto;
@@ -305,4 +300,24 @@
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-size: 11px;
+}
+
+#sydneyTemplateLibraryModal .elementor-template-library-menu-item[data-tab="headers"],
+#sydneyTemplateLibraryModal .elementor-template-library-menu-item[data-tab="footers"] {
+	position: relative;
+}
+#sydneyTemplateLibraryModal .elementor-template-library-menu-item[data-tab="headers"]:after,
+#sydneyTemplateLibraryModal .elementor-template-library-menu-item[data-tab="footers"]:after {
+    content: 'PRO';
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    background: #d63c3f;
+    padding: 3px 5px;
+    line-height: 1;
+    color: #fff;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
 }
