@@ -327,7 +327,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'mobile_head
 $wp_customize->add_setting(
 	'offcanvas_menu_background',
 	array(
-		'default'           => '#f0f0f0',
+		'default'           => '',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -346,7 +346,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'offcanvas_menu_color',
 	array(
-		'default'           => '#233452',
+		'default'           => '',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
