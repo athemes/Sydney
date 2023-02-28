@@ -779,6 +779,9 @@ Header
 .header-item.header-contact i {
 	margin-right: 5px;
 }
+.header-item.header-woo {
+	display: flex;
+}
 .sydney-offcanvas-menu, .mobile-header {
 	display: none;
 }
@@ -1493,6 +1496,9 @@ body:not(.elementor-page):not(.panel-layout) .entry-content h6 {
 	text-align: center;
 	margin-bottom: 24px;
 }
+.content-area .entry-thumb:empty {
+	margin: 0 !important;
+}
 .single .related-post .entry-thumb {
 	margin-bottom: 12px;
 }
@@ -1620,7 +1626,7 @@ span.author.vcard {
 	width: 100%;
 	max-width: 100%;		
 }
-.layout4 article, .layout6 article {
+.layout4 .content-inner, .layout6 .content-inner {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

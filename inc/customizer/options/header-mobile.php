@@ -44,6 +44,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 'header_mobile_layout_1',
 		'sanitize_callback' => 'sanitize_key',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control(
@@ -59,19 +60,43 @@ $wp_customize->add_control(
 	)
 );
 
+$wp_customize->selective_refresh->add_partial( 'header_layout_mobile', array(
+	'selector' 				=> '#masthead-mobile',
+	'settings' 				=> 'header_layout_mobile',
+	'render_callback' => function() {
+		$header = Sydney_Header::get_instance();
+		$layout = get_theme_mod( 'header_layout_mobile', 'header_mobile_layout_1' );
+		call_user_func( array( $header, $layout ) );
+	},
+	'container_inclusive' 	=> true,
+) );
+
 $sydney_header_components 	= sydney_header_elements();
 $sydney_default_components = sydney_get_default_header_components();
-
+ 
 $wp_customize->add_setting( 'header_components_mobile', array(
 	'default'  			=> $sydney_default_components['mobile'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_mobile', array(
 	'label'   			=> esc_html__( 'Additional elements', 'sydney' ),
 	'section' 			=> 'sydney_section_mobile_header',
 	'choices' 			=> $sydney_header_components,
+	'description' 		=> esc_html__( 'The values for these elements are set from the main header.', 'sydney' ),
 ) ) );
+
+$wp_customize->selective_refresh->add_partial( 'header_components_mobile', array(
+	'selector' 				=> '#masthead-mobile',
+	'settings' 				=> 'header_components_mobile',
+	'render_callback' => function() {
+		$header = Sydney_Header::get_instance();
+		$layout = get_theme_mod( 'header_layout_mobile', 'header_mobile_layout_1' );
+		call_user_func( array( $header, $layout ) );
+	},
+	'container_inclusive' 	=> true,
+) );
 
 $wp_customize->add_setting( 'mobile_header_divider_1',
 	array(
@@ -91,6 +116,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 'layout1',
 		'sanitize_callback' => 'sanitize_key',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control(
@@ -117,7 +143,8 @@ $wp_customize->add_control(
 
 $wp_customize->add_setting( 'header_components_offcanvas', array(
 	'default'  			=> $sydney_default_components['offcanvas'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_offcanvas', array(
@@ -126,6 +153,15 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 	'choices' 			=> $sydney_header_components,
 ) ) );
 
+$wp_customize->selective_refresh->add_partial( 'header_components_offcanvas', array(
+	'selector' 				=> '.offcanvas-items',
+	'settings' 				=> 'header_components_offcanvas',
+	'render_callback' => function() {
+		$header = Sydney_Header::get_instance();
+		$header->render_components( 'offcanvas' );
+	},
+	'container_inclusive' 	=> false,
+) );
 
 $wp_customize->add_setting( 'mobile_header_divider_2',
 	array(
@@ -202,7 +238,8 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'mobile
 $wp_customize->add_setting( 'mobile_menu_icon',
 	array(
 		'default' 			=> 'mobile-icon2',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'mobile_menu_icon',

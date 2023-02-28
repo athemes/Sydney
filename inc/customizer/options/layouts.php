@@ -125,7 +125,8 @@ foreach ( $post_types as $post_type ) {
 	$wp_customize->add_setting( 'sidebar_single_' . $post_type->name . '_position',
 		array(
 			'default' 			=> 'sidebar-right',
-			'sanitize_callback' => 'sydney_sanitize_text'
+			'sanitize_callback' => 'sydney_sanitize_text',
+			'transport' 		=> 'postMessage'
 		)
 	);
 	$wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'sidebar_single_' . $post_type->name . '_position',

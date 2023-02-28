@@ -236,6 +236,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 'header_layout_2',
 		'sanitize_callback' => 'sanitize_key',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control(
@@ -250,6 +251,16 @@ $wp_customize->add_control(
 		)
 	)
 ); 
+
+$wp_customize->selective_refresh->add_partial( 'header_layout_desktop', array(
+	'selector' 				=> '#masthead',
+	'settings' 				=> 'header_layout_desktop',
+	'render_callback' => function() {
+		$top_bar = Sydney_Header::get_instance();
+		$top_bar->header_markup();
+	},
+	'container_inclusive' 	=> true,
+) );
 
 $wp_customize->add_setting( 'header_divider_1',
 	array(
@@ -283,7 +294,8 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'main_header
 $wp_customize->add_setting( 'main_header_menu_position',
 	array(
 		'default' 			=> 'right',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'main_header_menu_position',
@@ -302,7 +314,8 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'main_heade
 $wp_customize->add_setting( 'header_container',
 	array(
 		'default' 			=> 'container',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'header_container',
@@ -321,6 +334,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 1,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control(
@@ -405,7 +419,8 @@ $default_components = sydney_get_default_header_components();
 //Layout 1&2 elements
 $wp_customize->add_setting( 'header_components_l1', array(
 	'default'  			=> $default_components['l1'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l1', array(
@@ -418,7 +433,8 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 //Layout 3 elements
 $wp_customize->add_setting( 'header_components_l3left', array(
 	'default'  			=> $default_components['l3left'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l3left', array(
@@ -430,7 +446,8 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 
 $wp_customize->add_setting( 'header_components_l3right', array(
 	'default'  			=> $default_components['l3right'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l3right', array(
@@ -443,7 +460,8 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 //Layout 4 elements
 $wp_customize->add_setting( 'header_components_l4top', array(
 	'default'  			=> $default_components['l4top'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l4top', array(
@@ -455,7 +473,8 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 
 $wp_customize->add_setting( 'header_components_l4bottom', array(
 	'default'  			=> $default_components['l4bottom'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l4bottom', array(
@@ -468,7 +487,8 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 //Layout 5 elements
 $wp_customize->add_setting( 'header_components_l5topleft', array(
 	'default'  			=> $default_components['l5topleft'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l5topleft', array(
@@ -480,7 +500,8 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 
 $wp_customize->add_setting( 'header_components_l5topright', array(
 	'default'  			=> $default_components['l5topleft'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l5topright', array(
@@ -492,7 +513,8 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 
 $wp_customize->add_setting( 'header_components_l5bottom', array(
 	'default'  			=> $default_components['l5topleft'],
-	'sanitize_callback'	=> 'sydney_sanitize_header_components'
+	'sanitize_callback'	=> 'sydney_sanitize_header_components',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l5bottom', array(
@@ -501,6 +523,20 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 	'choices' 			=> $header_components,
 	'active_callback' 	=> 'sydney_callback_header_layout_5',
 ) ) );
+
+$header_areas = array( 'header_components_l1','header_components_l3left','header_components_l3right','header_components_l4top','header_components_l4bottom','header_components_l5topleft','header_components_l5topright','header_components_l5bottom','social_profiles_header_layouts_6_7' );
+
+foreach ( $header_areas as $header_area ) {
+	$wp_customize->selective_refresh->add_partial( $header_area, array(
+		'selector' 				=> '#masthead',
+		'settings' 				=> $header_area,
+		'render_callback' => function() {
+			$header = Sydney_Header::get_instance();
+			$header->header_markup();
+		},
+		'container_inclusive' 	=> true,
+	) );
+}
 
 /**
  * Elements
@@ -610,6 +646,7 @@ $wp_customize->add_setting(
 	array(
 		'sanitize_callback' => 'sydney_sanitize_text',
 		'default'           => esc_html__( 'Click me', 'sydney' ),
+		'transport'         => 'postMessage'
 	)       
 );
 $wp_customize->add_control( 'header_button_text', array(
@@ -624,6 +661,7 @@ $wp_customize->add_setting(
 	array(
 		'sanitize_callback' => 'esc_url_raw',
 		'default'           => '#',
+		'transport'         => 'postMessage'
 	)       
 );
 $wp_customize->add_control( 'header_button_link', array(
@@ -638,6 +676,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 0,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_control(
@@ -688,6 +727,7 @@ $wp_customize->add_setting(
 	array(
 		'sanitize_callback' => 'sydney_sanitize_text',
 		'default'           => esc_html__( 'office@example.org', 'sydney' ),
+		'transport'         => 'postMessage'
 	)       
 );
 $wp_customize->add_control( 'header_contact_mail', array(
@@ -702,6 +742,7 @@ $wp_customize->add_setting(
 	array(
 		'sanitize_callback' => 'sydney_sanitize_text',
 		'default'           => esc_html__( '111222333', 'sydney' ),
+		'transport'         => 'postMessage'
 	)       
 );
 $wp_customize->add_control( 'header_contact_phone', array(
@@ -1039,6 +1080,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 0,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_control(

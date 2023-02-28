@@ -490,6 +490,7 @@ if ( ! function_exists( 'sydney_woocommerce_header_cart' ) ) {
 		$show_cart 		= get_theme_mod( 'enable_header_cart', 1 );
 		$show_account 	= get_theme_mod( 'enable_header_account', 1 );
 
+		echo '<div class="header-item header-woo">';
 		if ( is_cart() ) {
 			$class = 'current-menu-item';
 		} else {
@@ -515,6 +516,7 @@ if ( ! function_exists( 'sydney_woocommerce_header_cart' ) ) {
 			?>
 		</div>
 		<?php endif; ?>
+		</div>
 		<?php
 	}
 }

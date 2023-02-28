@@ -128,6 +128,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 1,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -144,7 +145,8 @@ $wp_customize->add_control(
 $wp_customize->add_setting( 'single_post_image_placement',
 	array(
 		'default' 			=> 'below',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport' => 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'single_post_image_placement',
@@ -212,7 +214,8 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'single_post
 $wp_customize->add_setting( 'single_post_meta_position',
 	array(
 		'default' 			=> 'below-title',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport' => 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'single_post_meta_position',
@@ -228,7 +231,8 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'single_pos
 
 $wp_customize->add_setting( 'single_post_meta_elements', array(
 	'default'  			=> array( 'sydney_posted_by', 'sydney_posted_on', 'sydney_post_categories' ),
-	'sanitize_callback'	=> 'sydney_sanitize_single_meta_elements'
+	'sanitize_callback'	=> 'sydney_sanitize_single_meta_elements',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'single_post_meta_elements', array(
@@ -297,6 +301,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 1,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -314,6 +319,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 0,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -331,6 +337,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 1,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -349,6 +356,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 0,
 		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -367,6 +375,7 @@ $wp_customize->add_setting(
 	array(
 		'default' 			=> esc_html__( 'You might also like:', 'sydney' ),
 		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -378,6 +387,13 @@ $wp_customize->add_control(
 		'active_callback' 	=> 'sydney_callback_related_post_title'
 	)
 ); 
+
+$wp_customize->selective_refresh->add_partial( 'single_post_template', array(
+	'selector' 				=> '.single-post .content-area',
+	'settings' 				=> array( 'single_post_image_placement','single_post_show_featured','single_post_meta_position','single_post_meta_elements','single_post_show_tags','single_post_show_author_box','single_post_show_post_nav','single_post_show_related_posts','single_post_share_title','enable_post_sharing','single_post_sharing_networks','single_post_reading_progress' ),
+	'container_inclusive' 	=> true,
+	'render_callback' 		=> 'sydney_single_template',
+) );
 
 /**
  * Styling

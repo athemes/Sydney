@@ -18,7 +18,7 @@ $wp_customize->selective_refresh->add_partial( 'social_profiles_footer', array(
 	'selector'          	=> '.site-info .social-profile',
 	'render_callback'   	=> function() { sydney_social_profile( 'social_profiles_footer' ); },
 	'container_inclusive' 	=> false,
-) );  
+) );
 
 /**
  * Footer
@@ -144,7 +144,8 @@ $wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_d
 $wp_customize->add_setting( 'footer_container',
 	array(
 		'default' 			=> 'container',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport' 		=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_container',
@@ -161,7 +162,8 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_con
 $wp_customize->add_setting( 'footer_widgets_alignment',
 	array(
 		'default' 			=> 'top',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport' 		=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_widgets_alignment',
@@ -570,7 +572,8 @@ $wp_customize->add_control(
 $wp_customize->add_setting( 'footer_credits_container',
 	array(
 		'default' 			=> 'container',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_credits_container',

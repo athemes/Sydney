@@ -1014,3 +1014,188 @@ jQuery(document).ready(function ($) {
 	  $textarea.val(JSON.stringify(data)).trigger('change');
 	});
   });
+
+
+//activate/deactivate header settings
+jQuery(document).ready(function ($) {
+
+	var sticky_controls = [ 'header_divider_1', 'main_header_settings_title', 'header_container', 'enable_sticky_header', 'sticky_header_type', 'transparent_header' ];
+	var menu_pos 		= [ 'main_header_menu_position' ];
+
+	wp.customize('header_layout_desktop', function (value) {
+
+		value.bind(function (newval) {
+			$.each(sticky_controls, function (index, setting) {
+				if (newval === 'header_layout_6' || newval === 'header_layout_7') {
+					wp.customize.control(setting).deactivate();
+				} else {
+					wp.customize.control(setting).activate();
+				}
+			});
+		});
+
+		value.bind(function (newval) {
+			$.each(menu_pos, function (index, setting) {
+				if (newval === 'header_layout_2' ) {
+					wp.customize.control(setting).activate();
+				} else {
+					wp.customize.control(setting).deactivate();
+				}
+			});
+		});
+
+		value.bind(function (newval) {
+			if (newval === 'header_layout_1' || newval === 'header_layout_2' || newval === 'header_layout_6' || newval === 'header_layout_7') {
+				wp.customize.control('header_components_l1').activate();
+			} else {
+				wp.customize.control('header_components_l1').deactivate();
+			}
+		});
+
+		value.bind(function (newval) {
+			if (newval === 'header_layout_3' ) {
+				wp.customize.control('header_components_l3left').activate();
+				wp.customize.control('header_components_l3right').activate();
+			} else {
+				wp.customize.control('header_components_l3left').deactivate();
+				wp.customize.control('header_components_l3right').deactivate();
+			}
+		} );
+
+		value.bind(function (newval) {
+			if (newval === 'header_layout_4' ) {
+				wp.customize.control('header_components_l4top').activate();
+				wp.customize.control('header_components_l4bottom').activate();
+			} else {
+				wp.customize.control('header_components_l4top').deactivate();
+				wp.customize.control('header_components_l4bottom').deactivate();
+			}
+		} );
+
+		value.bind(function (newval) {
+			if (newval === 'header_layout_5' ) {
+				wp.customize.control('header_components_l5topleft').activate();
+				wp.customize.control('header_components_l5topright').activate();
+				wp.customize.control('header_components_l5bottom').activate();
+			} else {
+				wp.customize.control('header_components_l5topleft').deactivate();
+				wp.customize.control('header_components_l5topright').deactivate();
+				wp.customize.control('header_components_l5bottom').deactivate();
+			}
+		} );
+
+		value.bind(function (newval) {
+			if ( newval === 'header_layout_6' || newval === 'header_layout_7' ) {
+				wp.customize.control('social_profiles_header_layouts_6_7').activate();
+			} else {
+				wp.customize.control('social_profiles_header_layouts_6_7').deactivate();
+			}
+		} );
+	});
+} );
+
+wp.customize('enable_sticky_header', function (value) {
+	value.bind(function (newval) {
+		if (newval === true) {
+			wp.customize.control('sticky_header_type').activate();
+		} else {
+			wp.customize.control('sticky_header_type').deactivate();
+		}
+	});
+} );
+
+//header components
+jQuery(document).ready(function ($) {
+	var header_components = {
+		'woocommerce_icons' : ['header_divider_3','main_header_cart_account_title','enable_header_cart','enable_header_account','enable_header_wishlist'],
+		'button' 			: [ 'header_divider_4', 'main_header_button_title', 'header_button_text', 'header_button_link', 'header_button_newtab' ],
+		'contact_info' 		: [ 'header_divider_5', 'main_header_contact_info_title', 'header_contact_mail', 'header_contact_phone' ],
+		'shortcode'			: [ 'shortcode_divider_1', 'header_shortcode_title', 'header_shortcode_content' ],
+		'html' 				: [ 'html_divider_1', 'header_html_title', 'header_html_content' ],
+		'login' 			: [ 'header_login_divider_1', 'header_login_title', 'header_login_side_image', 'header_logout_text', 'header_register_text', 'header_login_redirect_url', 'header_login_custom_register', 'header_login_icons' ],
+		'wpml_switcher' 	: [ 'wpml_topbar_divider_1', 'wpml_lang_switcher_title', 'wpml_lang_switcher' ],
+		'pll_switcher' 		: [ 'pll_topbar_divider_1', 'pll_lang_switcher_title', 'pll_lang_switcher_show_flags', 'pll_lang_switcher_show_names', 'pll_lang_switcher_dropdown', 'pll_lang_switcher_hide_current' ],
+	};
+
+	var areas = ['header_components_l1','header_components_l3left','header_components_l3right','header_components_l4top','header_components_l4bottom','header_components_l5topleft','header_components_l5topright','header_components_l5bottom','social_profiles_header_layouts_6_7'];
+
+	areas.forEach(function (area) {
+		wp.customize(area, function (value) {
+			value.bind(function (newval) {
+
+				$.each(header_components, function (key, value) {
+					if (newval.includes(key)) {
+						$.each(value, function (index, setting) {					
+							wp.customize.control(setting).activate();
+						});
+					} else {
+						//check if the control is not active in other areas
+						var active = false;
+						areas.forEach(function (area) {
+							if (area !== newval) {
+								if (wp.customize(area).get().includes(key)) {
+									active = true;
+								}
+							}
+						}
+						);
+						if (!active) {
+							$.each(value, function (index, setting) {
+								wp.customize.control(setting).deactivate();
+							});
+						}
+					}
+				});
+			});
+		} );
+	} );
+});
+
+//Activate menu typography options without refresh
+jQuery(document).ready(function ($) {
+	wp.customize('enable_top_menu_typography', function (value) {
+		var controls = ['sydney_menu_font', 'menu_items_text_transform', 'sydney_menu_font_size', 'sydney_header_menu_adobe_font'];
+		value.bind(function (newval) {
+			if (newval === true) {
+				$.each(controls, function (index, setting) {
+					wp.customize.control(setting).activate();
+				});
+			} else {
+				$.each(controls, function (index, setting) {
+					wp.customize.control(setting).deactivate();
+				});
+			}
+		});
+	} );
+});
+
+//Activate blog columns without refresh
+jQuery(document).ready(function ($) {
+	wp.customize('blog_layout', function (value) {
+		value.bind(function (newval) {
+			if (newval === 'layout3' || newval === 'layout5' || newval === 'layout7' ) {
+				wp.customize.control('archives_grid_columns').activate();
+			} else {
+				wp.customize.control('archives_grid_columns').deactivate();
+			}
+		} );
+
+		value.bind(function (newval) {
+			if (newval === 'layout4' ) {
+				wp.customize.control('archive_list_image_placement').activate();
+			} else {
+				wp.customize.control('archive_list_image_placement').deactivate();
+			}
+		} );
+
+		value.bind(function (newval) {
+			if (newval === 'layout4' || newval === 'layout6' ) {
+				wp.customize.control('archives_list_vertical_alignment').activate();
+				wp.customize.control('archive_featured_image_size').activate();
+			} else {
+				wp.customize.control('archives_list_vertical_alignment').deactivate();
+				wp.customize.control('archive_featured_image_size').deactivate();
+			}
+		} );		
+	} );
+} );

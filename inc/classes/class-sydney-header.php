@@ -79,7 +79,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 				<div class="mobile-header-item">
 					<?php $this->menu(); ?>
 				</div>
-				<div class="mobile-header-item">
+				<div class="mobile-header-item offcanvas-items">
 					<?php $this->render_components( 'offcanvas' ); ?>
 				</div>				
 			</div>
@@ -444,10 +444,10 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 			?>
 				<div class="header-item header-contact">
 					<?php if ( $email ) : ?>
-						<a href="mailto:<?php echo esc_attr( antispambot( $email ) ); ?>"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-mail', true ); ?></i><?php echo esc_html( antispambot( $email ) ); ?></a>
+						<a class="header-contact-email" href="mailto:<?php echo esc_attr( antispambot( $email ) ); ?>"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-mail', true ); ?></i><span><?php echo esc_html( antispambot( $email ) ); ?></span></a>
 					<?php endif; ?>
 					<?php if ( $phone ) : ?>
-						<a href="tel:<?php echo esc_attr( $phone ); ?>"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-phone', true ); ?></i><?php echo esc_html( $phone ); ?></a>
+						<a class="header-contact-phone" href="tel:<?php echo esc_attr( $phone ); ?>"><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-phone', true ); ?></i><span><?php echo esc_html( $phone ); ?></span></a>
 					<?php endif; ?>					
 				</div>
 			<?php

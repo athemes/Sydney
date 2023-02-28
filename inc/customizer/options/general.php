@@ -34,6 +34,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 1170,
 		'sanitize_callback' => 'absint',
+		'transport'         => 'postMessage',
 	)
 );
 
@@ -58,6 +59,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 860,
 		'sanitize_callback' => 'absint',
+		'transport'         => 'postMessage',
 	)
 );
 
@@ -82,6 +84,7 @@ $wp_customize->add_setting(
 	array(
 		'default' => 83,
 		'sanitize_callback' => 'absint',
+		'transport'         => 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -105,6 +108,7 @@ $wp_customize->add_setting(
 	array(
 		'default' => 100,
 		'sanitize_callback' => 'absint',
+		'transport'         => 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -332,7 +336,8 @@ $wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'scrollto
 $wp_customize->add_setting( 'scrolltop_position',
 	array(
 		'default' 			=> 'right',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'scrolltop_position',
@@ -584,16 +589,19 @@ $wp_customize->add_section(
 $wp_customize->add_setting( 'button_top_bottom_padding_desktop', array(
 	'default'   		=> 12,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage',
 ) );			
 
 $wp_customize->add_setting( 'button_top_bottom_padding_tablet', array(
 	'default'   		=> 12,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage',
 ) );
 
 $wp_customize->add_setting( 'button_top_bottom_padding_mobile', array(
 	'default'   		=> 12,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );			
 
 
@@ -617,16 +625,19 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'button
 $wp_customize->add_setting( 'button_left_right_padding_desktop', array(
 	'default'   		=> 35,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );			
 
 $wp_customize->add_setting( 'button_left_right_padding_tablet', array(
 	'default'   		=> 35,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_setting( 'button_left_right_padding_mobile', array(
 	'default'   		=> 35,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );			
 
 
@@ -651,6 +662,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'button
 $wp_customize->add_setting( 'buttons_radius', array(
 	'default'   		=> 3,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );			
 
 $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'buttons_radius',
@@ -684,16 +696,19 @@ $wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'buttons_
 $wp_customize->add_setting( 'button_font_size_desktop', array(
 	'default'   		=> 13,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );			
 
 $wp_customize->add_setting( 'button_font_size_tablet', array(
 	'default'   		=> 13,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_setting( 'button_font_size_mobile', array(
 	'default'   		=> 13,
 	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
 ) );			
 
 
@@ -717,7 +732,8 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'button
 $wp_customize->add_setting( 'button_text_transform',
 	array(
 		'default' 			=> 'uppercase',
-		'sanitize_callback' => 'sydney_sanitize_text'
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'button_text_transform',

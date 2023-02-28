@@ -16,6 +16,9 @@ function sydney_customize_register( $wp_customize ) {
         $wp_customize->get_section( 'title_tagline' )->panel = 'sydney_panel_header';
     }
 
+    $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+    $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
     //Partials
     for ($i = 1; $i < 5; $i++) { 
         $wp_customize->selective_refresh->add_partial( 'slider_title_' . $i, array(
@@ -453,6 +456,7 @@ function sydney_customize_register( $wp_customize ) {
         array(
             'default-image' => '',
             'sanitize_callback' => 'esc_url_raw',
+            'transport' => 'postMessage'
         )
     );
     $wp_customize->add_control(
@@ -467,6 +471,11 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
+
+    $wp_customize->selective_refresh->add_partial( 'site_logo', array(
+        'selector' => '.site-branding',
+        'render_callback' => array( 'Sydney_Header', 'logo' ),
+    ) );
 
     //___Theme info___//
     $wp_customize->add_section(
