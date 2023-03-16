@@ -46,6 +46,8 @@
     "js-vendors": "gulp vendorsJS",
     "translate": "gulp translate",
     "styles-rtl": "gulp stylesRTL",
-    "cache-clear": "gulp clearCache"
+    "cache-clear": "gulp clearCache",
+    "test": "npx playwright test",
+		"report": "npx playwright show-report"
   }
 }
