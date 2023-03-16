@@ -30,8 +30,41 @@ $wp_customize->add_control(
 		array(
 			'label' 				=> '',
 			'section'       		=> 'sydney_section_mobile_header',
-			'controls_general'		=> json_encode( array( '#customize-control-sydney_upsell_mobile_header','#customize-control-header_layout_mobile','#customize-control-header_components_mobile','#customize-control-mobile_header_divider_1','#customize-control-header_offcanvas_mode','#customize-control-header_components_offcanvas','#customize-control-mobile_header_divider_2','#customize-control-mobile_menu_alignment','#customize-control-mobile_menu_link_separator','#customize-control-mobile_menu_link_spacing','#customize-control-mobile_menu_icon', ) ),
+			'controls_general'		=> json_encode( array( '#customize-control-mobile_sticky_header_divider_0','#customize-control-enable_sticky_header_mobile','#customize-control-sydney_upsell_mobile_header','#customize-control-header_layout_mobile','#customize-control-header_components_mobile','#customize-control-mobile_header_divider_1','#customize-control-header_offcanvas_mode','#customize-control-header_components_offcanvas','#customize-control-mobile_header_divider_2','#customize-control-mobile_menu_alignment','#customize-control-mobile_menu_link_separator','#customize-control-mobile_menu_link_spacing','#customize-control-mobile_menu_icon', ) ),
 			'controls_design'		=> json_encode( array( '#customize-control-mobile_header_bar_title','#customize-control-mobile_header_offcanvas_title','#customize-control-mobile_header_separator_title','#customize-control-mobile_header_background','#customize-control-mobile_header_color','#customize-control-mobile_header_padding','#customize-control-mobile_header_divider_3','#customize-control-offcanvas_menu_background','#customize-control-offcanvas_menu_color','#customize-control-mobile_header_divider_4','#customize-control-mobile_header_separator_width','#customize-control-link_separator_color', ) ),
+		)
+	)
+);
+
+//also toggle sticky on mobile
+$wp_customize->add_setting(
+	'enable_sticky_header_mobile',
+	array(
+		'default'           => 0,
+		'sanitize_callback' => 'sydney_sanitize_checkbox',
+		'transport'			=> 'postMessage'
+	)
+);
+$wp_customize->add_control(
+	new Sydney_Toggle_Control(
+		$wp_customize,
+		'enable_sticky_header_mobile',
+		array(
+			'label'         	=> esc_html__( 'Enable sticky header on mobiles', 'sydney' ),
+			'section'       	=> 'sydney_section_mobile_header',
+		)
+	)
+);
+
+$wp_customize->add_setting( 'mobile_sticky_header_divider_0',
+	array(
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'mobile_sticky_header_divider_0',
+		array(
+			'section' 		=> 'sydney_section_mobile_header',
 		)
 	)
 );

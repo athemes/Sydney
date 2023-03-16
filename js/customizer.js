@@ -1038,6 +1038,20 @@
 		} );
 	} );
 
+	//enable_sticky_header_mobile
+	wp.customize( 'enable_sticky_header_mobile', function( val ) {
+
+		var sticky_header_type = wp.customize.instance( 'sticky_header_type' ).get();
+
+		val.bind( function( to ) {
+			if ( true === to ) {
+				$( '.mobile-header' ).addClass( 'sticky-header sticky-' + sticky_header_type );
+			} else {
+				$( '.mobile-header' ).removeClass( 'sticky-header sticky-always sticky-scrolltop' );
+			}
+		} );
+	} );	
+
 	var $header_components = ['header_components_l1','header_components_l3left','header_components_l3right','header_components_l4top','header_components_l4bottom','header_components_l5topleft','header_components_l5topright','header_components_l5bottom','social_profiles_header_layouts_6_7'];
 	$.each( $header_components, function( index, value ) {
 		wp.customize( value, function( val ) {

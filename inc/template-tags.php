@@ -433,3 +433,18 @@ if ( ! function_exists( 'sydney_single_post_thumbnail' ) ) :
 		<?php
 	}
 endif;
+
+//tags
+if ( ! function_exists( 'sydney_post_tags' ) ) :
+	function sydney_post_tags() {
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', ', ' );
+
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<span>' . '%1$s' . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}		
+	}
+endif;

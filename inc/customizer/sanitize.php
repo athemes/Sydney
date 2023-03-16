@@ -27,7 +27,7 @@ function sydney_sanitize_blog_meta_elements( $input ) {
     $sanitized = array();
 
     foreach ( $input as $sub_value ) {
-        if ( in_array( $sub_value, array( 'post_date', 'post_categories', 'post_author', 'post_comments' ), true ) ) {
+        if ( in_array( $sub_value, array( 'post_date', 'post_categories', 'post_author', 'post_comments', 'post_tags' ), true ) ) {
             $sanitized[] = $sub_value;
         }
     }

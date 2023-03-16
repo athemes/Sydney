@@ -141,6 +141,17 @@ var sydney = sydney || {};
 			document.body.classList.remove( 'mobile-menu-visible' );
 		} );
 
+		//Handle same page links
+		var samePageLinks = siteNavigation.querySelectorAll( 'a[href*="#"]' );
+		for ( var samePageLink of samePageLinks ) {
+			samePageLink.addEventListener( 'click', samePageLinkHandler );
+		}
+
+		function samePageLinkHandler() {
+			offCanvas.classList.remove( 'toggled' );
+			document.body.classList.remove( 'mobile-menu-visible' );
+		}
+
 		// Get all the link elements within the menu.
 		const links = menu.getElementsByTagName( 'a' );
 	
@@ -202,7 +213,9 @@ sydney.backToTop = {
 		if ( typeof(icon) != 'undefined' && icon != null ) {
 			var vertDist = window.pageYOffset;
 
-			if ( vertDist > 800 ) {
+			var toScroll = getComputedStyle(document.documentElement).getPropertyValue('--sydney-scrolltop-distance');
+
+			if ( vertDist > toScroll ) {
 				icon.classList.add( 'show' );
 			} else {
 				icon.classList.remove( 'show' );

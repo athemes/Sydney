@@ -311,7 +311,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		public function header_mobile_layout_1() {
 			$container = get_theme_mod( 'header_container', 'container-fluid' );
 			?>
-				<header id="masthead-mobile" class="main-header mobile-header">
+				<header id="masthead-mobile" class="main-header mobile-header <?php echo esc_attr( $this->sticky( 'mobile' ) ); ?>">
 					<div class="<?php echo esc_attr( $container ); ?>">
 						<div class="row valign">
 							<div class="col-sm-4 col-grow-mobile">
@@ -334,7 +334,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		public function header_mobile_layout_2() {
 			$container = get_theme_mod( 'header_container', 'container-fluid' );
 			?>
-				<header id="masthead-mobile" class="main-header mobile-header">
+				<header id="masthead-mobile" class="main-header mobile-header <?php echo esc_attr( $this->sticky( 'mobile' ) ); ?>">
 					<div class="<?php echo esc_attr( $container ); ?>">
 						<div class="row valign">
 							<div class="col-sm-4 col-xs-4 header-elements valign">
@@ -359,7 +359,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		public function header_mobile_layout_3() {
 			$container = get_theme_mod( 'header_container', 'container-fluid' );
 			?>
-				<header id="masthead-mobile" class="main-header mobile-header">
+				<header id="masthead-mobile" class="main-header mobile-header <?php echo esc_attr( $this->sticky( 'mobile' ) ); ?>">
 					<div class="<?php echo esc_attr( $container ); ?>">
 						<div class="row valign">
 							<div class="col-sm-4 col-xs-4">
@@ -550,8 +550,13 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		/**
 		 * Sticky mode
 		 */
-		public function sticky() {
+		public function sticky( $device = 'desktop' ) {
 			$enabled 	= get_theme_mod( 'enable_sticky_header', 1 );
+
+			if ( $device == 'mobile' ) {
+				$enabled = get_theme_mod( 'enable_sticky_header_mobile', 0 );
+			}
+
 			$type 		= get_theme_mod( 'sticky_header_type', 'always' );
 			$sticky		= '';
 

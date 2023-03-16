@@ -264,6 +264,13 @@ if ( !class_exists( 'Sydney_Posts_Archive' ) ) :
 		public function post_comments() {
 			sydney_entry_comments();
 		}		
+
+		/**
+		 * Post tags
+		 */
+		public function post_tags() {
+			sydney_post_tags();
+		}
 	}
 
 	/**

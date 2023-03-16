@@ -545,6 +545,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'archive
 		'post_author' 		=> esc_html__( 'Post author', 'sydney' ),
 		'post_categories'	=> esc_html__( 'Post categories', 'sydney' ),
 		'post_comments' 	=> esc_html__( 'Post comments', 'sydney' ),
+		'post_tags' 		=> esc_html__( 'Post tags', 'sydney' ),
 	),
 ) ) );
 
