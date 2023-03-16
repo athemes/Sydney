@@ -154,6 +154,8 @@ const zipIgnoreGlob = [
 	'!../@(Sydney|sydney)/**/*.svn',
 	'!../@(Sydney|sydney)/**/*gulpfile.babel.js',
 	'!../@(Sydney|sydney)/**/*wpgulp.config.js',
+	'!../@(Sydney-pro-ii|sydney-pro-ii)/**/*playwright.config.js',
+	'!../@(Sydney-pro-ii|sydney-pro-ii)/**/*{tests,tests/**/*}',
 	'!../@(Sydney|sydney)/**/*.eslintrc.js',
 	'!../@(Sydney|sydney)/**/*.eslintignore',
 	'!../@(Sydney|sydney)/**/*.editorconfig',
