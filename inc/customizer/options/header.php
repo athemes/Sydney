@@ -524,7 +524,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 	'active_callback' 	=> 'sydney_callback_header_layout_5',
 ) ) );
 
-$header_areas = array( 'header_components_l1','header_components_l3left','header_components_l3right','header_components_l4top','header_components_l4bottom','header_components_l5topleft','header_components_l5topright','header_components_l5bottom','social_profiles_header_layouts_6_7' );
+$header_areas = array( 'header_components_l1','header_components_l3left','header_components_l3right','header_components_l4top','header_components_l4bottom','header_components_l5topleft','header_components_l5topright','header_components_l5bottom' );
 
 foreach ( $header_areas as $header_area ) {
 	$wp_customize->selective_refresh->add_partial( $header_area, array(

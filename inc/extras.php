@@ -784,3 +784,77 @@ function sydney_single_container_layout() {
 	}
 }
 add_action( 'wp', 'sydney_single_container_layout' );
+
+/**
+ * Archive template
+ */
+function sydney_archive_template() {
+	$layout 		= sydney_blog_layout();
+	$sidebar_pos 	= sydney_sidebar_position();
+	?>
+	<div id="primary" class="content-area archive-wrapper <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( $layout ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', 'col-md-9' ) ); ?>">
+		<main id="main" class="post-wrap" role="main">
+		<?php if ( have_posts() ) : ?>
+
+		<div class="posts-layout">
+			<div class="row" <?php sydney_masonry_data(); ?>>
+				<?php while ( have_posts() ) : the_post(); ?>
+
+					<?php get_template_part( 'content', get_post_format() ); ?>
+
+				<?php endwhile; ?>
+			</div>
+		</div>
+
+		<?php sydney_posts_navigation(); ?>	
+
+		<?php else : ?>
+
+			<?php get_template_part( 'content', 'none' ); ?>
+
+		<?php endif; ?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+	<?php
+}
+add_action( 'sydney_archive_content', 'sydney_archive_template' );
+
+/**
+ * Single template
+ */
+function sydney_single_template() {
+	$sidebar_pos 	= sydney_sidebar_position();
+
+	if (get_theme_mod('fullwidth_single')) {
+		$width = 'fullwidth';
+	} else {
+		$width = 'col-md-9';
+	}
+	
+	?>
+	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', $width ) ); ?>">
+
+		<?php sydney_yoast_seo_breadcrumbs(); ?>
+
+		<main id="main" class="post-wrap" role="main">
+
+		<?php while ( have_posts() ) : the_post(); ?>
+
+			<?php get_template_part( 'content', 'single' ); ?>
+
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+			?>
+
+		<?php endwhile; // end of the loop. ?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+	
+	<?php
+}
+add_action( 'sydney_single_content', 'sydney_single_template' );

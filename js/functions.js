@@ -347,6 +347,10 @@ sydney.stickyMenu = {
 					sticky.classList.remove( 'is-sticky' );
 				}				
 				lastScrollTop = scroll <= 0 ? 0 : scroll;
+
+				if ( scroll === 0 ) {
+					body.classList.remove( 'sydney-scrolling-up' );
+				}
 			}, false);
 		} else {
 

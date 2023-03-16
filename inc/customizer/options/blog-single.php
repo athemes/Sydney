@@ -390,7 +390,7 @@ $wp_customize->add_control(
 
 $wp_customize->selective_refresh->add_partial( 'single_post_template', array(
 	'selector' 				=> '.single-post .content-area',
-	'settings' 				=> array( 'single_post_image_placement','single_post_show_featured','single_post_meta_position','single_post_meta_elements','single_post_show_tags','single_post_show_author_box','single_post_show_post_nav','single_post_show_related_posts','single_post_share_title','enable_post_sharing','single_post_sharing_networks','single_post_reading_progress' ),
+	'settings' 				=> array( 'single_post_image_placement','single_post_show_featured','single_post_meta_position','single_post_meta_elements','single_post_show_tags','single_post_show_author_box','single_post_show_post_nav','single_post_show_related_posts' ),
 	'container_inclusive' 	=> true,
 	'render_callback' 		=> 'sydney_single_template',
 ) );

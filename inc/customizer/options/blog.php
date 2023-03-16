@@ -49,6 +49,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 'layout2',
 		'sanitize_callback' => 'sanitize_key',
+		'transport'			=> 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -612,7 +613,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'archive_me
 
 $wp_customize->selective_refresh->add_partial( 'archive_loop_partial', array(
 	'selector' 				=> '.archive-wrapper',
-	'settings' 				=> array('load_more_button_text','pagination_type','show_excerpt','archive_content_type','exc_lenght','read_more_link','read_more_text','read_more_display','archive_meta_position','archive_meta_elements','archive_before_updated_date_text','show_avatar','archive_meta_delimiter','post_archive_before_custom_field','post_archive_custom_field','post_archive_after_custom_field','reading_time_title','reading_time_speed','reading_time_before','reading_time_after','disable_archive_post_nav'),
+	'settings' 				=> array('show_excerpt','archive_content_type','exc_lenght','read_more_link','archive_meta_position','archive_meta_elements','show_avatar','archive_meta_delimiter'),
 	'render_callback' 		=> 'sydney_archive_template',
 	'container_inclusive' 	=> true,
 ) );

@@ -654,7 +654,7 @@ function sydney_sanitize_selects( $input, $setting ){
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sydney_customize_preview_js() {
-	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20221004', true );
+	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20230302', true );
 
     $post_type_array = sydney_get_posts_types_for_js();
 
@@ -673,8 +673,8 @@ require get_template_directory() . '/inc/customizer/controls/display-conditions/
  */
 function sydney_customize_footer_scripts() {
     
-    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20221019' );
-    wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.min.js', array( 'jquery', 'jquery-ui-core' ), '20221019', true );
+    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20230302' );
+    wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.js', array( 'jquery', 'jquery-ui-core' ), '20230302', true );
 
     $post_type_array = sydney_get_posts_types_for_js();
 

@@ -387,7 +387,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 					$custom .= ".header_layout_3,.header_layout_4,.header_layout_5 { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
 				}            
 			} else {
-                $custom .= ".top-header-row,.main-header-inner, .bottom-header-inner { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";} .main-header,.bottom-header-row {border:0;}" . "\n";
+                $custom .= ".top-header-row,.site-header-inner, .bottom-header-inner { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";} .main-header,.bottom-header-row {border:0;}" . "\n";
 				if ( 0 == $main_header_divider_size ) {
 					$custom .= ".top-header-row { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
 				}            

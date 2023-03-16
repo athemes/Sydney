@@ -1317,12 +1317,18 @@
 
 function hideControls( options ) {
 	for(var i=0;i<options.length;i++) {
+		if ( ! window.parent.window.wp.customize.control( options[i] ) ) {
+			continue;
+		}
 		window.parent.window.wp.customize.control( options[i] ).toggle(false);
 		jQuery( window.parent.window.wp.customize.control( options[i] ).container[0] ).css( 'display', 'none' );
 	}
 }
 function showControls( options ) {
 	for(var i=0;i<options.length;i++) {
+		if ( ! window.parent.window.wp.customize.control( options[i] ) ) {
+			continue;
+		}
 		window.parent.window.wp.customize.control( options[i] ).toggle(true);
 	}
 }
