@@ -85,7 +85,8 @@ $wp_customize->add_control(
 					'label' => esc_html__( 'List zig-zag', 'sydney' ),
 					'url'   => '%s/images/customizer/bl6.svg'
 				),
-			)
+			),
+			'show_labels' => true,
 		)
 	)
 ); 

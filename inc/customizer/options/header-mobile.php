@@ -169,7 +169,8 @@ $wp_customize->add_control(
 					'label' => esc_html__( 'Layout 2', 'sydney' ),
 					'url'   => '%s/images/customizer/oc2.svg'
 				),	
-			)
+			),
+			'show_labels' => true,
 		)
 	)
 );

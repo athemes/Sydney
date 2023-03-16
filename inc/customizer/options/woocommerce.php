@@ -110,7 +110,8 @@ $wp_customize->add_control(
 					'url'   => '%s/images/customizer/sidebar-right.svg'
 				),	
 			),
-			'priority'	 => 30
+			'priority'	 => 30,
+			'show_labels' => true
 		)
 	)
 );
