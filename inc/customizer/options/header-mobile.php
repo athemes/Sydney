@@ -77,7 +77,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 'header_mobile_layout_1',
 		'sanitize_callback' => 'sanitize_key',
-		'transport'			=> 'postMessage'
+		//'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control(

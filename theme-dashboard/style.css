@@ -372,9 +372,10 @@
     font-weight: normal; }
   .thd-theme-dashboard .thd-panel-promo .thd-description {
     color: #697B96; }
+  .thd-theme-dashboard .thd-panel-support-upsell .thd-button-wrap,
   .thd-theme-dashboard .thd-panel-promo .thd-button-wrap {
     margin-top: auto;
-    padding-top: 2rem; }
+    padding-top: 1.5rem; }
   .thd-theme-dashboard .thd-panel-promo .thd-button {
     border-color: #3FB28F;
     background: #3FB28F;
@@ -588,4 +589,10 @@
 .thd-feature-help-text a {
   margin-top: 10px;
   display: block;
+}
+.thd-theme-dashboard .thd-panel-support-upsell {
+  padding: 24px;
+}
+.thd-panel-support-upsell .thd-badge {
+  margin-left: 7px;
 }

@@ -1197,3 +1197,43 @@ jQuery(document).ready(function ($) {
 		} );		
 	} );
 } );
+
+//Upsell in the general panel
+jQuery(document).ready(function ($) {
+
+  var upsell = $('<div class="sydney-upsell-feature-wrapper" style="margin:5px 15px 15px;">' +
+              '<h3><em>More general options are available in Sydney Pro</em></h3>' +
+              '<ul class="sydney-upsell-features">' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Templates Builder</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Breadcrumbs</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Unlimited Sidebars</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Modal Popup</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Live Chat module</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Offcanvas Content</li>' +
+                 '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Mailchimp support</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Extra widget area</li>' +
+              '</ul><p><a href="https://athemes.com/sydney-upgrade/?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney" role="button" class="button-secondary deep-upsell-button button" target="_blank">Upgrade Now</a></p></div>')
+
+  upsell.appendTo('#sub-accordion-panel-sydney_panel_general');
+
+
+  var upsellWoo = $('<div class="sydney-upsell-feature-wrapper" style="margin:5px 15px 15px;">' +
+              '<h3><em>More WooCommerce options are available in Sydney Pro</em></h3>' +
+              '<ul class="sydney-upsell-features">' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Wishlist</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Product Swatch</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Product Gallery Layouts</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Multistep checkout</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Single sticky add to cart</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Shop header styles</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Product tab styles</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>More Shop pagination types</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Advanced reviews</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Extra single product elements</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Extra shop sidebar layouts</li>' +
+                  '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>AJAX product search</li>' +
+              '</ul><p><a href="https://athemes.com/sydney-upgrade/?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney" role="button" class="button-secondary deep-upsell-button button" target="_blank">Upgrade Now</a></p></div>')
+
+  upsellWoo.appendTo('#sub-accordion-panel-woocommerce');
+
+} );

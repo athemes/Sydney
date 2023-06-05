@@ -54,7 +54,8 @@ function sydney_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'sydney' ),
+		'primary' 	=> __( 'Primary Menu', 'sydney' ),
+		'mobile' 	=> __( 'Mobile menu (optional)', 'sydney' ),
 	) );
 
 	/*
@@ -640,19 +641,19 @@ require get_template_directory() . '/inc/notices/class-sydney-review.php';
 require get_template_directory() . '/inc/schema.php';
 
 /**
- * Theme dashboard.
- */
-require get_template_directory() . '/theme-dashboard/class-theme-dashboard.php';
-
-/**
  * Theme update migration functions
  */
 require get_template_directory() . '/inc/theme-update.php';
 
 /**
+ * Theme dashboard.
+ */
+require get_template_directory() . '/inc/dashboard/class-dashboard.php';
+
+/**
  * Theme dashboard settings.
  */
-require get_template_directory() . '/inc/theme-dashboard-settings.php';
+require get_template_directory() . '/inc/dashboard/class-dashboard-settings.php';
 
 /**
  * Template library for Elementor

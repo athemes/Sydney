@@ -418,6 +418,25 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		}
 
 		/**
+		 * Mobile navigation
+		 */
+		public function mobile_menu() {
+			?>
+			<nav id="mainnav" class="mainnav">
+				<?php			
+				wp_nav_menu(
+					array(
+						'theme_location' => 'mobile',
+						'menu_id'        => 'primary-menu',
+						'walker'         => apply_filters( 'sydney_primary_wp_nav_menu_walker', '' )
+					)
+				);
+				?>
+			</nav>
+			<?php
+		}		
+
+		/**
 		 * Button
 		 */
 		public function button() {

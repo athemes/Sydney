@@ -663,24 +663,6 @@ class Sydney_Theme_Dashboard {
 										</a>
 									</div>
 								</div>
-
-								<?php if ( ! $this->pro_status ) { ?>
-									<div class="thd-conttent-secondary">
-										<div class="thd-title">
-											<?php echo wp_kses_post( __( 'Upgrade to priority support', 'sydney' ) ); ?>
-
-											<div class="thd-badge"><?php esc_html_e( 'pro', 'sydney' ); ?></div>
-										</div>
-
-										<div class="thd-description"><?php esc_html_e( 'Get direct support from our developers via email. We aim to answer all priority support requests within 24 hours.', 'sydney' ); ?></div>
-
-										<div class="thd-button-wrap">
-											<a href="<?php echo esc_url( $this->settings['support_pro_link'] ); ?>" class="thd-button button" target="_blank">
-												<?php echo esc_html_e( 'Get Priority Support', 'sydney' ); ?>
-											</a>
-										</div>
-									</div>
-								<?php } ?>
 							</div>
 						</div>
 
@@ -719,6 +701,23 @@ class Sydney_Theme_Dashboard {
 									<div class="thd-button-wrap">
 										<a href="<?php echo esc_url( $this->settings['promo_link'] ); ?>" class="thd-button button" target="_blank">
 											<?php echo wp_kses_post( $this->settings['promo_button'] ); ?>
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="thd-panel thd-panel-support-upsell">
+								<div class="thd-conttent-secondary">
+									<div class="thd-title">
+										<?php echo wp_kses_post( __( 'Premium support', 'sydney' ) ); ?>
+										<div class="thd-badge thd-badge-info"><?php esc_html_e( 'pro', 'sydney' ); ?></div>
+									</div>
+
+									<div class="thd-description"><?php esc_html_e( 'Get direct support from our developers via email. We aim to answer all premium support requests within 24 hours.', 'sydney' ); ?></div>
+
+									<div class="thd-button-wrap">
+										<a href="<?php echo esc_url( $this->settings['support_pro_link'] ); ?>" class="thd-button button" target="_blank">
+											<?php echo esc_html_e( 'Get Premium Support', 'sydney' ); ?>
 										</a>
 									</div>
 								</div>

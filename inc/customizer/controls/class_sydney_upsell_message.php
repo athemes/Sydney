@@ -18,6 +18,7 @@ class Sydney_Upsell_Message extends WP_Customize_Control {
 	 */
 	public $type 		 = 'sydney-upsell-features';
 	public $button_title = '';
+	public $features 	 = array();
 	public $button_link  = 'https://athemes.com/sydney-upgrade/?utm_source=theme_customizer_deep&utm_medium=sydney_customizer&utm_campaign=Sydney';
 
 	/**
@@ -31,14 +32,22 @@ class Sydney_Upsell_Message extends WP_Customize_Control {
 	 * Render the control in the customizer
 	 */
 	public function render_content() { 
-		$this->button_title = __( 'Learn More', 'sydney' ); ?>
+		$this->button_title = __( 'Upgrade Now', 'sydney' ); ?>
 
 		<hr class="sydney-cust-divider">
 		<div class="sydney-upsell-feature-wrapper">
-			<p><em><?php echo esc_html( $this->description ); ?></em></p>
+			<h3><em><?php echo esc_html( $this->description ); ?></em></h3>
+
+			<?php if ( !empty( $this->features ) ) : ?>
+				<ul class="sydney-upsell-features">
+					<?php foreach ( $this->features as $feature ) : ?>
+						<li><span class="dashicons dashicons-yes"></span><?php echo esc_html( $feature ); ?></li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 			
 			<p>
-				<a href="<?php echo esc_url( $this->button_link ) ?>" role="button" class="button-secondary button" target="_blank">
+				<a href="<?php echo esc_url( $this->button_link ) ?>" role="button" class="button-secondary deep-upsell-button button" target="_blank">
 					<?php echo esc_html( $this->button_title ); ?>
 				</a>
 			</p>
