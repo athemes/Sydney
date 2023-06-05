@@ -77,7 +77,11 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 					</div>
 				</div>
 				<div class="mobile-header-item">
-					<?php $this->menu(); ?>
+					<?php if ( has_nav_menu( 'mobile' ) ) {
+						$this->mobile_menu();
+					} else {
+						$this->menu();
+					} ?>
 				</div>
 				<div class="mobile-header-item offcanvas-items">
 					<?php $this->render_components( 'offcanvas' ); ?>
