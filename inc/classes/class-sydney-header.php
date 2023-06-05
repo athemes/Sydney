@@ -398,7 +398,9 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		 * Social icons
 		 */
 		public function social() {
-			sydney_social_profile( 'social_profiles_header' );
+			echo '<div class="header-item header-social">';
+				sydney_social_profile( 'social_profiles_header' );
+			echo '</div>';
 		}
 
 		/**

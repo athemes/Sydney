@@ -1107,7 +1107,8 @@ jQuery(document).ready(function ($) {
 		//'login' 			: [ 'header_login_divider_1', 'header_login_title', 'header_login_side_image', 'header_logout_text', 'header_register_text', 'header_login_redirect_url', 'header_login_custom_register', 'header_login_icons' ],
 		//'wpml_switcher' 	: [ 'wpml_topbar_divider_1', 'wpml_lang_switcher_title', 'wpml_lang_switcher' ],
 		//'pll_switcher' 		: [ 'pll_topbar_divider_1', 'pll_lang_switcher_title', 'pll_lang_switcher_show_flags', 'pll_lang_switcher_show_names', 'pll_lang_switcher_dropdown', 'pll_lang_switcher_hide_current' ],
-	};
+    'social'			: [ 'header_social_divider_1', 'social_profiles_header'],
+  };
 
 	var areas = ['header_components_l1','header_components_l3left','header_components_l3right','header_components_l4top','header_components_l4bottom','header_components_l5topleft','header_components_l5topright','header_components_l5bottom'];
 

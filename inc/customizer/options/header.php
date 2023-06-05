@@ -222,7 +222,7 @@ $wp_customize->add_control(
 		array(
 			'label' 				=> '',
 			'section'       		=> 'sydney_section_main_header',
-			'controls_general'		=> json_encode( array( '#customize-control-transparent_header','#customize-control-sydney_upsell_main_header','#customize-control-header_layout_desktop','#customize-control-header_divider_1','#customize-control-main_header_settings_title','#customize-control-main_header_menu_position','#customize-control-header_container','#customize-control-enable_sticky_header','#customize-control-sticky_header_type','#customize-control-header_divider_2','#customize-control-main_header_elements_title','#customize-control-header_components_l1','#customize-control-header_components_l3left','#customize-control-header_components_l3right','#customize-control-header_components_l4top','#customize-control-header_components_l4bottom','#customize-control-header_components_l5topleft','#customize-control-header_components_l5topright','#customize-control-header_components_l5bottom','#customize-control-header_divider_3','#customize-control-main_header_cart_account_title','#customize-control-enable_header_cart','#customize-control-enable_header_account','#customize-control-header_divider_4','#customize-control-main_header_button_title','#customize-control-header_button_text','#customize-control-header_button_link','#customize-control-header_button_newtab','#customize-control-header_divider_5','#customize-control-main_header_contact_info_title','#customize-control-header_contact_mail','#customize-control-header_contact_phone', ) ),
+			'controls_general'		=> json_encode( array( '#customize-control-header_social_divider_1','#customize-control-social_profiles_header','#customize-control-transparent_header','#customize-control-sydney_upsell_main_header','#customize-control-header_layout_desktop','#customize-control-header_divider_1','#customize-control-main_header_settings_title','#customize-control-main_header_menu_position','#customize-control-header_container','#customize-control-enable_sticky_header','#customize-control-sticky_header_type','#customize-control-header_divider_2','#customize-control-main_header_elements_title','#customize-control-header_components_l1','#customize-control-header_components_l3left','#customize-control-header_components_l3right','#customize-control-header_components_l4top','#customize-control-header_components_l4bottom','#customize-control-header_components_l5topleft','#customize-control-header_components_l5topright','#customize-control-header_components_l5bottom','#customize-control-header_divider_3','#customize-control-main_header_cart_account_title','#customize-control-enable_header_cart','#customize-control-enable_header_account','#customize-control-header_divider_4','#customize-control-main_header_button_title','#customize-control-header_button_text','#customize-control-header_button_link','#customize-control-header_button_newtab','#customize-control-header_divider_5','#customize-control-main_header_contact_info_title','#customize-control-header_contact_mail','#customize-control-header_contact_phone', ) ),
 			'controls_design'		=> json_encode( array( '#customize-control-main_header_color_sticky','#customize-control-enable_top_menu_typography','#customize-control-menu_typography_title','#customize-control-main_header_divider_8','#customize-control-sydney_menu_font','#customize-control-menu_items_text_transform','#customize-control-sydney_menu_font_size','#customize-control-menu_items_hover','#customize-control-main_header_submenu_color','#customize-control-main_header_submenu_background','#customize-control-main_header_bottom_padding','#customize-control-main_header_bottom_background', '#customize-control-main_header_bottom_color','#customize-control-main_header_divider_7','#customize-control-main_header_background','#customize-control-main_header_background_sticky','#customize-control-main_header_color','#customize-control-main_header_divider_6','#customize-control-main_header_padding','#customize-control-main_header_divider_size','#customize-control-main_header_divider_color','#customize-control-main_header_divider_width' ) ),
 		)
 	)
@@ -541,6 +541,47 @@ foreach ( $header_areas as $header_area ) {
 /**
  * Elements
  */
+//social
+//header_social_divider_1
+$wp_customize->add_setting( 'header_social_divider_1',
+	array(
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'header_social_divider_1',
+		array(
+			'section' 		=> 'sydney_section_main_header',
+			'active_callback' 	=> function() { return sydney_callback_header_elements( 'social' ); }
+		)
+	)
+);
+
+//social_profiles_header
+$wp_customize->add_setting( 'social_profiles_header',
+	array(
+		'default' 			=> '',
+		'sanitize_callback' => 'sydney_sanitize_urls',
+		'transport'			=> 'postMessage'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Repeater_Control( $wp_customize, 'social_profiles_header',
+	array(
+		'label' 		=> esc_html__( 'Social profile', 'sydney' ),
+		'section' 		=> 'sydney_section_main_header',
+		'button_labels' => array(
+			'add' => esc_html__( 'Add new', 'sydney' ),
+		),
+		'active_callback' 	=> function() { return sydney_callback_header_elements( 'social' ); }
+	)
+) );
+
+$wp_customize->selective_refresh->add_partial( 'social_profiles_header', array(
+	'selector' 				=> '.header-social',
+	'container_inclusive' 	=> true,
+	'render_callback' 		=> array( 'Sydney_Header', 'social' ),
+) );
 //Cart&account icons
 $wp_customize->add_setting( 'header_divider_3',
 	array(

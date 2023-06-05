@@ -585,6 +585,7 @@ function sydney_header_elements() {
 		'woocommerce_icons' => esc_html__( 'Cart &amp; account icons', 'sydney' ),
 		'button' 			=> esc_html__( 'Button', 'sydney' ),
 		'contact_info' 		=> esc_html__( 'Contact info', 'sydney' ),
+		'social' 			=> esc_html__( 'Social', 'sydney' ),
 	);
 
 	return apply_filters( 'sydney_header_elements', $elements );
