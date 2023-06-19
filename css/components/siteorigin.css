@@ -1108,3 +1108,8 @@ _:-ms-lang(x), .elementor-section, .panel-row-style { transform: none !important
 		padding: 0;
 	}
 }
+@media ( min-width: 992px ) {
+	.blog-post:nth-of-type(3n+1) {
+		clear: left;
+	}
+}
