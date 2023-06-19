@@ -518,7 +518,6 @@ $wp_customize->add_setting( 'archive_meta_position',
 	array(
 		'default' 			=> 'above-title',
 		'sanitize_callback' => 'sydney_sanitize_text',
-		'transport' 		=> 'postMessage'
 	)
 );
 $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'archive_meta_position',
@@ -615,7 +614,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'archive_me
 
 $wp_customize->selective_refresh->add_partial( 'archive_loop_partial', array(
 	'selector' 				=> '.archive-wrapper',
-	'settings' 				=> array('show_excerpt','archive_content_type','exc_lenght','read_more_link','archive_meta_position','archive_meta_elements','show_avatar','archive_meta_delimiter'),
+	'settings' 				=> array('show_excerpt','archive_content_type','exc_lenght','read_more_link','archive_meta_elements','show_avatar','archive_meta_delimiter'),
 	'render_callback' 		=> 'sydney_archive_template',
 	'container_inclusive' 	=> true,
 ) );

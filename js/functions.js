@@ -258,7 +258,7 @@ sydney.removePreloader = {
 
 		for ( var pr of preloader ) {
 			pr.classList.add( 'disable' );
-			setTimeout(function(){ pr.classList.add( 'hide' ); }, 600);
+			setTimeout(function(){ pr.style.display = 'none'; }, 600);
 		}
 	},
 };
