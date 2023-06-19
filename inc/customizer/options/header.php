@@ -974,6 +974,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => '',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_control(

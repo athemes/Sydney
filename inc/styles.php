@@ -189,11 +189,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             //Menu items hover
             $menu_items_hover = get_theme_mod( 'menu_items_hover', '#d65050' );
             $custom .= "#mainnav ul li a:hover, .main-header #mainnav .menu > li > a:hover { color:" . esc_attr($menu_items_hover) . "}"."\n";
-
-            //Submenu items hover
-            $submenu_items_hover = get_theme_mod( 'submenu_items_hover' );
-            $custom .= "#mainnav .sub-menu li:hover>a { color:" . esc_attr($submenu_items_hover) . "}"."\n";
-
+		
             //Rows overlay
             $rows_overlay = get_theme_mod( 'rows_overlay', '#000000' );
             $custom .= ".overlay { background-color:" . esc_attr($rows_overlay) . "}"."\n";	
@@ -421,6 +417,9 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= $this->get_color_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li a,.bottom-header-row #mainnav ul ul li:hover a, .main-header #mainnav ul ul li:hover a,.main-header #mainnav ul ul li a' );
 			$custom .= $this->get_fill_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li svg, .main-header #mainnav ul ul li svg' );
 			
+            //Submenu items hover
+			$custom .= $this->get_color_css( 'submenu_items_hover', '', '#mainnav .sub-menu li:hover>a, .main-header #mainnav ul ul li:hover>a' );
+
 			//Header mini cart
 			$custom .= $this->get_color_css( 'color_body_text', '', '.main-header-cart .count-number' );
 			$custom .= $this->get_background_color_rgba_css( 'color_body_text', '#212121', '.main-header-cart .widget_shopping_cart .widgettitle:after, .main-header-cart .widget_shopping_cart .woocommerce-mini-cart__buttons:before', '0.1' );
