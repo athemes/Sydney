@@ -27,7 +27,7 @@ $wp_customize->add_control(
                 __( 'Build Headers with Elementor', 'sydney' ),
                 __( 'Extra desktop and mobile layouts', 'sydney' ),
                 __( 'Top Bar', 'sydney' ),
-                ///__( 'Build a Mega-Menu with Elementor', 'sydney' ),
+                __( 'Build a Mega-Menu with Elementor', 'sydney' ),
                 __( 'More header components', 'sydney' ),
                 __( 'Mobile-only menu', 'sydney' ),
                 __( 'Custom breakpoints', 'sydney' ),
@@ -60,7 +60,7 @@ $wp_customize->add_control(
                 __( 'Build Headers with Elementor', 'sydney' ),
                 __( 'Extra desktop and mobile layouts', 'sydney' ),
                 __( 'Top Bar', 'sydney' ),
-                //__( 'Build a Mega-Menu with Elementor', 'sydney' ),
+                __( 'Build a Mega-Menu with Elementor', 'sydney' ),
                 __( 'More header components', 'sydney' ),
                 __( 'Mobile-only menu', 'sydney' ),
                 __( 'Custom breakpoints', 'sydney' ),
@@ -244,7 +244,7 @@ $wp_customize->add_control(
             'description' => __( 'Get access to more fonts with Sydney Pro', 'sydney' ),
             'features'    => array(
                 __( 'Adobe Fonts integration', 'sydney' ),
-                //__( 'Custom fonts upload', 'sydney' ),
+                __( 'Custom fonts upload', 'sydney' ),
             ),             
             'priority'    => 999
         )
