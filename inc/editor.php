@@ -65,7 +65,9 @@ function sydney_editor_styles() {
 	//Body
 	$body_text = get_theme_mod( 'body_text_color', '#47425d' );
 	$custom .= ".editor-styles-wrapper, .editor-styles-wrapper .editor-block-list__block { color:" . esc_attr($body_text) . "}"."\n";
-
+	$body_background = get_theme_mod( 'background_color' );
+	$custom .= ".editor-styles-wrapper { background-color:#" . esc_attr($body_background) . "}"."\n";
+	
 	//Buttons
 	$custom .= Sydney_Custom_CSS::get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
 	$custom .= Sydney_Custom_CSS::get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );

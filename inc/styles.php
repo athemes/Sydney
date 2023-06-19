@@ -190,6 +190,10 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $menu_items_hover = get_theme_mod( 'menu_items_hover', '#d65050' );
             $custom .= "#mainnav ul li a:hover, .main-header #mainnav .menu > li > a:hover { color:" . esc_attr($menu_items_hover) . "}"."\n";
 
+            //Submenu items hover
+            $submenu_items_hover = get_theme_mod( 'submenu_items_hover' );
+            $custom .= "#mainnav .sub-menu li:hover>a { color:" . esc_attr($submenu_items_hover) . "}"."\n";
+
             //Rows overlay
             $rows_overlay = get_theme_mod( 'rows_overlay', '#000000' );
             $custom .= ".overlay { background-color:" . esc_attr($rows_overlay) . "}"."\n";	
