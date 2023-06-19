@@ -33,12 +33,24 @@ class Sydney_Dashboard
             return;
         }
 
+        if( ! is_admin() ) {
+            return;
+        }
+
+        if( $this->is_themes_page() ) {
+            add_action('init', array($this, 'set_settings'));
+            add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
+        }
+
+        if( $this->is_sydney_dashboard_page() ) {
+            add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
+        }
+
         add_filter('woocommerce_enable_setup_wizard', '__return_false');
 
-        add_action('init', array($this, 'set_settings'));
+
         add_action('admin_menu', array($this, 'add_menu_page'));
         add_action('admin_notices', array($this, 'html_notice'));
-        add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
         
         add_action('wp_ajax_sydney_notifications_read', array($this, 'ajax_notifications_read'));
 
@@ -50,7 +62,24 @@ class Sydney_Dashboard
 
         add_action('switch_theme', array($this, 'reset_notices'));
         add_action('after_switch_theme', array($this, 'reset_notices'));
-        add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
+    }
+
+    /**
+     * Check if is the themes.php page
+     * 
+     */
+    public function is_themes_page() {
+        global $pagenow;
+        return $pagenow === 'themes.php';
+    }
+
+    /**
+     * Check if is the theme dashboard page
+     * 
+     */
+    public function is_sydney_dashboard_page() {
+        global $pagenow;
+        return $pagenow === 'themes.php' && ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] === 'sydney-dashboard' );
     }
 
     /**
@@ -69,8 +98,7 @@ class Sydney_Dashboard
     public function add_menu_page()
     {
 
-        add_submenu_page('themes.php', esc_html__('Theme Dashboard', 'sydney'), esc_html__('Theme Dashboard', 'sydney'), 'manage_options', $this->settings['menu_slug'], array($this, 'html_dashboard'), 1); // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page
-
+        add_submenu_page('themes.php', esc_html__('Theme Dashboard', 'sydney'), esc_html__('Theme Dashboard', 'sydney'), 'manage_options', isset( $this->settings['menu_slug'] ) ? $this->settings['menu_slug'] : 'sydney-dashboard', array($this, 'html_dashboard'), 1); // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page
     }
 
     /**
@@ -80,10 +108,6 @@ class Sydney_Dashboard
      */
     public function admin_enqueue_scripts($hook)
     {
-
-        if (!in_array($hook, array('themes.php', 'appearance_page_sydney-dashboard'))) {
-            return;
-        }
 
         wp_enqueue_style('sydney-dashboard', get_template_directory_uri() . '/inc/dashboard/assets/css/sydney-dashboard.min.css', array(), '20230525');
 

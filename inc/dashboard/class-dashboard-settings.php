@@ -11,6 +11,10 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
+if ( !is_admin() ) {
+	return;
+}
+
 function sydney_dashboard_settings()
 {
 
