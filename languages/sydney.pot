@@ -2032,7 +2032,7 @@ msgid "Sidebar right"
 msgstr ""
 
 #: inc/integrations/learndash/customize.php:64
-msgid "Single lessons, topics, quizzes etc."
+msgid "Single lessons, topics, quizzes, etc."
 msgstr ""
 
 #: inc/integrations/learnpress/customize.php:12

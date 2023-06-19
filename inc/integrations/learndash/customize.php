@@ -61,7 +61,7 @@
         )
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'learndashlayoutqt', array(
-        	'label' => esc_html__( 'Single lessons, topics, quizzes etc.', 'sydney'),
+        	'label' => esc_html__( 'Single lessons, topics, quizzes, etc.', 'sydney'),
         	'section' => 'sydney_learndash_layout',
         	'settings' => 'sydney_options[info]',
         ) )
