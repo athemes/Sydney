@@ -626,8 +626,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			}  
             
             //Global colors
-			$custom .= $this->get_color_css( 'color_link_default', '', '.entry-content a:not(.button)' );
-			$custom .= $this->get_color_css( 'color_link_hover', '', '.entry-content a:not(.button):hover' );
+			$custom .= $this->get_color_css( 'color_link_default', '', '.entry-content a:not(.button):not(.elementor-button-link)' );
+			$custom .= $this->get_color_css( 'color_link_hover', '', '.entry-content a:not(.button):not(.elementor-button-link):hover' );
 			$custom .= $this->get_color_css( 'color_heading_1', '', 'h1' );
 			$custom .= $this->get_color_css( 'color_heading_2', '', 'h2' );
 			$custom .= $this->get_color_css( 'color_heading_3', '', 'h3' );
