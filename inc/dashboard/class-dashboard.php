@@ -44,7 +44,10 @@ class Sydney_Dashboard
 
         if( $this->is_sydney_dashboard_page() ) {
             add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
-            add_action( 'admin_footer', 'sydney_templates_display_conditions_script_template' );
+
+            if( defined( 'SYDNEY_PRO_VERSION' ) ) {
+                add_action( 'admin_footer', 'sydney_templates_display_conditions_script_template' );
+            }
         }
 
         add_filter('woocommerce_enable_setup_wizard', '__return_false');
