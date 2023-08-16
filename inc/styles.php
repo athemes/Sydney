@@ -468,6 +468,11 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= $this->get_max_height_css( 'site_logo_size', $defaults = array( 'desktop' => 100, 'tablet' => 100, 'mobile' => 100 ), '.site-logo' );      
             
             //Site title
+			$logo_site_title	= get_theme_mod('logo_site_title', 0);
+
+            if ( $logo_site_title ) {
+                $custom .= ".site-branding { display: flex;gap:15px;align-items:center; }"."\n";
+            }			
             $site_title = get_theme_mod( 'site_title_color' );
             $custom .= ".site-title a, .site-title a:visited, .main-header .site-title a, .main-header .site-title a:visited  { color:" . esc_attr($site_title) . "}"."\n";
             //Site desc

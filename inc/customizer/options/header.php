@@ -55,6 +55,25 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'site_l
 	)
 ) );
 
+$wp_customize->add_setting(
+	'logo_site_title',
+	array(
+		'default'           => 0,
+		'sanitize_callback' => 'sydney_sanitize_checkbox',
+	)
+);
+$wp_customize->add_control(
+	new Sydney_Toggle_Control(
+		$wp_customize,
+		'logo_site_title',
+		array(
+			'label'         	=> esc_html__( 'Show site title and description next to the logo', 'sydney' ),
+			'section'       	=> 'title_tagline',
+			'priority'       => 59,
+		)
+	)
+);
+
 $wp_customize->add_setting( 'title_tagline_divider_1',
 	array(
 		'sanitize_callback' => 'esc_attr'
