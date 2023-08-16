@@ -245,22 +245,24 @@ sydney.backToTop = {
  * Remove preloader
  */
 sydney.removePreloader = {
-	init: function() {
-		this.remove();	
-	},
+    init: function() {
+        this.remove();    
+    },
 
-	remove: function() {
-		const preloader 	= document.querySelectorAll( '.preloader' );
+    remove: function() {
+        const preloader = document.querySelectorAll('.preloader');
 
-		if ( typeof( preloader ) == 'undefined' && preloader == null ) {
-			return;
-		}
+        if (preloader.length === 0) {
+            return;
+        }
 
-		for ( var pr of preloader ) {
-			pr.classList.add( 'disable' );
-			setTimeout(function(){ pr.style.display = 'none'; }, 600);
-		}
-	},
+        preloader.forEach(function(pr) {
+            pr.classList.add('disable');
+            setTimeout(function() {
+                pr.style.display = 'none';
+            }, 600);
+        });
+    },
 };
 
 /**
