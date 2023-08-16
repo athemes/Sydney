@@ -149,7 +149,7 @@
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Sydney_Alpha_Color(
             $wp_customize,
             'sydney_lifter_loop_title_color',
             array(
@@ -168,7 +168,7 @@
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Sydney_Alpha_Color(
             $wp_customize,
             'sydney_lifter_loop_title_color_hover',
             array(
@@ -187,7 +187,7 @@
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Sydney_Alpha_Color(
             $wp_customize,
             'sydney_lifter_loop_meta_color',
             array(
@@ -236,7 +236,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new WP_Customize_Color_Control(
+    new Sydney_Alpha_Color(
         $wp_customize,
         'sydney_lifter_course_title_color',
         array(
@@ -273,7 +273,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new WP_Customize_Color_Control(
+    new Sydney_Alpha_Color(
         $wp_customize,
         'sydney_lifter_course_accent_color',
         array(
@@ -301,7 +301,7 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new WP_Customize_Color_Control(
+    new Sydney_Alpha_Color(
         $wp_customize,
         'sydney_lifter_lesson_title_color',
         array(

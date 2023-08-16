@@ -18,7 +18,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'global_pale
 			'label'			=> esc_html__( 'Global colors', 'sydney' ),
 			'section' 		=> 'colors',
 			'priority'			=> 1
-		)
+		) 
 	)
 );
 
@@ -82,7 +82,44 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'general_col
 	)
 );
 
-//Body
+$wp_customize->add_setting(
+	'global_background_color',
+	array(
+		'default'           => 'global_color_9',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
+	'background_color',
+	array(
+		'default'           => '#ffffff',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_control(
+	new Sydney_Alpha_Color(
+		$wp_customize,
+		'background_color',
+		array(
+			'label' => __('Background color', 'sydney'),
+			'section' => 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_background_color',
+				'setting'	=> 'background_color',
+			),
+		)
+	)
+);
+$wp_customize->add_setting(
+	'global_body_text_color',
+	array(
+		'default'           => 'global_color_3',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
 $wp_customize->add_setting(
 	'body_text_color',
 	array(
@@ -92,12 +129,16 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new WP_Customize_Color_Control(
+	new Sydney_Alpha_Color(
 		$wp_customize,
 		'body_text_color',
 		array(
 			'label' => __('Body text', 'sydney'),
 			'section' => 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_body_text_color',
+				'setting'	=> 'body_text_color',
+			),
 		)
 	)
 );
@@ -130,7 +171,14 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'links_color
 		)
 	)
 );
-
+$wp_customize->add_setting(
+	'global_color_link_default',
+	array(
+		'default'           => 'global_color_1',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
 $wp_customize->add_setting(
 	'color_link_default',
 	array(
@@ -146,16 +194,28 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Content links', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_link_default',
+				'setting'	=> 'color_link_default',
+			),
 		)
 	)
 );
 
 $wp_customize->add_setting(
+	'global_color_link_hover',
+	array(
+		'default'           => 'global_color_2',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
 	'color_link_hover',
 	array(
 		'default'           => '',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
+		'transport'         => 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -165,6 +225,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Content links hover', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_link_hover',
+				'setting'	=> 'color_link_hover',
+			),
 		)
 	)
 );
@@ -199,6 +263,14 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'headings_co
 );
 
 $wp_customize->add_setting(
+	'global_color_heading_1',
+	array(
+		'default'           => 'global_color_4',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
 	'color_heading_1',
 	array(
 		'default'           => '#00102E',
@@ -213,7 +285,19 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Heading 1', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_heading_1',
+				'setting'	=> 'color_heading_1',
+			),
 		)
+	)
+);
+$wp_customize->add_setting(
+	'global_color_heading_2',
+	array(
+		'default'           => 'global_color_4',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_setting(
@@ -221,7 +305,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => '#00102E',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
+		'transport'         => 'postMessage',
 	)
 );
 $wp_customize->add_control(
@@ -231,7 +315,19 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Heading 2', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_heading_2',
+				'setting'	=> 'color_heading_2',
+			),
 		)
+	)
+);
+$wp_customize->add_setting(
+	'global_color_heading_3',
+	array(
+		'default'           => 'global_color_4',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_setting(
@@ -249,7 +345,19 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Heading 3', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_heading_3',
+				'setting'	=> 'color_heading_3',
+			),
 		)
+	)
+);
+$wp_customize->add_setting(
+	'global_color_heading_4',
+	array(
+		'default'           => 'global_color_4',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_setting(
@@ -267,7 +375,19 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Heading 4', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_heading_4',
+				'setting'	=> 'color_heading_4',
+			),
 		)
+	)
+);
+$wp_customize->add_setting(
+	'global_color_heading_5',
+	array(
+		'default'           => 'global_color_4',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_setting(
@@ -285,7 +405,19 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Heading 5', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_heading_5',
+				'setting'	=> 'color_heading_5',
+			),
 		)
+	)
+);
+$wp_customize->add_setting(
+	'global_color_heading_6',
+	array(
+		'default'           => 'global_color_4',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
 	)
 );
 $wp_customize->add_setting(
@@ -303,6 +435,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Heading 6', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_heading_6',
+				'setting'	=> 'color_heading_6',
+			),
 		)
 	)
 );
@@ -337,9 +473,17 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'forms_color
 );
 
 $wp_customize->add_setting(
+	'global_color_forms_text',
+	array(
+		'default'           => 'global_color_5',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
 	'color_forms_text',
 	array(
-		'default'           => '#767676',
+		'default'           => '#737C8C',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -351,14 +495,26 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Text color', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_forms_text',
+				'setting'	=> 'color_forms_text',
+			),
 		)
 	)
 );
 
 $wp_customize->add_setting(
+	'global_color_forms_background',
+	array(
+		'default'           => 'global_color_9',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
 	'color_forms_background',
 	array(
-		'default'           => '#fafafa',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -370,10 +526,22 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Background color', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_forms_background',
+				'setting'	=> 'color_forms_background',
+			),
 		)
 	)
 );
 
+$wp_customize->add_setting(
+	'global_color_forms_borders',
+	array(
+		'default'           => 'global_color_8',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
 $wp_customize->add_setting(
 	'color_forms_borders',
 	array(
@@ -389,10 +557,22 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Border color', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_forms_borders',
+				'setting'	=> 'color_forms_borders',
+			),
 		)
 	)
 );
 
+$wp_customize->add_setting(
+	'global_color_forms_placeholder',
+	array(
+		'default'           => 'global_color_8',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
 $wp_customize->add_setting(
 	'color_forms_placeholder',
 	array(
@@ -408,6 +588,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Placeholder color', 'sydney' ),
 			'section'       	=> 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_color_forms_placeholder',
+				'setting'	=> 'color_forms_placeholder',
+			),
 		)
 	)
 );
@@ -452,7 +636,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'menu_bg_color',
 			array(
@@ -472,7 +656,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'site_title_color',
 			array(
@@ -492,7 +676,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'site_desc_color',
 			array(
@@ -512,7 +696,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'top_items_color',
 			array(
@@ -530,7 +714,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'menu_items_hover',
 			array(
@@ -549,7 +733,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'submenu_items_color',
 			array(
@@ -567,7 +751,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'submenu_background',
 			array(
@@ -585,7 +769,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Sydney_Alpha_Color(
 			$wp_customize,
 			'mobile_menu_color',
 			array(
@@ -632,6 +816,14 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'sidebar_col
 );
 
 $wp_customize->add_setting(
+	'global_sidebar_background',
+	array(
+		'default'           => 'global_color_9',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
 	'sidebar_background',
 	array(
 		'default'           => '#ffffff',
@@ -640,17 +832,29 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new WP_Customize_Color_Control(
+	new Sydney_Alpha_Color(
 		$wp_customize,
 		'sidebar_background',
 		array(
 			'label' => __('Sidebar background', 'sydney'),
 			'section' => 'colors',
+			'settings'			=> array(
+				'global'	=> 'global_sidebar_background',
+				'setting'	=> 'sidebar_background',
+			),
 			'priority' => 20
 		)
 	)
 );
 //Sidebar color
+$wp_customize->add_setting(
+	'global_sidebar_color',
+	array(
+		'default'           => 'global_color_5',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
 $wp_customize->add_setting(
 	'sidebar_color',
 	array(
@@ -660,13 +864,17 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new WP_Customize_Color_Control(
+	new Sydney_Alpha_Color(
 		$wp_customize,
 		'sidebar_color',
 		array(
 			'label' => __('Sidebar color', 'sydney'),
 			'section' => 'colors',
-			'priority' => 21
+			'priority' => 21,
+			'settings'			=> array(
+				'global'	=> 'global_sidebar_color',
+				'setting'	=> 'sidebar_color',
+			),
 		)
 	)
 );

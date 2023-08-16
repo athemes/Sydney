@@ -431,6 +431,14 @@ $wp_customize->add_control( 'scrolltop_visibility', array(
  * Style
  */
 $wp_customize->add_setting(
+	'global_scrolltop_color',
+	array(
+		'default'           => '',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
 	'scrolltop_color',
 	array(
 		'default'           => '#fff',
@@ -445,10 +453,22 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Icon color', 'sydney' ),
 			'section'       	=> 'sydney_section_scrolltotop',
+			'settings'			=> array(
+				'global'	=> 'global_scrolltop_color',
+				'setting'	=> 'scrolltop_color',
+			),
 		)
 	)
 );
 
+$wp_customize->add_setting(
+	'global_scrolltop_bg_color',
+	array(
+		'default'           => 'global_color_1',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
 $wp_customize->add_setting(
 	'scrolltop_bg_color',
 	array(
@@ -464,6 +484,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Background color', 'sydney' ),
 			'section'       	=> 'sydney_section_scrolltotop',
+			'settings'			=> array(
+				'global'	=> 'global_scrolltop_bg_color',
+				'setting'	=> 'scrolltop_bg_color',
+			),
 		)
 	)
 );
@@ -482,6 +506,14 @@ $wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'scrollto
 );
 
 $wp_customize->add_setting(
+	'global_scrolltop_color_hover',
+	array(
+		'default'           => 'global_color_1',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_setting(
 	'scrolltop_color_hover',
 	array(
 		'default'           => '#d65050',
@@ -496,10 +528,22 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Icon hover color', 'sydney' ),
 			'section'       	=> 'sydney_section_scrolltotop',
+			'settings'			=> array(
+				'global'	=> 'global_scrolltop_color_hover',
+				'setting'	=> 'scrolltop_color_hover',
+			),
 		)
 	)
 );
 
+$wp_customize->add_setting(
+	'global_scrolltop_bg_color_hover',
+	array(
+		'default'           => '',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport'         => 'postMessage'
+	)
+);
 $wp_customize->add_setting(
 	'scrolltop_bg_color_hover',
 	array(
@@ -515,6 +559,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Background hover color', 'sydney' ),
 			'section'       	=> 'sydney_section_scrolltotop',
+			'settings'			=> array(
+				'global'	=> 'global_scrolltop_bg_color_hover',
+				'setting'	=> 'scrolltop_bg_color_hover',
+			),
 		)
 	)
 );

@@ -307,41 +307,67 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'mobile_head
 	)
 );
 $wp_customize->add_setting(
-	'mobile_header_background',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'mobile_header_background',
-		array(
-			'label'         	=> esc_html__( 'Background color', 'sydney' ),
-			'section'       	=> 'sydney_section_mobile_header',
-		)
-	)
+    'global_mobile_header_background',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 
 $wp_customize->add_setting(
-	'mobile_header_color',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'mobile_header_background',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'mobile_header_color',
-		array(
-			'label'         	=> esc_html__( 'Text color', 'sydney' ),
-			'section'       	=> 'sydney_section_mobile_header',
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'mobile_header_background',
+        array(
+            'label'          => esc_html__( 'Background color', 'sydney' ),
+            'section'        => 'sydney_section_mobile_header',
+            'settings'       => array(
+                'global'  => 'global_mobile_header_background',
+                'setting' => 'mobile_header_background',
+            ),
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'global_mobile_header_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'mobile_header_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_control(
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'mobile_header_color',
+        array(
+            'label'          => esc_html__( 'Text color', 'sydney' ),
+            'section'        => 'sydney_section_mobile_header',
+            'settings'       => array(
+                'global'  => 'global_mobile_header_color',
+                'setting' => 'mobile_header_color',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting( 'mobile_header_padding', array(
@@ -396,41 +422,67 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'mobile_head
 );
 
 $wp_customize->add_setting(
-	'offcanvas_menu_background',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'offcanvas_menu_background',
-		array(
-			'label'         	=> esc_html__( 'Background color', 'sydney' ),
-			'section'       	=> 'sydney_section_mobile_header',
-		)
-	)
+    'global_offcanvas_menu_background',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 
 $wp_customize->add_setting(
-	'offcanvas_menu_color',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'offcanvas_menu_background',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'offcanvas_menu_color',
-		array(
-			'label'         	=> esc_html__( 'Color', 'sydney' ),
-			'section'       	=> 'sydney_section_mobile_header',
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'offcanvas_menu_background',
+        array(
+            'label'          => esc_html__( 'Background color', 'sydney' ),
+            'section'        => 'sydney_section_mobile_header',
+            'settings'       => array(
+                'global'  => 'global_offcanvas_menu_background',
+                'setting' => 'offcanvas_menu_background',
+            ),
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'global_offcanvas_menu_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'offcanvas_menu_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_control(
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'offcanvas_menu_color',
+        array(
+            'label'          => esc_html__( 'Color', 'sydney' ),
+            'section'        => 'sydney_section_mobile_header',
+            'settings'       => array(
+                'global'  => 'global_offcanvas_menu_color',
+                'setting' => 'offcanvas_menu_color',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting( 'mobile_header_divider_4',
@@ -484,20 +536,33 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'mobile
 ) );
 
 $wp_customize->add_setting(
-	'link_separator_color',
-	array(
-		'default'           => 'rgba(238, 238, 238, 0.14)',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'global_link_separator_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'link_separator_color',
+    array(
+        'default'           => 'rgba(238, 238, 238, 0.14)',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'link_separator_color',
-		array(
-			'label'         	=> esc_html__( 'Separator color', 'sydney' ),
-			'section'       	=> 'sydney_section_mobile_header',
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'link_separator_color',
+        array(
+            'label'          => esc_html__( 'Separator color', 'sydney' ),
+            'section'        => 'sydney_section_mobile_header',
+            'settings'       => array(
+                'global'  => 'global_link_separator_color',
+                'setting' => 'link_separator_color',
+            ),
+        )
+    )
 );

@@ -224,117 +224,195 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'footer_widg
 
 //Styling
 $wp_customize->add_setting(
-	'footer_widgets_background',
-	array(
-		'default'           => '#252525',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_widgets_background',
-		array(
-			'label'         	=> esc_html__( 'Background color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_widgets',
-		)
-	)
+    'global_footer_widgets_background',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 
 $wp_customize->add_setting(
-	'footer_widgets_title_color',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'footer_widgets_background',
+    array(
+        'default'           => '#252525',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_widgets_title_color',
-		array(
-			'label'         	=> esc_html__( 'Widget titles color (deprecated)', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_widgets',
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_widgets_background',
+        array(
+            'label'          => esc_html__( 'Background color', 'sydney' ),
+            'section'        => 'sydney_section_footer_widgets',
+            'settings'       => array(
+                'global'  => 'global_footer_widgets_background',
+                'setting' => 'footer_widgets_background',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting(
-	'footer_widgets_headings_color',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_widgets_headings_color',
-		array(
-			'label'         	=> esc_html__( 'Headings color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_widgets',
-		)
-	)
+    'global_footer_widgets_title_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 
 $wp_customize->add_setting(
-	'footer_widgets_color',
-	array(
-		'default'           => '#666666',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'footer_widgets_title_color',
+    array(
+        'default'           => '#212121',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_widgets_color',
-		array(
-			'label'         	=> esc_html__( 'Widget text color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_widgets',
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_widgets_title_color',
+        array(
+            'label'          => esc_html__( 'Widget titles color (deprecated)', 'sydney' ),
+            'section'        => 'sydney_section_footer_widgets',
+            'settings'       => array(
+                'global'  => 'global_footer_widgets_title_color',
+                'setting' => 'footer_widgets_title_color',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting(
-	'footer_widgets_links_color',
-	array(
-		'default'           => '#666666',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_widgets_links_color',
-		array(
-			'label'         	=> esc_html__( 'Links color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_widgets',
-		)
-	)
+    'global_footer_widgets_headings_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 
 $wp_customize->add_setting(
-	'footer_widgets_links_hover_color',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'footer_widgets_headings_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_widgets_links_hover_color',
-		array(
-			'label'         	=> esc_html__( 'Links color (hover)', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_widgets',
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_widgets_headings_color',
+        array(
+            'label'          => esc_html__( 'Headings color', 'sydney' ),
+            'section'        => 'sydney_section_footer_widgets',
+            'settings'       => array(
+                'global'  => 'global_footer_widgets_headings_color',
+                'setting' => 'footer_widgets_headings_color',
+            ),
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'global_footer_widgets_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'footer_widgets_color',
+    array(
+        'default'           => '#666666',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_control(
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_widgets_color',
+        array(
+            'label'          => esc_html__( 'Widget text color', 'sydney' ),
+            'section'        => 'sydney_section_footer_widgets',
+            'settings'       => array(
+                'global'  => 'global_footer_widgets_color',
+                'setting' => 'footer_widgets_color',
+            ),
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'global_footer_widgets_links_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'footer_widgets_links_color',
+    array(
+        'default'           => '#666666',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_control(
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_widgets_links_color',
+        array(
+            'label'          => esc_html__( 'Links color', 'sydney' ),
+            'section'        => 'sydney_section_footer_widgets',
+            'settings'       => array(
+                'global'  => 'global_footer_widgets_links_color',
+                'setting' => 'footer_widgets_links_color',
+            ),
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'global_footer_widgets_links_hover_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'footer_widgets_links_hover_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_control(
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_widgets_links_hover_color',
+        array(
+            'label'          => esc_html__( 'Links color (hover)', 'sydney' ),
+            'section'        => 'sydney_section_footer_widgets',
+            'settings'       => array(
+                'global'  => 'global_footer_widgets_links_hover_color',
+                'setting' => 'footer_widgets_links_hover_color',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting( 'footer_divider_3',
@@ -382,23 +460,36 @@ $wp_customize->add_control( 'footer_widgets_divider_size', array(
 ) );
 
 $wp_customize->add_setting(
-	'footer_widgets_divider_color',
-	array(
-		'default'           => '',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'global_footer_widgets_divider_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'footer_widgets_divider_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_widgets_divider_color',
-		array(
-			'label'         	=> esc_html__( 'Divider color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_widgets',
-			'active_callback' 	=> 'sydney_callback_footer_widgets_divider'
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_widgets_divider_color',
+        array(
+            'label'          => esc_html__( 'Divider color', 'sydney' ),
+            'section'        => 'sydney_section_footer_widgets',
+            'active_callback' => 'sydney_callback_footer_widgets_divider',
+            'settings'       => array(
+                'global'  => 'global_footer_widgets_divider_color',
+                'setting' => 'footer_widgets_divider_color',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting( 'footer_widgets_divider_width',
@@ -681,43 +772,68 @@ $wp_customize->add_control( new Sydney_Repeater_Control( $wp_customize, 'social_
 	)
 ) );
 
-//Styling
 $wp_customize->add_setting(
-	'footer_background',
-	array(
-		'default'           => '#1c1c1c',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_background',
-		array(
-			'label'         	=> esc_html__( 'Background color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_credits',
-		)
-	)
+    'global_footer_background',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 
 $wp_customize->add_setting(
-	'footer_color',
-	array(
-		'default'           => '#666666',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'footer_background',
+    array(
+        'default'           => '#1c1c1c',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_color',
-		array(
-			'label'         	=> esc_html__( 'Text color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_credits',
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_background',
+        array(
+            'label'          => esc_html__( 'Background color', 'sydney' ),
+            'section'        => 'sydney_section_footer_credits',
+            'settings'       => array(
+                'global'  => 'global_footer_background',
+                'setting' => 'footer_background',
+            ),
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'global_footer_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'footer_color',
+    array(
+        'default'           => '#666666',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_control(
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_color',
+        array(
+            'label'          => esc_html__( 'Text color', 'sydney' ),
+            'section'        => 'sydney_section_footer_credits',
+            'settings'       => array(
+                'global'  => 'global_footer_color',
+                'setting' => 'footer_color',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting( 'footer_divider_6',
@@ -765,23 +881,36 @@ $wp_customize->add_control( 'footer_credits_divider_size', array(
 ) );
 
 $wp_customize->add_setting(
-	'footer_credits_divider_color',
-	array(
-		'default'           => 'rgba(33,33,33,0.1)',
-		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
-		'transport'         => 'postMessage'
-	)
+    'global_footer_credits_divider_color',
+    array(
+        'default'           => 'rgba(33,33,33,0.1)',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+
+$wp_customize->add_setting(
+    'footer_credits_divider_color',
+    array(
+        'default'           => 'rgba(33,33,33,0.1)',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
 );
 $wp_customize->add_control(
-	new Sydney_Alpha_Color(
-		$wp_customize,
-		'footer_credits_divider_color',
-		array(
-			'label'         	=> esc_html__( 'Divider color', 'sydney' ),
-			'section'       	=> 'sydney_section_footer_credits',
-			'active_callback' 	=> 'sydney_callback_footer_credits_divider'
-		)
-	)
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'footer_credits_divider_color',
+        array(
+            'label'          => esc_html__( 'Divider color', 'sydney' ),
+            'section'        => 'sydney_section_footer_credits',
+            'active_callback' => 'sydney_callback_footer_credits_divider',
+            'settings'       => array(
+                'global'  => 'global_footer_credits_divider_color',
+                'setting' => 'footer_credits_divider_color',
+            ),
+        )
+    )
 );
 
 $wp_customize->add_setting( 'footer_credits_divider_width',

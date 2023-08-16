@@ -273,6 +273,7 @@ function sydney_footer_default_colors() {
 
     if ( '#252525' !== $footer_widgets_background ) {
         set_theme_mod( 'footer_widgets_background', '#00102E' );
+        set_theme_mod( 'global_footer_widgets_background', 'global_color_6');
     }
   
     if ( '#666666' !== $footer_widgets_color ) {
@@ -285,6 +286,7 @@ function sydney_footer_default_colors() {
 
     if ( '#1c1c1c' !== $footer_background ) {
         set_theme_mod( 'footer_background', '#00102E' );
+        set_theme_mod( 'global_footer_background', 'global_color_6');
     }  
     
     if ( '#666666' !== $footer_color ) {

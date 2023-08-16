@@ -807,7 +807,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new WP_Customize_Color_Control(
+	new Sydney_Alpha_Color(
 		$wp_customize,
 		'swc_loop_product_price_color',
 		array(
@@ -919,7 +919,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new WP_Customize_Color_Control(
+	new Sydney_Alpha_Color(
 		$wp_customize,
 		'swc_loop_button_bg',
 		array(
@@ -937,7 +937,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new WP_Customize_Color_Control(
+	new Sydney_Alpha_Color(
 		$wp_customize,
 		'swc_loop_button_color',
 		array(

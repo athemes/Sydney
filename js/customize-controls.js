@@ -1137,3 +1137,91 @@ jQuery(document).ready(function ($) {
   upsellWoo.appendTo('#sub-accordion-panel-woocommerce');
 
 } );
+
+/**
+ * Custom palette
+ */
+var sydneyChangeElementColors = function (element, color, palette) {
+
+	var $setting = jQuery('[data-control-id="' + element + '"]');
+
+	if ($setting.length) {
+
+		if (palette) {
+			var index = palette.indexOf(color);
+			if (palette[index]) {
+				color = palette[index];
+			}
+		}
+
+		var $picker = $setting.find('.sydney-color-picker');
+
+		if ($picker.data('pickr')) {
+			$picker.data('pickr').setColor(color);
+		} else {
+			$picker.css('background-color', color);
+			wp.customize(element).set(color);
+		}
+
+	} else {
+
+		var $control = jQuery('#customize-control-' + element);
+
+		if ($control.length && $control.hasClass('global-color-connected')) {
+
+			var $picker = $control.find('.sydney-color-picker');
+
+			if ($picker.data('pickr')) {
+				$picker.data('pickr').setColor(color);
+				wp.customize(element).set(color);
+			} else {
+				$picker.css('background-color', color);
+				wp.customize(element).set(color);
+			}
+
+		}
+
+	}
+
+};
+
+/**
+ * Global colors
+ */
+wp.customize.bind('ready', function () {
+	for (let i = 1; i <= 9; i++) {
+		wp.customize('global_color_' + i, function (control) {
+			control.bind(function (value) {
+				let elements = [];
+	
+				jQuery('.sydney-connected-global').each(function () {
+					if (jQuery(this).val() === 'global_color_' + i) {
+						elements.push(jQuery(this).data('customize-setting-link').replace('global_', ''));
+					}
+				});
+	
+				for (const element of elements) {
+					if (typeof wp.customize(element) !== 'undefined') {
+						sydneyChangeElementColors(element, value);
+					}
+				}
+
+				// Update global color dropdown
+				jQuery('.global-colors-dropdown').each(function () {
+					var $dropdown = jQuery(this);
+					$dropdown.find('.global-color').each(function () {
+						
+						var $item = jQuery(this);
+
+						if ($item.data('global-setting') === 'global_color_' + i) {
+
+							$item.data('color', value);
+							$item.find('.color-circle').css('background-color', value);
+							$item.find('.color-value').text(value);
+						}
+					} );
+				} );
+			});
+	  	});
+	}
+});

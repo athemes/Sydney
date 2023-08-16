@@ -662,6 +662,14 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'loop_p
 ) );
 
 $wp_customize->add_setting(
+    'global_loop_post_title_color',
+    array(
+        'default'           => 'global_color_4',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_setting(
 	'loop_post_title_color',
 	array(
 		'default'           => '#00102E',
@@ -676,6 +684,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Title color', 'sydney' ),
 			'section'       	=> 'sydney_section_blog_archives',
+			'settings'       => array(
+                'global'  => 'global_loop_post_title_color',
+                'setting' => 'loop_post_title_color',
+            ),
 		)
 	)
 );
@@ -731,6 +743,14 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'loop_p
 ) );
 
 $wp_customize->add_setting(
+    'global_loop_post_meta_color',
+    array(
+        'default'           => 'global_color_5',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_setting(
 	'loop_post_meta_color',
 	array(
 		'default'           => '#737C8C',
@@ -745,6 +765,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Meta color', 'sydney' ),
 			'section'       	=> 'sydney_section_blog_archives',
+			'settings'       => array(
+                'global'  => 'global_loop_post_meta_color',
+                'setting' => 'loop_post_meta_color',
+            ),
 		)
 	)
 );
@@ -799,6 +823,14 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'loop_p
 ) );
 
 $wp_customize->add_setting(
+    'global_loop_post_text_color',
+    array(
+        'default'           => 'global_color_3',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_setting(
 	'loop_post_text_color',
 	array(
 		'default'           => '#233452',
@@ -813,6 +845,10 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Excerpt color', 'sydney' ),
 			'section'       	=> 'sydney_section_blog_archives',
+			'settings'       => array(
+                'global'  => 'global_loop_post_text_color',
+                'setting' => 'loop_post_text_color',
+            ),
 		)
 	)
 );
