@@ -420,7 +420,7 @@ $default_components = sydney_get_default_header_components();
 $wp_customize->add_setting( 'header_components_l1', array(
 	'default'  			=> $default_components['l1'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l1', array(
@@ -434,7 +434,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 $wp_customize->add_setting( 'header_components_l3left', array(
 	'default'  			=> $default_components['l3left'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l3left', array(
@@ -447,7 +447,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 $wp_customize->add_setting( 'header_components_l3right', array(
 	'default'  			=> $default_components['l3right'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l3right', array(
@@ -461,7 +461,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 $wp_customize->add_setting( 'header_components_l4top', array(
 	'default'  			=> $default_components['l4top'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l4top', array(
@@ -474,7 +474,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 $wp_customize->add_setting( 'header_components_l4bottom', array(
 	'default'  			=> $default_components['l4bottom'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l4bottom', array(
@@ -488,7 +488,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 $wp_customize->add_setting( 'header_components_l5topleft', array(
 	'default'  			=> $default_components['l5topleft'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l5topleft', array(
@@ -501,7 +501,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 $wp_customize->add_setting( 'header_components_l5topright', array(
 	'default'  			=> $default_components['l5topleft'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l5topright', array(
@@ -514,7 +514,7 @@ $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_
 $wp_customize->add_setting( 'header_components_l5bottom', array(
 	'default'  			=> $default_components['l5topleft'],
 	'sanitize_callback'	=> 'sydney_sanitize_header_components',
-	'transport'			=> 'postMessage'
+	//'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'header_components_l5bottom', array(

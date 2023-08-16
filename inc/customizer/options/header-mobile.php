@@ -149,7 +149,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => 'layout1',
 		'sanitize_callback' => 'sanitize_key',
-		'transport'			=> 'postMessage'
+		//'transport'			=> 'postMessage'
 	)
 );
 $wp_customize->add_control(

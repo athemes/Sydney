@@ -1096,60 +1096,6 @@ wp.customize('enable_sticky_header', function (value) {
 	});
 } );
 
-//header components
-jQuery(document).ready(function ($) {
-	var header_components = {
-		'woocommerce_icons' : ['header_divider_3','main_header_cart_account_title','enable_header_cart','enable_header_account','enable_header_wishlist'],
-		'button' 			: [ 'header_divider_4', 'main_header_button_title', 'header_button_text', 'header_button_link', 'header_button_newtab' ],
-		'contact_info' 		: [ 'header_divider_5', 'main_header_contact_info_title', 'header_contact_mail', 'header_contact_phone' ],
-		//'shortcode'			: [ 'shortcode_divider_1', 'header_shortcode_title', 'header_shortcode_content' ],
-		//'html' 				: [ 'html_divider_1', 'header_html_title', 'header_html_content' ],
-		//'login' 			: [ 'header_login_divider_1', 'header_login_title', 'header_login_side_image', 'header_logout_text', 'header_register_text', 'header_login_redirect_url', 'header_login_custom_register', 'header_login_icons' ],
-		//'wpml_switcher' 	: [ 'wpml_topbar_divider_1', 'wpml_lang_switcher_title', 'wpml_lang_switcher' ],
-		//'pll_switcher' 		: [ 'pll_topbar_divider_1', 'pll_lang_switcher_title', 'pll_lang_switcher_show_flags', 'pll_lang_switcher_show_names', 'pll_lang_switcher_dropdown', 'pll_lang_switcher_hide_current' ],
-    'social'			: [ 'header_social_divider_1', 'social_profiles_header'],
-  };
-
-	var areas = ['header_components_l1','header_components_l3left','header_components_l3right','header_components_l4top','header_components_l4bottom','header_components_l5topleft','header_components_l5topright','header_components_l5bottom'];
-
-	areas.forEach(function (area) {
-		wp.customize(area, function (value) {
-			value.bind(function (newval) {
-
-				$.each(header_components, function (key, value) {
-					if (newval.includes(key)) {
-						$.each(value, function (index, setting) {					
-              var control = wp.customize.control(setting);
-              if (control) {
-                control.activate();
-              }
-						});
-					} else {
-						//check if the control is not active in other areas
-						var active = false;
-						areas.forEach(function (area) {
-							if (area !== newval) {
-								if (wp.customize(area).get().includes(key)) {
-									active = true;
-								}
-							}
-						}
-						);
-						if (!active) {
-							$.each(value, function (index, setting) {
-								var control = wp.customize.control(setting);
-								if (control) {
-									control.deactivate();
-								}
-							});
-						}
-					}
-				});
-			});
-		} );
-	} );
-});
-
 //Activate menu typography options without refresh
 jQuery(document).ready(function ($) {
 	wp.customize('enable_top_menu_typography', function (value) {

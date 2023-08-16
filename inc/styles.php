@@ -293,7 +293,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= ".footer-widgets-grid { gap:" . esc_attr( $footer_widgets_column_spacing_desktop ) . "px;}" . "\n";
 			$custom .= $this->get_top_bottom_padding_css( 'footer_widgets_padding', $defaults = array( 'desktop' => 95, 'tablet' => 60, 'mobile' => 60 ), '.footer-widgets-grid' );
 			$custom .= $this->get_font_sizes_css( 'footer_widgets_title_size', $defaults = array( 'desktop' => 22, 'tablet' => 22, 'mobile' => 22 ), '.sidebar-column .widget .widget-title' );
-
+			$custom .= $this->get_font_sizes_css( 'footer_widgets_body_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.footer-widgets' );
+			
 			$custom .= $this->get_background_color_css( 'footer_widgets_background', '', '.footer-widgets' );
 			$custom .= $this->get_color_css( 'footer_widgets_title_color', '', '.sidebar-column .widget .widget-title' );
 			$custom .= $this->get_color_css( 'footer_widgets_headings_color', '', '.sidebar-column .widget h1, .sidebar-column .widget h2, .sidebar-column .widget h3, .sidebar-column .widget h4, .sidebar-column .widget h5, .sidebar-column .widget h6' );

@@ -5,7 +5,65 @@
  * @package Sydney
  */
 
+//Global Palette
+$wp_customize->add_setting( 'global_palette_title',
+	array(
+		'default' 			=> '',
+		'sanitize_callback' => 'esc_attr'
+	)
+);
 
+$wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'global_palette_title',
+		array(
+			'label'			=> esc_html__( 'Global colors', 'sydney' ),
+			'section' 		=> 'colors',
+			'priority'			=> 1
+		)
+	)
+);
+
+$global_palette = sydney_get_global_color_defaults();
+
+$sydney_i = 1;
+foreach ( $global_palette as $key => $color ) {
+	$wp_customize->add_setting( 'global_color_' . $sydney_i, array(
+		'default' 			=> $global_palette[$key],
+		'transport'			=> 'postMessage',
+		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+	));
+
+	$sydney_i++;
+}
+
+$wp_customize->add_control( new Sydney_Palette_Control( $wp_customize, 'custom_palette', array(
+	'section' => 'colors',
+	'settings'	=> array(
+		'global_color_1' => 'global_color_1',
+		'global_color_2' => 'global_color_2',
+		'global_color_3' => 'global_color_3',
+		'global_color_4' => 'global_color_4',
+		'global_color_5' => 'global_color_5',
+		'global_color_6' => 'global_color_6',
+		'global_color_7' => 'global_color_7',
+		'global_color_8' => 'global_color_8',
+		'global_color_9' => 'global_color_9',
+	),
+	'priority'	=> 1,
+)));
+
+$wp_customize->add_setting( 'color_divider_0',
+	array(
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'color_divider_0',
+		array(
+			'section' 		=> 'colors',
+			'priority'	=> 1,
+		)
+	)
+);
 
 //General
 $wp_customize->add_setting( 'general_color_title',

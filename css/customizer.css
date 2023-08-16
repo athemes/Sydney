@@ -840,6 +840,7 @@ span.delete:hover {
 #customize-control-h6_title {
   margin-bottom: 5px;
 }
+#sub-accordion-section-sydney_section_footer_widgets li:not(.customize-control-sydney-text-control) .customize-control-title,
 #sub-accordion-section-sydney_slider li:not(.customize-control-sydney-text-control) .customize-control-title,
 ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-text-control) .customize-control-title,
 #customize-control-shop_page_title span, #customize-control-shop_page_description span, #customize-control-shop_product_sorting span, #customize-control-shop_results_count span, #customize-control-shop_breadcrumbs span,
@@ -1343,4 +1344,9 @@ ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-tex
 .sydney-display-conditions-modal-footer .sydney-button-save {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.sydney-custom-palette {
+  display: flex;
+  justify-content: space-between;
 }

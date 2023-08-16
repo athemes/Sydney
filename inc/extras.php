@@ -859,3 +859,21 @@ function sydney_single_template() {
 	<?php
 }
 add_action( 'sydney_single_content', 'sydney_single_template' );
+
+/**
+ * Global color palette
+ */
+function sydney_get_global_color_defaults() {
+	$defaults = array(
+		'primary_color' 	=> '#111111',
+		'secondary_color' 	=> '#f7f7f7',
+		'tertiary_color' 	=> '#ffffff',
+		'quaternary_color' 	=> '#000000',
+		'header_textcolor' 	=> '#ffffff',
+		'footer_textcolor' 	=> '#ffffff',
+		'footer_widget_bg' 	=> '#000000',
+		'footer_bg' 		=> '#000000',
+	);
+
+	return apply_filters( 'sydney_global_color_defaults', $defaults );
+}

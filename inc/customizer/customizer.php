@@ -90,7 +90,8 @@ function sydney_customize_register( $wp_customize ) {
     $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
     $wp_customize->register_control_type( '\Kirki\Control\sortable' );
     require get_template_directory() . '/inc/customizer/controls/display-conditions/class_sydney_display_conditions_control.php';
-
+    require get_template_directory() . '/inc/customizer/controls/class_sydney_palette_control.php';
+    
     /**
      * Options
      */
