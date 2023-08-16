@@ -109,7 +109,7 @@ Hero section
     opacity: 1 !important;
 }
 .text-slider .maintitle:after {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 
 

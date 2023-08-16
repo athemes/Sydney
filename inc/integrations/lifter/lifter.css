@@ -27,12 +27,12 @@
 	margin-top: 30px;
 }
 .llms-button-action {
-	border: 1px solid #d65050;
-	background-color: #d65050;
+	border: 1px solid var(--sydney-global-color-1);
+	background-color: var(--sydney-global-color-1);
 }
 .llms-button-action:hover {
-	border-color: #d65050;
-	color: #d65050; 
+	border-color: var(--sydney-global-color-1);
+	color: var(--sydney-global-color-1); 
 }
 .llms-syllabus-wrapper .llms-lesson-preview {
 	width: 100%;

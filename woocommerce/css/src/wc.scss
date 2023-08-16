@@ -3,7 +3,7 @@
 .woocommerce a.button,
 .woocommerce button.button,
 .woocommerce input.button {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .cart-contents {
 	position: relative;
@@ -13,7 +13,7 @@
 	font-size: 18px;
 }
 .cart-amount {
-    background-color: #d65050;
+    background-color: var(--sydney-global-color-1);
     font-size: 12px;
     display: block;
     width: 18px;
@@ -27,7 +27,7 @@
     text-align: center;
 }
 .woocommerce ul.products li.product .woocommerce-LoopProduct-link p {
-	color: #767676;
+	color: var(--sydney-grey-color);
 }
 ol.flex-control-nav.flex-control-thumbs {
     list-style-type: none;
@@ -365,7 +365,7 @@ a.shipping-calculator-button {
 }
 .woocommerce-form__label-for-checkbox input[type=checkbox] {
 	margin-left: 0;
-	border-color: #dbdbdb;
+	border-color: var(--sydney-border-color);
 }
 .woocommerce-form__label-for-checkbox span {
 	padding-left: 15px;
@@ -609,7 +609,7 @@ p.demo_store {
 
 .woocommerce-checkout .select2-container .select2-choice {
 	padding: 4px 20px;
-	border-color: #dbdbdb;
+	border-color: var(--sydney-border-color);
 	background-color: #fafafa
 }
 
@@ -1831,7 +1831,7 @@ p.price span.woocommerce-Price-amount.amount {
 .woocommerce form.checkout_coupon,
 .woocommerce form.login,
 .woocommerce form.register {
-	border: 1px solid #dbdbdb;
+	border: 1px solid var(--sydney-border-color);
 	padding: 20px;
 	margin: 2em 0;
 	text-align: left;
@@ -2466,7 +2466,7 @@ p.price span.woocommerce-Price-amount.amount {
 }
 
 .woocommerce-result-count {
-	color: #767676;
+	color: var(--sydney-grey-color);
 }
 
 .woocommerce-product-search input[type=submit] {
@@ -2628,7 +2628,7 @@ h2.woocommerce-Reviews-title {
 		background-color: #eee;
  }
 	.site-header-cart .widget_shopping_cart .woocommerce-mini-cart__total, .site-header-cart .widget_shopping_cart .woocommerce-mini-cart__buttons {
-		background-color: #f5f5f5;
+		background-color: var(--sydney-light-background);
 		margin: 0;
 		padding: 0 30px;
  }
@@ -3906,7 +3906,7 @@ ul.products li.product-category mark {
 	float: none;
 }
 .checkout-layout2 .woocommerce-checkout #order_review_heading {
-	border-top: 1px solid #dbdbdb;
+	border-top: 1px solid var(--sydney-border-color);
 	padding-top: 30px;
 	margin-top: 30px;
 }

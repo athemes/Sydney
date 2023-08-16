@@ -1,10 +1,21 @@
 :root {
-	--sydney-headings-color: #00102E;
-	--sydney-dark-background: #00102E;
-	--sydney-grey-color: #737C8C;
-	--sydney-text-color: #233452;
-	--sydney-light-background: #F4F5F7;
-	--sydney-button-background: #d65050;
+	--sydney-global-color-1: #d65050;
+	--sydney-global-color-2: #b73d3d;
+	--sydney-global-color-3: #233452;
+	--sydney-global-color-4: #00102E;
+	--sydney-global-color-5: #737C8C;
+	--sydney-global-color-6: #00102E;
+	--sydney-global-color-7: #F4F5F7;
+	--sydney-global-color-8: #dbdbdb;
+	--sydney-global-color-9: #ffffff;
+
+	--sydney-headings-color: var(--sydney-global-color-4);
+	--sydney-dark-background: var(--sydney-global-color-6);
+	--sydney-grey-color: var(--sydney-global-color-5);
+	--sydney-text-color: var(--sydney-global-color-3);
+	--sydney-light-background: var(--sydney-global-color-7);
+	--sydney-button-background: var(--sydney-global-color-1);
+	--sydney-border-color: var(--sydney-global-color-8);
 }
 
 /* General */

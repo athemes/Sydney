@@ -10,7 +10,7 @@ Social
 .widget-area .widget_fp_social a,
 .social-menu-widget a,
 .social-menu-widget a:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .social-menu-widget li {
 	display: inline-block;
@@ -394,27 +394,27 @@ Social
 }
 
 .roll-icon-box .icon {
-	border: 1px solid #d65050;
+	border: 1px solid var(--sydney-global-color-1);
 }
 .roll-icon-box .icon i,
 .roll-icon-box .content h3 a:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .roll-icon-box.white .icon {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .roll-icon-box.white .content h3 a {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .roll-icon-list .icon {
-	border: 1px solid #d65050;
+	border: 1px solid var(--sydney-global-color-1);
 }
 .roll-icon-list .icon i,
 .roll-icon-list .content h3 a:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .roll-progress .progress-animate {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 /* Lightbox video
 -------------------------------------------------------------- */
@@ -549,7 +549,7 @@ Panels
 	width: 50px;
 	height: 1px;
 	margin-left: -25px;
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 
 
@@ -574,14 +574,14 @@ Panels
 	position: relative;
 	text-align: center;
 	margin-left: -4px;
-	background-color: #f5f5f5;
+	background-color: var(--sydney-light-background);
 	transition: background 0.3s;
 }
 .widget-area .widget .project-filter li {
 		padding: 0;
 }
 .project-filter li a {
-	color: #767676;
+	color: var(--sydney-grey-color);
 	display: block;
 	font-size: 13px;
 	font-weight: 600;
@@ -762,7 +762,7 @@ Panels
 .roll-testimonials .name span {
 	font-size: 13px;
 	display: block;
-	color: #767676;
+	color: var(--sydney-grey-color);
 }
 .roll-testimonials .owl-controls {
 	margin-top: 40px;
@@ -915,8 +915,8 @@ border-radius: 50%;
 	background-color: #fff;
 }
 .archive .team-social li a {
-	color: #d65050;
-	border: 1px solid #d65050;
+	color: var(--sydney-global-color-1);
+	border: 1px solid var(--sydney-global-color-1);
 }
 .roll-team .team-item .team-pop {
 	color: #fff;
@@ -963,34 +963,34 @@ border-radius: 50%;
 }
 
 .owl-theme .owl-controls .owl-page span{
-	border: 2px solid #d65050;
+	border: 2px solid var(--sydney-global-color-1);
 }
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span{
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 
 
 .project-filter li a.active,
 .project-filter li a:hover {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .roll-testimonials .name {
 	font-size: 18px;
 	font-weight: 500;
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .roll-project .project-item .project-pop {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .roll-team .team-item .team-pop .team-social li:hover a {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .roll-team .team-item .team-pop {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .roll-team .team-content .name {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 
 /* Parallax fix */

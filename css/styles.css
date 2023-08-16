@@ -1,5 +1,5 @@
 :root {
-	--sydney-global-color-1: #d65050;
+	--sydney-global-color-1: var(--sydney-global-color-1);
 	--sydney-global-color-2: #b73d3d;
 	--sydney-global-color-3: #233452;
 	--sydney-global-color-4: #00102E;
@@ -9,13 +9,13 @@
 	--sydney-global-color-8: #dbdbdb;
 	--sydney-global-color-9: #ffffff;
 	
-	--sydney-headings-color: #00102E;
-	--sydney-dark-background: #00102E;
-	--sydney-grey-color: #737C8C;
-	--sydney-text-color: #233452;
-	--sydney-light-background: #F4F5F7;
-	--sydney-button-background: #d65050;
-	--sydney-border-color: #dbdbdb;
+	--sydney-headings-color: var(--sydney-global-color-4);
+	--sydney-dark-background: var(--sydney-global-color-6);
+	--sydney-grey-color: var(--sydney-global-color-5);
+	--sydney-text-color: var(--sydney-global-color-3);
+	--sydney-light-background: var(--sydney-global-color-7);
+	--sydney-button-background: var(--sydney-global-color-1);
+	--sydney-border-color: var(--sydney-global-color-8);
 	--sydney-scrolltop-distance: 800;
 }
 
@@ -55,7 +55,6 @@ Navigation
 	padding-right: 15px;
 }
 .post-navigation .nav-links {
-	background-color: #fff;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -80,7 +79,7 @@ Navigation
 	color: var(--sydney-text-color);
 }
 .post-navigation span {
-	color: #c7c7c7;
+	color: var(--sydney-grey-color);
 	transition: color 0.3s;
 }
 .post-navigation .nav-previous,
@@ -114,7 +113,7 @@ Navigation
 .woocommerce nav.woocommerce-pagination ul li .page-numbers:hover,
 .nav-links .page-numbers:not(.dots):hover,
 .nav-links .page-numbers.current {
-    background-color: #252525;
+    background-color: var(--sydney-grey-color);
     color: #fff;
 }
 
@@ -132,7 +131,7 @@ Accessibility
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
+	background-color: var(--sydney-light-background);
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
@@ -213,7 +212,7 @@ Content
 	padding: 0;
 }
 .single .hentry .meta-post a {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 /*--------------------------------------------------------------
 Asides
@@ -350,7 +349,7 @@ Repeatable Patterns
 		font-size: 16px;
 		line-height: 1.7;
 		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-		background: #fff;
+		background: var(--sydney-global-color-9);
 		color: var(--sydney-text-color);
 	}
 	a {
@@ -442,9 +441,8 @@ Repeatable Patterns
 	input[type="tel"],
 	input[type="color"],
 	div.wpforms-container-full .wpforms-form input[type=date], div.wpforms-container-full .wpforms-form input[type=datetime], div.wpforms-container-full .wpforms-form input[type=datetime-local], div.wpforms-container-full .wpforms-form input[type=email], div.wpforms-container-full .wpforms-form input[type=month], div.wpforms-container-full .wpforms-form input[type=number], div.wpforms-container-full .wpforms-form input[type=password], div.wpforms-container-full .wpforms-form input[type=range], div.wpforms-container-full .wpforms-form input[type=search], div.wpforms-container-full .wpforms-form input[type=tel], div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container-full .wpforms-form input[type=time], div.wpforms-container-full .wpforms-form input[type=url], div.wpforms-container-full .wpforms-form input[type=week], div.wpforms-container-full .wpforms-form select, div.wpforms-container-full .wpforms-form textarea {
-		color: #767676;
-		background-color: #fafafa;
-		border: 1px solid #dbdbdb;
+		color: var(--sydney-grey-color);
+		border: 1px solid var(--sydney-border-color);
 		height: 50px;
 		padding: 4px 20px;
 		border-radius: 0;
@@ -479,15 +477,15 @@ Repeatable Patterns
 	textarea:-moz-placeholder,
 	input::-moz-placeholder,
 	textarea::-moz-placeholder {
-	  color: #a3a2a2;
+		color: var(--sydney-grey-color);
 	}
 	input:-ms-input-placeholder,
 	textarea:-ms-input-placeholder {
-	  color: #c3c3c3;
+		color: var(--sydney-grey-color);
 	}
 	input::-webkit-input-placeholder,
 	textarea::-webkit-input-placeholder {
-	  color: #cacaca;
+		color: var(--sydney-grey-color);
 	}
 
 	textarea,
@@ -621,7 +619,7 @@ Header
 	outline: none;
 }
 #mainnav ul li a:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 #mainnav ul ul a {
 	width: 180px;
@@ -988,7 +986,7 @@ Header
 	color: #fff;
 }
 .site-description {
-	color: #efefef;
+	color: #fff;
 	margin: 5px 0 0;
 }
 .header-elements {
@@ -1784,7 +1782,7 @@ span.author.vcard {
 }
 .entry-meta.delimiter-dot > *:after {
 	content: '';
-	background: #00102E;
+	background: var(--sydney-headings-color);
 	opacity: 0.2;
 	width: 4px;
 	height: 4px;
@@ -1856,14 +1854,14 @@ Widgets
 .widget-tags .tag-list a {
 	display: inline-block;
 	font-size: 13px;
-	color: #767676;
-	border: 1px solid #dbdbdb;
+	color: var(--sydney-grey-color);
+	border: 1px solid var(--sydney-border-color);
 	padding: 7px 15px;
 	margin: 4px;
 	margin-left: 0;
 }
 .widget-tags .tag-list a:hover {
-	color: #5e5e5e;
+	color: var(--sydney-dark-background);
 }
 .search-field {
 	max-width: 100%;
@@ -2023,7 +2021,7 @@ Preloader
 .preloader .pre-bounce2 {
 	-webkit-animation: 2s ease 0s normal none infinite bounce;
 			animation: 2s ease 0s normal none infinite bounce;
-	background-color: #de4939;
+	background-color: var(--sydney-global-color-1);
 	border-radius: 50%;
 	height: 100%;
 	left: 0;
@@ -2116,7 +2114,7 @@ Go to top button
 /* Contact widget
 -------------------------------------------------------------- */
 .sydney_contact_info_widget span {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 	margin-right: 15px;
 }
 .sydney_contact_info_widget div {
@@ -2160,12 +2158,12 @@ Go to top button
 /* Elements
 -------------------------------------------------------------- */
 a {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
-.text-color { color: #d65050;}
+.text-color { color: var(--sydney-global-color-1);}
 button,
 input[type="button"],
 input[type="reset"],
@@ -2173,8 +2171,8 @@ input[type="submit"],
 div.wpforms-container-full .wpforms-form input[type=submit],
 div.wpforms-container-full .wpforms-form button[type=submit],
 div.wpforms-container-full .wpforms-form .wpforms-page-button {
-	background-color: #d65050;
-	border: 1px solid #d65050;
+	background-color: var(--sydney-global-color-1);
+	border: 1px solid var(--sydney-global-color-1);
 }
 button:hover,
 input[type="button"]:hover,
@@ -2184,7 +2182,7 @@ div.wpforms-container-full .wpforms-form input[type=submit]:hover,
 div.wpforms-container-full .wpforms-form button[type=submit]:hover,
 div.wpforms-container-full .wpforms-form .wpforms-page-button:hover {
 	background-color: transparent;
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 textarea:focus,
 input[type="text"]:focus,
@@ -2201,62 +2199,62 @@ input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus {
-	border: 1px solid #d65050;
+	border: 1px solid var(--sydney-global-color-1);
 }
 #mainnav > ul > li > a.active,
 #mainnav > ul > li > a:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 #mainnav ul li ul:after {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 	transition: all 0.3s ease;
 }
 #mainnav .sub-menu li:hover > a {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .error-wrap #search-submit:hover {
-	background-color: #d65050;
-	border-color: #d65050;
+	background-color: var(--sydney-global-color-1);
+	border-color: var(--sydney-global-color-1);
 }
 
 .hentry .meta-post a:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .sidebar .widget:before {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .widget-tags .tag-list a:hover {
-	border: 1px solid #d65050;
+	border: 1px solid var(--sydney-global-color-1);
 }
 .comment .comment-detail {
-	border: 1px solid #d65050;
+	border: 1px solid var(--sydney-global-color-1);
 }
 .bottom .socials li:hover a,
 .go-top {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 .go-top:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .switcher-container .switcher-icon a:focus {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 
 .llms-student-dashboard .llms-button-secondary,
 .roll-button {
-	background-color: #d65050;
-	border: 1px solid #d65050;
+	background-color: var(--sydney-global-color-1);
+	border: 1px solid var(--sydney-global-color-1);
 }
 .llms-student-dashboard .llms-button-secondary:hover,
 .roll-button:hover {
-	color: #d65050;
+	color: var(--sydney-global-color-1);
 }
 .roll-button.border {
-	color: #d65050;
-	border: 1px solid #d65050;
+	color: var(--sydney-global-color-1);
+	border: 1px solid var(--sydney-global-color-1);
 }
 .roll-button.border:hover {
-	background-color: #d65050;
+	background-color: var(--sydney-global-color-1);
 }
 
 /* Core video
@@ -2309,14 +2307,14 @@ div[class*="elementor-widget-wp-widget-sydney"] h5 {
 }
 /* Yoast SEO breadcrumbs */
 .sydney-breadcrumbs {
-    background-color: #f7f7f7;
+    background-color: var(--sydney-light-background);
     padding: 15px;
     margin-bottom: 30px;
     margin-right: 20px;
 }
 .sydney-breadcrumbs,
 .sydney-breadcrumbs a {
-	color: #47425d;
+	color: var(--sydney-grey-color);
 }
 .sydney-breadcrumbs a {
     text-decoration: underline;
@@ -2340,7 +2338,7 @@ SVGs
 }
 .go-top:hover svg {
 	fill: none;
-	stroke: #d65050;
+	stroke: var(--sydney-global-color-1);
 }
 .meta-post .sydney-svg-icon {
 	position: absolute;
@@ -2352,7 +2350,7 @@ SVGs
 	top: -1px;
 }
 .single-meta .sydney-svg-icon {
-	fill: #68647a;
+	fill: var(--sydney-grey-color);
 }
 .single-meta .sydney-svg-icon {
 	width: 14px;
