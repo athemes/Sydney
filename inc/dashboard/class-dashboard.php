@@ -44,6 +44,7 @@ class Sydney_Dashboard
 
         if( $this->is_sydney_dashboard_page() ) {
             add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
+            add_action( 'admin_footer', 'sydney_templates_display_conditions_script_template' );
         }
 
         add_filter('woocommerce_enable_setup_wizard', '__return_false');
@@ -59,6 +60,9 @@ class Sydney_Dashboard
 
         add_action( 'wp_ajax_sydney_module_activation_handler', array( $this, 'ajax_module_activation_handler' ) );
         add_action( 'wp_ajax_sydney_module_activation_all_handler', array( $this, 'ajax_module_activation_all_handler' ) );
+        add_action( 'wp_ajax_sydney_template_builder_data', array( $this, 'ajax_template_builder_data' ) );
+        add_action( 'wp_ajax_insert_template_part_callback', array( $this, 'insert_template_part_callback' ) );
+        add_action( 'wp_ajax_edit_template_part_callback', array( $this, 'edit_template_part_callback' ) );
 
         add_action('switch_theme', array($this, 'reset_notices'));
         add_action('after_switch_theme', array($this, 'reset_notices'));
@@ -115,7 +119,10 @@ class Sydney_Dashboard
             wp_enqueue_style('sydney-dashboard-rtl', get_template_directory_uri() . '/inc/dashboard/assets/css/sydney-dashboard-rtl.min.css', array(), '20230525');
         }
 
-        wp_enqueue_script('sydney-dashboard', get_template_directory_uri() . '/inc/dashboard/assets/js/sydney-dashboard.min.js', array('jquery'), '20230525', true);
+        wp_enqueue_script('sydney-dashboard', get_template_directory_uri() . '/inc/dashboard/assets/js/sydney-dashboard.min.js', array('jquery', 'wp-util', 'jquery-ui-sortable' ), '20230525', true);
+
+        wp_enqueue_script( 'sydney-select2-js', get_template_directory_uri() . '/inc/customizer/controls/typography/select2.full.min.js', array( 'jquery' ), '4.0.13', true );
+		wp_enqueue_style( 'sydney-select2-css', get_template_directory_uri() . '/inc/customizer/controls/typography/select2.min.css', array(), '4.0.13', 'all' );
 
         wp_localize_script('sydney-dashboard', 'sydney_dashboard', array(
             'ajax_url' => admin_url('admin-ajax.php'),
@@ -126,6 +133,11 @@ class Sydney_Dashboard
                 'installing' => esc_html__('Installing...', 'sydney'),
                 'activating' => esc_html__('Activating...', 'sydney'),
                 'deactivating' => esc_html__('Deactivating...', 'sydney'),
+                'loading' => esc_html__('Loading...', 'sydney'),
+                'saving' => esc_html__('Saving...', 'sydney'),
+                'saved' => esc_html__('Saved!', 'sydney'),
+                'unsaved_changes' => esc_html__('You have unsaved changes.', 'sydney'),
+                'save' => esc_html__('Save', 'sydney'),
                 'redirecting' => esc_html__('Redirecting...', 'sydney'),
                 'activated' => esc_html__('Activated', 'sydney'),
                 'deactivated' => esc_html__('Deactivated', 'sydney'),
@@ -307,7 +319,7 @@ class Sydney_Dashboard
     public function admin_footer_text() {
         $text = sprintf(
 			/* translators: %s: https://wordpress.org/ */
-			__( 'Thank you for creating the website with <a href="%s" class="sydney-dashboard-footer-link" target="_blank">sydney</a>.', 'sydney' ),
+			__( 'Thank you for creating your website with <a href="%s" class="sydney-dashboard-footer-link" target="_blank">Sydney</a>.', 'sydney' ),
 			'https://athemes.com/sydney-upgrade/'
 		);
 
@@ -325,7 +337,7 @@ class Sydney_Dashboard
         $user_id                     = get_current_user_id();
         $user_read_meta              = get_user_meta( $user_id, 'sydney_dashboard_notifications_latest_read', true );
 
-        $last_notification_date      = strtotime( is_string( $this->settings[ 'notifications' ][0]->date ) ? $this->settings[ 'notifications' ][0]->date : '' );
+        $last_notification_date      = strtotime( is_string( $this->settings[ 'notifications' ][0]->post_date ) ? $this->settings[ 'notifications' ][0]->post_date : '' );
         $last_notification_date_ondb = $user_read_meta ? strtotime( $user_read_meta ) : false;
 
         if( ! $last_notification_date_ondb ) {
@@ -470,6 +482,242 @@ class Sydney_Dashboard
         update_option( 'sydney-modules', $modules );
 
         wp_send_json_success();
+    }
+
+    /**
+     * Templates builder
+     */
+    function ajax_template_builder_data() {
+        check_ajax_referer('nonce-bt-dashboard', 'nonce');
+
+        if( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error();
+        }
+    
+        $data = $_POST[ 'data' ];
+
+        $data = stripslashes_deep($data);
+    
+        update_option('sydney_template_builder_data', $data);
+    
+        wp_send_json_success($data);
+    }    
+
+	/**
+	 * Get option text
+	 */
+	function get_option_text( $value ) {
+
+		switch ( $value['condition'] ) {
+
+			case 'post-id':
+			case 'page-id':
+			case 'product-id':
+			case 'cpt-post-id':
+				return get_the_title( $value['id'] );
+			break;
+
+			case 'tag-id':
+			case 'category-id':
+			
+        $term = get_term( $value['id'] );
+
+        if ( ! empty( $term ) ) {
+					return $term->name;
+        }
+
+			break;
+
+			case 'cpt-term-id':
+			
+        $term = get_term( $value['id'] );
+        
+        if ( ! empty( $term ) ) {
+					return $term->name;
+        }
+
+			break;
+
+			case 'cpt-taxonomy-id':
+			
+        $taxonomy = get_taxonomy( $value['id'] );
+        
+        if ( ! empty( $taxonomy ) ) {
+					return $taxonomy->label;
+        }
+
+			break;
+
+			case 'author':
+			case 'author-id':
+				return get_the_author_meta( 'display_name', $value['id'] );
+			break;
+
+		}
+
+		// user-roles
+		if ( substr( $value['condition'], 0, 10 ) === 'user_role_' ) {
+			$user_rules = get_editable_roles();
+			if ( ! empty( $user_rules[ $value['id'] ] ) ) {
+				return $user_rules[ $value['id'] ]['name'];
+			}
+		}
+
+		return $value['id'];
+
+	}    
+
+    /**
+     * Insert a new template
+     */
+    function insert_template_part_callback() {
+
+        check_ajax_referer('nonce-bt-dashboard', 'nonce');
+
+		if ( ! isset( $_POST['key'] ) ) {
+			wp_send_json_error();
+		}
+
+		$post_name      = sanitize_text_field( wp_unslash( $_POST['key'] ) ) . '-' . sanitize_text_field( wp_unslash( $_POST['part_type'] ) );
+        $page_builder   = sanitize_text_field( wp_unslash( $_POST['page_builder'] ) );
+
+		$post_title = '';
+		$args       = array(
+			'post_type'              => 'athemes_hf',
+			'name'                   => $post_name,
+			'post_status'            => 'publish',
+			'update_post_term_cache' => false,
+			'update_post_meta_cache' => false,
+			'posts_per_page'         => 1,
+		);
+
+		$post = get_posts( $args );
+
+		if ( empty( $post ) ) {
+
+			$key            = sanitize_text_field( wp_unslash( $_POST['key'] ) );
+
+			$post_title     = 'Sydney Template Part - ' . str_replace( 'sydney-template-', '', $key ) . '-' . sanitize_text_field( wp_unslash( $_POST['part_type'] ) );
+
+			$params = array(
+				'post_content' => '',
+				'post_type'    => 'athemes_hf',
+				'post_title'   => $post_title,
+				'post_name'    => $post_name,
+				'post_status'  => 'publish',
+			);
+
+            if( $page_builder == 'elementor' ) {
+                $params['meta_input'] = array(
+                    '_elementor_edit_mode' => 'builder',
+                    '_wp_page_template'    => 'elementor_canvas',
+                );
+            }
+
+			$post_id = wp_insert_post( $params );
+
+		} else { // edit post.
+			$post_id    = $post[0]->ID;
+			$post_title = $post[0]->post_title;
+		}
+
+        $action = $page_builder == 'elementor' ? 'elementor' : 'edit';
+
+		$edit_url = get_admin_url() . 'post.php?post=' . $post_id . '&action=' . $action;
+
+		$result = array(
+			'url'   => $edit_url,
+			'id'    => $post_id,
+			'title' => $post_title,
+		);
+
+		wp_send_json_success( $result );
+	}    
+
+    /**
+     * Edit template
+     */
+    function edit_template_part_callback() {
+            
+        check_ajax_referer('nonce-bt-dashboard', 'nonce');
+
+        if ( ! isset( $_POST['key'] ) ) {
+            wp_send_json_error();
+        }
+
+        $post_id = sanitize_text_field( wp_unslash( $_POST['key'] ) );
+
+        $post = get_post( $post_id );
+
+        if ( empty( $post ) ) {
+            wp_send_json_error();
+        }
+
+        $action = 'edit';
+
+        if( class_exists( 'Elementor\Plugin' ) && Elementor\Plugin::$instance->documents->get( $post_id )->is_built_with_elementor() ) {
+            $action = 'elementor';
+        }
+
+        $edit_url = get_admin_url() . 'post.php?post=' . $post_id . '&action=' . $action;
+
+        $result = array(
+            'url'   => $edit_url,
+            'id'    => $post_id,
+            'title' => $post->post_title,
+        );
+
+        wp_send_json_success( $result );
+    }
+
+    /**
+     * Get athemes templates CPT
+     */
+    function get_template_parts() {
+        $args = array(
+            'numberposts' 	=> -1,
+            'post_type'   	=> 'athemes_hf',
+        );	
+
+        $posts = get_posts( $args );
+
+        $parts = array();
+
+        if ( ! empty( $posts ) ) {
+            foreach ( $posts as $post ) {
+                $parts[ $post->ID ] = $post->post_title;
+            }
+        }
+
+        return $parts;
+    }
+
+    /**
+     * Existing parts select
+     */
+    function existing_parts_select( $parts = array() ) {
+        if ( empty( $parts ) ) {
+            return;
+        }
+
+        $html = '<div class="existing-parts-wrapper">';
+        $html .= '<select class="existing-parts-select">';
+        $html .= '<option value="">' . esc_html__( 'Select existing', 'sydney' ) . '</option>';
+
+        foreach ( $parts as $id => $title ) {
+
+            $page_builder = 'editor';
+            if ( class_exists( 'Elementor\Plugin' ) && Elementor\Plugin::$instance->documents->get( $id )->is_built_with_elementor() ) {
+                $page_builder = 'elementor';
+            }
+            
+            $html .= '<option data-page-builder="' . $page_builder . '" value="' . $id . '">' . $title . '</option>';
+        }
+
+        $html .= '</select>';
+        $html .= '</div>';
+
+        return $html;
     }
 
     /**

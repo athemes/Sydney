@@ -109,6 +109,15 @@ function sydney_dashboard_settings()
 		'free-vs-pro'    => esc_html__('Free vs Pro', 'sydney')
 	);
 
+	if ( isset( $settings['has_pro'] ) && $settings['has_pro'] && Sydney_Modules::is_module_active( 'templates' ) ) {
+		$settings['tabs'] = array_merge(
+			array_slice( $settings['tabs'], 0, 2 ),
+			array( 'builder' => esc_html__( 'Template Builder', 'sydney' ) ),
+			array_slice( $settings['tabs'], 2 )
+		);
+	}
+	
+
 	//
 	// Settings.
 	//
@@ -126,7 +135,7 @@ function sydney_dashboard_settings()
 		$theme_id = '4671';
 	}
 
-	$notifications_response    = wp_remote_get( 'https://athemes.com/wp-json/wp/v2/changelogs?themes=' . $theme_id . '&per_page=3' );
+	$notifications_response    = wp_remote_get( 'https://athemes.com/wp-json/wp/v2/notifications?theme=' . $theme_id . '&per_page=3' );
 	$settings['notifications'] = ! is_wp_error( $notifications_response ) || wp_remote_retrieve_response_code( $notifications_response ) === 200 ? json_decode( wp_remote_retrieve_body( $notifications_response ) ) : false;
 	$settings['notifications_tabs'] = false;
 
@@ -242,10 +251,10 @@ function sydney_dashboard_settings()
 	$settings['features'][] = array(
 		'category'    => 'general',
 		'module'      => 'templates',
-		'title'        => esc_html__('Templates Builder', 'sydney'),
+		'title'        => esc_html__('Template Builder', 'sydney'),
 		'type'        => 'pro',
-		'link_url'    => add_query_arg('post_type', 'athemes_hf', admin_url('edit.php')),
-		'link_label'  => esc_html__('Build templates', 'sydney'),
+		//'link_url'    => add_query_arg('post_type', 'athemes_hf', admin_url('edit.php')),
+		//'link_label'  => esc_html__('Build templates', 'sydney'),
 		'docs_link'   => 'https://docs.athemes.com/article/435-templates-system-overview',
 		'desc'        => __('Build headers, footers etc. with Elementor.', 'sydney'),
 	);
@@ -289,6 +298,16 @@ function sydney_dashboard_settings()
 		'docs_link'   => 'https://docs.athemes.com/article/offcanvas-content-module/',
 		'desc'        => __('Offcanvas sidebars, Elementor templates or custom content', 'sydney'),
 	);
+	$settings['features'][] = array(
+		'category'    => 'general',
+		'module'      => 'browser-tools',
+		'title'        => esc_html__('Browser Tools', 'sydney'),
+		'type'        => 'pro',
+		'link_url'    => add_query_arg('autofocus[section]', 'sydney_section_browser_tools', admin_url('customize.php')),
+		'link_label'  => esc_html__('Customize', 'sydney'),
+		'docs_link'   => 'https://docs.athemes.com/article/browser-tools/',
+		'desc'        => __('Scrollbar, mobile theme color, prevent text copy', 'sydney'),
+	);	
 	$settings['features'][] = array(
 		'category'    => 'header',
 		'module'      => 'ext-header',

@@ -65,9 +65,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                     ?>
 
                     <?php foreach( $this->settings[ 'notifications' ] as $notification ) : 
-                        $date    = isset( $notification->date ) ? $notification->date : false;
-                        $version = isset( $notification->title->rendered ) ? $notification->title->rendered : false;
-                        $content = isset( $notification->content->rendered ) ? $notification->content->rendered : false;
+                        $date    = isset( $notification->post_date ) ? $notification->post_date : false;
+                        $version = isset( $notification->post_title ) ? $notification->post_title : false;
+                        $content = isset( $notification->post_content ) ? $notification->post_content : false;
                         
                         ?>
 
