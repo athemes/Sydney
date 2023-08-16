@@ -1326,6 +1326,16 @@
 			}
 		} );
 	} );	
+
+	//global colors
+	$.each( [1,2,3,4,5,6,7,8,9], function( i ) {
+
+		wp.customize( 'global_color_'+ i, function( value ) {
+			value.bind( function( to ) {
+				$( 'html' ).css( '--sydney-global-color-' + i, to );
+			} );
+		} );
+	});
 		
 } )( jQuery );
 

@@ -20,6 +20,14 @@ class Sydney_Alpha_Color extends WP_Customize_Control {
 	 */
 	public $show_opacity;	
 
+	public $remove_bordertop = false;
+
+	public $connected_global = false;
+
+	public function enqueue() {
+		wp_enqueue_script( 'sydney-pickr', get_template_directory_uri() . '/js/pickr.min.js', array( 'jquery' ), '1.8.2', true );
+	}
+
 	public function render_content() {
 
 		// Process the palette
@@ -34,27 +42,36 @@ class Sydney_Alpha_Color extends WP_Customize_Control {
 		$show_opacity = ( false === $this->show_opacity || 'false' === $this->show_opacity ) ? 'false' : 'true';
 
 		?>
-			<label>
+			<div class="sydney-color-controls">
 				<?php // Output the label and description if they were passed in.
 				if ( isset( $this->label ) && '' !== $this->label ) {
 					echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
 				}
 				if ( isset( $this->description ) && '' !== $this->description ) {
 					echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
-				} ?>
-			</label>
-			<input data-color-val="<?php echo esc_attr( $this->value() ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="alpha-color-control" type="text" data-show-opacity="<?php echo esc_attr( $show_opacity ); ?>" data-palette="<?php echo esc_attr( $palette ); ?>" data-default-color="<?php echo esc_attr( $this->settings['default']->default ); ?>" <?php $this->link(); ?>  />
+				} ?>		
+				<div class="color-options">		
+				<?php foreach ( array_keys( $this->settings ) as $key => $value ) : ?>
+					<?php if ( 0 === $key && count( $this->settings ) > 1 ) : ?>
+						<div class="sydney-global-control">
+							<span class="dashicons dashicons-admin-site-alt3"></span>
+							<div class="global-colors-dropdown" data-element="<?php echo esc_attr( str_replace( 'global_', '', $this->settings[ $value ]->id ) ); ?>">
+								<div class="title">
+									<?php esc_html_e( 'Select a Global Color', 'sydney' ); ?>
+									<a href="javascript:wp.customize.control( 'custom_palette' ).focus();"><span class="dashicons dashicons-admin-generic"></span></a>
+								</div>
+							</div>
+							<input type="hidden" name="<?php echo esc_attr( $this->settings[ $value ]->id ); ?>" value="<?php echo esc_attr( $this->value( $value ) ); ?>" class="sydney-connected-global" <?php $this->link( $value ); ?> />
+						</div>
+						<?php else : ?>
+					<div class="sydney-color-control" data-control-id="<?php echo esc_attr( $this->settings[ $value ]->id ); ?>">
+						<div class="sydney-color-picker" data-default-color="<?php echo esc_attr( $this->settings[ $value ]->default ); ?>" style="background-color: <?php echo esc_attr( $this->value( $value ) ); ?>;"></div>
+						<input type="text" name="<?php echo esc_attr( $this->settings[ $value ]->id ); ?>" value="<?php echo esc_attr( $this->value( $value ) ); ?>" class="sydney-color-input" <?php $this->link( $value ); ?> />
+					</div>
+					<?php endif; ?>
+				<?php endforeach; ?>
+				</div>
+			</div>
 	<?php 
-	}
-
-	/**
-	 * Loads the jQuery UI Button script and hooks our custom styles in.
-	 *
-	 * @since  3.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function enqueue() {
-		wp_enqueue_script( 'wp-color-picker' );
 	}
 }

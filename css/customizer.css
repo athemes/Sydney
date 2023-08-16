@@ -305,234 +305,500 @@ span.delete:hover {
 /* ==========================================================================
    Alpha Color Picker
    ========================================================================== */
-.customize-control-alpha-color .wp-picker-container .iris-picker {
-  border-bottom: none;
-}
 
-.customize-control-alpha-color .wp-picker-container {
-  max-width: 257px;
-}
-
-.customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {
-  width: 100%;
-}
-
-.customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
-  float: left;
-  width: 195px;
-}
-
-.customize-control-alpha-color .wp-picker-input-wrap .button {
-  margin-left: 0;
-  float: right;
-}
-
-.wp-picker-container .wp-picker-open ~ .wp-picker-holder .alpha-color-picker-container {
-  display: block;
-}
-
-.alpha-color-picker-container {
-  border: 1px solid #dfdfdf;
-  border-top: none;
-  display: none;
-  background-color: #fff;
-  padding: 0 11px 10px;
-  position: relative;
-}
-
-.alpha-color-picker-container .ui-widget-content,
-.alpha-color-picker-container .ui-widget-header,
-.alpha-color-picker-wrap .ui-state-focus {
-  background: transparent;
-  border: none;
-}
-
-.alpha-color-picker-wrap a.iris-square-value:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.alpha-color-picker-container .ui-slider {
-  position: relative;
-  z-index: 1;
-  height: 24px;
-  text-align: center;
-  margin: 0 auto;
-  width: 88%;
-  width: calc( 100% - 28px);
-}
-
-.alpha-color-picker-container .ui-slider-handle,
-.alpha-color-picker-container .ui-widget-content .ui-state-default {
-  color: #777;
-  background-color: #fff;
-  text-shadow: 0 1px 0 #fff;
-  text-decoration: none;
+   .sydney-color-controls .color-options {
+    display: flex;
+   }
+   .sydney-global-control {
+    position: relative;
+   }
+.sydney-global-control .global-colors-dropdown {
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
-  z-index: 2;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  margin-top: -2px;
-  top: 0;
-  height: 26px;
-  width: 26px;
-  cursor: ew-resize;
-  font-size: 0;
-  padding: 0;
-  line-height: 27px;
-  margin-left: -14px;
+  right: 10px;
+  top: -999em;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+  background-color: #fff;
+  min-width: 200px;
+  padding: 12px;
+  box-shadow: 0 0.15em 1.5em 0 rgba(0,0,0,.1), 0 0 1em 0 rgba(0,0,0,.03);
+  margin-bottom: 20px;
 }
-
-.alpha-color-picker-container .ui-slider-handle.show-opacity {
+.sydney-global-control .global-color {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  justify-content: space-between;
+}
+.sydney-global-control .global-color.active,
+.sydney-global-control .global-color:hover {
+  border-color: #2271b1;
+}
+.sydney-global-control .dashicons {
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  line-height: 28px;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  margin-right: 7px;
+  color: #b8b8b8;
+  position: relative;
+  left: 1px;
+}
+.sydney-global-control .dashicons.active {
+  color: #71a7d3;
+}
+.sydney-global-control .global-color .color-circle {
+  display: block;
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 1px #000;
+}
+.sydney-global-control .global-color span.color-value {
+  color: #b8b8b8;
   font-size: 12px;
 }
-
-.alpha-color-picker-container .click-zone {
-  width: 14px;
-  height: 24px;
-  display: block;
-  position: absolute;
-  left: 10px;
+.sydney-global-control .global-colors-dropdown.show {
+  top: 30px;
+  visibility: visible;
+  opacity: 1;
 }
-
-.alpha-color-picker-container .max-click-zone {
-  right: 10px;
-  left: auto;
-}
-
-.alpha-color-picker-container .transparency {
-  height: 24px;
-  width: 100%;
-  background-color: #fff;
-  background-image: url(../images/customizer/color-picker-transparency-grid.png);
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
-  border-radius: 3px;
-  padding: 0;
-  margin-top: -24px;
-}
-
-@media only screen and (max-width: 782px) {
-  .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
-    width: 184px;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
-    width: 172px;
-    height: 33px;
-  }
-}
-
-/* ==========================================================================
-   Alpha Color Picker & Standard Color Picker
-   ========================================================================== */
-.customize-control-color .wp-color-result,
-.customize-control-alpha-color .wp-color-result {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.customize-control-color .wp-color-result .wp-color-result-text,
-.customize-control-alpha-color .wp-color-result .wp-color-result-text {
-  border-left: none;
-}
-
-.wp-picker-holder .iris-picker .iris-palette {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.wp-picker-container .iris-picker,
-.wp-picker-container .alpha-color-picker-container {
-  border-radius: 0;
-  border: none;
-}
-
-.wp-color-result-text {
-  display: none;
-}
-
-.customize-control-color,
-.customize-control-sydney-alpha-color {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.sydney-global-control .global-colors-dropdown .title {
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  position: relative;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
+  font-weight: 600;
+  border-bottom: 1px solid #d0d0d0;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
 }
-
-.wp-picker-container .wp-color-result.button {
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  min-height: 24px;
-  padding: 0;
-  border: 0;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.sydney-global-control .global-colors-dropdown .title .dashicons {
+  text-decoration: none;
+  color: #2271b1;
+  margin-right: 0;
 }
-
-.wp-picker-holder {
-  display: none;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: calc( 100% + 10px);
-  background: #fff;
-  z-index: 999;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  max-width: 321px;
-}
-
-.wp-picker-container.wp-picker-active .wp-picker-holder {
-  display: block;
-}
-
-.iris-picker.iris-border {
-  width: 100% !important;
-  padding-bottom: 30px !important;
-}
-
-.iris-picker .iris-square {
-  width: calc( 100% - 40px) !important;
-  margin-right: 15px;
-}
-
-.iris-picker .iris-strip {
-  width: 25px !important;
-  height: 100% !important;
-}
-
-.iris-border .iris-palette-container {
-  width: 100%;
-}
-
-.wp-picker-holder .iris-picker .iris-palette {
-  border-radius: 50%;
-  width: 25px !important;
-  height: 25px !important;
-}
-
-.iris-picker .iris-strip,
-.alpha-color-picker-container .transparency {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border-radius: 10px;
-}
+  .sydney-color-picker svg {
+    width: 15px;
+    left: 4px;
+    position: relative;
+    top: 4px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    height: 15px;
+  }
+   .sydney-color-controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    grid-gap: 8px;
+    justify-content: space-between;
+  }
+  
+  .sydney-color-control {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: relative;
+  }
+  
+  .sydney-color-control:hover .sydney-color-tooltip {
+    top: -35px;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .sydney-color-control .sydney-color-tooltip {
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    padding: 8px 10px;
+    border-radius: 2px;
+    font-size: 11px;
+    line-height: 1em;
+    opacity: 0;
+    visibility: hidden;
+    color: #fff;
+    background-color: #212121;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  
+  .sydney-color-control .sydney-color-tooltip:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    margin-left: -5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #212121;
+  }
+  
+  .sydney-color-control .sydney-color-title {
+    text-transform: capitalize;
+  }
+  
+  .sydney-color-control .sydney-color-picker {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  .sydney-color-control .sydney-color-input {
+    display: none;
+  }
+  
+  .sydney-color-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .sydney-color-group .sydney-color-title {
+    text-transform: capitalize;
+  }
+  
+  .pcr-app * {
+    outline: none;
+    border: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  .pcr-app input:focus,
+  .pcr-app input.pcr-active,
+  .pcr-app button:focus,
+  .pcr-app button.pcr-active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  
+  .pcr-app .pcr-palette:focus,
+  .pcr-app .pcr-slider:focus {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  
+  .pcr-app {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-radius: 0.1em;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.2s, visibility 0s 0.2s;
+    transition: opacity 0.2s, visibility 0s 0.2s;
+    -webkit-box-shadow: 0 0.15em 1.5em 0 rgba(0, 0, 0, 0.1), 0 0 1em 0 rgba(0, 0, 0, 0.03);
+            box-shadow: 0 0.15em 1.5em 0 rgba(0, 0, 0, 0.1), 0 0 1em 0 rgba(0, 0, 0, 0.03);
+    background: #fff;
+  }
+  
+  .pcr-app.visible {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+  
+  .pcr-app .pcr-swatches {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .pcr-app .pcr-swatches > button {
+    cursor: pointer;
+    font-size: 1em;
+    position: relative;
+    z-index: 1;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+  
+  .pcr-app .pcr-swatches > button::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+    background-size: 6px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    z-index: -1;
+  }
+  
+  .pcr-app .pcr-swatches > button::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: var(--pcr-color);
+  }
+  
+  .pcr-app .pcr-interaction {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    grid-gap: 5px;
+  }
+  
+  .pcr-app .pcr-interaction input {
+    font-size: 12px;
+    border-radius: 2px;
+  }
+  
+  .pcr-app .pcr-interaction input:focus {
+    border-color: #3858E9;
+  }
+  
+  .pcr-app .pcr-interaction .pcr-result {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .pcr-app .pcr-interaction .pcr-clear {
+    cursor: pointer;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #3858E9;
+  }
+  
+  .pcr-app .pcr-selection .pcr-picker {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 16px;
+    background-color: #fff !important;
+    -webkit-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pcr-app .pcr-selection .pcr-color-palette,
+  .pcr-app .pcr-selection .pcr-color-chooser,
+  .pcr-app .pcr-selection .pcr-color-opacity {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+  
+  .pcr-app .pcr-selection .pcr-color-palette:active,
+  .pcr-app .pcr-selection .pcr-color-chooser:active,
+  .pcr-app .pcr-selection .pcr-color-opacity:active {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
+  
+  .pcr-app[data-theme='sydney'] {
+    width: 280px;
+    max-width: 95vw;
+    padding: 12px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    grid-gap: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 5fr auto auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 180px;
+    width: 100%;
+    align-self: flex-start;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-preview {
+    grid-area: 2 / 1 / 4 / 1;
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-preview .pcr-last-color {
+    display: none;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-preview .pcr-current-color {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: var(--pcr-color);
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-preview .pcr-current-color::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+    background-size: 8px;
+    border-radius: 100%;
+    z-index: -1;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-palette {
+    grid-area: 1 / 1 / 2 / 3;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-palette .pcr-picker {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    -webkit-box-shadow: 0 0 1px 2px #000, inset 0 0 1px 1px #000;
+            box-shadow: 0 0 1px 2px #000, inset 0 0 1px 1px #000;
+    background-color: transparent !important;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-palette .pcr-palette {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-palette .pcr-palette::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+    background-size: 8px;
+    z-index: -1;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-chooser {
+    grid-area: 2 / 2 / 2 / 2;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-opacity {
+    grid-area: 3 / 2 / 3 / 2;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-chooser,
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-opacity {
+    height: 12px;
+    margin-right: 10px;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-chooser .pcr-picker,
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-opacity .pcr-picker {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-chooser .pcr-slider,
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-opacity .pcr-slider {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-chooser .pcr-slider {
+    background: -webkit-gradient(linear, left top, right top, from(red), color-stop(#ff0), color-stop(lime), color-stop(cyan), color-stop(blue), color-stop(#f0f), to(red));
+    background: linear-gradient(to right, red, #ff0, lime, cyan, blue, #f0f, red);
+  }
+  
+  .pcr-app[data-theme='sydney'] .pcr-selection .pcr-color-opacity .pcr-slider {
+    background: -webkit-gradient(linear, left top, right top, from(transparent), to(black)), url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+    background: linear-gradient(to right, transparent, black), url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+    background-size: 100%, 4px;
+  }
 
 /* Tabs */
 .control-tabs {

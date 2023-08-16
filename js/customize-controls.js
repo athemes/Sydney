@@ -224,222 +224,175 @@ jQuery(document).ready(function ($) {
 /**
  * Alpha color picker
  */
-
+/* Color Control */
 jQuery(document).ready(function ($) {
-  $('.alpha-color-control').each(function () {
-    // Scope the vars.
-    var $control, startingColor, paletteInput, showOpacity, defaultColor, palette, colorPickerOptions, $container, $alphaSlider, alphaVal, sliderOptions; // Store the control instance.
 
-    $control = $(this); // Get a clean starting value for the option.
+	var $colorControls = $('.sydney-color-control');
 
-    startingColor = $control.val().replace(/\s+/g, ''); // Get some data off the control.
+	if ($colorControls.length && Pickr) {
 
-    paletteInput = $control.attr('data-palette');
-    showOpacity = $control.attr('data-show-opacity');
-    defaultColor = $control.attr('data-default-color'); // Process the palette.
+		var getCurrentSwatches = function () {
+			var colors = [];
+			$('#customize-control-custom_palette .sydney-color-input').each(function () {
+				colors.push($(this).val().toLowerCase());
+			});
+			return colors;
+		}
 
-    if (paletteInput.indexOf('|') !== -1) {
-      palette = paletteInput.split('|');
-    } else if ('false' == paletteInput) {
-      palette = false;
-    } else {
-      palette = true;
-    } // Set up the options that we'll pass to wpColorPicker().
+		//add the swatches to the dropdown
+		var swatch = $('.global-colors-dropdown');
+		swatch.each(function () {
+			var colors = getCurrentSwatches();
+			var $this = $(this);
+			
+			var element = $this.data('element');
 
+			var $globalInput = $this.next('.sydney-connected-global').val();
 
-    colorPickerOptions = {
-      change: function change(event, ui) {
-        var key, value, alpha, $transparency;
-        key = $control.attr('data-customize-setting-link');
-        value = $control.wpColorPicker('color'); // Set the opacity value on the slider handle when the default color button is clicked.
+			$.each(colors, function (index, value) {
+				$this.append('<div class="global-color" data-global-setting="global_color_' + (index+1) + '" data-color="' + value + '"><span style="display:flex;align-items:center;"><span class="color-circle" style="background-color:' + value + '"></span>Global color ' + (index+1) + '</span><span class="color-value">' + value + '</span></div>');
+			
+				if ( $globalInput == 'global_color_' + (index+1) ) {
+					$this.find('.global-color').eq(index).addClass('active');
 
-        if (defaultColor == value) {
-          alpha = acp_get_alpha_value_from_color(value);
-          $alphaSlider.find('.ui-slider-handle').text(alpha);
-        } // Send ajax request to wp.customize to trigger the Save action.
+					$this.prev('.dashicons').addClass('active');
+				}
+			});
 
+			$this.on('click', '.global-color', function () {
+				var $this 	= $(this);
+				var $globalInput = $this.parent().next('.sydney-connected-global');
 
-        wp.customize(key, function (obj) {
-          obj.set(value);
-        });
-        $transparency = $container.find('.transparency'); // Always show the background color of the opacity slider at 100% opacity.
+				//add active class to dashicon
+				$this.parent().prev('.dashicons').addClass('active');
 
-        $transparency.css('background-color', ui.color.toString('no-alpha'));
-      },
-      palettes: palette // Use the passed in palette.
+				//add active class
+				$this.toggleClass('active').siblings().removeClass('active');
 
-    }; // Create the colorpicker.
+				if ( $this.hasClass('active') ) {
+					$globalInput.val($this.data('global-setting'));
+					sydneyChangeElementColors(element, $this.data('color'));
+				} else {
+					$globalInput.val('');
+					$this.parent().prev('.dashicons').removeClass('active');
+				}
+				
+				$globalInput.trigger('change');
+			} );
+		});
 
-    $control.wpColorPicker(colorPickerOptions);
-    $container = $control.parents('.wp-picker-container:first'); // Insert our opacity slider.
+		//toggle the swatches
+		$('.sydney-global-control .dashicons').on('click', function () {
+			
+			$(this).next('.global-colors-dropdown').toggleClass('show');
 
-    $('<div class="alpha-color-picker-container">' + '<div class="min-click-zone click-zone"></div>' + '<div class="max-click-zone click-zone"></div>' + '<div class="alpha-slider"></div>' + '<div class="transparency"></div>' + '</div>').appendTo($container.find('.wp-picker-holder'));
-    $alphaSlider = $container.find('.alpha-slider'); // If starting value is in format RGBa, grab the alpha channel.
+			//close other swatches
+			$('.global-colors-dropdown').not($(this).next('.global-colors-dropdown')).removeClass('show');
+		});
 
-    alphaVal = acp_get_alpha_value_from_color(startingColor); // Set up jQuery UI slider() options.
+		//close the swatches when clicking outside
+		$(document).on('click', function (e) {
+			if ( !$(e.target).closest('.sydney-global-control').length ) {
+				$('.global-colors-dropdown').removeClass('show');
+			}
+		});
 
-    sliderOptions = {
-      create: function create(event, ui) {
-        var value = $(this).slider('value'); // Set up initial values.
+		$colorControls.each(function () {
 
-        $(this).find('.ui-slider-handle').text(value);
-        $(this).siblings('.transparency ').css('background-color', startingColor);
-      },
-      value: alphaVal,
-      range: 'max',
-      step: 1,
-      min: 0,
-      max: 100,
-      animate: 300
-    }; // Initialize jQuery UI slider with our options.
+			var $colorControl = $(this);
+			var $colorPicker = $colorControl.find('.sydney-color-picker');
+			var inited;
+			
+			$colorPicker.on('click', function () {
 
-    $alphaSlider.slider(sliderOptions); // Maybe show the opacity on the handle.
+				if (!inited) {
 
-    if ('true' == showOpacity) {
-      $alphaSlider.find('.ui-slider-handle').addClass('show-opacity');
-    } // Bind event handlers for the click zones.
+					var $colorInput = $colorControl.find('.sydney-color-input');
+					var customizeControl = wp.customize($colorInput.data('customize-setting-link'));					
 
+					var pickr = new Pickr({
+						el: $colorPicker.get(0),
+						container: 'body',
+						theme: 'sydney',
+						default: $colorInput.val() || '',
+						//swatches: [],
+						position: 'bottom-end',
+						appClass: 'sydney-pcr-app',
+						sliders: 'h',
+						useAsButton: true,
+						components: {
+							hue: true,
+							preview: true,
+							opacity: true,
+							interaction: {
+								input: true,
+								clear: true,
+							},
+						},
+						i18n: {
+							'btn:clear': 'Default',
+						},
+					});
 
-    $container.find('.min-click-zone').on('click', function () {
-      acp_update_alpha_value_on_color_control(0, $control, $alphaSlider, true);
-    });
-    $container.find('.max-click-zone').on('click', function () {
-      acp_update_alpha_value_on_color_control(100, $control, $alphaSlider, true);
-    }); // Bind event handler for clicking on a palette color.
+					pickr.on('change', function (color) {
 
-    $container.find('.iris-palette').on('click', function () {
-      var color, alpha;
-      color = $(this).css('background-color');
-      alpha = acp_get_alpha_value_from_color(color);
-      acp_update_alpha_value_on_alpha_slider(alpha, $alphaSlider); // Sometimes Iris doesn't set a perfect background-color on the palette,
-      // for example rgba(20, 80, 100, 0.3) becomes rgba(20, 80, 100, 0.298039).
-      // To compensante for this we round the opacity value on RGBa colors here
-      // and save it a second time to the color picker object.
+						var colorCode;
 
-      if (alpha != 100) {
-        color = color.replace(/[^,]+(?=\))/, (alpha / 100).toFixed(2));
-      }
+						if (color.a === 1) {
+							pickr.setColorRepresentation('HEX');
+							colorCode = color.toHEXA().toString(0);
+						} else {
+							pickr.setColorRepresentation('RGBA');
+							colorCode = color.toRGBA().toString(0);
+						}
 
-      $control.wpColorPicker('color', color);
-    }); // Bind event handler for clicking on the 'Clear' button.
+						$colorPicker.css({ 'background-color': colorCode });
+						$colorInput.val(colorCode);
+						customizeControl.set(colorCode);
 
-    $container.find('.button.wp-picker-clear').on('click', function () {
-      var key = $control.attr('data-customize-setting-link'); // The #fff color is delibrate here. This sets the color picker to white instead of the
-      // defult black, which puts the color picker in a better place to visually represent empty.
+					});
 
-      $control.wpColorPicker('color', '#ffffff'); // Set the actual option value to empty string.
+					// Disconnect global if manually changed
+					pickr.on('change', function (color, source) {
+						if ( 'slider' === source ) {
+							$colorPicker.parent().prev('.sydney-global-control').find('.dashicons').removeClass('active');
+							$colorPicker.parent().prev('.sydney-global-control').find('.sydney-connected-global').val('');
+							$colorPicker.parent().prev('.sydney-global-control').find('.global-color').removeClass('active');
+						}
+					});
 
-      wp.customize(key, function (obj) {
-        obj.set('');
-      });
-      acp_update_alpha_value_on_alpha_slider(100, $alphaSlider);
-    }); // Bind event handler for clicking on the 'Default' button.
+					pickr.on('clear', function () {
 
-    $container.find('.button.wp-picker-default').on('click', function () {
-      var alpha = acp_get_alpha_value_from_color(defaultColor);
-      acp_update_alpha_value_on_alpha_slider(alpha, $alphaSlider);
-    }); // Bind event handler for typing or pasting into the input.
+						var defaultColor = $colorPicker.data('default-color');
 
-    $control.on('input', function () {
-      var value = $(this).val();
-      var alpha = acp_get_alpha_value_from_color(value);
-      acp_update_alpha_value_on_alpha_slider(alpha, $alphaSlider);
-    }); // Update all the things when the slider is interacted with.
+						if (defaultColor) {
+							pickr.setColor(defaultColor);
+						} else {
+							$colorPicker.css({ 'background-color': 'white' });
+							$colorInput.val('');
+							customizeControl.set('');
+						}
 
-    $alphaSlider.slider().on('slide', function (event, ui) {
-      var alpha = parseFloat(ui.value) / 100.0;
-      acp_update_alpha_value_on_color_control(alpha, $control, $alphaSlider, false); // Change value shown on slider handle.
+					});
 
-      $(this).find('.ui-slider-handle').text(ui.value);
-    });
-  });
-  /**
-   * Override the stock color.js toString() method to add support for outputting RGBa or Hex.
-   */
+					$colorPicker.data('pickr', pickr);
 
-  Color.prototype.toString = function (flag) {
-    // If our no-alpha flag has been passed in, output RGBa value with 100% opacity.
-    // This is used to set the background color on the opacity slider during color changes.
-    if ('no-alpha' == flag) {
-      return this.toCSS('rgba', '1').replace(/\s+/g, '');
-    } // If we have a proper opacity value, output RGBa.
+					setTimeout(function () {
+						pickr.show();
+					});
 
+					inited = true;
 
-    if (1 > this._alpha) {
-      return this.toCSS('rgba', this._alpha).replace(/\s+/g, '');
-    } // Proceed with stock color.js hex output.
+				}
 
+			});
 
-    var hex = parseInt(this._color, 10).toString(16);
+		});
 
-    if (this.error) {
-      return '';
-    }
-
-    if (hex.length < 6) {
-      for (var i = 6 - hex.length - 1; i >= 0; i--) {
-        hex = '0' + hex;
-      }
-    }
-
-    return '#' + hex;
-  };
-  /**
-   * Given an RGBa, RGB, or hex color value, return the alpha channel value.
-   */
-
-
-  function acp_get_alpha_value_from_color(value) {
-    var alphaVal; // Remove all spaces from the passed in value to help our RGBa regex.
-
-    value = value.replace(/ /g, '');
-
-    if (value.match(/rgba\(\d+\,\d+\,\d+\,([^\)]+)\)/)) {
-      alphaVal = parseFloat(value.match(/rgba\(\d+\,\d+\,\d+\,([^\)]+)\)/)[1]).toFixed(2) * 100;
-      alphaVal = parseInt(alphaVal);
-    } else {
-      alphaVal = 100;
-    }
-
-    return alphaVal;
-  }
-  /**
-   * Force update the alpha value of the color picker object and maybe the alpha slider.
-   */
-
-
-  function acp_update_alpha_value_on_color_control(alpha, $control, $alphaSlider, update_slider) {
-    var iris, colorPicker, color;
-    iris = $control.data('a8cIris');
-    colorPicker = $control.data('wpWpColorPicker'); // Set the alpha value on the Iris object.
-
-    iris._color._alpha = alpha; // Store the new color value.
-
-    color = iris._color.toString(); // Set the value of the input.
-
-    $control.val(color); // Update the background color of the color picker.
-
-    colorPicker.toggler.css({
-      'background-color': color
-    }); // Maybe update the alpha slider itself.
-
-    if (update_slider) {
-      acp_update_alpha_value_on_alpha_slider(alpha, $alphaSlider);
-    } // Update the color value of the color picker object.
-
-
-    $control.wpColorPicker('color', color);
-  }
-  /**
-   * Update the slider handle position and label.
-   */
-
-
-  function acp_update_alpha_value_on_alpha_slider(alpha, $alphaSlider) {
-    $alphaSlider.slider('value', alpha);
-    $alphaSlider.find('.ui-slider-handle').text(alpha.toString());
-  }
+	}
 });
+
+
 /**
  * Tab control
  */
