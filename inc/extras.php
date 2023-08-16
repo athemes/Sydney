@@ -865,15 +865,31 @@ add_action( 'sydney_single_content', 'sydney_single_template' );
  */
 function sydney_get_global_color_defaults() {
 	$defaults = array(
-		'primary_color' 	=> '#111111',
-		'secondary_color' 	=> '#f7f7f7',
-		'tertiary_color' 	=> '#ffffff',
-		'quaternary_color' 	=> '#000000',
-		'header_textcolor' 	=> '#ffffff',
-		'footer_textcolor' 	=> '#ffffff',
-		'footer_widget_bg' 	=> '#000000',
-		'footer_bg' 		=> '#000000',
+		'global_color_1' => '#d65050',
+		'global_color_2' => '#b73d3d',
+		'global_color_3' => '#233452',
+		'global_color_4' => '#00102E',
+		'global_color_5' => '#737C8C',
+		'global_color_6' => '#00102E',
+		'global_color_7' => '#F4F5F7',
+		'global_color_8' => '#dbdbdb',
+		'global_color_9' => '#ffffff',
 	);
 
 	return apply_filters( 'sydney_global_color_defaults', $defaults );
+}
+
+/**
+ * Get global colors
+ */
+function sydney_get_global_colors() {
+	$defaults = sydney_get_global_color_defaults();
+
+	$colors = array();
+
+	foreach ( $defaults as $key => $value ) {
+		$colors[ $key ] = get_theme_mod( $key, $value );
+	}
+
+	return $colors;
 }

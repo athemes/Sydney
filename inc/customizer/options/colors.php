@@ -82,26 +82,6 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'general_col
 	)
 );
 
-
-$wp_customize->add_setting(
-	'primary_color',
-	array(
-		'default'           => '#e64e4e',
-		'sanitize_callback' => 'sanitize_hex_color',
-		'transport'			=> 'postMessage'
-	)
-);
-$wp_customize->add_control(
-	new WP_Customize_Color_Control(
-		$wp_customize,
-		'primary_color',
-		array(
-			'label'         => __('Primary color', 'sydney'),
-			'section'       => 'colors',
-		)
-	)
-);
-
 //Body
 $wp_customize->add_setting(
 	'body_text_color',
