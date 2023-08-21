@@ -22,16 +22,15 @@ $wp_customize->add_control(
         'sydney_upsell_main_header',
         array(
             'section'     => 'sydney_section_main_header',
-            'description' => __( 'More header options are available in Sydney Pro', 'sydney' ),
+            'description' => __( 'Enhance your header with Sydney Pro!', 'sydney' ),
             'features'    => array(
                 __( 'Build Headers with Elementor', 'sydney' ),
-                __( 'Extra desktop and mobile layouts', 'sydney' ),
-                __( 'Top Bar', 'sydney' ),
-                __( 'Build a Mega-Menu with Elementor', 'sydney' ),
-                __( 'More header components', 'sydney' ),
-                __( 'Mobile-only menu', 'sydney' ),
-                __( 'Custom breakpoints', 'sydney' ),
-                __( 'Different mobile logo', 'sydney' ),
+                __( 'Extra header layouts', 'sydney' ),
+                __( 'Top bar', 'sydney' ),
+                __( 'Language switcher', 'sydney' ),
+                __( 'Page Headers module', 'sydney' ),
+                __( 'Elementor mega menu builder', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),    
             'priority'    => 999
         )
@@ -55,16 +54,14 @@ $wp_customize->add_control(
         'sydney_upsell_mobile_header',
         array(
             'section'     => 'sydney_section_mobile_header',
-            'description' => __( 'More header options are available in Sydney Pro', 'sydney' ),
+            'description' => __( 'Build better-performing mobile headers with Sydney Pro!', 'sydney' ),
             'features'    => array(
-                __( 'Build Headers with Elementor', 'sydney' ),
-                __( 'Extra desktop and mobile layouts', 'sydney' ),
-                __( 'Top Bar', 'sydney' ),
-                __( 'Build a Mega-Menu with Elementor', 'sydney' ),
-                __( 'More header components', 'sydney' ),
-                __( 'Mobile-only menu', 'sydney' ),
+                __( 'Elementor header builder', 'sydney' ),
+                __( 'A mobile-only menu', 'sydney' ),
                 __( 'Custom breakpoints', 'sydney' ),
-                __( 'Different mobile logo', 'sydney' ),
+                __( 'A different logo for mobile', 'sydney' ),
+                __( 'Extra mobile header layouts', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999
         )
@@ -88,14 +85,14 @@ $wp_customize->add_control(
         'sydney_upsell_footer_widgets',
         array(
             'section'     => 'sydney_section_footer_widgets',
-            'description' => __( 'More footer options are available in Sydney Pro', 'sydney' ),
+            'description' => __( 'Create one-of-a-kind footer designs with Sydney Pro!', 'sydney' ),
             'features'    => array(
-                __( 'Build Footers with Elementor', 'sydney' ),
-                __( 'Reveal effect', 'sydney' ),
-                __( 'SVG Footer separators', 'sydney' ),
+                __( 'Elementor footer builder', 'sydney' ),
+                __( 'Footer background image', 'sydney' ),
                 __( 'Pre-footer area', 'sydney' ),
-                __( 'Background image', 'sydney' ),
-                __( 'Extra elements', 'sydney' ),
+                __( 'SVG footer separators', 'sydney' ),
+                __( 'Reveal animation effect', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
             ),            
             'priority'    => 999
         )
@@ -119,14 +116,14 @@ $wp_customize->add_control(
         'sydney_upsell_footer_credits',
         array(
             'section'     => 'sydney_section_footer_credits',
-            'description' => __( 'More footer options are available in Sydney Pro', 'sydney' ),
+            'description' => __( 'Create one-of-a-kind footer designs with Sydney Pro!', 'sydney' ),
             'features'    => array(
-                __( 'Build Footers with Elementor', 'sydney' ),
-                __( 'Reveal effect', 'sydney' ),
-                __( 'SVG Footer separators', 'sydney' ),
+                __( 'Elementor footer builder', 'sydney' ),
+                __( 'Footer background image', 'sydney' ),
                 __( 'Pre-footer area', 'sydney' ),
-                __( 'Background image', 'sydney' ),
-                __( 'Extra elements', 'sydney' ),
+                __( 'SVG footer separators', 'sydney' ),
+                __( 'Reveal animation effect', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',   
             ), 
             'priority'    => 999
         )
@@ -150,15 +147,15 @@ $wp_customize->add_control(
         'sydney_upsell_blog_archives',
         array(
             'section'     => 'sydney_section_blog_archives',
-            'description' => __( 'More blog options are available in Sydney Pro', 'sydney' ),
+            'description' => __( 'Improve your blog’s conversion rate with Sydney Pro!', 'sydney' ),
             'features'    => array(
-                __( 'Build Archive Templates with Elementor', 'sydney' ),
-                __( 'Page Headers module', 'sydney' ),
-                __( 'Extra blog layouts', 'sydney' ),
+                __( 'Premium post header layouts', 'sydney' ),
                 __( 'Featured posts area', 'sydney' ),
-                __( 'Featured boxes', 'sydney' ),
-                __( 'Image hover effects', 'sydney' ),
-                __( 'Reading progress and reading time', 'sydney' ),
+                __( 'Reading time', 'sydney' ),
+                __( 'Progress bar', 'sydney' ),
+                __( 'Social sharing buttons', 'sydney' ),
+                __( 'Elementor template builder for category pages', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
             ),
             'priority'    => 999
         )
@@ -179,14 +176,15 @@ $wp_customize->add_control(
         'sydney_upsell_blog_singles',
         array(
             'section'     => 'sydney_section_blog_singles',
-            'description' => __( 'More blog options are available in Sydney Pro', 'sydney' ),
+            'description' => __( 'Improve your blog’s conversion rate with Sydney Pro!', 'sydney' ),
             'features'    => array(
-                __( 'Build Single Templates with Elementor', 'sydney' ),
-                __( 'Post headers', 'sydney' ),
-                __( 'Reading progress and reading time', 'sydney' ),
+                __( 'Extra post header layouts', 'sydney' ),
+                __( 'Reading time', 'sydney' ),
+                __( 'Progress bar', 'sydney' ),
                 __( 'Last updated date', 'sydney' ),
-                __( 'Post sharing', 'sydney' ),
-                __( 'Related posts layouts', 'sydney' ),
+                __( 'Social sharing buttons', 'sydney' ),
+                __( 'Elementor template builder for single posts', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
             ),            
             'priority'    => 999
         )
@@ -210,13 +208,14 @@ $wp_customize->add_control(
         'sydney_upsell_hero_slider',
         array(
             'section'     => 'sydney_slider',
-            'description' => __( 'More slider options are available in Sydney Pro', 'sydney' ),
+            'description' => __( 'Create an even more engaging slider with Sydney Pro!', 'sydney' ),
             'features'    => array(
-                __( 'Styling options', 'sydney' ),
-                __( 'Individual buttons for each slide', 'sydney' ),
-                __( 'Fade or slide transitions', 'sydney' ),
+                __( 'Extra styling options', 'sydney' ),
+                __( 'A different button for each slide', 'sydney' ),
+                __( 'Fade and slide transitions', 'sydney' ),
                 __( 'Button and text animations', 'sydney' ),
                 __( 'Title tag control', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999
         )
@@ -244,7 +243,8 @@ $wp_customize->add_control(
             'description' => __( 'Get access to more fonts with Sydney Pro', 'sydney' ),
             'features'    => array(
                 __( 'Adobe Fonts integration', 'sydney' ),
-                __( 'Custom fonts upload', 'sydney' ),
+                __( 'An option to upload custom fonts', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999
         )
@@ -267,7 +267,8 @@ $wp_customize->add_control(
             'description' => __( 'Get access to more fonts with Sydney Pro', 'sydney' ),
             'features'    => array(
                 __( 'Adobe Fonts integration', 'sydney' ),
-                __( 'Custom fonts upload', 'sydney' ),
+                __( 'An option to upload custom fonts', 'sydney' ),
+                '<a href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999
         )

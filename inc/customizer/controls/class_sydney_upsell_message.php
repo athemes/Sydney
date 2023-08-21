@@ -32,16 +32,18 @@ class Sydney_Upsell_Message extends WP_Customize_Control {
 	 * Render the control in the customizer
 	 */
 	public function render_content() { 
-		$this->button_title = __( 'Upgrade Now', 'sydney' ); ?>
+		$this->button_title = __( 'Upgrade to Sydney Pro', 'sydney' ); ?>
 
 		<hr class="sydney-cust-divider">
 		<div class="sydney-upsell-feature-wrapper">
 			<h3><em><?php echo esc_html( $this->description ); ?></em></h3>
 
+			<p><?php echo esc_html__( 'You’ll get access to:', 'sydney' ); ?></p>
+
 			<?php if ( !empty( $this->features ) ) : ?>
 				<ul class="sydney-upsell-features">
 					<?php foreach ( $this->features as $feature ) : ?>
-						<li><span class="dashicons dashicons-yes"></span><?php echo esc_html( $feature ); ?></li>
+						<li><span class="dashicons dashicons-yes"></span><?php echo wp_kses_post( $feature ); ?></li>
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
