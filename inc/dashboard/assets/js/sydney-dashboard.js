@@ -357,6 +357,12 @@ y=function(){x();return l()},H=function(){G=!0;f.off("touchmove",l);f.off("scrol
 
 			//save notice
 			function save_notice() {
+				//return if free
+				var $container = $('.sydney-dashboard-container');
+				if ( $container.data('theme') == 'sydney' ) {
+					return;
+				}
+
 				$('#save-templates').removeClass('saved');
 				$(window).on('beforeunload', function() {
 					if ( !$('#save-templates').hasClass('saved') ) {

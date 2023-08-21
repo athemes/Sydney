@@ -109,7 +109,7 @@ function sydney_dashboard_settings()
 		'free-vs-pro'    => esc_html__('Free vs Pro', 'sydney')
 	);
 
-	if ( isset( $settings['has_pro'] ) && $settings['has_pro'] && Sydney_Modules::is_module_active( 'templates' ) ) {
+	if ( ( isset( $settings['has_pro'] ) && $settings['has_pro'] && Sydney_Modules::is_module_active( 'templates' ) ) || !$settings['has_pro'] ) {
 		$settings['tabs'] = array_merge(
 			array_slice( $settings['tabs'], 0, 2 ),
 			array( 'builder' => esc_html__( 'Template Builder', 'sydney' ) ),

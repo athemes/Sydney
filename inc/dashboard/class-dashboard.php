@@ -699,25 +699,28 @@ class Sydney_Dashboard
      * Existing parts select
      */
     function existing_parts_select( $parts = array() ) {
-        if ( empty( $parts ) ) {
-            return;
-        }
 
         $html = '<div class="existing-parts-wrapper">';
-        $html .= '<select class="existing-parts-select">';
-        $html .= '<option value="">' . esc_html__( 'Select existing', 'sydney' ) . '</option>';
-
-        foreach ( $parts as $id => $title ) {
-
-            $page_builder = 'editor';
-            if ( class_exists( 'Elementor\Plugin' ) && Elementor\Plugin::$instance->documents->get( $id )->is_built_with_elementor() ) {
-                $page_builder = 'elementor';
+        
+        if ( empty( $parts ) ) {
+            $html .= '<div>' . esc_html__( 'No templates found.', 'sydney' ) . '</div>';
+        } else {
+            $html .= '<select class="existing-parts-select">';
+            $html .= '<option value="">' . esc_html__( 'Select existing', 'sydney' ) . '</option>';
+    
+            foreach ( $parts as $id => $title ) {
+    
+                $page_builder = 'editor';
+                if ( class_exists( 'Elementor\Plugin' ) && Elementor\Plugin::$instance->documents->get( $id )->is_built_with_elementor() ) {
+                    $page_builder = 'elementor';
+                }
+                
+                $html .= '<option data-page-builder="' . $page_builder . '" value="' . $id . '">' . $title . '</option>';
             }
-            
-            $html .= '<option data-page-builder="' . $page_builder . '" value="' . $id . '">' . $title . '</option>';
+    
+            $html .= '</select>';
         }
 
-        $html .= '</select>';
         $html .= '</div>';
 
         return $html;
@@ -732,7 +735,8 @@ class Sydney_Dashboard
         $notification_read   = $this->latest_notification_is_read();
         $notifications_count = 1;
 
-        $theme_version = wp_get_theme()->get( 'Version' );
+        $theme_slug     = get_template();
+        $theme_version  = wp_get_theme()->get( 'Version' );
 
 		?>
       	<div class="sydney-dashboard sydney-dashboard-wrap">
@@ -773,7 +777,7 @@ class Sydney_Dashboard
 
             <?php require get_template_directory() . '/inc/dashboard/html-notifications-sidebar.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound ?>
         
-			<div class="sydney-dashboard-container">
+			<div class="sydney-dashboard-container" data-theme="<?php echo esc_attr( $theme_slug ); ?>">
                 <?php require get_template_directory() . '/inc/dashboard/html-hero.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound ?>
 
 				<div class="sydney-dashboard-row bt-p-relative bt-zindex-2">

@@ -19,6 +19,9 @@ $parts = array(
 	'footer' 		=> __( 'Footer', 'sydney' ),
 );
 
+//disabled links in free
+$disabled = !$this->settings['has_pro'] ? 'style="pointer-events:none;"' : '';
+
 ?>
 <div class="sydney-dashboard-row">
 	<div class="sydney-dashboard-column">
@@ -26,6 +29,11 @@ $parts = array(
 
 		<div class="template-builder-wrapper">
 			<h3><?php esc_html_e( 'Template Builder', 'sydney' ); ?></h3>
+			
+			<?php if ( !$this->settings['has_pro'] ) : ?>
+				<p><?php echo '<strong>' . esc_html__( 'Please note: ', 'sydney' ) . '</strong>' . esc_html__( 'This feature is available only in Sydney Pro', 'sydney' ); ?></p>
+			<?php endif; ?>
+
 			<ol>
 				<li><?php esc_html_e( 'Replace theme-built components like header, footer, etc. on specific pages or everywhere.', 'sydney' ); ?></li>
 				<li><?php esc_html_e( 'Use the Global Template to create parts for all pages.', 'sydney' ); ?></li>
@@ -120,9 +128,9 @@ $parts = array(
 								<div class="page-builder-wrapper" style="display:none;">
 									<span class="page-builder-title"><?php esc_html_e( 'Choose your builder:', 'sydney' ); ?></span>
 									<?php if ( class_exists( 'Elementor\Plugin' ) ) : ?>
-									<span class="elementor"><span class="create-new" data-page-builder="elementor"><?php sydney_get_svg_icon( 'icon-elementor', true ); ?><?php esc_html_e( 'Elementor', 'sydney' ); ?></span></span>
+									<span class="elementor"><span <?php echo $disabled; ?> class="create-new" data-page-builder="elementor"><?php sydney_get_svg_icon( 'icon-elementor', true ); ?><?php esc_html_e( 'Elementor', 'sydney' ); ?></span></span>
 									<?php endif; ?>
-									<span class="editor"><span class="create-new" data-page-builder="editor"><?php sydney_get_svg_icon( 'icon-wordpress', true ); ?><?php esc_html_e( 'WordPress Editor', 'sydney' ); ?></span></span>
+									<span class="editor"><span <?php echo $disabled; ?> class="create-new" data-page-builder="editor"><?php sydney_get_svg_icon( 'icon-wordpress', true ); ?><?php esc_html_e( 'WordPress Editor', 'sydney' ); ?></span></span>
 								</div>						
 							</div>
 							<?php endforeach; ?>
@@ -137,7 +145,7 @@ $parts = array(
 			</div>
 			
 			<div class="buttons" style="display:flex;">
-				<button class="button button-primary" id="save-templates"><?php esc_html_e( 'Save', 'sydney' ); ?></button>
+				<button class="button button-primary" id="save-templates" <?php echo $disabled; ?>><?php esc_html_e( 'Save', 'sydney' ); ?></button>
 			</div>
 
 			<div class="sydney-elementor-iframe-wrapper" style="display:none;">
