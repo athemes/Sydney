@@ -665,7 +665,7 @@ $wp_customize->add_setting(
     'global_loop_post_title_color',
     array(
         'default'           => 'global_color_4',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -746,7 +746,7 @@ $wp_customize->add_setting(
     'global_loop_post_meta_color',
     array(
         'default'           => 'global_color_5',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -826,7 +826,7 @@ $wp_customize->add_setting(
     'global_loop_post_text_color',
     array(
         'default'           => 'global_color_3',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );

@@ -232,7 +232,6 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'single_pos
 $wp_customize->add_setting( 'single_post_meta_elements', array(
 	'default'  			=> array( 'sydney_posted_by', 'sydney_posted_on', 'sydney_post_categories' ),
 	'sanitize_callback'	=> 'sydney_sanitize_single_meta_elements',
-	'transport'			=> 'postMessage'
 ) );
 
 $wp_customize->add_control( new \Kirki\Control\Sortable( $wp_customize, 'single_post_meta_elements', array(
@@ -442,7 +441,7 @@ $wp_customize->add_setting(
     'global_single_post_title_color',
     array(
         'default'           => 'global_color_4',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -523,7 +522,7 @@ $wp_customize->add_setting(
     'global_single_post_meta_color',
     array(
         'default'           => 'global_color_5',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );

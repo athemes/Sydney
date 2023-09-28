@@ -80,7 +80,7 @@ class Sortable extends Base {
 				<# _.each( data.value, function( choiceID ) { #>
 					<# if ( data.choices[ choiceID ] ) { #>
 						<li {{{ data.inputAttrs }}} class='kirki-sortable-item' data-value='{{ choiceID }}'>
-							<i class='dashicons dashicons-menu'></i>
+							<i class="dashicons dashicons-arrow-down-alt2 toggle-options"></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
 							{{{ data.choices[ choiceID ] }}}
 						</li>
@@ -89,7 +89,7 @@ class Sortable extends Base {
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
 					<# if ( -1 === data.value.indexOf( choiceID ) ) { #>
 						<li {{{ data.inputAttrs }}} class='kirki-sortable-item invisible' data-value='{{ choiceID }}'>
-							<i class='dashicons dashicons-menu'></i>
+							<i class="dashicons dashicons-arrow-down-alt2 toggle-options"></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
 							{{{ data.choices[ choiceID ] }}}
 						</li>

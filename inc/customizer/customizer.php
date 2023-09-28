@@ -655,7 +655,7 @@ function sydney_sanitize_selects( $input, $setting ){
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sydney_customize_preview_js() {
-	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20230302', true );
+	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20230905', true );
 
     $post_type_array = sydney_get_posts_types_for_js();
 
@@ -674,16 +674,56 @@ require get_template_directory() . '/inc/customizer/controls/display-conditions/
  */
 function sydney_customize_footer_scripts() {
     
-    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20230302' );
-    wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.js', array( 'jquery', 'jquery-ui-core' ), '20230315', true );
+    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20230905' );
+    wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.min.js', array( 'jquery', 'jquery-ui-core' ), '20230905', true );
     
     $post_type_array = sydney_get_posts_types_for_js();
+
+    $header_sortable = array(
+        'woocommerce_icons' => array(
+            'controls' => array('enable_header_cart', 'enable_header_account', 'enable_header_wishlist')
+        ),
+        'button' => array(
+            'controls' => array('header_button_text', 'header_button_link', 'header_button_newtab')
+        ),
+        'contact_info' => array(
+            'controls' => array('header_contact_mail', 'header_contact_phone')
+        ),
+        'social' => array(
+            'controls' => array('social_profiles_header')
+        ),
+    );
+
+    $sortable_config = array(
+        'header_components_l1'          => $header_sortable,
+        'header_components_l3left'      => $header_sortable,
+        'header_components_l3right'     => $header_sortable,
+        'header_components_l4top'       => $header_sortable,
+        'header_components_l4bottom'    => $header_sortable,
+        'header_components_l5topleft'   => $header_sortable,
+        'header_components_l5topright'  => $header_sortable,
+        'header_components_l5bottom'    => $header_sortable,
+        'single_post_meta_elements'     => array(
+            'sydney_meta_custom_field' => array(
+                'controls' => array('post_before_custom_field', 'post_single_custom_field', 'post_after_custom_field' )
+            ),
+            'sydney_updated_date' => array(
+                'controls' => array( 'before_updated_date_text' )
+            ),
+        ),
+        'archive_meta_elements'        => array(
+            'post_author' => array(
+                'controls'  => array('show_avatar')
+            ),
+        ),
+    );    
 
     wp_localize_script( 'sydney-customizer-scripts', 'syd_data',
         array( 
             'post_types' => $post_type_array,
             'ajax_url'   => admin_url( 'admin-ajax.php' ),
             'ajax_nonce' => wp_create_nonce( 'sydney_ajax_nonce' ),
+            'sortable_config' => $sortable_config,
     ) );
 }
 add_action( 'customize_controls_print_footer_scripts', 'sydney_customize_footer_scripts' );

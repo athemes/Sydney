@@ -652,16 +652,7 @@ wp.customize.bind('ready', function () {
     });
   });
 });
-/* Non-refresh custom palette toggle */
 
-wp.customize.bind('ready', function () {
-  wp.customize.control('custom_palette', function (control) {
-    var setting = wp.customize('custom_palette_toggle');
-    setting.bind(function (value) {
-      control.active.set(value);
-    });
-  });
-});
 /**
  * Move color picker text field in popup
  */
@@ -1102,7 +1093,7 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
 
   var upsell = $('<div class="sydney-upsell-feature-wrapper" style="margin:5px 15px 15px;">' +
-              '<h3 style="max-width:100%;">Take your site to the next level with Sydney Pro!<br>You’ll get access to:</h3>' +
+              '<h3 style="max-width:100%;"><em>Take your site to the next level with Sydney Pro!</em></h3><p>You’ll get access to:</p>' +
               '<ul class="sydney-upsell-features">' +
                   '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Templates Builder</li>' +
                   '<li class="sydney-hide-control"><span class="dashicons dashicons-yes"></span>Breadcrumbs</li>' +
@@ -1224,4 +1215,120 @@ wp.customize.bind('ready', function () {
 			});
 	  	});
 	}
+});
+
+/**
+ * Child controls for sortables
+ */
+jQuery(document).ready(function($) {
+	
+	var config = syd_data.sortable_config;
+
+    // Show arrow icon, Hide all controls
+    $.each(config, function(key, subConfig) {
+
+		if ( !$('#customize-control-' + key).length ) {
+			return;
+		}
+
+        $.each(subConfig, function(subKey, value) {
+            $.each(value.controls, function(index, control) {
+				$('#customize-control-' + key + ' .kirki-sortable-item[data-value="' + subKey + '"]').find('.toggle-options').show();
+
+				if ( 'login' === subKey ) {
+					$('#customize-control-' + key).parent().css('padding-bottom', '550px');
+				}
+
+                var $control = $('#customize-control-' + control);
+                if ($control.length) {
+                    $control.hide();
+                    $control.css('position', 'absolute');
+                }
+            });
+        });
+    });
+
+    // Toggle controls on click
+    $('.kirki-sortable-item .toggle-options').click(function() {
+        var $sortableItem = $(this).parent();
+        var dataValue = $sortableItem.data('value');
+
+		$sortableItem.toggleClass('sortable-opened');
+
+        if ($sortableItem.hasClass('invisible')) {
+            return;
+        }
+
+        $(this).toggleClass('dashicons-arrow-down-alt2 dashicons-arrow-up-alt2');
+
+        $.each(config, function(key, subConfig) {
+
+			if ( !$sortableItem.parents( '.customize-control' ).attr('id').includes(key) ) {
+				return;
+			}
+
+            $.each(subConfig, function(subKey, value) {
+
+				if (dataValue !== subKey) {
+					return;
+				}
+
+				var $firstControl = $('#customize-control-' + value.controls[0]);
+				var isToggled = $firstControl.hasClass('sortable-child-toggled');
+	
+				$('.customize-control.sortable-child-toggled').each(function() {
+					$(this).removeClass('sortable-child-toggled');
+					$(this).hide();
+				});
+
+                $.each(value.controls, function(index, control) {
+                    var $control = $('#customize-control-' + control);
+                    var $prevControl = $control.prev();
+
+                    if (!isToggled) {
+                        $control.addClass('sortable-child-toggled');
+                        $control.show();
+
+                        if (index === 0) {
+                            $control.addClass('first-control');
+                            $control.position({
+                                my: 'right top',
+                                at: 'right bottom',
+                                of: $sortableItem
+                            });
+                        } else {
+                            $control.position({
+                                my: 'right top',
+                                at: 'right bottom',
+                                of: $prevControl
+                            });
+                        }
+
+                        if (index === value.controls.length - 1) {
+                            $control.addClass('last-control');
+                        }
+                    }
+                });
+            });
+        });
+    });
+
+	$(document).on('click mousedown', function(e) {
+		if ( $(e.target).hasClass('sortable-opened') ) {
+
+			if ( $(e.target).hasClass('invisible') ) {
+				return;
+			}
+
+			$(e.target).removeClass('sortable-opened');
+
+			$(e.target).find('.toggle-options').toggleClass('dashicons-arrow-down-alt2 dashicons-arrow-up-alt2');
+
+			$('.customize-control.sortable-child-toggled').each(function() {
+				$(this).removeClass('sortable-child-toggled');
+				$(this).hide();
+			});
+		}
+	});
+
 });

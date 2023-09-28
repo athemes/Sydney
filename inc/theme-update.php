@@ -326,7 +326,7 @@ function sydney_migrate_primary_color() {
 
     $primary_color = get_theme_mod( 'primary_color' );
 
-    if ( '' !== $primary_color ) {
+    if ( '' !== $primary_color && $primary_color ) {
         set_theme_mod( 'global_color_1', $primary_color );
     }
 

@@ -588,22 +588,6 @@ foreach ( $header_areas as $header_area ) {
 /**
  * Elements
  */
-//social
-//header_social_divider_1
-$wp_customize->add_setting( 'header_social_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'header_social_divider_1',
-		array(
-			'section' 		=> 'sydney_section_main_header',
-			'active_callback' 	=> function() { return sydney_callback_header_elements( 'social' ); }
-		)
-	)
-);
-
 //social_profiles_header
 $wp_customize->add_setting( 'social_profiles_header',
 	array(
@@ -629,36 +613,6 @@ $wp_customize->selective_refresh->add_partial( 'social_profiles_header', array(
 	'container_inclusive' 	=> true,
 	'render_callback' 		=> array( 'Sydney_Header', 'social' ),
 ) );
-//Cart&account icons
-$wp_customize->add_setting( 'header_divider_3',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'header_divider_3',
-		array(
-			'section' 		=> 'sydney_section_main_header',
-			'active_callback' 	=> function() { return sydney_callback_header_elements( 'woocommerce_icons' ); }
-		)
-	)
-);
-
-$wp_customize->add_setting( 'main_header_cart_account_title',
-	array(
-		'default' 			=> '',
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'main_header_cart_account_title',
-		array(
-			'label'				=> esc_html__( 'Cart &amp; account icons', 'sydney' ),
-			'section' 			=> 'sydney_section_main_header',
-			'active_callback' 	=> function() { return sydney_callback_header_elements( 'woocommerce_icons' ); }
-		)
-	)
-);
 
 $wp_customize->add_setting(
 	'enable_header_cart',
@@ -699,36 +653,6 @@ $wp_customize->add_control(
 );
 
 //Button
-$wp_customize->add_setting( 'header_divider_4',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'header_divider_4',
-		array(
-			'section' 			=> 'sydney_section_main_header',
-			'active_callback' 	=> function() { return sydney_callback_header_elements( 'button' ); }
-		)
-	)
-);
-
-$wp_customize->add_setting( 'main_header_button_title',
-	array(
-		'default' 			=> '',
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'main_header_button_title',
-		array(
-			'label'				=> esc_html__( 'Button', 'sydney' ),
-			'section' 			=> 'sydney_section_main_header',
-			'active_callback' 	=> function() { return sydney_callback_header_elements( 'button' ); }
-		)
-	)
-);
-
 $wp_customize->add_setting(
 	'header_button_text',
 	array(
@@ -780,36 +704,6 @@ $wp_customize->add_control(
 );
 
 //Contact info
-$wp_customize->add_setting( 'header_divider_5',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'header_divider_5',
-		array(
-			'section' 			=> 'sydney_section_main_header',
-			'active_callback' 	=> function() { return sydney_callback_header_elements( 'contact_info' ); }
-		)
-	)
-);
-
-$wp_customize->add_setting( 'main_header_contact_info_title',
-	array(
-		'default' 			=> '',
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'main_header_contact_info_title',
-		array(
-			'label'				=> esc_html__( 'Contact info', 'sydney' ),
-			'section' 			=> 'sydney_section_main_header',
-			'active_callback' 	=> function() { return sydney_callback_header_elements( 'contact_info' ); }
-		)
-	)
-);
-
 $wp_customize->add_setting(
 	'header_contact_mail',
 	array(
@@ -913,7 +807,7 @@ $wp_customize->add_setting(
     'global_main_header_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -945,7 +839,7 @@ $wp_customize->add_setting(
     'global_main_header_color_sticky',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -977,7 +871,7 @@ $wp_customize->add_setting(
     'global_main_header_bottom_background',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -1010,7 +904,7 @@ $wp_customize->add_setting(
     'global_main_header_bottom_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -1043,7 +937,7 @@ $wp_customize->add_setting(
     'global_main_header_submenu_background',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -1075,7 +969,7 @@ $wp_customize->add_setting(
     'global_main_header_submenu_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -1107,7 +1001,7 @@ $wp_customize->add_setting(
     'global_menu_items_hover',
     array(
         'default'           => 'global_color_1',
-        'sanitize_callback' => 'sanitize_hex_color',
+        'sanitize_callback' => 'wp_kses_post',
     )
 );
 
@@ -1137,7 +1031,7 @@ $wp_customize->add_setting(
     'global_submenu_items_hover',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sanitize_hex_color',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );

@@ -276,9 +276,9 @@ function sydney_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	
-	wp_enqueue_style( 'sydney-style-min', get_template_directory_uri() . '/css/styles.min.css', '', '20221019' );
+	wp_enqueue_style( 'sydney-style-min', get_template_directory_uri() . '/css/styles.min.css', '', '20230829' );
 
-	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20221019' );
+	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20230821' );
 }
 add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
 

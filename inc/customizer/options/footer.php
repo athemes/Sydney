@@ -227,7 +227,7 @@ $wp_customize->add_setting(
     'global_footer_widgets_background',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -259,7 +259,7 @@ $wp_customize->add_setting(
     'global_footer_widgets_title_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -291,7 +291,7 @@ $wp_customize->add_setting(
     'global_footer_widgets_headings_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -323,7 +323,7 @@ $wp_customize->add_setting(
     'global_footer_widgets_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -355,7 +355,7 @@ $wp_customize->add_setting(
     'global_footer_widgets_links_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -387,7 +387,7 @@ $wp_customize->add_setting(
     'global_footer_widgets_links_hover_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -463,7 +463,7 @@ $wp_customize->add_setting(
     'global_footer_widgets_divider_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -776,7 +776,7 @@ $wp_customize->add_setting(
     'global_footer_background',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -808,7 +808,7 @@ $wp_customize->add_setting(
     'global_footer_color',
     array(
         'default'           => '',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
@@ -883,8 +883,8 @@ $wp_customize->add_control( 'footer_credits_divider_size', array(
 $wp_customize->add_setting(
     'global_footer_credits_divider_color',
     array(
-        'default'           => 'rgba(33,33,33,0.1)',
-        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'default'           => '',
+        'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'postMessage'
     )
 );
