@@ -34,7 +34,7 @@ if (!defined('ABSPATH')) {
                                 <?php echo sydney_dashboard_get_setting_icon( 'arrow' ); ?>
                                 <?php echo sprintf(
                                     esc_html__( 'To get your key, please login to your %1$saThemes account%2$s.', 'sydney' ),
-                                    '<a href="https://www.athemes.com/login/" target="_blank">',
+                                    '<a href="https://athemes.com/your-account/" target="_blank">',
                                     '</a>'
                                 ); ?>
                             </li>

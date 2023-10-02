@@ -105,7 +105,7 @@ function sydney_dashboard_settings()
 	$settings['tabs']  = array(
 		'home'           => esc_html__('Home', 'sydney'),
 		'starter-sites'  => esc_html__('Starter Sites', 'sydney'),
-		'settings'       => esc_html__('Settings', 'sydney'),
+		'settings'       => esc_html__('License', 'sydney'),
 		'free-vs-pro'    => esc_html__('Free vs Pro', 'sydney')
 	);
 
@@ -246,6 +246,7 @@ function sydney_dashboard_settings()
 		'title'      => esc_html__('Top bar', 'sydney'),
 		'desc'       => esc_html__('Customize the top bar of your theme.', 'sydney'),
 		'link_label' => esc_html__('Customize', 'sydney'),
+		'docs_link'   => 'https://docs.athemes.com/article/pro-how-to-configure-the-top-bar/',
 		'link_url'   => add_query_arg('autofocus[section]', 'sydney_contact_info', admin_url('customize.php'))
 	);
 	$settings['features'][] = array(
@@ -367,6 +368,16 @@ function sydney_dashboard_settings()
 		'link_label'  => esc_html__('Customize', 'sydney'),
 		'docs_link'   => 'https://docs.athemes.com/article/440-pro-breadcrumbs',
 		'desc'        => __('Breadcrumbs functionality.', 'sydney'),
+	);
+	$settings['features'][] = array(
+		'category'    => 'blog',
+		'module'      => 'sidebar',
+		'title'        => esc_html__('Sidebar Module', 'sydney'),
+		'type'        => 'pro',
+		'link_url'    => add_query_arg('autofocus[section]', 'sydney_section_sidebar', admin_url('customize.php')),
+		'link_label'  => esc_html__('Customize', 'sydney'),
+		'docs_link'   => 'https://docs.athemes.com/article/pro-sidebar-module',
+		'desc'        => __('Extended sidebar options.', 'sydney'),
 	);
 	$settings['features'][] = array(
 		'category'    => 'integrations',
