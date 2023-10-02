@@ -1333,6 +1333,7 @@
 		wp.customize( 'global_color_'+ i, function( value ) {
 			value.bind( function( to ) {
 				$( 'html' ).css( '--sydney-global-color-' + i, to );
+				$( 'html' ).css( '--e-global-color-global_color_' + i, to );
 			} );
 		} );
 	});
