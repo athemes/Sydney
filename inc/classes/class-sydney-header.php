@@ -629,7 +629,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 							<?php endif; ?>
 							</div>
 							<div class="col-md-8 col-sm-4 col-xs-12">
-								<div class="btn-menu" aria-expanded="false" <?php echo wp_kses_post( apply_filters( 'sydney_nav_toggle_data_attrs', '' ) ); ?>><span class="screen-reader-text"><?php echo esc_html__( 'Toggle menu', 'sydney' ); ?></span><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
+								<div class="btn-menu" <?php echo wp_kses_post( apply_filters( 'sydney_nav_toggle_data_attrs', '' ) ); ?>><span class="screen-reader-text"><?php echo esc_html__( 'Toggle menu', 'sydney' ); ?></span><i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-menu', true ); ?></i></div>
 								<nav id="mainnav" class="mainnav" role="navigation" <?php sydney_do_schema( 'nav' ); ?> <?php echo wp_kses_post( apply_filters( 'sydney_nav_data_attrs', '' ) ); ?>>
 									<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => 'sydney_menu_fallback' ) ); ?>
 								</nav><!-- #site-navigation -->
