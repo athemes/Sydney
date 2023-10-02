@@ -137,17 +137,15 @@ class Sydney_Typography_Control extends WP_Customize_Control {
 		 * Return the list of Google Fonts from our json file. Unless otherwise specfied, list will be limited to 30 fonts.
 		 */
 		public function get_google_fonts( $count = 30 ) {
-			$fontFile = get_template_directory_uri() . '/inc/customizer/controls/typography/google-fonts-alphabetical.json';
 
-			$request = wp_remote_get( $fontFile );
-			if( is_wp_error( $request ) ) {
-				return "";
-			}
+			require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
+			require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 
-			$body = wp_remote_retrieve_body( $request );
-			$content = json_decode( $body );
+			$fontFile = get_parent_theme_file_path('/inc/customizer/controls/typography/google-fonts-alphabetical.json');
 
+			$file_system 	= new WP_Filesystem_Direct( false );
+			$content 		= json_decode( $file_system->get_contents ( $fontFile ) );
+	
 			return $content->items;
-
 		}
 	}
