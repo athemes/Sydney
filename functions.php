@@ -276,7 +276,7 @@ function sydney_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	
-	wp_enqueue_style( 'sydney-style-min', get_template_directory_uri() . '/css/styles.css', '', '20230829' );
+	wp_enqueue_style( 'sydney-style-min', get_template_directory_uri() . '/css/styles.min.css', '', '20231017' );
 
 	wp_enqueue_style( 'sydney-style', get_stylesheet_uri(), '', '20230821' );
 }
