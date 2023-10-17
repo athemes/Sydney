@@ -856,13 +856,17 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
         public function hex2rgba($color, $opacity = false) {
 
-            if ($color[0] == '#' ) {
-                $color = substr( $color, 1 );
+            $output = '';
+            
+            if ( $color !== false ) {
+                if ($color[0] == '#' ) {
+                    $color = substr( $color, 1 );
+                }
+                $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+                $rgb =  array_map('hexdec', $hex);
+                $opacity = 0.9;
+                $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
             }
-            $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-            $rgb =  array_map('hexdec', $hex);
-            $opacity = 0.9;
-            $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
     
             return $output;
         }

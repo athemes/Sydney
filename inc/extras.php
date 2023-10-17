@@ -600,7 +600,7 @@ function sydney_add_submenu_icons( $item_output, $item, $depth, $args ) {
 		return $item_output;
 	}
 	
-	if ( empty( $args->theme_location ) || 'primary' !== $args->theme_location ) {
+	if ( empty( $args->theme_location ) || ( 'mobile' !== $args->theme_location && 'primary' !== $args->theme_location && 'ele-nav' !== $args->theme_location ) ) {
 		return $item_output;
 	}
 
