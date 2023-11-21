@@ -80,7 +80,6 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/controls/class_sydney_tab_control.php';
     require get_template_directory() . '/inc/customizer/controls/class_sydney_text_control.php';
     //require get_template_directory() . '/inc/customizer/controls/class_sydney_tinymce_control.php';
-    require get_template_directory() . '/inc/customizer/controls/class_sydney_divider_control.php';
     require get_template_directory() . '/inc/customizer/controls/toggle/class_sydney_toggle_control.php';
     require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';    
     require get_template_directory() . '/inc/customizer/controls/class_sydney_upsell_message.php';    
@@ -674,7 +673,7 @@ require get_template_directory() . '/inc/customizer/controls/display-conditions/
  */
 function sydney_customize_footer_scripts() {
     
-    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20230905' );
+    wp_enqueue_style( 'sydney-customizer-styles', get_template_directory_uri() . '/css/customizer.min.css', '', '20231017' );
     wp_enqueue_script( 'sydney-customizer-scripts', get_template_directory_uri() . '/js/customize-controls.min.js', array( 'jquery', 'jquery-ui-core' ), '20230905', true );
     
     $post_type_array = sydney_get_posts_types_for_js();

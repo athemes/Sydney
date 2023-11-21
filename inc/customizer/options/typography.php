@@ -146,19 +146,6 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'headings_t
 	)
 ) );
 
-$wp_customize->add_setting( 'typography_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'typography_divider_1',
-		array(
-			'section' 		=> 'sydney_section_typography_headings',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'h1_title',
 	array(
 		'default' 			=> '',
@@ -170,6 +157,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'h1_title',
 		array(
 			'label'			=> esc_html__( 'Heading 1', 'sydney' ),
 			'section' 		=> 'sydney_section_typography_headings',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -598,19 +586,6 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'body_text_
 	)
 ) );
 
-$wp_customize->add_setting( 'typography_divider_2',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'typography_divider_2',
-		array(
-			'section' 		=> 'sydney_section_typography_body',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'body_title',
 	array(
 		'default' 			=> '',
@@ -622,6 +597,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'body_title'
 		array(
 			'label'			=> esc_html__( 'Body', 'sydney' ),
 			'section' 		=> 'sydney_section_typography_body',
+			'separator' 	=> 'before'
 		)
 	)
 );

@@ -8,6 +8,8 @@ class Sydney_Responsive_Slider extends WP_Customize_Control {
 
 	public $is_responsive;
 
+	public $separator = false;
+
 	/**
 	 * Render the control in the customizer
 	 */
@@ -25,6 +27,11 @@ class Sydney_Responsive_Slider extends WP_Customize_Control {
 		}
 
 		?>
+
+		<?php if ( 'before' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider before">
+		<?php endif; ?>
+
 			<div class="range-slider-wrapper font-size-range">
 				<div class="device-heading">				
 					<div class="customize-control-title"><?php echo esc_html( $this->label ); ?></div>
@@ -51,6 +58,10 @@ class Sydney_Responsive_Slider extends WP_Customize_Control {
 				</div>		
 				<?php endif; ?>										
 			</div>	
+
+		<?php if ( 'after' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider">
+		<?php endif; ?>				
 		<?php
 	}
 }

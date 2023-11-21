@@ -11,6 +11,8 @@ class Sydney_Radio_Buttons extends WP_Customize_Control {
 
 	public $cols;
 
+	public $separator = false;
+
 	public function render_content() {
 
 		$allowed_tags = array(
@@ -39,6 +41,11 @@ class Sydney_Radio_Buttons extends WP_Customize_Control {
 			),			
 		);
 		?>
+
+		<?php if ( 'before' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider before">
+		<?php endif; ?>
+
 			<div class="text_radio_button_control">
 				<?php if( !empty( $this->label ) ) { ?>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -56,6 +63,11 @@ class Sydney_Radio_Buttons extends WP_Customize_Control {
 					<?php	} ?>
 				</div>
 			</div>
+
+		<?php if ( 'after' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider">
+		<?php endif; ?>
+
 		<?php
 	}
 }

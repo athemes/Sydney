@@ -443,18 +443,6 @@
         )
     );
     //Header button
-    $wp_customize->add_setting( 'hero_slider_divider_1',
-        array(
-            'sanitize_callback' => 'esc_attr'
-        )
-    );
-
-    $wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'hero_slider_divider_1',
-            array(
-                'section' 		=> 'sydney_slider',
-            )
-        )
-    );	
 
     $wp_customize->add_setting( 'accordion_hero_slider_button', 
         array(
@@ -502,19 +490,6 @@
             'label' => __( 'Text for your call to action button', 'sydney' ),
             'section' => 'sydney_slider',
             'type' => 'text',
-        )
-    );
-
-    $wp_customize->add_setting( 'hero_slider_divider_2',
-        array(
-            'sanitize_callback' => 'esc_attr'
-        )
-    );
-
-    $wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'hero_slider_divider_2',
-            array(
-                'section' 		=> 'sydney_slider',
-            )
         )
     );
 	
@@ -595,19 +570,6 @@
 		)
 	);
 
-    $wp_customize->add_setting( 'hero_slider_divider_3',
-        array(
-            'sanitize_callback' => 'esc_attr'
-        )
-    );
-
-    $wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'hero_slider_divider_3',
-            array(
-                'section' 		=> 'sydney_slider',
-            )
-        )
-    );	
-
     $wp_customize->add_setting( 'hero_slider_activate_link',
         array(
             'default' 			=> '',
@@ -619,6 +581,7 @@
             array(
                 'description' 	=> '<a href="javascript:wp.customize.section( \'sydney_header_type\' ).focus();">' . esc_html__( 'Click here to select where you want to display the slider', 'sydney' ) . '</a>',
                 'section' 		=> 'sydney_slider',
+                'separator' 	=> 'before'
             )
         )
     );	

@@ -342,20 +342,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'single_product_styling_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'single_product_styling_divider_1',
-		array(
-			'section' 		=> 'sydney_section_single_product',
-			'priority'	 	=> 140
-		)
-	)
-);
-
 $wp_customize->add_setting( 'single_product_price_size_desktop', array(
 	'default'   		=> 24,
 	'transport'			=> 'postMessage',
@@ -388,7 +374,8 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'single
 			'min'	=> 0,
 			'max'	=> 200
 		),
-		'priority'	 => 150
+		'priority'	 => 150,
+		'separator'  => 'before'
 	)
 ) );
 

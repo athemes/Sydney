@@ -116,20 +116,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'shop_archive_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'shop_archive_divider_1',
-		array(
-			'section' 			=> 'woocommerce_product_catalog',
-			'priority'	 		=> 40
-		)
-	)
-);
-
 //Page elements
 $wp_customize->add_setting( 'shop_page_elements_title',
 	array(
@@ -142,7 +128,8 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'shop_page_e
 		array(
 			'label'			=> esc_html__( 'Page elements', 'sydney' ),
 			'section' 		=> 'woocommerce_product_catalog',
-			'priority'	 	=> 50
+			'priority'	 	=> 50,
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -596,18 +583,7 @@ $wp_customize->add_control(
 		)
 	)
 );
-$wp_customize->add_setting( 'shop_cart_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'shop_cart_divider_1',
-		array(
-			'section' 			=> 'sydney_section_shop_cart',
-			'priority'	 		=> 30
-		)
-	)
-);
+
 $wp_customize->add_setting(
 	'shop_cart_show_cross_sell',
 	array(
@@ -622,7 +598,8 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Cross Sell', 'sydney' ),
 			'section'       	=> 'sydney_section_shop_cart',
-			'priority'	 		=> 40
+			'priority'	 		=> 40,
+			'separator' 		=> 'before'
 		)
 	)
 );

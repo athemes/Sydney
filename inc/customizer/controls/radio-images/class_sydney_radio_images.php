@@ -11,10 +11,18 @@ class Sydney_Radio_Images extends WP_Customize_Control {
 
 	public $cols;
 
+	public $show_labels = false;
+
+	public $separator = false;
+
 	public function render_content() {
 
 		if ( empty( $this->choices ) )
 			return; ?>
+
+		<?php if ( 'before' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider before">
+		<?php endif; ?>
 
 		<?php if ( !empty( $this->label ) ) : ?>
 			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -31,8 +39,12 @@ class Sydney_Radio_Images extends WP_Customize_Control {
 				<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( "_customize-radio-{$this->id}" ); ?>" id="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> /> 
 
 				<label for="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>">
-					<span class="screen-reader-text"><?php echo esc_html( $args['label'] ); ?></span>
 					<div class="img-cont"><img src="<?php echo esc_url( sprintf( $args['url'], get_template_directory_uri(), get_stylesheet_directory_uri() ) ); ?>" title="<?php echo esc_attr( $args['label'] ); ?>" alt="<?php echo esc_attr( $args['label'] ); ?>" /></div>
+					<?php if ( !$this->show_labels ) : ?>
+					<span class="screen-reader-text"><?php echo esc_html( $args['label'] ); ?></span>
+					<?php else : ?>
+					<span class="radio-label"><?php echo esc_html( $args['label'] ); ?></span>	
+					<?php endif; ?>
 				</label>
 
 			<?php endforeach; ?>
@@ -42,9 +54,15 @@ class Sydney_Radio_Images extends WP_Customize_Control {
 		<script type="text/javascript">
 			jQuery( document ).ready( function() {
 				jQuery( '#<?php echo esc_attr( "input_{$this->id}" ); ?>' ).buttonset();
+
 				jQuery( '#<?php echo esc_attr( "input_{$this->id}" ); ?>' ).find( 'label' ).removeClass( 'ui-button' );
 			} );
 		</script>
+
+
+		<?php if ( 'after' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider">
+		<?php endif; ?>		
 	<?php }
 
 	/**
@@ -79,6 +97,7 @@ class Sydney_Radio_Images extends WP_Customize_Control {
 			.customize-control-botiga-radio-image .ui-state-active img { border-color: #317CB5;opacity:1; }
 			.customize-control-botiga-radio-image .ui-state-active .img-cont {position:relative;}
 			.customize-control-botiga-radio-image .ui-state-active .img-cont:after { content:'';background:rgba(49, 124, 181, 0.1);top:0;left:0;position:absolute;width:100%;height:100%; }
+			.ui-state-active {background:transparent;border:0;}
 		</style>
 	<?php }
 }

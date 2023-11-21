@@ -147,21 +147,7 @@ foreach ( $post_types as $post_type ) {
 				}	
 			},
 			'priority' => 1,
+			'separator' 	=> 'after'
 		)
 	) );
-
-	$wp_customize->add_setting( $post_type->name . '_layouts_div_1',
-		array(
-			'sanitize_callback' => 'esc_attr'
-		)
-	);
-
-	$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, $post_type->name . '_layouts_div_1',
-			array(
-				'section' 	=> $section,
-				'priority' => 1,
-			)
-		)
-	);	
-
 }

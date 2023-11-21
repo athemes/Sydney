@@ -126,19 +126,6 @@ $wp_customize->add_control(
 			)
 		)
 	)
-); 
-
-$wp_customize->add_setting( 'footer_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_1',
-		array(
-			'section' 		=> 'sydney_section_footer_widgets',
-		)
-	)
 );
 
 $wp_customize->add_setting( 'footer_container',
@@ -155,7 +142,8 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_con
 		'choices' => array(
 			'container' 		=> esc_html__( 'Contained', 'sydney' ),
 			'container-fluid' 	=> esc_html__( 'Full-width', 'sydney' ),
-		)
+		),
+		'separator' 	=> 'before'
 	)
 ) );
 
@@ -194,19 +182,6 @@ $wp_customize->add_control( 'footer_widgets_visibility', array(
 	),
 ) );
 
-$wp_customize->add_setting( 'footer_divider_2',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_2',
-		array(
-			'section' 		=> 'sydney_section_footer_widgets',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'footer_widget_sections',
 	array(
 		'default' 			=> '',
@@ -218,6 +193,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'footer_widg
 		array(
 			'description' 	=> '<span class="customize-control-title" style="font-style: normal;">' . esc_html__( 'Footer widget areas', 'sydney' ) . '</span><a class="footer-widget-area-link footer-widget-area-link-1" href="javascript:wp.customize.section( \'sidebar-widgets-footer-1\' ).focus();">' . esc_html__( 'Widget area 1', 'sydney' ) . '<span class="dashicons dashicons-arrow-right-alt2"></span></a><a class="footer-widget-area-link footer-widget-area-link-2" href="javascript:wp.customize.section( \'sidebar-widgets-footer-2\' ).focus();">' . esc_html__( 'Widget area 2', 'sydney' ) . '<span class="dashicons dashicons-arrow-right-alt2"></span></a><a class="footer-widget-area-link footer-widget-area-link-3" href="javascript:wp.customize.section( \'sidebar-widgets-footer-3\' ).focus();">' . esc_html__( 'Widget area 3', 'sydney' ) . '<span class="dashicons dashicons-arrow-right-alt2"></span></a><a class="footer-widget-area-link footer-widget-area-link-4" href="javascript:wp.customize.section( \'sidebar-widgets-footer-4\' ).focus();">' . esc_html__( 'Widget area 4', 'sydney' ) . '<span class="dashicons dashicons-arrow-right-alt2"></span></a>',
 			'section' 		=> 'sydney_section_footer_widgets',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -415,19 +391,6 @@ $wp_customize->add_control(
     )
 );
 
-$wp_customize->add_setting( 'footer_divider_3',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_3',
-		array(
-			'section' 		=> 'sydney_section_footer_widgets',
-		)
-	)
-);
-
 $wp_customize->add_setting(
 	'footer_widgets_divider',
 	array(
@@ -442,6 +405,7 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Enable top divider', 'sydney' ),
 			'section'       	=> 'sydney_section_footer_widgets',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -510,19 +474,6 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_wid
 	)
 ) );
 
-$wp_customize->add_setting( 'footer_divider_4',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_4',
-		array(
-			'section' 		=> 'sydney_section_footer_widgets',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'footer_widgets_padding_desktop', array(
 	'default'   		=> 95,
 	'transport'			=> 'postMessage',
@@ -555,7 +506,8 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'footer
 		'input_attrs' => array (
 			'min'	=> 0,
 			'max'	=> 200
-		)		
+		),
+		'separator' 	=> 'before'
 	)
 ) );
 
@@ -579,19 +531,6 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'footer
 		)
 	)
 ) );
-
-$wp_customize->add_setting( 'footer_divider_5',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_5',
-		array(
-			'section' 		=> 'sydney_section_footer_widgets',
-		)
-	)
-);
 
 $wp_customize->add_setting( 'footer_widgets_title_size_desktop', array(
 	'default'   		=> 22,
@@ -625,7 +564,8 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'footer
 		'input_attrs' => array (
 			'min'	=> 0,
 			'max'	=> 100
-		)		
+		),
+		'separator' 	=> 'before'
 	)
 ) );
 
@@ -710,22 +650,10 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_cre
 		'choices' => array(
 			'container' 		=> esc_html__( 'Contained', 'sydney' ),
 			'container-fluid' 	=> esc_html__( 'Full-width', 'sydney' ),
-		)
+		),
+		'separator' 	=> 'after'
 	)
 ) );
-
-$wp_customize->add_setting( 'footer_divider_8',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_8',
-		array(
-			'section' 		=> 'sydney_section_footer_credits',
-		)
-	)
-);
 
 $wp_customize->add_setting(
 	'footer_credits',
@@ -741,19 +669,6 @@ $wp_customize->add_control( 'footer_credits', array(
 	'type'        => 'textarea',
 	'section'     => 'sydney_section_footer_credits',
 ) );
-
-$wp_customize->add_setting( 'footer_divider_9',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_9',
-		array(
-			'section' 		=> 'sydney_section_footer_credits',
-		)
-	)
-);
 
 $wp_customize->add_setting( 'social_profiles_footer',
 	array(
@@ -836,19 +751,6 @@ $wp_customize->add_control(
     )
 );
 
-$wp_customize->add_setting( 'footer_divider_6',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_6',
-		array(
-			'section' 		=> 'sydney_section_footer_credits',
-		)
-	)
-);
-
 $wp_customize->add_setting(
 	'footer_credits_divider',
 	array(
@@ -863,6 +765,7 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Enable top divider', 'sydney' ),
 			'section'       	=> 'sydney_section_footer_credits',
+			'separator' 		=> 'before'
 		)
 	)
 );
@@ -931,19 +834,6 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'footer_cre
 	)
 ) );
 
-$wp_customize->add_setting( 'footer_divider_7',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'footer_divider_7',
-		array(
-			'section' 		=> 'sydney_section_footer_credits',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'footer_credits_padding_desktop', array(
 	'default'   		=> 20,
 	'transport'			=> 'postMessage',
@@ -961,6 +851,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'footer
 		'input_attrs' => array (
 			'min'	=> 0,
 			'max'	=> 200
-		)		
+		),
+		'separator' 	=> 'before'		
 	)
 ) );

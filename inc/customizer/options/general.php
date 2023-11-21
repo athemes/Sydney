@@ -319,20 +319,6 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'scroll
 	)
 ) );
 
-$wp_customize->add_setting( 'scrolltop_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'scrolltop_divider_1',
-		array(
-			'section' 		=> 'sydney_section_scrolltotop',
-			'active_callback' => 'sydney_callback_scrolltop',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'scrolltop_position',
 	array(
 		'default' 			=> 'right',
@@ -349,6 +335,7 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'scrolltop_
 			'right' 	=> esc_html__( 'Right', 'sydney' ),
 		),
 		'active_callback' => 'sydney_callback_scrolltop',
+		'separator' 	=> 'before'
 	)
 ) );
 
@@ -393,22 +380,9 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'scroll
 			'max'	=> 100
 		),
 		'active_callback' => 'sydney_callback_scrolltop',
+		'separator' 	=> 'after'
 	)
 ) );
-
-$wp_customize->add_setting( 'scrolltop_divider_2',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'scrolltop_divider_2',
-		array(
-			'section' 		=> 'sydney_section_scrolltotop',
-			'active_callback' => 'sydney_callback_scrolltop',
-		)
-	)
-);
 
 $wp_customize->add_setting( 'scrolltop_visibility', array(
 	'sanitize_callback' => 'sydney_sanitize_select',
@@ -492,19 +466,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'scrolltop_divider_3',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'scrolltop_divider_3',
-		array(
-			'section' 		=> 'sydney_section_scrolltotop',
-		)
-	)
-);
-
 $wp_customize->add_setting(
 	'global_scrolltop_color_hover',
 	array(
@@ -567,19 +528,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'scrolltop_divider_4',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'scrolltop_divider_4',
-		array(
-			'section' 		=> 'sydney_section_scrolltotop',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'scrolltop_icon_size', array(
 	'default'   		=> 16,
 	'transport'			=> 'postMessage',
@@ -598,6 +546,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'scroll
 			'min'	=> 10,
 			'max'	=> 100
 		),
+		'separator' 	=> 'before'
 	)
 ) );
 
@@ -728,19 +677,6 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'button
 	)
 ) );
 
-$wp_customize->add_setting( 'buttons_divider_0',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'buttons_divider_0',
-		array(
-			'section' 		=> 'sydney_section_buttons',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'button_font_size_desktop', array(
 	'default'   		=> 13,
 	'sanitize_callback' => 'absint',
@@ -773,7 +709,8 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'button
 		'input_attrs' => array (
 			'min'	=> 0,
 			'max'	=> 50
-		)		
+		),
+		'separator' 	=> 'before'
 	)
 ) );
 
@@ -797,19 +734,6 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'button_tex
 	)
 ) );
 
-$wp_customize->add_setting( 'buttons_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'buttons_divider_1',
-		array(
-			'section' 		=> 'sydney_section_buttons',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'buttons_default_state_title',
 	array(
 		'default' 			=> '',
@@ -821,6 +745,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'buttons_def
 		array(
 			'label'			=> esc_html__( 'Default state', 'sydney' ),
 			'section' 		=> 'sydney_section_buttons',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -915,19 +840,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'buttons_divider_2',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'buttons_divider_2',
-		array(
-			'section' 		=> 'sydney_section_buttons',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'buttons_hover_state_title',
 	array(
 		'default' 			=> '',
@@ -939,6 +851,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'buttons_hov
 		array(
 			'label'			=> esc_html__( 'Hover state', 'sydney' ),
 			'section' 		=> 'sydney_section_buttons',
+			'separator' 	=> 'before'
 		)
 	)
 );

@@ -51,20 +51,6 @@ $wp_customize->add_control( new Sydney_Palette_Control( $wp_customize, 'custom_p
 	'priority'	=> 1,
 )));
 
-$wp_customize->add_setting( 'color_divider_0',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'color_divider_0',
-		array(
-			'section' 		=> 'colors',
-			'priority'	=> 1,
-		)
-	)
-);
-
 //General
 $wp_customize->add_setting( 'general_color_title',
 	array(
@@ -77,7 +63,8 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'general_col
 		array(
 			'label'			=> esc_html__( 'General', 'sydney' ),
 			'section' 		=> 'colors',
-			'priority'			=> 9
+			'priority'			=> 9,
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -143,19 +130,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'color_divider_2',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'color_divider_2',
-		array(
-			'section' 		=> 'colors',
-		)
-	)
-);
-
 //Links
 $wp_customize->add_setting( 'links_color_title',
 	array(
@@ -168,6 +142,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'links_color
 		array(
 			'label'			=> esc_html__( 'Links', 'sydney' ),
 			'section' 		=> 'colors',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -233,19 +208,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'color_divider_3',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'color_divider_3',
-		array(
-			'section' 		=> 'colors',
-		)
-	)
-);
-
 //Headings
 $wp_customize->add_setting( 'headings_color_title',
 	array(
@@ -258,6 +220,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'headings_co
 		array(
 			'label'			=> esc_html__( 'Headings', 'sydney' ),
 			'section' 		=> 'colors',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -443,19 +406,6 @@ $wp_customize->add_control(
 	)
 );
 
-$wp_customize->add_setting( 'color_divider_4',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'color_divider_4',
-		array(
-			'section' 		=> 'colors',
-		)
-	)
-);
-
 //Forms
 $wp_customize->add_setting( 'forms_color_title',
 	array(
@@ -468,6 +418,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'forms_color
 		array(
 			'label'			=> esc_html__( 'Form fields', 'sydney' ),
 			'section' 		=> 'colors',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -598,20 +549,6 @@ $wp_customize->add_control(
 
 
 if ( false == get_option('sydney-update-header' ) ) {
-
-	$wp_customize->add_setting( 'color_divider_5',
-		array(
-			'sanitize_callback' => 'esc_attr'
-		)
-	);
-
-	$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'color_divider_5',
-			array(
-				'section' 		=> 'colors',
-			)
-		)
-	);
-
 	$wp_customize->add_setting( 'header_old_color_title',
 		array(
 			'default' 			=> '',
@@ -623,6 +560,7 @@ if ( false == get_option('sydney-update-header' ) ) {
 			array(
 				'label'			=> esc_html__( 'Header', 'sydney' ),
 				'section' 		=> 'colors',
+				'separator' 	=> 'before'
 			)
 		)
 	);
@@ -780,26 +718,6 @@ if ( false == get_option('sydney-update-header' ) ) {
 	);     
 }
 
-
-
-
-
-
-
-
-$wp_customize->add_setting( 'color_divider_6',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'color_divider_6',
-		array(
-			'section' 		=> 'colors',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'sidebar_color_title',
 	array(
 		'default' 			=> '',
@@ -811,6 +729,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'sidebar_col
 		array(
 			'label'			=> esc_html__( 'Sidebar', 'sydney' ),
 			'section' 		=> 'colors',
+			'separator' 	=> 'before'
 		)
 	)
 );

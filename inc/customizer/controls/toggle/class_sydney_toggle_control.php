@@ -11,11 +11,18 @@ class Sydney_Toggle_Control extends WP_Customize_Control {
 	 */
 	public $type = 'sydney-toggle-control';
 
+	public $separator = false;
+
 	/**
 	 * Render the control in the customizer
 	 */
 	public function render_content(){
 	?>
+
+		<?php if ( 'before' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider before">
+		<?php endif; ?>
+
 		<div class="toggle-switch-control">
 			<div class="toggle-switch">
 				<input type="checkbox" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" class="toggle-switch-checkbox" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?>>
@@ -29,6 +36,10 @@ class Sydney_Toggle_Control extends WP_Customize_Control {
 				<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 			<?php } ?>
 		</div>
+
+		<?php if ( 'after' === $this->separator ) : ?>
+			<hr class="sydney-cust-divider">
+		<?php endif; ?>
 	<?php
 	}
 }

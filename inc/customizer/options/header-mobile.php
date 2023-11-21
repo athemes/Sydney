@@ -52,19 +52,7 @@ $wp_customize->add_control(
 		array(
 			'label'         	=> esc_html__( 'Enable sticky header on mobiles', 'sydney' ),
 			'section'       	=> 'sydney_section_mobile_header',
-		)
-	)
-);
-
-$wp_customize->add_setting( 'mobile_sticky_header_divider_0',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'mobile_sticky_header_divider_0',
-		array(
-			'section' 		=> 'sydney_section_mobile_header',
+			'separator' 	=> 'after'
 		)
 	)
 );
@@ -131,19 +119,6 @@ $wp_customize->selective_refresh->add_partial( 'header_components_mobile', array
 	'container_inclusive' 	=> true,
 ) );
 
-$wp_customize->add_setting( 'mobile_header_divider_1',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'mobile_header_divider_1',
-		array(
-			'section' 		=> 'sydney_section_mobile_header',
-		)
-	)
-);
-
 $wp_customize->add_setting(
 	'header_offcanvas_mode',
 	array(
@@ -171,6 +146,7 @@ $wp_customize->add_control(
 				),	
 			),
 			'show_labels' => true,
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -197,19 +173,6 @@ $wp_customize->selective_refresh->add_partial( 'header_components_offcanvas', ar
 	'container_inclusive' 	=> false,
 ) );
 
-$wp_customize->add_setting( 'mobile_header_divider_2',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'mobile_header_divider_2',
-		array(
-			'section' 		=> 'sydney_section_mobile_header',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'mobile_menu_alignment',
 	array(
 		'default' 			=> 'left',
@@ -225,7 +188,8 @@ $wp_customize->add_control( new Sydney_Radio_Buttons( $wp_customize, 'mobile_men
 			'left' 		=> '<svg width="16" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h10v1H0zM0 4h16v1H0zM0 8h10v1H0zM0 12h16v1H0z"/></svg>',
 			'center' 	=> '<svg width="16" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h10v1H3zM0 4h16v1H0zM3 8h10v1H3zM0 12h16v1H0z"/></svg>',
 			'right' 	=> '<svg width="16" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0h10v1H6zM0 4h16v1H0zM6 8h10v1H6zM0 12h16v1H0z"/></svg>',
-		)
+		),
+		'separator' 	=> 'before'
 	)
 ) );
 
@@ -392,20 +356,6 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'mobile
 	)
 ) );
 
-
-$wp_customize->add_setting( 'mobile_header_divider_3',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'mobile_header_divider_3',
-		array(
-			'section' 		=> 'sydney_section_mobile_header',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'mobile_header_offcanvas_title',
 	array(
 		'default' 			=> '',
@@ -417,6 +367,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'mobile_head
 		array(
 			'label'			=> esc_html__( 'Offcanvas menu', 'sydney' ),
 			'section' 		=> 'sydney_section_mobile_header',
+			'separator' 	=> 'before'
 		)
 	)
 );
@@ -485,19 +436,6 @@ $wp_customize->add_control(
     )
 );
 
-$wp_customize->add_setting( 'mobile_header_divider_4',
-	array(
-		'sanitize_callback' => 'esc_attr'
-	)
-);
-
-$wp_customize->add_control( new Sydney_Divider_Control( $wp_customize, 'mobile_header_divider_4',
-		array(
-			'section' 		=> 'sydney_section_mobile_header',
-		)
-	)
-);
-
 $wp_customize->add_setting( 'mobile_header_separator_title',
 	array(
 		'default' 			=> '',
@@ -509,6 +447,7 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'mobile_head
 		array(
 			'label'			=> esc_html__( 'Link separator', 'sydney' ),
 			'section' 		=> 'sydney_section_mobile_header',
+			'separator' 	=> 'before'
 		)
 	)
 );

@@ -656,6 +656,11 @@ require get_template_directory() . '/inc/dashboard/class-dashboard.php';
 require get_template_directory() . '/inc/dashboard/class-dashboard-settings.php';
 
 /**
+ * Performance
+ */
+require get_template_directory() . '/inc/performance/class-sydney-performance.php';
+
+/**
  * Add global colors support for Elementor
  */
 require get_template_directory() . '/inc/integrations/elementor/class-sydney-elementor-global-colors.php';
