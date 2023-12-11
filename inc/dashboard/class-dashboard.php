@@ -323,7 +323,7 @@ class Sydney_Dashboard
         $text = sprintf(
 			/* translators: %s: https://wordpress.org/ */
 			__( 'Thank you for creating your website with <a href="%s" class="sydney-dashboard-footer-link" target="_blank">Sydney</a>.', 'sydney' ),
-			'https://athemes.com/sydney-upgrade/'
+			'https://athemes.com/theme/sydney/'
 		);
 
         return $text;

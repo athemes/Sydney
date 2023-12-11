@@ -2495,6 +2495,7 @@ SVGs
 		-ms-flex-positive: 1;
 			flex-grow: 1;
 	}
+	.posts-layout .list-content,
 	.posts-layout {
 		max-width: 100%;
 	}

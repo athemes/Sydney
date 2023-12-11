@@ -409,7 +409,16 @@ function sydney_dashboard_settings()
 		'docs_link'   => 'https://docs.athemes.com/article/live-chat-in-sydney/',
 		'desc'        => __('Live chat floating icon', 'sydney'),
 	);
-		
+	$settings['features'][] = array(
+		'category'    => 'general',
+		'module'      => 'html-designer',
+		'title'        => esc_html__('Form &amp; HTML Designer', 'sydney'),
+		'type'        => 'pro',
+		'link_url'    => add_query_arg('autofocus[section]', 'sydney_section_html_designer', admin_url('customize.php')),
+		'link_label'  => esc_html__('Customize', 'sydney'),
+		'docs_link'   => '#',
+		'desc'        => __('Design options for HTML elements and forms.', 'sydney'),
+	);		
 	$settings['features'][] = array(
 		'type'       => 'pro',
 		'title'      => esc_html__('Extra Widget Area', 'sydney'),
@@ -424,6 +433,15 @@ function sydney_dashboard_settings()
 		'desc'       => esc_html__('Customize Google Maps integration in your theme.', 'sydney'),
 		'link_label' => esc_html__('Customize', 'sydney'),
 		'link_url'   => add_query_arg('autofocus[section]', 'sydney_pro_maps', admin_url('customize.php'))
+	);
+
+	$settings['features'][] = array(
+		'type'       => 'pro',
+		'title'      => esc_html__('Hooks', 'sydney'),
+		'desc'       => esc_html__('Add your custom code to various hooks', 'sydney'),
+		'module' 	 => 'hooks',
+		'link_label' => esc_html__('Customize', 'sydney'),
+		'link_url'   => add_query_arg('autofocus[panel]', 'sydney_hooks_panel', admin_url('customize.php'))
 	);
 
 	$settings['features'][] = array(
