@@ -2619,6 +2619,7 @@ SVGs
 }
 .wp-block-button__link:hover {
 	opacity: 0.85;
+	color: #fff;
 }
 .wp-block-button.is-style-outline a:not(.has-text-color) {
 	color: var(--sydney-button-background);

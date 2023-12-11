@@ -132,3 +132,7 @@
 	border-color: var(--sydney-button-background);
 	color: #fff;
 }
+/* List */
+.editor-styles-wrapper .wp-block-list li {
+	margin-bottom: 0;
+}

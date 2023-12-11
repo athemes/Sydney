@@ -72,13 +72,13 @@ function sydney_editor_styles() {
 	$custom .= ".editor-styles-wrapper { background-color:" . esc_attr($body_background) . "}"."\n";
 	
 	//Buttons
-	$custom .= Sydney_Custom_CSS::get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
-	$custom .= Sydney_Custom_CSS::get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
+	$custom .= Sydney_Custom_CSS::get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), 'div.editor-styles-wrapper .wp-block-button__link,button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
+	$custom .= Sydney_Custom_CSS::get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), 'div.editor-styles-wrapper .wp-block-button__link,button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
 
 	$buttons_radius = get_theme_mod( 'buttons_radius', 3 );
 	$custom .= "div.editor-styles-wrapper .wp-block-button__link { border-radius:" . intval( $buttons_radius ) . "px;}" . "\n";
 
-	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'button_font_size', $defaults = array( 'desktop' => 13, 'tablet' => 13, 'mobile' => 13 ), 'button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
+	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'button_font_size', $defaults = array( 'desktop' => 13, 'tablet' => 13, 'mobile' => 13 ), 'div.editor-styles-wrapper .wp-block-button__link,button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
 	$button_text_transform = get_theme_mod( 'button_text_transform', 'uppercase' );
 	$custom .= "div.editor-styles-wrapper .wp-block-button__link { text-transform:" . esc_attr( $button_text_transform ) . ";}" . "\n";
 

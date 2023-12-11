@@ -161,10 +161,11 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 			if ( isset( $post ) ) {
 				$transparent_menu = get_post_meta( $post->ID, '_sydney_transparent_menu', true );
 			}
+			$transparent_header = sydney_get_display_conditions( 'transparent_header', false );
 
 			?>
 
-				<?php if ( $transparent_menu ) : ?>
+			<?php if ( $transparent_menu || $transparent_header ) : ?>
 				<div class="header-wrapper">
 				<?php endif; ?>
 				<header id="masthead" class="main-header <?php echo esc_attr( $layout ); ?>">
@@ -196,7 +197,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 						</div>
 					</div>	
 				</div>	
-				<?php if ( $transparent_menu ) : ?>
+				<?php if ( $transparent_menu || $transparent_header ) : ?>
 				</div>
 				<?php endif; ?>							
 			<?php
@@ -214,8 +215,10 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 			if ( isset( $post ) ) {
 				$transparent_menu = get_post_meta( $post->ID, '_sydney_transparent_menu', true );
 			}			
+			$transparent_header = sydney_get_display_conditions( 'transparent_header', false );
+
 			?>
-				<?php if ( $transparent_menu ) : ?>
+				<?php if ( $transparent_menu || $transparent_header ) : ?>
 				<div class="header-wrapper">
 				<?php endif; ?>			
 				<header id="masthead" class="main-header <?php echo esc_attr( $layout ); ?>">
@@ -248,7 +251,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 						</div>
 					</div>	
 				</div>		
-				<?php if ( $transparent_menu ) : ?>
+				<?php if ( $transparent_menu || $transparent_header ) : ?>
 				</div>
 				<?php endif; ?>						
 			<?php
@@ -265,9 +268,10 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 			$transparent_menu = '';
 			if ( isset( $post ) ) {
 				$transparent_menu = get_post_meta( $post->ID, '_sydney_transparent_menu', true );
-			}				
+			}		
+			$transparent_header = sydney_get_display_conditions( 'transparent_header', false );		
 			?>
-				<?php if ( $transparent_menu ) : ?>
+				<?php if ( $transparent_menu || $transparent_header ) : ?>
 				<div class="header-wrapper">
 				<?php endif; ?>					
 				<header id="masthead" class="main-header <?php echo esc_attr( $layout ); ?>">
@@ -302,7 +306,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 						</div>
 					</div>	
 				</div>	
-				<?php if ( $transparent_menu ) : ?>
+				<?php if ( $transparent_menu || $transparent_header ) : ?>
 				</div>
 				<?php endif; ?>							
 			<?php
