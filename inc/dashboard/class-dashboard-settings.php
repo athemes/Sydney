@@ -412,7 +412,7 @@ function sydney_dashboard_settings()
 	$settings['features'][] = array(
 		'category'    => 'general',
 		'module'      => 'html-designer',
-		'title'        => esc_html__('Form &amp; HTML Designer', 'sydney'),
+		'title'        => esc_html__('Forms &amp; HTML Designer', 'sydney'),
 		'type'        => 'pro',
 		'link_url'    => add_query_arg('autofocus[section]', 'sydney_section_html_designer', admin_url('customize.php')),
 		'link_label'  => esc_html__('Customize', 'sydney'),
