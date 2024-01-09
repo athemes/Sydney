@@ -17,6 +17,11 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		private static $instance;
 
 		/**
+		 * Customizer JS
+		 */
+		public $customizer_js;
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
