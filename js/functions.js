@@ -442,7 +442,10 @@ sydney.headerSearch = {
 				e.target.closest( '.header-search' ).getElementsByClassName( 'icon-cancel' )[0].classList.toggle( 'active' );
 				e.target.closest( '.header-search' ).classList.add( 'active' );
 				e.target.closest( '.header-search' ).classList.remove( 'hide' );
-				searchInput.focus();
+				
+				if( form.classList.contains( 'active' ) ) {
+					searchInput.focus();
+				}
 
 				if( e.target.closest( '.sydney-offcanvas-menu' ) !== null ) {
 					e.target.closest( '.sydney-offcanvas-menu' ).classList.remove( 'toggled' );
