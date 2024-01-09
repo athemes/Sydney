@@ -970,10 +970,13 @@ jQuery(document).ready(function ($) {
 
 		value.bind(function (newval) {
 			$.each(sticky_controls, function (index, setting) {
-				if (newval === 'header_layout_6' || newval === 'header_layout_7') {
-					wp.customize.control(setting).deactivate();
-				} else {
-					wp.customize.control(setting).activate();
+				var control = wp.customize.control(setting);
+				if (control) {
+					if (newval === 'header_layout_6' || newval === 'header_layout_7') {
+						control.deactivate();
+					} else {
+						control.activate();
+					}
 				}
 			});
 		});
