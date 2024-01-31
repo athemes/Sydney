@@ -305,7 +305,7 @@ add_action('wp_footer', 'sydney_append_gotop_html', 1);
  */
 function sydney_get_social_network( $social ) {
 
-	$networks = array( 'feed','maps', 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest', 'amazon', 'tiktok', 'telegram', 'whatsapp', 'wa.me', 't.me' );
+	$networks = array( 'threads', 'mastodon', 'feed','maps', 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest', 'amazon', 'tiktok', 'telegram', 'whatsapp', 'wa.me', 't.me' );
 
 	foreach ( $networks as $network ) {
 		$found = strpos( $social, $network );

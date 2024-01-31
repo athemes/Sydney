@@ -1866,6 +1866,9 @@ Widgets
 .search-field {
 	max-width: 100%;
 }
+.wp-block-search__button.has-icon {
+	padding: 12px !important;
+}
 /*--------------------------------------------------------------
 Blog single
 --------------------------------------------------------------*/
