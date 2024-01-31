@@ -1244,7 +1244,7 @@ jQuery(document).ready(function($) {
 
                 var $control = $('#customize-control-' + control);
                 if ($control.length) {
-                    $control.hide();
+                    $control.addClass('sortable-child-hidden');
                     $control.css('position', 'absolute');
                 }
             });
@@ -1281,7 +1281,7 @@ jQuery(document).ready(function($) {
 	
 				$('.customize-control.sortable-child-toggled').each(function() {
 					$(this).removeClass('sortable-child-toggled');
-					$(this).hide();
+					$(this).addClass('sortable-child-hidden');
 				});
 
                 $.each(value.controls, function(index, control) {
@@ -1290,7 +1290,7 @@ jQuery(document).ready(function($) {
 
                     if (!isToggled) {
                         $control.addClass('sortable-child-toggled');
-                        $control.show();
+                        $control.removeClass('sortable-child-hidden');
 
                         if (index === 0) {
                             $control.addClass('first-control');
@@ -1329,7 +1329,7 @@ jQuery(document).ready(function($) {
 
 			$('.customize-control.sortable-child-toggled').each(function() {
 				$(this).removeClass('sortable-child-toggled');
-				$(this).hide();
+				$(this).addClass('sortable-child-hidden');
 			});
 		}
 	});

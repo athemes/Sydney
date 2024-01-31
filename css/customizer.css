@@ -1286,6 +1286,9 @@ ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-tex
 .customize-control-kirki-sortable:not(.sydney-hide-control) .kirki-sortable-item.invisible {
   visibility: visible !important;
 }
+.sortable-child-hidden {
+  display: none !important;
+}
 .sydney-display-conditions-control-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
