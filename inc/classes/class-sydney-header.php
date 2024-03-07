@@ -63,13 +63,21 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		 */		
 		public function header_mobile_markup() {
 			$layout = get_theme_mod( 'header_layout_mobile', 'header_mobile_layout_1' );
+			$offcanvas_header 				= get_theme_mod( 'offcanvas_header', 'branding' );
+			$offcanvas_header_custom_text 	= get_theme_mod( 'offcanvas_header_custom_text', esc_html__( 'Menu', 'sydney' ) );
 			?>
 
 			<div class="sydney-offcanvas-menu">
 				<div class="mobile-header-item">
 					<div class="row valign">
 						<div class="col-xs-8">
-							<?php $this->logo(); ?>
+							<?php 
+							if ( 'branding' === $offcanvas_header ) {
+								$this->logo();
+							} elseif ( 'custom' === $offcanvas_header ) {
+								echo '<div class="offcanvas-header-custom-text">' . esc_html( $offcanvas_header_custom_text ) . '</div>';
+							}
+							?>
 						</div>
 						<div class="col-xs-4 align-right">
 							<a class="mobile-menu-close" href="#"><i class="sydney-svg-icon icon-cancel"><span class="screen-reader-text"><?php echo esc_html__( 'Close menu', 'sydney' ); ?></span><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i></a>

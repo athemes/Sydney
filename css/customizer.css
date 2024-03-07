@@ -966,7 +966,12 @@ span.delete:hover {
 .sydney-cust-divider.before {
   margin: 16px -24px 22px;
 }
-
+li#customize-control-sydney_upsell_mobile_header {
+  margin-bottom: -15px;
+}
+#customize-control-sydney_upsell_mobile_header h3 {
+  max-width: 300px;
+}
 .customize-control:not(.customize-control-sydney-tab-control) {
   margin-bottom: 25px;
   padding: 0 12px;

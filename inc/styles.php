@@ -475,7 +475,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= ".mobile-header { padding-top:" . esc_attr( $mobile_header_padding ) . 'px;padding-bottom:' . esc_attr( $mobile_header_padding ) . "px;}" . "\n";
 
 			$custom .= $this->get_background_color_css( 'offcanvas_menu_background', '', '.sydney-offcanvas-menu' );
-			$custom .= $this->get_color_css( 'offcanvas_menu_color', '#ffffff', '.sydney-offcanvas-menu,.sydney-offcanvas-menu #mainnav a:not(.button),.sydney-offcanvas-menu a:not(.button)' );
+			$custom .= $this->get_color_css( 'offcanvas_menu_color', '#ffffff', '.offcanvas-header-custom-text,.sydney-offcanvas-menu,.sydney-offcanvas-menu #mainnav a:not(.button),.sydney-offcanvas-menu a:not(.button)' );
 			$custom .= $this->get_fill_css( 'offcanvas_menu_color', '#ffffff', '.sydney-offcanvas-menu svg, .sydney-offcanvas-menu .dropdown-symbol .sydney-svg-icon svg' );
 
 			$offcanvas_mode = get_theme_mod( 'header_offcanvas_mode', 'layout1' );

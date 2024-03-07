@@ -1137,7 +1137,7 @@
 			if ( 'layout2' === to ) {
 				$( '.sydney-offcanvas-menu' ).css( 'max-width', '100%' );
 			} else {
-				$( '.sydney-offcanvas-menu' ).css( 'max-width', '' );
+				$( '.sydney-offcanvas-menu' ).css( 'max-width', '300px' );
 			}
 		} );
 	} );

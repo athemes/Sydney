@@ -837,6 +837,10 @@ Header
 	height: 100%;
 	overflow-y: auto;
 }
+.offcanvas-header-custom-text {
+	color: #fff;
+	font-size: 18px;
+}
 .sydney-offcanvas-menu .mobile-header-item {
 	visibility: hidden;
 }
@@ -846,7 +850,6 @@ Header
 .sydney-offcanvas-menu.toggled {
 	left: 0;
 	opacity: 1;
-	font-weight: 600;
 }
 .sydney-offcanvas-menu.toggled .mobile-header-item {
 	visibility: visible;

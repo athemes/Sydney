@@ -54,16 +54,42 @@ $wp_customize->add_control(
         'sydney_upsell_mobile_header',
         array(
             'section'     => 'sydney_section_mobile_header',
-            'description' => __( 'Build better-performing mobile headers with Sydney Pro!', 'sydney' ),
+            'description' => __( 'Create fully custom, animated mobile headers with Sydney Pro!', 'sydney' ),
             'features'    => array(
-                __( 'Elementor header builder', 'sydney' ),
-                __( 'A mobile-only menu', 'sydney' ),
+                __( 'A mobile-only menu & logo', 'sydney' ),
                 __( 'Custom breakpoints', 'sydney' ),
-                __( 'A different logo for mobile', 'sydney' ),
                 __( 'Extra mobile header layouts', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/theme/sydney/#see-all-features">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
+                __( 'Header builder with Elementor', 'sydney' ),
             ),             
-            'priority'    => 999
+            'priority'    => 999,
+            'show_button' => false
+        )
+    ) 
+);
+
+$wp_customize->add_setting( 
+    'sydney_upsell_mobile_header2',
+	array(
+		'default'           => '',
+		'sanitize_callback' => 'sydney_sanitize_text'
+	)
+);
+
+$wp_customize->add_control( 
+    new Sydney_Upsell_Message( 
+        $wp_customize, 
+        'sydney_upsell_mobile_header2',
+        array(
+            'section'     => 'sydney_section_mobile_header',
+            'intro_text'  => __( '&hellip;and for your offcanvas area:', 'sydney' ),
+            'features'    => array(
+                __( '6 animated opening effects', 'sydney' ),
+                __( '4 menu link animations', 'sydney' ),
+                __( 'Customizable background', 'sydney' ),
+                __( 'Elementor template rendering', 'sydney' ),
+            ),             
+            'priority'    => 999,
+            'show_separator' => false
         )
     ) 
 );
