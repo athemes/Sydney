@@ -416,7 +416,7 @@ $wp_customize->add_setting(
 $wp_customize->add_setting(
     'offcanvas_menu_color',
     array(
-        'default'           => '',
+        'default'           => '#ffffff',
         'sanitize_callback' => 'sydney_sanitize_hex_rgba',
         'transport'         => 'postMessage'
     )
