@@ -30,7 +30,7 @@ $wp_customize->add_control(
 		array(
 			'label' 				=> '',
 			'section'       		=> 'sydney_section_mobile_header',
-			'controls_general'		=> json_encode( array( '#customize-control-mobile_sticky_header_divider_0','#customize-control-enable_sticky_header_mobile','#customize-control-sydney_upsell_mobile_header','#customize-control-header_layout_mobile','#customize-control-header_components_mobile','#customize-control-mobile_header_divider_1','#customize-control-header_offcanvas_mode','#customize-control-header_components_offcanvas','#customize-control-mobile_header_divider_2','#customize-control-mobile_menu_alignment','#customize-control-mobile_menu_link_separator','#customize-control-mobile_menu_link_spacing','#customize-control-mobile_menu_icon', ) ),
+			'controls_general'		=> json_encode( array( '#customize-control-mobile_header_offcanvas_settings_title','#customize-control-mobile_sticky_header_divider_0','#customize-control-enable_sticky_header_mobile','#customize-control-sydney_upsell_mobile_header','#customize-control-header_layout_mobile','#customize-control-header_components_mobile','#customize-control-mobile_header_divider_1','#customize-control-header_offcanvas_mode','#customize-control-header_components_offcanvas','#customize-control-mobile_header_divider_2','#customize-control-mobile_menu_alignment','#customize-control-mobile_menu_link_separator','#customize-control-mobile_menu_link_spacing','#customize-control-mobile_menu_icon', ) ),
 			'controls_design'		=> json_encode( array( '#customize-control-offcanvas_submenu_font_size','#customize-control-offcanvas_menu_font_size','#customize-control-offcanvas_submenu_color','#customize-control-mobile_header_bar_title','#customize-control-mobile_header_offcanvas_title','#customize-control-mobile_header_separator_title','#customize-control-mobile_header_background','#customize-control-mobile_header_color','#customize-control-mobile_header_padding','#customize-control-mobile_header_divider_3','#customize-control-offcanvas_menu_background','#customize-control-offcanvas_menu_color','#customize-control-mobile_header_divider_4','#customize-control-mobile_header_separator_width','#customize-control-link_separator_color', ) ),
 		)
 	)
@@ -118,6 +118,21 @@ $wp_customize->selective_refresh->add_partial( 'header_components_mobile', array
 	},
 	'container_inclusive' 	=> true,
 ) );
+
+$wp_customize->add_setting( 'mobile_header_offcanvas_settings_title',
+	array(
+		'default' 			=> '',
+		'sanitize_callback' => 'esc_attr'
+	)
+);
+
+$wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'mobile_header_offcanvas_settings_title',
+		array(
+			'label'			=> esc_html__( 'Offcanvas', 'sydney' ),
+			'section' 		=> 'sydney_section_mobile_header',
+		)
+	)
+);
 
 $wp_customize->add_setting(
 	'header_offcanvas_mode',
@@ -522,7 +537,8 @@ $wp_customize->add_control( new Sydney_Text_Control( $wp_customize, 'mobile_head
 		array(
 			'label'			=> esc_html__( 'Link separator', 'sydney' ),
 			'section' 		=> 'sydney_section_mobile_header',
-			'separator' 	=> 'before'
+			'separator' 	=> 'before',
+			'active_callback' => 'sydney_callback_offcanvas_link_separator'
 		)
 	)
 );
@@ -546,6 +562,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'mobile
 			'max'	=> 50,
 			'step'  => 1
 		),
+		'active_callback' => 'sydney_callback_offcanvas_link_separator'
 	)
 ) );
 
@@ -577,6 +594,7 @@ $wp_customize->add_control(
                 'global'  => 'global_link_separator_color',
                 'setting' => 'link_separator_color',
             ),
+			'active_callback' => 'sydney_callback_offcanvas_link_separator'
         )
     )
 );

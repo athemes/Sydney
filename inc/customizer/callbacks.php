@@ -374,3 +374,13 @@ function sydney_callback_menu_typography() {
 		return false;
 	}		
 }
+
+function sydney_callback_offcanvas_link_separator() {
+	$enable = get_theme_mod( 'mobile_menu_link_separator', 0 );
+
+	if ( $enable ) {
+		return true;
+	} else {
+		return false;
+	}
+}
