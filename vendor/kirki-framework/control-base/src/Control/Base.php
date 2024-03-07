@@ -113,6 +113,15 @@ class Base extends \WP_Customize_Control {
 	public $wrapper_atts = [];
 
 	/**
+	 * Separator.
+	 *
+	 * @access public
+	 * @since 1.1
+	 * @var string
+	 */
+	public $separator = false;
+
+	/**
 	 * Extra script dependencies.
 	 *
 	 * @access public
@@ -204,6 +213,9 @@ class Base extends \WP_Customize_Control {
 
 		// Wrapper Attributes.
 		$this->json['wrapper_atts'] = $this->wrapper_atts;
+
+		// Separator.
+		$this->json['separator'] = $this->separator;
 	}
 
 	/**

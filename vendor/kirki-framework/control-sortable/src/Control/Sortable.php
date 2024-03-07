@@ -68,6 +68,9 @@ class Sortable extends Base {
 	 */
 	protected function content_template() {
 		?>
+		<# if ( 'before' === data.separator  ) { #>
+			<hr class="sydney-cust-divider before">
+		<# } #>
 		<label class='kirki-sortable'>
 			<span class="customize-control-title">
 				{{{ data.label }}}
@@ -97,6 +100,9 @@ class Sortable extends Base {
 				<# }); #>
 			</ul>
 		</label>
+		<# if ( 'after' === data.separator  ) { #>
+			<hr class="sydney-cust-divider after">
+		<# } #>
 		<?php
 	}
 }
