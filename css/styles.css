@@ -947,6 +947,20 @@ Header
 	.mobile-header-item {
 		margin-bottom: 30px;
 }
+.mobile-header-item.offcanvas-items {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+.mobile-header-item.offcanvas-items > .header-item {
+	margin: 0;
+}
+.mobile-header-item.offcanvas-items .button {
+	align-self: start;
+}
+.mobile-header-item.offcanvas-items .social-profile {
+	text-align: left;
+}
 .main-header .header-contact,
 .bottom-header-row .header-contact,
 .mobile-header .header-contact {
