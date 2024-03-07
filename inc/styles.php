@@ -440,7 +440,13 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
 			//Mobile menu
 			$mobile_menu_alignment = get_theme_mod( 'mobile_menu_alignment', 'left' );
-			$custom .= ".sydney-offcanvas-menu .mainnav ul li { text-align:" . esc_attr( $mobile_menu_alignment ) . ";}" . "\n";
+			$custom .= ".sydney-offcanvas-menu .mainnav ul li,.mobile-header-item.offcanvas-items,.mobile-header-item.offcanvas-items .social-profile { text-align:" . esc_attr( $mobile_menu_alignment ) . ";}" . "\n";
+
+            if ( 'center' === $mobile_menu_alignment ) {
+                $custom .= ".sydney-offcanvas-menu .header-item.header-woo {justify-content:center;} .mobile-header-item.offcanvas-items .button {align-self:center;}" . "\n";
+            } elseif ( 'right' === $mobile_menu_alignment ) {
+                $custom .= ".sydney-offcanvas-menu .header-item.header-woo {justify-content:flex-end;} .mobile-header-item.offcanvas-items .button {align-self:flex-end;}" . "\n";
+            }
 
 			$custom .= $this->get_color_css( 'offcanvas_submenu_color', '', '.sydney-offcanvas-menu #mainnav ul ul a' );
 

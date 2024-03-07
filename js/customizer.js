@@ -479,8 +479,21 @@
 	wp.customize( 'mobile_menu_alignment', function( value ) {
 		value.bind( function( to ) {
 			$( '.sydney-offcanvas-menu .mainnav ul li' ).css( 'text-align', to );
+			$( '.mobile-header-item.offcanvas-items' ).css( 'text-align', to );
+			$( '.mobile-header-item.offcanvas-items .social-profile' ).css( 'text-align', to );
+
+			if ( 'center' == to ) {
+				$( '.sydney-offcanvas-menu .header-item.header-woo' ).css( 'justify-content', 'center' );
+				$( '.mobile-header-item.offcanvas-items .button' ).css( 'align-self', 'center' );
+			} else if ( 'right' == to ) {
+				$( '.sydney-offcanvas-menu .header-item.header-woo' ).css( 'justify-content', 'flex-end' );
+				$( '.mobile-header-item.offcanvas-items .button' ).css( 'align-self', 'flex-end' );
+			} else {
+				$( '.sydney-offcanvas-menu .header-item.header-woo' ).css( 'justify-content', 'flex-start' );
+				$( '.mobile-header-item.offcanvas-items .button' ).css( 'align-self', 'flex-start' );
+			}
 		} );
-	} );		
+	} );	
 
 	wp.customize( 'mobile_menu_link_spacing', function( value ) {
 		value.bind( function( to ) {
