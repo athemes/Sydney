@@ -236,17 +236,25 @@
 }
 .sydney-templateLibrary-template .sydney-templateLibrary-insert-button {
 	color: #D63C3F;
+	background: transparent;
+	padding: 0;
 }
 .sydney-templateLibrary-template .sydney-templateLibrary-insert-button:hover,
 .sydney-templateLibrary-template .sydney-templateLibrary-insert-button:focus {
 	color: #D63C3F;
+	background: transparent;
+	padding: 0;
 }
 .sydney-templateLibrary-template .sydney-templateLibrary-preview-button {
 	color: #495157;
+	background: transparent;
+	padding: 0;
 }
 .sydney-templateLibrary-template .sydney-templateLibrary-preview-button:hover,
 .sydney-templateLibrary-template .sydney-templateLibrary-preview-button:focus {
 	color: #606b73;
+	background: transparent;
+	padding: 0;
 }
 
 #elementor-template-library-header-preview .sydney-templateLibrary-pro-button {
