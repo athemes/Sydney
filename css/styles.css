@@ -918,6 +918,9 @@ Header
 .mobile-menu-close svg {
 	fill: var(--sydney-text-color);
 }
+.menu-toggle .sydney-svg-icon {
+	vertical-align: unset;
+}
 .sydney-offcanvas-menu #mainnav:not(.mainnav.toggled) .sub-menu.toggled {
 	display: block !important;
 	visibility: visible;
