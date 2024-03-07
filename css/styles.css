@@ -685,7 +685,7 @@ Header
 #mainnav .sub-menu li a {
 	color: #fff;
 	display: block;
-	line-height: 30px;
+	line-height: 1;
 	background: #1c1c1c;
 	padding: 0 18px;
 	border-top: 1px solid #252525;

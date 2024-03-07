@@ -442,6 +442,14 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$mobile_menu_alignment = get_theme_mod( 'mobile_menu_alignment', 'left' );
 			$custom .= ".sydney-offcanvas-menu .mainnav ul li { text-align:" . esc_attr( $mobile_menu_alignment ) . ";}" . "\n";
 
+			$custom .= $this->get_color_css( 'offcanvas_submenu_color', '', '.sydney-offcanvas-menu #mainnav ul ul a' );
+
+            $offcanvas_menu_font_size = get_theme_mod( 'offcanvas_menu_font_size', '18' );
+            $custom .= ".sydney-offcanvas-menu #mainnav > div > ul > li > a { font-size:" . intval($offcanvas_menu_font_size) . "px; }"."\n";
+
+            $offcanvas_submenu_font_size = get_theme_mod( 'offcanvas_submenu_font_size', '18' );
+            $custom .= ".sydney-offcanvas-menu #mainnav ul ul li a { font-size:" . intval($offcanvas_submenu_font_size) . "px; }"."\n";
+
 			$mobile_menu_link_separator 	= get_theme_mod( 'mobile_menu_link_separator', 0 );
 			$link_separator_color 			= get_theme_mod( 'link_separator_color', 'rgba(238, 238, 238, 0.14)' );
 			$mobile_header_separator_width	= get_theme_mod( 'mobile_header_separator_width', 1 );

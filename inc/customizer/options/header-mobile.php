@@ -31,7 +31,7 @@ $wp_customize->add_control(
 			'label' 				=> '',
 			'section'       		=> 'sydney_section_mobile_header',
 			'controls_general'		=> json_encode( array( '#customize-control-mobile_sticky_header_divider_0','#customize-control-enable_sticky_header_mobile','#customize-control-sydney_upsell_mobile_header','#customize-control-header_layout_mobile','#customize-control-header_components_mobile','#customize-control-mobile_header_divider_1','#customize-control-header_offcanvas_mode','#customize-control-header_components_offcanvas','#customize-control-mobile_header_divider_2','#customize-control-mobile_menu_alignment','#customize-control-mobile_menu_link_separator','#customize-control-mobile_menu_link_spacing','#customize-control-mobile_menu_icon', ) ),
-			'controls_design'		=> json_encode( array( '#customize-control-mobile_header_bar_title','#customize-control-mobile_header_offcanvas_title','#customize-control-mobile_header_separator_title','#customize-control-mobile_header_background','#customize-control-mobile_header_color','#customize-control-mobile_header_padding','#customize-control-mobile_header_divider_3','#customize-control-offcanvas_menu_background','#customize-control-offcanvas_menu_color','#customize-control-mobile_header_divider_4','#customize-control-mobile_header_separator_width','#customize-control-link_separator_color', ) ),
+			'controls_design'		=> json_encode( array( '#customize-control-offcanvas_submenu_font_size','#customize-control-offcanvas_menu_font_size','#customize-control-offcanvas_submenu_color','#customize-control-mobile_header_bar_title','#customize-control-mobile_header_offcanvas_title','#customize-control-mobile_header_separator_title','#customize-control-mobile_header_background','#customize-control-mobile_header_color','#customize-control-mobile_header_padding','#customize-control-mobile_header_divider_3','#customize-control-offcanvas_menu_background','#customize-control-offcanvas_menu_color','#customize-control-mobile_header_divider_4','#customize-control-mobile_header_separator_width','#customize-control-link_separator_color', ) ),
 		)
 	)
 );
@@ -435,6 +435,81 @@ $wp_customize->add_control(
         )
     )
 );
+
+$wp_customize->add_setting(
+    'global_offcanvas_submenu_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'wp_kses_post',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_setting(
+    'offcanvas_submenu_color',
+    array(
+        'default'           => '',
+        'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+        'transport'         => 'postMessage'
+    )
+);
+$wp_customize->add_control(
+    new Sydney_Alpha_Color(
+        $wp_customize,
+        'offcanvas_submenu_color',
+        array(
+            'label'          => esc_html__( 'Submenu items color', 'sydney' ),
+            'section'        => 'sydney_section_mobile_header',
+            'settings'       => array(
+                'global'  => 'global_offcanvas_submenu_color',
+                'setting' => 'offcanvas_submenu_color',
+            ),
+        )
+    )
+);
+
+$wp_customize->add_setting( 'offcanvas_menu_font_size', array(
+	'default'   		=> 18,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'offcanvas_menu_font_size',
+	array(
+		'label' 		=> esc_html__( 'Font size', 'sydney' ),
+		'section' 		=> 'sydney_section_mobile_header',
+		'is_responsive'	=> 0,
+		'settings' 		=> array (
+			'size_desktop' 		=> 'offcanvas_menu_font_size',
+		),
+		'input_attrs' => array (
+			'min'	=> 12,
+			'max'	=> 100,
+			'step'  => 1
+		)
+	)
+) );
+
+$wp_customize->add_setting( 'offcanvas_submenu_font_size', array(
+	'default'   		=> 18,
+	'transport'			=> 'postMessage',
+	'sanitize_callback' => 'absint',
+) );
+
+$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'offcanvas_submenu_font_size',
+	array(
+		'label' 		=> esc_html__( 'Submenu font size', 'sydney' ),
+		'section' 		=> 'sydney_section_mobile_header',
+		'is_responsive'	=> 0,
+		'settings' 		=> array (
+			'size_desktop' 		=> 'offcanvas_submenu_font_size',
+		),
+		'input_attrs' => array (
+			'min'	=> 12,
+			'max'	=> 100,
+			'step'  => 1
+		)
+	)
+) );
 
 $wp_customize->add_setting( 'mobile_header_separator_title',
 	array(

@@ -3098,9 +3098,7 @@ h2.woocommerce-Reviews-title {
   -webkit-transition: ease opacity 300ms;
   transition: ease opacity 300ms;
 }
-.product-gallery-summary.gallery-grid .woocommerce-product-gallery__image:not(:first-of-type) {
-  float: left;
-}
+
 .product-gallery-summary.gallery-scrolling .woocommerce-product-gallery__wrapper > div:not(:first-child) {
   width: 100%;
 }
