@@ -967,7 +967,7 @@ span.delete:hover {
   margin: 16px -24px 22px;
 }
 li#customize-control-sydney_upsell_mobile_header {
-  margin-bottom: -15px;
+  margin-bottom: -15px !important;
 }
 #customize-control-sydney_upsell_mobile_header h3 {
   max-width: 300px;
