@@ -864,8 +864,8 @@ Header
 	width: calc(100% - 23px);
 	background: transparent;
 	border: 0;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 .sydney-offcanvas-menu #mainnav ul li a {
 	font-size: 18px;
@@ -932,7 +932,7 @@ Header
 	margin-bottom: 10px;
 }
 .sydney-offcanvas-menu #mainnav li:hover > .sub-menu > li > a {
-	padding: 5px 18px;
+	padding: 10px 18px;
 }
 .sydney-offcanvas-menu.toggled .menu {
 	display: block;

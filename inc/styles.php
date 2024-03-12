@@ -453,7 +453,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $offcanvas_menu_font_size = get_theme_mod( 'offcanvas_menu_font_size', '18' );
             $custom .= ".sydney-offcanvas-menu #mainnav > div > ul > li > a { font-size:" . intval($offcanvas_menu_font_size) . "px; }"."\n";
 
-            $offcanvas_submenu_font_size = get_theme_mod( 'offcanvas_submenu_font_size', '18' );
+            $offcanvas_submenu_font_size = get_theme_mod( 'offcanvas_submenu_font_size', '16' );
             $custom .= ".sydney-offcanvas-menu #mainnav ul ul li a { font-size:" . intval($offcanvas_submenu_font_size) . "px; }"."\n";
 
 			$mobile_menu_link_separator 	= get_theme_mod( 'mobile_menu_link_separator', 0 );

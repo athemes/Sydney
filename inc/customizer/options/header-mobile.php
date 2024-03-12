@@ -546,7 +546,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'offcan
 ) );
 
 $wp_customize->add_setting( 'offcanvas_submenu_font_size', array(
-	'default'   		=> 18,
+	'default'   		=> 16,
 	'transport'			=> 'postMessage',
 	'sanitize_callback' => 'absint',
 ) );
