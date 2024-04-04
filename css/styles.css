@@ -2671,6 +2671,9 @@ SVGs
     position: relative;
     left: -100px;
 }
+.is-style-sydney-no-margin {
+	margin: 0 !important;
+}
 @media (min-width: 1024px) {
 	.no-sidebar .entry-content .alignfull {
 		margin: 20px calc(50% - 50vw);

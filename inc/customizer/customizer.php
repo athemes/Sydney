@@ -513,6 +513,25 @@ function sydney_customize_register( $wp_customize ) {
         )
     ); 
 
+    $wp_customize->add_setting(
+        'enable_page_feat_images',
+        array(
+            'default'           => 0,
+            'sanitize_callback' => 'sydney_sanitize_checkbox',
+        )
+    );
+    $wp_customize->add_control(
+        new Sydney_Toggle_Control(
+            $wp_customize,
+            'enable_page_feat_images',
+            array(
+                'label'         	=> esc_html__( 'Enable featured images on all pages', 'sydney' ),
+                'section'   => 'sydney_cpt_page',
+                'separator' => 'after'
+            )
+        )
+    );
+
 }
 add_action( 'customize_register', 'sydney_customize_register' );
 

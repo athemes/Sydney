@@ -100,7 +100,7 @@ foreach ( $post_types as $post_type ) {
 			),
 			'priority' => 1,
 		)
-	) );	
+	) );
 
 	//Sidebar
 	$wp_customize->add_setting(

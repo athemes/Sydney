@@ -934,7 +934,13 @@ span.delete:hover {
 .text_radio_button_control .radio-button-label > input:checked + span:hover {
   color: #fff;
 }
-
+.radio-label {
+  display: table;
+  color: #868686;
+  font-style: italic;
+  font-size: 12;
+  margin: 0 auto;
+}
 .footer-widget-area-link {
   display: block;
   border: 1px solid #d0d0d0;
@@ -1100,7 +1106,9 @@ li#customize-control-sydney_upsell_mobile_header {
   height: 0;
   margin: 0 !important;
 }
-
+#customize-control-archives_sidebar_title,
+#customize-control-main_content_title,
+#customize-control-post_elements_title,
 #sub-accordion-section-sydney_section_blog_singles .customize-control-sydney-text-control,
 #customize-control-archive_featured_image_title,
 #customize-control-archive_text_title,
@@ -1114,6 +1122,7 @@ li#customize-control-sydney_upsell_mobile_header {
 #customize-control-h6_title {
   margin-bottom: 5px;
 }
+#customize-control-blog_layout .customize-control-title,
 #sub-accordion-section-sydney_section_footer_widgets li:not(.customize-control-sydney-text-control) .customize-control-title,
 #sub-accordion-section-sydney_slider li:not(.customize-control-sydney-text-control) .customize-control-title,
 ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-text-control) .customize-control-title,
@@ -1220,7 +1229,6 @@ ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-tex
   padding: 13px 20px;
   text-decoration: none;
   color: #212121;
-  font-weight: 600;
 }
 
 .sydney-accordion-title:after {

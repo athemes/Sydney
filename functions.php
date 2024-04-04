@@ -682,6 +682,11 @@ add_action( 'init', 'sydney_elementor_template_library' );
  */
 require get_template_directory() . '/inc/classes/class-sydney-modules.php';
 
+/**
+ * Block styles
+ */
+require get_template_directory() . '/inc/block-styles.php';
+
 /*
  * Enable fontawesome 5 on first time theme activation
  * Check if the old theme is sydney to avoid enable the fa5 automatic and break icons
