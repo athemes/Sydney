@@ -287,7 +287,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 					$custom .= ".footer-widgets { border-top:" . esc_attr( $footer_widgets_divider_size ) . 'px solid ' . esc_attr( $footer_widgets_divider_color ) . ";}" . "\n";
 				}
 			}
-
+			$footer_font_size = $this->get_font_sizes_css( 'footer_copyright_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.site-info' );
 			$footer_credits_divider 		= get_theme_mod( 'footer_credits_divider', 0 );
 			$footer_credits_divider_width 	= get_theme_mod( 'footer_credits_divider_width', 'contained' );
 			$footer_credits_divider_size 	= get_theme_mod( 'footer_credits_divider_size', 0 );
@@ -312,8 +312,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= $this->get_color_css( 'footer_widgets_title_color', '', '.sidebar-column .widget .widget-title' );
 			$custom .= $this->get_color_css( 'footer_widgets_headings_color', '', '.sidebar-column .widget h1, .sidebar-column .widget h2, .sidebar-column .widget h3, .sidebar-column .widget h4, .sidebar-column .widget h5, .sidebar-column .widget h6' );
 			$custom .= $this->get_color_css( 'footer_widgets_color', '', '.sidebar-column .widget' );
-			$custom .= $this->get_color_css( 'footer_widgets_links_color', '', '.sidebar-column .widget a' );
-			$custom .= $this->get_color_css( 'footer_widgets_links_hover_color', '', '.sidebar-column .widget a:hover' );
+			$custom .= $this->get_color_css( 'footer_widgets_links_color', '', '#sidebar-footer .widget a' );
+			$custom .= $this->get_color_css( 'footer_widgets_links_hover_color', '', '#sidebar-footer .widget a:hover' );
 			$custom .= $this->get_background_color_css( 'footer_background', '', '.site-footer' );
 			$custom .= $this->get_color_css( 'footer_color', '', '.site-info, .site-info a' );
 			$custom .= $this->get_fill_css( 'footer_color', '', '.site-info .sydney-svg-icon svg' );
