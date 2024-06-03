@@ -416,7 +416,7 @@ function sydney_dashboard_settings()
 		'type'        => 'pro',
 		'link_url'    => add_query_arg('autofocus[section]', 'sydney_section_html_designer', admin_url('customize.php')),
 		'link_label'  => esc_html__('Customize', 'sydney'),
-		'docs_link'   => '#',
+		'docs_link'   => 'https://docs.athemes.com/article/forms-html-module/',
 		'desc'        => __('Design options for HTML elements and forms.', 'sydney'),
 	);		
 	$settings['features'][] = array(
