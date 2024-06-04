@@ -1240,10 +1240,6 @@ jQuery(document).ready(function($) {
             $.each(value.controls, function(index, control) {
 				$('#customize-control-' + key + ' .kirki-sortable-item[data-value="' + subKey + '"]').find('.toggle-options').show();
 
-				if ( 'login' === subKey ) {
-					$('#customize-control-' + key).parent().css('padding-bottom', '550px');
-				}
-
                 var $control = $('#customize-control-' + control);
                 if ($control.length) {
                     $control.addClass('sortable-child-hidden');
@@ -1263,6 +1259,13 @@ jQuery(document).ready(function($) {
         if ($sortableItem.hasClass('invisible')) {
             return;
         }
+
+		//Get the distance from the top of the container
+		var container 			= $sortableItem.closest('.customize-pane-child');
+		var sortableItemHeight 	= $sortableItem.outerHeight();
+		var sortableItemOffset 	= $sortableItem.get(0).offsetTop;
+		var containerOffset 	= container.get(0).offsetTop;
+		var distanceTop 		= sortableItemOffset - containerOffset + sortableItemHeight + 1;
 
         $(this).toggleClass('dashicons-arrow-down-alt2 dashicons-arrow-up-alt2');
 
@@ -1286,27 +1289,37 @@ jQuery(document).ready(function($) {
 					$(this).addClass('sortable-child-hidden');
 				});
 
+				var prevTotalHeight = 0; // Total height of previous controls
+
                 $.each(value.controls, function(index, control) {
                     var $control = $('#customize-control-' + control);
-                    var $prevControl = $control.prev();
 
+                    var $prevControl 		= $control.prev();
+					
                     if (!isToggled) {
                         $control.addClass('sortable-child-toggled');
                         $control.removeClass('sortable-child-hidden');
 
                         if (index === 0) {
                             $control.addClass('first-control');
-                            $control.position({
-                                my: 'right top',
-                                at: 'right bottom',
-                                of: $sortableItem
-                            });
+							$control.css( {
+								'top': distanceTop + 'px',
+								'right': '25px',
+							} );
                         } else {
-                            $control.position({
-                                my: 'right top',
-                                at: 'right bottom',
-                                of: $prevControl
-                            });
+							prevTotalHeight += $prevControl.outerHeight();
+
+							$control.css( {
+								'top': distanceTop + prevTotalHeight + 'px',
+								'right': '25px',
+							} );
+
+							//exceptions
+							if ( control === 'header_search_field_style' ) {
+								$control.css( {
+									'top': distanceTop + prevTotalHeight - $prevControl.outerHeight() + 'px',
+								} );
+							}
                         }
 
                         if (index === value.controls.length - 1) {

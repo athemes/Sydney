@@ -884,7 +884,7 @@ span.delete:hover {
   top: calc(100% + 5px);
   display: none;
   left: 12px;
-  width: calc(100% - 24px);
+  width: calc(90% - 24px);
   background-color: #fff;
   z-index: 99;
   border-radius: 10px;
