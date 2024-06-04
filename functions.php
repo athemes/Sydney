@@ -94,6 +94,9 @@ function sydney_setup() {
 
 	//Set the compare icon for YTIH button
 	update_option( 'yith_woocompare_button_text', sydney_get_svg_icon( 'icon-compare', false ) );
+
+	//Add theme support for appearance tools
+	add_theme_support( 'appearance-tools' );
 }
 endif; // sydney_setup
 add_action( 'after_setup_theme', 'sydney_setup' );
