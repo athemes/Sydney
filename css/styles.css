@@ -2636,6 +2636,9 @@ SVGs
 /**
 ** Gutenberg
 */
+.wp-block-post {
+	width: 100% !important;
+}
 .wp-block-button__link {
 	font-weight: 600;
 	background-color: var(--sydney-button-background);
