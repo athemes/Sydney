@@ -236,8 +236,6 @@ function sydney_dashboard_settings()
 		'link_label' => esc_html__('Customize', 'sydney'),
 		'link_url'   => add_query_arg('autofocus[section]', 'sydney_section_footer_credits', admin_url('customize.php'))
 	);
-	
-
 	//Start Pro Features
 
 	$settings['features'][] = array(
@@ -451,6 +449,20 @@ function sydney_dashboard_settings()
 		'docs_link'  => 'https://docs.athemes.com/article/pro-white-label-sydney/',
 		'link_label' => esc_html__('Learn More', 'sydney'),
 	);
+
+	//Register the Block Templates module only if the function exists
+	if ( function_exists( 'block_template_part' ) ) {
+		$settings['features'][] = array(
+			'category'    => 'general',
+			'module'      => 'block-templates',
+			'title'        => esc_html__('Block Templates', 'sydney'),
+			'type'        => 'free',
+			'link_url'    => add_query_arg('autofocus[section]', 'sydney_block_templates', admin_url('customize.php')),
+			'link_label'  => esc_html__('Customize', 'sydney'),
+			'docs_link'   => '#',
+			'desc'        => __('Build headers, footers etc. with the site editor.', 'sydney'),
+		);	
+	}
 
 	return $settings;
 }

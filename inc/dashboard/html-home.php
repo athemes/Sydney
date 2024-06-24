@@ -243,7 +243,7 @@ if (!defined('ABSPATH')) {
                 <div class="sydney-dashboard-card-body">
                     <p><?php echo esc_html__( 'Browse documentation and tutorials for the Sydney theme.', 'sydney' ); ?></p>
                     <a href="<?php echo esc_url( $this->settings['knowledge_base_link'] ); ?>" class="button button-primary button-outline button-medium bt-font-weight-500" target="_blank">
-                        <?php echo esc_html__( 'View All', 'sydney' ); ?>
+                        <?php echo esc_html__( 'Browse Docs', 'sydney' ); ?>
                     </a>
                 </div>
             </div>
@@ -251,10 +251,10 @@ if (!defined('ABSPATH')) {
             <!-- Need Help? -->
             <div class="sydney-dashboard-card">
                 <div class="sydney-dashboard-card-header">
-                    <h2><?php echo esc_html__( 'Need help? We\'re here for you!', 'sydney' ); ?></h2>
+                    <h2><?php echo esc_html__( 'Get Support', 'sydney' ); ?></h2>
                 </div>
                 <div class="sydney-dashboard-card-body">
-                    <p><?php echo esc_html__( 'Get the help you need, when you need it from our friendly support staff.', 'sydney' ); ?></p>
+                    <p><?php echo esc_html__( 'Have a question? Hit a bug? Find solutions or ask a member of our expert team for help.', 'sydney' ); ?></p>
                     <a href="<?php echo esc_url( $this->settings['support_link'] ); ?>" class="button button-primary button-outline button-medium bt-font-weight-500" target="_blank">
                         <?php echo esc_html__( 'Get Support', 'sydney' ); ?>
                     </a>
@@ -283,7 +283,7 @@ if (!defined('ABSPATH')) {
                     <h2><?php echo esc_html__( 'Join our Facebook community', 'sydney' ); ?></h2>
                 </div>
                 <div class="sydney-dashboard-card-body">
-                    <p><?php echo esc_html__( 'Want to share your awesome project or just say hi? Join our wonderful community!', 'sydney' ); ?></p>
+                    <p><?php echo esc_html__( 'Share your projects, ask questions, or connect with fellow Sydney users in our friendly community.', 'sydney' ); ?></p>
                     <a href="<?php echo esc_url( $this->settings['community_link'] ); ?>" class="button button-primary button-outline button-medium bt-font-weight-500" target="_blank">
                         <?php echo esc_html__( 'Join Now', 'sydney' ); ?>
                     </a>
