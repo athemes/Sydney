@@ -793,21 +793,29 @@ function sydney_archive_template() {
 	$layout 		= sydney_blog_layout();
 	$sidebar_pos 	= sydney_sidebar_position();
 	?>
-	<div id="primary" class="content-area archive-wrapper <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( $layout ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', 'col-md-9' ) ); ?>">
+	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( $layout ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', 'col-md-9' ) ); ?>">
 		<main id="main" class="post-wrap" role="main">
+
 		<?php if ( have_posts() ) : ?>
 
-		<div class="posts-layout">
-			<div class="row" <?php sydney_masonry_data(); ?>>
-				<?php while ( have_posts() ) : the_post(); ?>
+			<header class="page-header">
+				<?php
+					the_archive_title( '<h1 class="archive-title">', '</h1>' );
+					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+				?>
+			</header><!-- .page-header -->
 
-					<?php get_template_part( 'content', get_post_format() ); ?>
+			<div class="posts-layout">
+				<div class="row" <?php sydney_masonry_data(); ?>>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php endwhile; ?>
+						<?php get_template_part( 'content', get_post_format() ); ?>
+
+					<?php endwhile; ?>
+				</div>
 			</div>
-		</div>
-
-		<?php sydney_posts_navigation(); ?>	
+			
+			<?php sydney_posts_navigation(); ?>	
 
 		<?php else : ?>
 
@@ -924,3 +932,82 @@ function sydney_footer_area() {
 	<?php
 }
 add_action( 'sydney_footer', 'sydney_footer_area' );
+
+/**
+ * Page template
+ */
+function sydney_single_page_template() {
+	$sidebar_pos = sydney_sidebar_position();
+
+	//Get classes for main content area
+	if ( apply_filters( 'sydney_disable_cart_checkout_sidebar', true ) && class_exists( 'WooCommerce' ) && ( is_checkout() || is_cart() ) ) {
+		$width = 'col-md-12';
+	} else {
+		$width = 'col-md-9';
+	}
+	?>
+	
+		<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', $width ) ); ?>">
+			<main id="main" class="post-wrap" role="main">
+	
+				<?php while ( have_posts() ) : the_post(); ?>
+	
+					<?php get_template_part( 'content', 'page' ); ?>
+	
+					<?php
+						// If comments are open or we have at least one comment, load up the comment template
+						if ( comments_open() || get_comments_number() ) :
+							comments_template();
+						endif;
+					?>
+	
+				<?php endwhile; // end of the loop. ?>
+	
+			</main><!-- #main -->
+		</div><!-- #primary -->
+	<?php
+}
+add_action( 'sydney_page_content', 'sydney_single_page_template' );
+
+/**
+ * Search template
+ */
+function sydney_search_template() {
+	
+	$layout 		= sydney_blog_layout();
+	$sidebar_pos 	= sydney_sidebar_position();
+	$archive_title_layout = get_theme_mod( 'archive_title_layout', 'layout1' );
+	?>
+
+	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( $layout ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', 'col-md-9' ) ); ?>">
+		<main id="main" class="post-wrap" role="main">
+
+		<?php if ( have_posts() ) : ?>
+
+			<header class="page-header">
+				<h3><?php printf( __( 'Search Results for: %s', 'sydney' ), '<span>' . get_search_query() . '</span>' ); ?></h3>
+			</header><!-- .page-header -->
+
+			<div class="posts-layout">
+				<div class="row" <?php sydney_masonry_data(); ?> <?php echo esc_attr( apply_filters( 'sydney_posts_layout_row', '' ) ); ?>>
+					<?php while ( have_posts() ) : the_post(); ?>
+
+						<?php get_template_part( 'content', get_post_format() ); ?>
+
+					<?php endwhile; ?>
+				</div>
+			</div>
+
+			<?php sydney_posts_navigation(); ?>	
+
+		<?php else : ?>
+
+			<?php get_template_part( 'content', 'none' ); ?>
+
+		<?php endif; ?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+	<?php
+}
+add_action( 'sydney_search_content', 'sydney_search_template' );
