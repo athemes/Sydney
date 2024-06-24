@@ -1363,6 +1363,17 @@
 		} );
 	});	
 
+	wp.customize( 'enable_block_templates', function( val ) {
+		val.bind( function( to ) {
+			$controls = ['block_templates_notice','enable_header_block_template', 'enable_footer_block_template', 'enable_single_block_template', 'enable_page_block_template', 'enable_archive_block_template', 'enable_search_block_template', 'enable_404_block_template'];
+			if ( true === to ) {
+				showControls( $controls );
+			} else {
+				hideControls( $controls );
+			}
+		} );
+	} );
+
 } )( jQuery );
 
 function hideControls( options ) {
