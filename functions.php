@@ -97,6 +97,12 @@ function sydney_setup() {
 
 	//Add theme support for appearance tools
 	add_theme_support( 'appearance-tools' );
+
+	//Add theme support for block template parts
+	$block_template_parts = get_theme_mod( 'enable_block_templates', 0 );
+	if ( $block_template_parts && Sydney_Modules::is_module_active( 'block-templates' ) ) {
+		add_theme_support( 'block-template-parts' );
+	}
 }
 endif; // sydney_setup
 add_action( 'after_setup_theme', 'sydney_setup' );
@@ -649,6 +655,12 @@ require get_template_directory() . '/inc/schema.php';
  * Theme update migration functions
  */
 require get_template_directory() . '/inc/theme-update.php';
+
+/**
+ * Modules
+ */
+require get_template_directory() . '/inc/modules/class-sydney-modules.php';
+require get_template_directory() . '/inc/modules/block-templates/class-sydney-block-templates.php';
 
 /**
  * Theme dashboard.
