@@ -792,18 +792,25 @@ add_action( 'wp', 'sydney_single_container_layout' );
 function sydney_archive_template() {
 	$layout 		= sydney_blog_layout();
 	$sidebar_pos 	= sydney_sidebar_position();
+	$archive_title_layout 	= get_theme_mod( 'archive_title_layout', 'layout1' );	
+	$post_type 				= get_post_type();
 	?>
 	<div id="primary" class="content-area <?php echo esc_attr( $sidebar_pos ); ?> <?php echo esc_attr( $layout ); ?> <?php echo esc_attr( apply_filters( 'sydney_content_area_class', 'col-md-9' ) ); ?>">
 		<main id="main" class="post-wrap" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="archive-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+			<?php if ( !is_home() && apply_filters( 'sydney_display_archive_title', true ) ) : ?>
+				<?php if ( ( !is_category() && !is_tag() && !is_author() ) || ( 'post' == $post_type && 'layout1' === $archive_title_layout ) ) : ?>
+				<header class="page-header">
+					<?php
+						do_action( 'sydney_before_title' );
+						the_archive_title( '<h1 class="archive-title">', '</h1>' );
+						the_archive_description( '<div class="taxonomy-description">', '</div>' );
+					?>
+				</header><!-- .page-header -->
+				<?php endif; ?>
+			<?php endif; ?>
 
 			<div class="posts-layout">
 				<div class="row" <?php sydney_masonry_data(); ?>>
