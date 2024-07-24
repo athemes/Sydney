@@ -2636,6 +2636,9 @@ SVGs
 /**
 ** Gutenberg
 */
+:root .site :where(a:where(:not(.wp-element-button))) {
+	text-decoration: none !important;
+}
 .wp-block-post {
 	width: 100% !important;
 }
