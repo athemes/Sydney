@@ -68,11 +68,8 @@ function sydney_dashboard_settings()
 	//
 	// Support.
 	//
-	if ( $settings['has_pro'] ) {
-		$settings['support_link']     = 'https://athemes.com/support/';
-	} else {
-		$settings['support_link']     = 'https://wordpress.org/support/theme/sydney/';
-	}
+	$settings['support_link']     = 'https://athemes.com/support/';
+
 	$settings['support_pro_link'] = 'https://athemes.com/sydney-upgrade?utm_source=theme_support&utm_medium=button&utm_campaign=Sydney';
 
 	//

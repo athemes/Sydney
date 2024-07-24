@@ -251,7 +251,7 @@ if (!defined('ABSPATH')) {
             <!-- Need Help? -->
             <div class="sydney-dashboard-card">
                 <div class="sydney-dashboard-card-header">
-                    <h2><?php echo esc_html__( 'Get Support', 'sydney' ); ?></h2>
+                    <h2><?php echo esc_html__( 'Support', 'sydney' ); ?></h2>
                 </div>
                 <div class="sydney-dashboard-card-body">
                     <p><?php echo esc_html__( 'Have a question? Hit a bug? Find solutions or ask a member of our expert team for help.', 'sydney' ); ?></p>
