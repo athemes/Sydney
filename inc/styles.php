@@ -422,7 +422,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= $this->get_fill_css( 'main_header_bottom_color', '', '.bottom-header-row .header-item svg,.dropdown-symbol .sydney-svg-icon svg' );
 			
 			$main_header_padding 	= get_theme_mod( 'main_header_padding', 15 );
-			$custom .= ".main-header .main-header-inner, .main-header .top-header-row { padding-top:" . esc_attr( $main_header_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_padding ) . "px;}" . "\n";
+			$custom .= ".main-header .site-header-inner, .main-header .top-header-row { padding-top:" . esc_attr( $main_header_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_padding ) . "px;}" . "\n";
 
 			$main_header_bottom_padding = get_theme_mod( 'main_header_bottom_padding', 15 );
 			$custom .= ".bottom-header-inner { padding-top:" . esc_attr( $main_header_bottom_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_bottom_padding ) . "px;}" . "\n";
