@@ -2561,6 +2561,13 @@ SVGs
 	input, optgroup, select, textarea {
 		max-width: 100%;
 	}
+	.content-wrapper .layout4 .content-inner {
+		display: flex; 
+		flex-direction: column;
+	}
+	.layout4 .posts-layout .content-inner .list-content {
+			width: 100%;
+	}
 }
 @media only screen and (max-width: 575px) {
 	.post-navigation .nav-previous, 
