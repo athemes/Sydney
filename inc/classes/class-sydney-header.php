@@ -507,7 +507,7 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		 */
 		public function search() {
 			?>
-				<a href="#" class="header-search header-item">
+				<a href="#" class="header-search header-item" role="button">
 					<span class="screen-reader-text"><?php echo esc_html__( 'Search', 'sydney' ); ?></span>
 					<i class="sydney-svg-icon icon-search active"><?php sydney_get_svg_icon( 'icon-search', true ); ?></i>
 					<i class="sydney-svg-icon icon-cancel"><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i>

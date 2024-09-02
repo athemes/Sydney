@@ -3,7 +3,7 @@
 	--sydney-global-color-2: #b73d3d;
 	--sydney-global-color-3: #233452;
 	--sydney-global-color-4: #00102E;
-	--sydney-global-color-5: #737C8C;
+	--sydney-global-color-5: #6d7685;
 	--sydney-global-color-6: #00102E;
 	--sydney-global-color-7: #F4F5F7;
 	--sydney-global-color-8: #dbdbdb;
@@ -783,7 +783,8 @@ Header
 	width: 220px;
 }
 .main-header ul ul a:not(.mega-menu-link) {
-	padding: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 .header-item.header-contact i {
 	margin-right: 5px;

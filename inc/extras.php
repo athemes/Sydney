@@ -305,7 +305,7 @@ add_action('wp_footer', 'sydney_append_gotop_html', 1);
  */
 function sydney_get_social_network( $social ) {
 
-	$networks = array( 'bsky', 'bluesky', 'threads', 'mastodon', 'feed','maps', 'facebook', 'twitter', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest', 'amazon', 'tiktok', 'telegram', 'whatsapp', 'wa.me', 't.me' );
+	$networks = array( 'bsky', 'bluesky', 'threads', 'mastodon', 'feed','maps', 'facebook', 'twitter', 'x.com', 'instagram', 'github', 'linkedin', 'youtube', 'xing', 'flickr', 'dribbble', 'vk', 'weibo', 'vimeo', 'mix', 'behance', 'spotify', 'soundcloud', 'twitch', 'bandcamp', 'etsy', 'pinterest', 'amazon', 'tiktok', 'telegram', 'whatsapp', 'wa.me', 't.me' );
 
 	foreach ( $networks as $network ) {
 		$found = strpos( $social, $network );
@@ -333,7 +333,8 @@ function sydney_social_profile( $location ) {
 	foreach ( $social_links as $social ) {
 		$network = sydney_get_social_network( $social );
 		if ( $network ) {
-			$items .= '<a target="_blank" href="' . esc_url( $social ) . '"><span class="screen-reader-text">' . esc_html( $social ) . '</span><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-' . esc_html( $network ), false ) . '</i></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			$aria_label = sprintf( __( '%s link, opens in a new tab', 'sydney' ), esc_html( $network ) );
+			$items .= '<a target="_blank" href="' . esc_url( $social ) . '" aria-label="' . esc_attr( $aria_label )  . '"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-' . esc_html( $network ), false ) . '</i></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped		
 		}
 	}
 	$items .= '</div>';
@@ -605,6 +606,7 @@ function sydney_add_submenu_icons( $item_output, $item, $depth, $args ) {
 	}
 
 	if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+		$item_output = preg_replace('/<a /', '<a aria-haspopup="true" aria-expanded="false" ', $item_output, 1);
 		return $item_output . '<span tabindex=0 class="dropdown-symbol"><i class="sydney-svg-icon">' . sydney_get_svg_icon( 'icon-down', false ) . '</i></span>';
 	}
 
@@ -884,7 +886,7 @@ function sydney_get_global_color_defaults() {
 		'global_color_2' => '#b73d3d',
 		'global_color_3' => '#233452',
 		'global_color_4' => '#00102E',
-		'global_color_5' => '#737C8C',
+		'global_color_5' => '#6d7685',
 		'global_color_6' => '#00102E',
 		'global_color_7' => '#F4F5F7',
 		'global_color_8' => '#dbdbdb',

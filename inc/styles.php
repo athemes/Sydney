@@ -192,7 +192,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $sidebar_background = get_theme_mod( 'sidebar_background', '#ffffff' );
             $custom .= "#secondary { background-color:" . esc_attr($sidebar_background) . "}"."\n";
             //Sidebar color
-            $sidebar_color = get_theme_mod( 'sidebar_color', '#737C8C' );
+            $sidebar_color = get_theme_mod( 'sidebar_color', '#6d7685' );
             $custom .= "#secondary, #secondary a:not(.wp-block-button__link) { color:" . esc_attr($sidebar_color) . "}"."\n";           
 
             //Mobile menu icon
@@ -366,7 +366,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= $this->get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 32, 'mobile' => 32 ), '.single .entry-header .entry-title' );
             $custom .= $this->get_color_css( 'loop_post_text_color', '#233452', '.posts-layout .entry-post' );
             $custom .= $this->get_color_css( 'loop_post_title_color', '#00102E', '.posts-layout .entry-title a' );
-            $custom .= $this->get_color_css( 'loop_post_meta_color', '#737C8C', '.posts-layout .author,.posts-layout .entry-meta a' );
+            $custom .= $this->get_color_css( 'loop_post_meta_color', '#6d7685', '.posts-layout .author,.posts-layout .entry-meta a' );
             $custom .= $this->get_font_sizes_css( 'loop_post_text_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.posts-layout .entry-post' );
             $custom .= $this->get_font_sizes_css( 'loop_post_meta_size', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), '.posts-layout .entry-meta' );
             $custom .= $this->get_font_sizes_css( 'loop_post_title_size', $defaults = array( 'desktop' => 32, 'tablet' => 32, 'mobile' => 32 ), '.posts-layout .entry-title' );

@@ -456,7 +456,7 @@ function sydney_dashboard_settings()
 			'type'        => 'free',
 			'link_url'    => add_query_arg('autofocus[section]', 'sydney_block_templates', admin_url('customize.php')),
 			'link_label'  => esc_html__('Customize', 'sydney'),
-			'docs_link'   => '#',
+			'docs_link'   => 'https://docs.athemes.com/article/block-templates-module/',
 			'desc'        => __('Build headers, footers etc. with the site editor.', 'sydney'),
 		);	
 	}
