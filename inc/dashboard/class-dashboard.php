@@ -174,10 +174,13 @@ class Sydney_Dashboard
             #adminmenu .toplevel_page_sydney-dashboard .wp-submenu a[href="admin.php?page=sydney-dashboard"] {
                 display: none;
             }
+            #adminmenu .toplevel_page_sydney-dashboard .wp-submenu a[href="https://athemes.com/sydney-upgrade?utm_source=theme_submenu_page&utm_medium=button&utm_campaign=Sydney"] {
+                color: #05d105;
+            }
         </style>
         <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function() {
-                const sydneyUpsellMenuItem = document.querySelector( '#adminmenu .toplevel_page_sydney-dashboard .wp-submenu a[href="https://athemes.com/sydney-upgrade?utm_source=theme_submenu_page&utm_medium=button&utm_campaign=Botiga"]' );
+                const sydneyUpsellMenuItem = document.querySelector( '#adminmenu .toplevel_page_sydney-dashboard .wp-submenu a[href="https://athemes.com/sydney-upgrade?utm_source=theme_submenu_page&utm_medium=button&utm_campaign=Sydney"]' );
 
                 if ( ! sydneyUpsellMenuItem ) {
                     return;

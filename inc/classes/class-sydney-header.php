@@ -52,10 +52,12 @@ if ( !class_exists( 'Sydney_Header' ) ) :
 		 */
 		public function header_markup() {
 			$layout = get_theme_mod( 'header_layout_desktop', 'header_layout_2' );
-			?>
+			
+			$template 	= apply_filters( 'sydney_header_layout', array( $this, $layout ) );
 
-			<?php call_user_func( array( $this, $layout ) ); ?>
-			<?php
+			if ( is_callable( $template ) ) {
+				call_user_func( $template );
+			}
 		}
 
 		/**

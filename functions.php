@@ -647,6 +647,11 @@ require get_template_directory() . '/inc/classes/class-sydney-svg-icons.php';
 require get_template_directory() . '/inc/notices/class-sydney-review.php';
 
 /**
+ * Campaign notice
+ */
+require get_template_directory() . '/inc/notices/class-sydney-campaign.php';
+
+/**
  * Schema
  */
 require get_template_directory() . '/inc/schema.php';
