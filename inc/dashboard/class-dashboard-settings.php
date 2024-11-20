@@ -207,7 +207,7 @@ function sydney_dashboard_settings()
 		'title'      => esc_html__('Header Options', 'sydney'),
 		'desc'       => esc_html__('Customize the header options for your theme.', 'sydney'),
 		'link_label' => esc_html__('Customize', 'sydney'),
-		'link_url'   => add_query_arg('autofocus[panel]', 'sydney_header_panel', admin_url('customize.php'))
+		'link_url'   => add_query_arg('autofocus[panel]', 'sydney_panel_header', admin_url('customize.php'))
 	);
 	
 	$settings['features'][] = array(
