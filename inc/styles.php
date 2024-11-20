@@ -287,7 +287,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 					$custom .= ".footer-widgets { border-top:" . esc_attr( $footer_widgets_divider_size ) . 'px solid ' . esc_attr( $footer_widgets_divider_color ) . ";}" . "\n";
 				}
 			}
-			$footer_font_size = $this->get_font_sizes_css( 'footer_copyright_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.site-info' );
+            $custom .= $this->get_font_sizes_css( 'footer_copyright_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.site-info' );
 			$footer_credits_divider 		= get_theme_mod( 'footer_credits_divider', 0 );
 			$footer_credits_divider_width 	= get_theme_mod( 'footer_credits_divider_width', 'contained' );
 			$footer_credits_divider_size 	= get_theme_mod( 'footer_credits_divider_size', 0 );
@@ -332,11 +332,11 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$button_text_transform = get_theme_mod( 'button_text_transform', 'uppercase' );
 			$custom .= "button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"] { text-transform:" . esc_attr( $button_text_transform ) . ";}" . "\n";
 
-			$custom .= $this->get_background_color_css( 'button_background_color', '', 'button,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );			
-			$custom .= $this->get_background_color_css( 'button_background_color_hover', '', 'button:hover,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover' );			
+			$custom .= $this->get_background_color_css( 'button_background_color', '', 'button,.wp-element-button,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );			
+			$custom .= $this->get_background_color_css( 'button_background_color_hover', '', 'button:hover,.wp-element-button:hover,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover' );			
 
-			$custom .= $this->get_color_css( 'button_color', '', 'button,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.checkout-button.button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );			
-			$custom .= $this->get_color_css( 'button_color_hover', '', 'button:hover,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover' );			
+			$custom .= $this->get_color_css( 'button_color', '', 'button,.wp-element-button,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.checkout-button.button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );			
+			$custom .= $this->get_color_css( 'button_color_hover', '', 'button:hover,.wp-element-button:hover,div.wpforms-container-full .wpforms-form input[type=submit]:hover,div.wpforms-container-full .wpforms-form button[type=submit]:hover,div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,.roll-button:hover,a.button:hover,.wp-block-button__link:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover' );			
 
 			$button_border_color = get_theme_mod( 'button_border_color', '' );
 			$button_border_color_hover = get_theme_mod( 'button_border_color_hover', '' );
