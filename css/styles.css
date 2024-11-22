@@ -95,6 +95,9 @@ Navigation
 .post-navigation .nav-next span {
 	margin-left: 10px;
 }
+.woocommerce nav.woocommerce-pagination ul li .page-numbers {
+	padding: 0;
+}
 .woocommerce nav.woocommerce-pagination ul li .page-numbers,
 .nav-links .page-numbers {
 	background-color: var(--sydney-dark-background);
