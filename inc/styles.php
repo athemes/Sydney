@@ -407,7 +407,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 				}            
 			}
 
-			$custom .= $this->get_background_color_css( 'main_header_background', '', '.main-header,.header-search-form' );
+			$custom .= $this->get_background_color_css( 'main_header_background', '', '.main-header:not(.sticky-active),.header-search-form' );
 			$custom .= $this->get_background_color_css( 'main_header_background_sticky', '', '.main-header.sticky-active' );
 
 			$custom .= $this->get_color_css( 'main_header_color', '', '.main-header .site-title a,.main-header .site-description,.main-header #mainnav .menu > li > a,#mainnav .nav-menu > li > a, .main-header .header-contact a' );
