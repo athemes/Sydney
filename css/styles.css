@@ -1075,7 +1075,7 @@ Header
 		padding: 0;
 }
 .transparent-header .sticky-header.sticky-scrolltop {
-	position: absolute;
+	position: static;
 	z-index: 19;
 	width: 100%;
 	top: 0;
