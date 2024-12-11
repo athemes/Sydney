@@ -1374,6 +1374,14 @@
 		} );
 	} );
 
+	wp.customize( 'header_icons_size', function( val ) {
+		val.bind( function( to ) {
+			$( '.header-item .sydney-svg-icon' ).css( { 'width': to + 'px', 'height': to + 'px' } );
+			var maxHeigh = to - 2;
+			$( '.header-item .sydney-svg-icon svg' ).css( { 'max-height': maxHeigh + 'px' } );
+		} );
+	} );
+
 } )( jQuery );
 
 function hideControls( options ) {
