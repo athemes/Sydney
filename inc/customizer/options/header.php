@@ -139,9 +139,9 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'site_t
 		),
 		'priority' 			=> 62,
 		'input_attrs' => array (
-			'min'	=> 12,
-			'max'	=> 100,
-			'step'  => 1
+			'min'  => 12,
+			'max'  => 100,
+			'step' => 1
 		),
 		'separator' 	=> 'after'
 	)
@@ -1010,6 +1010,7 @@ $wp_customize->add_control(
 );
 
 $wp_customize->add_setting( 'header_icons_size', array(
+	'default'   		=> 16,
 	'transport'			=> 'postMessage',
 	'sanitize_callback' => 'absint',
 ) );
