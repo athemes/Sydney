@@ -434,6 +434,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$header_icons_size = get_theme_mod( 'header_icons_size' );
 			$custom .= ".header-item .sydney-svg-icon { width:" . esc_attr( $header_icons_size ) . "px;height:" . esc_attr( $header_icons_size ) . "px;}" . "\n";
 			$custom .= ".header-item .sydney-svg-icon svg { max-height:" . esc_attr( $header_icons_size - 2 ) . "px;}" . "\n";
+			
+			$custom .= $this->get_background_color_css( 'search_bar_background_color', '', '.header-search-form' );
 
             //Submenu items hover
 			$custom .= $this->get_color_css( 'submenu_items_hover', '', '#mainnav .sub-menu li:hover>a, .main-header #mainnav ul ul li:hover>a' );
