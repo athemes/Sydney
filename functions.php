@@ -627,6 +627,11 @@ require get_template_directory() . '/inc/integrations/class-sydney-amp.php';
 require get_template_directory() . '/inc/customizer/upsell/class-customize.php';
 
 /**
+ * Style Book Toggle
+ */
+require get_template_directory() . '/inc/customizer/style-book/control/class-customizer-style-book.php';
+
+/**
  * Gutenberg
  */
 require get_template_directory() . '/inc/editor.php';

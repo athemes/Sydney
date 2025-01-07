@@ -114,9 +114,15 @@ function sydney_customize_register( $wp_customize ) {
         require get_template_directory() . '/inc/customizer/options/woocommerce-single.php';
     }
     
-    //___Hero slider___//
+    /**
+     * Hero slider
+     */
     require get_template_directory() . '/inc/customizer/options/hero-area.php';
-         
+    
+    /**
+     * Load Style Book
+     */
+    require get_template_directory() . '/inc/customizer/style-book/class-sydney-style-book.php';
 
     if ( false == get_option( 'sydney-update-header' ) ) {
     //___Menu style___//

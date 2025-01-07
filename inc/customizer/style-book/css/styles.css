@@ -1,0 +1,371 @@
+.sydney-style-book-toggle {
+	padding: 18px;
+	font-weight: 600;
+	text-align: center;
+	cursor: pointer;
+	background-color: #fff;
+	margin-bottom: 0;
+	transition: all 0.3s;
+	border-bottom: 1px solid #dcdcde;
+}
+.sydney-style-book-toggle:hover {
+	background-color: #f6f7f7;
+	color: #2271b1;
+}
+.sydney-style-book-toggle span {
+	margin-right: 8px;
+	font-size: 18px;
+}
+.sydney-style-book-toggle h3 {
+	margin: 0;
+	color: #50575e;
+}
+.sydney-style-book {
+	background-color: #f0f0f1;
+	color: #1c1c1c;
+	padding: 30px;
+	overflow: auto;
+	scroll-behavior: smooth;
+}
+.sydney-style-book a:focus {
+	outline: none;
+	box-shadow: none;
+}
+.sydney-style-book-body {
+	display: flex;
+	gap: 30px;
+}
+
+.sydney-style-book-navigation {
+	flex: 0 0 200px;
+	max-width: 200px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
+	padding: 20px;
+	align-self: flex-start;
+    position: sticky;
+    top: 0;
+}
+
+.sydney-style-book-navigation a {
+	color: #1c1c1c;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-bottom: 1px solid #dcdcdc;
+	padding-bottom: 13px;
+	margin-bottom: 13px;
+}
+
+.sydney-style-book-navigation a:last-of-type {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.sydney-style-book-navigation a:hover {
+	color: #2271b1;
+}
+
+.sydney-style-book-header {
+	position: relative;
+	padding-bottom: 40px;
+}
+.sydney-style-book-header div {
+	font-size: 16px;
+}
+.sydney-style-book-content {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
+	border-radius: 10px;
+	background-color: #fff;
+	margin-bottom: 60px;
+	width: 100%;
+	font-size: 16px;
+	line-height: 1.68;
+}
+
+.sydney-style-book-section {
+	display: flex;
+	align-items: center;
+	padding: 40px 0;
+	margin: 0 40px;
+	gap: 30px;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.sydney-style-book-section:last-of-type {
+	border-bottom: none;
+}
+
+.sydney-style-book-section-header {
+	flex: 0 0 150px;
+	max-width: 150px;
+}
+
+.sydney-style-book-section-header a {
+	font-size: 14px;
+	line-height: 1;
+}
+
+.sydney-style-book-close {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	cursor: pointer;
+	transition: opacity 0.3s;
+}
+
+.sydney-style-book-close .dashicons {
+	font-size: 30px;
+	width: 30px;
+	height: 30px;
+}
+
+.sydney-style-book-close:hover {
+	opacity: 0.5;
+}
+
+.sydney-style-book-customizer-link {
+	display: table;
+	text-decoration: none;
+	color: #1c1c1c;
+	position: relative;
+}
+
+.sydney-style-book-edit-overlay {
+	position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 10px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s;
+}
+
+.sydney-style-book-edit-overlay i {
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #2271b1;
+	color: #fff;
+	border-radius: 50%;
+}
+
+.sydney-style-book-customizer-link:hover .sydney-style-book-edit-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+.sydney-style-book-subsection-title {
+	margin: 0 0 30px;
+	border-bottom: 1px solid #dcdcdc;
+	padding: 0 0 10px;
+}
+.sydney-style-book-disabled a {
+	pointer-events: none;
+}
+.sydney-style-book-section-title {
+	line-height: 1;
+}
+/* Colors */
+.sydney-style-book-color {
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+	border: 1px solid #dcdcdc;
+	transition: all 0.2s;
+	padding: 10px;
+	border-radius: 10px;
+}
+.sydney-style-book-color-value {
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
+	border: 1px solid #dcdcdc;
+	margin: 0 auto 5px;
+}
+
+.sydney-style-book-color-label {
+	font-size: 14px;
+}
+
+.sydney-style-book-color-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: -45px;
+    width: 130px;
+    background-color: #1c1c1c;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+.sydney-style-book-color-tooltip::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 75px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #1c1c1c;
+	border-bottom: 0;
+	border-left: 0;
+}
+
+.sydney-style-book-color-tooltip::before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 65px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #1c1c1c;
+	border-bottom: 0;
+	border-right: 0;
+}
+
+.sydney-style-book-color:hover .sydney-style-book-color-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* Buttons */
+.sydney-style-book-section-content .roll-button {
+	position: relative;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 12px 34px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: all 0.3s;
+    cursor: pointer;
+	background-color: var(--sydney-global-color-1);
+	border-color: var(--sydney-global-color-1);
+	text-decoration: none;
+}
+
+/* Typography */
+.sydney-style-book-section-content .style-book-heading {
+	display: inline-block;
+	margin: 0 0 20px;
+}
+
+.sydney-style-book-section[data-section="typography"] .sydney-style-book-section-content {
+	display: flex;
+	gap: 60px;
+}
+
+.sydney-style-book-typography-body {
+    border-left: 1px solid #dcdcdc;
+    padding-left: 50px;
+	max-width: 500px;
+}
+.style-book-light-text {
+	font-size: 14px;
+	color: #7e7e7e;
+}
+
+/* Media */
+.sydney-style-book-section[data-section="media"] img {
+	max-width: 500px;
+}
+.sydney-style-book-section[data-section="media"] .sydney-style-book-edit-overlay {
+	border-radius: 0;
+}
+.sydney-style-book-section[data-section="media"] figcaption {
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* Forms */
+.sydney-style-book-section[data-section="forms"] form {
+	max-width: 500px;
+}
+.sydney-style-book-section[data-section="forms"] input,
+.sydney-style-book-section[data-section="forms"] textarea {
+	color: var(--sydney-grey-color);
+	border: 1px solid var(--sydney-border-color);
+	height: 50px;
+	padding: 4px 20px;
+	border-radius: 0;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+	margin-bottom: 15px;
+}
+.sydney-style-book-section[data-section="forms"] textarea {
+	width: 100%;
+	height: 120px;
+	padding: 15px 20px;
+}
+
+/* Lists */
+.sydney-style-book-lists {
+	display: flex;
+	gap: 50px;
+}
+.sydney-style-book-section[data-section="lists"] ul,
+.sydney-style-book-section[data-section="lists"] ol {
+	margin-left: 40px;
+}
+.sydney-style-book-section[data-section="lists"] ul {
+	list-style: disc;
+}
+
+/* Tables */
+.sydney-style-book-section[data-section="tables"] table {
+	border-collapse: collapse;
+	width: 500px;
+	max-width: 100%;
+	text-align: center;
+}
+.sydney-style-book-section[data-section="tables"] table th,
+.sydney-style-book-section[data-section="tables"] table td {
+	border: 1px solid #333;
+	padding: .5em;
+}
+.sydney-style-book-section[data-section="tables"] thead {
+	border-bottom: 3px solid;
+}
+
+/* Blockquote */
+.sydney-style-book-section[data-section="quotes"] blockquote p {
+	font-size: 22px;
+}
+.sydney-style-book-section[data-section="quotes"] blockquote {
+    background-color: var(--sydney-light-background);
+    font-size: 22px;
+    margin: 30px 0;
+    padding: 30px 30px 30px 40px;
+    position: relative;
+    font-style: normal;
+    border-left: 3px solid #000;
+}
+.sydney-style-book-section[data-section="quotes"] cite {
+	color: var(--sydney-grey-color);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 1px;
+}
