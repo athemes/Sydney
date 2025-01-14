@@ -945,3 +945,74 @@ $wp_customize->add_control(
 		)
 	)
 );
+
+/**
+ * Images
+ */
+$wp_customize->add_section(
+	'sydney_section_images',
+	array(
+		'title'      => esc_html__( 'Images', 'sydney'),
+		'panel'      => 'sydney_panel_general',
+	)
+);
+
+$wp_customize->add_setting( 'image_border_radius', array(
+	'default'   		=> 0,
+	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
+) );			
+
+$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'image_border_radius',
+	array(
+		'label' 		=> esc_html__( 'Image Border Radius', 'sydney' ),
+		'section' 		=> 'sydney_section_images',
+		'is_responsive'	=> 0,
+		'settings' 		=> array (
+			'size_desktop' 		=> 'image_border_radius',
+		),
+		'input_attrs' => array (
+			'min'	=> 0,
+			'max'	=> 100
+		),
+	)
+) );
+
+$wp_customize->add_setting( 'image_caption_font_size', array(
+	'default'   		=> 16,
+	'sanitize_callback' => 'absint',
+	'transport'			=> 'postMessage'
+) );			
+
+$wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'image_caption_font_size',
+	array(
+		'label' 		=> esc_html__( 'Caption Font Size', 'sydney' ),
+		'section' 		=> 'sydney_section_images',
+		'is_responsive'	=> 0,
+		'settings' 		=> array (
+			'size_desktop' 		=> 'image_caption_font_size',
+		),
+		'input_attrs' => array (
+			'min'	=> 10,
+			'max'	=> 50
+		),
+	)
+) );
+
+$wp_customize->add_setting(
+	'image_caption_color',
+	array(
+		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
+		'transport'         => 'postMessage'
+	)
+);
+$wp_customize->add_control(
+	new Sydney_Alpha_Color(
+		$wp_customize,
+		'image_caption_color',
+		array(
+			'label'         	=> esc_html__( 'Caption Color', 'sydney' ),
+			'section'       	=> 'sydney_section_images',
+		)
+	)
+);

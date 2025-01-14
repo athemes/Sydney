@@ -675,6 +675,12 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
             /* End porting */
 
+			//Images
+			$image_border_radius = get_theme_mod('image_border_radius', 0);
+			$custom .= "img { border-radius:" . intval($image_border_radius) . "px;}" . "\n";
+			$custom .= $this->get_font_sizes_css('image_caption_font_size', $defaults = array('desktop' => 16, 'tablet' => 16, 'mobile' => 16), '.wp-caption-text, figcaption');
+			$custom .= $this->get_color_css('image_caption_color', '', '.wp-caption-text, figcaption');
+
 			//Container widths
 			$container_width = get_theme_mod( 'container_width', 1170 );
 			if ( 1170 !== $container_width ) {

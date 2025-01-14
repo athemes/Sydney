@@ -97,4 +97,76 @@
         });
     });
 
+    // Heading font sizes
+    var headingFontSizes = {
+        'h1_font_size_desktop': 'h1.style-book-heading',
+        'h2_font_size_desktop': 'h2.style-book-heading',
+        'h3_font_size_desktop': 'h3.style-book-heading',
+        'h4_font_size_desktop': 'h4.style-book-heading',
+        'h5_font_size_desktop': 'h5.style-book-heading',
+        'h6_font_size_desktop': 'h6.style-book-heading'
+    };
+
+    $.each(headingFontSizes, function(option, selector) {
+        wp.customize(option, function(value) {
+            value.bind(function(newval) {
+                $(selector).css('font-size', newval + 'px');
+            });
+        });
+    });
+
+    //Body typography
+    wp.customize('sydney_body_font', function( value ) {
+        value.bind( function( to ) {
+
+            $( 'head' ).find( '#sydney-preview-style-book-google-fonts-body-css' ).remove();
+            $( 'head' ).find( '#sydney-preview-style-book-body-weight-css' ).remove();
+
+            $( 'head' ).append( '<link id="sydney-preview-style-book-google-fonts-body-css" href="" rel="stylesheet">' );
+
+            $( '#sydney-preview-style-book-google-fonts-body-css' ).attr( 'href', 'https://fonts.googleapis.com/css?family=' + jQuery.parseJSON( to )['font'].replace(/ /g, '+') + ':' + jQuery.parseJSON( to )['regularweight'] + '&display=swap' );
+
+            $( '.sydney-style-book .style-book-body' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
+
+            $( 'head' ).append('<style id="sydney-preview-style-book-body-weight-css" type="text/css">.sydney-style-book .style-book-body {font-weight:' + jQuery.parseJSON( to )['regularweight'] + ';}</style>');
+
+        } );
+    });
+
+    var bodyTypography = { 
+        'body_font_size': 'font-size',
+        'body_font_style': 'font-style',
+        'body_line_height': 'line-height',
+        'body_letter_spacing': 'letter-spacing',
+        'body_text_transform': 'text-transform',
+        'body_text_decoration': 'text-decoration'
+    };
+
+    $.each( bodyTypography, function( option, prop ) {
+        wp.customize(option, function( value ) {
+            value.bind( function( newval ) {
+                $( '.sydney-style-book .style-book-body' ).css( prop, newval );
+            } );
+        });
+    });
+
+    //Images
+    wp.customize('image_border_radius', function( value ) {
+        value.bind( function( newval ) {
+            $( '.sydney-style-book img' ).css( 'border-radius', newval + 'px' );
+        } );
+    });
+
+    wp.customize('image_caption_font_size', function( value ) {
+        value.bind( function( newval ) {
+            $( '.sydney-style-book figcaption' ).css( 'font-size', newval + 'px' );
+        } );
+    });
+
+    wp.customize('image_caption_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.sydney-style-book figcaption' ).css( 'color', newval );
+        } );
+    });
+
 } )( jQuery );

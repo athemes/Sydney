@@ -28,16 +28,22 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
         }
 
         public function enqueue() {
-            wp_enqueue_style( 'sydney-style-book', get_stylesheet_directory_uri() . '/inc/customizer/style-book/css/styles.css' );
-            wp_enqueue_script( 'sydney-style-book', get_stylesheet_directory_uri() . '/inc/customizer/style-book/js/scripts.js', array( 'customize-controls' ), false, true );
+            wp_enqueue_style( 'sydney-style-book', get_stylesheet_directory_uri() . '/inc/customizer/style-book/css/styles.min.css' );
+            wp_enqueue_script( 'sydney-style-book', get_stylesheet_directory_uri() . '/inc/customizer/style-book/js/scripts.min.js', array( 'customize-controls' ), false, true );
 
             /**
              * Dynamic CSS
              */
             $custom = '';
 
+            /* Images */
+			$image_border_radius = get_theme_mod('image_border_radius', 0);
+			$custom .= ".sydney-style-book-section-content img { border-radius:" . intval($image_border_radius) . "px;}" . "\n";
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css('image_caption_font_size', $defaults = array('desktop' => 16, 'tablet' => 16, 'mobile' => 16), '.sydney-style-book-section-content figcaption');
+			$custom .= Sydney_Custom_CSS::get_color_css('image_caption_color', '', '.sydney-style-book-section-content figcaption');
+
             /* Buttons */
-            $custom .= Sydney_Custom_CSS::get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), '.sydney-style-book-section-content .roll-button,' );
+            $custom .= Sydney_Custom_CSS::get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), '.sydney-style-book-section-content .roll-button' );
             $custom .= Sydney_Custom_CSS::get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), '.sydney-style-book-section-content .roll-button' );
 
             $buttons_radius = get_theme_mod( 'buttons_radius', 3 );
@@ -78,18 +84,18 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
             $custom .= ".sydney-style-book-section-content h1.style-book-heading, .sydney-style-book-section-content h2.style-book-heading, .sydney-style-book-section-content h3.style-book-heading, .sydney-style-book-section-content h4.style-book-heading, .sydney-style-book-section-content h5.style-book-heading, .sydney-style-book-section-content h6.style-book-heading { font-family:" . esc_attr( $headings_font['font'] ) . ',' . esc_attr( $headings_font['category'] ) . '; font-weight: ' . esc_attr( $headings_font['regularweight'] ) . ';}' . "\n";
 
             //Headings styling
-            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h1_font_size_desktop', $defaults = array( 'desktop' => 48, 'tablet' => 42, 'mobile' => 32 ), '.sydney-style-book-section-content h1.style-book-heading' );
-            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h2_font_size_desktop', $defaults = array( 'desktop' => 38, 'tablet' => 32, 'mobile' => 24 ), '.sydney-style-book-section-content h2.style-book-heading' );
-            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h3_font_size_desktop', $defaults = array( 'desktop' => 32, 'tablet' => 24, 'mobile' => 20 ), '.sydney-style-book-section-content h3.style-book-heading' );
-            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h4_font_size_desktop', $defaults = array( 'desktop' => 24, 'tablet' => 18, 'mobile' => 16 ), '.sydney-style-book-section-content h4.style-book-heading' );
-            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h5_font_size_desktop', $defaults = array( 'desktop' => 20, 'tablet' => 16, 'mobile' => 16 ), '.sydney-style-book-section-content h5.style-book-heading' );
-            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h6_font_size_desktop', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.sydney-style-book-section-content h6.style-book-heading' );
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h1_font_size', $defaults = array( 'desktop' => 48, 'tablet' => 42, 'mobile' => 32 ), '.sydney-style-book-section-content h1.style-book-heading' );
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h2_font_size', $defaults = array( 'desktop' => 38, 'tablet' => 32, 'mobile' => 24 ), '.sydney-style-book-section-content h2.style-book-heading' );
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h3_font_size', $defaults = array( 'desktop' => 32, 'tablet' => 24, 'mobile' => 20 ), '.sydney-style-book-section-content h3.style-book-heading' );
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h4_font_size', $defaults = array( 'desktop' => 24, 'tablet' => 18, 'mobile' => 16 ), '.sydney-style-book-section-content h4.style-book-heading' );
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h5_font_size', $defaults = array( 'desktop' => 20, 'tablet' => 16, 'mobile' => 16 ), '.sydney-style-book-section-content h5.style-book-heading' );
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'h6_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.sydney-style-book-section-content h6.style-book-heading' );
         
             $headings_line_height = get_theme_mod( 'headings_line_height', 1.2 );
             $custom .= ".sydney-style-book-section-content h1.style-book-heading, .sydney-style-book-section-content h2.style-book-heading, .sydney-style-book-section-content h3.style-book-heading, .sydney-style-book-section-content h4.style-book-heading, .sydney-style-book-section-content h5.style-book-heading, .sydney-style-book-section-content h6.style-book-heading { line-height:" . esc_attr( $headings_line_height ) . ";}" . "\n";
             
             //Body styling
-            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'body_font_size_desktop', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.sydney-style-book-section-content .style-book-body' );            
+            $custom .= Sydney_Custom_CSS::get_font_sizes_css( 'body_font_size', $defaults = array( 'desktop' => 16, 'tablet' => 16, 'mobile' => 16 ), '.sydney-style-book-section-content .style-book-body' );            
 
             $body_font_style 		= get_theme_mod( 'body_font_style' );
             $body_line_height 		= get_theme_mod( 'body_line_height', 1.68 );
@@ -212,57 +218,63 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
 
             //Headings
             //we currently only support one font for all headings
-            $headings = json_decode( get_theme_mod( 'sydney_headings_font' ), true );
+            $headings_font = get_theme_mod( 'sydney_headings_font' );
+            if ( false !== $headings_font ) {
+                $headings = json_decode( $headings_font, true );
 
-            if ( 'regular' === $headings['regularweight'] ) {
-                $headings['regularweight'] = 400;
+                if ( 'regular' === $headings['regularweight'] ) {
+                    $headings['regularweight'] = 400;
+                }
+
+                $config['headings'] = array(
+                    'h1' => array(
+                        'family' => $headings['font'],
+                        'weight' => $headings['regularweight'],
+                        'size'   => get_theme_mod( 'h1_font_size_desktop' ),
+                    ),
+                    'h2' => array(
+                        'family' => $headings['font'],
+                        'weight' => $headings['regularweight'],
+                        'size'   => get_theme_mod( 'h2_font_size_desktop' ),
+                    ),
+                    'h3' => array(
+                        'family' => $headings['font'],
+                        'weight' => $headings['regularweight'],
+                        'size'   => get_theme_mod( 'h3_font_size_desktop' ),
+                    ),
+                    'h4' => array(
+                        'family' => $headings['font'],
+                        'weight' => $headings['regularweight'],
+                        'size'   => get_theme_mod( 'h4_font_size_desktop' ),
+                    ),
+                    'h5' => array(
+                        'family' => $headings['font'],
+                        'weight' => $headings['regularweight'],
+                        'size'   => get_theme_mod( 'h5_font_size_desktop' ),
+                    ),
+                    'h6' => array(
+                        'family' => $headings['font'],
+                        'weight' => $headings['regularweight'],
+                        'size'   => get_theme_mod( 'h6_font_size_desktop' ),
+                    ),
+                );
             }
-
-            $config['headings'] = array(
-                'h1' => array(
-                    'family' => $headings['font'],
-                    'weight' => $headings['regularweight'],
-                    'size'   => get_theme_mod( 'h1_font_size_desktop' ),
-                ),
-                'h2' => array(
-                    'family' => $headings['font'],
-                    'weight' => $headings['regularweight'],
-                    'size'   => get_theme_mod( 'h2_font_size_desktop' ),
-                ),
-                'h3' => array(
-                    'family' => $headings['font'],
-                    'weight' => $headings['regularweight'],
-                    'size'   => get_theme_mod( 'h3_font_size_desktop' ),
-                ),
-                'h4' => array(
-                    'family' => $headings['font'],
-                    'weight' => $headings['regularweight'],
-                    'size'   => get_theme_mod( 'h4_font_size_desktop' ),
-                ),
-                'h5' => array(
-                    'family' => $headings['font'],
-                    'weight' => $headings['regularweight'],
-                    'size'   => get_theme_mod( 'h5_font_size_desktop' ),
-                ),
-                'h6' => array(
-                    'family' => $headings['font'],
-                    'weight' => $headings['regularweight'],
-                    'size'   => get_theme_mod( 'h6_font_size_desktop' ),
-                ),
-            );
 
             //Body
-            $body = json_decode( get_theme_mod( 'sydney_body_font' ), true );
+            $body_font = get_theme_mod( 'sydney_body_font' );
+            if ( false !== $body_font ) {
+                $body = json_decode( get_theme_mod( 'sydney_body_font' ), true );
 
-            if ( 'regular' === $body['regularweight'] ) {
-                $body['regularweight'] = 400;
+                if ( 'regular' === $body['regularweight'] ) {
+                    $body['regularweight'] = 400;
+                }
+
+                $config['body'] = array(
+                    'family' => $body['font'],
+                    'weight' => $body['regularweight'],
+                    'size'   => get_theme_mod( 'body_font_size_desktop' ),
+                );
             }
-
-            $config['body'] = array(
-                'family' => $body['font'],
-                'weight' => $body['regularweight'],
-                'size'   => get_theme_mod( 'body_font_size_desktop' ),
-            );
 
             return $config;
         }
@@ -387,7 +399,7 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
                     <h2 class="sydney-style-book-section-title"><?php esc_html_e( 'Media', 'sydney' ); ?></h2>
                 </div>
                 <div class="sydney-style-book-section-content">
-                    <a href="javascript:wp.customize.section( 'sydney_section_media' ).focus();" class="sydney-style-book-customizer-link">
+                    <a href="javascript:wp.customize.section( 'sydney_section_images' ).focus();" class="sydney-style-book-customizer-link">
                         <div class="sydney-style-book-media">
                             <figure>
                                 <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/stylebook.jpg' ); ?>" alt="<?php esc_attr_e( 'Media Image', 'sydney' ); ?>">

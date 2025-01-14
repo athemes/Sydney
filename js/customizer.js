@@ -1382,6 +1382,20 @@
 		} );
 	} );
 
+	// Image caption font size
+	wp.customize('image_caption_font_size', function(value) {
+		value.bind(function(to) {
+			$('.wp-caption-text,figcaption').css('font-size', to + 'px');
+		});
+	});
+
+	// Image border radius
+	wp.customize('image_border_radius', function(value) {
+		value.bind(function(to) {
+			$('img').css('border-radius', to + 'px');
+		});
+	});
+
 } )( jQuery );
 
 function hideControls( options ) {
