@@ -34,11 +34,13 @@
     "gulp-uglify": "^3.0.0",
     "gulp-uglifycss": "^1.0.6",
     "gulp-wp-pot": "^2.0.7",
-    "gulp-zip": "^5.0.2"
+    "gulp-zip": "^5.0.2",
+    "sass": "^1.69.5"
   },
   "scripts": {
     "start": "gulp",
     "zip": "gulp zip",
+    "zip-remote-upload": "gulp zip && gulp copy-file-to-remote --local-path /home/rodrigo/docker/athemes/dev/wp-content/themes/ --remote-path /var/www/html/wp-content/themes/ --file-name sydney.zip && gulp unzip-remote-file --local-path /home/rodrigo/docker/athemes/athemesdev/ --remote-path /var/www/html/wp-content/themes/ --file-name sydney.zip",
     "styles": "gulp styles",
     "images": "gulp images",
     "js-custom": "gulp customJS",
