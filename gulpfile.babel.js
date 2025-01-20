@@ -32,6 +32,7 @@
   * Load gulp plugins and passing them semantic names.
   */
  const gulp = require('gulp'); // Gulp of-course.
+ const { exec } = require('child_process');
  
  // CSS related plugins.
  var nodesass = require('node-sass')
@@ -242,7 +243,42 @@ gulp.task('wooStylesMin', () => {
 	 return gulp.src(src).pipe(zip(config.zipName)).pipe(gulp.dest(config.zipDestination));
  });
 
- 
+/**
+ * Task: `copy-file-to-remote`.
+ * Command args: --local-path /home/rodrigo/docker/athemes/dev/wp-content/themes/ --remote-path /var/www/html/wp-content/themes/ --file-name sydney.zip
+ */
+ gulp.task('copy-file-to-remote', async function () {
+	const localPath = process.argv[4];
+	const remotePath = process.argv[6];
+	const fileName = process.argv[8];
+
+	exec(`docker cp ${ localPath }${ fileName } ddev-athemesdev-web:${ remotePath }${ fileName }`, (err, stdout, stderr) => {
+		if (err) {
+			console.error(`Error copying file: ${stderr}`);
+		} else {
+			console.log(`File copied successfully: ${stdout}`);
+		}
+	})
+});
+
+ /**
+ * Task: `unzip-remote-file`.
+ * Command args: --local-path /home/rodrigo/docker/athemes/athemesdev/ --remote-path /var/www/html/wp-content/themes/ --file-name sydney.zip
+ */
+gulp.task('unzip-remote-file', async function () {
+	const localPath = process.argv[4];
+	const remotePath = process.argv[6];
+	const fileName = process.argv[8];
+
+	exec(`cd ${ localPath }; ddev exec "unzip -o ${ remotePath }${ fileName } -d ${ remotePath }"`, (err, stdout, stderr) => {
+		if (err) {
+			console.error(`Error copying file: ${stderr}`);
+		} else {
+			console.log(`File copied successfully: ${stdout}`);
+		}
+	})
+});
+
  /**
   * Watch Tasks.
   *
