@@ -349,7 +349,7 @@ wp_enqueue_script( 'sydney-plugin-installer' );
                     <tbody>
                         <tr>
                             <td>#467</td>
-                            <td>FIX: Lorem ipsum dolor sit a met, dont sit a le quat.</td>
+                            <td>Improved performance when loading custom assets during page transitions.</td>
                             <td>
                                 <a class="components-button has-lock-icon css-adm54n sydney-dashboard-pro-tooltip" href="https://athemes.com/sydney-upgrade?utm_source=athemes-patcher&utm_medium=link&utm_campaign=Sydney" target="_blank" data-tooltip-message="<?php echo esc_attr__( 'This is only available on Sydney Pro', 'sydney' ); ?>">
                                     Apply
@@ -359,7 +359,7 @@ wp_enqueue_script( 'sydney-plugin-installer' );
                         </tr>
                         <tr>
                             <td>#465</td>
-                            <td>FIX: Lorem ipsum dolor sit a met, dont sit a le quat. Lorem ipsum dolor sit a met, dont sit a le quat.</td>
+                            <td>Updated widget behavior for smoother interactions across multiple devices.</td>
                             <td>
                                 <button type="button" disabled="" class="components-button css-wpjqd">Applied <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-152qpu8" aria-hidden="true" focusable="false">
                                         <path d="M18.3 5.6L9.9 16.9l-4.6-3.4-.9 1.2 5.8 4.3 9.3-12.6z"></path>
@@ -369,7 +369,7 @@ wp_enqueue_script( 'sydney-plugin-installer' );
                         </tr>
                         <tr>
                             <td>#463</td>
-                            <td>FIX: Lorem ipsum dolor sit a met, dont quat. Lorem ipsum dolor.</td>
+                            <td>Minor fix to improve admin panel usability. </td>
                             <td>
                                 <button type="button" disabled="" class="components-button css-wpjqd">Applied <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-152qpu8" aria-hidden="true" focusable="false">
                                         <path d="M18.3 5.6L9.9 16.9l-4.6-3.4-.9 1.2 5.8 4.3 9.3-12.6z"></path>
