@@ -426,7 +426,7 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
                     <?php endif; ?>
                 </div>
                 <div class="sydney-style-book-section-content <?php defined( 'SYDNEY_PRO_VERSION' ) ? '' : 'sydney-style-book-disabled'; ?>">
-                    <a href="javascript:wp.customize.section( 'sydney_section_forms' ).focus();" class="sydney-style-book-customizer-link">
+                    <a href="javascript:wp.customize.section( 'sydney_section_html_designer' ).focus();" class="sydney-style-book-customizer-link">
                         <div class="sydney-style-book-form">
                             <form>
                                 <input type="text" placeholder="<?php esc_attr_e( 'Your Name', 'sydney' ); ?>">
@@ -455,7 +455,7 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
                     <?php endif; ?>
                 </div>
                 <div class="sydney-style-book-section-content <?php defined( 'SYDNEY_PRO_VERSION' ) ? '' : 'sydney-style-book-disabled'; ?>">
-                    <a href="javascript:wp.customize.section( 'sydney_section_lists' ).focus();" class="sydney-style-book-customizer-link">
+                    <a href="javascript:wp.customize.section( 'sydney_section_html_designer' ).focus();" class="sydney-style-book-customizer-link">
                         <div class="sydney-style-book-lists">
                             <ul>
                                 <li><?php esc_html_e( 'List Item 1', 'sydney' ); ?></li>
@@ -488,7 +488,7 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
                     <?php endif; ?>
                 </div>
                 <div class="sydney-style-book-section-content <?php defined( 'SYDNEY_PRO_VERSION' ) ? '' : 'sydney-style-book-disabled'; ?>">
-                    <a href="javascript:wp.customize.section( 'sydney_section_tables' ).focus();" class="sydney-style-book-customizer-link">
+                    <a href="javascript:wp.customize.section( 'sydney_section_html_designer' ).focus();" class="sydney-style-book-customizer-link">
                         <div class="sydney-style-book-tables">
                             <table>
                                 <thead>
@@ -537,7 +537,7 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
                     <?php endif; ?>
                 </div>
                 <div class="sydney-style-book-section-content <?php defined( 'SYDNEY_PRO_VERSION' ) ? '' : 'sydney-style-book-disabled'; ?>">
-                    <a href="javascript:wp.customize.section( 'sydney_section_quotes' ).focus();" class="sydney-style-book-customizer-link">
+                    <a href="javascript:wp.customize.section( 'sydney_section_html_designer' ).focus();" class="sydney-style-book-customizer-link">
                         <div class="sydney-style-book-quotes">
                             <blockquote>
                                 <p><?php esc_html_e( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor dui et gravida hendrerit.', 'sydney' ); ?></p>
