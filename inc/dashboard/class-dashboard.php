@@ -50,6 +50,10 @@ class Sydney_Dashboard
             }
         }
 
+        if( $this->is_patcher_page() ) {
+            add_action('admin_enqueue_scripts', array( $this, 'enqueue_patcher_scripts' ));
+        }
+
         add_filter('woocommerce_enable_setup_wizard', '__return_false');
 
         add_action('admin_menu', array($this, 'add_menu_page'));
@@ -87,6 +91,17 @@ class Sydney_Dashboard
     public function is_sydney_dashboard_page() {
         global $pagenow;
         return $pagenow === 'admin.php' && ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] === 'sydney-dashboard' );
+    }
+
+    /**
+     * Is aThemes Patcher page.
+     * 
+     */
+    public function is_patcher_page() {
+        global $pagenow;
+
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        return $pagenow === 'admin.php' && ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] === 'athemes-patcher-preview-sp' );
     }
 
     /**
@@ -149,6 +164,17 @@ class Sydney_Dashboard
             2
         );
 
+        // Add 'aThemes Patcher' link
+        add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page
+            'sydney-dashboard',
+            esc_html__('Patcher', 'sydney'),
+            esc_html__('Patcher', 'sydney'),
+            'manage_options',
+            'athemes-patcher-preview-sp',
+            array( $this, 'html_patcher' ),
+            3
+        );
+
         // Add 'Upgrade' link
         if( !defined( 'SYDNEY_PRO_VERSION' ) ) {
             add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page
@@ -158,7 +184,7 @@ class Sydney_Dashboard
                 'manage_options',
                 'https://athemes.com/sydney-upgrade?utm_source=theme_submenu_page&utm_medium=button&utm_campaign=Sydney',
                 '',
-                3
+                4
             );
         }
     }
@@ -236,6 +262,14 @@ class Sydney_Dashboard
                 'failed_message' => esc_html__('Something went wrong, contact support.', 'sydney'),
             ),
         ));
+    }
+
+    /**
+     * Enqueue aThemes Patcher preview scripts and styles.
+     * 
+     */
+    public function enqueue_patcher_scripts() {
+        wp_enqueue_style( 'wp-components' );
     }
 
     /**
@@ -921,6 +955,13 @@ class Sydney_Dashboard
 
         }
 
+    }
+
+    /**
+     * HTML aThemes Patcher.
+     */
+    public function html_patcher() {
+        require get_template_directory() . '/inc/dashboard/html-patcher.php';
     }
 
 }
