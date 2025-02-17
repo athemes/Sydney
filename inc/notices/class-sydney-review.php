@@ -42,6 +42,10 @@ class Sydney_Theme_Review_Notice {
 		$ignored_notice           = get_user_meta( $user_id, 'sydney_disable_review_notice', true );
 		$ignored_notice_partially = get_user_meta( $user_id, 'delay_sydney_disable_review_notice_partially', true );
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		if ( ( get_option( 'sydney_theme_installed_time' ) > strtotime( '-14 day' ) ) || ( $ignored_notice_partially > strtotime( '-14 day' ) ) || ( $ignored_notice ) ) {
 			return;
 		}

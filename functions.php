@@ -739,6 +739,10 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) && ( isset($pagenow) && $pagenow == 
 		$active_plugins = get_option( 'active_plugins' );
 		$theme_version  = wp_get_theme( 'sydney' )->Version;
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		// Check if Sydney Toolbox plugin is active
 		if( ! in_array( 'sydney-toolbox/sydney-toolbox.php', $active_plugins ) ) {
 			return;

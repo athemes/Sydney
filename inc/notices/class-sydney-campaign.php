@@ -178,6 +178,10 @@ class Sydney_Campaign_Notice {
 		$dismissed = $this->is_dismissed();
         $has_end_date_passed = $this->has_end_date_passed();
 
+        if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		if ( $dismissed || $has_end_date_passed ) {
 			return;
 		}
