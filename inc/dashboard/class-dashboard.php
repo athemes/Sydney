@@ -935,7 +935,6 @@ class Sydney_Dashboard
      */
     public function html_notice()
     {
-
         global $pagenow;
 
         $screen = get_current_screen();

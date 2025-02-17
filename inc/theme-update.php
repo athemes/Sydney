@@ -81,6 +81,9 @@ add_action( 'init', 'sydney_migrate_blog_layout' );
  * 
  */
 function sydney_header_update_notice_1_8_1() {
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
 
     if ( get_option( 'sydney-update-header-dismiss' ) ) {
         return;
