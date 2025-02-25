@@ -2518,3 +2518,12 @@
   width: 20px;
   height: 20px
 }
+
+.sydney-dashboard-feature-card.sydney-dashboard-feature-card-plugin {
+  gap: 10px;
+  height: 100%;
+}
+
+.sydney-dashboard-feature-card.sydney-dashboard-feature-card-plugin a {
+  margin-top: auto;
+}

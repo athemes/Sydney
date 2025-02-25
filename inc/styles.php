@@ -494,7 +494,7 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             //Site title
 			$logo_site_title	= get_theme_mod('logo_site_title', 0);
 
-            if ( $logo_site_title ) {
+            if ( $logo_site_title && '' !== get_theme_mod( 'site_logo' ) ) {
                 $custom .= ".site-branding { display: flex;gap:15px;align-items:center; }"."\n";
             }			
             $site_title = get_theme_mod( 'site_title_color' );

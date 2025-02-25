@@ -461,6 +461,22 @@ function sydney_dashboard_settings()
 		);	
 	}
 
+	// Useful plugins.
+	$settings['useful-plugins'] = array(
+		'merchant' => array(
+			'slug' => 'merchant',
+			'path' => 'merchant/merchant.php',
+			'name' => __( 'Merchant', 'sydney' ),
+			'img_url' => get_template_directory_uri() . '/images/admin/merchant-logo.png',
+		),
+		'athemes-addons-for-elementor-lite' => array(
+			'slug' => 'athemes-addons-for-elementor-lite',
+			'path' => 'athemes-addons-for-elementor-lite/athemes-addons-elementor.php',
+			'name' => __( 'aThemes Addons for Elementor', 'sydney' ),
+			'img_url' => get_template_directory_uri() . '/images/admin/athemes-addons-logo.png',
+		),
+	);
+
 	return $settings;
 }
 add_filter('sydney_dashboard_settings', 'sydney_dashboard_settings');

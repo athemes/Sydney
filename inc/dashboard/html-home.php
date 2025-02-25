@@ -182,6 +182,40 @@ if (!defined('ABSPATH')) {
             </div>
         </div>
 
+        <!-- Useful plugins -->
+        <div class="sydney-dashboard-card">
+            <div class="sydney-dashboard-card-header">
+                <h2><?php echo esc_html__( 'Useful plugins', 'sydney' ); ?></h2>
+            </div>
+            <div class="sydney-dashboard-card-body">
+                <div class="sydney-dashboard-row">                
+                    <?php foreach( $this->settings['useful-plugins'] as $plugin ) : ?>
+                        <div class="sydney-dashboard-column sydney-dashboard-column-3">
+                            <div class="sydney-dashboard-feature-card sydney-dashboard-feature-card-plugin">
+                                <img src="<?php echo esc_url( $plugin['img_url'] ); ?>" width="40" height="40" alt="<?php echo esc_attr( $plugin['name'] ); ?>" />
+                                <h3 class="bt-m-0"><?php echo esc_html( $plugin['name'] ); ?></h3>
+
+                                <?php if ( in_array( $this->get_plugin_status( $plugin['path'] ), array( 'inactive' ) ) ) : ?>
+                                    <a href="#" class="sydney-dashboard-link sydney-dashboard-link-success sydney-dashboard-plugin-ajax-button" data-type="install" data-path="<?php echo esc_attr($plugin['path']); ?>" data-slug="<?php echo esc_attr($plugin['slug']); ?>">
+                                        <?php echo esc_html( 'Activate', 'sydney' ); ?>
+                                    </a>
+                                <?php elseif ( in_array( $this->get_plugin_status( $plugin['path'] ), array( 'not_installed' ) ) ) : ?>
+                                    <a href="#" class="sydney-dashboard-link sydney-dashboard-link-success sydney-dashboard-plugin-ajax-button" data-type="install" data-path="<?php echo esc_attr($plugin['path']); ?>" data-slug="<?php echo esc_attr($plugin['slug']); ?>">
+                                        <?php echo esc_html( 'Install', 'sydney' ); ?>
+                                    </a>                                           
+                                <?php else : ?>
+                                    <a href="#" class="sydney-dashboard-link sydney-dashboard-link-danger sydney-dashboard-plugin-ajax-button" data-type="deactivate" data-path="<?php echo esc_attr($plugin['path']); ?>" data-slug="<?php echo esc_attr($plugin['slug']); ?>">
+                                        <?php echo esc_html( 'Deactivate', 'sydney' ); ?>
+                                    </a>
+                                <?php endif; ?>
+                                
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>        
+
     </div>
     <div class="sydney-dashboard-column sydney-dashboard-column-3">
         
