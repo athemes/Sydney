@@ -30,7 +30,7 @@ $wp_customize->add_control(
                 __( 'Language switcher', 'sydney' ),
                 __( 'Page Headers module', 'sydney' ),
                 __( 'Elementor mega menu builder', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_main_header&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),    
             'priority'    => 999
         )
@@ -87,7 +87,7 @@ $wp_customize->add_control(
                 __( '4 menu link animations', 'sydney' ),
                 __( 'Customizable background', 'sydney' ),
                 __( 'Elementor template rendering', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_mobile_header&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999,
             'show_separator' => false
@@ -119,7 +119,7 @@ $wp_customize->add_control(
                 __( 'Pre-footer area', 'sydney' ),
                 __( 'SVG footer separators', 'sydney' ),
                 __( 'Reveal animation effect', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_footer_widgets&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
             ),            
             'priority'    => 999
         )
@@ -150,7 +150,7 @@ $wp_customize->add_control(
                 __( 'Pre-footer area', 'sydney' ),
                 __( 'SVG footer separators', 'sydney' ),
                 __( 'Reveal animation effect', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',   
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_footer_credits&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',   
             ), 
             'priority'    => 999
         )
@@ -182,7 +182,7 @@ $wp_customize->add_control(
                 __( 'Progress bar', 'sydney' ),
                 __( 'Social sharing buttons', 'sydney' ),
                 __( 'Elementor template builder for category pages', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_blog_archives&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
             ),
             'priority'    => 999
         )
@@ -211,7 +211,7 @@ $wp_customize->add_control(
                 __( 'Last updated date', 'sydney' ),
                 __( 'Social sharing buttons', 'sydney' ),
                 __( 'Elementor template builder for single posts', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_blog_singles&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',                
             ),            
             'priority'    => 999
         )
@@ -242,7 +242,7 @@ $wp_customize->add_control(
                 __( 'Fade and slide transitions', 'sydney' ),
                 __( 'Button and text animations', 'sydney' ),
                 __( 'Title tag control', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_hero_slider&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999
         )
@@ -272,7 +272,7 @@ $wp_customize->add_control(
             'features'    => array(
                 __( 'Adobe Fonts integration', 'sydney' ),
                 __( 'An option to upload custom fonts', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_typography_headings&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999
         )
@@ -297,7 +297,7 @@ $wp_customize->add_control(
             'features'    => array(
                 __( 'Adobe Fonts integration', 'sydney' ),
                 __( 'An option to upload custom fonts', 'sydney' ),
-                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_deep&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
+                '<a target="_blank" href="https://athemes.com/sydney-upgrade/#features?utm_source=theme_customizer_typography_body&amp;utm_medium=sydney_customizer&amp;utm_campaign=Sydney">' . __( '&hellip;and many more premium features', 'sydney' ) . '</a>',
             ),             
             'priority'    => 999
         )

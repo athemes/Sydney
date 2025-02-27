@@ -47,6 +47,21 @@ function sydney_dashboard_settings()
 	$settings['upgrade_pro'] = 'https://athemes.com/sydney-upgrade?utm_source=theme_info&utm_medium=link&utm_campaign=Sydney';
 
 	//
+	// Support.
+	//
+	$settings['upgrade_pro_support'] = 'https://athemes.com/sydney-upgrade?utm_source=dashboard_upgrade_support&utm_medium=link&utm_campaign=Sydney';
+
+	//
+	// Free vs Pro upgrade link.
+	//
+	$settings['upgrade_pro_freevspro'] = 'https://athemes.com/sydney-upgrade?utm_source=dashboard_freevspro&utm_medium=link&utm_campaign=Sydney';
+
+	//
+	// Module upgrade link.
+	//
+	$settings['upgrade_pro_module'] = 'https://athemes.com/sydney-upgrade?utm_source=dashboard_module&utm_medium=link&utm_campaign=Sydney';	
+
+	//
 	// Promo.
 	//
 	$settings['promo_title']  = esc_html__('Upgrade to Pro', 'sydney');

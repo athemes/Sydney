@@ -1812,7 +1812,7 @@ if (!defined('ABSPATH')) {
 							</div>
 
 				<div style="text-align: right; margin-top: 30px;margin-right:60px;">
-					<a href="<?php echo esc_url($this->settings['upgrade_pro']); ?>" target="_blank" class="button button-primary">
+					<a href="<?php echo esc_url($this->settings['upgrade_pro_freevspro']); ?>" target="_blank" class="button button-primary">
 						<?php esc_html_e('Buy Sydney Pro Today', 'sydney'); ?>
 					</a>
 				</div>
