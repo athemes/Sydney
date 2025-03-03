@@ -331,7 +331,6 @@ class Sydney_Theme_Dashboard {
 						<div class="thd-feature-help-text"><?php echo $feature['text']; ?></div>
 					<?php endif; ?>
 
-
 					<div class="thd-theme-feature-row">
 						<?php if ( isset( $feature['name'] ) && $feature['name'] ) { ?>
 							<div class="thd-theme-feature-name">

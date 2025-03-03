@@ -257,7 +257,7 @@ function sydney_dashboard_settings()
 		'desc'       => esc_html__('Customize the top bar of your theme.', 'sydney'),
 		'link_label' => esc_html__('Customize', 'sydney'),
 		'docs_link'   => 'https://docs.athemes.com/article/pro-how-to-configure-the-top-bar/',
-		'link_url'   => add_query_arg('autofocus[section]', 'sydney_contact_info', admin_url('customize.php'))
+		'link_url'   => add_query_arg('autofocus[section]', 'sydney_section_top_bar', admin_url('customize.php'))
 	);
 	$settings['features'][] = array(
 		'category'    => 'general',
@@ -314,9 +314,9 @@ function sydney_dashboard_settings()
 		'module'      => 'browser-tools',
 		'title'        => esc_html__('Browser Tools', 'sydney'),
 		'type'        => 'pro',
-		'link_url'    => add_query_arg('autofocus[section]', 'sydney_section_browser_tools', admin_url('customize.php')),
+		'link_url'    => add_query_arg('autofocus[section]', 'sydney_browser_tools', admin_url('customize.php')),
 		'link_label'  => esc_html__('Customize', 'sydney'),
-		'docs_link'   => 'https://docs.athemes.com/article/browser-tools/',
+		'docs_link'   => 'https://docs.athemes.com/article/pro-browser-tools-module/',
 		'desc'        => __('Scrollbar, mobile theme color, prevent text copy', 'sydney'),
 	);	
 	$settings['features'][] = array(
@@ -416,7 +416,7 @@ function sydney_dashboard_settings()
 		'type'        => 'pro',
 		'link_url'    => add_query_arg('autofocus[section]', 'sydney_section_live_chat', admin_url('customize.php')),
 		'link_label'  => esc_html__('Customize', 'sydney'),
-		'docs_link'   => 'https://docs.athemes.com/article/live-chat-in-sydney/',
+		'docs_link'   => 'https://docs.athemes.com/article/pro-live-chat-module-with-whatsapp-support/',
 		'desc'        => __('Live chat floating icon', 'sydney'),
 	);
 	$settings['features'][] = array(
@@ -442,7 +442,7 @@ function sydney_dashboard_settings()
 		'title'      => esc_html__('Google Maps', 'sydney'),
 		'desc'       => esc_html__('Customize Google Maps integration in your theme.', 'sydney'),
 		'link_label' => esc_html__('Customize', 'sydney'),
-		'link_url'   => add_query_arg('autofocus[section]', 'sydney_pro_maps', admin_url('customize.php'))
+		//'link_url'   => add_query_arg('autofocus[section]', 'sydney_pro_maps', admin_url('customize.php'))
 	);
 
 	$settings['features'][] = array(
