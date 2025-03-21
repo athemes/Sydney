@@ -334,3 +334,100 @@ function sydney_migrate_primary_color() {
     set_theme_mod( 'sydney_migrate_primary_color', true );
 }
 add_action( 'init', 'sydney_migrate_primary_color' );
+
+/**
+ * Header/Footer Builder
+ * Enable HF module for new users. 
+ * Existing users (from update) will be asked if they want to use new header builder 
+ * or continue with old header system.
+ * 
+ * @since 2.52
+ */
+function sydney_hf_enable_to_new_users( $old_theme_name ) {
+	$old_theme_name = strtolower( $old_theme_name );
+	if( !get_option( 'sydney-update-hf' ) && strpos( $old_theme_name, 'sydney' ) === FALSE ) {
+		update_option( 'sydney-update-hf', true );
+
+        $all_modules = get_option( 'sydney-modules' );
+		$all_modules = ( is_array( $all_modules ) ) ? $all_modules : (array) $all_modules;
+
+		update_option( 'sydney-modules', array_merge( $all_modules, array( 'hf-builder' => true ) ) );
+	}
+}
+add_action('after_switch_theme', 'sydney_hf_enable_to_new_users');
+
+/**
+ * Header/Footer Update Notice
+ * 
+ * @since 2.52
+ * 
+ */
+function sydney_hf_update_notice_2_52() {
+    if ( get_option( 'sydney-update-hf-dismiss' ) ) {
+        return;
+    }
+    
+    if ( !get_option( 'sydney-update-hf' ) ) { ?>
+
+    <div class="notice notice-success thd-theme-dashboard-notice-success is-dismissible">
+        <h3><?php esc_html_e( 'Sydney Header/Footer Update', 'sydney'); ?></h3>
+        <p>
+            <?php esc_html_e( 'This version of Sydney comes with a new Header and Footer Builder. Activate it by clicking on the button below and you can access new options.', 'sydney' ); ?>
+        </p>
+        <p>
+            <?php esc_html_e( 'Note 1: This upgrade is optional, there is no need to do it if you are happy with your current header and footer.', 'sydney' ); ?>
+        </p>         
+        <p>
+            <?php esc_html_e( 'Note 2: Your current header and footer customizations will be lost and you will have to use the new options to customize your header and footer.', 'sydney' ); ?>
+        </p>   
+        <p>
+            <?php esc_html_e( 'Note 3: Please take a full backup of your website before upgrading.', 'sydney' ); ?>
+        </p>            
+        <p>
+            <?php 
+            /* translators: 1: documentation link. */
+            printf( esc_html__( 'Want to see the new header and footer builder before upgrading? Check out our %s.', 'sydney' ), '<a target="_blank" href="#">documentation</a>' ); ?>
+        </p>
+        <a href="#" class="button sydney-update-hf" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-hf-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Update theme header and footer', 'sydney' ); ?></a>
+        <a href="#" class="button sydney-update-hf-dismiss" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-hf-dismiss-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Continue to use the old header and footer system', 'sydney' ); ?></a> 
+    </div>
+    <?php }
+}
+add_action( 'admin_notices', 'sydney_hf_update_notice_2_52' );
+
+/**
+ * Header update ajax callback
+ * 
+ * @since 2.52
+ */
+function sydney_hf_update_notice_2_52_callback() {
+	check_ajax_referer( 'sydney-update-hf-nonce', 'nonce' );
+
+	update_option( 'sydney-update-hf', true );
+
+    $all_modules = get_option( 'sydney-modules' );
+    $all_modules = ( is_array( $all_modules ) ) ? $all_modules : (array) $all_modules;
+
+    update_option( 'sydney-modules', array_merge( $all_modules, array( 'hf-builder' => true ) ) );
+
+	wp_send_json( array(
+		'success' => true,
+	) );
+}
+add_action( 'wp_ajax_sydney_hf_update_notice_2_52_callback', 'sydney_hf_update_notice_2_52_callback' );
+
+/**
+ * Header update ajax callback
+ * 
+ * @since 2.52
+ */
+function sydney_hf_update_dismiss_notice_2_52_callback() {
+	check_ajax_referer( 'sydney-update-hf-dismiss-nonce', 'nonce' );
+
+	update_option( 'sydney-update-hf-dismiss', true );
+
+	wp_send_json( array(
+		'success' => true,
+	) );
+}
+add_action( 'wp_ajax_sydney_hf_update_dismiss_notice_2_52_callback', 'sydney_hf_update_dismiss_notice_2_52_callback' );

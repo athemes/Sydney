@@ -1020,3 +1020,76 @@ function sydney_search_template() {
 	<?php
 }
 add_action( 'sydney_search_content', 'sydney_search_template' );
+
+/**
+ * Get Header Search Icon
+ */
+function sydney_get_header_search_icon( $do_echo = false ) {
+	$icon = get_theme_mod( 'search_icon', 'icon-search' );
+
+	$output = '';
+	if( $icon !== 'icon-custom' ) {
+		$output .= '<i class="sydney-svg-icon icon-search active">' . sydney_get_svg_icon( $icon ) . '</i>';
+	} else {
+		$image_id = get_theme_mod( 'search_icon_custom_image', 0 );
+
+		/**
+		 * Hook 'sydney_header_icons_image_size'
+		 *
+		 * @since 1.0.0
+		 */
+		$output .= '<i class="sydney-svg-icon icon-search active">' . sydney_get_image( $image_id, apply_filters( 'sydney_header_icons_image_size', 'sydney-header-icons' ) ) . '</i>';
+	}
+
+	$output .= '<i class="sydney-svg-icon icon-cancel">' . sydney_get_svg_icon( 'icon-cancel' ) . '</i>';
+
+	if ( $do_echo !== false ) {
+		echo $output; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $output;
+	}
+}
+
+/**
+ * Add sydney class to nav menu ul sub-menu.
+ *
+ * @param array $classes Classes for the ul element.
+ * @param stdClass $args An object of wp_nav_menu() arguments.
+ * @param int $depth Depth of menu item. Used for padding.
+ * @return array $classes Updated classes for the ul element. 
+ */
+function sydney_nav_menu_submenu_css_class( $classes, $args, $depth ) {
+	$classes[] = 'sydney-dropdown-ul';
+	return $classes;
+}
+add_filter( 'nav_menu_submenu_css_class', 'sydney_nav_menu_submenu_css_class', 10, 3 );
+
+/**
+ * Add sydney class to nav menu li.
+ * 
+ * @param array $classes Classes for the li element.
+ * @param WP_Post $menu_item Menu item data object.
+ * @param stdClass $args An object of wp_nav_menu() arguments.
+ * @param int $depth Depth of menu item. Used for padding.
+ * @return array $classes Updated classes for the li element.
+ */
+function sydney_nav_menu_css_class( $classes, $menu_item, $args, $depth ) {
+	$classes[] = 'sydney-dropdown-li';
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'sydney_nav_menu_css_class', 10, 4 );
+
+/**
+ * Add sydney class to nav menu anchor.
+ * 
+ * @param array $atts Array with attributes.
+ * @param WP_Post $menu_item Menu item data object.
+ * @param stdClass $args An object of wp_nav_menu() arguments.
+ * @param int $depth Depth of menu item. Used for padding.
+ * @return array $atts Updated attributes for the li element.
+ */
+function sydney_nav_menu_link_attributes( $atts, $menu_item, $args, $depth ) {
+	$atts[ 'class' ] = 'sydney-dropdown-link';
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'sydney_nav_menu_link_attributes', 10, 4 );

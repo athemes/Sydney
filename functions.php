@@ -53,10 +53,16 @@ function sydney_setup() {
 	add_image_size('sydney-mas-thumb', 480);
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
+	$nav_menus = array(	
 		'primary' 	=> __( 'Primary Menu', 'sydney' ),
 		'mobile' 	=> __( 'Mobile menu (optional)', 'sydney' ),
-	) );
+	);
+
+	if ( class_exists( 'Sydney_Modules' ) && Sydney_Modules::is_module_active( 'hf-builder' ) ) {
+		$nav_menus['secondary'] = __( 'Secondary Menu', 'sydney' );
+	}
+
+	register_nav_menus( $nav_menus );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -186,7 +192,7 @@ require get_template_directory() . "/widgets/contact-info.php";
  * Enqueue scripts and styles.
  */
 function sydney_admin_scripts() {
-	wp_enqueue_script( 'sydney-admin-functions', get_template_directory_uri() . '/js/admin-functions.js', array('jquery'),'20211006', true );
+	wp_enqueue_script( 'sydney-admin-functions', get_template_directory_uri() . '/js/admin-functions.js', array('jquery'),'20250317', true );
 	wp_localize_script( 'sydney-admin-functions', 'sydneyadm', array(
 		'fontawesomeUpdate' => array(
 			'confirmMessage' => __( 'Are you sure? Keep in mind this is a global change and you will need update your icons class names in all theme widgets and post types that use Font Awesome 4 icons.', 'sydney' ),
@@ -671,6 +677,7 @@ require get_template_directory() . '/inc/theme-update.php';
  */
 require get_template_directory() . '/inc/modules/class-sydney-modules.php';
 require get_template_directory() . '/inc/modules/block-templates/class-sydney-block-templates.php';
+require get_template_directory() . '/inc/modules/hf-builder/class-header-footer-builder.php';
 
 /**
  * Theme dashboard.
@@ -769,4 +776,24 @@ if ( defined( 'SITEORIGIN_PANELS_VERSION' ) && ( isset($pagenow) && $pagenow == 
 <?php
 	}
 	add_action('admin_notices', 'sydney_toolbox_fa_update_admin_notice');
+}
+
+/**
+ * Sydney custom get template part
+ */
+function sydney_get_template_part( $slug, $name = null, $args = array() ) {
+	if ( version_compare( get_bloginfo( 'version' ), '5.5', '>=' ) ) {
+		return get_template_part( $slug, $name, $args );
+	} else {
+		extract($args);
+	
+		$templates = array();
+		$name = (string) $name;
+		if ( '' !== $name ) {
+			$templates[] = "{$slug}-{$name}.php";
+		}
+		$templates[] = "{$slug}.php";
+	 
+		return include( locate_template($templates) );
+	}
 }

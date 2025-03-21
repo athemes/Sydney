@@ -1,0 +1,888 @@
+/*
+ * Header/Footer Builder
+ * Admin CSS
+ */
+body .wp-full-overlay #customize-preview {
+  -webkit-transition: none;
+  transition: none;
+}
+body.shfb-active .wp-full-overlay #customize-preview {
+  height: calc(100vh - 290px);
+  -webkit-transition: all 0.2s 600ms;
+  transition: all 0.2s 600ms;
+}
+body.shfb-active .wp-full-overlay.preview-tablet #customize-preview {
+  margin-top: 0;
+}
+body.shfb-active .wp-full-overlay.preview-mobile #customize-preview {
+  max-height: 480px;
+  top: -260px;
+}
+body.shfb-active .wp-full-overlay.collapsed .sydney-shfb {
+  width: 100%;
+}
+body.shfb-active.shfb-active-bottom .wp-full-overlay #customize-preview {
+  height: calc(100vh - 46px);
+}
+body.shfb-active .sydney-shfb.show-bottom {
+  height: 47px;
+}
+body.shfb-active .sydney-shfb.show-bottom .sydney-shfb-top {
+  -webkit-transform: translate3d(0, 120%, 0) !important;
+          transform: translate3d(0, 120%, 0) !important;
+}
+
+#customize-control-sydney_header_row__above_header_row,
+#customize-control-sydney_header_row__main_header_row,
+#customize-control-sydney_header_row__below_header_row,
+#customize-control-sydney_header_row__mobile_above_header_row,
+#customize-control-sydney_header_row__mobile_main_header_row,
+#customize-control-sydney_header_row__mobile_below_header_row,
+#customize-control-sydney_header_row__mobile_offcanvas,
+#customize-control-sydney_footer_row__above_footer_row,
+#customize-control-sydney_footer_row__main_footer_row,
+#customize-control-sydney_footer_row__below_footer_row {
+  display: none;
+}
+
+#sub-accordion-section-sydney_section_fb_component__footer_menu #customize-control-footer_navigation_menu_link .footer-widget-area-link {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.shfb-ui-state-highlight {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 1.5em;
+  line-height: 1.2em;
+  width: 100px;
+  background: #CCC !important;
+}
+
+.sydney-shfb {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 82%;
+  min-width: 300px;
+  height: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #f7f7f7;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  -webkit-transition: ease height 200ms;
+  transition: ease height 200ms;
+  /*
+   * Mobile
+   */
+}
+@media (max-width: 1699px) {
+  .sydney-shfb {
+    width: calc(100% - 300px);
+  }
+}
+.sydney-shfb.show {
+  height: 290px;
+  overflow: visible;
+}
+.sydney-shfb.show .sydney-shfb-top {
+  -webkit-transform: none;
+          transform: none;
+}
+.sydney-shfb.show .sydney-shfb-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sydney-shfb * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.sydney-shfb .sydney-shfb-devices {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 200px;
+  background-color: #f7f7f7;
+  z-index: 2;
+}
+.sydney-shfb .sydney-shfb-devices .sydney-shfb-device-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #dddddd;
+  text-decoration: none;
+  padding: 12px 20px;
+  color: #777;
+}
+.sydney-shfb .sydney-shfb-devices .sydney-shfb-device-link span {
+  margin-right: 10px;
+}
+.sydney-shfb .sydney-shfb-devices .sydney-shfb-device-link.active {
+  color: #212121;
+  background-color: #f7f7f7;
+}
+.sydney-shfb.sydney-shfb-footer .sydney-shfb-devices {
+  display: none;
+}
+.sydney-shfb .sydney-shfb-top {
+  padding: 25px;
+  -webkit-transform: translate3d(0, 120%, 0);
+          transform: translate3d(0, 120%, 0);
+  -webkit-transition: ease transform 200ms;
+  transition: ease transform 200ms;
+  z-index: 0;
+}
+.sydney-shfb .sydney-shfb-top.show {
+  -webkit-transform: none;
+          transform: none;
+}
+.sydney-shfb .shfb-button {
+  font-size: 13px;
+  line-height: 20px;
+  padding: 6px 12px;
+  color: #1E1E1E;
+  background-color: #FFF;
+  border: 1px solid #bfbfbf;
+  text-decoration: none;
+  -webkit-transition: ease border-color 300ms;
+  transition: ease border-color 300ms;
+  white-space: nowrap;
+}
+.sydney-shfb .shfb-button:hover {
+  border-color: #1E1E1E;
+}
+.sydney-shfb .sydney-shfb-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  padding: 25px;
+  max-width: 405px;
+  z-index: 10;
+  -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translate3d(0, 15px, 0);
+          transform: translate3d(0, 15px, 0);
+  -webkit-transition: ease opacity 300ms, ease transform 300ms;
+  transition: ease opacity 300ms, ease transform 300ms;
+}
+.sydney-shfb .sydney-shfb-elements .sydney-shfb-elements-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.sydney-shfb .sydney-shfb-elements .sydney-shfb-elements-wrapper > .sydney-shfb-elements-desktop,
+.sydney-shfb .sydney-shfb-elements .sydney-shfb-elements-wrapper > .sydney-shfb-elements-mobile {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  gap: 10px;
+}
+.sydney-shfb .sydney-shfb-elements .sydney-shfb-elements-wrapper .sydney-shfb-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sydney-shfb .sydney-shfb-elements .sydney-shfb-elements-wrapper .sydney-shfb-element .shfb-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 12px;
+  white-space: normal;
+}
+.sydney-shfb .sydney-shfb-elements .sydney-shfb-elements-wrapper .shfb-elements-message {
+  grid-column: 1/4;
+  text-align: center;
+  margin: 0;
+}
+.sydney-shfb .sydney-shfb-elements.show {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: none;
+          transform: none;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row + .sydney-shfb-row {
+  margin-top: 15px;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-row-controls {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 30px;
+  padding: 6px 8px;
+  background-color: #1E1E1E;
+  color: #FFF;
+  font-size: 10px;
+  line-height: 12px;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-row-controls .settings {
+  margin-right: 6px;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-row-controls .settings:before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row.sydney-shfb-row-top .sydney-shfb-row-controls {
+  width: 86px;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row.sydney-shfb-row-bottom .sydney-shfb-row-controls {
+  width: 110px;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area {
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  background: #FFF;
+  padding: 10px;
+  min-height: 56px;
+  border: 1px dashed #1E1E1E;
+  cursor: pointer;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area.sydney-shfb-area-center {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  min-width: 150px;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area.sydney-shfb-area-right {
+  text-align: right;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area + .sydney-shfb-area {
+  border-left: 0;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area .sydney-shfb-element {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area .shfb-edit-column {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px;
+  width: 25px;
+  height: 27px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area .shfb-edit-column svg {
+  width: 100%;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area .shfb-edit-column:hover {
+  background: rgb(0, 0, 0);
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .sydney-shfb-area:hover .shfb-edit-column {
+  opacity: 1;
+  visibility: visible;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .shfb-button {
+  cursor: -webkit-grab;
+  cursor: grab;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .shfb-button .shfb-title-element {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .shfb-button i {
+  color: #787878;
+  font-size: 1.3em;
+  line-height: 1.3;
+  -webkit-transition: ease color 300ms;
+  transition: ease color 300ms;
+  cursor: pointer;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .shfb-button i.shfb-edit-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  line-height: 1em;
+  margin-left: 2px;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row .shfb-button:hover i {
+  color: #1E1E1E;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row:hover .sydney-shfb-row-controls {
+  opacity: 1;
+  visibility: visible;
+}
+.sydney-shfb .sydney-shfb-rows-wrapper .sydney-shfb-row:hover .sydney-shfb-area {
+  border-style: solid;
+}
+.sydney-shfb .sydney-shfb-area {
+  position: relative;
+}
+.sydney-shfb .sydney-shfb-area:after {
+  content: "+";
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  color: #686868;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: ease opacity 300ms;
+  transition: ease opacity 300ms;
+  z-index: 0;
+}
+.sydney-shfb .sydney-shfb-area:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+.sydney-shfb .sydney-shfb-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 46px;
+  display: none;
+  border: 1px solid #dcdcde;
+  border-left: 0;
+  border-bottom: 0;
+  background-color: #EEE;
+  z-index: 1;
+}
+.sydney-shfb .sydney-shfb-bottom > div,
+.sydney-shfb .sydney-shfb-bottom > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-upsell {
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0px 25px;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-settings {
+  width: 50px;
+  color: #1E1E1E;
+  border-left: 1px solid #dcdcde;
+  border-right: 1px solid #dcdcde;
+  text-decoration: none;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-settings:hover {
+  color: #2271b1;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-settings span {
+  font-size: 16px;
+  line-height: 1;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display {
+  width: 150px;
+  text-decoration: none;
+  color: #1E1E1E;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display:hover {
+  color: #2271b1;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display.show .sydney-shfb-bottom-display-hide, .sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display:not(.show) .sydney-shfb-bottom-display-show {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display .sydney-shfb-bottom-display-hide,
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display .sydney-shfb-bottom-display-show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display .sydney-shfb-bottom-display-hide span,
+.sydney-shfb .sydney-shfb-bottom .sydney-shfb-bottom-display .sydney-shfb-bottom-display-show span {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-right: 5px;
+}
+.sydney-shfb .sydney-shfb-mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas {
+  position: relative;
+  width: 20%;
+  padding-right: 15px;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-offcanvas-settings {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 30px;
+  padding: 6px 8px;
+  background-color: #1E1E1E;
+  color: #FFF;
+  font-size: 10px;
+  line-height: 12px;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-offcanvas-settings .settings {
+  margin-right: 6px;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-offcanvas-settings .settings:before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-offcanvas-components-wrapper {
+  height: 100%;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .sydney-shfb-area {
+  position: relative;
+  width: 100%;
+  background: #FFF;
+  padding: 10px;
+  height: 100%;
+  border: 1px dashed #1E1E1E;
+  cursor: pointer;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .sydney-shfb-area .sydney-shfb-element {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  z-index: 2;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .sydney-shfb-area .sydney-shfb-element + .sydney-shfb-element {
+  margin-top: 10px;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-button .shfb-title-element {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-button i {
+  color: #787878;
+  font-size: 1.3em;
+  line-height: 1.3;
+  -webkit-transition: ease color 300ms;
+  transition: ease color 300ms;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-button i.shfb-edit-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  line-height: 1em;
+  margin-left: 2px;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas .shfb-button:hover i {
+  color: #1E1E1E;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas:hover .shfb-offcanvas-settings {
+  opacity: 1;
+  visibility: visible;
+}
+.sydney-shfb .sydney-shfb-mobile .shfb-offcanvas:hover .sydney-shfb-area {
+  border-style: solid;
+}
+.sydney-shfb .sydney-shfb-mobile .sydney-shfb-rows-wrapper {
+  width: 80%;
+}
+
+/*
+ * Columns Layout
+ */
+.sydney-shfb-row-columns-layout-bigleft.sydney-shfb-row-2-columns > .sydney-shfb-area:nth-child(2) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+}
+.sydney-shfb-row-columns-layout-bigleft.sydney-shfb-row-3-columns > .sydney-shfb-area:nth-child(2) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+.sydney-shfb-row-columns-layout-bigleft.sydney-shfb-row-4-columns > .sydney-shfb-area:nth-child(2) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+}
+
+.sydney-shfb-row-columns-layout-bigright.sydney-shfb-row-2-columns > .sydney-shfb-area:nth-child(2) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+}
+.sydney-shfb-row-columns-layout-bigright.sydney-shfb-row-3-columns > .sydney-shfb-area:nth-child(4) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+.sydney-shfb-row-columns-layout-bigright.sydney-shfb-row-4-columns > .sydney-shfb-area:nth-child(5) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+}
+
+/*
+ * Available Columns
+ */
+.shfb-available-columns .shfb-columns-control-title {
+  margin-bottom: 12px !important;
+}
+.shfb-available-columns .shfb-available-columns-items-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.shfb-available-columns .shfb-available-columns-items-wrapper .shfb-available-columns-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #1e1e1e;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  padding: 9px 15px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  margin-bottom: -1px;
+}
+.shfb-available-columns .shfb-available-columns-items-wrapper .shfb-available-columns-item:hover {
+  color: #2271b1;
+}
+.shfb-available-columns .shfb-available-columns-items-wrapper .shfb-available-columns-item:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.shfb-available-columns .shfb-available-columns-items-wrapper .shfb-available-columns-item.hide {
+  display: none;
+}
+.shfb-available-columns .shfb-available-columns-items-wrapper .shfb-available-columns-item .dashicons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  -webkit-transition: ease color 300ms;
+  transition: ease color 300ms;
+}
+.shfb-available-columns.shfb-always-show {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.preview-desktop .shfb-available-columns-tablet {
+  display: none;
+}
+
+.preview-tablet .shfb-available-columns-desktop,
+.preview-mobile .shfb-available-columns-desktop {
+  display: none;
+}
+
+/*
+ * Available Components Areas
+ */
+.shfb-available-components .sydney-shfb-element.ui-sortable-helper {
+  width: 0 !important;
+}
+.shfb-available-components .sydney-shfb-element.ui-sortable-helper .shfb-button {
+  position: fixed;
+  height: auto;
+}
+
+.shfb-available-components {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  margin-top: 12px;
+  border-radius: 5px;
+}
+.shfb-available-components .shfb-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #FFF;
+  color: #1e1e1e;
+  text-decoration: none;
+  font-size: 13px;
+  font-style: normal;
+  padding: 8px 8px 8px 30px;
+  border-radius: 2px;
+  height: 100%;
+  cursor: grab;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.shfb-available-components .shfb-button::before {
+  content: ".";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  color: #333;
+  text-shadow: 0 5px #333, 0 10px #333, 5px 0 #333, 5px 5px #333, 5px 10px #333, 10px 0 #333, 10px 5px #333, 10px 10px #333;
+}
+
+.shfb-available-components .shfb-button:hover {
+  border-color: #2271b1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.shfb-available-components .shfb-elements-message {
+  grid-column: 3;
+}
+
+.preview-desktop #customize-control-sydney_section_hb_wrapper__header_builder_available_mobile_components {
+  display: none;
+}
+
+.preview-tablet #customize-control-sydney_section_hb_wrapper__header_builder_available_components,
+.preview-mobile #customize-control-sydney_section_hb_wrapper__header_builder_available_components {
+  display: none;
+}
+
+.preview-tablet .shfb-available-components.sydney-header-builder-available-mobile-components,
+.preview-mobile .shfb-available-components.sydney-header-builder-available-mobile-components {
+  display: grid;
+}
+
+/*
+ * Responsive Display
+ */
+.preview-desktop .sydney-shfb .sydney-shfb-mobile {
+  display: none;
+}
+.preview-desktop .sydney-shfb .sydney-shfb-elements .sydney-shfb-elements-mobile {
+  display: none;
+}
+
+.preview-tablet .sydney-shfb:not(.sydney-shfb-footer) .sydney-shfb-desktop,
+.preview-mobile .sydney-shfb:not(.sydney-shfb-footer) .sydney-shfb-desktop {
+  display: none;
+}
+.preview-tablet .sydney-shfb:not(.sydney-shfb-footer) .sydney-shfb-elements .sydney-shfb-elements-desktop,
+.preview-mobile .sydney-shfb:not(.sydney-shfb-footer) .sydney-shfb-elements .sydney-shfb-elements-desktop {
+  display: none;
+}
+.preview-tablet .sydney-shfb-footer .sydney-shfb-mobile,
+.preview-mobile .sydney-shfb-footer .sydney-shfb-mobile {
+  display: none;
+}
+
+/*
+ * Footer Builder
+ */
+.sydney-shfb-footer .sydney-shfb-elements-mobile {
+  display: none !important;
+}
+.sydney-shfb-footer .sydney-shfb-area {
+  white-space: nowrap;
+}
+
+/*
+ * Upsell
+ */
+.shfb-customizer-sidebar-upsell {
+  background: #fff;
+  font-style: normal;
+}
+.shfb-customizer-sidebar-upsell p {
+  margin-top: 0;
+}
+
+.shfb-upsell-button {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 8px 50px;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #FFF !important;
+  background-color: #2271b1;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.shfb-upsell-button:active, .shfb-upsell-button:focus, .shfb-upsell-button:hover {
+  background-color: #4466fd;
+}
+
+.sydney-shfb-upsell-components-wrapper {
+  width: 100%;
+  text-align: center;
+}
+.sydney-shfb-upsell-components-wrapper h4 {
+  text-align: left;
+  margin: 25px 0 0;
+}
+.sydney-shfb-upsell-components-wrapper .sydney-shfb-upsell-components {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 10px 0;
+  opacity: 0.5;
+}
+.sydney-shfb-upsell-components-wrapper .sydney-shfb-upsell-components .shfb-button {
+  position: relative;
+  pointer-events: none;
+}
+.sydney-shfb-upsell-components-wrapper .sydney-shfb-upsell-components .shfb-button .shfb-lock-icon {
+  position: absolute;
+  top: 5px;
+  right: 4px;
+  width: 17px;
+  height: 17px;
+  fill: #2271b1;
+}
+.sydney-shfb-upsell-components-wrapper p {
+  margin: 0 0 5px;
+  opacity: 0.5;
+}

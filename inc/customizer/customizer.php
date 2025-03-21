@@ -81,9 +81,11 @@ function sydney_customize_register( $wp_customize ) {
     require get_template_directory() . '/inc/customizer/controls/class_sydney_text_control.php';
     //require get_template_directory() . '/inc/customizer/controls/class_sydney_tinymce_control.php';
     require get_template_directory() . '/inc/customizer/controls/toggle/class_sydney_toggle_control.php';
-    require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';    
+    require get_template_directory() . '/inc/customizer/controls/accordion/class_sydney_accordion_control.php';   
+    require get_template_directory() . '/inc/customizer/controls/dimensions/class_sydney_dimensions_control.php';
     require get_template_directory() . '/inc/customizer/controls/class_sydney_upsell_message.php';    
-
+    require get_template_directory() . '/inc/customizer/controls/class_sydney_section.php';
+    require get_template_directory() . '/inc/customizer/controls/color-group/class_sydney_color_group.php';
     require get_template_directory() . '/inc/customizer/controls/control-checkbox-multiple.php';
     require get_template_directory() . '/inc/customizer/controls/multiple-select/class-control-multiple-select.php';
     $wp_customize->register_control_type( 'Sydney_Select2_Custom_Control' 	);
@@ -95,6 +97,7 @@ function sydney_customize_register( $wp_customize ) {
      * Options
      */
     require get_template_directory() . '/inc/customizer/options/general.php';
+    
     if ( get_option( 'sydney-update-header' ) ) {
         require get_template_directory() . '/inc/customizer/options/header.php';
         require get_template_directory() . '/inc/customizer/options/header-mobile.php';
@@ -679,7 +682,7 @@ function sydney_sanitize_selects( $input, $setting ){
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sydney_customize_preview_js() {
-	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20240622', true );
+	wp_enqueue_script( 'sydney_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20250314', true );
 
     $post_type_array = sydney_get_posts_types_for_js();
 

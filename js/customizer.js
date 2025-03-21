@@ -315,7 +315,7 @@
 	});
 
 	//Fill
-	var $fill_options = {"main_header_submenu_color":".mainnav ul ul li svg","offcanvas_menu_color": ".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","offcanvas_menu_color":".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","main_header_bottom_color":".bottom-header-row .sydney-svg-icon svg,.dropdown-symbol .ws-svg-icon svg","main_header_color":".main-header .header-item svg, .main-header .dropdown-symbol .sydney-svg-icon svg", "topbar_color":".top-bar svg","footer_color":".site-info .sydney-svg-icon svg"};
+	var $fill_options = {"main_header_submenu_color":".mainnav ul ul li svg","offcanvas_menu_color": ".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","offcanvas_menu_color":".sydney-offcanvas-menu svg","mobile_header_color":"#masthead-mobile svg","main_header_bottom_color":".bottom-header-row .sydney-svg-icon svg,.dropdown-symbol .sydney-svg-icon svg","main_header_color":".main-header .header-item svg, .main-header .dropdown-symbol .sydney-svg-icon svg", "topbar_color":".top-bar svg","footer_color":".site-info .sydney-svg-icon svg"};
 
 	$.each( $fill_options, function( option, selector ) {
 		wp.customize( option, function( value ) {
@@ -479,6 +479,7 @@
 	wp.customize( 'mobile_menu_alignment', function( value ) {
 		value.bind( function( to ) {
 			$( '.sydney-offcanvas-menu .mainnav ul li' ).css( 'text-align', to );
+			$( '.sydney-offcanvas-menu #mainnav ul li' ).css( 'text-align', to );
 			$( '.mobile-header-item.offcanvas-items' ).css( 'text-align', to );
 			$( '.mobile-header-item.offcanvas-items .social-profile' ).css( 'text-align', to );
 
@@ -749,16 +750,16 @@
 	} );
 
 	// Color options
-	var $color_options = sydney_theme_options;
+	var $theme_options = sydney_theme_options;
 
-	$.each( $color_options, function( key, css ) {
+	$.each( $theme_options, function( key, css ) {
 		wp.customize( css.option, function( value ) {
 			
 			value.bind( function( to, prev ) {
 
 				var output = '';
 
-				$.each( $color_options, function( key, css2 ) {	
+				$.each( $theme_options, function( key, css2 ) {
 					if( css.option === css2.option ) {
 						var unit = typeof css2.unit !== 'undefined' ? css2.unit : '';
 
@@ -771,15 +772,45 @@
 						}
 
 						if( ! to ) {
-							to = 'transparent';
+							return;
 						}
 
-						if( ! unit ) {
+						if( ! unit && css2.type !== 'dimensions' ) {
 							to = typeof css2.rgba !== 'undefined' ? hexToRGB( to, css2.rgba ) : to;
 						}
 
+						// convert 'to' value to a dimensions format
+						if( css2.type === 'dimensions' ) {
+							if( ! isJsonString( to ) ) {
+								return;
+							}
+
+							to = JSON.parse( to );
+
+							if( to.top === '' && to.right === '' && to.bottom === '' && to.left === '' ) {
+								return;
+							}
+
+							to.top    = to.top === '' ? 0 : to.top;
+							to.right  = to.right === '' ? 0 : to.right;
+							to.bottom = to.bottom === '' ? 0 : to.bottom;
+							to.left   = to.left === '' ? 0 : to.left;
+
+							to = to.top + to.unit + ' ' + to.right + to.unit + ' ' + to.bottom + to.unit + ' ' + to.left + to.unit;
+						}
+						
+						// Check and convert value to be compatible with 'display' css property
+						if( css2.type === 'display' ) {
+							if( to === 'hidden' ) {
+								to = 'none';
+							} else {
+								to = 'flex';
+								css2.important = true;
+							}
+						}
+
 						if( typeof css2.pseudo === 'undefined' ) {
-	
+
 							if( typeof css2.prop === 'string' ) {
 								$( css2.selector ).css( css2.prop, to + unit );
 							} else {
@@ -789,32 +820,58 @@
 							}
 	
 						} else {
-							
-							if( typeof css2.prop === 'string' ) {
-								output += css2.selector + '{ '+ css2.prop +': '+ to +'!important; }'; 
+
+							if( css2.is_responsive ) {
+								if( typeof css2.prop === 'string' ) {
+									output += '@media ' + $devices[ css2.device ] + ' { ' + css2.selector + ' { '+ css2.prop +': '+ to + unit +' '+ ( css2.important ? '!important' : '' ) +'; } }';
+								} else {
+									$.each( css2.prop, function( propkey, propvalue ) {
+										output += '@media ' + $devices[ css2.device ] + ' { ' + css2.selector + ' { '+ propvalue +': '+ to + unit +' '+ ( css2.important ? '!important' : '' ) +'; } }';
+									} );
+								}
 							} else {
-								$.each( css2.prop, function( propkey, propvalue ) {
-									output += css2.selector + '{ '+ propvalue +': '+ to +'!important; }';
-								} );
+								if( typeof css2.prop === 'string' ) {
+									output += css2.selector + '{ '+ css2.prop +': '+ to + unit +' '+ ( css2.important ? '!important' : '' ) +'; }'; 
+								} else {
+									$.each( css2.prop, function( propkey, propvalue ) {
+										if( typeof propvalue === 'string' ) {
+											output += css2.selector + '{ '+ propvalue +': '+ to + unit +' '+ ( css2.important ? '!important' : '' ) +'; }';
+										} else {
+											output += css2.selector + '{ '+ propvalue.prop +': '+ to + ( propvalue.unit ? propvalue.unit : unit ) +' '+ ( css2.important ? '!important' : '' ) +'; }';
+										}
+									} );
+								}
 							}
+
 						}
 					}
 				});
 
-				if( output ) {
+				var $style = $( '#sydney-customizer-styles-misc-'+ css.option );
 
-					if( $( '#sydney-customizer-styles-misc-'+ css.option ).get(0) ) {
-						$( '#sydney-customizer-styles-misc-'+ css.option ).text( output );
+				if ( output ) {
+
+					if ( $style.length ) {
+
+						$style.text( output );
+
 					} else {
+
 						$( 'head' ).append( '<style id="sydney-customizer-styles-misc-'+ css.option +'">' + output + '</style>' );
+
 					}
+
+				} else if ( ! output && $style.length ) {
+
+					$style.remove();
 
 				}
 
 			} );
 
 		} );
-	} );	
+	});
+
 
 	//Containers
 	wp.customize( 'container_width', function( val ) {
@@ -1024,9 +1081,11 @@
 			if ( 'container-fluid' === to ) {
 				$( '.main-header > .container' ).removeClass( 'container' ).addClass( 'container-fluid' );
 				$( '.bottom-header-row > .container' ).removeClass( 'container' ).addClass( 'container-fluid' );
+				$( '.shfb-row-wrapper > .container' ).removeClass( 'container' ).addClass( 'container-fluid' );
 			} else {
 				$( '.main-header > .container-fluid' ).removeClass( 'container-fluid' ).addClass( 'container' );
 				$( '.bottom-header-row > .container-fluid' ).removeClass( 'container-fluid' ).addClass( 'container' );
+				$( '.shfb-row-wrapper > .container-fluid' ).removeClass( 'container-fluid' ).addClass( 'container' );
 			}
 		} );
 	} );	
@@ -1318,8 +1377,10 @@
 		val.bind( function( to ) {
 			if ( 'container' === to ) {
 				$( '#sidebar-footer > div' ).removeClass( 'container-fluid' ).addClass( 'container' );
+				$( '.shfb-row-wrapper > div' ).removeClass( 'container' ).addClass( 'container-fluid' );
 			} else {
 				$( '#sidebar-footer > div' ).removeClass( 'container' ).addClass( 'container-fluid' );
+				$( '.shfb-row-wrapper > div' ).removeClass( 'container-fluid' ).addClass( 'container' );
 			}
 		} );
 	} );
@@ -1424,4 +1485,12 @@ function hexToRGB(hex, alpha) {
     } else {
         return "rgb(" + r + ", " + g + ", " + b + ")";
     }
+}
+function isJsonString( str ) {
+    try {
+        JSON.parse( str );
+    } catch (e) {
+        return false;
+    }
+    return true;
 }

@@ -790,11 +790,15 @@ Header
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
+.header-contact i,
 .header-item.header-contact i {
 	margin-right: 5px;
 }
 .header-item.header-woo {
 	display: flex;
+}
+.header-item:last-child {
+    margin-right: 0;
 }
 .sydney-offcanvas-menu, .mobile-header {
 	display: none;
@@ -872,11 +876,9 @@ Header
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.sydney-offcanvas-menu #mainnav ul li a {
-	font-size: 18px;
-}
+.sydney-offcanvas-menu #mainnav ul li a,
 .sydney-offcanvas-menu #mainnav ul ul li a {
-	font-size: 16px;
+	font-size: 18px;
 }
 .sydney-offcanvas-menu #mainnav ul ul a:hover {
 	background: transparent;
@@ -1235,7 +1237,8 @@ Header
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
 }
 /* Transparent header */
-.transparent-header .header-wrapper {
+.transparent-header .header-wrapper,
+.transparent-header .shfb-header {
 	position: absolute;
     width: 100%;
     top: auto;
@@ -2709,6 +2712,10 @@ SVGs
 }
 .wp-block-group.has-background {
 	padding: 20px 30px;
+}
+.shfb-footer .shfb-row-wrapper.syd-hidden,
+.shfb-row-wrapper.syd-hidden {
+	display: none;
 }
 #mainnav-mobi.syd-hidden {
 	display: none;

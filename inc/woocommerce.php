@@ -491,11 +491,13 @@ if ( ! function_exists( 'sydney_woocommerce_header_cart' ) ) {
 	 *
 	 * @return void
 	 */
-	function sydney_woocommerce_header_cart() {
+	function sydney_woocommerce_header_cart( $hf_builder_active = false ) {
 		$show_cart 		= get_theme_mod( 'enable_header_cart', 1 );
 		$show_account 	= get_theme_mod( 'enable_header_account', 1 );
 
-		echo '<div class="header-item header-woo">';
+		if ( !$hf_builder_active ) {
+			echo '<div class="header-item header-woo">';
+		}
 		if ( is_cart() ) {
 			$class = 'current-menu-item';
 		} else {
@@ -521,7 +523,9 @@ if ( ! function_exists( 'sydney_woocommerce_header_cart' ) ) {
 			?>
 		</div>
 		<?php endif; ?>
+		<?php if ( !$hf_builder_active ) : ?>
 		</div>
+		<?php endif; ?>
 		<?php
 	}
 }
@@ -897,7 +901,7 @@ function sydney_quick_view_popup() { ?>
 		</div>
 		<div class="sydney-quick-view-popup-content">
 			<a href="#" class="sydney-quick-view-popup-close-button">
-				<i class="ws-svg-icon"><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i>
+				<i class="sydney-svg-icon"><?php sydney_get_svg_icon( 'icon-cancel', true ); ?></i>
 			</a>
 			<div class="sydney-quick-view-popup-content-ajax"></div>
 		</div>

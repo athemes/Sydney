@@ -23,6 +23,11 @@ var sydney = sydney || {};
 
 		const offCanvas 	= document.getElementsByClassName( 'sydney-offcanvas-menu' )[0];
 
+		//check if header builder is active
+		if ( document.body.classList.contains( 'has-shfb-builder' ) ) {
+			siteNavigation = document.getElementsByClassName( 'main-navigation' )[0];
+		}
+
 		// Return early if the navigation don't exist.
 		if ( ! siteNavigation ) {
 			return;
@@ -352,11 +357,16 @@ sydney.stickyMenu = {
  */
  sydney.stickyHeader = {
 	init: function() {
-		const sticky 	= document.getElementsByClassName( 'sticky-header' )[0];
-		const body      = document.getElementsByTagName( 'body' )[0];
+		let sticky 		= document.getElementsByClassName( 'sticky-header' )[0];
+		let shfb_sticky 	= document.getElementsByClassName( 'shfb-sticky-header' )[0];
+		let body      	= document.getElementsByTagName( 'body' )[0];
 
-		if ( 'undefined' === typeof sticky ) {
+		if ( 'undefined' === typeof sticky && 'undefined' === typeof shfb_sticky ) {
 			return;
+		} 
+
+		if( 'undefined' === typeof sticky ) {
+			sticky = shfb_sticky;
 		}
 
 		if ( sticky.classList.contains( 'sticky-scrolltop' ) ) {
@@ -375,9 +385,11 @@ sydney.stickyMenu = {
 			    if ( scroll < lastScrollTop ) {
 					sticky.classList.add( 'is-sticky' );
 					body.classList.add( 'sticky-active' );
+					body.classList.add( 'sticky-header-active' );
 				} else {
 					sticky.classList.remove( 'is-sticky' );
 					body.classList.remove( 'sticky-active' );
+					body.classList.remove( 'sticky-header-active' );
 				}
 				if ( lastScrollTop < elDist ) {
 					sticky.classList.remove( 'is-sticky' );
@@ -401,8 +413,17 @@ sydney.stickyMenu = {
 	},
 
 	sticky: function() {
-		const sticky 	= document.getElementsByClassName( 'sticky-header' )[0];
-		const body      = document.getElementsByTagName( 'body' )[0];
+		let sticky 	= document.getElementsByClassName( 'sticky-header' )[0];
+		let shfb_sticky 	= document.getElementsByClassName( 'shfb-sticky-header' )[0];
+		let body      = document.getElementsByTagName( 'body' )[0];
+
+		if ( 'undefined' === typeof sticky && 'undefined' === typeof shfb_sticky ) {
+			return;
+		} 
+
+		if( 'undefined' === typeof sticky ) {
+			sticky = shfb_sticky;
+		}
 
 		if ( sticky.classList.contains( 'header_layout_1' ) || sticky.classList.contains( 'header_layout_2' ) ) {
 			var vertDist = window.pageYOffset;
@@ -422,9 +443,29 @@ sydney.stickyMenu = {
 		if ( vertDist > elDist ) {
 			sticky.classList.add( 'sticky-active' );
 			body.classList.add( 'sticky-active' );
+			body.classList.add( 'sticky-header-active' );
+
+			
+			// Get all sticky header elements
+			const stickyElements = document.querySelectorAll('.shfb-sticky-header.sticky-active');
+
+			// Calculate total height
+			let totalHeight = 0;
+			stickyElements.forEach(function(element) {
+				totalHeight += element.offsetHeight;
+			});
+
+			// Set body padding-top
+			if (totalHeight > 0 && !document.body.classList.contains('transparent-header')) {
+				document.body.style.paddingTop = totalHeight + 'px';
+			}
 		} else {
 			sticky.classList.remove( 'sticky-active' );
 			body.classList.remove( 'sticky-active' );
+			body.classList.remove( 'sticky-header-active' );
+
+			// Remove body padding-top
+			document.body.style.paddingTop = '0px';
 		}
 		
 	}
@@ -442,6 +483,10 @@ sydney.headerSearch = {
 
 		if ( button.length === 0 ) {
 			return;
+		}
+
+		if (document.body.classList.contains('has-shfb-builder')) {
+			form = document.querySelector('.header-search-form');
 		}
 		
 		var searchInput 	= form.getElementsByClassName('search-field')[0];

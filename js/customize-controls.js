@@ -1,5 +1,76 @@
 "use strict";
 
+/* Customizer Back Button */
+jQuery(document).ready(function ($) {
+
+	// Store the previous section in a global variable to use later
+	let previous_section = '';
+	$( '.sydney-to-widget-area-link' ).on( 'click', function(){
+		
+		// Sections
+		if( $( this ).closest( '.control-section' ).length ) {
+			previous_section = $( this ).closest( '.control-section' ).attr( 'id' ).replace( 'sub-accordion-section-', '' );
+		}
+
+	} );
+
+	// Flag when hidden section content is active
+	let is_any_header_footer_section = false,
+		is_hidden_section_content = false,
+		is_header_builder_section = false,
+		is_header_builder_component_section = false,
+		is_footer_builder_section = false,
+		is_footer_builder_component_section = false;
+
+	$( document ).on( 'mouseover focus', '.customize-section-back', function(e){
+		if( ! $( '.control-section.open' ).length ) {
+			return false;
+		}
+
+		is_any_header_footer_section        = $( '.control-section.open' ).attr( 'id' ).indexOf( '_hb_' ) || $( '.control-section.open' ).attr( 'id' ).indexOf( '_fb_' ) ? true : false;
+		is_hidden_section_content 			= $( '.control-section.open' ).hasClass( 'control-section-sydney-section-hidden' ) ? true : false;
+		is_header_builder_section 			= $( '.control-section.open' ).attr( 'id' ) === 'sub-accordion-section-sydney_section_hb_wrapper' ? true : false;
+		is_header_builder_component_section = $( '.control-section.open' ).attr( 'id' ).indexOf( 'sydney_section_hb_component_' ) !== -1 ? true : false;
+		is_footer_builder_section 			= $( '.control-section.open' ).attr( 'id' ) === 'sub-accordion-section-sydney_section_fb_wrapper' ? true : false;
+		is_footer_builder_component_section = $( '.control-section.open' ).attr( 'id' ).indexOf( 'sydney_section_fb_component_' ) !== -1 ? true : false;
+	} );
+
+	// If hidden section content is active, focus on the previous section (from global variable)
+	$( document ).on( 'click keydown', '.customize-section-back', function(e){
+		if( e.keyCode && e.keyCode !== 13 && e.keyCode !== 27 ) {
+			return false;
+		}
+
+		if( is_header_builder_section ) {
+			wp.customize.section( 'sydney_section_hb_wrapper' ).collapse();
+			setTimeout(function(){
+				wp.customize.panel( 'sydney_panel_header' ).collapse();
+			}, 10);
+		}
+		
+		if( is_footer_builder_section ) {
+			wp.customize.section( 'sydney_section_fb_wrapper' ).collapse();
+			setTimeout(function(){
+				wp.customize.panel( 'sydney_panel_footer' ).collapse();
+			}, 10);
+		}
+
+		if( ! is_any_header_footer_section && ! is_footer_builder_component_section && ! is_header_builder_component_section && is_hidden_section_content && previous_section !== '' ) {
+			if ( typeof wp.customize.section( previous_section ) !== 'undefined' ) {
+				wp.customize.section( previous_section ).focus();
+			}
+		}
+
+		is_any_header_footer_section = false;
+		is_header_builder_section = false;
+		is_header_builder_component_section = false;
+		is_footer_builder_section = false;
+		is_footer_builder_component_section = false;
+		is_hidden_section_content = false;
+	} );
+
+});
+
 //Add spacing for CPT panels
 jQuery( document ).ready(function($) {
 	var panels = $('li[id^="accordion-panel-sydney_panel_cpt_"]');
@@ -88,49 +159,51 @@ jQuery(document).ready(function ($) {
 
   let clickFlag = false;
 
-  $('.sydney-devices-preview').find('button').on('click', function (event) {
+$('.sydney-devices-preview button').on('click', function () {
 	if (clickFlag) {
 		clickFlag = false;
 		return false;
 	}
-
+	
 	clickFlag = true;
-
-	let device = '';
-	if ($(this).hasClass('preview-desktop')) {
-	  $('.sydney-devices-preview').find('.preview-desktop').addClass('active');
-	  $('.sydney-devices-preview').find('.preview-tablet').removeClass('active');
-	  $('.sydney-devices-preview').find('.preview-mobile').removeClass('active');
-	  $('.font-size-desktop').addClass('active');
-	  $('.font-size-tablet').removeClass('active');
-	  $('.font-size-mobile').removeClass('active');
-	  $('.wp-full-overlay-footer .devices button[data-device="desktop"]').trigger('click');
-	} else if ($(this).hasClass('preview-tablet')) {
-	  $('.sydney-devices-preview').find('.preview-tablet').addClass('active');
-	  $('.sydney-devices-preview').find('.preview-desktop').removeClass('active');
-	  $('.sydney-devices-preview').find('.preview-mobile').removeClass('active');
-	  $('.font-size-desktop').removeClass('active');
-	  $('.font-size-tablet').addClass('active');
-	  $('.font-size-mobile').removeClass('active');
-	  $('.wp-full-overlay-footer .devices button[data-device="tablet"]').trigger('click');
-	} else {
-	  $('.sydney-devices-preview').find('.preview-mobile').addClass('active');
-	  $('.sydney-devices-preview').find('.preview-desktop').removeClass('active');
-	  $('.sydney-devices-preview').find('.preview-tablet').removeClass('active');
-	  $('.font-size-desktop').removeClass('active');
-	  $('.font-size-tablet').removeClass('active');
-	  $('.font-size-mobile').addClass('active');
-	  $('.wp-full-overlay-footer .devices button[data-device="mobile"]').trigger('click');
-	}
-  });
-  $(' .wp-full-overlay-footer .devices button ').on('click', function () {
-	if (clickFlag) {
-		clickFlag = false;
-		return false;
-	}
-
-	var device = $(this).attr('data-device');
-	$('.sydney-devices-preview').find('.preview-' + device).trigger('click');
+	
+	// Determine the selected device based on class name
+	let device = $(this).hasClass('preview-desktop')
+		? 'desktop'
+		: $(this).hasClass('preview-tablet')
+			? 'tablet'
+			: 'mobile';
+	
+	// Update preview classes
+	$('.sydney-devices-preview')
+		.find('.preview-desktop, .preview-tablet, .preview-mobile')
+		.removeClass('active')
+		.end()
+		.find('.preview-' + device)
+		.addClass('active');
+	
+	// Update font-size classes
+	$('.font-size-desktop, .font-size-tablet, .font-size-mobile')
+		.removeClass('active')
+		.filter('.font-size-' + device)
+		.addClass('active');
+	
+	// Update responsive control classes
+	$('.responsive-control-desktop, .responsive-control-tablet, .responsive-control-mobile')
+		.removeClass('active')
+		.filter('.responsive-control-' + device)
+		.addClass('active');
+	
+	// Trigger the corresponding device button in the footer overlay
+	$('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
+});
+$(' .wp-full-overlay-footer .devices button ').on('click', function () {
+    if (clickFlag) {
+      clickFlag = false;
+      return false;
+    }
+    var device = $(this).attr('data-device');
+    $('.control-section.open .sydney-devices-preview').find('.preview-' + device).trigger('click');
   });
 });
 /**
@@ -1037,8 +1110,10 @@ wp.customize('enable_sticky_header', function (value) {
 	value.bind(function (newval) {
 		if (newval === true) {
 			wp.customize.control('sticky_header_type').activate();
+			wp.customize.control('sydney_section_hb_wrapper__header_builder_sticky_row').activate();
 		} else {
 			wp.customize.control('sticky_header_type').deactivate();
+			wp.customize.control('sydney_section_hb_wrapper__header_builder_sticky_row').deactivate();
 		}
 	});
 } );
@@ -1350,3 +1425,100 @@ jQuery(document).ready(function($) {
 	});
 
 });
+
+/* Dimensions Control */
+(function ($) {
+
+	const Sydney_Dimensions_Control = {
+		init: function () {
+			this.events();
+		},
+
+		// Events
+		events: function () {
+			$('.sydney-dimensions-control').find('.sydney-dimensions-input').on('input', this.setDimensionValue.bind(this));
+			$('.sydney-dimensions-control').find('.sydney-dimensions-unit').on('change', this.unitSelectHandler.bind(this));
+			$('.sydney-dimensions-control').find('.sydney-dimensions-link-btn').on('click', this.toggleLinkValues.bind(this));
+		},
+
+		// Change dimension
+		setDimensionValue: function (e) {
+			const
+				$inputToSave = $(e.target).closest('.sydney-dimensions-inputs').find('.sydney-dimensions-value'),
+				value = this.getDimensionValue(e.target);
+
+			$inputToSave.val(value).trigger('change');
+		},
+
+		// Mount value
+		getDimensionValue: function (input) {
+			const
+				deviceType = $(input).closest('.sydney-dimensions-inputs').data('device-type'),
+				inputs = $(input).closest('.sydney-dimensions-inputs').find('.sydney-dimensions-input');
+
+			let value = {
+				unit: 'px',
+				linked: false,
+				top: '',
+				right: '',
+				bottom: '',
+				left: '',
+			};
+
+			// Unit value
+			value['unit'] = $(input).closest('.sydney-dimensions-control').find('.sydney-dimensions-units[data-device-type="' + deviceType + '"] .sydney-dimensions-unit').val();
+
+			// Linked toggle
+			value['linked'] = $(input).closest('.sydney-dimensions-control').find('.sydney-dimensions-link-values[data-device-type="' + deviceType + '"]').hasClass('linked');
+
+			// Values
+			if (!value['linked']) {
+				inputs.each(function () {
+					const side = $(this).data('side'),
+						val = $(this).val();
+
+					value[side] = val;
+				});
+			} else {
+				const val = $(input).val();
+				value['top'] = val;
+				value['right'] = val;
+				value['bottom'] = val;
+				value['left'] = val;
+
+				inputs.each(function () {
+					$(this).val(val);
+				});
+			}
+
+			return JSON.stringify(value);
+		},
+
+		unitSelectHandler: function (e) {
+			const
+				$this = $(e.target),
+				deviceType = $(e.target).closest('.sydney-dimensions-units').data('device-type');
+
+			// Trigger change in the first input to update the value
+			$this.closest('.sydney-dimensions-control').find('.sydney-dimensions-inputs[data-device-type="' + deviceType + '"] .sydney-dimensions-input-wrapper:first-child .sydney-dimensions-input').trigger('change');
+		},
+
+		toggleLinkValues: function (e) {
+			e.preventDefault();
+
+			const
+				$this = $(e.target),
+				deviceType = $(e.target).closest('.sydney-dimensions-link-values').data('device-type');
+
+			$this.closest('.sydney-dimensions-link-values').toggleClass('linked');
+
+			// Trigger change in the first input to update the value
+			$this.closest('.sydney-dimensions-control').find('.sydney-dimensions-inputs[data-device-type="' + deviceType + '"] .sydney-dimensions-input-wrapper:first-child .sydney-dimensions-input').trigger('change');
+		}
+
+	}
+
+	$(document).ready(function () {
+		Sydney_Dimensions_Control.init();
+	});
+})(jQuery);

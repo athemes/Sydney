@@ -178,3 +178,25 @@ function sydney_google_fonts_sanitize( $input ) {
     }
     return $input;
 }
+
+/**
+ * Select2
+ */
+function sydney_sanitize_select2( $input, $setting ){        
+    if( empty( $input ) ) {
+        return '';
+    }
+
+    $input   = strpos( $input, ',' ) !== FALSE ? explode( ',', $input ) : array( $input );
+    $choices = $setting->manager->get_control( $setting->id )->choices;
+
+    foreach( $input as $key => $value ) {
+        $input[ $key ] = sanitize_key( $value );
+
+        if( ! array_key_exists( $input[ $key ], $choices ) ) {
+            return $setting->default;
+        }
+    }
+
+    return implode( ',', $input );
+}

@@ -254,7 +254,6 @@ function sydney_callback_sticky_header() {
 	}
 }
 
-
 /**
  * Header elements
  */

@@ -148,7 +148,19 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 .bold {
   font-weight: 600;
 }
+.responsive-control-desktop,
+.responsive-control-tablet,
+.responsive-control-mobile {
+  display: none !important;
+}
 
+.responsive-control-desktop.active,
+.responsive-control-tablet.active,
+.responsive-control-mobile.active {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
 .font-size-desktop,
 .font-size-tablet,
 .font-size-mobile {
@@ -596,7 +608,7 @@ span.delete:hover {
   }
   
   .pcr-app .pcr-interaction input:focus {
-    border-color: #3858E9;
+    border-color: #2271b1;
   }
   
   .pcr-app .pcr-interaction .pcr-result {
@@ -614,7 +626,7 @@ span.delete:hover {
     padding: 0 10px;
     border-radius: 2px;
     color: #fff;
-    background-color: #3858E9;
+    background-color: #2271b1;
   }
   
   .pcr-app .pcr-selection .pcr-picker {
@@ -845,6 +857,19 @@ span.delete:hover {
 }
 
 /* Radio buttons */
+.responsive-control-desktop.noresponsive {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.customize-control-sydney-radio-image .sydney-devices-preview,
+.customize-control-sydney-radio-buttons .sydney-devices-preview {
+  display: flex;
+  margin-top: -25px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
 .text_radio_button_control:after {
   content: " ";
   display: block;
@@ -941,7 +966,8 @@ span.delete:hover {
   font-size: 12;
   margin: 0 auto;
 }
-.footer-widget-area-link {
+.footer-widget-area-link,
+.sydney-to-widget-area-link{
   display: block;
   border: 1px solid #d0d0d0;
   background: #fff;
@@ -955,12 +981,14 @@ span.delete:hover {
   transition: border-color 0.3s;
 }
 
-.footer-widget-area-link:hover {
+.footer-widget-area-link:hover,
+.sydney-to-widget-area-link:hover {
   color: #50575e;
   border-color: #333;
 }
 
-.footer-widget-area-link .dashicons {
+.footer-widget-area-link .dashicons,
+.sydney-to-widget-area-link .dashicons {
   float: right;
 }
 
@@ -987,10 +1015,131 @@ li#customize-control-sydney_upsell_mobile_header {
 
 .customize-section-description {
   padding: 0 12px;
+  display: none;
+}
+#sub-accordion-section-sydney_section_fb_wrapper .customize-section-description,
+#sub-accordion-section-sydney_section_hb_wrapper .customize-section-description {
+  display: none;
+}
+.sydney-radio-images-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 7px;
+}
+.sydney-radio-images-wrapper:before, .sydney-radio-images-wrapper:after {
+  content: none !important;
 }
 
-.sydney-radio-images-wrapper {
-  margin: 0 -5px;
+.customize-control-sydney-radio-image label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  width: 25%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  padding: 0 7px 0 7px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.customize-control-sydney-radio-image label.ui-state-active {
+  background-color: #2271b1;
+}
+.customize-control-sydney-radio-image figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.customize-control-sydney-radio-image figure img {
+  padding: 0;
+  margin: 0;
+  display: block;
+  position: relative;
+  bottom: -6px;
+}
+.customize-control-sydney-radio-image input {
+  display: none;
+}
+
+.sydney-radio-images-col-1 label {
+  width: 100%;
+}
+
+.sydney-radio-images-col-2 label {
+  width: calc(50% - 10px);
+}
+
+.sydney-radio-images-col-3 label {
+  width: calc(33.333% - 14px);
+}
+.sydney-radio-images-col-3.sydney-radio-images-medium label {
+  width: calc(33.333% - 7px);
+}
+.sydney-radio-images-col-3 label.is-pro:before {
+  background-size: 15px !important;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.sydney-radio-images-col-4 label {
+  width: calc(25% - 8px);
+}
+
+.sydney-radio-images-col-5 label {
+  width: calc(20% - 16px);
+}
+
+.sydney-radio-images-col-6 label {
+  width: calc(16.666666666% - 17px);
+}
+
+.sydney-radio-images-small {
+  grid-gap: 5px;
+}
+.sydney-radio-images-small label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 3px 3px 3px;
+}
+.sydney-radio-images-small figure img {
+  top: 0;
+}
+
+.sydney-radio-images-medium {
+  grid-gap: 10px;
+}
+.sydney-radio-images-medium label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px;
+}
+.sydney-radio-images-medium figure img {
+  top: 0px;
 }
 
 .customize-control-title {
@@ -1001,6 +1150,41 @@ li#customize-control-sydney_upsell_mobile_header {
 
 .accordion-section-title {
   text-transform: capitalize;
+}
+
+/* Tooltip */
+.customize-control.customize-control-sydney-radio-image .sydney-control-wrapper label .label-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  background-color: #212121;
+  color: #f7f7f7;
+  padding: 3px 12px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translate3d(-50%, 6px, 0);
+          transform: translate3d(-50%, 6px, 0);
+  -webkit-transition: ease opacity 300ms, ease transform 300ms;
+  transition: ease opacity 300ms, ease transform 300ms;
+  z-index: 10;
+}
+.customize-control.customize-control-sydney-radio-image .sydney-control-wrapper label .label-tooltip:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  border: 6px solid transparent;
+  border-top-color: #212121;
+  -webkit-transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
+}
+.customize-control.customize-control-sydney-radio-image .sydney-control-wrapper label:hover .label-tooltip {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
 }
 
 /* Toggle */
@@ -1122,6 +1306,7 @@ li#customize-control-sydney_upsell_mobile_header {
 #customize-control-h6_title {
   margin-bottom: 5px;
 }
+.customize-pane-child li:not(.customize-control-sydney-text-control) .customize-control-title,
 #sub-accordion-section-sydney_section_images li:not(.customize-control-sydney-text-control) .customize-control-title,
 #sub-accordion-section-sydney_block_templates li:not(.customize-control-sydney-text-control) .customize-control-title,
 #customize-control-blog_layout .customize-control-title,
@@ -1144,7 +1329,7 @@ ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-tex
   color: #565D65;
   font-weight: 400;
 }
-
+.customize-pane-child .customize-control-sydney-text-control,
 #sub-accordion-section-sydney_section_top_bar .customize-control-sydney-text-control,
 #customize-control-main_header_contact_info_title,
 #customize-control-main_header_button_title,
@@ -1154,6 +1339,10 @@ ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-tex
 #sub-accordion-section-colors li:not(.customize-control-sydney-divider-control),
 #sub-accordion-section-sydney_section_buttons li:not(.customize-control-sydney-divider-control) {
   margin-bottom: 12px;
+}
+
+.customize-control-sydney-alpha-color {
+  margin-bottom: 12px !important;
 }
 
 #sub-accordion-section-sydney_section_buttons .customize-control-sydney-divider-control {
@@ -1643,4 +1832,96 @@ ul[id^="sub-accordion-section-sydney_cpt_"] li:not(.customize-control-sydney-tex
 .sydney-custom-palette {
   display: flex;
   justify-content: space-between;
+}
+/* Dimensions Control */
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 7px;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-units {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-units .sydney-dimensions-unit {
+  padding: 0 15px 0 0px;
+  font-size: 1em;
+  height: 1.9em;
+  min-height: 0;
+  background-size: 1em;
+  background-position: right 7px;
+  margin-right: 15px;
+  margin-top: -2px;
+  border: none;
+  background-color: transparent;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-units + .sydney-dimensions-link-values {
+  position: relative;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-units + .sydney-dimensions-link-values:after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  border-left: 1px solid #CCC;
+  height: 15px;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-link-values {
+  margin-right: auto;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-link-values .sydney-dimensions-link-btn {
+  background-color: transparent;
+  padding: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1.9em;
+  height: 1.8em;
+  border-radius: 3px;
+  margin-top: 1px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-link-values .sydney-dimensions-link-btn i {
+  font-size: 1em;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-link-values .sydney-dimensions-icon-link {
+  display: none;
+  color: #2271b1;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-link-values .sydney-dimensions-icon-unlink {
+  display: block;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-link-values.linked .sydney-dimensions-icon-link {
+  display: block;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-header .sydney-dimensions-link-values.linked .sydney-dimensions-icon-unlink {
+  display: none;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 10px;
+}
+.sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-inputs .sydney-dimensions-input-label {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  color: #777;
+}
+
+@media (max-width: 1280px) {
+  .sydney-dimensions-control .sydney-dimensions-wrapper .sydney-dimensions-inputs .sydney-dimensions-input {
+    padding: 3px;
+  }
 }

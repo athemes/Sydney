@@ -75,3 +75,7 @@ class Sydney_Alpha_Color extends WP_Customize_Control {
 	<?php 
 	}
 }
+
+class Sydney_Alpha_Color_Border_Bottom extends Sydney_Alpha_Color {
+	public $type = 'sydney-alpha-color sydney-alpha-color-border-bottom';
+}

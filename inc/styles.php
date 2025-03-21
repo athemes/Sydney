@@ -20,6 +20,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 		 * Customizer JS
 		 */
 		public $customizer_js;
+		public $customizer_js_css_vars;
+		public static $css_to_replace = array();
 
 		/**
 		 * Initiator
@@ -389,106 +391,109 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
             $custom .= ".single .entry-meta-below { margin-top:" . esc_attr( $single_post_meta_spacing ) . "px;}" . "\n";
 
             //Header
-			$custom .= $this->get_max_width_css( 'site_logo_size', $defaults = array( 'desktop' => 180, 'tablet' => 100, 'mobile' => 100 ), '.custom-logo-link img' );
-
-			$main_header_divider_width 	= get_theme_mod( 'main_header_divider_width', 'fullwidth' );
-			$main_header_divider_size 	= get_theme_mod( 'main_header_divider_size', 0 );
-			$main_header_divider_color 	= get_theme_mod( 'main_header_divider_color', 'rgba(255,255,255,0.1)' );
-            
-			if ( 'fullwidth' === $main_header_divider_width ) {
-                $custom .= ".main-header, .bottom-header-row { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";}" . "\n";
-				if ( 0 == $main_header_divider_size ) {
-					$custom .= ".header_layout_3,.header_layout_4,.header_layout_5 { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
-				}            
+			if ( Sydney_Modules::is_module_active( 'hf-builder' ) ) {
+				$custom .= apply_filters( 'sydney_shfb_custom_css', Sydney_Header_Footer_Builder::custom_css() );
 			} else {
-                $custom .= ".top-header-row,.site-header-inner, .bottom-header-inner { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";} .main-header,.bottom-header-row {border:0;}" . "\n";
-				if ( 0 == $main_header_divider_size ) {
-					$custom .= ".top-header-row { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
+				$custom .= $this->get_max_width_css( 'site_logo_size', $defaults = array( 'desktop' => 180, 'tablet' => 100, 'mobile' => 100 ), '.custom-logo-link img' );
+
+				$main_header_divider_width 	= get_theme_mod( 'main_header_divider_width', 'fullwidth' );
+				$main_header_divider_size 	= get_theme_mod( 'main_header_divider_size', 0 );
+				$main_header_divider_color 	= get_theme_mod( 'main_header_divider_color', 'rgba(255,255,255,0.1)' );
+				
+				if ( 'fullwidth' === $main_header_divider_width ) {
+					$custom .= ".main-header, .bottom-header-row { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";}" . "\n";
+					if ( 0 == $main_header_divider_size ) {
+						$custom .= ".header_layout_3,.header_layout_4,.header_layout_5 { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
+					}            
+				} else {
+					$custom .= ".top-header-row,.site-header-inner, .bottom-header-inner { border-bottom:" . esc_attr( $main_header_divider_size ) . 'px solid ' . esc_attr( $main_header_divider_color ) . ";} .main-header,.bottom-header-row {border:0;}" . "\n";
+					if ( 0 == $main_header_divider_size ) {
+						$custom .= ".top-header-row { border-bottom: 1px solid " . esc_attr( $main_header_divider_color ) . ";}" . "\n";
+					}            
+				}
+
+				$custom .= $this->get_background_color_css( 'main_header_background', '', '.main-header:not(.sticky-active),.header-search-form' );
+				$custom .= $this->get_background_color_css( 'main_header_background_sticky', '', '.main-header.sticky-active' );
+
+				$custom .= $this->get_color_css( 'main_header_color', '', '.main-header .site-title a,.main-header .site-description,.main-header #mainnav .menu > li > a,#mainnav .nav-menu > li > a, .main-header .header-contact a' );
+				$custom .= $this->get_fill_css( 'main_header_color', '', '.main-header .sydney-svg-icon svg, .main-header .dropdown-symbol .sydney-svg-icon svg' );
+
+				$custom .= $this->get_color_css( 'main_header_color_sticky', '', '.sticky-active .main-header .site-title a,.sticky-active .main-header .site-description, .sticky-active .main-header #mainnav .menu > li > a,.sticky-active .main-header .header-contact a,.sticky-active .main-header .logout-link, .sticky-active .main-header .html-item, .sticky-active .main-header .sydney-login-toggle' );
+				$custom .= $this->get_fill_css( 'main_header_color_sticky', '', '.sticky-active .main-header .sydney-svg-icon svg,.sticky-active .main-header .dropdown-symbol .sydney-svg-icon svg' );  
+
+				$custom .= $this->get_background_color_css( 'main_header_bottom_background', '', '.bottom-header-row' );
+				$custom .= $this->get_color_css( 'main_header_bottom_color', '', '.bottom-header-row, .bottom-header-row .header-contact a,.bottom-header-row #mainnav .menu > li > a' );
+				$custom .= $this->get_color_css( 'color_link_hover', '', '.bottom-header-row #mainnav .menu > li > a:hover' );
+				$custom .= $this->get_fill_css( 'main_header_bottom_color', '', '.bottom-header-row .header-item svg,.dropdown-symbol .sydney-svg-icon svg' );
+				
+				$main_header_padding 	= get_theme_mod( 'main_header_padding', 15 );
+				$custom .= ".main-header .site-header-inner, .main-header .top-header-row { padding-top:" . esc_attr( $main_header_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_padding ) . "px;}" . "\n";
+
+				$main_header_bottom_padding = get_theme_mod( 'main_header_bottom_padding', 15 );
+				$custom .= ".bottom-header-inner { padding-top:" . esc_attr( $main_header_bottom_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_bottom_padding ) . "px;}" . "\n";
+
+				$custom .= $this->get_background_color_css( 'main_header_submenu_background', '', '.bottom-header-row #mainnav ul ul li, .main-header #mainnav ul ul li' );
+				$custom .= $this->get_color_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li a,.bottom-header-row #mainnav ul ul li:hover a, .main-header #mainnav ul ul li:hover a,.main-header #mainnav ul ul li a' );
+				$custom .= $this->get_fill_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li svg, .main-header #mainnav ul ul li svg' );
+
+				$header_icons_size = get_theme_mod( 'header_icons_size' );
+				$custom .= ".header-item .sydney-svg-icon { width:" . esc_attr( $header_icons_size ) . "px;height:" . esc_attr( $header_icons_size ) . "px;}" . "\n";
+				$custom .= ".header-item .sydney-svg-icon svg { max-height:" . esc_attr( $header_icons_size - 2 ) . "px;}" . "\n";
+				
+				$custom .= $this->get_background_color_css( 'search_bar_background_color', '', '.header-search-form' );
+
+				//Submenu items hover
+				$custom .= $this->get_color_css( 'submenu_items_hover', '', '#mainnav .sub-menu li:hover>a, .main-header #mainnav ul ul li:hover>a' );
+
+				//Header mini cart
+				$custom .= $this->get_color_css( 'color_body_text', '', '.main-header-cart .count-number' );
+				$custom .= $this->get_background_color_rgba_css( 'color_body_text', '#212121', '.main-header-cart .widget_shopping_cart .widgettitle:after, .main-header-cart .widget_shopping_cart .woocommerce-mini-cart__buttons:before', '0.1' );
+
+				//Mobile menu
+				$mobile_menu_alignment = get_theme_mod( 'mobile_menu_alignment', 'left' );
+				$custom .= ".sydney-offcanvas-menu .mainnav ul li,.mobile-header-item.offcanvas-items,.mobile-header-item.offcanvas-items .social-profile { text-align:" . esc_attr( $mobile_menu_alignment ) . ";}" . "\n";
+				$custom .= ".sydney-offcanvas-menu #mainnav ul li { text-align:" . esc_attr( $mobile_menu_alignment ) . ";}" . "\n";
+				if ( 'center' === $mobile_menu_alignment ) {
+					$custom .= ".sydney-offcanvas-menu .header-item.header-woo {justify-content:center;} .mobile-header-item.offcanvas-items .button {align-self:center;}" . "\n";
+				} elseif ( 'right' === $mobile_menu_alignment ) {
+					$custom .= ".sydney-offcanvas-menu .header-item.header-woo {justify-content:flex-end;} .mobile-header-item.offcanvas-items .button {align-self:flex-end;}" . "\n";
+				}
+
+				$custom .= $this->get_color_css( 'offcanvas_submenu_color', '', '.sydney-offcanvas-menu #mainnav ul ul a' );
+
+				$offcanvas_menu_font_size = get_theme_mod( 'offcanvas_menu_font_size', '18' );
+				$custom .= ".sydney-offcanvas-menu #mainnav > div > ul > li > a { font-size:" . intval($offcanvas_menu_font_size) . "px; }"."\n";
+
+				$offcanvas_submenu_font_size = get_theme_mod( 'offcanvas_submenu_font_size', '16' );
+				$custom .= ".sydney-offcanvas-menu #mainnav ul ul li a { font-size:" . intval($offcanvas_submenu_font_size) . "px; }"."\n";
+
+				$mobile_menu_link_separator 	= get_theme_mod( 'mobile_menu_link_separator', 0 );
+				$link_separator_color 			= get_theme_mod( 'link_separator_color', 'rgba(238, 238, 238, 0.14)' );
+				$mobile_header_separator_width	= get_theme_mod( 'mobile_header_separator_width', 1 );
+
+				if ( $mobile_menu_link_separator ) {
+					$custom .= ".sydney-offcanvas-menu .mainnav ul li { padding-top:5px;border-bottom: " . intval( $mobile_header_separator_width ) . "px solid " . esc_attr( $link_separator_color ) . ";}" . "\n";
+				}
+
+				$mobile_menu_link_spacing = get_theme_mod( 'mobile_menu_link_spacing', 20 );
+				$custom .= ".sydney-offcanvas-menu .mainnav a { padding:" . esc_attr( $mobile_menu_link_spacing )/2 . "px 0;}" . "\n";
+
+				$custom .= $this->get_background_color_css( 'mobile_header_background', '', '#masthead-mobile' );
+				$custom .= $this->get_color_css( 'mobile_header_color', '', '#masthead-mobile .site-description, #masthead-mobile a:not(.button)' );
+				$custom .= $this->get_fill_css( 'mobile_header_color', '', '#masthead-mobile svg' );
+
+				$mobile_header_padding = get_theme_mod( 'mobile_header_padding', 15 );
+				$custom .= ".mobile-header { padding-top:" . esc_attr( $mobile_header_padding ) . 'px;padding-bottom:' . esc_attr( $mobile_header_padding ) . "px;}" . "\n";
+
+				$custom .= $this->get_background_color_css( 'offcanvas_menu_background', '', '.sydney-offcanvas-menu' );
+				$custom .= $this->get_color_css( 'offcanvas_menu_color', '#ffffff', '.offcanvas-header-custom-text,.sydney-offcanvas-menu,.sydney-offcanvas-menu #mainnav a:not(.button),.sydney-offcanvas-menu a:not(.button)' );
+				$custom .= $this->get_fill_css( 'offcanvas_menu_color', '#ffffff', '.sydney-offcanvas-menu svg, .sydney-offcanvas-menu .dropdown-symbol .sydney-svg-icon svg' );
+
+				$offcanvas_mode = get_theme_mod( 'header_offcanvas_mode', 'layout1' );
+				if ( 'layout2' === $offcanvas_mode ) {
+					$custom .= ".sydney-offcanvas-menu {max-width:100%;}" . "\n";
 				}            
 			}
-
-			$custom .= $this->get_background_color_css( 'main_header_background', '', '.main-header:not(.sticky-active),.header-search-form' );
-			$custom .= $this->get_background_color_css( 'main_header_background_sticky', '', '.main-header.sticky-active' );
-
-			$custom .= $this->get_color_css( 'main_header_color', '', '.main-header .site-title a,.main-header .site-description,.main-header #mainnav .menu > li > a,#mainnav .nav-menu > li > a, .main-header .header-contact a' );
-			$custom .= $this->get_fill_css( 'main_header_color', '', '.main-header .sydney-svg-icon svg, .main-header .dropdown-symbol .sydney-svg-icon svg' );
-
-			$custom .= $this->get_color_css( 'main_header_color_sticky', '', '.sticky-active .main-header .site-title a,.sticky-active .main-header .site-description, .sticky-active .main-header #mainnav .menu > li > a,.sticky-active .main-header .header-contact a,.sticky-active .main-header .logout-link, .sticky-active .main-header .html-item, .sticky-active .main-header .sydney-login-toggle' );
-            $custom .= $this->get_fill_css( 'main_header_color_sticky', '', '.sticky-active .main-header .sydney-svg-icon svg,.sticky-active .main-header .dropdown-symbol .sydney-svg-icon svg' );  
-
-			$custom .= $this->get_background_color_css( 'main_header_bottom_background', '', '.bottom-header-row' );
-			$custom .= $this->get_color_css( 'main_header_bottom_color', '', '.bottom-header-row, .bottom-header-row .header-contact a,.bottom-header-row #mainnav .menu > li > a' );
-			$custom .= $this->get_color_css( 'color_link_hover', '', '.bottom-header-row #mainnav .menu > li > a:hover' );
-			$custom .= $this->get_fill_css( 'main_header_bottom_color', '', '.bottom-header-row .header-item svg,.dropdown-symbol .sydney-svg-icon svg' );
-			
-			$main_header_padding 	= get_theme_mod( 'main_header_padding', 15 );
-			$custom .= ".main-header .site-header-inner, .main-header .top-header-row { padding-top:" . esc_attr( $main_header_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_padding ) . "px;}" . "\n";
-
-			$main_header_bottom_padding = get_theme_mod( 'main_header_bottom_padding', 15 );
-			$custom .= ".bottom-header-inner { padding-top:" . esc_attr( $main_header_bottom_padding ) . 'px;padding-bottom:' . esc_attr( $main_header_bottom_padding ) . "px;}" . "\n";
-
-			$custom .= $this->get_background_color_css( 'main_header_submenu_background', '', '.bottom-header-row #mainnav ul ul li, .main-header #mainnav ul ul li' );
-			$custom .= $this->get_color_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li a,.bottom-header-row #mainnav ul ul li:hover a, .main-header #mainnav ul ul li:hover a,.main-header #mainnav ul ul li a' );
-			$custom .= $this->get_fill_css( 'main_header_submenu_color', '', '.bottom-header-row #mainnav ul ul li svg, .main-header #mainnav ul ul li svg' );
-
-			$header_icons_size = get_theme_mod( 'header_icons_size' );
-			$custom .= ".header-item .sydney-svg-icon { width:" . esc_attr( $header_icons_size ) . "px;height:" . esc_attr( $header_icons_size ) . "px;}" . "\n";
-			$custom .= ".header-item .sydney-svg-icon svg { max-height:" . esc_attr( $header_icons_size - 2 ) . "px;}" . "\n";
-			
-			$custom .= $this->get_background_color_css( 'search_bar_background_color', '', '.header-search-form' );
-
-            //Submenu items hover
-			$custom .= $this->get_color_css( 'submenu_items_hover', '', '#mainnav .sub-menu li:hover>a, .main-header #mainnav ul ul li:hover>a' );
-
-			//Header mini cart
-			$custom .= $this->get_color_css( 'color_body_text', '', '.main-header-cart .count-number' );
-			$custom .= $this->get_background_color_rgba_css( 'color_body_text', '#212121', '.main-header-cart .widget_shopping_cart .widgettitle:after, .main-header-cart .widget_shopping_cart .woocommerce-mini-cart__buttons:before', '0.1' );
-
-			//Mobile menu
-			$mobile_menu_alignment = get_theme_mod( 'mobile_menu_alignment', 'left' );
-			$custom .= ".sydney-offcanvas-menu .mainnav ul li,.mobile-header-item.offcanvas-items,.mobile-header-item.offcanvas-items .social-profile { text-align:" . esc_attr( $mobile_menu_alignment ) . ";}" . "\n";
-
-            if ( 'center' === $mobile_menu_alignment ) {
-                $custom .= ".sydney-offcanvas-menu .header-item.header-woo {justify-content:center;} .mobile-header-item.offcanvas-items .button {align-self:center;}" . "\n";
-            } elseif ( 'right' === $mobile_menu_alignment ) {
-                $custom .= ".sydney-offcanvas-menu .header-item.header-woo {justify-content:flex-end;} .mobile-header-item.offcanvas-items .button {align-self:flex-end;}" . "\n";
-            }
-
-			$custom .= $this->get_color_css( 'offcanvas_submenu_color', '', '.sydney-offcanvas-menu #mainnav ul ul a' );
-
-            $offcanvas_menu_font_size = get_theme_mod( 'offcanvas_menu_font_size', '18' );
-            $custom .= ".sydney-offcanvas-menu #mainnav > div > ul > li > a { font-size:" . intval($offcanvas_menu_font_size) . "px; }"."\n";
-
-            $offcanvas_submenu_font_size = get_theme_mod( 'offcanvas_submenu_font_size', '16' );
-            $custom .= ".sydney-offcanvas-menu #mainnav ul ul li a { font-size:" . intval($offcanvas_submenu_font_size) . "px; }"."\n";
-
-			$mobile_menu_link_separator 	= get_theme_mod( 'mobile_menu_link_separator', 0 );
-			$link_separator_color 			= get_theme_mod( 'link_separator_color', 'rgba(238, 238, 238, 0.14)' );
-			$mobile_header_separator_width	= get_theme_mod( 'mobile_header_separator_width', 1 );
-
-			if ( $mobile_menu_link_separator ) {
-				$custom .= ".sydney-offcanvas-menu .mainnav ul li { padding-top:5px;border-bottom: " . intval( $mobile_header_separator_width ) . "px solid " . esc_attr( $link_separator_color ) . ";}" . "\n";
-			}
-
-			$mobile_menu_link_spacing = get_theme_mod( 'mobile_menu_link_spacing', 20 );
-			$custom .= ".sydney-offcanvas-menu .mainnav a { padding:" . esc_attr( $mobile_menu_link_spacing )/2 . "px 0;}" . "\n";
-
-			$custom .= $this->get_background_color_css( 'mobile_header_background', '', '#masthead-mobile' );
-			$custom .= $this->get_color_css( 'mobile_header_color', '', '#masthead-mobile .site-description, #masthead-mobile a:not(.button)' );
-			$custom .= $this->get_fill_css( 'mobile_header_color', '', '#masthead-mobile svg' );
-
-			$mobile_header_padding = get_theme_mod( 'mobile_header_padding', 15 );
-			$custom .= ".mobile-header { padding-top:" . esc_attr( $mobile_header_padding ) . 'px;padding-bottom:' . esc_attr( $mobile_header_padding ) . "px;}" . "\n";
-
-			$custom .= $this->get_background_color_css( 'offcanvas_menu_background', '', '.sydney-offcanvas-menu' );
-			$custom .= $this->get_color_css( 'offcanvas_menu_color', '#ffffff', '.offcanvas-header-custom-text,.sydney-offcanvas-menu,.sydney-offcanvas-menu #mainnav a:not(.button),.sydney-offcanvas-menu a:not(.button)' );
-			$custom .= $this->get_fill_css( 'offcanvas_menu_color', '#ffffff', '.sydney-offcanvas-menu svg, .sydney-offcanvas-menu .dropdown-symbol .sydney-svg-icon svg' );
-
-			$offcanvas_mode = get_theme_mod( 'header_offcanvas_mode', 'layout1' );
-			if ( 'layout2' === $offcanvas_mode ) {
-				$custom .= ".sydney-offcanvas-menu {max-width:100%;}" . "\n";
-			}            
-
             $custom .= $this->get_max_height_css( 'site_logo_size', $defaults = array( 'desktop' => 100, 'tablet' => 100, 'mobile' => 100 ), '.site-logo' );      
             
             //Site title
@@ -794,22 +799,25 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			return $css;
 		}
 
-		public static function mount_customizer_js_options( $selector = '', $setting = '', $prop = '', $opacity = '', $important = false ) {
+		public static function mount_customizer_js_options( $selector = '', $setting = '', $prop = '', $opacity = '', $important = false, $is_responsive = false, $type = '', $device = '', $unit = '' ) {
 			$options = array(
-				'option'   => $setting,
-				'selector' => $selector,
-				'prop'     => $prop
+				'option'        => $setting,
+				'selector'      => $selector,
+				'prop'          => $prop,
+				'important'     => $important,
+				'is_responsive' => $is_responsive,
+				'type'          => $type,
+				'device'        => $device,
+				'unit'          => $unit,
 			);
 
 			if( $opacity ) {
 				$options[ 'rgba' ] = $opacity;
 			}
 
-			// if( strpos( $selector, ':after' ) !== FALSE || strpos( $selector, ':before' ) !== FALSE || strpos( $selector, ':hover' ) !== FALSE || $important ) {
-				$options[ 'pseudo' ] = true;
-			// }
+			$options[ 'pseudo' ] = true;
 			
-			Sydney_Custom_CSS::get_instance()->customizer_js[] = $options;
+			self::get_instance()->customizer_js[] = $options;
 		}
 		
 		//Max width
@@ -918,6 +926,273 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 
 			return $selector . '{ border-color:' . esc_attr( Sydney_Custom_CSS::get_instance()->hex2rgba( $mod, $opacity ) ) . ( $important ? '!important' : '' ) .';}' . "\n";
 		}
+
+		//Responsive dimensions
+		public static function get_responsive_dimensions_css( $setting = '', $defaults = array(), $selector = '', $css_prop = '', $important = false ) {
+			$devices = array( 
+				'desktop'   => '@media (min-width: 992px)',
+				'tablet'    => '@media (min-width: 576px) and (max-width:  991px)',
+				'mobile'    => '@media (max-width: 575px)',
+			);
+
+			$css = '';
+
+			foreach ( $devices as $device => $media ) {
+				$mod_val = json_decode( get_theme_mod( $setting . '_' . $device, $defaults[$device] ) );
+				$mod_val = is_object( $mod_val ) ? $mod_val : json_decode( $defaults[$device] );
+
+				self::get_instance()->mount_customizer_js_options( $selector, $setting . '_' . $device, $css_prop, '', $important, true, 'dimensions', $device );
+
+				if( $mod_val->top === '' && $mod_val->right === '' && $mod_val->bottom === '' && $mod_val->left === '' ) {
+					continue;
+				}
+
+				$mod_val->top    = $mod_val->top === '' ? 0 : $mod_val->top;
+				$mod_val->right  = $mod_val->right === '' ? 0 : $mod_val->right;
+				$mod_val->bottom = $mod_val->bottom === '' ? 0 : $mod_val->bottom;
+				$mod_val->left   = $mod_val->left === '' ? 0 : $mod_val->left;
+
+				$css_prop_value = "{$mod_val->top}{$mod_val->unit} {$mod_val->right}{$mod_val->unit} {$mod_val->bottom}{$mod_val->unit} {$mod_val->left}{$mod_val->unit}";
+				$css .= $media . ' { ' . $selector . ' { ' . $css_prop . ':' . esc_attr( $css_prop_value ) . ( $important ? '!important' : '' ) . '; } }' . "\n";   
+			}
+
+			return $css;
+		}
+
+		//Responsive CSS (can pass css prop and unit)
+		public static function get_responsive_css( $setting = '', $defaults = array(), $selector = '', $css_prop = '', $unit = 'px', $important = false ) {
+			$devices    = array( 
+				'desktop'   => '@media (min-width: 992px)',
+				'tablet'    => '@media (min-width: 576px) and (max-width:  991px)',
+				'mobile'    => '@media (max-width: 575px)',
+			);
+
+			$css = '';
+
+			foreach ( $devices as $device => $media ) {
+
+				$default = ( isset( $defaults[ $device ] ) ) ? $defaults[ $device ] : $defaults;
+
+				$mod = get_theme_mod( $setting . '_' . $device, $default );
+
+				// Some properties need to be converted to be compatible with the respective css property
+				$type = '';
+				if( strpos( $setting, '_visibility' ) !== FALSE && $css_prop === 'display' ) {
+					$type = 'display';
+				}
+
+				self::get_instance()->mount_customizer_js_options( $selector, $setting . '_' . $device, $css_prop, '', $important, true, $type, $device, $unit );
+
+				// Check and convert value to be compatible with 'display' css property
+				if( $css_prop === 'display' ) {
+					if( $mod === 'hidden' ) {
+						$mod = 'none';
+					} else {
+						continue;
+					}
+				}
+
+				$css .= $media . ' { ' . $selector . ' { ' . $css_prop . ':' . esc_attr( $mod ) . ( $unit ? $unit : '' ) . ( $important ? '!important' : '' ) . '; } }' . "\n"; 
+			}
+
+			return $css;
+		}
+
+		//CSS (can pass css prop and unit)
+		public static function get_css( $setting = '', $default_value = '', $selector = '', $css_prop = '', $unit = 'px', $important = false ) {
+			$mod = get_theme_mod( $setting, $default_value );
+
+			self::get_instance()->mount_customizer_js_options( $selector, $setting, $css_prop, '', $important, false, '', '', $unit );
+
+			if( is_array( $css_prop ) ) {
+				$css_output = '';
+
+				foreach( $css_prop as $css ) {
+					$css_output .= $selector . '{ '. $css['prop'] .':' . esc_attr( $mod ) . ( isset( $css['unit'] ) ? $css['unit'] : '' ) . ( $important ? '!important' : '' ) . ';}' . "\n";
+				}
+
+				return $css_output;
+			} else {
+				return $selector . '{ '. $css_prop .':' . esc_attr( $mod ) . ( $unit ? $unit : '' ) . ( $important ? '!important' : '' ) . ';}' . "\n";
+			}
+		}
+
+		/**
+		 * Get border bottom color rgba CSS
+		 */
+		public static function get_border_bottom_color_rgba_css( $setting = '', $default_value = '', $selector = '', $opacity = 1, $important = false ) {
+			$mod = get_theme_mod( $setting, $default_value );
+
+			self::get_instance()->mount_customizer_js_options( $selector, $setting, 'border-bottom-color', $opacity, $important );
+
+			return $selector . '{ border-bottom-color:' . esc_attr( self::get_instance()->to_rgba( $mod, $opacity ) ) . ( $important ? '!important' : '' ) .';}' . "\n";
+		}
+		
+		//Convert hex to rgba
+		public static function to_rgba( $color = '', $opacity = false ) {
+
+			$default = 'rgb(0,0,0)';
+
+			if( strpos( $color, 'rgba' ) !== FALSE ) {
+				return $color;
+			}
+		 
+			if ( $color ) {
+				if ( $color[0] == '#' ) {
+					$color = substr( $color, 1 );
+				}   
+			}
+
+			if (strlen($color) == 6) {
+				$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+			} elseif ( strlen( $color ) == 3 ) {
+				$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+			} else {
+				return $default;
+			}
+		
+			$rgb =  array_map('hexdec', $hex);
+		
+			if ( $opacity ){
+				if( abs($opacity) > 1 )
+					$opacity = 1.0;
+				$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+			} else {
+				$output = 'rgb('.implode(",",$rgb).')';
+			}
+		
+			return $output;
+		}
+
+		// Get css variables
+		public static function get_variables_css( $selector = '', $variables = array() ) {
+
+			$devices    = array(
+				'mobile'  => '',
+				'tablet'  => '@media (min-width: 576px) and (max-width:  991px)',
+				'desktop' => '@media (min-width: 992px)',
+			);
+
+			$css = '';
+
+			foreach ( $devices as $device => $media ) {
+
+				// Mobile first concept.
+				if( 'mobile' === $device ) {
+					$css .= $selector . ' {' . self::get_variables_css_content( $variables, $device ) . '}' . "\n";
+				} else {
+					$css .= $media . ' { ' . $selector . ' {'. self::get_variables_css_content( $variables, $device ) .'} }' . "\n";    
+				}
+			}
+
+			self::get_instance()->mount_customizer_js_css_vars_options( $selector, $variables );
+
+			return $css;
+		}
+
+		public static function get_variables_css_content( $variables, $device ) {
+			$css = '';
+
+			foreach( $variables as $variable ) {
+				$temp_css = '';
+
+				$is_responsive = is_array($variable[ 'defaults' ]);
+
+				if( $is_responsive ) {
+					$mod = get_theme_mod( $variable[ 'setting' ] . '_' . $device, $variable[ 'defaults' ][ $device ] );
+				} else {
+					$mod = get_theme_mod( $variable[ 'setting' ], $variable[ 'defaults' ] );
+				}
+
+				if( '--bt-color-bg' === $variable[ 'name' ] && substr( $mod, 0, 1 ) !== '#' ) {
+					$mod = "#$mod";
+				}
+				
+				$temp_css .= $variable[ 'name' ] .':' . $mod . $variable[ 'unit' ] .';' . "\n";
+
+				if( ! $is_responsive && $device !== 'mobile' ) {
+					$temp_css = '';
+				}
+
+				$css .= $temp_css;
+
+				// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
+				if ( ! in_array( $variable[ 'name' ], self::$css_to_replace ) ) {
+					self::$css_to_replace[] = $variable[ 'name' ];
+				}
+			}
+
+			return $css;
+		}
+
+		// CSS Variable val()
+		public static function get_variable_css( $setting = '', $default_value = '', $selector = '', $prop = '', $unit = '' ) {
+
+			$mod = get_theme_mod( $setting, $default_value );
+
+			if ( $mod !== '' ) {
+
+				if( $setting === 'background_color' && substr( $mod, 0, 1 ) !== '#' ) {
+					$mod = '#'.$mod;
+				}
+
+				return $selector . ' { --'. $prop .':' . esc_attr( $mod ) . $unit .';}' . "\n"; 
+			
+			}
+		}   
+
+		// Responsive CSS Variable val()
+		public static function get_responsive_variable_css( $setting = '', $defaults = array(), $selector = '', $variable_name = '', $unit = '' ) {
+
+			$devices    = array( 
+				'desktop' => '@media (min-width: 992px)',
+				'tablet'  => '@media (min-width: 576px) and (max-width:  991px)',
+				'mobile'  => '@media (max-width: 575px)',
+			);
+
+			$css = '';
+
+			foreach ( $devices as $device => $media ) {
+				$mod = get_theme_mod( $setting . '_' . $device, $defaults[ $device ] );
+				if ( $mod !== '' ) {
+					$css .= $media . ' { ' . $selector . ' { --'. $variable_name .':' . intval( $mod ) . $unit .';} }' . "\n";  
+				}
+			}
+
+			return $css;
+		}
+
+		public static function mount_customizer_js_css_vars_options( $selector = '', $variables = array() ) {
+			$options = array(
+				'selector'      => $selector,
+				'variables'     => $variables,
+			);
+
+			self::get_instance()->customizer_js_css_vars[] = $options;
+		}	
+		
+		/**
+		 * Get border top color CSS
+		 */
+		public static function get_border_top_color_css( $setting, $default_value, $selector ) {
+			$mod = get_theme_mod( $setting, $default_value );
+
+			self::get_instance()->mount_customizer_js_options( $selector, $setting, 'border-top-color' );
+
+			return $selector . '{ border-top-color:' . esc_attr( $mod ) . ';}' . "\n";
+		}
+
+		/**
+		 * Get border top color rgba CSS
+		 */
+		public static function get_border_top_color_rgba_css( $setting = '', $default_value = '', $selector = '', $opacity = 1, $important = false ) {
+			$mod = get_theme_mod( $setting, $default_value );
+
+			self::get_instance()->mount_customizer_js_options( $selector, $setting, 'border-top-color', $opacity, $important );
+
+			return $selector . '{ border-top-color:' . esc_attr( self::get_instance()->to_rgba( $mod, $opacity ) ) . ( $important ? '!important' : '' ) .';}' . "\n";
+		}
+
 	}
 
 	/**
