@@ -81,6 +81,7 @@ add_action( 'init', 'sydney_migrate_blog_layout' );
  * 
  */
 function sydney_header_update_notice_1_8_1() {
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
@@ -366,6 +367,10 @@ add_action('after_switch_theme', 'sydney_hf_enable_to_new_users');
  * 
  */
 function sydney_hf_update_notice_2_52() {
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+    
     if ( get_option( 'sydney-update-hf-dismiss' ) ) {
         return;
     }

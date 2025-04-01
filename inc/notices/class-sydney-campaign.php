@@ -126,7 +126,7 @@ class Sydney_Campaign_Notice {
             .sydney-campaign-notice .sydney-btn {
                 font-size: 19px;
                 padding: 19px 41px;
-                border-radius: 7px;
+                border-radius: 0;
             }
 
             .sydney-campaign-notice .notice-dismiss,

@@ -618,9 +618,9 @@ class Sydney_Header_Footer_Builder {
         switch ( $row ) {
             case 'main_header_row':
                 if( class_exists( 'Woocommerce' ) ) {
-                    $default = '{ "desktop": [["menu"], ["logo"], ["search", "woo_icons"]], "mobile": [["search"], ["logo"], ["woo_icons", "mobile_hamburger"]] }';
+                    $default = '{ "desktop": [["logo"], ["menu", "search", "woo_icons"]], "mobile": [["search"], ["logo"], ["woo_icons", "mobile_hamburger"]] }';
                 } else {
-                    $default = '{ "desktop": [["logo"], ["menu"], ["search"]], "mobile": [["search"], ["logo"], ["mobile_hamburger"]] }';
+                    $default = '{ "desktop": [["logo"], ["menu", "search"]], "mobile": [["search"], ["logo"], ["mobile_hamburger"]] }';
                 }
                 break;
 
@@ -1263,10 +1263,6 @@ class Sydney_Header_Footer_Builder {
             
             if( $row === 'main_header_row' ) {
                 if( $column_id === 2 ) {
-                    $default = 'center';
-                }
-
-                if( $column_id === 3 ) {
                     $default = 'end';
                 }
             }

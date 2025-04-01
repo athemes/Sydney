@@ -172,7 +172,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'shfb_mobile_offcanvas_close_text_color',
 	array(
-		'default'           => '#212121',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -180,7 +180,7 @@ $wp_customize->add_setting(
 $wp_customize->add_setting(
 	'shfb_mobile_offcanvas_close_text_color_hover',
 	array(
-		'default'           => '#757575',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)

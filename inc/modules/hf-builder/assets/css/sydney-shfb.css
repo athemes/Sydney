@@ -2,6 +2,19 @@
  * Header/Footer Builder
  * Front End
  */
+ .site-title a,
+ .site-title a:hover,
+ .site-title a:visited {
+  color: var(--sydney-headings-color);
+}
+.main-navigation a,
+.main-navigation a:visited,
+.site-description {
+  color: var(--sydney-text-color);
+}
+.header-search-form {
+  background-color: #fff;
+}
 .shfb-desktop,
 .shfb-mobile {
   position: relative;
@@ -228,6 +241,9 @@
     grid-template-columns: 1fr;
     grid-auto-flow: row;
   }
+  .shfb-rows .container {
+    width: 100%;
+  }
 }
 .shfb-footer .shfb-component-footer_menu .menu {
   -ms-flex-wrap: wrap;
@@ -293,10 +309,6 @@
 .shfb-mobile_offcanvas .sydney-image.is-svg > img {
   width: 25px;
   height: 25px;
-}
-.shfb.shfb-header .shfb-component-logo,
-.shfb-mobile_offcanvas .shfb-component-logo {
-  text-align: center;
 }
 .shfb.shfb-header .shfb-component-menu,
 .shfb-mobile_offcanvas .shfb-component-menu {

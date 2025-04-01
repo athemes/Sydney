@@ -27,10 +27,10 @@ $css .= Sydney_Custom_CSS::get_background_color_css( 'offcanvas_menu_background'
 $css .= Sydney_Custom_CSS::get_background_color_css( 'shfb_mobile_offcanvas_close_background_color', 'rgba(255,255,255,0)', '.shfb-mobile_offcanvas .mobile-menu-close' );
 
 // Close Icon Text Color
-$css .= Sydney_Custom_CSS::get_fill_css( 'shfb_mobile_offcanvas_close_text_color', '#212121', '.shfb-mobile_offcanvas .mobile-menu-close svg' );
+$css .= Sydney_Custom_CSS::get_fill_css( 'shfb_mobile_offcanvas_close_text_color', '#ffffff', '.shfb-mobile_offcanvas .mobile-menu-close svg' );
 
 // Close Icon Text Color Hover
-$css .= Sydney_Custom_CSS::get_fill_css( 'shfb_mobile_offcanvas_close_text_color_hover', '#757575', '.shfb-mobile_offcanvas .mobile-menu-close:hover svg' );
+$css .= Sydney_Custom_CSS::get_fill_css( 'shfb_mobile_offcanvas_close_text_color_hover', '#ffffff', '.shfb-mobile_offcanvas .mobile-menu-close:hover svg' );
 
 // Padding
 $css .= Sydney_Custom_CSS::get_responsive_dimensions_css( 

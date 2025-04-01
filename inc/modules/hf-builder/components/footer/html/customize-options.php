@@ -10,9 +10,7 @@
 
 // List of options we'll need to move.
 $opts_to_move = array(
-    'general' => array(
-        'footer_html_content'
-    ),
+    'general' => array(),
     'style'   => array()
 );
 
@@ -45,6 +43,7 @@ $wp_customize->add_control(
                 array_merge(
                     array_map( function( $name ){ return "#customize-control-$name"; }, $opts_to_move[ 'general' ] ),
                     array(
+                        '#customize-control-footer_html_content',
                         '#customize-control-sydney_section_fb_component__html_text_align',
                         '#customize-control-sydney_section_fb_component__html_visibility'
                     ),
@@ -65,6 +64,20 @@ $wp_customize->add_control(
         )
     )
 );
+
+
+$wp_customize->add_setting(
+	'footer_html_content',
+	array(
+		'sanitize_callback' => 'sydney_sanitize_text',
+		'default'           => ''
+	)       
+);
+$wp_customize->add_control( 'footer_html_content', array(
+	'label'       => esc_html__( 'Add your HTML', 'sydney' ),
+	'type'        => 'textarea',
+	'section'     => 'sydney_section_fb_component__html',
+) );
 
 // Text Alignment.
 $wp_customize->add_setting( 

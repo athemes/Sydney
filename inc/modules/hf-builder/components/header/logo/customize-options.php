@@ -106,7 +106,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting( 
     'sydney_section_hb_component__logo_text_alignment_desktop',
     array(
-        'default' 			=> 'center',
+        'default' 			=> 'left',
         'sanitize_callback' => 'sydney_sanitize_text',
         'transport'         => 'postMessage'
     )
@@ -114,7 +114,7 @@ $wp_customize->add_setting(
 $wp_customize->add_setting( 
     'sydney_section_hb_component__logo_text_alignment_tablet',
     array(
-        'default' 			=> 'center',
+        'default' 			=> 'left',
         'sanitize_callback' => 'sydney_sanitize_text',
         'transport'         => 'postMessage'
     )
@@ -122,7 +122,7 @@ $wp_customize->add_setting(
 $wp_customize->add_setting( 
     'sydney_section_hb_component__logo_text_alignment_mobile',
     array(
-        'default' 			=> 'center',
+        'default' 			=> 'left',
         'sanitize_callback' => 'sydney_sanitize_text',
         'transport'         => 'postMessage'
     )

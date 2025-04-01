@@ -123,7 +123,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'mobile_offcanvas_menu_color',
 	array(
-		'default'           => '#212121',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -131,7 +131,7 @@ $wp_customize->add_setting(
 $wp_customize->add_setting(
 	'mobile_offcanvas_menu_color_hover',
 	array(
-		'default'           => '#757575',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -156,7 +156,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'mobile_offcanvas_menu_submenu_color',
 	array(
-		'default'           => '#212121',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
@@ -164,7 +164,7 @@ $wp_customize->add_setting(
 $wp_customize->add_setting(
 	'mobile_offcanvas_menu_submenu_color_hover',
 	array(
-		'default'           => '#757575',
+		'default'           => '#ffffff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
