@@ -18,7 +18,7 @@ class Sydney_Campaign_Notice {
      *
      * @var string
      */
-    private $end_date_target = '2024-12-01';
+    private $end_date_target = '2025-04-21';
     
 	/**
 	 * Constructor
@@ -56,7 +56,9 @@ class Sydney_Campaign_Notice {
 
             .sydney-campaign-notice {
                 position: relative !important;
-                background-color: #000;
+                background: url(". esc_url( get_template_directory_uri() . '/images/admin/easter-background.jpg' ) .");
+                background-size: cover;
+                background-position: center;
                 padding: 30px 30px 0px !important;
                 border-left: 0;
             }
@@ -69,7 +71,7 @@ class Sydney_Campaign_Notice {
             }
 
             .sydney-campaign-notice h3 {
-                color: #FFF;
+                color: #212121;
                 font-size: 42px;
                 font-weight: 700;
                 line-height: 1.1;
@@ -78,7 +80,7 @@ class Sydney_Campaign_Notice {
 
             @media(min-width: 576px) {
                 .sydney-campaign-notice h3 {
-                    min-width: 455px;
+                    min-width: 425px;
                     max-width: 25%;
                     line-height: 0.8;
                 }   
@@ -90,7 +92,7 @@ class Sydney_Campaign_Notice {
                 display: inline-flex;
                 align-items: center;
                 gap: 10px;
-                color: #FFDB12;
+                color: #68B43A;
             }
 
             .sydney-campaign-notice-thumbnail {
@@ -129,7 +131,7 @@ class Sydney_Campaign_Notice {
 
             .sydney-campaign-notice .notice-dismiss,
             .sydney-campaign-notice .notice-dismiss:before {
-                color: #FFF;
+                color: #212121;
             }
 
             .sydney-campaign-notice .notice-dismiss:active:before, 
@@ -150,7 +152,7 @@ class Sydney_Campaign_Notice {
 	public function is_dismissed() {
 		$user_id = get_current_user_id();
 
-        return get_user_meta( $user_id, 'sydney_disable_bf2024_notice', true ) ? true : false;
+        return get_user_meta( $user_id, 'sydney_disable_easter2025_notice', true ) ? true : false;
 	}
 
     /**
@@ -198,13 +200,13 @@ class Sydney_Campaign_Notice {
         <div class="sydney-notice sydney-campaign-notice" style="position:relative;">
 			<h3><?php echo wp_kses_post( sprintf(
                 /* Translators: 1. Image url. */
-                __( 'Sydney Black Friday: Up to <span><img src="%1$s" class="sydney-campaign-notice-percent" alt="Up to 40 Percent Off!" /> Off!</span>', 'sydney' ),
-                get_template_directory_uri() . '/images/admin/40-percent.png'
+                __( 'Sydney Easter Sale: Up to <span><img src="%1$s" class="sydney-campaign-notice-percent" alt="Up to 30 Percent Off!" /> Off!</span>', 'sydney' ),
+                get_template_directory_uri() . '/images/admin/30-percent-green.png'
             ) ); ?></h3>
 
-            <a href="https://athemes.com/black-friday/?utm_source=theme_notice&utm_medium=button&utm_campaign=Sydney#sydney-pro" class="sydney-btn sydney-btn-primary" target="_blank"><?php esc_html_e( 'Give Me This Deal', 'sydney' ); ?></a>
+            <a href="https://athemes.com/pricing/?utm_source=theme_notice&utm_content=easter-notice&utm_medium=button&utm_campaign=Sydney#sydney-pro" class="sydney-btn sydney-btn-primary" target="_blank"><?php esc_html_e( 'Give Me This Deal', 'sydney' ); ?></a>
 
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/admin/people-trust.png' ); ?>" alt="<?php echo esc_attr__( 'Ready to join 130,000+ WordPress creators who\'ve found their perfect match?', 'sydney' ); ?>" class="sydney-campaign-notice-thumbnail" />
+            <img src="<?php echo esc_url( get_template_directory_uri() . '/images/admin/people-easter.png' ); ?>" alt="<?php echo esc_attr__( 'Ready to join 130,000+ WordPress creators who\'ve found their perfect match?', 'sydney' ); ?>" class="sydney-campaign-notice-thumbnail" />
 
 			<a class="notice-dismiss" href="?page=sydney-dashboard&nag_sydney_disable_campaign_notice=0" style="text-decoration:none;"></a>             
 		</div>
@@ -218,7 +220,7 @@ class Sydney_Campaign_Notice {
 	public function dismiss_notice_handler() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended, Universal.Operators.StrictComparisons.LooseEqual
 		if ( isset( $_GET['nag_sydney_disable_campaign_notice'] ) && '0' == $_GET['nag_sydney_disable_campaign_notice'] ) {
-			add_user_meta( get_current_user_id(), 'sydney_disable_bf2024_notice', 'true', true );
+			add_user_meta( get_current_user_id(), 'sydney_disable_easter2025_notice', 'true', true );
 		}
 	}
 }
