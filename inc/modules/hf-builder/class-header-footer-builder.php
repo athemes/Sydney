@@ -63,7 +63,7 @@ class Sydney_Header_Footer_Builder {
             echo '<aside class="widget-area"></aside>';
         });
         
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 5 );
         add_filter( 'body_class', array( $this, 'body_class' ) );
 
         remove_all_actions( 'sydney_header' );
@@ -302,8 +302,8 @@ class Sydney_Header_Footer_Builder {
 
         wp_enqueue_script( 'jquery-ui-sortable' );
 
-        wp_enqueue_style( 'sydney-shfb', get_template_directory_uri() . '/inc/modules/hf-builder/assets/css/admin/sydney-shfb.min.css', array(), '20250317' );
-        wp_enqueue_script( 'sydney-shfb', get_template_directory_uri() . '/inc/modules/hf-builder/assets/js/admin/sydney-shfb.min.js', array(), '20250317', true );
+        wp_enqueue_style( 'sydney-shfb', get_template_directory_uri() . '/inc/modules/hf-builder/assets/css/admin/sydney-shfb.min.css', array(), '20250404' );
+        wp_enqueue_script( 'sydney-shfb', get_template_directory_uri() . '/inc/modules/hf-builder/assets/js/admin/sydney-shfb.min.js', array(), '20250404', true );
         wp_localize_script( 'sydney-shfb', 'sydney_hfb', array(
             'rows' => array(
                 'defaults' => array(
@@ -371,15 +371,15 @@ class Sydney_Header_Footer_Builder {
      * Enqueue Customize Preview Scripts.
      */
     public function customize_preview_scripts() {
-        wp_enqueue_style( 'sydney-shfb-customize-preview', get_template_directory_uri() . '/inc/modules/hf-builder/assets/css/admin/sydney-shfb-customize-preview.min.css', array(), '20250317' );
-        wp_enqueue_script( 'sydney-shfb-customize-preview', get_template_directory_uri() . '/inc/modules/hf-builder/assets/js/admin/sydney-shfb-customize-preview.min.js', array(), '20250317', true );
+        wp_enqueue_style( 'sydney-shfb-customize-preview', get_template_directory_uri() . '/inc/modules/hf-builder/assets/css/admin/sydney-shfb-customize-preview.min.css', array(), '20250404' );
+        wp_enqueue_script( 'sydney-shfb-customize-preview', get_template_directory_uri() . '/inc/modules/hf-builder/assets/js/admin/sydney-shfb-customize-preview.min.js', array(), '20250404', true );
     }
 
     /**
      * Enqueue Front Scripts.
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'sydney-shfb', get_template_directory_uri() . '/inc/modules/hf-builder/assets/css/sydney-shfb.min.css', array(), '20250317' );
+        wp_enqueue_style( 'sydney-shfb', get_template_directory_uri() . '/inc/modules/hf-builder/assets/css/sydney-shfb.min.css', array(), '20250404' );
     }
 
     /**
@@ -870,7 +870,7 @@ class Sydney_Header_Footer_Builder {
      */
     public function header_front_output() {
         $sticky_header_styles = array();
-        $sticky_header        = get_theme_mod( 'enable_sticky_header', 0 );
+        $sticky_header        = get_theme_mod( 'enable_sticky_header', 1 );
         $sticky_header_type   = get_theme_mod( 'sticky_header_type', 'always' );
         $sticky_row           = get_theme_mod( 'sydney_section_hb_wrapper__header_builder_sticky_row', 'main-header-row' );
 

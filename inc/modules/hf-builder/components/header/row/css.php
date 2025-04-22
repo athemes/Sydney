@@ -24,7 +24,7 @@ foreach( $rows as $row ) {
     );
 
     // Background Color
-    $css .= Sydney_Custom_CSS::get_background_color_css( "sydney_header_row__{$row}_background_color", '#FFF', ".shfb-$row" );
+    $css .= Sydney_Custom_CSS::get_background_color_css( "sydney_header_row__{$row}_background_color", '', ".shfb-$row" );
     
     // Background Image
     $background_image = get_theme_mod( "sydney_header_row__{$row}_background_image", '' );

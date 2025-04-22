@@ -76,7 +76,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'sydney_section_fb_wrapper__footer_builder_background_color',
 	array(
-		'default'           => '',
+		'default'           => '#f5f5f5',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)

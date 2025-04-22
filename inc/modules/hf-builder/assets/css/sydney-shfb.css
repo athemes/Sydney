@@ -2,18 +2,19 @@
  * Header/Footer Builder
  * Front End
  */
- .site-title a,
- .site-title a:hover,
- .site-title a:visited {
-  color: var(--sydney-headings-color);
-}
-.main-navigation a,
-.main-navigation a:visited,
-.site-description {
-  color: var(--sydney-text-color);
-}
-.header-search-form {
-  background-color: #fff;
+ .shfb .site-title a,
+ .shfb .site-title a:hover,
+ .shfb .site-title a:visited {
+   color: var(--sydney-headings-color);
+ }
+ .shfb .main-navigation a,
+ .shfb .main-navigation a:visited,
+ .shfb .site-description {
+   color: var(--sydney-text-color);
+ }
+ 
+ .shfb .header-search-form {
+  background-color: #f5f5f5;
 }
 .shfb-desktop,
 .shfb-mobile {
@@ -53,7 +54,6 @@
 }
 
 .shfb-below_footer_row {
-  background-color: #F5F5F5;
   min-height: 100px;
 }
 

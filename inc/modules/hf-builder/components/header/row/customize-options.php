@@ -300,7 +300,7 @@ foreach( $this->header_rows as $row ) {
     $wp_customize->add_setting(
         'sydney_header_row__' . $row['id'] . '_background_color',
         array(
-            'default'           => '#FFF',
+            'default'           => '',
             'sanitize_callback' => 'sydney_sanitize_hex_rgba',
             'transport'         => 'postMessage'
         )

@@ -266,7 +266,7 @@ foreach( $this->footer_rows as $row ) {
     $wp_customize->add_setting(
         'sydney_footer_row__' . $row['id'] . '_background_color',
         array(
-            'default'           => '#F5F5F5',
+            'default'           => '',
             'sanitize_callback' => 'sydney_sanitize_hex_rgba',
             'transport'         => 'postMessage'
         )

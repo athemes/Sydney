@@ -9,10 +9,10 @@
 // @codingStandardsIgnoreStart WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 // Site TItle Color
-$css .= Sydney_Custom_CSS::get_color_css( 'site_title_color', '', '.shfb .site-title a,.shfb .site-title a:visited' );
+$css .= Sydney_Custom_CSS::get_color_css( 'site_title_color', '', '.shfb .site-branding .site-title a,.shfb .site-branding .site-title a:visited' );
 
 // Site Description Color
-$css .= Sydney_Custom_CSS::get_color_css( 'site_description_color', '', '.shfb .site-description' );
+$css .= Sydney_Custom_CSS::get_color_css( 'site_desc_color', '', '.shfb .site-branding .site-description' );
 
 // Site Logo Size
 $css .= Sydney_Custom_CSS::get_responsive_css( 

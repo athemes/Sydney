@@ -193,7 +193,7 @@ $wp_customize->add_control( new Sydney_Responsive_Slider( $wp_customize, 'mobile
 $wp_customize->add_setting(
 	'sydney_section_hb_wrapper__header_builder_background_color',
 	array(
-		'default'           => '',
+		'default'           => '#fff',
 		'sanitize_callback' => 'sydney_sanitize_hex_rgba',
 		'transport'         => 'postMessage'
 	)
