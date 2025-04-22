@@ -21,6 +21,7 @@
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><img width="<?php echo esc_attr( $logo_attrs[1] ); ?>" height="<?php echo esc_attr( $logo_attrs[2] ); ?>" class="site-logo" src="<?php echo esc_url(get_theme_mod('site_logo')); ?>" alt="<?php bloginfo('name'); ?>" <?php sydney_do_schema( 'logo' ); ?> /></a>
         <?php endif;
 
+        if ( get_theme_mod('logo_site_title', 0) ) :
         echo '<div>';
         if ( ( is_front_page() ) && $params[ 'device' ] !== 'mobile' ) :
             ?>
@@ -36,6 +37,7 @@
             ?>
             <p class="site-description"><?php echo $sydney_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
         <?php endif;
-        echo '</div>'; ?>
+        echo '</div>';
+        endif; ?>
     </div><!-- .site-branding -->
 </div>
