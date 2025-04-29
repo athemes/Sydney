@@ -696,6 +696,10 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			if ( 860 !== $narrow_container_width ) {
 				$custom .= '@media (min-width: 1200px) { .container-narrow { width:100%;max-width: ' . intval( $narrow_container_width ) . 'px; } }';
 			}
+
+			if ( get_theme_mod( 'sydney_enable_page_min_height', false ) && apply_filters( 'sydney_enable_page_min_height', true ) ) {
+				$custom .= '.site { display:flex;flex-direction:column;min-height:100vh; } .site #content { flex:1; } .admin-bar .site {min-height:calc(100vh - 32px);}';
+			}
         
             $custom = apply_filters( 'sydney_custom_css', $custom );
 

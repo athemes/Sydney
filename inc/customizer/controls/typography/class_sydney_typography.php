@@ -9,6 +9,10 @@ class Sydney_Typography_Control extends WP_Customize_Control {
 		 */
 		private $fontList = false;
 		/**
+		 * Static property to store font data in memory
+		 */
+		private static $cached_fonts = null;
+		/**
 		 * The saved font values decoded from json
 		 */
 		private $fontValues = [];
@@ -39,7 +43,7 @@ class Sydney_Typography_Control extends WP_Customize_Control {
 					$this->fontCount = ( abs( (int) $this->input_attrs['font_count'] ) > 0 ? abs( (int) $this->input_attrs['font_count'] ) : 'all' );
 				}
 			}
-			$this->fontList = $this->get_google_fonts( 'all' );
+			$this->fontList = $this->get_google_fonts();
 			// Decode the default json font value
 			$this->fontValues = json_decode( $this->value( 'family' ) );
 			// Find the index of our default font within our list of Google fonts
@@ -134,18 +138,38 @@ class Sydney_Typography_Control extends WP_Customize_Control {
 		}
 
 		/**
-		 * Return the list of Google Fonts from our json file. Unless otherwise specfied, list will be limited to 30 fonts.
+		 * Return the list of Google Fonts from our json file.
 		 */
-		public function get_google_fonts( $count = 30 ) {
+		public function get_google_fonts() {
+			// Check if we have the fonts cached in memory
+			if ( null !== self::$cached_fonts ) {
+				return self::$cached_fonts;
+			}
 
+			// Try to get from transient cache
+			$cached_fonts = get_transient( 'sydney_google_fonts_list' );
+			if ( false !== $cached_fonts ) {
+				self::$cached_fonts = $cached_fonts;
+				return $cached_fonts;
+			}
+
+			// If not in cache, read from file
 			require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
 			require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 
 			$fontFile = get_parent_theme_file_path('/inc/customizer/controls/typography/google-fonts-alphabetical.json');
 
-			$file_system 	= new WP_Filesystem_Direct( false );
-			$content 		= json_decode( $file_system->get_contents ( $fontFile ) );
-	
-			return $content->items;
+			$file_system = new WP_Filesystem_Direct( false );
+			$content = json_decode( $file_system->get_contents( $fontFile ) );
+			
+			$fonts = $content->items;
+			
+			// Cache the fonts for 24 hours
+			set_transient( 'sydney_google_fonts_list', $fonts, DAY_IN_SECONDS );
+			
+			// Store in memory for current request
+			self::$cached_fonts = $fonts;
+			
+			return $fonts;
 		}
 	}
