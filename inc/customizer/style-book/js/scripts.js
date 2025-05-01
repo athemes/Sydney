@@ -76,6 +76,9 @@
 
 			$( '.style-book-heading' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
 
+            $( '.style-book-headings-typography-data' ).find( '.style-book-typography-family' ).html( jQuery.parseJSON( to )['font'] );
+            $( '.style-book-headings-typography-data' ).find( '.style-book-typography-weight' ).html( jQuery.parseJSON( to )['regularweight'] );
+
 			$( 'head' ).append('<style id="sydney-preview-style-book-headings-weight-css" type="text/css">.style-book-heading {font-weight:' + jQuery.parseJSON( to )['regularweight'] + ';}</style>');
 
 		} );
@@ -111,6 +114,7 @@
         wp.customize(option, function(value) {
             value.bind(function(newval) {
                 $(selector).css('font-size', newval + 'px');
+                $( '.style-book-headings-typography-data[data-heading="' + selector.replace('.style-book-heading', '') + '"]' ).find( '.style-book-typography-size' ).html( newval + 'px' );
             });
         });
     });
@@ -127,6 +131,8 @@
             $( '#sydney-preview-style-book-google-fonts-body-css' ).attr( 'href', 'https://fonts.googleapis.com/css?family=' + jQuery.parseJSON( to )['font'].replace(/ /g, '+') + ':' + jQuery.parseJSON( to )['regularweight'] + '&display=swap' );
 
             $( '.sydney-style-book .style-book-body' ).css( 'font-family', jQuery.parseJSON( to )['font'] );
+            $( '.style-book-body-typography-data' ).find( '.style-book-typography-family' ).html( jQuery.parseJSON( to )['font'] );
+            $( '.style-book-body-typography-data' ).find( '.style-book-typography-weight' ).html( jQuery.parseJSON( to )['regularweight'] );
 
             $( 'head' ).append('<style id="sydney-preview-style-book-body-weight-css" type="text/css">.sydney-style-book .style-book-body {font-weight:' + jQuery.parseJSON( to )['regularweight'] + ';}</style>');
 
@@ -134,7 +140,7 @@
     });
 
     var bodyTypography = { 
-        'body_font_size': 'font-size',
+        'body_font_size_desktop': 'font-size',
         'body_font_style': 'font-style',
         'body_line_height': 'line-height',
         'body_letter_spacing': 'letter-spacing',
@@ -145,7 +151,13 @@
     $.each( bodyTypography, function( option, prop ) {
         wp.customize(option, function( value ) {
             value.bind( function( newval ) {
-                $( '.sydney-style-book .style-book-body' ).css( prop, newval );
+                suffix = (prop === 'font-size' || prop === 'letter-spacing') ? 'px' : '';
+                
+                $( '.sydney-style-book .style-book-body' ).css( prop, newval + suffix );
+
+                if ( option === 'body_font_size_desktop' ) { 
+                    $( '.style-book-body-typography-data' ).find( '.style-book-typography-size' ).html( newval + suffix );
+                }
             } );
         });
     });
