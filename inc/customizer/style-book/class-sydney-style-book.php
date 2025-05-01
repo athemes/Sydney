@@ -268,7 +268,6 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
                 ),
             );
 
-
             //Body
             $body_font = get_theme_mod( 'sydney_body_font' );
             if ( false !== $body_font ) {
@@ -571,9 +570,9 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
         public function get_typography_data( $type, $tag = false ) {
             $config = $this->typography_config;
             if ( 'headings' === $type ) : ?>
-                <div class="style-book-light-text"><?php echo esc_html( $config['headings'][$tag]['family'] . ' / ' . $config['headings'][$tag]['weight'] . ' / ' . $config['headings'][$tag]['size'] . 'px' ); ?></div>
+                <div class="style-book-light-text style-book-headings-typography-data"><?php echo wp_kses_post( '<span class="style-book-typography-family">' . $config['headings'][$tag]['family'] . '</span> / <span class="style-book-typography-weight">' . $config['headings'][$tag]['weight'] . '</span> / <span class="style-book-typography-size">' . $config['headings'][$tag]['size'] . 'px' . '</span>' ); ?></div>
             <?php else : ?>
-                <div class="style-book-light-text"><?php echo esc_html( $config['body']['family'] . ' / ' . $config['body']['weight'] . ' / ' . $config['body']['size'] . 'px' ); ?></div>
+                <div class="style-book-light-text style-book-body-typography-data"><?php echo wp_kses_post( '<span class="style-book-typography-family">' . $config['body']['family'] . '</span> / <span class="style-book-typography-weight">' . $config['body']['weight'] . '</span> / <span class="style-book-typography-size">' . $config['body']['size'] . 'px' . '</span>' ); ?></div>
             <?php endif;
         }
 
