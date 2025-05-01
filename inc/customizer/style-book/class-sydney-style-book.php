@@ -214,67 +214,80 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
          * Typography config.
          */
         public function typography_config() {
-            $config = array();
+            $config = array(
+                'headings' => array(),
+                'body' => array(),
+            );
 
             //Headings
             //we currently only support one font for all headings
             $headings_font = get_theme_mod( 'sydney_headings_font' );
             if ( false !== $headings_font ) {
                 $headings = json_decode( $headings_font, true );
-
-                if ( 'regular' === $headings['regularweight'] ) {
-                    $headings['regularweight'] = 400;
-                }
-
-                $config['headings'] = array(
-                    'h1' => array(
-                        'family' => $headings['font'],
-                        'weight' => $headings['regularweight'],
-                        'size'   => get_theme_mod( 'h1_font_size_desktop' ),
-                    ),
-                    'h2' => array(
-                        'family' => $headings['font'],
-                        'weight' => $headings['regularweight'],
-                        'size'   => get_theme_mod( 'h2_font_size_desktop' ),
-                    ),
-                    'h3' => array(
-                        'family' => $headings['font'],
-                        'weight' => $headings['regularweight'],
-                        'size'   => get_theme_mod( 'h3_font_size_desktop' ),
-                    ),
-                    'h4' => array(
-                        'family' => $headings['font'],
-                        'weight' => $headings['regularweight'],
-                        'size'   => get_theme_mod( 'h4_font_size_desktop' ),
-                    ),
-                    'h5' => array(
-                        'family' => $headings['font'],
-                        'weight' => $headings['regularweight'],
-                        'size'   => get_theme_mod( 'h5_font_size_desktop' ),
-                    ),
-                    'h6' => array(
-                        'family' => $headings['font'],
-                        'weight' => $headings['regularweight'],
-                        'size'   => get_theme_mod( 'h6_font_size_desktop' ),
-                    ),
+            } else {
+                $headings = array(
+                    'font' => 'System default',
+                    'regularweight' => 400,
                 );
             }
+            
+            if ( 'regular' === $headings['regularweight'] ) {
+                $headings['regularweight'] = 400;
+            }
+
+            $config['headings'] = array(
+                'h1' => array(
+                    'family' => $headings['font'],
+                    'weight' => $headings['regularweight'],
+                    'size'   => get_theme_mod( 'h1_font_size_desktop' ),
+                ),
+                'h2' => array(
+                    'family' => $headings['font'],
+                    'weight' => $headings['regularweight'],
+                    'size'   => get_theme_mod( 'h2_font_size_desktop' ),
+                ),
+                'h3' => array(
+                    'family' => $headings['font'],
+                    'weight' => $headings['regularweight'],
+                    'size'   => get_theme_mod( 'h3_font_size_desktop' ),
+                ),
+                'h4' => array(
+                    'family' => $headings['font'],
+                    'weight' => $headings['regularweight'],
+                    'size'   => get_theme_mod( 'h4_font_size_desktop' ),
+                ),
+                'h5' => array(
+                    'family' => $headings['font'],
+                    'weight' => $headings['regularweight'],
+                    'size'   => get_theme_mod( 'h5_font_size_desktop' ),
+                ),
+                'h6' => array(
+                    'family' => $headings['font'],
+                    'weight' => $headings['regularweight'],
+                    'size'   => get_theme_mod( 'h6_font_size_desktop' ),
+                ),
+            );
 
             //Body
             $body_font = get_theme_mod( 'sydney_body_font' );
             if ( false !== $body_font ) {
                 $body = json_decode( get_theme_mod( 'sydney_body_font' ), true );
-
-                if ( 'regular' === $body['regularweight'] ) {
-                    $body['regularweight'] = 400;
-                }
-
-                $config['body'] = array(
-                    'family' => $body['font'],
-                    'weight' => $body['regularweight'],
-                    'size'   => get_theme_mod( 'body_font_size_desktop' ),
+            } else {
+                $body = array(
+                    'font' => 'System default',
+                    'regularweight' => 400,
                 );
             }
+            
+            if ( 'regular' === $body['regularweight'] ) {
+                $body['regularweight'] = 400;
+            }
+
+            $config['body'] = array(
+                'family' => $body['font'],
+                'weight' => $body['regularweight'],
+                'size'   => get_theme_mod( 'body_font_size_desktop' ),
+            );
 
             return $config;
         }
@@ -556,11 +569,10 @@ if ( ! class_exists( 'Sydney_Style_Book' ) ) :
          */
         public function get_typography_data( $type, $tag = false ) {
             $config = $this->typography_config;
-
             if ( 'headings' === $type ) : ?>
-                <div class="style-book-light-text"><?php echo esc_html( $config['headings'][$tag]['family'] . ' / ' . $config['headings'][$tag]['weight'] . ' / ' . $config['headings'][$tag]['size'] . 'px' ); ?></div>
+                <div class="style-book-light-text style-book-headings-typography-data" data-heading="<?php echo esc_attr( $tag ); ?>"><?php echo wp_kses_post( '<span class="style-book-typography-family">' . $config['headings'][$tag]['family'] . '</span> / <span class="style-book-typography-weight">' . $config['headings'][$tag]['weight'] . '</span> / <span class="style-book-typography-size">' . $config['headings'][$tag]['size'] . 'px' . '</span>' ); ?></div>
             <?php else : ?>
-                <div class="style-book-light-text"><?php echo esc_html( $config['body']['family'] . ' / ' . $config['body']['weight'] . ' / ' . $config['body']['size'] . 'px' ); ?></div>
+                <div class="style-book-light-text style-book-body-typography-data"><?php echo wp_kses_post( '<span class="style-book-typography-family">' . $config['body']['family'] . '</span> / <span class="style-book-typography-weight">' . $config['body']['weight'] . '</span> / <span class="style-book-typography-size">' . $config['body']['size'] . 'px' . '</span>' ); ?></div>
             <?php endif;
         }
 
