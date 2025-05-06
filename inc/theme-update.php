@@ -457,7 +457,7 @@ function sydney_update_settings_2_54() {
     // Default sticky background
     $flag = get_theme_mod( 'sydney_default_sticky_background', false );
 
-    if ( false === $flag ) {
+    if ( true !== $flag ) {
         set_theme_mod( 'sydney_header_row__main_header_row_sticky_background_color', '#ffffff' );
         set_theme_mod( 'sydney_default_sticky_background_flag', true );
     }

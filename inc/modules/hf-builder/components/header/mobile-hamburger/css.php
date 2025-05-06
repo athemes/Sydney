@@ -18,7 +18,7 @@ $css .= Sydney_Custom_CSS::get_responsive_css(
 );
 
 // Icon Color
-$css .= Sydney_Custom_CSS::get_fill_css( 'shfb_mobile_hamburger_icon_color', '', '.shfb-component-mobile_hamburger .menu-toggle svg' );
+$css .= Sydney_Custom_CSS::get_fill_css( 'shfb_mobile_hamburger_icon_color', '#212121', '.shfb-component-mobile_hamburger .menu-toggle svg' );
 
 // Padding
 $css .= Sydney_Custom_CSS::get_responsive_dimensions_css( 
