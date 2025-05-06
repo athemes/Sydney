@@ -70,13 +70,14 @@ $wp_customize->add_setting(
 	'footer_html_content',
 	array(
 		'sanitize_callback' => 'sydney_sanitize_text',
-		'default'           => ''
+		'default'           => '',
 	)       
 );
 $wp_customize->add_control( 'footer_html_content', array(
 	'label'       => esc_html__( 'Add your HTML', 'sydney' ),
 	'type'        => 'textarea',
 	'section'     => 'sydney_section_fb_component__html',
+    'priority'    => 30
 ) );
 
 // Text Alignment.
