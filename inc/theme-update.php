@@ -441,17 +441,25 @@ function sydney_hf_update_dismiss_notice_2_52_callback() {
 add_action( 'wp_ajax_sydney_hf_update_dismiss_notice_2_52_callback', 'sydney_hf_update_dismiss_notice_2_52_callback' );
 
 /**
- * Minimum height for the .site element equal to the viewport height
+ * Update settings
  * 
  * @since 2.54
  */
-function sydney_enable_page_min_height() {
+function sydney_update_settings_2_54() {
+    // Enable page min height
     $flag = get_theme_mod( 'sydney_enable_page_min_height', false );
 
-    if ( true === $flag ) {
-        return;
+    if ( true !== $flag ) {
+        set_theme_mod( 'sydney_enable_page_min_height', true );
+        set_theme_mod( 'sydney_enable_page_min_height_flag', true );
     }
 
-    set_theme_mod( 'sydney_enable_page_min_height', true );
+    // Default sticky background
+    $flag = get_theme_mod( 'sydney_default_sticky_background', false );
+
+    if ( false === $flag ) {
+        set_theme_mod( 'sydney_header_row__main_header_row_sticky_background_color', '#ffffff' );
+        set_theme_mod( 'sydney_default_sticky_background_flag', true );
+    }
 }
-add_action( 'after_switch_theme', 'sydney_enable_page_min_height' );
+add_action( 'after_switch_theme', 'sydney_update_settings_2_54' );

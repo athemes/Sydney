@@ -245,7 +245,7 @@ function sydney_callback_header_bottom() {
  * Sticky header
  */
 function sydney_callback_sticky_header() {
-	$enable = get_theme_mod( 'enable_sticky_header', 0 );
+	$enable = get_theme_mod( 'enable_sticky_header', 1 );
 
 	if ( $enable ) {
 		return true;

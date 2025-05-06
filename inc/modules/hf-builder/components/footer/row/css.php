@@ -22,7 +22,7 @@ foreach( $rows as $row ) {
     );
 
     // Background Color
-    $css .= Sydney_Custom_CSS::get_background_color_css( "sydney_footer_row__{$row}_background_color", '#f5f5f5', ".shfb-$row" ); 
+    $css .= Sydney_Custom_CSS::get_background_color_css( "sydney_footer_row__{$row}_background_color", '', ".shfb-$row" ); 
 
     // Background Image
     $background_image = get_theme_mod( "sydney_footer_row__{$row}_background_image", '' );
