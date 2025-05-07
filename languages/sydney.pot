@@ -1,4 +1,4 @@
-# Copyright (C) 2022 sydney
+# Copyright (C) 2025 sydney
 # This file is distributed under the same license as the sydney package.
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: aThemes <team@athemes.com>\n"
 "Last-Translator: aThemes <team@athemes.com>\n"
-"POT-Creation-Date: 2022-10-04 08:51+0000\n"
+"POT-Creation-Date: 2025-05-07 06:27+0000\n"
 "Report-Msgid-Bugs-To: https://athemes.com/contact/\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -56,67 +56,75 @@ msgstr ""
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: content-page.php:25, content-search.php:32, content-single.php:45
+#: content-page.php:26, content-search.php:32, content-single.php:45
 msgid "Pages:"
 msgstr ""
 
-#: content-page.php:32, inc/template-tags.php:165
+#: content-page.php:33, inc/dashboard/html-builder.php:118, inc/template-tags.php:165
 msgid "Edit"
 msgstr ""
 
-#: functions.php:57
+#: functions.php:57, inc/modules/hf-builder/class-header-footer-builder.php:93, inc/modules/hf-builder/components/header/menu/customize-options.php:22
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:107, inc/customizer/options/colors.php:590, inc/customizer/options/woocommerce.php:96
+#: functions.php:58
+msgid "Mobile menu (optional)"
+msgstr ""
+
+#: functions.php:62, inc/modules/hf-builder/class-header-footer-builder.php:97, inc/modules/hf-builder/class-header-footer-builder.php:133, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:22, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:467
+msgid "Secondary Menu"
+msgstr ""
+
+#: functions.php:123, inc/customizer/options/blog.php:592, inc/customizer/options/colors.php:730, inc/customizer/options/woocommerce.php:98
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:119
+#: functions.php:135
 msgid "Footer "
 msgstr ""
 
-#: functions.php:182
+#: functions.php:198
 msgid "Are you sure? Keep in mind this is a global change and you will need update your icons class names in all theme widgets and post types that use Font Awesome 4 icons."
 msgstr ""
 
-#: functions.php:183, functions.php:187, functions.php:191
+#: functions.php:199, functions.php:203, functions.php:207
 msgid "It was not possible complete the request, please reload the page and try again."
 msgstr ""
 
-#: functions.php:186
+#: functions.php:202
 msgid "Are you sure you want to upgrade your header?"
 msgstr ""
 
-#: functions.php:190
+#: functions.php:206
 msgid "Are you sure you want to dismiss this notice?"
 msgstr ""
 
-#: functions.php:330
+#: functions.php:348
 msgid "Create your menu here"
 msgstr ""
 
-#: functions.php:698
+#: functions.php:758
 msgid "Sydney Font Awesome Update: "
 msgstr ""
 
-#: functions.php:698
+#: functions.php:758
 msgid "Your website is currently running the version 4. Click in the below button to update to version 5."
 msgstr ""
 
-#: functions.php:700, functions.php:713
+#: functions.php:760, functions.php:773
 msgid "Important: "
 msgstr ""
 
-#: functions.php:700, functions.php:713
+#: functions.php:760, functions.php:773
 msgid "This is a global change. That means this change will affect all website icons and you will need update the icons class names in all theme widgets and post types that use Font Awesome 4 icons. For example: \"fa-android\" to \"fab fa-android\"."
 msgstr ""
 
-#: functions.php:702
+#: functions.php:762
 msgid "Update to v5"
 msgstr ""
 
-#: functions.php:712
+#: functions.php:772
 msgid "<strong>Optional:</strong> Now <strong>Sydney</strong> is compatible with Font Awesome 5. For it is needed the latest version of <strong>Sydney Toolbox</strong> plugin. You can update the plugin <a href=\"%s\">here</a>."
 msgstr ""
 
@@ -124,84 +132,140 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/classes/class-sydney-header.php:424, inc/customizer/options/header.php:612
+#: inc/block-styles.php:13, inc/block-styles.php:21
+msgid "No margin"
+msgstr ""
+
+#: inc/block-styles.php:29, inc/block-styles.php:38
+msgid "Slightly rounded"
+msgstr ""
+
+#: inc/classes/class-sydney-header.php:69, inc/customizer/options/header-mobile.php:162
+msgid "Menu"
+msgstr ""
+
+#: inc/classes/class-sydney-header.php:85
+msgid "Close menu"
+msgstr ""
+
+#: inc/classes/class-sydney-header.php:463, inc/customizer/options/header.php:610, inc/modules/hf-builder/components/footer/button/button.php:13, inc/modules/hf-builder/components/footer/button/customize-options.php:63, inc/modules/hf-builder/components/header/button/button.php:13
 msgid "Click me"
 msgstr ""
 
-#: inc/classes/class-sydney-header.php:441, inc/customizer/options/header.php:690
+#: inc/classes/class-sydney-header.php:480, inc/customizer/options/header.php:661, inc/modules/hf-builder/components/header/contact-info/contact-info.php:14
 msgid "office@example.org"
 msgstr ""
 
-#: inc/classes/class-sydney-header.php:442, inc/customizer/options/header.php:704
+#: inc/classes/class-sydney-header.php:481, inc/customizer/options/header.php:676, inc/modules/hf-builder/components/header/contact-info/contact-info.php:15
 msgid "111222333"
 msgstr ""
 
-#: inc/classes/class-sydney-modules.php:28, inc/theme-dashboard-settings.php:59
-msgid "Templates Module"
+#: inc/classes/class-sydney-header.php:513, inc/customizer/controls/display-conditions/display-conditions-script-template.php:183, inc/extras.php:585, inc/integrations/elementor/library/templates.php:89, inc/modules/hf-builder/class-header-footer-builder.php:105, inc/modules/hf-builder/class-header-footer-builder.php:145, inc/modules/hf-builder/components/header/search/customize-options.php:22
+msgid "Search"
 msgstr ""
 
-#: inc/classes/class-sydney-modules.php:31
+#: inc/classes/class-sydney-header.php:595, inc/classes/class-sydney-header.php:646
+msgid "Toggle menu"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:29
+msgid "Templates Builder"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:32, inc/modules/class-sydney-modules.php:34
 msgid "Build templates"
 msgstr ""
 
-#: inc/classes/class-sydney-modules.php:33
+#: inc/classes/class-sydney-modules.php:34, inc/dashboard/class-dashboard-settings.php:292
 msgid "Build headers, footers etc. with Elementor."
 msgstr ""
 
-#: inc/classes/class-sydney-modules.php:33, inc/classes/class-sydney-modules.php:42, inc/classes/class-sydney-modules.php:51, inc/classes/class-sydney-modules.php:60, inc/classes/class-sydney-modules.php:69, inc/classes/class-sydney-modules.php:78, inc/classes/class-sydney-modules.php:87
+#: inc/classes/class-sydney-modules.php:34, inc/classes/class-sydney-modules.php:43, inc/classes/class-sydney-modules.php:52, inc/classes/class-sydney-modules.php:64, inc/classes/class-sydney-modules.php:76, inc/classes/class-sydney-modules.php:87, inc/classes/class-sydney-modules.php:96, inc/classes/class-sydney-modules.php:105, inc/classes/class-sydney-modules.php:117, inc/classes/class-sydney-modules.php:126, inc/classes/class-sydney-modules.php:135, inc/modules/class-sydney-modules.php:36
 msgid "Documentation article"
 msgstr ""
 
-#: inc/classes/class-sydney-modules.php:37, inc/theme-dashboard-settings.php:64
-msgid "Extended Header Module"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:40, inc/classes/class-sydney-modules.php:49, inc/classes/class-sydney-modules.php:58, inc/classes/class-sydney-modules.php:67, inc/classes/class-sydney-modules.php:76, inc/classes/class-sydney-modules.php:85, theme-dashboard/class-theme-dashboard.php:389
-msgid "Customize"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:42
-msgid "New features for your header area."
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:46
-msgid "Extended WooCommerce"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:51
-msgid "Extra features for WooCommerce"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:55, inc/theme-dashboard-settings.php:79
-msgid "Extended Blog Module"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:60
-msgid "Extra features for your blog."
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:64, inc/theme-dashboard-settings.php:84
-msgid "Breadcrumbs Module"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:69
-msgid "Breadcrumbs functionality."
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:73, inc/theme-dashboard-settings.php:89
-msgid "Extended Footer Module"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:78
-msgid "Extra features for your footer"
-msgstr ""
-
-#: inc/classes/class-sydney-modules.php:82
+#: inc/classes/class-sydney-modules.php:38, inc/dashboard/class-dashboard-settings.php:297
 msgid "Quick Links Module"
 msgstr ""
 
-#: inc/classes/class-sydney-modules.php:87
+#: inc/classes/class-sydney-modules.php:41, inc/classes/class-sydney-modules.php:50, inc/classes/class-sydney-modules.php:62, inc/classes/class-sydney-modules.php:74, inc/classes/class-sydney-modules.php:85, inc/classes/class-sydney-modules.php:103, inc/classes/class-sydney-modules.php:115, inc/classes/class-sydney-modules.php:133, inc/dashboard/class-dashboard-settings.php:200, inc/dashboard/class-dashboard-settings.php:228, inc/dashboard/class-dashboard-settings.php:236, inc/dashboard/class-dashboard-settings.php:210, inc/dashboard/class-dashboard-settings.php:218, inc/dashboard/class-dashboard-settings.php:245, inc/dashboard/class-dashboard-settings.php:253, inc/dashboard/class-dashboard-settings.php:261, inc/dashboard/class-dashboard-settings.php:269, inc/dashboard/class-dashboard-settings.php:280, inc/dashboard/class-dashboard-settings.php:300, inc/dashboard/class-dashboard-settings.php:310, inc/dashboard/class-dashboard-settings.php:320, inc/dashboard/class-dashboard-settings.php:330, inc/dashboard/class-dashboard-settings.php:340, inc/dashboard/class-dashboard-settings.php:350, inc/dashboard/class-dashboard-settings.php:370, inc/dashboard/class-dashboard-settings.php:380, inc/dashboard/class-dashboard-settings.php:400, inc/dashboard/class-dashboard-settings.php:410, inc/dashboard/class-dashboard-settings.php:420, inc/dashboard/class-dashboard-settings.php:440, inc/dashboard/class-dashboard-settings.php:450, inc/dashboard/class-dashboard-settings.php:458, inc/dashboard/class-dashboard-settings.php:466, inc/dashboard/class-dashboard-settings.php:475, inc/dashboard/class-dashboard-settings.php:495, inc/dashboard/class-dashboard.php:148, inc/dashboard/class-dashboard.php:149, inc/dashboard/html-home.php:73, inc/dashboard/html-home.php:64, inc/dashboard/html-home.php:55, inc/dashboard/html-home.php:170, inc/dashboard/html-home.php:161, inc/dashboard/html-home.php:152, theme-dashboard/class-theme-dashboard.php:393
+msgid "Customize"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:43, inc/dashboard/class-dashboard-settings.php:302
 msgid "Floating quick links bar (contact, social etc.)"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:47, inc/dashboard/class-dashboard-settings.php:307
+msgid "Modal"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:52, inc/dashboard/class-dashboard-settings.php:312
+msgid "Modal with custom content"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:59, inc/dashboard/class-dashboard-settings.php:347, inc/theme-dashboard-settings.php:64
+msgid "Extended Header Module"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:64, inc/dashboard/class-dashboard-settings.php:352
+msgid "New features for your header area."
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:71, inc/dashboard/class-dashboard-settings.php:367, inc/theme-dashboard-settings.php:89
+msgid "Extended Footer Module"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:76, inc/dashboard/class-dashboard-settings.php:372
+msgid "Extra features for your footer"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:82, inc/dashboard/class-dashboard-settings.php:377, inc/theme-dashboard-settings.php:79
+msgid "Extended Blog Module"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:87, inc/dashboard/class-dashboard-settings.php:382
+msgid "Extra features for your blog."
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:91, inc/dashboard/class-dashboard-settings.php:387
+msgid "Page Headers"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:96, inc/dashboard/class-dashboard-settings.php:392
+msgid "Page Header options for posts, pages, archives etc."
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:100, inc/dashboard/class-dashboard-settings.php:397, inc/theme-dashboard-settings.php:84
+msgid "Breadcrumbs Module"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:105, inc/dashboard/class-dashboard-settings.php:402
+msgid "Breadcrumbs functionality."
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:112, inc/dashboard/class-dashboard-settings.php:417
+msgid "Extended WooCommerce"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:117, inc/dashboard/class-dashboard-settings.php:422
+msgid "Extra features for WooCommerce"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:121, inc/dashboard/class-dashboard-settings.php:427
+msgid "Elementor Tools"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:126, inc/dashboard/class-dashboard-settings.php:432
+msgid "Custom CSS and other tools for Elementor"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:130, inc/dashboard/class-dashboard-settings.php:437
+msgid "Live Chat (WhatsApp)"
+msgstr ""
+
+#: inc/classes/class-sydney-modules.php:135, inc/dashboard/class-dashboard-settings.php:442
+msgid "Live chat floating icon"
 msgstr ""
 
 #: inc/classes/class-sydney-page-metabox.php:32
@@ -212,11 +276,15 @@ msgstr ""
 msgid "Transparent menu bar"
 msgstr ""
 
-#: inc/classes/class-sydney-posts-archive.php:232, theme-dashboard/class-theme-dashboard.php:422, theme-dashboard/class-theme-dashboard.php:442, theme-dashboard/class-theme-dashboard.php:462
+#: inc/classes/class-sydney-posts-archive.php:233, theme-dashboard/class-theme-dashboard.php:426, theme-dashboard/class-theme-dashboard.php:446, theme-dashboard/class-theme-dashboard.php:466
 msgid "Read more"
 msgstr ""
 
-#: inc/customizer/controls/class_sydney_tab_control.php:40, inc/customizer/options/colors.php:20, inc/customizer/options/general.php:14, inc/customizer/options/woocommerce.php:12, inc/integrations/lifter/customize.php:18
+#: inc/customizer/controls/alpha-color/class_sydney_alpha_color.php:60
+msgid "Select a Global Color"
+msgstr ""
+
+#: inc/customizer/controls/class_sydney_tab_control.php:40, inc/customizer/options/colors.php:64, inc/customizer/options/general.php:14, inc/customizer/options/woocommerce.php:12, inc/integrations/lifter/customize.php:18, inc/theme-dashboard-settings.php:171
 msgid "General"
 msgstr ""
 
@@ -224,8 +292,40 @@ msgstr ""
 msgid "Style"
 msgstr ""
 
-#: inc/customizer/controls/class_sydney_upsell_message.php:34
-msgid "Learn More"
+#: inc/customizer/controls/class_sydney_upsell_message.php:38, inc/dashboard/html-builder.php:141
+msgid "Upgrade to Sydney Pro"
+msgstr ""
+
+#: inc/customizer/controls/class_sydney_upsell_message.php:49
+msgid "You’ll get access to:"
+msgstr ""
+
+#: inc/customizer/controls/color-group/class_sydney_color_group.php:32
+msgid "Hover"
+msgstr ""
+
+#: inc/customizer/controls/color-group/class_sydney_color_group.php:30, inc/customizer/options/layouts.php:68, inc/customizer/options/typography.php:60, inc/customizer/options/typography.php:500, widgets/video-widget.php:28
+msgid "Normal"
+msgstr ""
+
+#: inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:49, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:65, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:80
+msgid "Link values together"
+msgstr ""
+
+#: inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:97, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:125, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:152, inc/customizer/options/blog.php:344, inc/customizer/options/footer.php:162, inc/modules/hf-builder/components/footer/columns/customize-options.php:115, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:156, inc/modules/hf-builder/components/footer/row/customize-options.php:346, inc/modules/hf-builder/components/header/columns/customize-options.php:117, inc/modules/hf-builder/components/header/header-builder/customize-options.php:273, inc/modules/hf-builder/components/header/row/customize-options.php:380
+msgid "Top"
+msgstr ""
+
+#: inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:103, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:131, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:158, inc/customizer/options/blog.php:246, inc/customizer/options/blog.php:630, inc/customizer/options/general.php:335, inc/customizer/options/header.php:317, inc/customizer/options/header.php:451, inc/customizer/options/layouts.php:138, inc/customizer/options/woocommerce.php:111, inc/page-builder.php:180, inc/so-page-builder.php:180
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:109, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:137, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:164, inc/customizer/options/blog.php:346, inc/customizer/options/footer.php:164, inc/customizer/options/header.php:518, inc/modules/hf-builder/components/footer/columns/customize-options.php:117, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:158, inc/modules/hf-builder/components/footer/row/customize-options.php:348, inc/modules/hf-builder/components/header/columns/customize-options.php:119, inc/modules/hf-builder/components/header/header-builder/customize-options.php:275, inc/modules/hf-builder/components/header/row/customize-options.php:382
+msgid "Bottom"
+msgstr ""
+
+#: inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:115, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:143, inc/customizer/controls/dimensions/class_sydney_dimensions_control.php:170, inc/customizer/options/blog-single.php:68, inc/customizer/options/blog.php:245, inc/customizer/options/blog.php:629, inc/customizer/options/general.php:334, inc/customizer/options/header.php:315, inc/customizer/options/header.php:438, inc/customizer/options/layouts.php:137, inc/customizer/options/woocommerce.php:107, inc/page-builder.php:178, inc/so-page-builder.php:178
+msgid "Left"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/class_sydney_display_conditions_control.php:68
@@ -276,7 +376,7 @@ msgstr ""
 msgid "Post Tags"
 msgstr ""
 
-#: inc/customizer/controls/display-conditions/display-conditions-script-template.php:67, inc/customizer/customizer.php:1037
+#: inc/customizer/controls/display-conditions/display-conditions-script-template.php:67, inc/customizer/customizer.php:520
 msgid "Pages"
 msgstr ""
 
@@ -305,7 +405,7 @@ msgid "Product Tags"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:100
-msgid "Product ID"
+msgid "Product name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:110
@@ -313,23 +413,23 @@ msgid "Specific"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:114
-msgid "Post ID"
+msgid "Post name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:119
-msgid "Page ID"
+msgid "Page name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:124
-msgid "Category ID"
+msgid "Category name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:129
-msgid "Tag ID"
+msgid "Tag name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:134
-msgid "Author ID"
+msgid "Author name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:147
@@ -337,31 +437,27 @@ msgid "Custom Post Types"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:151
-msgid "CPT: Post ID"
+msgid "CPT: Post name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:156
-msgid "CPT: Term ID"
+msgid "CPT: Term name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:161
-msgid "CPT: Taxonomy ID"
+msgid "CPT: Taxonomy name"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:171, inc/customizer/controls/display-conditions/display-conditions-script-template.php:235
 msgid "Other"
 msgstr ""
 
-#: inc/customizer/controls/display-conditions/display-conditions-script-template.php:175, page-templates/page_front-page.php:3
+#: inc/customizer/controls/display-conditions/display-conditions-script-template.php:175
 msgid "Front Page"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:179, inc/customizer/options/blog.php:11
 msgid "Blog"
-msgstr ""
-
-#: inc/customizer/controls/display-conditions/display-conditions-script-template.php:183, inc/extras.php:579
-msgid "Search"
 msgstr ""
 
 #: inc/customizer/controls/display-conditions/display-conditions-script-template.php:187
@@ -408,379 +504,227 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: inc/customizer/controls/typography/class_sydney_typography.php:81
+#: inc/customizer/controls/typography/class_sydney_typography.php:85
 msgid "Font family"
 msgstr ""
 
-#: inc/customizer/controls/typography/class_sydney_typography.php:106
+#: inc/customizer/controls/typography/class_sydney_typography.php:110
 msgid "Font weight"
 msgstr ""
 
-#: inc/customizer/customizer.php:119
-msgid "Hero area"
-msgstr ""
-
-#: inc/customizer/customizer.php:125
-msgid "Hero type"
-msgstr ""
-
-#: inc/customizer/customizer.php:128
-msgid "You can select your header type from here. After that, continue below to the next two tabs (Hero Slider and Header Image) and configure them."
-msgstr ""
-
-#: inc/customizer/customizer.php:151
-msgid "Front page header type"
-msgstr ""
-
-#: inc/customizer/customizer.php:153
-msgid "Select the header type for your front page"
-msgstr ""
-
-#: inc/customizer/customizer.php:155, inc/customizer/customizer.php:178, inc/customizer/customizer.php:1051
-msgid "Full screen slider"
-msgstr ""
-
-#: inc/customizer/customizer.php:156, inc/customizer/customizer.php:179, inc/customizer/customizer.php:1052, inc/customizer/options/blog-single.php:120
-msgid "Image"
-msgstr ""
-
-#: inc/customizer/customizer.php:157, inc/customizer/customizer.php:180, inc/customizer/customizer.php:1053
-msgid "Video"
-msgstr ""
-
-#: inc/customizer/customizer.php:158, inc/customizer/customizer.php:181
-msgid "No header (only menu)"
-msgstr ""
-
-#: inc/customizer/customizer.php:174
-msgid "Site header type"
-msgstr ""
-
-#: inc/customizer/customizer.php:176
-msgid "Select the hero type for all pages except the front page"
-msgstr ""
-
-#: inc/customizer/customizer.php:189
-msgid "Hero Slider"
-msgstr ""
-
-#: inc/customizer/customizer.php:190
-msgid "You can add up to 5 images in the slider. Make sure you select where to display your slider from the Hero  Type section found above. You can also add a Call to action button (scroll down to find the options)"
-msgstr ""
-
-#: inc/customizer/customizer.php:207
-msgid "Slider mobile behavior"
-msgstr ""
-
-#: inc/customizer/customizer.php:211, inc/customizer/customizer.php:1121
-msgid "Full screen"
-msgstr ""
-
-#: inc/customizer/customizer.php:212, inc/customizer/customizer.php:1122, inc/onboarding/theme-info.php:147, inc/theme-dashboard-settings.php:32
-msgid "Responsive"
-msgstr ""
-
-#: inc/customizer/customizer.php:220
-msgid "4000"
-msgstr ""
-
-#: inc/customizer/customizer.php:227
-msgid "Slider speed"
-msgstr ""
-
-#: inc/customizer/customizer.php:230
-msgid "Slider speed in miliseconds. Use 0 to disable [default: 4000]"
-msgstr ""
-
-#: inc/customizer/customizer.php:244
-msgid "Stop the text slider?"
-msgstr ""
-
-#: inc/customizer/customizer.php:257
-msgid "First slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:276
-msgid "Upload your first image for the slider"
-msgstr ""
-
-#: inc/customizer/customizer.php:288, inc/customizer/customizer.php:1221
-msgid "Click the pencil icon to change this text"
-msgstr ""
-
-#: inc/customizer/customizer.php:296
-msgid "Title for the first slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:306, inc/customizer/customizer.php:1237
-msgid "or go to the Customizer"
-msgstr ""
-
-#: inc/customizer/customizer.php:314
-msgid "Subtitle for the first slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:328
-msgid "Second slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:347
-msgid "Upload your second image for the slider"
-msgstr ""
-
-#: inc/customizer/customizer.php:367
-msgid "Title for the second slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:385
-msgid "Subtitle for the second slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:399
-msgid "Third slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:418
-msgid "Upload your third image for the slider"
-msgstr ""
-
-#: inc/customizer/customizer.php:438
-msgid "Title for the third slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:456
-msgid "Subtitle for the third slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:470
-msgid "Fourth slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:489
-msgid "Upload your fourth image for the slider"
-msgstr ""
-
-#: inc/customizer/customizer.php:509
-msgid "Title for the fourth slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:527
-msgid "Subtitle for the fourth slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:541
-msgid "Fifth slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:560
-msgid "Upload your fifth image for the slider"
-msgstr ""
-
-#: inc/customizer/customizer.php:580
-msgid "Title for the fifth slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:598
-msgid "Subtitle for the fifth slide"
-msgstr ""
-
-#: inc/customizer/customizer.php:612
-msgid "Call to action button"
-msgstr ""
-
-#: inc/customizer/customizer.php:629
-msgid "URL for your call to action button"
-msgstr ""
-
-#: inc/customizer/customizer.php:638
-msgid "Click to begin"
-msgstr ""
-
-#: inc/customizer/customizer.php:646
-msgid "Text for your call to action button"
-msgstr ""
-
-#: inc/customizer/customizer.php:658
+#: inc/customizer/customizer.php:135
 msgid "Menu layout"
 msgstr ""
 
-#: inc/customizer/customizer.php:676
+#: inc/customizer/customizer.php:153
 msgid "Sticky menu"
 msgstr ""
 
-#: inc/customizer/customizer.php:679, inc/customizer/customizer.php:1093
+#: inc/customizer/customizer.php:156, inc/customizer/customizer.php:595
 msgid "Sticky"
 msgstr ""
 
-#: inc/customizer/customizer.php:680, inc/customizer/customizer.php:1094
+#: inc/customizer/customizer.php:157, inc/customizer/customizer.php:596
 msgid "Static"
 msgstr ""
 
-#: inc/customizer/customizer.php:697
+#: inc/customizer/customizer.php:174
 msgid "Menu style"
 msgstr ""
 
-#: inc/customizer/customizer.php:700, inc/customizer/customizer.php:1133
+#: inc/customizer/customizer.php:177, inc/customizer/customizer.php:635, inc/modules/hf-builder/components/footer/columns/customize-options.php:164, inc/modules/hf-builder/components/header/columns/customize-options.php:168
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/customizer.php:701, inc/customizer/customizer.php:1134
+#: inc/customizer/customizer.php:178, inc/customizer/customizer.php:636
 msgid "Centered (menu and site logo)"
 msgstr ""
 
-#: inc/customizer/customizer.php:718
+#: inc/customizer/customizer.php:195
 msgid "Menu container"
 msgstr ""
 
-#: inc/customizer/customizer.php:721, inc/customizer/options/footer.php:155, inc/customizer/options/footer.php:413, inc/customizer/options/footer.php:581, inc/customizer/options/footer.php:759, inc/customizer/options/header.php:313, inc/customizer/options/header.php:1001
+#: inc/customizer/customizer.php:198, inc/customizer/options/footer.php:143, inc/customizer/options/footer.php:470, inc/customizer/options/footer.php:651, inc/customizer/options/footer.php:866, inc/customizer/options/header.php:335, inc/customizer/options/header.php:1152
 msgid "Contained"
 msgstr ""
 
-#: inc/customizer/customizer.php:722, page-templates/page_fullwidth.php:3
+#: inc/customizer/customizer.php:199, page-templates/page_fullwidth.php:3
 msgid "Full width"
 msgstr ""
 
-#: inc/customizer/customizer.php:739
+#: inc/customizer/customizer.php:216
 msgid "Header custom item"
 msgstr ""
 
-#: inc/customizer/customizer.php:742
+#: inc/customizer/customizer.php:219, inc/customizer/options/header-mobile.php:152
 msgid "Nothing"
 msgstr ""
 
-#: inc/customizer/customizer.php:743, inc/customizer/options/header.php:601, inc/extras.php:581
+#: inc/customizer/customizer.php:220, inc/customizer/style-book/class-sydney-style-book.php:339, inc/extras.php:587, inc/modules/hf-builder/class-header-footer-builder.php:113, inc/modules/hf-builder/class-header-footer-builder.php:153, inc/modules/hf-builder/components/header/button/customize-options.php:27
 msgid "Button"
 msgstr ""
 
-#: inc/customizer/customizer.php:744
+#: inc/customizer/customizer.php:221, inc/modules/hf-builder/class-header-footer-builder.php:121, inc/modules/hf-builder/class-header-footer-builder.php:161, inc/modules/hf-builder/class-header-footer-builder.php:194, inc/modules/hf-builder/components/footer/html/customize-options.php:22, inc/modules/hf-builder/components/header/html/customize-options.php:22
 msgid "HTML"
 msgstr ""
 
-#: inc/customizer/customizer.php:773, inc/customizer/options/header.php:630
+#: inc/customizer/customizer.php:250, inc/customizer/options/header.php:630, inc/modules/hf-builder/components/footer/button/customize-options.php:82
 msgid "Button link"
 msgstr ""
 
-#: inc/customizer/customizer.php:783, inc/extras.php:193
+#: inc/customizer/customizer.php:260, inc/extras.php:198
 msgid "Get in touch"
 msgstr ""
 
-#: inc/customizer/customizer.php:790, inc/customizer/options/header.php:616
+#: inc/customizer/customizer.php:267, inc/customizer/options/header.php:615, inc/modules/hf-builder/components/footer/button/customize-options.php:67
 msgid "Button text"
 msgstr ""
 
-#: inc/customizer/customizer.php:808
+#: inc/customizer/customizer.php:285
 msgid "Open link in a new tab?"
 msgstr ""
 
-#: inc/customizer/customizer.php:826
+#: inc/customizer/customizer.php:303
 msgid "Top/bottom button padding"
 msgstr ""
 
-#: inc/customizer/customizer.php:846
+#: inc/customizer/customizer.php:323
 msgid "Left/right button padding"
 msgstr ""
 
-#: inc/customizer/customizer.php:867, inc/customizer/options/woocommerce.php:983
+#: inc/customizer/customizer.php:344, inc/customizer/options/woocommerce.php:963
 msgid "Button font size"
 msgstr ""
 
-#: inc/customizer/customizer.php:888
+#: inc/customizer/customizer.php:365
 msgid "Button border radius"
 msgstr ""
 
-#: inc/customizer/customizer.php:922
+#: inc/customizer/customizer.php:399
 msgid "Custom HTML"
 msgstr ""
 
-#: inc/customizer/customizer.php:942
+#: inc/customizer/customizer.php:419
 msgid "Header background size"
 msgstr ""
 
-#: inc/customizer/customizer.php:945, inc/customizer/customizer.php:1067
+#: inc/customizer/customizer.php:422, inc/customizer/customizer.php:569, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:132, inc/modules/hf-builder/components/footer/row/customize-options.php:322, inc/modules/hf-builder/components/header/header-builder/customize-options.php:249, inc/modules/hf-builder/components/header/row/customize-options.php:356
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer/customizer.php:946, inc/customizer/customizer.php:1068
+#: inc/customizer/customizer.php:423, inc/customizer/customizer.php:570, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:133, inc/modules/hf-builder/components/footer/row/customize-options.php:323, inc/modules/hf-builder/components/header/header-builder/customize-options.php:250, inc/modules/hf-builder/components/header/row/customize-options.php:357
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer/customizer.php:962
+#: inc/customizer/customizer.php:439
 msgid "Header height [default: 300px]"
 msgstr ""
 
-#: inc/customizer/customizer.php:980
+#: inc/customizer/customizer.php:457
 msgid "Disable the overlay?"
 msgstr ""
 
-#: inc/customizer/customizer.php:998
+#: inc/customizer/customizer.php:476
 msgid "Upload your logo"
 msgstr ""
 
-#: inc/customizer/customizer.php:1010
+#: inc/customizer/customizer.php:493
 msgid "Theme info"
 msgstr ""
 
-#: inc/customizer/customizer.php:1013
+#: inc/customizer/customizer.php:496
 msgid " 1. Documentation for Sydney can be found "
 msgstr ""
 
-#: inc/customizer/customizer.php:1014
+#: inc/customizer/customizer.php:497
 msgid " 2. All of our starter sites, both free and pro, can be previewed "
 msgstr ""
 
-#: inc/customizer/customizer.php:1015
+#: inc/customizer/customizer.php:498
 msgid " 3. You can receive free support on the community forums "
 msgstr ""
 
-#: inc/customizer/customizer.php:1016
+#: inc/customizer/customizer.php:499
 msgid " 4. Priority email support is available for our premium users. You can upgrade "
 msgstr ""
 
-#: inc/customizer/customizer.php:1054
+#: inc/customizer/customizer.php:537
+msgid "Enable featured images on all pages"
+msgstr ""
+
+#: inc/customizer/customizer.php:553, inc/customizer/options/hero-area.php:49, inc/customizer/options/hero-area.php:72
+msgid "Full screen slider"
+msgstr ""
+
+#: inc/customizer/customizer.php:554, inc/customizer/options/blog-single.php:106, inc/customizer/options/hero-area.php:50, inc/customizer/options/hero-area.php:73
+msgid "Image"
+msgstr ""
+
+#: inc/customizer/customizer.php:555, inc/customizer/options/hero-area.php:51, inc/customizer/options/hero-area.php:74
+msgid "Video"
+msgstr ""
+
+#: inc/customizer/customizer.php:556
 msgid "Nothing (only menu)"
 msgstr ""
 
-#: inc/customizer/customizer.php:1079
+#: inc/customizer/customizer.php:581
 msgid "One"
 msgstr ""
 
-#: inc/customizer/customizer.php:1080
+#: inc/customizer/customizer.php:582
 msgid "Two"
 msgstr ""
 
-#: inc/customizer/customizer.php:1081
+#: inc/customizer/customizer.php:583
 msgid "Three"
 msgstr ""
 
-#: inc/customizer/customizer.php:1082
+#: inc/customizer/customizer.php:584
 msgid "Four"
 msgstr ""
 
-#: inc/customizer/customizer.php:1105, inc/customizer/options/blog.php:64
+#: inc/customizer/customizer.php:607, inc/customizer/options/blog.php:79
 msgid "Classic"
 msgstr ""
 
-#: inc/customizer/customizer.php:1106
+#: inc/customizer/customizer.php:608
 msgid "Classic (alternative)"
 msgstr ""
 
-#: inc/customizer/customizer.php:1107
+#: inc/customizer/customizer.php:609
 msgid "Modern"
 msgstr ""
 
-#: inc/customizer/customizer.php:1108
+#: inc/customizer/customizer.php:610
 msgid "Full width (no sidebar)"
 msgstr ""
 
-#: inc/customizer/customizer.php:1109
+#: inc/customizer/customizer.php:611
 msgid "Masonry (grid style)"
+msgstr ""
+
+#: inc/customizer/customizer.php:623, inc/customizer/options/hero-area.php:567
+msgid "Full screen"
+msgstr ""
+
+#: inc/customizer/customizer.php:624, inc/customizer/options/hero-area.php:568, inc/onboarding/theme-info.php:147, inc/theme-dashboard-settings.php:32
+msgid "Responsive"
+msgstr ""
+
+#: inc/customizer/customizer.php:763, inc/customizer/options/hero-area.php:131
+msgid "Click the pencil icon to change this text"
+msgstr ""
+
+#: inc/customizer/customizer.php:779, inc/customizer/options/hero-area.php:148
+msgid "or go to the Customizer"
 msgstr ""
 
 #: inc/customizer/options/blog-single.php:14
 msgid "Single posts"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:51, inc/customizer/options/colors.php:402, inc/customizer/options/header.php:14
+#: inc/customizer/options/blog-single.php:51, inc/customizer/options/colors.php:561, inc/customizer/options/header.php:14, inc/dashboard/html-builder.php:16, inc/modules/hf-builder/components/header/header-builder/customize-options.php:87, inc/theme-dashboard-settings.php:196
 msgid "Header"
 msgstr ""
 
@@ -788,11 +732,7 @@ msgstr ""
 msgid "Header alignment"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:68, inc/customizer/options/blog.php:121, inc/customizer/options/blog.php:206, inc/customizer/options/general.php:343, inc/customizer/options/header.php:294, inc/customizer/options/header.php:425, inc/customizer/options/layouts.php:136, inc/customizer/options/woocommerce.php:105, inc/page-builder.php:178, inc/so-page-builder.php:178
-msgid "Left"
-msgstr ""
-
-#: inc/customizer/options/blog-single.php:69, inc/customizer/options/blog.php:316, inc/customizer/options/footer.php:173
+#: inc/customizer/options/blog-single.php:69, inc/customizer/options/blog.php:345, inc/customizer/options/footer.php:163, inc/modules/hf-builder/components/footer/columns/customize-options.php:116, inc/modules/hf-builder/components/header/columns/customize-options.php:118
 msgid "Middle"
 msgstr ""
 
@@ -800,107 +740,107 @@ msgstr ""
 msgid "Header spacing"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:138
+#: inc/customizer/options/blog-single.php:126
 msgid "Show featured image"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:152, inc/customizer/options/blog.php:203
+#: inc/customizer/options/blog-single.php:141, inc/customizer/options/blog.php:242
 msgid "Image placement"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:155
+#: inc/customizer/options/blog-single.php:144
 msgid "Below"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:156
+#: inc/customizer/options/blog-single.php:145
 msgid "Above"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:169
+#: inc/customizer/options/blog-single.php:158
 msgid "Image spacing"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:206, inc/customizer/options/blog.php:428
+#: inc/customizer/options/blog-single.php:182, inc/customizer/options/blog.php:468
 msgid "Meta"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:220, inc/customizer/options/blog.php:442, inc/customizer/options/general.php:340
+#: inc/customizer/options/blog-single.php:198, inc/customizer/options/blog.php:483, inc/customizer/options/general.php:331
 msgid "Position"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:223, inc/customizer/options/blog.php:445
+#: inc/customizer/options/blog-single.php:201, inc/customizer/options/blog.php:486
 msgid "Above title"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:224
+#: inc/customizer/options/blog-single.php:202
 msgid "Below title"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:235, inc/customizer/options/blog.php:457
+#: inc/customizer/options/blog-single.php:213, inc/customizer/options/blog.php:499
 msgid "Meta elements"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:238, inc/customizer/options/blog.php:460
+#: inc/customizer/options/blog-single.php:216, inc/customizer/options/blog.php:502
 msgid "Post date"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:239, inc/customizer/options/blog.php:461
+#: inc/customizer/options/blog-single.php:217, inc/customizer/options/blog.php:503
 msgid "Post author"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:240, inc/customizer/options/blog.php:462
+#: inc/customizer/options/blog-single.php:218, inc/customizer/options/blog.php:504
 msgid "Post categories"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:241, inc/customizer/options/blog.php:463
+#: inc/customizer/options/blog-single.php:219, inc/customizer/options/blog.php:505
 msgid "Post comments"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:253, inc/customizer/options/blog.php:244, inc/customizer/options/blog.php:495, inc/customizer/options/woocommerce.php:408
+#: inc/customizer/options/blog-single.php:231, inc/customizer/options/blog.php:283, inc/customizer/options/blog.php:539, inc/customizer/options/woocommerce.php:398
 msgid "Spacing"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:290, inc/customizer/options/header.php:396
+#: inc/customizer/options/blog-single.php:255, inc/customizer/options/header.php:406
 msgid "Elements"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:307
+#: inc/customizer/options/blog-single.php:274, inc/customizer/options/blog.php:506
 msgid "Post tags"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:324
+#: inc/customizer/options/blog-single.php:292
 msgid "Author box"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:341, inc/template-tags.php:61
+#: inc/customizer/options/blog-single.php:310, inc/template-tags.php:61
 msgid "Post navigation"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:359
+#: inc/customizer/options/blog-single.php:329
 msgid "Related posts"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:368, inc/extras.php:453
+#: inc/customizer/options/blog-single.php:338, inc/extras.php:459
 msgid "You might also like:"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:375
+#: inc/customizer/options/blog-single.php:346
 msgid "Related posts title"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:406
+#: inc/customizer/options/blog-single.php:388
 msgid "Post title size"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:434, inc/customizer/options/blog.php:580
+#: inc/customizer/options/blog-single.php:424, inc/customizer/options/blog.php:696
 msgid "Title color"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:475
+#: inc/customizer/options/blog-single.php:455
 msgid "Meta size"
 msgstr ""
 
-#: inc/customizer/options/blog-single.php:503, inc/customizer/options/blog.php:649
+#: inc/customizer/options/blog-single.php:492, inc/customizer/options/blog.php:764
 msgid "Meta color"
 msgstr ""
 
@@ -908,243 +848,251 @@ msgstr ""
 msgid "Blog archives"
 msgstr ""
 
-#: inc/customizer/options/blog.php:59
+#: inc/customizer/options/blog.php:56
+msgid "Main content area"
+msgstr ""
+
+#: inc/customizer/options/blog.php:74
 msgid "Blog layout"
 msgstr ""
 
-#: inc/customizer/options/blog.php:68
+#: inc/customizer/options/blog.php:83
 msgid "Classic 2"
 msgstr ""
 
-#: inc/customizer/options/blog.php:72, inc/customizer/options/woocommerce.php:77
+#: inc/customizer/options/blog.php:87, inc/customizer/options/woocommerce.php:79
 msgid "Grid"
 msgstr ""
 
-#: inc/customizer/options/blog.php:76, inc/customizer/options/woocommerce.php:78
+#: inc/customizer/options/blog.php:91, inc/customizer/options/woocommerce.php:80
 msgid "List"
 msgstr ""
 
-#: inc/customizer/options/blog.php:80
+#: inc/customizer/options/blog.php:95
 msgid "Masonry"
 msgstr ""
 
-#: inc/customizer/options/blog.php:84
+#: inc/customizer/options/blog.php:99
 msgid "List zig-zag"
 msgstr ""
 
-#: inc/customizer/options/blog.php:104, inc/customizer/options/layouts.php:118
-msgid "Enable sidebar"
-msgstr ""
-
-#: inc/customizer/options/blog.php:118, inc/customizer/options/layouts.php:133
-msgid "Sidebar position"
-msgstr ""
-
-#: inc/customizer/options/blog.php:122, inc/customizer/options/blog.php:207, inc/customizer/options/general.php:344, inc/customizer/options/header.php:296, inc/customizer/options/header.php:437, inc/customizer/options/layouts.php:137, inc/customizer/options/woocommerce.php:109, inc/page-builder.php:180, inc/so-page-builder.php:180
-msgid "Right"
-msgstr ""
-
-#: inc/customizer/options/blog.php:136
+#: inc/customizer/options/blog.php:140, inc/modules/hf-builder/components/footer/row/customize-options.php:139, inc/modules/hf-builder/components/header/row/customize-options.php:151
 msgid "Columns"
 msgstr ""
 
-#: inc/customizer/options/blog.php:139
+#: inc/customizer/options/blog.php:143
 msgid "2"
 msgstr ""
 
-#: inc/customizer/options/blog.php:140
+#: inc/customizer/options/blog.php:144
 msgid "3"
 msgstr ""
 
-#: inc/customizer/options/blog.php:141
+#: inc/customizer/options/blog.php:145
 msgid "4"
 msgstr ""
 
-#: inc/customizer/options/blog.php:171
+#: inc/customizer/options/blog.php:184
+msgid "Post elements"
+msgstr ""
+
+#: inc/customizer/options/blog.php:201
 msgid "Featured image"
 msgstr ""
 
-#: inc/customizer/options/blog.php:189
+#: inc/customizer/options/blog.php:221
 msgid "Enable featured image"
 msgstr ""
 
-#: inc/customizer/options/blog.php:221
+#: inc/customizer/options/blog.php:260
 msgid "Image size"
 msgstr ""
 
-#: inc/customizer/options/blog.php:280, inc/customizer/options/general.php:252
-msgid "Text"
+#: inc/customizer/options/blog.php:307, inc/dashboard/html-builder.php:18
+msgid "Content"
 msgstr ""
 
-#: inc/customizer/options/blog.php:294, inc/customizer/options/woocommerce.php:320, inc/customizer/options/woocommerce.php:526
+#: inc/customizer/options/blog.php:323, inc/customizer/options/woocommerce.php:310, inc/customizer/options/woocommerce.php:516
 msgid "Text alignment"
 msgstr ""
 
-#: inc/customizer/options/blog.php:312, inc/customizer/options/footer.php:169
+#: inc/customizer/options/blog.php:341, inc/customizer/options/footer.php:159
 msgid "Vertical alignment"
 msgstr ""
 
-#: inc/customizer/options/blog.php:315, inc/customizer/options/footer.php:172
-msgid "Top"
-msgstr ""
-
-#: inc/customizer/options/blog.php:317, inc/customizer/options/footer.php:174, inc/customizer/options/header.php:499
-msgid "Bottom"
-msgstr ""
-
-#: inc/customizer/options/blog.php:331
+#: inc/customizer/options/blog.php:360
 msgid "Title spacing"
 msgstr ""
 
-#: inc/customizer/options/blog.php:358
-msgid "Show excerpt"
+#: inc/customizer/options/blog.php:387
+msgid "Show post content"
 msgstr ""
 
-#: inc/customizer/options/blog.php:371
+#: inc/customizer/options/blog.php:405
+msgid "Content type"
+msgstr ""
+
+#: inc/customizer/options/blog.php:408, widgets/fp-services-type-a.php:46, widgets/fp-services-type-b.php:54
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer/options/blog.php:409
+msgid "Full-content"
+msgstr ""
+
+#: inc/customizer/options/blog.php:423
 msgid "Excerpt length"
 msgstr ""
 
-#: inc/customizer/options/blog.php:398
+#: inc/customizer/options/blog.php:450
 msgid "Read more link"
 msgstr ""
 
-#: inc/customizer/options/blog.php:446
+#: inc/customizer/options/blog.php:487
 msgid "Below excerpt"
 msgstr ""
 
-#: inc/customizer/options/blog.php:479
+#: inc/customizer/options/blog.php:523
 msgid "Show author avatar"
 msgstr ""
 
-#: inc/customizer/options/blog.php:517
+#: inc/customizer/options/blog.php:562
 msgid "Delimiter style"
 msgstr ""
 
-#: inc/customizer/options/blog.php:520
+#: inc/customizer/options/blog.php:565
 msgid "None"
 msgstr ""
 
-#: inc/customizer/options/blog.php:552
+#: inc/customizer/options/blog.php:611, inc/customizer/options/layouts.php:118
+msgid "Enable sidebar"
+msgstr ""
+
+#: inc/customizer/options/blog.php:626, inc/customizer/options/layouts.php:134
+msgid "Sidebar position"
+msgstr ""
+
+#: inc/customizer/options/blog.php:660
 msgid "Post title font size"
 msgstr ""
 
-#: inc/customizer/options/blog.php:621
+#: inc/customizer/options/blog.php:727
 msgid "Meta font size"
 msgstr ""
 
-#: inc/customizer/options/blog.php:689
+#: inc/customizer/options/blog.php:795
 msgid "Excerpt font size"
 msgstr ""
 
-#: inc/customizer/options/blog.php:717
+#: inc/customizer/options/blog.php:832
 msgid "Excerpt color"
 msgstr ""
 
-#: inc/customizer/options/colors.php:41
-msgid "Primary color"
+#: inc/customizer/options/colors.php:18
+msgid "Global colors"
 msgstr ""
 
-#: inc/customizer/options/colors.php:61
-msgid "Body text"
-msgstr ""
-
-#: inc/customizer/options/colors.php:90
-msgid "Links"
-msgstr ""
-
-#: inc/customizer/options/colors.php:109
-msgid "Content links"
-msgstr ""
-
-#: inc/customizer/options/colors.php:128
-msgid "Content links hover"
-msgstr ""
-
-#: inc/customizer/options/colors.php:157, inc/customizer/options/typography.php:22
-msgid "Headings"
-msgstr ""
-
-#: inc/customizer/options/colors.php:176, inc/customizer/options/typography.php:171
-msgid "Heading 1"
-msgstr ""
-
-#: inc/customizer/options/colors.php:194, inc/customizer/options/typography.php:222
-msgid "Heading 2"
-msgstr ""
-
-#: inc/customizer/options/colors.php:212, inc/customizer/options/typography.php:273
-msgid "Heading 3"
-msgstr ""
-
-#: inc/customizer/options/colors.php:230, inc/customizer/options/typography.php:324
-msgid "Heading 4"
-msgstr ""
-
-#: inc/customizer/options/colors.php:248, inc/customizer/options/typography.php:375
-msgid "Heading 5"
-msgstr ""
-
-#: inc/customizer/options/colors.php:266, inc/customizer/options/typography.php:426
-msgid "Heading 6"
-msgstr ""
-
-#: inc/customizer/options/colors.php:295
-msgid "Form fields"
-msgstr ""
-
-#: inc/customizer/options/colors.php:314, inc/customizer/options/footer.php:678, inc/customizer/options/header-mobile.php:270, inc/customizer/options/header.php:768
-msgid "Text color"
-msgstr ""
-
-#: inc/customizer/options/colors.php:333, inc/customizer/options/footer.php:237, inc/customizer/options/footer.php:659, inc/customizer/options/general.php:460, inc/customizer/options/general.php:776, inc/customizer/options/general.php:858, inc/customizer/options/header-mobile.php:251, inc/customizer/options/header-mobile.php:340, inc/customizer/options/header.php:730, inc/customizer/options/woocommerce.php:851
+#: inc/customizer/options/colors.php:93, inc/customizer/options/colors.php:478, inc/customizer/options/footer.php:224, inc/customizer/options/footer.php:712, inc/customizer/options/general.php:459, inc/customizer/options/general.php:773, inc/customizer/options/general.php:879, inc/customizer/options/header-mobile.php:351, inc/customizer/options/header-mobile.php:453, inc/customizer/options/header.php:713, inc/customizer/options/woocommerce.php:831, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:89, inc/modules/hf-builder/components/header/header-builder/customize-options.php:206
 msgid "Background color"
 msgstr ""
 
-#: inc/customizer/options/colors.php:352, inc/customizer/options/header.php:984
+#: inc/customizer/options/colors.php:123
+msgid "Body text"
+msgstr ""
+
+#: inc/customizer/options/colors.php:143
+msgid "Links"
+msgstr ""
+
+#: inc/customizer/options/colors.php:170
+msgid "Content links"
+msgstr ""
+
+#: inc/customizer/options/colors.php:201
+msgid "Content links hover"
+msgstr ""
+
+#: inc/customizer/options/colors.php:221, inc/customizer/options/typography.php:22, inc/customizer/style-book/class-sydney-style-book.php:358
+msgid "Headings"
+msgstr ""
+
+#: inc/customizer/options/colors.php:249, inc/customizer/options/typography.php:158, inc/customizer/style-book/class-sydney-style-book.php:361
+msgid "Heading 1"
+msgstr ""
+
+#: inc/customizer/options/colors.php:279, inc/customizer/options/typography.php:210, inc/customizer/style-book/class-sydney-style-book.php:366
+msgid "Heading 2"
+msgstr ""
+
+#: inc/customizer/options/colors.php:309, inc/customizer/options/typography.php:261, inc/customizer/style-book/class-sydney-style-book.php:371
+msgid "Heading 3"
+msgstr ""
+
+#: inc/customizer/options/colors.php:339, inc/customizer/options/typography.php:312, inc/customizer/style-book/class-sydney-style-book.php:376
+msgid "Heading 4"
+msgstr ""
+
+#: inc/customizer/options/colors.php:369, inc/customizer/options/typography.php:363, inc/customizer/style-book/class-sydney-style-book.php:381
+msgid "Heading 5"
+msgstr ""
+
+#: inc/customizer/options/colors.php:399, inc/customizer/options/typography.php:414, inc/customizer/style-book/class-sydney-style-book.php:386
+msgid "Heading 6"
+msgstr ""
+
+#: inc/customizer/options/colors.php:419
+msgid "Form fields"
+msgstr ""
+
+#: inc/customizer/options/colors.php:447, inc/customizer/options/footer.php:744, inc/customizer/options/header-mobile.php:383, inc/customizer/options/header.php:778, inc/modules/hf-builder/components/header/menu/customize-options.php:189
+msgid "Text color"
+msgstr ""
+
+#: inc/customizer/options/colors.php:509, inc/customizer/options/header.php:1135, inc/customizer/style-book/class-sydney-style-book.php:192
 msgid "Border color"
 msgstr ""
 
-#: inc/customizer/options/colors.php:371
+#: inc/customizer/options/colors.php:540
 msgid "Placeholder color"
 msgstr ""
 
-#: inc/customizer/options/colors.php:421
+#: inc/customizer/options/colors.php:581
 msgid "Menu background"
 msgstr ""
 
-#: inc/customizer/options/colors.php:441
+#: inc/customizer/options/colors.php:601
 msgid "Site title"
 msgstr ""
 
-#: inc/customizer/options/colors.php:461
+#: inc/customizer/options/colors.php:621
 msgid "Site description"
 msgstr ""
 
-#: inc/customizer/options/colors.php:481
+#: inc/customizer/options/colors.php:641
 msgid "Top level menu items"
 msgstr ""
 
-#: inc/customizer/options/colors.php:499, inc/customizer/options/header.php:884
+#: inc/customizer/options/colors.php:659, inc/customizer/options/header.php:970
 msgid "Menu items hover"
 msgstr ""
 
-#: inc/customizer/options/colors.php:518
+#: inc/customizer/options/colors.php:678
 msgid "Sub-menu items"
 msgstr ""
 
-#: inc/customizer/options/colors.php:536
+#: inc/customizer/options/colors.php:696
 msgid "Sub-menu background"
 msgstr ""
 
-#: inc/customizer/options/colors.php:554
+#: inc/customizer/options/colors.php:714
 msgid "Mobile menu button"
 msgstr ""
 
-#: inc/customizer/options/colors.php:609
+#: inc/customizer/options/colors.php:758
 msgid "Sidebar background"
 msgstr ""
 
-#: inc/customizer/options/colors.php:629
+#: inc/customizer/options/colors.php:790
 msgid "Sidebar color"
 msgstr ""
 
@@ -1152,7 +1100,7 @@ msgstr ""
 msgid "Singles"
 msgstr ""
 
-#: inc/customizer/options/footer.php:29
+#: inc/customizer/options/footer.php:29, inc/dashboard/html-builder.php:19, inc/theme-dashboard-settings.php:244
 msgid "Footer"
 msgstr ""
 
@@ -1184,47 +1132,47 @@ msgstr ""
 msgid "4 columns"
 msgstr ""
 
-#: inc/customizer/options/footer.php:152, inc/customizer/options/footer.php:578, inc/customizer/options/header.php:310
+#: inc/customizer/options/footer.php:140, inc/customizer/options/footer.php:648, inc/customizer/options/header.php:332
 msgid "Container type"
 msgstr ""
 
-#: inc/customizer/options/footer.php:156, inc/customizer/options/footer.php:414, inc/customizer/options/footer.php:582, inc/customizer/options/footer.php:760, inc/customizer/options/header.php:314, inc/customizer/options/header.php:1002
+#: inc/customizer/options/footer.php:144, inc/customizer/options/footer.php:471, inc/customizer/options/footer.php:652, inc/customizer/options/footer.php:867, inc/customizer/options/header.php:336, inc/customizer/options/header.php:1153
 msgid "Full-width"
 msgstr ""
 
-#: inc/customizer/options/footer.php:187, inc/customizer/options/general.php:416
+#: inc/customizer/options/footer.php:177, inc/customizer/options/general.php:395, inc/modules/hf-builder/components/footer/button/customize-options.php:153, inc/modules/hf-builder/components/footer/copyright/customize-options.php:95, inc/modules/hf-builder/components/footer/html/customize-options.php:161, inc/modules/hf-builder/components/footer/social/customize-options.php:99, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:99, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:99, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:100, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:99, inc/modules/hf-builder/components/header/button/customize-options.php:115, inc/modules/hf-builder/components/header/contact-info/customize-options.php:132, inc/modules/hf-builder/components/header/html/customize-options.php:171, inc/modules/hf-builder/components/header/logo/customize-options.php:183, inc/modules/hf-builder/components/header/menu/customize-options.php:130, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:99, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:105, inc/modules/hf-builder/components/header/search/customize-options.php:98, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:119, inc/modules/hf-builder/components/header/social/customize-options.php:101, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:106
 msgid "Visibility"
 msgstr ""
 
-#: inc/customizer/options/footer.php:189, inc/customizer/options/general.php:418
+#: inc/customizer/options/footer.php:179, inc/customizer/options/general.php:397
 msgid "Show on all devices"
 msgstr ""
 
-#: inc/customizer/options/footer.php:190, inc/customizer/options/general.php:419
+#: inc/customizer/options/footer.php:180, inc/customizer/options/general.php:398
 msgid "Desktop only"
 msgstr ""
 
-#: inc/customizer/options/footer.php:191, inc/customizer/options/general.php:420
+#: inc/customizer/options/footer.php:181, inc/customizer/options/general.php:399
 msgid "Mobile/tablet only"
 msgstr ""
 
-#: inc/customizer/options/footer.php:217
+#: inc/customizer/options/footer.php:194
 msgid "Footer widget areas"
 msgstr ""
 
-#: inc/customizer/options/footer.php:217
+#: inc/customizer/options/footer.php:194
 msgid "Widget area 1"
 msgstr ""
 
-#: inc/customizer/options/footer.php:217
+#: inc/customizer/options/footer.php:194
 msgid "Widget area 2"
 msgstr ""
 
-#: inc/customizer/options/footer.php:217
+#: inc/customizer/options/footer.php:194
 msgid "Widget area 3"
 msgstr ""
 
-#: inc/customizer/options/footer.php:217
+#: inc/customizer/options/footer.php:194
 msgid "Widget area 4"
 msgstr ""
 
@@ -1232,76 +1180,84 @@ msgstr ""
 msgid "Widget titles color (deprecated)"
 msgstr ""
 
-#: inc/customizer/options/footer.php:275, inc/page-builder.php:194, inc/so-page-builder.php:194
+#: inc/customizer/options/footer.php:288, inc/page-builder.php:194, inc/so-page-builder.php:194
 msgid "Headings color"
 msgstr ""
 
-#: inc/customizer/options/footer.php:294
+#: inc/customizer/options/footer.php:320
 msgid "Widget text color"
 msgstr ""
 
-#: inc/customizer/options/footer.php:313
+#: inc/customizer/options/footer.php:352
 msgid "Links color"
 msgstr ""
 
-#: inc/customizer/options/footer.php:332
+#: inc/customizer/options/footer.php:384
 msgid "Links color (hover)"
 msgstr ""
 
-#: inc/customizer/options/footer.php:363, inc/customizer/options/footer.php:709
+#: inc/customizer/options/footer.php:406, inc/customizer/options/footer.php:802
 msgid "Enable top divider"
 msgstr ""
 
-#: inc/customizer/options/footer.php:378, inc/customizer/options/footer.php:724
+#: inc/customizer/options/footer.php:422, inc/customizer/options/footer.php:818
 msgid "Divider size"
 msgstr ""
 
-#: inc/customizer/options/footer.php:395, inc/customizer/options/footer.php:741
+#: inc/customizer/options/footer.php:448, inc/customizer/options/footer.php:844
 msgid "Divider color"
 msgstr ""
 
-#: inc/customizer/options/footer.php:410, inc/customizer/options/footer.php:756
+#: inc/customizer/options/footer.php:467, inc/customizer/options/footer.php:863
 msgid "Divider width"
 msgstr ""
 
-#: inc/customizer/options/footer.php:454
+#: inc/customizer/options/footer.php:498
 msgid "Vertical section padding"
 msgstr ""
 
-#: inc/customizer/options/footer.php:477
+#: inc/customizer/options/footer.php:522
 msgid "Column spacing"
 msgstr ""
 
-#: inc/customizer/options/footer.php:524
+#: inc/customizer/options/footer.php:556
 msgid "Widget titles size"
 msgstr ""
 
-#: inc/customizer/options/footer.php:546
+#: inc/customizer/options/footer.php:593
+msgid "Text size"
+msgstr ""
+
+#: inc/customizer/options/footer.php:615
 msgid "Copyright area"
 msgstr ""
 
 #. translators: %1$1s, %2$2s theme copyright tags
-#: inc/customizer/options/footer.php:604, inc/extras.php:345
+#: inc/customizer/options/footer.php:662, inc/extras.php:351, inc/modules/hf-builder/components/footer/copyright/copyright.php:14
 msgid "%1$1s. Proudly powered by %2$2s"
 msgstr ""
 
-#: inc/customizer/options/footer.php:609, inc/theme-dashboard-settings.php:94
+#: inc/customizer/options/footer.php:667, inc/theme-dashboard-settings.php:94
 msgid "Footer credits"
 msgstr ""
 
-#: inc/customizer/options/footer.php:610
+#: inc/customizer/options/footer.php:668
 msgid "You can use the following tags: {copyright}, {year}, {site_title}, {theme_author}"
 msgstr ""
 
-#: inc/customizer/options/footer.php:637
+#: inc/customizer/options/footer.php:682, inc/customizer/options/header.php:552
 msgid "Social profile"
 msgstr ""
 
-#: inc/customizer/options/footer.php:640
+#: inc/customizer/options/footer.php:685, inc/customizer/options/header.php:555
 msgid "Add new"
 msgstr ""
 
-#: inc/customizer/options/footer.php:787
+#: inc/customizer/options/footer.php:774, inc/customizer/options/general.php:701, inc/customizer/options/header-mobile.php:534, inc/customizer/options/typography.php:185, inc/customizer/options/typography.php:236, inc/customizer/options/typography.php:287, inc/customizer/options/typography.php:338, inc/customizer/options/typography.php:389, inc/customizer/options/typography.php:440, inc/customizer/options/typography.php:625
+msgid "Font size"
+msgstr ""
+
+#: inc/customizer/options/footer.php:881
 msgid "Vertical Padding"
 msgstr ""
 
@@ -1309,215 +1265,263 @@ msgstr ""
 msgid "Layouts"
 msgstr ""
 
-#: inc/customizer/options/general.php:43
+#: inc/customizer/options/general.php:44
 msgid "Container width"
 msgstr ""
 
-#: inc/customizer/options/general.php:67
+#: inc/customizer/options/general.php:69
 msgid "Narrow container width"
 msgstr ""
 
-#: inc/customizer/options/general.php:90
+#: inc/customizer/options/general.php:93
 msgid "Page wrapper - top padding"
 msgstr ""
 
-#: inc/customizer/options/general.php:93
+#: inc/customizer/options/general.php:96
 msgid "Top padding for the page wrapper (the space between the header and the page title)"
 msgstr ""
 
-#: inc/customizer/options/general.php:113
+#: inc/customizer/options/general.php:117
 msgid "Page wrapper - bottom padding"
 msgstr ""
 
-#: inc/customizer/options/general.php:116
+#: inc/customizer/options/general.php:120
 msgid "Bottom padding for the page wrapper (the space between the page content and the footer)"
 msgstr ""
 
-#: inc/customizer/options/general.php:136
+#: inc/customizer/options/general.php:140
 msgid "Misc"
 msgstr ""
 
-#: inc/customizer/options/general.php:153
+#: inc/customizer/options/general.php:157
 msgid "Enable Schema markup"
 msgstr ""
 
-#: inc/customizer/options/general.php:171
+#: inc/customizer/options/general.php:175
 msgid "Enable preloader"
 msgstr ""
 
-#: inc/customizer/options/general.php:183
+#: inc/customizer/options/general.php:187
 msgid "Scroll to top"
 msgstr ""
 
-#: inc/customizer/options/general.php:220
+#: inc/customizer/options/general.php:224
 msgid "Enable scroll to top"
 msgstr ""
 
-#: inc/customizer/options/general.php:234
+#: inc/customizer/options/general.php:238
 msgid "Type"
 msgstr ""
 
-#: inc/customizer/options/general.php:237, inc/customizer/options/general.php:270
+#: inc/customizer/options/general.php:241, inc/customizer/options/general.php:274
 msgid "Icon"
 msgstr ""
 
-#: inc/customizer/options/general.php:238
+#: inc/customizer/options/general.php:242
 msgid "Text + Icon"
 msgstr ""
 
-#: inc/customizer/options/general.php:248, inc/extras.php:283
+#: inc/customizer/options/general.php:252, inc/extras.php:288
 msgid "Back to top"
 msgstr ""
 
-#: inc/customizer/options/general.php:275
-msgid "Icon 1"
+#: inc/customizer/options/general.php:256
+msgid "Text"
 msgstr ""
 
 #: inc/customizer/options/general.php:279
-msgid "Icon 2"
+msgid "Icon 1"
 msgstr ""
 
 #: inc/customizer/options/general.php:283
-msgid "Icon 3"
+msgid "Icon 2"
 msgstr ""
 
 #: inc/customizer/options/general.php:287
+msgid "Icon 3"
+msgstr ""
+
+#: inc/customizer/options/general.php:291
 msgid "Icon 4"
 msgstr ""
 
-#: inc/customizer/options/general.php:304, inc/customizer/options/general.php:658
+#: inc/customizer/options/general.php:308, inc/customizer/options/general.php:667
 msgid "Button radius"
 msgstr ""
 
-#: inc/customizer/options/general.php:358
+#: inc/customizer/options/general.php:350
 msgid "Side offset"
 msgstr ""
 
-#: inc/customizer/options/general.php:380
+#: inc/customizer/options/general.php:372
 msgid "Bottom offset"
 msgstr ""
 
-#: inc/customizer/options/general.php:441
+#: inc/customizer/options/general.php:428, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:130
 msgid "Icon color"
 msgstr ""
 
-#: inc/customizer/options/general.php:492
+#: inc/customizer/options/general.php:490
 msgid "Icon hover color"
 msgstr ""
 
-#: inc/customizer/options/general.php:511
+#: inc/customizer/options/general.php:521
 msgid "Background hover color"
 msgstr ""
 
-#: inc/customizer/options/general.php:538
+#: inc/customizer/options/general.php:539
 msgid "Icon size"
 msgstr ""
 
-#: inc/customizer/options/general.php:559, inc/customizer/options/header.php:911
+#: inc/customizer/options/general.php:561, inc/customizer/options/header.php:1074, inc/modules/hf-builder/components/footer/columns/customize-options.php:303, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:220, inc/modules/hf-builder/components/footer/row/customize-options.php:453, inc/modules/hf-builder/components/header/columns/customize-options.php:309, inc/modules/hf-builder/components/header/header-builder/customize-options.php:337, inc/modules/hf-builder/components/header/row/customize-options.php:487
 msgid "Padding"
 msgstr ""
 
-#: inc/customizer/options/general.php:579, inc/customizer/options/woocommerce.php:890, inc/theme-dashboard-settings.php:185
+#: inc/customizer/options/general.php:581, inc/customizer/options/woocommerce.php:870, inc/customizer/style-book/class-sydney-style-book.php:129, inc/customizer/style-book/class-sydney-style-book.php:335, inc/dashboard/class-dashboard-settings.php:259, inc/theme-dashboard-settings.php:185
 msgid "Buttons"
 msgstr ""
 
-#: inc/customizer/options/general.php:602
+#: inc/customizer/options/general.php:607
 msgid "Top/Bottom padding"
 msgstr ""
 
-#: inc/customizer/options/general.php:635
+#: inc/customizer/options/general.php:643
 msgid "Left/Right padding"
 msgstr ""
 
-#: inc/customizer/options/general.php:702, inc/customizer/options/typography.php:197, inc/customizer/options/typography.php:248, inc/customizer/options/typography.php:299, inc/customizer/options/typography.php:350, inc/customizer/options/typography.php:401, inc/customizer/options/typography.php:452, inc/customizer/options/typography.php:649
-msgid "Font size"
-msgstr ""
-
-#: inc/customizer/options/general.php:725, inc/customizer/options/header.php:1088, inc/customizer/options/typography.php:119, inc/customizer/options/typography.php:571
+#: inc/customizer/options/general.php:726, inc/customizer/options/header.php:1229, inc/customizer/options/typography.php:119, inc/customizer/options/typography.php:559
 msgid "Text transform"
 msgstr ""
 
-#: inc/customizer/options/general.php:758
+#: inc/customizer/options/general.php:746, inc/modules/hf-builder/components/header/button/customize-options.php:170
 msgid "Default state"
 msgstr ""
 
-#: inc/customizer/options/general.php:794, inc/customizer/options/general.php:876
+#: inc/customizer/options/general.php:803, inc/customizer/options/general.php:909, inc/modules/hf-builder/components/footer/button/customize-options.php:241, inc/modules/hf-builder/components/footer/copyright/customize-options.php:126, inc/modules/hf-builder/components/footer/html/customize-options.php:192, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:151, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:151, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:152, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:151, inc/modules/hf-builder/components/header/button/customize-options.php:355, inc/modules/hf-builder/components/header/contact-info/customize-options.php:209, inc/modules/hf-builder/components/header/contact-info/customize-options.php:298, inc/modules/hf-builder/components/header/html/customize-options.php:202, inc/modules/hf-builder/components/header/html/customize-options.php:277, inc/modules/hf-builder/components/header/menu/customize-options.php:388, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:144, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:158, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:266
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer/options/general.php:812, inc/customizer/options/general.php:894
+#: inc/customizer/options/general.php:833, inc/customizer/options/general.php:939, inc/modules/hf-builder/components/footer/button/customize-options.php:274, inc/modules/hf-builder/components/header/button/customize-options.php:267, inc/modules/hf-builder/components/header/button/customize-options.php:390
 msgid "Border Color"
 msgstr ""
 
-#: inc/customizer/options/general.php:840
+#: inc/customizer/options/general.php:852
 msgid "Hover state"
+msgstr ""
+
+#: inc/customizer/options/general.php:955
+msgid "Images"
+msgstr ""
+
+#: inc/customizer/options/general.php:968
+msgid "Image Border Radius"
+msgstr ""
+
+#: inc/customizer/options/general.php:989
+msgid "Caption Font Size"
+msgstr ""
+
+#: inc/customizer/options/general.php:1014
+msgid "Caption Color"
 msgstr ""
 
 #: inc/customizer/options/header-mobile.php:14
 msgid "Mobile header"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:54, inc/customizer/options/header.php:246, inc/customizer/options/layouts.php:42, inc/customizer/options/woocommerce.php:57, inc/customizer/options/woocommerce.php:383, inc/customizer/options/woocommerce.php:488, inc/customizer/options/woocommerce.php:581, inc/customizer/options/woocommerce.php:661, inc/integrations/learndash/customize.php:18
+#: inc/customizer/options/header-mobile.php:53
+msgid "Enable sticky header on mobiles"
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:76, inc/customizer/options/header.php:268, inc/customizer/options/layouts.php:42, inc/customizer/options/woocommerce.php:59, inc/customizer/options/woocommerce.php:373, inc/customizer/options/woocommerce.php:478, inc/customizer/options/woocommerce.php:571, inc/customizer/options/woocommerce.php:641, inc/integrations/learndash/customize.php:18, inc/modules/hf-builder/components/footer/button/customize-options.php:299, inc/modules/hf-builder/components/footer/copyright/customize-options.php:180, inc/modules/hf-builder/components/footer/html/customize-options.php:246, inc/modules/hf-builder/components/footer/social/customize-options.php:163, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:205, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:205, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:206, inc/modules/hf-builder/components/header/button/customize-options.php:416, inc/modules/hf-builder/components/header/contact-info/customize-options.php:324, inc/modules/hf-builder/components/header/header-builder/customize-options.php:459, inc/modules/hf-builder/components/header/header-builder/customize-options.php:505, inc/modules/hf-builder/components/header/html/customize-options.php:333, inc/modules/hf-builder/components/header/logo/customize-options.php:261, inc/modules/hf-builder/components/header/menu/customize-options.php:546, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:151, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:202, inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:218, inc/modules/hf-builder/components/header/search/customize-options.php:217, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:347, inc/modules/hf-builder/components/header/social/customize-options.php:220, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:263
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:71
+#: inc/customizer/options/header-mobile.php:105
 msgid "Additional elements"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:101
+#: inc/customizer/options/header-mobile.php:108
+msgid "The values for these elements are set from the main header."
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:131
+msgid "Offcanvas"
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:148
+msgid "Header type"
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:153
+msgid "Site branding"
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:154, inc/customizer/options/header-mobile.php:170
+msgid "Custom text"
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:192
 msgid "Off-canvas mode"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:106, inc/customizer/options/woocommerce-single.php:75, inc/customizer/options/woocommerce.php:281, inc/customizer/options/woocommerce.php:388, inc/customizer/options/woocommerce.php:493, inc/customizer/options/woocommerce.php:586, inc/customizer/options/woocommerce.php:666, inc/extras.php:527, inc/extras.php:557
+#: inc/customizer/options/header-mobile.php:197, inc/customizer/options/woocommerce-single.php:75, inc/customizer/options/woocommerce.php:271, inc/customizer/options/woocommerce.php:378, inc/customizer/options/woocommerce.php:483, inc/customizer/options/woocommerce.php:576, inc/customizer/options/woocommerce.php:646, inc/extras.php:533, inc/extras.php:563
 msgid "Layout 1"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:110, inc/customizer/options/woocommerce-single.php:79, inc/customizer/options/woocommerce.php:285, inc/customizer/options/woocommerce.php:392, inc/customizer/options/woocommerce.php:497, inc/customizer/options/woocommerce.php:590, inc/customizer/options/woocommerce.php:670, inc/extras.php:531, inc/extras.php:561
+#: inc/customizer/options/header-mobile.php:201, inc/customizer/options/woocommerce-single.php:79, inc/customizer/options/woocommerce.php:275, inc/customizer/options/woocommerce.php:382, inc/customizer/options/woocommerce.php:487, inc/customizer/options/woocommerce.php:580, inc/customizer/options/woocommerce.php:650, inc/extras.php:537, inc/extras.php:567
 msgid "Layout 2"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:124
+#: inc/customizer/options/header-mobile.php:217
 msgid "Additional offcanvas elements"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:152
+#: inc/customizer/options/header-mobile.php:241
 msgid "Link alignment"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:174, inc/customizer/options/header-mobile.php:387
+#: inc/customizer/options/header-mobile.php:264, inc/customizer/options/header-mobile.php:579
 msgid "Link separator"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:188
+#: inc/customizer/options/header-mobile.php:278
 msgid "Link spacing"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:210
+#: inc/customizer/options/header-mobile.php:301
 msgid "Menu icon"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:233
+#: inc/customizer/options/header-mobile.php:324
 msgid "Menu bar"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:284
+#: inc/customizer/options/header-mobile.php:401
 msgid "Top &amp; bottom padding"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:321
+#: inc/customizer/options/header-mobile.php:424
 msgid "Offcanvas menu"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:359, inc/customizer/options/woocommerce.php:871, inc/page-builder.php:78, inc/so-page-builder.php:78
+#: inc/customizer/options/header-mobile.php:485, inc/customizer/options/woocommerce.php:851, inc/page-builder.php:78, inc/so-page-builder.php:78
 msgid "Color"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:401
+#: inc/customizer/options/header-mobile.php:516
+msgid "Submenu items color"
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:556
+msgid "Submenu font size"
+msgstr ""
+
+#: inc/customizer/options/header-mobile.php:595
 msgid "Separator size"
 msgstr ""
 
-#: inc/customizer/options/header-mobile.php:428
+#: inc/customizer/options/header-mobile.php:632
 msgid "Separator color"
 msgstr ""
 
@@ -1525,156 +1529,324 @@ msgstr ""
 msgid "Logo height"
 msgstr ""
 
-#: inc/customizer/options/header.php:85
+#: inc/customizer/options/header.php:70
+msgid "Show site title and description next to the logo"
+msgstr ""
+
+#: inc/customizer/options/header.php:101
 msgid "Site title color"
 msgstr ""
 
-#: inc/customizer/options/header.php:112
+#: inc/customizer/options/header.php:132
 msgid "Site title font size"
 msgstr ""
 
-#: inc/customizer/options/header.php:156
+#: inc/customizer/options/header.php:173
 msgid "Site description color"
 msgstr ""
 
-#: inc/customizer/options/header.php:183
+#: inc/customizer/options/header.php:204
 msgid "Site description font size"
 msgstr ""
 
-#: inc/customizer/options/header.php:206
+#: inc/customizer/options/header.php:227
 msgid "Main header"
 msgstr ""
 
-#: inc/customizer/options/header.php:277
+#: inc/customizer/options/header.php:296
 msgid "Settings"
 msgstr ""
 
-#: inc/customizer/options/header.php:291
+#: inc/customizer/options/header.php:312
 msgid "Menu position"
 msgstr ""
 
-#: inc/customizer/options/header.php:295, inc/page-builder.php:179, inc/so-page-builder.php:179
+#: inc/customizer/options/header.php:316, inc/modules/hf-builder/components/footer/columns/customize-options.php:211, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:157, inc/modules/hf-builder/components/footer/row/customize-options.php:347, inc/modules/hf-builder/components/header/columns/customize-options.php:217, inc/modules/hf-builder/components/header/header-builder/customize-options.php:274, inc/modules/hf-builder/components/header/row/customize-options.php:381, inc/page-builder.php:179, inc/so-page-builder.php:179
 msgid "Center"
 msgstr ""
 
-#: inc/customizer/options/header.php:331
+#: inc/customizer/options/header.php:354
 msgid "Enable sticky header"
 msgstr ""
 
-#: inc/customizer/options/header.php:345
+#: inc/customizer/options/header.php:368
 msgid "Sticky header type"
 msgstr ""
 
-#: inc/customizer/options/header.php:348
+#: inc/customizer/options/header.php:371
 msgid "Always sticky"
 msgstr ""
 
-#: inc/customizer/options/header.php:349
+#: inc/customizer/options/header.php:372
 msgid "On scroll to top"
 msgstr ""
 
-#: inc/customizer/options/header.php:368
+#: inc/customizer/options/header.php:391
 msgid "Transparent header"
 msgstr ""
 
-#: inc/customizer/options/header.php:450
+#: inc/customizer/options/header.php:465
 msgid "Top row"
 msgstr ""
 
-#: inc/customizer/options/header.php:462
+#: inc/customizer/options/header.php:478
 msgid "Bottom row"
 msgstr ""
 
-#: inc/customizer/options/header.php:475
+#: inc/customizer/options/header.php:492
 msgid "Top left"
 msgstr ""
 
-#: inc/customizer/options/header.php:487
+#: inc/customizer/options/header.php:505
 msgid "Top right"
 msgstr ""
 
-#: inc/customizer/options/header.php:532, inc/extras.php:580
-msgid "Cart &amp; account icons"
-msgstr ""
-
-#: inc/customizer/options/header.php:551
+#: inc/customizer/options/header.php:579
 msgid "Enable cart icon"
 msgstr ""
 
-#: inc/customizer/options/header.php:570
+#: inc/customizer/options/header.php:598
 msgid "Enable account icon"
 msgstr ""
 
-#: inc/customizer/options/header.php:648
+#: inc/customizer/options/header.php:649, inc/modules/hf-builder/components/footer/button/customize-options.php:116
 msgid "Open in a new tab?"
 msgstr ""
 
-#: inc/customizer/options/header.php:679, inc/extras.php:582
-msgid "Contact info"
-msgstr ""
-
-#: inc/customizer/options/header.php:694
+#: inc/customizer/options/header.php:666
 msgid "Email address"
 msgstr ""
 
-#: inc/customizer/options/header.php:708
+#: inc/customizer/options/header.php:681
 msgid "Phone number"
 msgstr ""
 
-#: inc/customizer/options/header.php:749
+#: inc/customizer/options/header.php:746
 msgid "Background color (sticky)"
 msgstr ""
 
-#: inc/customizer/options/header.php:787
+#: inc/customizer/options/header.php:810
 msgid "Text color (sticky)"
 msgstr ""
 
-#: inc/customizer/options/header.php:806
+#: inc/customizer/options/header.php:842
 msgid "Bottom row background color"
 msgstr ""
 
-#: inc/customizer/options/header.php:826
+#: inc/customizer/options/header.php:875
 msgid "Bottom row text color"
 msgstr ""
 
-#: inc/customizer/options/header.php:846
+#: inc/customizer/options/header.php:908
 msgid "Submenu background"
 msgstr ""
 
-#: inc/customizer/options/header.php:865
+#: inc/customizer/options/header.php:940
 msgid "Submenu color"
 msgstr ""
 
-#: inc/customizer/options/header.php:932
+#: inc/customizer/options/header.php:1002
+msgid "Submenu items hover"
+msgstr ""
+
+#: inc/customizer/options/header.php:1034
+msgid "Search bar background color"
+msgstr ""
+
+#: inc/customizer/options/header.php:1052
+msgid "Icons size"
+msgstr ""
+
+#: inc/customizer/options/header.php:1096
 msgid "Bottom row padding"
 msgstr ""
 
-#: inc/customizer/options/header.php:968
+#: inc/customizer/options/header.php:1119
 msgid "Border size"
 msgstr ""
 
-#: inc/customizer/options/header.php:998
+#: inc/customizer/options/header.php:1149
 msgid "Border width"
 msgstr ""
 
-#: inc/customizer/options/header.php:1031
+#: inc/customizer/options/header.php:1170
 msgid "Top-level menu items"
 msgstr ""
 
-#: inc/customizer/options/header.php:1049
+#: inc/customizer/options/header.php:1190
 msgid "Enable top-level menu items typography options"
 msgstr ""
 
-#: inc/customizer/options/header.php:1108
+#: inc/customizer/options/header.php:1249
 msgid "Menu Items Font size"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:13
+msgid "Hero area"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:19
+msgid "Hero type"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:22
+msgid "You can select your header type from here. After that, continue below to the next two tabs (Hero Slider and Header Image) and configure them."
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:45
+msgid "Front page header type"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:47
+msgid "Select the header type for your front page"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:52, inc/customizer/options/hero-area.php:75
+msgid "No header (only menu)"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:68
+msgid "Site header type"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:70
+msgid "Select the hero type for all pages except the front page"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:84
+msgid "Hero Slider"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:101
+msgid "First slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:120
+msgid "Upload your first image for the slider"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:139
+msgid "Title for the first slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:156
+msgid "Subtitle for the first slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:172
+msgid "Second slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:191
+msgid "Upload your second image for the slider"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:210
+msgid "Title for the second slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:227
+msgid "Subtitle for the second slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:243
+msgid "Third slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:262
+msgid "Upload your third image for the slider"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:281
+msgid "Title for the third slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:298
+msgid "Subtitle for the third slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:314
+msgid "Fourth slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:333
+msgid "Upload your fourth image for the slider"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:352
+msgid "Title for the fourth slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:369
+msgid "Subtitle for the fourth slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:385
+msgid "Fifth slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:404
+msgid "Upload your fifth image for the slider"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:423
+msgid "Title for the fifth slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:440
+msgid "Subtitle for the fifth slide"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:457
+msgid "Slider button"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:474
+msgid "URL for your call to action button"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:482
+msgid "Click to begin"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:490
+msgid "Text for your call to action button"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:509
+msgid "Slider settings"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:520
+msgid "4000"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:527
+msgid "Slider speed"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:530
+msgid "Slider speed in miliseconds. Use 0 to disable [default: 4000]"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:545
+msgid "Prevent the text from changing?"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:546
+msgid "Use this if you want to show the same text on all slides."
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:564
+msgid "Mobile behavior for the slider images"
+msgstr ""
+
+#: inc/customizer/options/hero-area.php:582
+msgid "Click here to select where you want to display the slider"
 msgstr ""
 
 #: inc/customizer/options/layouts.php:62
 msgid "Select your layout"
-msgstr ""
-
-#: inc/customizer/options/layouts.php:68, inc/customizer/options/typography.php:60, inc/customizer/options/typography.php:512, widgets/video-widget.php:28
-msgid "Normal"
 msgstr ""
 
 #: inc/customizer/options/layouts.php:72
@@ -1697,7 +1869,63 @@ msgstr ""
 msgid "Boxed"
 msgstr ""
 
-#: inc/customizer/options/performance.php:11, inc/theme-dashboard-settings.php:198
+#: inc/customizer/options/modules/block-templates.php:9, inc/dashboard/class-dashboard-settings.php:492, inc/modules/class-sydney-modules.php:31
+msgid "Block Templates"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:28
+msgid "Enable Block Templates"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:43
+msgid "How to use block templates?"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:46
+msgid "Go %s and customize the templates you want to use."
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:46
+msgid "here"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:47
+msgid "Activate the block template you want to use below. Example: if you activate the header template, the theme's default header will be replaced with your header block template."
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:48
+msgid "Save the changes and refresh this page."
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:71
+msgid "Enable Header Block Template"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:94
+msgid "Enable Footer Block Template"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:116
+msgid "Enable Single Block Template"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:138
+msgid "Enable Page Block Template"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:160
+msgid "Enable Archive Block Template"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:182
+msgid "Enable Search Block Template"
+msgstr ""
+
+#: inc/customizer/options/modules/block-templates.php:204
+msgid "Enable 404 Block Template"
+msgstr ""
+
+#: inc/customizer/options/performance.php:11, inc/theme-dashboard-settings.php:162
 msgid "Performance"
 msgstr ""
 
@@ -1705,48 +1933,244 @@ msgstr ""
 msgid "Load Google Fonts Locally?"
 msgstr ""
 
-#: inc/customizer/options/typography.php:11
+#: inc/customizer/options/performance.php:30
+msgid "This option refers only to Google Fonts loaded by the theme, not by third-party plugins."
+msgstr ""
+
+#: inc/customizer/options/performance.php:48
+msgid "Disable Google Fonts preconnect"
+msgstr ""
+
+#: inc/customizer/options/performance.php:67
+msgid "Disable Emojis"
+msgstr ""
+
+#: inc/customizer/options/performance.php:86
+msgid "Disable jQuery Migrate"
+msgstr ""
+
+#: inc/customizer/options/performance.php:87
+msgid "This option will disable jQuery Migrate, which is used by some plugins to maintain backwards compatibility with older versions of jQuery."
+msgstr ""
+
+#: inc/customizer/options/performance.php:106
+msgid "Defer block styles"
+msgstr ""
+
+#: inc/customizer/options/performance.php:107
+msgid "Checks if a post has block content and defers the block stylesheet if it does not."
+msgstr ""
+
+#: inc/customizer/options/performance.php:122
+msgid "For more information on how to improve your website's performance, please read our %1$sPerformance Guide%2$s."
+msgstr ""
+
+#: inc/customizer/options/typography.php:11, inc/customizer/style-book/class-sydney-style-book.php:130, inc/customizer/style-book/class-sydney-style-book.php:354, inc/dashboard/class-dashboard-settings.php:243
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer/options/typography.php:58, inc/customizer/options/typography.php:510
+#: inc/customizer/options/typography.php:58, inc/customizer/options/typography.php:498
 msgid "Font style"
 msgstr ""
 
-#: inc/customizer/options/typography.php:61, inc/customizer/options/typography.php:513
+#: inc/customizer/options/typography.php:61, inc/customizer/options/typography.php:501
 msgid "Italic"
 msgstr ""
 
-#: inc/customizer/options/typography.php:62, inc/customizer/options/typography.php:514
+#: inc/customizer/options/typography.php:62, inc/customizer/options/typography.php:502
 msgid "Oblique"
 msgstr ""
 
-#: inc/customizer/options/typography.php:74, inc/customizer/options/typography.php:526
+#: inc/customizer/options/typography.php:74, inc/customizer/options/typography.php:514
 msgid "Line height"
 msgstr ""
 
-#: inc/customizer/options/typography.php:96, inc/customizer/options/typography.php:548
+#: inc/customizer/options/typography.php:96, inc/customizer/options/typography.php:536
 msgid "Letter spacing"
 msgstr ""
 
-#: inc/customizer/options/typography.php:139, inc/customizer/options/typography.php:591
+#: inc/customizer/options/typography.php:139, inc/customizer/options/typography.php:579
 msgid "Text decoration"
 msgstr ""
 
-#: inc/customizer/options/typography.php:475, inc/customizer/options/typography.php:623
+#: inc/customizer/options/typography.php:463, inc/customizer/options/typography.php:598
 msgid "Body"
 msgstr ""
 
-#: inc/customizer/options/upsell.php:25, inc/customizer/options/upsell.php:48
-msgid "More header options are available in Sydney Pro"
+#: inc/customizer/options/upsell.php:25, inc/modules/hf-builder/components/header/header-builder/customize-options.php:415
+msgid "Enhance your header with Sydney Pro!"
 msgstr ""
 
-#: inc/customizer/options/upsell.php:71, inc/customizer/options/upsell.php:94
-msgid "More footer options are available in Sydney Pro"
+#: inc/customizer/options/upsell.php:27, inc/modules/hf-builder/components/header/header-builder/customize-options.php:417
+msgid "Building headers with Elementor"
 msgstr ""
 
-#: inc/customizer/options/upsell.php:117, inc/customizer/options/upsell.php:137
-msgid "More blog options are available in Sydney Pro"
+#: inc/customizer/options/upsell.php:28, inc/modules/hf-builder/components/header/header-builder/customize-options.php:418
+msgid "Extra header layouts"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:29, inc/dashboard/class-dashboard-settings.php:278, inc/theme-dashboard-settings.php:210
+msgid "Top bar"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:30, inc/modules/hf-builder/components/header/header-builder/customize-options.php:419
+msgid "Language switcher"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:31, inc/modules/hf-builder/components/header/header-builder/customize-options.php:420
+msgid "Page Headers module"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:32, inc/modules/hf-builder/components/header/header-builder/customize-options.php:423
+msgid "Elementor mega menu builder"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:33, inc/customizer/options/upsell.php:90, inc/customizer/options/upsell.php:122, inc/customizer/options/upsell.php:153, inc/customizer/options/upsell.php:185, inc/customizer/options/upsell.php:214, inc/customizer/options/upsell.php:245, inc/customizer/options/upsell.php:275, inc/customizer/options/upsell.php:300, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:286, inc/modules/hf-builder/components/header/header-builder/customize-options.php:424
+msgid "&hellip;and many more premium features"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:57
+msgid "Create fully custom, animated mobile headers with Sydney Pro!"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:59, inc/modules/hf-builder/components/header/header-builder/customize-options.php:422
+msgid "A mobile-only menu & logo"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:60, inc/modules/hf-builder/components/header/header-builder/customize-options.php:421
+msgid "Custom breakpoints"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:61
+msgid "Extra mobile header layouts"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:62
+msgid "Header builder with Elementor"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:84
+msgid "&hellip;and for your offcanvas area:"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:86
+msgid "6 animated opening effects"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:87
+msgid "4 menu link animations"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:88
+msgid "Customizable background"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:89
+msgid "Elementor template rendering"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:115, inc/customizer/options/upsell.php:146, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:278
+msgid "Create one-of-a-kind footer designs with Sydney Pro!"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:117, inc/customizer/options/upsell.php:148, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:280
+msgid "Elementor footer builder"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:118, inc/customizer/options/upsell.php:149, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:281
+msgid "Footer background image"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:119, inc/customizer/options/upsell.php:150, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:282
+msgid "Pre-footer area"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:120, inc/customizer/options/upsell.php:151, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:283
+msgid "SVG footer separators"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:121, inc/customizer/options/upsell.php:152, inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:284
+msgid "Reveal animation effect"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:177, inc/customizer/options/upsell.php:206
+msgid "Boost your blog’s engagement with Sydney Pro!"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:179
+msgid "Premium post header layouts"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:180
+msgid "Featured posts area"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:181, inc/customizer/options/upsell.php:209
+msgid "Reading time"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:182, inc/customizer/options/upsell.php:210
+msgid "Progress bar"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:183, inc/customizer/options/upsell.php:212
+msgid "Social sharing buttons"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:184
+msgid "Elementor template builder for category pages"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:208
+msgid "Extra post header layouts"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:211
+msgid "Last updated date"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:213
+msgid "Elementor template builder for single posts"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:238
+msgid "Create an even more engaging slider with Sydney Pro!"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:240
+msgid "Extra styling options"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:241
+msgid "A different button for each slide"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:242
+msgid "Fade and slide transitions"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:243
+msgid "Button and text animations"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:244
+msgid "Title tag control"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:270, inc/customizer/options/upsell.php:295
+msgid "Get access to more fonts with Sydney Pro!"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:271, inc/customizer/options/upsell.php:296
+msgid "Specifically:"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:273, inc/customizer/options/upsell.php:298
+msgid "Adobe Fonts integration"
+msgstr ""
+
+#: inc/customizer/options/upsell.php:274, inc/customizer/options/upsell.php:299
+msgid "An option to upload custom fonts"
 msgstr ""
 
 #: inc/customizer/options/woocommerce-single.php:14
@@ -1761,7 +2185,7 @@ msgstr ""
 msgid "Product Image"
 msgstr ""
 
-#: inc/customizer/options/woocommerce-single.php:83, inc/customizer/options/woocommerce.php:501, inc/extras.php:535, inc/extras.php:565
+#: inc/customizer/options/woocommerce-single.php:83, inc/customizer/options/woocommerce.php:491, inc/extras.php:541, inc/extras.php:571
 msgid "Layout 3"
 msgstr ""
 
@@ -1789,7 +2213,7 @@ msgstr ""
 msgid "Ratings"
 msgstr ""
 
-#: inc/customizer/options/woocommerce-single.php:201, inc/customizer/options/woocommerce.php:469
+#: inc/customizer/options/woocommerce-single.php:201, inc/customizer/options/woocommerce.php:459
 msgid "Categories"
 msgstr ""
 
@@ -1817,164 +2241,344 @@ msgstr ""
 msgid "Product title color"
 msgstr ""
 
-#: inc/customizer/options/woocommerce-single.php:379
+#: inc/customizer/options/woocommerce-single.php:365
 msgid "Product price size"
 msgstr ""
 
-#: inc/customizer/options/woocommerce-single.php:408
+#: inc/customizer/options/woocommerce-single.php:395
 msgid "Product price color"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:74
+#: inc/customizer/options/woocommerce.php:76
 msgid "Layout type"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:101
+#: inc/customizer/options/woocommerce.php:103
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:142
+#: inc/customizer/options/woocommerce.php:131
 msgid "Page elements"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:161
+#: inc/customizer/options/woocommerce.php:151
 msgid "Page title"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:180
+#: inc/customizer/options/woocommerce.php:170
 msgid "Page Description"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:199
+#: inc/customizer/options/woocommerce.php:189
 msgid "Product sorting"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:218
+#: inc/customizer/options/woocommerce.php:208
 msgid "Results count"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:237
+#: inc/customizer/options/woocommerce.php:227
 msgid "Display breadcrumbs"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:255, inc/customizer/options/woocommerce.php:712
+#: inc/customizer/options/woocommerce.php:245, inc/customizer/options/woocommerce.php:692
 msgid "Product card"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:276
+#: inc/customizer/options/woocommerce.php:266
 msgid "Add to cart button"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:300
+#: inc/customizer/options/woocommerce.php:290
 msgid "Card elements"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:303, widgets/contact-info.php:20, widgets/fp-call-to-action.php:18, widgets/fp-clients.php:23, widgets/fp-employees.php:23, widgets/fp-facts.php:39, widgets/fp-latest-news.php:19, widgets/fp-services-type-a.php:30, widgets/fp-services-type-b.php:29, widgets/fp-skills.php:24, widgets/fp-testimonials.php:22, widgets/video-widget.php:20
+#: inc/customizer/options/woocommerce.php:293, widgets/contact-info.php:20, widgets/fp-call-to-action.php:18, widgets/fp-clients.php:23, widgets/fp-employees.php:23, widgets/fp-facts.php:39, widgets/fp-latest-news.php:19, widgets/fp-services-type-a.php:30, widgets/fp-services-type-b.php:29, widgets/fp-skills.php:24, widgets/fp-testimonials.php:22, widgets/video-widget.php:20
 msgid "Title"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:304
+#: inc/customizer/options/woocommerce.php:294
 msgid "Reviews"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:305
+#: inc/customizer/options/woocommerce.php:295
 msgid "Price"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:306
+#: inc/customizer/options/woocommerce.php:296
 msgid "Category"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:307
+#: inc/customizer/options/woocommerce.php:297
 msgid "Short description"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:339
+#: inc/customizer/options/woocommerce.php:329, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:233
 msgid "Elements spacing"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:364, inc/customizer/options/woocommerce.php:831
+#: inc/customizer/options/woocommerce.php:354, inc/customizer/options/woocommerce.php:811
 msgid "Sale tag"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:430, inc/customizer/options/woocommerce.php:545
+#: inc/customizer/options/woocommerce.php:420, inc/customizer/options/woocommerce.php:535
 msgid "Border radius"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:448, inc/woocommerce.php:1231
+#: inc/customizer/options/woocommerce.php:438, inc/woocommerce.php:1251
 msgid "Sale!"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:452
+#: inc/customizer/options/woocommerce.php:442
 msgid "Badge text"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:505, inc/extras.php:539
+#: inc/customizer/options/woocommerce.php:495, inc/extras.php:545
 msgid "Layout 4"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:509, inc/extras.php:543
+#: inc/customizer/options/woocommerce.php:499, inc/extras.php:549
 msgid "Layout 5"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:563
+#: inc/customizer/options/woocommerce.php:553
 msgid "Cart"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:622
+#: inc/customizer/options/woocommerce.php:601
 msgid "Cross Sell"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:641, inc/customizer/options/woocommerce.php:690
+#: inc/customizer/options/woocommerce.php:621, inc/customizer/options/woocommerce.php:670
 msgid "Display Coupon Form"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:728
+#: inc/customizer/options/woocommerce.php:708
 msgid "Image radius"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:755
+#: inc/customizer/options/woocommerce.php:735
 msgid "Card background"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:775
+#: inc/customizer/options/woocommerce.php:755
 msgid "Product title"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:794
+#: inc/customizer/options/woocommerce.php:774
 msgid "Product prices font size"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:813
+#: inc/customizer/options/woocommerce.php:793
 msgid "Product prices color"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:908
+#: inc/customizer/options/woocommerce.php:888
 msgid "Hide button icon"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:925
+#: inc/customizer/options/woocommerce.php:905
 msgid "Button background color"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:943
+#: inc/customizer/options/woocommerce.php:923
 msgid "Button color"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:961
+#: inc/customizer/options/woocommerce.php:941
 msgid "Loop add to cart button size"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:965
+#: inc/customizer/options/woocommerce.php:945
 msgid "Small"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:966
+#: inc/customizer/options/woocommerce.php:946
 msgid "Medium"
 msgstr ""
 
-#: inc/customizer/options/woocommerce.php:967
+#: inc/customizer/options/woocommerce.php:947
 msgid "Large"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:120
+msgid "Style Book"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:121
+msgid "An interactive visual guide of the theme's base styles."
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:128, inc/customizer/style-book/class-sydney-style-book.php:312
+msgid "Global Colors"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:131, inc/customizer/style-book/class-sydney-style-book.php:412
+msgid "Media"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:132, inc/customizer/style-book/class-sydney-style-book.php:436
+msgid "Forms"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:133, inc/customizer/style-book/class-sydney-style-book.php:465
+msgid "Lists"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:134, inc/customizer/style-book/class-sydney-style-book.php:498
+msgid "Tables"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:135, inc/customizer/style-book/class-sydney-style-book.php:547
+msgid "Quotes"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:163
+msgid "Color 1"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:164
+msgid "Primary color, used for accents, buttons, etc."
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:167
+msgid "Color 2"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:168
+msgid "Hover color"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:171
+msgid "Color 3"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:172
+msgid "Body text color"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:175
+msgid "Color 4"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:176
+msgid "General headings color"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:179
+msgid "Color 5"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:180
+msgid "Used for smaller text, like post meta"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:183
+msgid "Color 6"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:184
+msgid "Dark backgrounds, like the header & footer"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:187
+msgid "Color 7"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:188
+msgid "Light backgrounds"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:191
+msgid "Color 8"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:195
+msgid "Color 9"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:196
+msgid "Site background color"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:391
+msgid "Body Text"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:418
+msgid "Media Image"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:419
+msgid "Image Caption"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:438, inc/customizer/style-book/class-sydney-style-book.php:467, inc/customizer/style-book/class-sydney-style-book.php:500, inc/customizer/style-book/class-sydney-style-book.php:549
+msgid "Requires Sydney Pro."
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:445
+msgid "Your Name"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:446
+msgid "Your Email"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:447
+msgid "Your Message"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:448
+msgid "Submit"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:474, inc/customizer/style-book/class-sydney-style-book.php:479
+msgid "List Item 1"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:475, inc/customizer/style-book/class-sydney-style-book.php:480
+msgid "List Item 2"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:476, inc/customizer/style-book/class-sydney-style-book.php:481
+msgid "List Item 3"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:509
+msgid "Table Heading 1"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:510
+msgid "Table Heading 2"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:511
+msgid "Table Heading 3"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:516, inc/customizer/style-book/class-sydney-style-book.php:521, inc/customizer/style-book/class-sydney-style-book.php:526
+msgid "Table Data 1"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:517, inc/customizer/style-book/class-sydney-style-book.php:522, inc/customizer/style-book/class-sydney-style-book.php:527
+msgid "Table Data 2"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:518, inc/customizer/style-book/class-sydney-style-book.php:523, inc/customizer/style-book/class-sydney-style-book.php:528
+msgid "Table Data 3"
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:556
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor dui et gravida hendrerit."
+msgstr ""
+
+#: inc/customizer/style-book/class-sydney-style-book.php:557
+msgid "Author Name"
+msgstr ""
+
+#: inc/customizer/style-book/control/class-customizer-style-book.php:76
+msgid "Open Style Book"
 msgstr ""
 
 #: inc/customizer/upsell/class-customize.php:76
@@ -1985,26 +2589,759 @@ msgstr ""
 msgid "Buy Sydney Pro"
 msgstr ""
 
-#: inc/extras.php:348, inc/onboarding/theme-info.php:136, inc/theme-dashboard-settings.php:21
+#: inc/dashboard/class-dashboard-settings.php:35, inc/onboarding/theme-info.php:31, inc/theme-dashboard-settings.php:142
+msgid "Welcome to Sydney"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:36
+msgid "Sydney is now installed and ready to go. To help you with the next step, we’ve gathered together on this page all the resources you might need. We hope you enjoy using Sydney."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:67, inc/dashboard/class-dashboard.php:182, inc/dashboard/class-dashboard.php:183, inc/theme-dashboard-settings.php:277
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:68, inc/onboarding/theme-info.php:268, inc/theme-dashboard-settings.php:278
+msgid "Take Sydney to a whole other level by upgrading to the Pro version."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:69, inc/onboarding/theme-info.php:269, inc/theme-dashboard-settings.php:279
+msgid "Discover Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:118
+msgid "Home"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:119, inc/dashboard/class-dashboard.php:159, inc/dashboard/class-dashboard.php:160, inc/dashboard/html-hero.php:53, inc/dashboard/html-hero.php:49, theme-dashboard/class-theme-dashboard.php:533
+msgid "Starter Sites"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:120, inc/dashboard/class-dashboard-settings.php:137
+msgid "License"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:121, inc/onboarding/theme-info.php:40
+msgid "Free vs Pro"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:127, inc/dashboard/class-dashboard-settings.php:287, inc/dashboard/html-builder.php:31
+msgid "Template Builder"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:169
+msgid "aThemes Blocks"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:170
+msgid "Extend the Gutenberg Block Editor with additional functionality."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:178
+msgid "WPForms"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:179
+msgid "The best WordPress contact form plugin. Drag & Drop online form builder that helps you create beautiful contact forms + custom forms in minutes."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:187
+msgid "HubSpot"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:188
+msgid "HubSpot is a platform with all the tools and integrations you need for marketing, sales, and customer service."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:198
+msgid "Site Title and Logo"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:199
+msgid "Set the title and upload logo."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:226, inc/theme-dashboard-settings.php:205
+msgid "Header Options"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:227
+msgid "Customize the header options for your theme."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:234, inc/theme-dashboard-settings.php:248
+msgid "Footer Credits"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:235
+msgid "Customize the footer credits for your theme."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:208, inc/modules/hf-builder/class-header-footer-builder.php:417
+msgid "Header Builder"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:209
+msgid "Drag and drop header builder."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:216, inc/modules/hf-builder/class-header-footer-builder.php:507
+msgid "Footer Builder"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:217
+msgid "Drag and drop footer builder."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:244
+msgid "Set the global font size, style and library."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:251, inc/theme-dashboard-settings.php:175
+msgid "Color Options"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:252
+msgid "Change the colors for various elements."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:260
+msgid "Customize the buttons in your theme."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:267, inc/theme-dashboard-settings.php:233
+msgid "Blog Options"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:268
+msgid "Customize the blog options for your theme."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:279
+msgid "Customize the top bar of your theme."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:317
+msgid "Custom Fonts"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:322
+msgid "Add custom fonts to your site."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:327
+msgid "Offcanvas Content"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:332
+msgid "Offcanvas sidebars, Elementor templates or custom content"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:337
+msgid "Browser Tools"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:342
+msgid "Scrollbar, mobile theme color, prevent text copy"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:357
+msgid "Mega Menu"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:362
+msgid "Mega menu with Elementor support"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:407
+msgid "Sidebar Module"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:412
+msgid "Extended sidebar options."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:447
+msgid "Forms &amp; HTML Designer"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:452
+msgid "Design options for HTML elements and forms."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:456, inc/theme-dashboard-settings.php:220
+msgid "Extra Widget Area"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:457
+msgid "Add an extra widget area to your theme."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:464, inc/theme-dashboard-settings.php:267
+msgid "Google Maps"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:465
+msgid "Customize Google Maps integration in your theme."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:472
+msgid "Hooks"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:473
+msgid "Add your custom code to various hooks"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:481
+msgid "White Label (Agency)"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:482
+msgid "Rename and present Sydney as your own."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:484, inc/dashboard/html-home.php:130
+msgid "Learn More"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:497, inc/modules/class-sydney-modules.php:36
+msgid "Build headers, footers etc. with the site editor."
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:506
+msgid "Merchant"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:512
+msgid "aThemes Addons for Elementor"
+msgstr ""
+
+#: inc/dashboard/class-dashboard-settings.php:564, inc/integrations/elementor/library/templates.php:54
+msgid "Get Pro"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:124, inc/dashboard/class-dashboard.php:125, inc/dashboard/html-notifications-sidebar.php:46, inc/extras.php:354, inc/modules/hf-builder/components/footer/copyright/copyright.php:17, inc/onboarding/theme-info.php:136, inc/theme-dashboard-settings.php:21
 msgid "Sydney"
 msgstr ""
 
+#: inc/dashboard/class-dashboard.php:136, inc/dashboard/class-dashboard.php:137, inc/dashboard/html-hero.php:58, theme-dashboard/class-theme-dashboard.php:109, theme-dashboard/class-theme-dashboard.php:109, theme-dashboard/class-theme-dashboard.php:538, theme-dashboard/class-theme-dashboard.php:589
+msgid "Theme Dashboard"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:170, inc/dashboard/class-dashboard.php:171
+msgid "Patcher"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:249, inc/dashboard/html-home.php:69, inc/dashboard/html-home.php:166, inc/dashboard/html-settings-performance.php:31, inc/dashboard/html-starter-sites.php:31, inc/onboarding/plugins/class-sydney-recommended-plugins.php:92, inc/onboarding/plugins/class-sydney-recommended-plugins.php:112, theme-dashboard/class-theme-dashboard.php:372
+msgid "Activate"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:250, inc/dashboard/html-home.php:60, inc/dashboard/html-home.php:157, inc/dashboard/html-settings-performance.php:27, inc/onboarding/plugins/class-sydney-recommended-plugins.php:107, theme-dashboard/class-theme-dashboard.php:376
+msgid "Deactivate"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:251
+msgid "Installing..."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:252
+msgid "Activating..."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:253
+msgid "Deactivating..."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:254
+msgid "Loading..."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:255
+msgid "Saving..."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:256
+msgid "Saved!"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:257
+msgid "You have unsaved changes."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:258, inc/dashboard/html-builder.php:156
+msgid "Save"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:259
+msgid "Redirecting..."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:260
+msgid "Activated"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:261
+msgid "Deactivated"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:262, theme-dashboard/class-theme-dashboard.php:123
+msgid "Something went wrong, contact support."
+msgstr ""
+
+#. translators: %s: https://wordpress.org/
+#: inc/dashboard/class-dashboard.php:448
+msgid "Thank you for creating your website with <a href=\"%s\" class=\"sydney-dashboard-footer-link\" target=\"_blank\">Sydney</a>."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:491, theme-dashboard/class-theme-dashboard.php:278
+msgid "Insufficient permissions to install the plugin."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:521, theme-dashboard/class-theme-dashboard.php:297
+msgid "Failed to initialize or activate importer plugin."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:832
+msgid "Select existing"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:829
+msgid "No templates found."
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:881
+msgid "Theme News"
+msgstr ""
+
+#: inc/dashboard/class-dashboard.php:892
+msgid "Website"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:17
+msgid "Page Title"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:34
+msgid "Please note: "
+msgstr ""
+
+#: inc/dashboard/html-builder.php:34
+msgid "This feature is available only in Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:38
+msgid "Replace theme-built components like header, footer, etc. on specific pages or everywhere."
+msgstr ""
+
+#: inc/dashboard/html-builder.php:39
+msgid "Use the Global Template to create parts for all pages."
+msgstr ""
+
+#: inc/dashboard/html-builder.php:40
+msgid "You can create multiple templates and assign them to specific pages."
+msgstr ""
+
+#: inc/dashboard/html-builder.php:43
+msgid "Need help?"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:43
+msgid "Watch a quick tutorial video."
+msgstr ""
+
+#: inc/dashboard/html-builder.php:91
+msgid "Global Template"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:89
+msgid "Template Name"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:96, inc/dashboard/html-builder.php:96
+msgid "Display conditions"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:102, inc/dashboard/html-builder.php:102
+msgid "Duplicate"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:103, inc/dashboard/html-builder.php:103
+msgid "Delete"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:112
+msgid "Select %s"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:113
+msgid "%s Selected"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:116
+msgid "Select Existing"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:117
+msgid "Create New"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:119
+msgid "Reset"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:129
+msgid "Choose your builder:"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:131
+msgid "Elementor"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:133
+msgid "WordPress Editor"
+msgstr ""
+
+#: inc/dashboard/html-builder.php:150
+msgid "Add Template"
+msgstr ""
+
+#: inc/dashboard/html-free-vs-pro.php:1816
+msgid "Buy Sydney Pro Today"
+msgstr ""
+
+#: inc/dashboard/html-hero.php:25, theme-dashboard/class-theme-dashboard.php:488
+msgid "Hello, "
+msgstr ""
+
+#: inc/dashboard/html-hero.php:27, theme-dashboard/class-theme-dashboard.php:496
+msgid "👋🏻"
+msgstr ""
+
+#: inc/dashboard/html-hero.php:73
+msgid "Start Customizing"
+msgstr ""
+
+#: inc/dashboard/html-hero.php:65
+msgid "Clicking \"Starter Sites\" button will install and activate the Sydney 'aThemes Starter Sites' plugin."
+msgstr ""
+
+#: inc/dashboard/html-home.php:21
+msgid "Customize your site"
+msgstr ""
+
+#: inc/dashboard/html-home.php:23
+msgid "Go To Customizer"
+msgstr ""
+
+#: inc/dashboard/html-home.php:45, inc/dashboard/html-home.php:142, inc/dashboard/html-home.php:275, inc/onboarding/theme-info.php:125, theme-dashboard/class-theme-dashboard.php:580
+msgid "Documentation"
+msgstr ""
+
+#: inc/dashboard/html-home.php:89
+msgid "Do more with Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-home.php:93
+msgid "Upgrade To Pro"
+msgstr ""
+
+#: inc/dashboard/html-home.php:133
+msgid "This option is only available on Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-home.php:188
+msgid "Useful plugins"
+msgstr ""
+
+#: inc/dashboard/html-home.php:228, theme-dashboard/class-theme-dashboard.php:711
+msgid "Premium support"
+msgstr ""
+
+#: inc/dashboard/html-home.php:231
+msgid "Get support from our team of WordPress experts via email. We typically reply to requests within 8 business hours."
+msgstr ""
+
+#: inc/dashboard/html-home.php:233
+msgid "Get Premium Support With Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-home.php:245
+msgid "Leave a review"
+msgstr ""
+
+#: inc/dashboard/html-home.php:265, inc/onboarding/theme-info.php:256, theme-dashboard/class-theme-dashboard.php:733
+msgid "It makes us happy to hear from our users. We would appreciate a review."
+msgstr ""
+
+#: inc/dashboard/html-home.php:267, theme-dashboard/class-theme-dashboard.php:737
+msgid "Submit a Review"
+msgstr ""
+
+#: inc/dashboard/html-home.php:278
+msgid "Browse documentation and tutorials for the Sydney theme."
+msgstr ""
+
+#: inc/dashboard/html-home.php:280
+msgid "Browse Docs"
+msgstr ""
+
+#: inc/dashboard/html-home.php:288, inc/onboarding/theme-info.php:39, theme-dashboard/class-theme-dashboard.php:645
+msgid "Support"
+msgstr ""
+
+#: inc/dashboard/html-home.php:291
+msgid "Have a question? Hit a bug? Find solutions or ask a member of our expert team for help."
+msgstr ""
+
+#: inc/dashboard/html-home.php:293, theme-dashboard/class-theme-dashboard.php:661
+msgid "Get Support"
+msgstr ""
+
+#: inc/dashboard/html-home.php:301, theme-dashboard/class-theme-dashboard.php:743
+msgid "Have an idea or feedback?"
+msgstr ""
+
+#: inc/dashboard/html-home.php:304
+msgid "Got an idea for how to improve Sydney and Sydney Pro? Let us know."
+msgstr ""
+
+#: inc/dashboard/html-home.php:306
+msgid "Suggest An Idea"
+msgstr ""
+
+#: inc/dashboard/html-home.php:317
+msgid "Join our Facebook community"
+msgstr ""
+
+#: inc/dashboard/html-home.php:320
+msgid "Share your projects, ask questions, or connect with fellow Sydney users in our friendly community."
+msgstr ""
+
+#: inc/dashboard/html-home.php:322, theme-dashboard/class-theme-dashboard.php:681
+msgid "Join Now"
+msgstr ""
+
+#: inc/dashboard/html-notifications-sidebar.php:16
+msgid "Close the sidebar"
+msgstr ""
+
+#: inc/dashboard/html-notifications-sidebar.php:35
+msgid "New Update"
+msgstr ""
+
+#: inc/dashboard/html-notifications-sidebar.php:33, theme-dashboard/class-theme-dashboard.php:755
+msgid "Changelog"
+msgstr ""
+
+#: inc/dashboard/html-notifications-sidebar.php:51, inc/onboarding/theme-info.php:137, inc/theme-dashboard-settings.php:22
+msgid "Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-notifications-sidebar.php:98, inc/dashboard/html-notifications-sidebar.php:146
+msgid "No notifications found"
+msgstr ""
+
+#: inc/dashboard/html-patcher.php:302
+msgid "Please note this feature is available only in Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-patcher.php:304, inc/dashboard/html-settings-general.php:60
+msgid "Upgrade Now"
+msgstr ""
+
+#: inc/dashboard/html-patcher.php:348
+msgid "This is only available on Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-patcher.php:344
+msgid "This will install and activate the aThemes Patcher plugin"
+msgstr ""
+
+#: inc/dashboard/html-settings-general.php:55, inc/theme-dashboard-settings.php:321
+msgid "Get Sydney Pro"
+msgstr ""
+
+#: inc/dashboard/html-settings-general.php:56
+msgid "Take Sydney to a whole other level by upgrading to the premium version."
+msgstr ""
+
+#: inc/dashboard/html-settings-general.php:21
+msgid "Sydney Pro License"
+msgstr ""
+
+#: inc/dashboard/html-settings-general.php:22
+msgid "Activate your license key for Sydney Pro to get latest theme updates automatically updates right from your WordPress Dashboard."
+msgstr ""
+
+#: inc/dashboard/html-settings-general.php:28
+msgid "Instructions"
+msgstr ""
+
+#: inc/dashboard/html-settings-general.php:36
+msgid "To get your key, please login to your %1$saThemes account%2$s."
+msgstr ""
+
+#: inc/dashboard/html-settings-general.php:43
+msgid "In the licenses section, click on the 🔑 key icon. A license key will appear. Copy and paste the key here"
+msgstr ""
+
+#: inc/dashboard/html-settings-performance.php:20
+msgid "Load Google Fonts Locally"
+msgstr ""
+
+#: inc/dashboard/html-settings-performance.php:21
+msgid "Activate this option to load the Google fonts locally."
+msgstr ""
+
+#: inc/dashboard/html-starter-sites.php:50
+msgid "Go to Starter Sites"
+msgstr ""
+
+#: inc/dashboard/html-starter-sites.php:27
+msgid "In order to be able to import any starter sites for Sydney you need to have the aThemes demo importer plugin active."
+msgstr ""
+
+#: inc/dashboard/html-starter-sites.php:29
+msgid "Install and Activate"
+msgstr ""
+
+#: inc/extras.php:336
+msgid "%s link, opens in a new tab"
+msgstr ""
+
 #. translators: %s: Author name
-#: inc/extras.php:421
+#: inc/extras.php:427
 msgid "By %s"
 msgstr ""
 
 #. translators: %s: Author name
-#: inc/extras.php:431
+#: inc/extras.php:437
 msgid "See all posts by %s"
 msgstr ""
 
-#: inc/extras.php:728
+#: inc/extras.php:586
+msgid "Cart &amp; account icons"
+msgstr ""
+
+#: inc/extras.php:588
+msgid "Contact info"
+msgstr ""
+
+#: inc/extras.php:589, inc/modules/hf-builder/class-header-footer-builder.php:101, inc/modules/hf-builder/class-header-footer-builder.php:141, inc/modules/hf-builder/class-header-footer-builder.php:186
+msgid "Social"
+msgstr ""
+
+#: inc/extras.php:741
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: inc/extras.php:732
+#: inc/extras.php:745
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: inc/extras.php:997
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:99
+msgid "Global Color 1"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:100
+msgid "Global Color 2"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:101
+msgid "Global Color 3"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:102
+msgid "Global Color 4"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:103
+msgid "Global Color 5"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:104
+msgid "Global Color 6"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:105
+msgid "Global Color 7"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:106
+msgid "Global Color 8"
+msgstr ""
+
+#: inc/integrations/elementor/class-sydney-elementor-global-colors.php:107
+msgid "Global Color 9"
+msgstr ""
+
+#: inc/integrations/elementor/library/library-manager.php:38
+msgid "No Templates Found"
+msgstr ""
+
+#: inc/integrations/elementor/library/library-manager.php:39
+msgid "Try different category or sync for new templates."
+msgstr ""
+
+#: inc/integrations/elementor/library/library-manager.php:40
+msgid "No Results Found"
+msgstr ""
+
+#: inc/integrations/elementor/library/library-manager.php:41
+msgid "Please make sure your search is spelled correctly or try a different word."
+msgstr ""
+
+#: inc/integrations/elementor/library/library-manager.php:72
+msgid "Post not found."
+msgstr ""
+
+#: inc/integrations/elementor/library/library-manager.php:92
+msgid "Post not found"
+msgstr ""
+
+#: inc/integrations/elementor/library/library-manager.php:99
+msgid "Template id missing"
+msgstr ""
+
+#: inc/integrations/elementor/library/library-source.php:32
+msgid "Template Library"
+msgstr ""
+
+#: inc/integrations/elementor/library/library-source.php:198
+msgid "Template does not have any content"
+msgstr ""
+
+#: inc/integrations/elementor/library/templates.php:18
+msgid "Back to Library"
+msgstr ""
+
+#: inc/integrations/elementor/library/templates.php:29, inc/integrations/elementor/library/templates.php:30
+msgid "Sync Library"
+msgstr ""
+
+#: inc/integrations/elementor/library/templates.php:47
+msgid "Insert"
+msgstr ""
+
+#: inc/integrations/elementor/library/templates.php:68
+msgid "Loading"
+msgstr ""
+
+#: inc/integrations/elementor/library/templates.php:76
+msgid "Filter"
+msgstr ""
+
+#: inc/integrations/elementor/library/templates.php:88
+msgid "Search Templates:"
+msgstr ""
+
+#: inc/integrations/elementor/library/templates.php:114
+msgid "Preview"
 msgstr ""
 
 #: inc/integrations/learndash/customize.php:12
@@ -2155,33 +3492,548 @@ msgstr ""
 msgid "[aThemes Posts] See all button text"
 msgstr ""
 
+#: inc/modules/hf-builder/class-header-footer-builder.php:109, inc/modules/hf-builder/class-header-footer-builder.php:149
+msgid "Site Identity"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:117, inc/modules/hf-builder/class-header-footer-builder.php:157, inc/modules/hf-builder/components/header/contact-info/customize-options.php:25
+msgid "Contact Info"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:129
+msgid "Off-Canvas Menu"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:137, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:24
+msgid "Menu Toggle"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:169, inc/modules/hf-builder/class-header-footer-builder.php:174, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:29
+msgid "WooCommerce Icons"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:182, inc/modules/hf-builder/components/footer/copyright/customize-options.php:24
+msgid "Copyright"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:190, inc/modules/hf-builder/components/footer/button/customize-options.php:14
+msgid "Button 1"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:198, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:14
+msgid "Widget Area 1"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:202, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:14
+msgid "Widget Area 2"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:206, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:14
+msgid "Widget Area 3"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:210, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:14
+msgid "Widget Area 4"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:218, inc/modules/hf-builder/class-header-footer-builder.php:242
+msgid "Button 2"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:222, inc/modules/hf-builder/class-header-footer-builder.php:238
+msgid "HTML 2"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:226, inc/woocommerce.php:704
+msgid "Login/Register"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:234
+msgid "Footer Menu"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:250, inc/modules/hf-builder/class-header-footer-builder.php:275, inc/modules/hf-builder/class-header-footer-builder.php:429, inc/modules/hf-builder/class-header-footer-builder.php:519
+msgid "Top Row"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:251, inc/modules/hf-builder/class-header-footer-builder.php:430
+msgid "The settings from the first row from header builder."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:257, inc/modules/hf-builder/class-header-footer-builder.php:282, inc/modules/hf-builder/class-header-footer-builder.php:442, inc/modules/hf-builder/class-header-footer-builder.php:532, inc/modules/hf-builder/components/header/header-builder/customize-options.php:135
+msgid "Main Row"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:258, inc/modules/hf-builder/class-header-footer-builder.php:443
+msgid "The settings from the second row from header builder."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:264, inc/modules/hf-builder/class-header-footer-builder.php:289, inc/modules/hf-builder/class-header-footer-builder.php:455, inc/modules/hf-builder/class-header-footer-builder.php:545, inc/modules/hf-builder/components/header/header-builder/customize-options.php:136
+msgid "Bottom Row"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:265, inc/modules/hf-builder/class-header-footer-builder.php:456
+msgid "The settings from the third row from header builder."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:276, inc/modules/hf-builder/class-header-footer-builder.php:520
+msgid "The settings from the first row from footer builder."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:283, inc/modules/hf-builder/class-header-footer-builder.php:533
+msgid "The settings from the second row from footer builder."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:290, inc/modules/hf-builder/class-header-footer-builder.php:546
+msgid "The settings from the third row from footer builder."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:358
+msgid "PRO Components"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:359
+msgid "13+ Components Available"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:360
+msgid "Get Sydney Pro Now!"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:365
+msgid "It looks like you already are using all available components."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:418
+msgid "Powerful drag and drop tool to build your own header."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:468, inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:36
+msgid "Mobile Offcanvas"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:469
+msgid "The settings from the mobile offcanvas from header builder."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:508
+msgid "Powerful drag and drop tool to build your own footer."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:688, inc/modules/hf-builder/class-header-footer-builder.php:689, inc/modules/hf-builder/class-header-footer-builder.php:709, inc/modules/hf-builder/class-header-footer-builder.php:710
+msgid "Click to edit this element."
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:729
+msgid "Desktop"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:735
+msgid "Tablet/Mobile"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:755, inc/modules/hf-builder/class-header-footer-builder.php:811
+msgid "TOP ROW"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:768, inc/modules/hf-builder/class-header-footer-builder.php:824
+msgid "MAIN ROW"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:781, inc/modules/hf-builder/class-header-footer-builder.php:837
+msgid "BOTTOM ROW"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:797
+msgid "OFFCANVAS"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:854
+msgid "Show"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:858
+msgid "Hide"
+msgstr ""
+
+#: inc/modules/hf-builder/class-header-footer-builder.php:1014
+msgid "Close mobile menu"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/button/customize-options.php:97
+msgid "Button Class"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/button/customize-options.php:162, inc/modules/hf-builder/components/footer/copyright/customize-options.php:104, inc/modules/hf-builder/components/footer/html/customize-options.php:170, inc/modules/hf-builder/components/footer/social/customize-options.php:108, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:108, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:108, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:109, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:108, inc/modules/hf-builder/components/header/button/customize-options.php:124, inc/modules/hf-builder/components/header/contact-info/customize-options.php:141, inc/modules/hf-builder/components/header/html/customize-options.php:180, inc/modules/hf-builder/components/header/logo/customize-options.php:192, inc/modules/hf-builder/components/header/menu/customize-options.php:139, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:108, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:114, inc/modules/hf-builder/components/header/search/customize-options.php:107, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:128, inc/modules/hf-builder/components/header/social/customize-options.php:110, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:115
+msgid "Visible"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/button/customize-options.php:163, inc/modules/hf-builder/components/footer/copyright/customize-options.php:105, inc/modules/hf-builder/components/footer/html/customize-options.php:171, inc/modules/hf-builder/components/footer/social/customize-options.php:109, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:109, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:109, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:110, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:109, inc/modules/hf-builder/components/header/button/customize-options.php:125, inc/modules/hf-builder/components/header/contact-info/customize-options.php:142, inc/modules/hf-builder/components/header/html/customize-options.php:181, inc/modules/hf-builder/components/header/logo/customize-options.php:193, inc/modules/hf-builder/components/header/menu/customize-options.php:140, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:109, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:115, inc/modules/hf-builder/components/header/search/customize-options.php:108, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:129, inc/modules/hf-builder/components/header/social/customize-options.php:111, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:116
+msgid "Hidden"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/button/customize-options.php:179
+msgid "Colors"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/button/customize-options.php:208, inc/modules/hf-builder/components/footer/row/customize-options.php:279, inc/modules/hf-builder/components/header/button/customize-options.php:199, inc/modules/hf-builder/components/header/button/customize-options.php:321, inc/modules/hf-builder/components/header/row/customize-options.php:313, inc/modules/hf-builder/components/header/row/customize-options.php:599
+msgid "Background Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/button/customize-options.php:337, inc/modules/hf-builder/components/footer/copyright/customize-options.php:218, inc/modules/hf-builder/components/footer/html/customize-options.php:284, inc/modules/hf-builder/components/footer/social/customize-options.php:201, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:243, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:243, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:243, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:221, inc/modules/hf-builder/components/header/button/customize-options.php:454, inc/modules/hf-builder/components/header/contact-info/customize-options.php:362, inc/modules/hf-builder/components/header/html/customize-options.php:371, inc/modules/hf-builder/components/header/logo/customize-options.php:299, inc/modules/hf-builder/components/header/menu/customize-options.php:584, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:189, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:240, inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:256, inc/modules/hf-builder/components/header/search/customize-options.php:255, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:385, inc/modules/hf-builder/components/header/social/customize-options.php:269, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:301
+msgid "Wrapper Padding"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/button/customize-options.php:388, inc/modules/hf-builder/components/footer/copyright/customize-options.php:269, inc/modules/hf-builder/components/footer/html/customize-options.php:335, inc/modules/hf-builder/components/footer/social/customize-options.php:252, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:294, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:294, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:294, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:272, inc/modules/hf-builder/components/header/button/customize-options.php:505, inc/modules/hf-builder/components/header/contact-info/customize-options.php:413, inc/modules/hf-builder/components/header/html/customize-options.php:422, inc/modules/hf-builder/components/header/logo/customize-options.php:350, inc/modules/hf-builder/components/header/menu/customize-options.php:635, inc/modules/hf-builder/components/header/mobile-hamburger/customize-options.php:240, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:291, inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:307, inc/modules/hf-builder/components/header/search/customize-options.php:306, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:436, inc/modules/hf-builder/components/header/social/customize-options.php:320, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:352
+msgid "Wrapper Margin"
+msgstr ""
+
+#. translators: 1: column number.
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:28, inc/modules/hf-builder/components/footer/row/customize-options.php:236, inc/modules/hf-builder/components/header/columns/customize-options.php:28, inc/modules/hf-builder/components/header/row/customize-options.php:270
+msgid "Column %s"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:106, inc/modules/hf-builder/components/header/columns/customize-options.php:108
+msgid "Vertical Alignment"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:154, inc/modules/hf-builder/components/header/columns/customize-options.php:158
+msgid "Inner Elements Layout"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:163, inc/modules/hf-builder/components/header/columns/customize-options.php:167
+msgid "Stack"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:201, inc/modules/hf-builder/components/header/columns/customize-options.php:207
+msgid "Horizontal Alignment"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:210, inc/modules/hf-builder/components/header/columns/customize-options.php:216
+msgid "Start"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:212, inc/modules/hf-builder/components/header/columns/customize-options.php:218
+msgid "End"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:250, inc/modules/hf-builder/components/header/columns/customize-options.php:256
+msgid "Elements Spacing"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/columns/customize-options.php:354, inc/modules/hf-builder/components/footer/row/customize-options.php:504, inc/modules/hf-builder/components/header/columns/customize-options.php:360, inc/modules/hf-builder/components/header/row/customize-options.php:538
+msgid "Margin"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/copyright/customize-options.php:155, inc/modules/hf-builder/components/footer/widget-1/customize-options.php:180, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:180, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:181, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:180
+msgid "Links Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:109, inc/modules/hf-builder/components/footer/row/customize-options.php:299, inc/modules/hf-builder/components/header/header-builder/customize-options.php:226, inc/modules/hf-builder/components/header/row/customize-options.php:333, inc/page-builder.php:85, inc/so-page-builder.php:85
+msgid "Background Image"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:130, inc/modules/hf-builder/components/footer/row/customize-options.php:320, inc/modules/hf-builder/components/header/header-builder/customize-options.php:247, inc/modules/hf-builder/components/header/row/customize-options.php:354
+msgid "Background Size"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:154, inc/modules/hf-builder/components/footer/row/customize-options.php:344, inc/modules/hf-builder/components/header/header-builder/customize-options.php:271, inc/modules/hf-builder/components/header/row/customize-options.php:378
+msgid "Background Position"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:179, inc/modules/hf-builder/components/footer/row/customize-options.php:369, inc/modules/hf-builder/components/header/header-builder/customize-options.php:296, inc/modules/hf-builder/components/header/row/customize-options.php:403
+msgid "Background Repeat"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:181, inc/modules/hf-builder/components/footer/row/customize-options.php:371, inc/modules/hf-builder/components/header/header-builder/customize-options.php:298, inc/modules/hf-builder/components/header/row/customize-options.php:405
+msgid "No Repeat"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:182, inc/modules/hf-builder/components/footer/row/customize-options.php:372, inc/modules/hf-builder/components/header/header-builder/customize-options.php:299, inc/modules/hf-builder/components/header/row/customize-options.php:406
+msgid "Repeat"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:255, inc/modules/hf-builder/components/header/header-builder/customize-options.php:373, inc/modules/hf-builder/components/header/header-builder/customize-options.php:390
+msgid "Available Components"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/footer-builder/customize-options.php:285
+msgid "Extra components: HTML, Shortcode, Button, Footer Menu"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/html/customize-options.php:77
+msgid "Add your HTML"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/html/customize-options.php:113, inc/modules/hf-builder/components/header/html/customize-options.php:123, inc/modules/hf-builder/components/header/logo/customize-options.php:135
+msgid "Text Alignment"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/html/customize-options.php:221, inc/modules/hf-builder/components/header/html/customize-options.php:231, inc/modules/hf-builder/components/header/html/customize-options.php:307
+msgid "Link Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:113, inc/modules/hf-builder/components/header/row/customize-options.php:118
+msgid "Height"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:167, inc/modules/hf-builder/components/header/row/customize-options.php:192
+msgid "Columns Layout"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:173, inc/modules/hf-builder/components/footer/row/customize-options.php:177, inc/modules/hf-builder/components/footer/row/customize-options.php:189, inc/modules/hf-builder/components/footer/row/customize-options.php:213, inc/modules/hf-builder/components/footer/row/customize-options.php:217, inc/modules/hf-builder/components/header/row/customize-options.php:203, inc/modules/hf-builder/components/header/row/customize-options.php:207, inc/modules/hf-builder/components/header/row/customize-options.php:219, inc/modules/hf-builder/components/header/row/customize-options.php:247, inc/modules/hf-builder/components/header/row/customize-options.php:251
+msgid "Equal Width"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:181, inc/modules/hf-builder/components/footer/row/customize-options.php:193, inc/modules/hf-builder/components/footer/row/customize-options.php:205, inc/modules/hf-builder/components/header/row/customize-options.php:211, inc/modules/hf-builder/components/header/row/customize-options.php:227, inc/modules/hf-builder/components/header/row/customize-options.php:239
+msgid "Big Left"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:185, inc/modules/hf-builder/components/footer/row/customize-options.php:197, inc/modules/hf-builder/components/footer/row/customize-options.php:209, inc/modules/hf-builder/components/header/row/customize-options.php:215, inc/modules/hf-builder/components/header/row/customize-options.php:231, inc/modules/hf-builder/components/header/row/customize-options.php:243
+msgid "Big Right"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:201, inc/modules/hf-builder/components/header/row/customize-options.php:235
+msgid "Equal"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:231, inc/modules/hf-builder/components/header/row/customize-options.php:265
+msgid "Available Columns"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:388
+msgid "Border Top Size"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/row/customize-options.php:416
+msgid "Border Top Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/social/customize-options.php:24, inc/modules/hf-builder/components/header/social/customize-options.php:24, inc/onboarding/theme-info.php:157
+msgid "Social Icons"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/social/customize-options.php:138, inc/modules/hf-builder/components/header/contact-info/customize-options.php:176, inc/modules/hf-builder/components/header/contact-info/customize-options.php:264, inc/modules/hf-builder/components/header/social/customize-options.php:140, inc/modules/hf-builder/components/header/social/customize-options.php:194, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:145, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:199
+msgid "Icons Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/widget-1/customize-options.php:62
+msgid "Footer Widget Area 1"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/widget-1/customize-options.php:130, inc/modules/hf-builder/components/footer/widget-2/customize-options.php:130, inc/modules/hf-builder/components/footer/widget-3/customize-options.php:131, inc/modules/hf-builder/components/footer/widget-4/customize-options.php:130
+msgid "Widget Title Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/widget-2/customize-options.php:62
+msgid "Footer Widget Area 2"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/widget-3/customize-options.php:63
+msgid "Footer Widget Area 3"
+msgstr ""
+
+#: inc/modules/hf-builder/components/footer/widget-4/customize-options.php:62
+msgid "Footer Widget Area 4"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/button/customize-options.php:234
+msgid "Button Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/button/customize-options.php:291, inc/modules/hf-builder/components/header/contact-info/customize-options.php:233, inc/modules/hf-builder/components/header/html/customize-options.php:255, inc/modules/hf-builder/components/header/logo/customize-options.php:97, inc/modules/hf-builder/components/header/row/customize-options.php:577, inc/modules/hf-builder/components/header/search/customize-options.php:161, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:236, inc/modules/hf-builder/components/header/social/customize-options.php:164, inc/modules/hf-builder/components/header/wc-icons/customize-options.php:169
+msgid "Sticky Mode"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/contact-info/customize-options.php:95
+msgid "Display Inline"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:89
+msgid "Header Presets"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:90
+msgid "Mobile Header"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:91
+msgid "Hero Section"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:113
+msgid "Sticky Options"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:132
+msgid "Header Row To Sticky"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:134
+msgid "All Rows"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:158
+msgid "Transparent Options"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:173
+msgid "Mobile Breakpoint"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:373, inc/modules/hf-builder/components/header/header-builder/customize-options.php:390
+msgid "Drag and drop components to the header builder area."
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:442
+msgid "The header will be placed over the content. You need to manually change the background color from each header builder row to be transparent."
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:484
+msgid "Header Layouts"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/header-builder/customize-options.php:485
+msgid "Choose a header layout to start with."
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/html/customize-options.php:86
+msgid "HTML Content"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/logo/customize-options.php:37
+msgid "Logo"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/logo/customize-options.php:218
+msgid "Site Title Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/logo/customize-options.php:240
+msgid "Site Description Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:93, inc/modules/hf-builder/components/header/menu/customize-options.php:93
+msgid "Configure Menu"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:159
+msgid "Top Level Menu Items"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:222, inc/modules/hf-builder/components/header/menu/customize-options.php:421
+msgid "Text Color Hover"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:242
+msgid "Submenu"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:272, inc/modules/hf-builder/components/header/menu/customize-options.php:454, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:183, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:292
+msgid "Submenu Background"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:305, inc/modules/hf-builder/components/header/menu/customize-options.php:487, inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:177, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:212, inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:322
+msgid "Submenu Text Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:338, inc/modules/hf-builder/components/header/menu/customize-options.php:520
+msgid "Submenu Text Color Hover"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/menu/customize-options.php:358
+msgid "Sticky mode"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/mobile-hamburger/mobile-hamburger.php:16
+msgid "Open mobile offcanvas menu"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/mobile-offcanvas-menu/customize-options.php:28
+msgid "Mobile Offcanvas Menu"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:112
+msgid "Hide Close Icon"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:133
+msgid "Close Icon Offset"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:164
+msgid "Close Icon Background"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/mobile-offcanvas/customize-options.php:193
+msgid "Close Icon Text"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/row/customize-options.php:223
+msgid "Fluid Width"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/row/customize-options.php:422
+msgid "Border Bottom Size"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/row/customize-options.php:450, inc/modules/hf-builder/components/header/row/customize-options.php:621
+msgid "Border Bottom Color"
+msgstr ""
+
+#. translators: 1: Mobile row identifier.
+#: inc/modules/hf-builder/components/header/row/customize-options.php:651
+msgid "Mobile - %s"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/search/customize-options.php:137, inc/modules/hf-builder/components/header/search/customize-options.php:191
+msgid "Icon Color"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/search/search.php:14
+msgid "Search for a product"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/secondary-menu/customize-options.php:82
+msgid "Configure menu"
+msgstr ""
+
+#: inc/modules/hf-builder/components/header/secondary-menu/secondary-menu.php:32, inc/modules/hf-builder/components/header/secondary-menu/secondary-menu.php:26
+msgid "Secondary Navigation Menu"
+msgstr ""
+
+#. translators: 1. Image url.
+#: inc/notices/class-sydney-campaign.php:203
+msgid "Sydney Easter Sale: Up to <span><img src=\"%1$s\" class=\"sydney-campaign-notice-percent\" alt=\"Up to 30 Percent Off!\" /> Off!</span>"
+msgstr ""
+
+#: inc/notices/class-sydney-campaign.php:207
+msgid "Give Me This Deal"
+msgstr ""
+
+#: inc/notices/class-sydney-campaign.php:209
+msgid "Ready to join 130,000+ WordPress creators who've found their perfect match?"
+msgstr ""
+
 #. translators: %1$s current user display name.
-#: inc/notices/class-sydney-review.php:54
+#: inc/notices/class-sydney-review.php:58
 msgid "Hey, %1$s! You've been using Sydney for more than two weeks now and we hope you're happy with it. If you have a few minutes, we would love to get a 5 star review from you."
 msgstr ""
 
-#: inc/notices/class-sydney-review.php:63
+#: inc/notices/class-sydney-review.php:67
 msgid "Sure"
 msgstr ""
 
-#: inc/notices/class-sydney-review.php:65
+#: inc/notices/class-sydney-review.php:69
 msgid "Maybe later"
 msgstr ""
 
-#: inc/notices/class-sydney-review.php:67
+#: inc/notices/class-sydney-review.php:71
 msgid "I already did"
 msgstr ""
 
 #: inc/onboarding/plugins/class-sydney-recommended-plugins.php:88
 msgid "Install and activate"
-msgstr ""
-
-#: inc/onboarding/plugins/class-sydney-recommended-plugins.php:92, inc/onboarding/plugins/class-sydney-recommended-plugins.php:112, theme-dashboard/class-theme-dashboard.php:368
-msgid "Activate"
-msgstr ""
-
-#: inc/onboarding/plugins/class-sydney-recommended-plugins.php:107, theme-dashboard/class-theme-dashboard.php:372
-msgid "Deactivate"
 msgstr ""
 
 #: inc/onboarding/plugins/class-sydney-recommended-plugins.php:112
@@ -2200,24 +4052,12 @@ msgstr ""
 msgid "Hello, %s,"
 msgstr ""
 
-#: inc/onboarding/theme-info.php:31, inc/theme-dashboard-settings.php:142
-msgid "Welcome to Sydney"
-msgstr ""
-
 #: inc/onboarding/theme-info.php:32
 msgid "Sydney is now installed and ready to go. To help you with the next step, we’ve gathered together on this page all the resources you might need. We hope you enjoy using Sydney. You can always come back to this page by going to <strong>Appearance > Sydney Info</strong>."
 msgstr ""
 
 #: inc/onboarding/theme-info.php:38
 msgid "Getting started"
-msgstr ""
-
-#: inc/onboarding/theme-info.php:39, theme-dashboard/class-theme-dashboard.php:641
-msgid "Support"
-msgstr ""
-
-#: inc/onboarding/theme-info.php:40
-msgid "Free vs Pro"
 msgstr ""
 
 #: inc/onboarding/theme-info.php:48
@@ -2300,10 +4140,6 @@ msgstr ""
 msgid "Visit the forums"
 msgstr ""
 
-#: inc/onboarding/theme-info.php:125, theme-dashboard/class-theme-dashboard.php:576
-msgid "Documentation"
-msgstr ""
-
 #: inc/onboarding/theme-info.php:126
 msgid "Our documentation can help you learn how to use the theme and also provides you with premade code snippets and answers to FAQs."
 msgstr ""
@@ -2316,20 +4152,12 @@ msgstr ""
 msgid "Feature"
 msgstr ""
 
-#: inc/onboarding/theme-info.php:137, inc/theme-dashboard-settings.php:22
-msgid "Sydney Pro"
-msgstr ""
-
 #: inc/onboarding/theme-info.php:142, inc/theme-dashboard-settings.php:27
 msgid "Access to all Google Fonts"
 msgstr ""
 
 #: inc/onboarding/theme-info.php:152
 msgid "Parallax backgrounds"
-msgstr ""
-
-#: inc/onboarding/theme-info.php:157
-msgid "Social Icons"
 msgstr ""
 
 #: inc/onboarding/theme-info.php:162
@@ -2396,10 +4224,6 @@ msgstr ""
 msgid "View Sydney Pro"
 msgstr ""
 
-#: inc/onboarding/theme-info.php:256, theme-dashboard/class-theme-dashboard.php:730
-msgid "It makes us happy to hear from our users. We would appreciate a review."
-msgstr ""
-
 #: inc/onboarding/theme-info.php:257
 msgid "Submit a review here"
 msgstr ""
@@ -2410,14 +4234,6 @@ msgstr ""
 
 #: inc/onboarding/theme-info.php:263
 msgid "See the changelog"
-msgstr ""
-
-#: inc/onboarding/theme-info.php:268, inc/theme-dashboard-settings.php:230
-msgid "Take Sydney to a whole other level by upgrading to the Pro version."
-msgstr ""
-
-#: inc/onboarding/theme-info.php:269, inc/theme-dashboard-settings.php:231
-msgid "Discover Sydney Pro"
 msgstr ""
 
 #: inc/page-builder.php:44, inc/so-page-builder.php:44
@@ -2446,10 +4262,6 @@ msgstr ""
 
 #: inc/page-builder.php:80, inc/so-page-builder.php:80
 msgid "Color of the row."
-msgstr ""
-
-#: inc/page-builder.php:85, inc/so-page-builder.php:85
-msgid "Background Image"
 msgstr ""
 
 #: inc/page-builder.php:87, inc/so-page-builder.php:87
@@ -2673,6 +4485,10 @@ msgstr ""
 msgid "Starter sites"
 msgstr ""
 
+#: inc/theme-dashboard-settings.php:59
+msgid "Templates Module"
+msgstr ""
+
 #: inc/theme-dashboard-settings.php:69
 msgid "Extended WooCommerce Module"
 msgstr ""
@@ -2709,272 +4525,221 @@ msgstr ""
 msgid "Theme Features"
 msgstr ""
 
-#: inc/theme-dashboard-settings.php:155
-msgid "Change Site Title or Logo"
-msgstr ""
-
-#: inc/theme-dashboard-settings.php:160
-msgid "Header Options"
-msgstr ""
-
-#: inc/theme-dashboard-settings.php:165
-msgid "Color Options"
-msgstr ""
-
-#: inc/theme-dashboard-settings.php:170
-msgid "Font Options"
-msgstr ""
-
-#: inc/theme-dashboard-settings.php:175
-msgid "Blog Options"
-msgstr ""
-
-#: inc/theme-dashboard-settings.php:180
-msgid "Footer Credits"
-msgstr ""
-
-#: inc/theme-dashboard-settings.php:192
+#: inc/theme-dashboard-settings.php:156
 msgid "Free vs PRO"
 msgstr ""
 
-#: inc/theme-dashboard-settings.php:209
-msgid "Top bar"
+#: inc/theme-dashboard-settings.php:180
+msgid "Typography Options"
 msgstr ""
 
-#: inc/theme-dashboard-settings.php:214
-msgid "Extra Widget Area"
-msgstr ""
-
-#: inc/theme-dashboard-settings.php:219
-msgid "Google Maps"
+#: inc/theme-dashboard-settings.php:200
+msgid "Change Site Title or Logo"
 msgstr ""
 
 #: inc/theme-dashboard-settings.php:229
-msgid "Upgrade to Pro"
+msgid "Blog & pages"
 msgstr ""
 
-#: inc/theme-dashboard-settings.php:273
-msgid "Get Sydney Pro"
+#: inc/theme-dashboard-settings.php:259
+msgid "Integrations"
 msgstr ""
 
-#: inc/theme-update.php:92
+#: inc/theme-update.php:96
 msgid "Sydney Header Update"
 msgstr ""
 
-#: inc/theme-update.php:94
+#: inc/theme-update.php:98
 msgid "This version of Sydney comes with a new and improved header. Activate it by clicking the button below and you can access new options."
 msgstr ""
 
-#: inc/theme-update.php:98
+#: inc/theme-update.php:102
 msgid "Note 1: this upgrade is optional, there is no need to do it if you are happy with your current header."
 msgstr ""
 
-#: inc/theme-update.php:101
+#: inc/theme-update.php:105
 msgid "Note 2: your current header customizations will be lost and you will have to use the new options to customize your header."
 msgstr ""
 
-#: inc/theme-update.php:104
+#: inc/theme-update.php:108
 msgid "Note 3: this upgrade refers only to the header (site identity and menu bar). It does not change any settings regarding your hero area (slider, video etc)."
 msgstr ""
 
-#: inc/theme-update.php:107
+#: inc/theme-update.php:111
 msgid "Note 4: Please take a full backup of your website before upgrading."
 msgstr ""
 
-#: inc/theme-update.php:110
+#: inc/theme-update.php:114
 msgid "Want to see the new header options before upgrading? Check out our %s."
 msgstr ""
 
-#: inc/theme-update.php:112
+#: inc/theme-update.php:116
 msgid "Upgrade Theme Header"
 msgstr ""
 
-#: inc/theme-update.php:113
+#: inc/theme-update.php:117
 msgid "Continue to use the old header"
 msgstr ""
 
-#: inc/woocommerce.php:475
+#: inc/theme-update.php:381
+msgid "Sydney Header/Footer Update"
+msgstr ""
+
+#: inc/theme-update.php:383
+msgid "This version of Sydney comes with a new Header and Footer Builder. Activate it by clicking on the button below and you can access new options."
+msgstr ""
+
+#: inc/theme-update.php:386
+msgid "Note 1: This upgrade is optional, there is no need to do it if you are happy with your current header and footer."
+msgstr ""
+
+#: inc/theme-update.php:389
+msgid "Note 2: Your current header and footer customizations will be lost and you will have to use the new options to customize your header and footer."
+msgstr ""
+
+#: inc/theme-update.php:392
+msgid "Note 3: Please take a full backup of your website before upgrading."
+msgstr ""
+
+#. translators: 1: documentation link.
+#: inc/theme-update.php:397
+msgid "Want to see the new header and footer builder before upgrading? Check out our %s."
+msgstr ""
+
+#: inc/theme-update.php:399
+msgid "Update theme header and footer"
+msgstr ""
+
+#: inc/theme-update.php:400
+msgid "Continue to use the old header and footer system"
+msgstr ""
+
+#: inc/woocommerce.php:480
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/woocommerce.php:501
+#: inc/woocommerce.php:509
 msgid "Your account"
 msgstr ""
 
-#: inc/woocommerce.php:511
+#: inc/woocommerce.php:519
 msgid "Your cart"
 msgstr ""
 
-#: inc/woocommerce.php:684
-msgid "Login/Register"
-msgstr ""
-
-#: inc/woocommerce.php:682
+#: inc/woocommerce.php:702
 msgid "My Account"
 msgstr ""
 
 #. translators: %s: quick view product title
-#: inc/woocommerce.php:862
+#: inc/woocommerce.php:882
 msgid "Quick view the %s product"
 msgstr ""
 
-#: inc/woocommerce.php:863
+#: inc/woocommerce.php:883
 msgid "Quick View"
 msgstr ""
 
-#: inc/woocommerce.php:1122
+#: inc/woocommerce.php:1142
 msgid "Clear"
 msgstr ""
 
-#: inc/woocommerce.php:1106
+#: inc/woocommerce.php:1126
 msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: page-templates/page_front-page.php:3
+msgid "Sydney Canvas"
 msgstr ""
 
 #: post-templates/post_full.php:3
 msgid "Page builder ready"
 msgstr ""
 
-#: search.php:23
-msgid "Search Results for: %s"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:109, theme-dashboard/class-theme-dashboard.php:109, theme-dashboard/class-theme-dashboard.php:534, theme-dashboard/class-theme-dashboard.php:585
-msgid "Theme Dashboard"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:123
-msgid "Something went wrong, contact support."
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:278
-msgid "Insufficient permissions to install the plugin."
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:297
-msgid "Failed to initialize or activate importer plugin."
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:414
+#: theme-dashboard/class-theme-dashboard.php:418
 msgid "Best WordPress Speed Optimization Plugins"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:418
+#: theme-dashboard/class-theme-dashboard.php:422
 msgid "We run through the top 10 WordPress performance plugins to keep your site running fast. Goes beyond just caching plugins (though those are on there too!). A must-read for all WordPress site owners."
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:434
+#: theme-dashboard/class-theme-dashboard.php:438
 msgid "WP Rocket Review"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:438
+#: theme-dashboard/class-theme-dashboard.php:442
 msgid "Every site that is serious about speed (and should be pretty much all sites these days) needs a caching plugin and WP Rocket is our pick of the bunch. Get the lowdown on why we recommend it n our data-backed review: "
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:454
+#: theme-dashboard/class-theme-dashboard.php:458
 msgid "Fastest WordPress Hosts"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:458
+#: theme-dashboard/class-theme-dashboard.php:462
 msgid "A slow host can really put a drag on your site’s performance, even an optimized one. Make sure you get a host that won’t hold you back by reading our review, complete with real speed tests, of the fastest WordPress hosts. "
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:484
-msgid "Hello, "
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:492
-msgid "👋🏻"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:529
-msgid "Starter Sites"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:541
+#: theme-dashboard/class-theme-dashboard.php:545
 msgid "Clicking “Starter Sites” button will install and activate the demo importer plugin."
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:568
+#: theme-dashboard/class-theme-dashboard.php:572
 msgid "aThemes"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:644
+#: theme-dashboard/class-theme-dashboard.php:648
 msgid "Priority Status"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:650
+#: theme-dashboard/class-theme-dashboard.php:654
 msgid "Need help? We're here for you!"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:653
+#: theme-dashboard/class-theme-dashboard.php:657
 msgid "Have a question? Hit a bug? Get the help you need, when you need it from our friendly support staff."
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:657
-msgid "Get Support"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:665
-msgid "Upgrade to priority support"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:667
-msgid "pro"
-msgstr ""
-
 #: theme-dashboard/class-theme-dashboard.php:670
-msgid "Get direct support from our developers via email. We aim to answer all priority support requests within 24 hours."
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:674
-msgid "Get Priority Support"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:684
 msgid "Community"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:688
+#: theme-dashboard/class-theme-dashboard.php:674
 msgid "Join Our Community"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:691
+#: theme-dashboard/class-theme-dashboard.php:677
 msgid "Discuss products and ask for community support or help the community."
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:695
-msgid "Join Now"
+#: theme-dashboard/class-theme-dashboard.php:712
+msgid "pro"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:725
+#: theme-dashboard/class-theme-dashboard.php:715
+msgid "Get direct support from our developers via email. We aim to answer all premium support requests within 24 hours."
+msgstr ""
+
+#: theme-dashboard/class-theme-dashboard.php:719
+msgid "Get Premium Support"
+msgstr ""
+
+#: theme-dashboard/class-theme-dashboard.php:728
 msgid "Review"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:734
-msgid "Submit a Review"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:740
-msgid "Have an idea or feedback?"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:742
+#: theme-dashboard/class-theme-dashboard.php:745
 msgid "Let us know. We'd love to hear from you."
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:745
+#: theme-dashboard/class-theme-dashboard.php:748
 msgid "Suggest an Idea"
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:752
-msgid "Changelog"
-msgstr ""
-
-#: theme-dashboard/class-theme-dashboard.php:759
+#: theme-dashboard/class-theme-dashboard.php:762
 msgid "Keep informed with the latest changes about each theme."
 msgstr ""
 
-#: theme-dashboard/class-theme-dashboard.php:762
+#: theme-dashboard/class-theme-dashboard.php:765
 msgid "See the Changelog"
 msgstr ""
 
@@ -3284,10 +5049,6 @@ msgstr ""
 
 #: widgets/fp-services-type-a.php:45, widgets/fp-services-type-b.php:53
 msgid "Full content"
-msgstr ""
-
-#: widgets/fp-services-type-a.php:46, widgets/fp-services-type-b.php:54
-msgid "Excerpt"
 msgstr ""
 
 #: widgets/fp-services-type-a.php:147, widgets/fp-services-type-b.php:162
