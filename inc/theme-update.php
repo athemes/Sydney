@@ -394,7 +394,7 @@ function sydney_hf_update_notice_2_52() {
         <p>
             <?php 
             /* translators: 1: documentation link. */
-            printf( esc_html__( 'Want to see the new header and footer builder before upgrading? Check out our %s.', 'sydney' ), '<a target="_blank" href="#">documentation</a>' ); ?>
+            printf( esc_html__( 'Want to see the new header and footer builder before upgrading? Check out our %s.', 'sydney' ), '<a target="_blank" href="https://docs.athemes.com/article/header-footer-builder-2/">documentation</a>' ); ?>
         </p>
         <a href="#" class="button sydney-update-hf" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-hf-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Update theme header and footer', 'sydney' ); ?></a>
         <a href="#" class="button sydney-update-hf-dismiss" data-nonce="<?php echo esc_attr( wp_create_nonce( 'sydney-update-hf-dismiss-nonce' ) ); ?>" style="margin-top: 15px;"><?php esc_html_e( 'Continue to use the old header and footer system', 'sydney' ); ?></a> 
