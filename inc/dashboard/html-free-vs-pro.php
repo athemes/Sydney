@@ -415,9 +415,7 @@ if (!defined('ABSPATH')) {
 																									<div class= "sydney-dashboard-freevspro-table__row">
 														<div class= "sydney-dashboard-freevspro-table__column sydney-dashboard-freevspro-table__column--feature">
 															
-																														<strong><a href="https://docs.athemes.com/article/436-pro-extended-header-module" target="_blank">Extended header module<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<path fill-rule="evenodd" clip-rule="evenodd" d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3H6.5C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497V2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z" fill="black"></path>
-																</svg></a></strong>
+																														<strong>More Header Options</strong>
 																													</div>
 														<div class= "sydney-dashboard-freevspro-table__column">
 																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-no-alt"></i>
@@ -427,36 +425,6 @@ if (!defined('ABSPATH')) {
 														<div class= "sydney-dashboard-freevspro-table__column">
 																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-saved"></i>
 
-																													</div>
-													</div>
-																									<div class= "sydney-dashboard-freevspro-table__row sub-item">
-														<div class= "sydney-dashboard-freevspro-table__column sydney-dashboard-freevspro-table__column--feature">
-																															<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path d="M6.83315 11.6377H12.5076L8.9814 15.1639L9.68862 15.8711L14.4201 11.1396L9.68862 6.40488L8.9814 7.11211L12.5076 10.6383H6.83315C5.03687 10.635 3.58257 9.18066 3.57925 7.38437V1.12891H2.57983V7.38437C2.58315 9.73184 4.48569 11.6344 6.83315 11.6377Z" fill="#A0A0A0"></path>
-																</svg>
-															
-																														<strong>Header Layouts</strong>
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<strong class="">5</strong>
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<strong class="">7</strong>
-																													</div>
-													</div>
-																									<div class= "sydney-dashboard-freevspro-table__row sub-item">
-														<div class= "sydney-dashboard-freevspro-table__column sydney-dashboard-freevspro-table__column--feature">
-																															<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path d="M6.83315 11.6377H12.5076L8.9814 15.1639L9.68862 15.8711L14.4201 11.1396L9.68862 6.40488L8.9814 7.11211L12.5076 10.6383H6.83315C5.03687 10.635 3.58257 9.18066 3.57925 7.38437V1.12891H2.57983V7.38437C2.58315 9.73184 4.48569 11.6344 6.83315 11.6377Z" fill="#A0A0A0"></path>
-																</svg>
-															
-																														<strong>Mobile Header layouts</strong>
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<strong class="">3</strong>
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<strong class="">4</strong>
 																													</div>
 													</div>
 																									<div class= "sydney-dashboard-freevspro-table__row sub-item">
@@ -519,24 +487,6 @@ if (!defined('ABSPATH')) {
 																	<path d="M6.83315 11.6377H12.5076L8.9814 15.1639L9.68862 15.8711L14.4201 11.1396L9.68862 6.40488L8.9814 7.11211L12.5076 10.6383H6.83315C5.03687 10.635 3.58257 9.18066 3.57925 7.38437V1.12891H2.57983V7.38437C2.58315 9.73184 4.48569 11.6344 6.83315 11.6377Z" fill="#A0A0A0"></path>
 																</svg>
 															
-																														<strong>Mobile menu custom breakpoint option</strong>
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-no-alt"></i>
-
-
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-saved"></i>
-
-																													</div>
-													</div>
-																									<div class= "sydney-dashboard-freevspro-table__row sub-item">
-														<div class= "sydney-dashboard-freevspro-table__column sydney-dashboard-freevspro-table__column--feature">
-																															<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path d="M6.83315 11.6377H12.5076L8.9814 15.1639L9.68862 15.8711L14.4201 11.1396L9.68862 6.40488L8.9814 7.11211L12.5076 10.6383H6.83315C5.03687 10.635 3.58257 9.18066 3.57925 7.38437V1.12891H2.57983V7.38437C2.58315 9.73184 4.48569 11.6344 6.83315 11.6377Z" fill="#A0A0A0"></path>
-																</svg>
-															
 																														<strong>Different logo for mobile devices</strong>
 																													</div>
 														<div class= "sydney-dashboard-freevspro-table__column">
@@ -556,21 +506,6 @@ if (!defined('ABSPATH')) {
 																													</div>
 														<div class= "sydney-dashboard-freevspro-table__column">
 																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-saved"></i>
-
-
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-saved"></i>
-
-																													</div>
-													</div>
-																									<div class= "sydney-dashboard-freevspro-table__row">
-														<div class= "sydney-dashboard-freevspro-table__column sydney-dashboard-freevspro-table__column--feature">
-															
-																														<strong>Top Bar</strong>
-																													</div>
-														<div class= "sydney-dashboard-freevspro-table__column">
-																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-no-alt"></i>
 
 
 																													</div>
@@ -987,9 +922,7 @@ if (!defined('ABSPATH')) {
 																									<div class= "sydney-dashboard-freevspro-table__row">
 														<div class= "sydney-dashboard-freevspro-table__column sydney-dashboard-freevspro-table__column--feature">
 															
-																														<strong><a href="https://docs.athemes.com/article/442-pro-extended-footer-module" target="_blank">Extended Footer Module<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<path fill-rule="evenodd" clip-rule="evenodd" d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3H6.5C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497V2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z" fill="black"></path>
-																</svg></a></strong>
+																														<strong>More Footer Options</strong>
 																													</div>
 														<div class= "sydney-dashboard-freevspro-table__column">
 																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-no-alt"></i>
@@ -1025,7 +958,25 @@ if (!defined('ABSPATH')) {
 																	<path d="M6.83315 11.6377H12.5076L8.9814 15.1639L9.68862 15.8711L14.4201 11.1396L9.68862 6.40488L8.9814 7.11211L12.5076 10.6383H6.83315C5.03687 10.635 3.58257 9.18066 3.57925 7.38437V1.12891H2.57983V7.38437C2.58315 9.73184 4.48569 11.6344 6.83315 11.6377Z" fill="#A0A0A0"></path>
 																</svg>
 															
-																														<strong>Footer Background Image</strong>
+																														<strong>Footer Reveal Effect</strong>
+																													</div>
+														<div class= "sydney-dashboard-freevspro-table__column">
+																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-no-alt"></i>
+
+
+																													</div>
+														<div class= "sydney-dashboard-freevspro-table__column">
+																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-saved"></i>
+
+																													</div>
+													</div>
+													<div class= "sydney-dashboard-freevspro-table__row sub-item">
+														<div class= "sydney-dashboard-freevspro-table__column sydney-dashboard-freevspro-table__column--feature">
+																															<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<path d="M6.83315 11.6377H12.5076L8.9814 15.1639L9.68862 15.8711L14.4201 11.1396L9.68862 6.40488L8.9814 7.11211L12.5076 10.6383H6.83315C5.03687 10.635 3.58257 9.18066 3.57925 7.38437V1.12891H2.57983V7.38437C2.58315 9.73184 4.48569 11.6344 6.83315 11.6377Z" fill="#A0A0A0"></path>
+																</svg>
+															
+																														<strong>Extra components</strong>
 																													</div>
 														<div class= "sydney-dashboard-freevspro-table__column">
 																															<i class="sydney-dashboard-freevspro-table__icon dashicons dashicons-no-alt"></i>
