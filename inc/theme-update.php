@@ -401,7 +401,7 @@ function sydney_hf_update_notice_2_52() {
     </div>
     <?php }
 }
-add_action( 'admin_notices', 'sydney_hf_update_notice_2_52' );
+//add_action( 'admin_notices', 'sydney_hf_update_notice_2_52' );
 
 /**
  * Header update ajax callback
