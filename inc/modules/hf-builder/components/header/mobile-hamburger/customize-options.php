@@ -276,17 +276,19 @@ foreach( $opts_to_move as $control_tabs ) {
 
 // Selective Refresh
 if ( isset( $wp_customize->selective_refresh ) ) {
-    $wp_customize->get_setting( 'mobile_menu_icon' )->transport = 'postMessage';
-    $wp_customize->selective_refresh->add_partial(
-        'mobile_menu_icon',
-        array(
-            'selector'            => '.shfb-component-mobile_hamburger',
-            'container_inclusive' => true,
-            'render_callback'     => function() {
-                require get_template_directory() . '/inc/modules/hf-builder/components/header/mobile-hamburger/mobile-hamburger.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-            }
-        )
-    );
+    if ( $wp_customize->get_setting( 'mobile_menu_icon' ) !== NULL ) {
+        $wp_customize->get_setting( 'mobile_menu_icon' )->transport = 'postMessage';
+        $wp_customize->selective_refresh->add_partial(
+            'mobile_menu_icon',
+            array(
+                'selector'            => '.shfb-component-mobile_hamburger',
+                'container_inclusive' => true,
+                'render_callback'     => function() {
+                    require get_template_directory() . '/inc/modules/hf-builder/components/header/mobile-hamburger/mobile-hamburger.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+                }
+            )
+        );
+    }
 }
 
 // @codingStandardsIgnoreEnd WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
