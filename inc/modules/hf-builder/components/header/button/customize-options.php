@@ -146,10 +146,10 @@ foreach( $opts_to_move as $control_tabs ) {
     }
 }
 
-if ( $wp_customize->get_setting( 'header_button_text' ) ) {
+if ( $wp_customize->get_setting( 'header_button_text' ) !== NULL ) {
     $wp_customize->get_setting( 'header_button_text' )->transport = 'refresh';
 }
-if ( $wp_customize->get_setting( 'header_button_link' ) ) {
+if ( $wp_customize->get_setting( 'header_button_link' ) !== NULL ) {
     $wp_customize->get_setting( 'header_button_link' )->transport = 'refresh';
 }
 
