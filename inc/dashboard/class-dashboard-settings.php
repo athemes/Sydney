@@ -269,7 +269,6 @@ function sydney_dashboard_settings()
 		'link_label' => esc_html__('Customize', 'sydney'),
 		'link_url'   => add_query_arg('autofocus[panel]', 'sydney_panel_blog', admin_url('customize.php'))
 	);
-
 	//Start Pro Features
 
 	$settings['features'][] = array(
@@ -341,16 +340,18 @@ function sydney_dashboard_settings()
 		'docs_link'   => 'https://docs.athemes.com/article/pro-browser-tools-module/',
 		'desc'        => __('Scrollbar, mobile theme color, prevent text copy', 'sydney'),
 	);	
-	$settings['features'][] = array(
-		'category'    => 'header',
-		'module'      => 'ext-header',
-		'title'        => esc_html__('Extended Header Module', 'sydney'),
-		'type'        => 'pro',
-		'link_url'    => add_query_arg('autofocus[panel]', 'sydney_panel_header', admin_url('customize.php')),
-		'link_label'  => esc_html__('Customize', 'sydney'),
-		'docs_link'   => 'https://docs.athemes.com/article/436-pro-extended-header-module',
-		'desc'        => __('New features for your header area.', 'sydney'),
-	);
+	if ( !Sydney_Modules::is_module_active( 'hf-builder' ) ) {
+		$settings['features'][] = array(
+			'category'    => 'header',
+			'module'      => 'ext-header',
+			'title'        => esc_html__('Extended Header Module', 'sydney'),
+			'type'        => 'pro',
+			'link_url'    => add_query_arg('autofocus[panel]', 'sydney_panel_header', admin_url('customize.php')),
+			'link_label'  => esc_html__('Customize', 'sydney'),
+			'docs_link'   => 'https://docs.athemes.com/article/436-pro-extended-header-module',
+			'desc'        => __('New features for your header area.', 'sydney'),
+		);
+	}
 	$settings['features'][] = array(
 		'category'    => 'header',
 		'module'      => 'mega-menu',
@@ -361,16 +362,30 @@ function sydney_dashboard_settings()
 		'docs_link'   => 'https://docs.athemes.com/article/how-to-build-a-mega-menu-with-sydney-pro/',
 		'desc'        => __('Mega menu with Elementor support', 'sydney'),
 	);
-	$settings['features'][] = array(
-		'category'    => 'footer',
-		'module'      => 'ext-footer',
-		'title'        => esc_html__('Extended Footer Module', 'sydney'),
-		'type'        => 'pro',
-		'link_url'    => add_query_arg('autofocus[panel]', 'sydney_panel_footer', admin_url('customize.php')),
-		'link_label'  => esc_html__('Customize', 'sydney'),
-		'docs_link'   => 'https://docs.athemes.com/article/442-pro-extended-footer-module',
-		'desc'        => __('Extra features for your footer', 'sydney'),
-	);
+	if ( !Sydney_Modules::is_module_active( 'hf-builder' ) ) {
+		$settings['features'][] = array(
+			'category'    => 'footer',
+			'module'      => 'ext-footer',
+			'title'        => esc_html__('Extended Footer Module', 'sydney'),
+			'type'        => 'pro',
+			'link_url'    => add_query_arg('autofocus[panel]', 'sydney_panel_footer', admin_url('customize.php')),
+			'link_label'  => esc_html__('Customize', 'sydney'),
+			'docs_link'   => 'https://docs.athemes.com/article/442-pro-extended-footer-module',
+			'desc'        => __('Extra features for your footer', 'sydney'),
+		);
+	}
+	if ( Sydney_Modules::is_module_active( 'hf-builder' ) ) {
+		$settings['features'][] = array(
+			'category'    => 'footer',
+			'module'      => 'pre-footer',
+			'title'        => esc_html__('Pre-Footer Module', 'sydney'),
+			'type'        => 'pro',
+			'link_url'    => add_query_arg('autofocus[section]', 'sydney_footer_contact', admin_url('customize.php')),
+			'link_label'  => esc_html__('Customize', 'sydney'),
+			'docs_link'   => 'https://docs.athemes.com/article/442-pro-extended-footer-module',
+			'desc'        => __('Pre-footer module', 'sydney'),
+		);
+	}
 	$settings['features'][] = array(
 		'category'    => 'blog',
 		'module'      => 'ext-blog',
