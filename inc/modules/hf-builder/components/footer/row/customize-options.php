@@ -271,6 +271,14 @@ foreach( $this->footer_rows as $row ) {
             'transport'         => 'postMessage'
         )
     );
+    $wp_customize->add_setting(
+        'global_sydney_footer_row__' . $row['id'] . '_background_color',
+        array(
+            'default'           => '',
+            'sanitize_callback' => 'wp_kses_post',
+            'transport'         => 'postMessage'
+        )
+    );
     $wp_customize->add_control(
         new Sydney_Alpha_Color(
             $wp_customize,
@@ -278,6 +286,10 @@ foreach( $this->footer_rows as $row ) {
             array(
                 'label'         	=> esc_html__( 'Background Color', 'sydney' ),
                 'section'       	=> $row['section'],
+                'settings'       => array(
+                    'global'  => 'global_sydney_footer_row__' . $row['id'] . '_background_color',
+                    'setting' => 'sydney_footer_row__' . $row['id'] . '_background_color',
+                ),
                 'priority'			=> 32
             )
         )
