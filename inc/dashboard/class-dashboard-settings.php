@@ -382,7 +382,7 @@ function sydney_dashboard_settings()
 			'type'        => 'pro',
 			'link_url'    => add_query_arg('autofocus[section]', 'sydney_footer_contact', admin_url('customize.php')),
 			'link_label'  => esc_html__('Customize', 'sydney'),
-			'docs_link'   => 'https://docs.athemes.com/article/442-pro-extended-footer-module',
+			'docs_link'   => 'https://docs.athemes.com/article/pre-footer-area/',
 			'desc'        => __('Pre-footer module', 'sydney'),
 		);
 	}

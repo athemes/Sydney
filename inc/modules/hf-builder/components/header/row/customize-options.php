@@ -298,6 +298,14 @@ foreach( $this->header_rows as $row ) {
 
     // Background.
     $wp_customize->add_setting(
+        'global_sydney_header_row__' . $row['id'] . '_background_color',
+        array(
+            'default'           => '',
+            'sanitize_callback' => 'wp_kses_post',
+            'transport'         => 'postMessage'
+        )
+    );
+    $wp_customize->add_setting(
         'sydney_header_row__' . $row['id'] . '_background_color',
         array(
             'default'           => '',
@@ -312,6 +320,10 @@ foreach( $this->header_rows as $row ) {
             array(
                 'label'         	=> esc_html__( 'Background Color', 'sydney' ),
                 'section'       	=> $row['section'],
+                'settings'       => array(
+                    'global'  => 'global_sydney_header_row__' . $row['id'] . '_background_color',
+                    'setting' => 'sydney_header_row__' . $row['id'] . '_background_color',
+                ),
                 'priority'			=> 32
             )
         )

@@ -486,7 +486,7 @@ sydney.headerSearch = {
 		}
 
 		if (document.body.classList.contains('has-shfb-builder')) {
-			form = document.querySelector('.header-search-form');
+			form = window.matchMedia('(max-width: 1024px)').matches ? document.querySelector('.shfb-mobile .header-search-form') : document.querySelector('.shfb-desktop .header-search-form');
 		}
 		
 		var searchInput 	= form.getElementsByClassName('search-field')[0];
