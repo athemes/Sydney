@@ -112,12 +112,11 @@ function sydney_setup() {
 
 	//Add theme support for editor color palette using the theme global colors
 	$colors = array();
-	$global_colors = sydney_get_global_colors();
-	foreach ( $global_colors as $key => $color ) {
+	for ( $i = 1; $i <= 9; $i++ ) {
 		$colors[] = array(
-			'name' => sprintf( __( 'Global Color %s', 'sydney' ), str_replace( 'global_color_', '', $key ) ),
-			'slug' => $key,
-			'color' => esc_attr( $color ),
+			'name' 	=> sprintf( __( 'Global Color %s', 'sydney' ), $i ),
+			'slug' 	=> 'global_color_' . $i,
+			'color' => 'var(--sydney-global-color-' . $i . ')',
 		);
 	}
 
