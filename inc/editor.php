@@ -71,6 +71,15 @@ function sydney_editor_styles() {
 	//Single post title
 	$custom .= Sydney_Custom_CSS::get_font_sizes_css( 'single_post_title_size', $defaults = array( 'desktop' => 48, 'tablet' => 32, 'mobile' => 32 ), '.editor-post-title__block .editor-post-title__input, .editor-styles-wrapper .editor-post-title__input' );
 
+	//Headings
+	$headings_font_style 		= get_theme_mod( 'headings_font_style', 'normal' );
+	$headings_line_height 		= get_theme_mod( 'headings_line_height', 1.2 );
+	$headings_letter_spacing 	= get_theme_mod( 'headings_letter_spacing' );
+	$headings_text_transform 	= get_theme_mod( 'headings_text_transform' );
+	$headings_text_decoration 	= get_theme_mod( 'headings_text_decoration' );
+
+	$custom .= ".editor-styles-wrapper .wp-block-heading { font-style:" . esc_attr( $headings_font_style ) . ";line-height:" . esc_attr( $headings_line_height ) . ";letter-spacing:" . esc_attr( $headings_letter_spacing ) . "px;text-transform:" . esc_attr( $headings_text_transform ) . ";text-decoration:" . esc_attr( $headings_text_decoration ) . ";}" . "\n";
+	
 	//__COLORS
 
 	//Body
