@@ -13,6 +13,17 @@ function sydney_editor_styles() {
 	//Dynamic styles
 	$custom = '';
 
+	//Global colors
+	$global_color_defaults = sydney_get_global_color_defaults();            
+	$global_colors = array();
+	
+	$custom .= ":root {" . "\n";
+	for ($i = 1; $i <= 9; $i++) {
+		$color = get_theme_mod("global_color_" . $i, $global_color_defaults["global_color_" . $i]);
+		$custom .= "  --sydney-global-color-" . $i . ":" . esc_attr( $color ) . ";" . "\n";
+	}
+	$custom .= "}" . "\n";
+
 	//Fonts
 	$typography_defaults = json_encode(
 		array(
