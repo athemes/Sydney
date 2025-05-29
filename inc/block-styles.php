@@ -23,6 +23,14 @@ function sydney_block_styles() {
 	);	
 
 	register_block_style( // phpcs:ignore WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_style
+		'core/heading',
+		array(
+			'name'  		=> 'sydney-no-margin',
+			'label' 		=> __( 'No margin', 'sydney' ),
+		)
+	);	
+
+	register_block_style( // phpcs:ignore WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_style
 		'core/image',
 		array(
 			'name'  		=> 'sydney-rounded',

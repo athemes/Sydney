@@ -108,6 +108,14 @@
 	margin-bottom: 45px;
 }
 
+.is-style-sydney-no-margin {
+	margin: 0 !important;
+}
+
+.wp-block-column {
+	margin-bottom: 0;
+}
+
 /* Buttons */
 .editor-styles-wrapper .wp-block-button {
 	margin-bottom: 0;
