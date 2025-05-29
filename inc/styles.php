@@ -324,8 +324,8 @@ if ( !class_exists( 'Sydney_Custom_CSS' ) ) :
 			$custom .= ".site-info { padding-top:" . esc_attr( $footer_credits_padding ) . 'px;padding-bottom:' . esc_attr( $footer_credits_padding ) . "px;}" . "\n";
 
 			//Buttons
-			$custom .= $this->get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), 'button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
-			$custom .= $this->get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), 'button,.roll-button,a.button,.wp-block-button__link,input[type="button"],input[type="reset"],input[type="submit"]' );
+			$custom .= $this->get_top_bottom_padding_css( 'button_top_bottom_padding', $defaults = array( 'desktop' => 12, 'tablet' => 12, 'mobile' => 12 ), 'button,.roll-button,a.button,.wp-block-button__link,.wp-block-button.is-style-outline a,input[type="button"],input[type="reset"],input[type="submit"]' );
+			$custom .= $this->get_left_right_padding_css( 'button_left_right_padding', $defaults = array( 'desktop' => 35, 'tablet' => 35, 'mobile' => 35 ), 'button,.roll-button,a.button,.wp-block-button__link,.wp-block-button.is-style-outline a,input[type="button"],input[type="reset"],input[type="submit"]' );
 
 			$buttons_radius = get_theme_mod( 'buttons_radius' );
 			$custom .= "button,.roll-button,a.button,.wp-block-button__link,input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"] { border-radius:" . intval( $buttons_radius ) . "px;}" . "\n";

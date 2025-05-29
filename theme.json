@@ -7,8 +7,56 @@
 		"layout": {
 			"contentSize": "740px",
 			"wideSize": "1140px"
+		},
+		"spacing": {
+			"defaultSpacingSizes": false,
+			"spacingSizes": [
+				{
+					"name": "Tiny",
+					"size": "10px",
+					"slug": "20"
+				},
+				{
+					"name": "X-Small",
+					"size": "20px",
+					"slug": "30"
+				},
+				{
+					"name": "Small",
+					"size": "30px",
+					"slug": "40"
+				},
+				{
+					"name": "Regular",
+					"size": "clamp(30px, 5vw, 60px)",
+					"slug": "50"
+				},
+				{
+					"name": "Large",
+					"size": "clamp(30px, 7vw, 80px)",
+					"slug": "60"
+				},
+				{
+					"name": "X-Large",
+					"size": "clamp(50px, 7vw, 100px)",
+					"slug": "70"
+				},
+				{
+					"name": "XX-Large",
+					"size": "clamp(50px, 10vw, 120px)",
+					"slug": "80"
+				}
+			],
+			"units": [
+				"%",
+				"px",
+				"em",
+				"rem",
+				"vh",
+				"vw"
+			]
 		}
-	},		
+	},
     "templateParts": [
 		{
 			"name": "header",
