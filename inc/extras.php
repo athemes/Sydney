@@ -43,6 +43,11 @@ function sydney_body_classes( $classes ) {
 	if ( $transparent_header ) {
 		$classes[] = 'transparent-header';
 	}
+
+	//Check if current page has blocks
+	if ( isset( $post ) && function_exists( 'has_blocks' ) && has_blocks() ) {
+		$classes[] = 'syd-has-blocks';
+	}
 	
 	return $classes;
 }

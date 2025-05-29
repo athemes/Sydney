@@ -2696,6 +2696,16 @@ SVGs
     position: relative;
     left: -100px;
 }
+
+.page-template-page_front-page .alignfull {
+	margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+}
+
+.page-template-page_front-page.syd-has-blocks {
+	overflow-x: hidden;
+}
+
 .is-style-sydney-no-margin {
 	margin: 0 !important;
 }
