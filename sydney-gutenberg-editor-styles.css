@@ -115,7 +115,10 @@
 .wp-block-column {
 	margin-bottom: 0;
 }
-
+.zindex10 {
+	z-index: 10;
+	overflow: visible;
+}
 /* Buttons */
 .editor-styles-wrapper .wp-block-button {
 	margin-bottom: 0;
